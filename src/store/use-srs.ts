@@ -306,11 +306,28 @@ export const useSRS = create<SRSState>()(
                 const untracked = allSpecialties.filter((spec: any) => !subjects[spec.id])
 
                 if (untracked.length > 0) {
-                    // Pick the first untracked specialty
-                    return {
-                        type: 'NIVELAMENTO',
-                        subject_id: untracked[0].id,
-                        status: 'NÃO_NIVELADO'
+                    // Check if there are questions available for this specialty
+                    // We need to import the questions store to check
+                    try {
+                        const { useQuestions } = require('@/store/use-questions')
+                        const questionsStore = useQuestions.getState()
+                        const questions = questionsStore.questions || []
+
+                        // Find first untracked specialty that has questions
+                        const specialtyWithQuestions = untracked.find((spec: any) =>
+                            questions.some((q: any) => q.specialty_id === spec.id)
+                        )
+
+                        if (specialtyWithQuestions) {
+                            return {
+                                type: 'NIVELAMENTO',
+                                subject_id: specialtyWithQuestions.id,
+                                status: 'NÃO_NIVELADO'
+                            }
+                        }
+                    } catch (err) {
+                        // If questions store is not available, fall back to old behavior
+                        console.warn('Could not check questions availability:', err)
                     }
                 }
 
