@@ -140,7 +140,7 @@ export function TrainModal({ isOpen, onClose }: TrainModalProps) {
                                 if (mode === 'COURSE') handleStart(`courseId=${encodeURIComponent(item.id)}`)
                                 if (mode === 'SPECIALTY') handleStart(`specialtyId=${encodeURIComponent(item.id)}`)
                                 if (mode === 'SUBSPECIALTY') handleStart(`subspecialtyId=${encodeURIComponent(item.id)}`)
-                                if (mode === 'SUBJECT') handleStart(`subjectId=${encodeURIComponent(item.id)}&subspecialtyId=${encodeURIComponent(item.fullData.sub.id)}`)
+                                if (mode === 'SUBJECT') handleStart(`courseId=${encodeURIComponent(item.fullData.course.id)}&specialtyId=${encodeURIComponent(item.fullData.spec.id)}&subspecialtyId=${encodeURIComponent(item.fullData.sub.id)}&subjectId=${encodeURIComponent(item.id)}`)
                             }}
                             className="w-full text-left p-4 rounded-xl border border-slate-100 bg-white hover:border-primary/30 hover:bg-slate-50 transition-all flex items-center justify-between group"
                         >

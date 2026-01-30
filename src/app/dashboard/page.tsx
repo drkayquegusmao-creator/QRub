@@ -467,7 +467,7 @@ export default function StudentDashboard() {
         <div className="space-y-8 pb-32 max-w-7xl mx-auto px-4 md:px-0">
 
             {/* TOOLBAR DA DASHBOARD FIXA NO RODAPÉ */}
-            <div className="fixed bottom-0 left-0 right-0 w-full bg-white/80 backdrop-blur-2xl p-4 border-t border-white/40 z-[100] shadow-[0_-10px_40px_rgba(0,0,0,0.05)] flex items-center justify-between animate-in fade-in slide-in-from-bottom-4 duration-500">
+            <div className="fixed bottom-[88px] md:bottom-0 left-0 right-0 w-full bg-white/80 backdrop-blur-2xl p-4 border-t border-white/40 z-[100] shadow-[0_-10px_40px_rgba(0,0,0,0.05)] flex items-center justify-between animate-in fade-in slide-in-from-bottom-4 duration-500">
                 <div className="flex items-center gap-3">
                     <div className="p-2 bg-primary/10 rounded-xl">
                         <Activity className="w-5 h-5 text-primary" />
