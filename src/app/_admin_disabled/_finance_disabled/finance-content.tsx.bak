@@ -1,14 +1,21 @@
 "use client"
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Save, DollarSign, QrCode, CheckCircle, XCircle, Search, Clock, FileText, Upload } from 'lucide-react'
 import { useSettings } from '@/store/use-settings'
 import { useSales, SaleStatus } from '@/store/use-sales'
 import { useAuth } from '@/store/use-auth'
 
-export default function FinancePage() {
+export default function FinanceContent() {
     const [activeTab, setActiveTab] = useState<'settings' | 'sales'>('settings')
+    const [mounted, setMounted] = useState(false)
+
+    useEffect(() => {
+        setMounted(true)
+    }, [])
+
+    if (!mounted) return null
 
     return (
         <div className="space-y-8">

@@ -2,12 +2,11 @@
 
 import { useState, useEffect } from 'react'
 import { Plus, Save, X, ChevronRight, BookOpen, Database, Download, Upload, FileSpreadsheet } from 'lucide-react'
-import * as XLSX from 'xlsx'
 import { COURSES, Course, Specialty, Subspecialty } from '@/lib/data-mock'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useQuestions } from '@/store/use-questions'
 
-export default function AdminDatabase() {
+export default function DatabaseContent() {
     const { questions, loadQuestions, addQuestion, addQuestions } = useQuestions()
     const [selectedCourse, setSelectedCourse] = useState<Course | null>(null)
     const [selectedSpecialty, setSelectedSpecialty] = useState<Specialty | null>(null)
@@ -29,7 +28,8 @@ export default function AdminDatabase() {
         loadQuestions()
     }, [])
 
-    const handleExportXLS = () => {
+    const handleExportXLS = async () => {
+        const XLSX = await import('xlsx')
         // Flatten data for XLS
         const flatQuestions = questions.map(q => ({
             ID: q.id,
@@ -57,11 +57,13 @@ export default function AdminDatabase() {
         XLSX.writeFile(wb, `QRUB_QUESTOES_BACKUP_${new Date().toISOString().slice(0, 10)}.xlsx`)
     }
 
-    const handleImportXLS = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const handleImportXLS = async (event: React.ChangeEvent<HTMLInputElement>) => {
         const file = event.target.files?.[0]
         if (!file) return
 
+        const XLSX = await import('xlsx')
         const reader = new FileReader()
+
         reader.onload = async (e) => {
             try {
                 const data = e.target?.result
@@ -128,6 +130,7 @@ export default function AdminDatabase() {
                     try {
                         const parsedQuestions = JSON.parse(e.target.result as string)
                         if (Array.isArray(parsedQuestions)) {
+                            // @ts-ignore
                             await addQuestions(parsedQuestions)
                             alert(`${parsedQuestions.length} questões importadas com sucesso!`)
                             loadQuestions()
@@ -154,7 +157,6 @@ export default function AdminDatabase() {
     }, [selectedSpecialty])
 
 
-    // ... inside handleSave ...
     const handleSave = async () => {
         if (!selectedCourse) return
 

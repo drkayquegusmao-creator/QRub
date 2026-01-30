@@ -43,7 +43,7 @@ export default function AuthPage() {
         try {
             // Mock mode - use local authentication
             if (useMockMode) {
-                const result = loginWithPassword(formData.email, formData.password, formData.name)
+                const result = await loginWithPassword(formData.email, formData.password, formData.name)
 
                 if (result.success) {
                     setSuccess(mode === 'signup' ? 'Conta criada com sucesso!' : 'Login realizado!')
@@ -123,7 +123,7 @@ export default function AuthPage() {
                     if (profileError) throw profileError
 
                     // Login locally with profile data
-                    loginWithPassword(formData.email, formData.password, profile.name, profile.id)
+                    await loginWithPassword(formData.email, formData.password, profile.name, profile.id)
 
                     setSuccess('Login realizado com sucesso!')
                     setTimeout(() => {
