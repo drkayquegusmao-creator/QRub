@@ -2,6 +2,8 @@ import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 import { isMasterEmail } from '@/lib/auth-constants'
 
+export const DAILY_QUESTION_LIMIT_FREE = 10
+
 export type PlanLevel = 'FREE' | 'PREMIUM' | 'INSANO'
 export type UserRole = 'MASTER' | 'ALUNO' | 'VISITANTE'
 
@@ -25,16 +27,22 @@ interface AuthState {
     user: User | null
     isAuthenticated: boolean
     isLoading: boolean
+    visitorCount: number
+    visitorId: string
+    dailyQuestionCount: number
 
     // Actions
     setUser: (user: User | null) => void
     setAuthenticated: (value: boolean) => void
     setLoading: (value: boolean) => void
     logout: () => Promise<void>
+    incrementVisitorCount: () => void
+    incrementDailyCount: () => void
 
     // Helpers
     completeProfile: (data: Partial<User>) => Promise<void>
     updatePlan: (plan: PlanLevel) => Promise<void>
+    updateUserPlan: (plan: PlanLevel) => Promise<void> // Alias for consistent usage in components
     refreshUserProfile: () => Promise<void>
 }
 
@@ -44,10 +52,16 @@ export const useAuth = create<AuthState>()(
             user: null,
             isAuthenticated: false,
             isLoading: false,
+            visitorCount: 0,
+            visitorId: Math.random().toString(36).substring(2, 9),
+            dailyQuestionCount: 0,
 
             setUser: (user) => set({ user, isAuthenticated: !!user }),
             setAuthenticated: (value) => set({ isAuthenticated: value }),
             setLoading: (value) => set({ isLoading: value }),
+
+            incrementVisitorCount: () => set((state) => ({ visitorCount: state.visitorCount + 1 })),
+            incrementDailyCount: () => set((state) => ({ dailyQuestionCount: state.dailyQuestionCount + 1 })),
 
             logout: async () => {
                 const { supabase, isSupabaseConfigured } = require('@/lib/supabase')
@@ -122,6 +136,10 @@ export const useAuth = create<AuthState>()(
                             .eq('id', state.user.id)
                     }
                 }
+            },
+
+            updateUserPlan: async (plan) => {
+                return get().updatePlan(plan)
             },
         }),
         {
