@@ -124,21 +124,27 @@ export function SRSDashboardWidget() {
                                 <h3 className="text-3xl lg:text-4xl font-black italic uppercase leading-none">{primaryInfo.name}</h3>
                                 <p className="text-white/60 font-bold uppercase text-xs tracking-wider">{primaryInfo.specialty}</p>
                             </div>
-                            <div className={`p-4 rounded-2xl ${primaryAction.level === 'PENDING' ? 'bg-blue-500/20 text-blue-400' :
-                                primaryAction.level === 'FRACO' ? 'bg-rose-500/20 text-rose-400' : 'bg-amber-500/20 text-amber-400'
+                            <div className={`p-4 rounded-2xl ${(primaryAction.level === 'PENDING' || primaryAction.level === 'NOT_LEVELED') ? 'bg-blue-500/20 text-blue-400' :
+                                    primaryAction.level === 'FRACO' ? 'bg-rose-500/20 text-rose-400' : 'bg-amber-500/20 text-amber-400'
                                 }`}>
-                                {primaryAction.level === 'PENDING' ? <Zap className="w-8 h-8" /> : <AlertCircle className="w-8 h-8" />}
+                                {(primaryAction.level === 'PENDING' || primaryAction.level === 'NOT_LEVELED') ? <Zap className="w-8 h-8" /> : <AlertCircle className="w-8 h-8" />}
                             </div>
                         </div>
 
                         <div className="bg-white/5 border border-white/5 rounded-2xl p-4 flex gap-6 backdrop-blur-sm w-fit">
                             <div>
                                 <p className="text-[9px] font-black uppercase text-white/40">Status</p>
-                                <p className="text-sm font-bold uppercase">{primaryAction.stage === 'LEVELING' ? 'Nivelamento' : 'Revisão'}</p>
+                                <p className="text-sm font-bold uppercase">
+                                    {primaryAction.stage === 'LEVELING' ? 'Nivelamento' :
+                                        primaryAction.stage === 'NEUTRAL' ? 'Não Iniciado' : 'Revisão'}
+                                </p>
                             </div>
                             <div>
                                 <p className="text-[9px] font-black uppercase text-white/40">Meta</p>
-                                <p className="text-sm font-bold uppercase">{primaryAction.stage === 'LEVELING' ? '10 Questões' : 'Manutenção'}</p>
+                                <p className="text-sm font-bold uppercase">
+                                    {primaryAction.stage === 'LEVELING' ? '10 Questões' :
+                                        primaryAction.stage === 'NEUTRAL' ? 'Nivelar Agora' : 'Manutenção'}
+                                </p>
                             </div>
                             {primaryAction.next_review_date && (
                                 <div>

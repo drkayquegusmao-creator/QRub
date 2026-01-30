@@ -348,11 +348,38 @@ export const useSRS = create<SRSState>()(
             get_daily_agenda: () => {
                 const { subjects } = get()
                 const today = new Date()
-                return Object.values(subjects).filter(s =>
+
+                // 1. Get Due Reviews
+                const dueReviews = Object.values(subjects).filter(s =>
                     s.stage === 'ACTIVE' &&
                     s.next_review_date &&
                     isBefore(parseISO(s.next_review_date), addDays(today, 1))
                 )
+
+                // 2. Get Ongoing Leveling
+                const ongoingLeveling = Object.values(subjects).filter(s => s.stage === 'LEVELING')
+
+                let combined = [...dueReviews, ...ongoingLeveling]
+
+                // 3. If empty, suggest new subjects from hierarchy
+                if (combined.length === 0) {
+                    const { MEDICAL_HIERARCHY } = require('@/lib/medical-specialties')
+                    // Flatten hierarchy to get all subject names (specialties in this case)
+                    const allSpecialties = MEDICAL_HIERARCHY[0].specialties.map((s: any) => s.name)
+                    const untracked = allSpecialties.filter((name: string) => !subjects[name])
+
+                    if (untracked.length > 0) {
+                        // Suggest first 3 untracked subjects as PENDING
+                        return untracked.slice(0, 3).map((id: string) => ({
+                            subject_id: id,
+                            stage: 'NEUTRAL',
+                            level: 'NOT_LEVELED',
+                            next_review_date: null
+                        })) as any
+                    }
+                }
+
+                return combined
             },
 
             get_subject_status: (subject_id) => {

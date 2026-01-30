@@ -8,6 +8,7 @@ export interface RegisteredUser {
     email: string
     role: UserRole
     plan_level: PlanLevel
+    profile_completed: boolean
     joined_at: string
     phone?: string
     institution?: string
@@ -28,7 +29,7 @@ export const useUserDb = create<UserDbState>()(
     persist(
         (set, get) => ({
             users: [
-                { id: 'master-1', name: 'Kayque Gusmão', email: 'kayquegusmao@gmail.com', role: 'MASTER', plan_level: 'INSANO', joined_at: '2024-01-01', institution: 'System Owner', graduation_year: 'N/A' }
+                { id: 'master-1', name: 'Kayque Gusmão', email: 'kayquegusmao@gmail.com', role: 'MASTER', plan_level: 'INSANO', profile_completed: true, joined_at: '2024-01-01', institution: 'System Owner', graduation_year: 'N/A' }
             ],
             loading: false,
 
@@ -80,6 +81,7 @@ export const useUserDb = create<UserDbState>()(
                                 email: user.email,
                                 role: user.role,
                                 plan_level: user.plan_level,
+                                profile_completed: user.profile_completed,
                                 institution: user.institution,
                                 graduation_year: user.graduation_year
                             }, { onConflict: 'id' })

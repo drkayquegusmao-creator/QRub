@@ -15,16 +15,35 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
     const router = useRouter()
     const { theme, setTheme } = useTheme()
     const [showProfileModal, setShowProfileModal] = useState(false)
+    const [isLoaded, setIsLoaded] = useState(false)
 
     useEffect(() => {
-        if (!isAuthenticated) {
-            router.push('/')
-        } else if (user && user.role !== 'MASTER' && !user.profile_completed) {
-            router.push('/onboarding')
-        }
-    }, [isAuthenticated, user, router])
+        // Pequeno delay para garantir que o Zustand carregou o localStorage
+        const timer = setTimeout(() => setIsLoaded(true), 100)
+        return () => clearTimeout(timer)
+    }, [])
 
-    if (!isAuthenticated) return null
+    useEffect(() => {
+        if (isLoaded) {
+            if (!isAuthenticated) {
+                router.push('/')
+                return
+            }
+
+            // Se for Master, nunca redireciona pro onboarding
+            if (user?.role === 'MASTER') return
+
+            if (user && !user.profile_completed) {
+                router.push('/onboarding')
+            }
+        }
+    }, [isLoaded, isAuthenticated, user, router])
+
+    if (!isLoaded || !isAuthenticated) {
+        return <div className="min-h-screen bg-background flex items-center justify-center">
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+        </div>
+    }
 
     return (
         <div className="min-h-screen bg-background pb-32 md:pb-0">

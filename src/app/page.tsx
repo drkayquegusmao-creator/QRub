@@ -17,12 +17,19 @@ export default function Home() {
   const { isAuthenticated } = useAuth()
   const { prices } = useSettings()
   const router = useRouter()
+  const [isHydrated, setIsHydrated] = useState(false)
 
   useEffect(() => {
-    if (isAuthenticated) {
+    setIsHydrated(true)
+  }, [])
+
+  useEffect(() => {
+    if (isHydrated && isAuthenticated) {
       router.push('/dashboard')
     }
-  }, [isAuthenticated, router])
+  }, [isHydrated, isAuthenticated, router])
+
+  if (!isHydrated) return null
 
   const plans = [
     {

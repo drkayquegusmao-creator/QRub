@@ -1,21 +1,11 @@
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
+import { isMasterEmail } from '@/lib/auth-constants'
 
 export type PlanLevel = 'FREE' | 'PREMIUM' | 'INSANO'
 export type UserRole = 'MASTER' | 'ALUNO' | 'VISITANTE'
 
-// Credenciais Master - Super Admin (Acesso Total)
-// Estes emails têm acesso MASTER com bypass de onboarding
-const MASTER_CREDENTIALS = [
-    { email: 'kayquegusmao@gmail.com', password: 'Kayque2009' },
-    { email: 'kayquegusmao1@gmail.com', password: 'Kayque2009' },
-    { email: 'kayquegusmao276@gmail.com', password: 'Kayque2009' },
-    { email: 'kayquegusmao@icloud.com', password: 'Kayque2009' }
-]
-
-export const DAILY_QUESTION_LIMIT_FREE = 20 // Limite de questões diárias para usuários Free
-
-interface User {
+export interface User {
     id: string
     name: string
     email: string
@@ -33,157 +23,114 @@ interface User {
 
 interface AuthState {
     user: User | null
-    visitorId: string
     isAuthenticated: boolean
-    visitorCount: number
-    dailyQuestionCount: number
-    lastQuestionDate: string | null
-    login: (email: string, name: string) => void
-    loginWithPassword: (email: string, password: string, name?: string, id?: string) => Promise<{ success: boolean, message: string, role?: UserRole }>
-    logout: () => void
-    incrementDailyCount: () => void
-    incrementVisitorCount: () => void
+    isLoading: boolean
+
+    // Actions
+    setUser: (user: User | null) => void
+    setAuthenticated: (value: boolean) => void
+    setLoading: (value: boolean) => void
+    logout: () => Promise<void>
+
+    // Helpers
     completeProfile: (data: Partial<User>) => Promise<void>
     updatePlan: (plan: PlanLevel) => Promise<void>
-    updateUserPlan: (plan: PlanLevel) => Promise<void> // Alias for updatePlan
+    refreshUserProfile: () => Promise<void>
 }
 
 export const useAuth = create<AuthState>()(
     persist(
         (set, get) => ({
             user: null,
-            visitorId: '',
             isAuthenticated: false,
-            visitorCount: 0,
-            dailyQuestionCount: 0,
-            lastQuestionDate: null,
+            isLoading: false,
 
-            login: (email, name) => {
-                // Login simples sem senha (para compatibilidade)
-                const isMaster = MASTER_CREDENTIALS.some(cred => cred.email.toLowerCase() === email.toLowerCase())
-                const role: UserRole = isMaster ? 'MASTER' : 'ALUNO'
-                set({
-                    isAuthenticated: true,
-                    user: {
-                        id: isMaster ? 'cb13ae57-f382-4486-8aa0-c8faacc8b8e5' : (typeof crypto !== 'undefined' && crypto.randomUUID ? crypto.randomUUID() : `user-${Math.random().toString(36).substr(2, 9)}`),
-                        name,
-                        email,
-                        role,
-                        plan_level: isMaster ? 'INSANO' : 'FREE',
-                        profile_completed: isMaster ? true : false,
-                    }
-                })
-            },
+            setUser: (user) => set({ user, isAuthenticated: !!user }),
+            setAuthenticated: (value) => set({ isAuthenticated: value }),
+            setLoading: (value) => set({ isLoading: value }),
 
-            loginWithPassword: async (email, password, name, id) => {
-                // Verificar se é conta master
-                const masterCredential = MASTER_CREDENTIALS.find(
-                    cred => cred.email.toLowerCase() === email.toLowerCase()
-                )
-
-                let userToSet: User;
-                let message = '';
-                let success = false;
-
-                if (masterCredential) {
-                    if (masterCredential.password === password) {
-                        userToSet = {
-                            id: id || 'cb13ae57-f382-4486-8aa0-c8faacc8b8e5', // Real UUID for Kayque in DB
-                            name: name || 'Kayque Gusmão',
-                            email: masterCredential.email,
-                            role: 'MASTER',
-                            plan_level: 'INSANO',
-                            profile_completed: true,
-                        }
-                        success = true;
-                        message = 'Login admin realizado com sucesso!';
-                    } else {
-                        return { success: false, message: 'Senha incorreta para conta master.' }
-                    }
-                } else {
-                    userToSet = {
-                        id: id || (typeof crypto !== 'undefined' && crypto.randomUUID ? crypto.randomUUID() : `user-${Math.random().toString(36).substr(2, 9)}`),
-                        name: name || email.split('@')[0],
-                        email,
-                        role: 'ALUNO',
-                        plan_level: 'FREE',
-                        profile_completed: false,
-                    }
-                    success = true;
-                    message = 'Cadastro realizado com sucesso!';
+            logout: async () => {
+                const { supabase, isSupabaseConfigured } = require('@/lib/supabase')
+                if (isSupabaseConfigured()) {
+                    await supabase.auth.signOut()
                 }
-
-                set({
-                    isAuthenticated: true,
-                    user: userToSet
-                })
-
-                // Sync with DB
-                const { useUserDb } = require('./use-user-db')
-                await useUserDb.getState().addUser({
-                    id: userToSet.id,
-                    name: userToSet.name,
-                    email: userToSet.email,
-                    role: userToSet.role,
-                    plan_level: userToSet.plan_level,
-                    joined_at: new Date().toISOString().split('T')[0],
-                    institution: userToSet.institution || '',
-                    graduation_year: userToSet.graduation_year || ''
-                })
-
-                return { success, message, role: userToSet.role }
+                set({ user: null, isAuthenticated: false })
             },
 
-            logout: () => set({ user: null, isAuthenticated: false }),
-
-            incrementDailyCount: () => {
-                const today = new Date().toISOString().split('T')[0]
+            refreshUserProfile: async () => {
                 const state = get()
-                if (state.lastQuestionDate !== today) {
-                    set({ dailyQuestionCount: 1, lastQuestionDate: today })
-                } else {
-                    set({ dailyQuestionCount: state.dailyQuestionCount + 1 })
+                if (!state.user) return
+
+                const { supabase, isSupabaseConfigured } = require('@/lib/supabase')
+                if (!isSupabaseConfigured()) return
+
+                try {
+                    const { data, error } = await supabase
+                        .from('users')
+                        .select('*')
+                        .eq('id', state.user.id)
+                        .single()
+
+                    if (data && !error) {
+                        set({ user: data })
+                    }
+                } catch (err) {
+                    console.error('Error refreshing profile:', err)
                 }
             },
-
-            incrementVisitorCount: () => set((state) => ({
-                visitorCount: state.visitorCount + 1
-            })),
 
             completeProfile: async (data) => {
                 const state = get()
-                const newUser = state.user ? { ...state.user, ...data, profile_completed: true } : null
+                if (state.user) {
+                    const { supabase, isSupabaseConfigured } = require('@/lib/supabase')
 
-                if (newUser) {
-                    set({ user: newUser })
-                    // Update in DB too
-                    const { useUserDb } = require('./use-user-db')
-                    await useUserDb.getState().updateUserProfile(newUser.id, data)
+                    // Optimistic update
+                    const isMaster = isMasterEmail(state.user.email)
+                    const updatedUser = {
+                        ...state.user,
+                        ...data,
+                        profile_completed: true,
+                        role: isMaster ? 'MASTER' : state.user.role,
+                        plan_level: isMaster ? 'INSANO' : state.user.plan_level
+                    }
+                    set({ user: updatedUser as User })
+
+                    if (isSupabaseConfigured()) {
+                        await supabase
+                            .from('users')
+                            .update({
+                                ...data,
+                                profile_completed: true,
+                                ...(isMaster ? { role: 'MASTER', plan_level: 'INSANO' } : {})
+                            })
+                            .eq('id', state.user.id)
+                    }
                 }
             },
 
             updatePlan: async (plan) => {
                 const state = get()
-                const newUser = state.user ? { ...state.user, plan_level: plan } : null
-                if (newUser) {
-                    set({ user: newUser })
-                    const { useUserDb } = require('./use-user-db')
-                    await useUserDb.getState().updateUserPlan(newUser.id, plan)
+                if (state.user) {
+                    const updatedUser = { ...state.user, plan_level: plan }
+                    set({ user: updatedUser })
+
+                    const { supabase, isSupabaseConfigured } = require('@/lib/supabase')
+                    if (isSupabaseConfigured()) {
+                        await supabase
+                            .from('users')
+                            .update({ plan_level: plan })
+                            .eq('id', state.user.id)
+                    }
                 }
             },
-
-            updateUserPlan: async (plan) => {
-                const state = get()
-                const newUser = state.user ? { ...state.user, plan_level: plan } : null
-                if (newUser) {
-                    set({ user: newUser })
-                    const { useUserDb } = require('./use-user-db')
-                    await useUserDb.getState().updateUserPlan(newUser.id, plan)
-                }
-            }
         }),
         {
             name: 'qrub-auth-storage',
+            partialize: (state) => ({
+                user: state.user,
+                isAuthenticated: state.isAuthenticated,
+            }),
         }
     )
 )
+

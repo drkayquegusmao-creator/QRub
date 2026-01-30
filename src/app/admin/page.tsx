@@ -12,6 +12,7 @@ import { useSearchParams } from 'next/navigation'
 import { useQuestions as useQuestionsStore } from '@/store/use-questions'
 import { COURSES, QUESTIONS, Question } from '@/lib/data-mock'
 import { useAuth, PlanLevel } from '@/store/use-auth'
+import { useUserDb } from '@/store/use-user-db'
 import { useRouter } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
@@ -24,6 +25,7 @@ export default function AdminDashboard() {
     const router = useRouter()
     const searchParams = useSearchParams()
     const { questions, deleteQuestion, addQuestion, addQuestions, loadQuestions, loading } = useQuestionsStore()
+    const { users: realUsers, loadUsers, updateUserPlan } = useUserDb()
 
     // Sync view with URL param 'tab'
     const [view, setViewInternal] = useState<'questions' | 'users' | 'analytics' | 'import'>('analytics')
@@ -50,31 +52,9 @@ export default function AdminDashboard() {
     const [selectedQuestions, setSelectedQuestions] = useState<string[]>([])
     const [loadingManual, setLoadingManual] = useState(false)
 
-    const [realUsers, setRealUsers] = useState<any[]>([])
-
     useEffect(() => {
-        const fetchUsers = async () => {
-            const { isSupabaseConfigured, supabase } = await import('@/lib/supabase')
-
-            if (isSupabaseConfigured()) {
-                const { data, error } = await supabase
-                    .from('users')
-                    .select('*')
-                    .order('created_at', { ascending: false })
-
-                if (data) setRealUsers(data)
-            } else {
-                // Fallback to local store
-                import('@/store/use-user-db').then(({ useUserDb }) => {
-                    setRealUsers(useUserDb.getState().users)
-                    const unsub = useUserDb.subscribe((state: any) => setRealUsers(state.users))
-                    return () => unsub()
-                })
-            }
-        }
-
-        fetchUsers()
-    }, [])
+        loadUsers()
+    }, [loadUsers])
 
     // Pagination State
     const [currentPage, setCurrentPage] = useState(1)
@@ -156,7 +136,7 @@ export default function AdminDashboard() {
     const activeSubspecialty = activeSpecialty?.subspecialties.find(sub => sub.id === selectedSubspecialty)
 
     const handleExportUsers = () => {
-        const ws = XLSX.utils.json_to_sheet(realUsers.map(u => ({
+        const ws = XLSX.utils.json_to_sheet(realUsers.map((u: any) => ({
             ID: u.id,
             Nome: u.name,
             Email: u.email,
@@ -172,22 +152,7 @@ export default function AdminDashboard() {
     }
 
     const handlePlanChange = async (userId: string, newPlan: PlanLevel) => {
-        const { isSupabaseConfigured, supabase } = await import('@/lib/supabase')
-
-        if (isSupabaseConfigured()) {
-            const { error } = await supabase
-                .from('users')
-                .update({ plan_level: newPlan })
-                .eq('id', userId)
-
-            if (!error) {
-                setRealUsers(prev => prev.map(u => u.id === userId ? { ...u, plan_level: newPlan } : u))
-            }
-        } else {
-            import('@/store/use-user-db').then(({ useUserDb }) => {
-                useUserDb.getState().updateUserPlan(userId, newPlan)
-            })
-        }
+        await updateUserPlan(userId, newPlan)
     }
 
     const handleToggleQuestion = (id: string) => {
@@ -746,19 +711,19 @@ export default function AdminDashboard() {
                             />
                             <StatCard
                                 label="Plano Insano"
-                                value={realUsers.filter(u => u.plan_level === 'INSANO').length}
+                                value={realUsers.filter((u: any) => u.plan_level === 'INSANO').length}
                                 color="text-orange-500"
                                 icon={<Crown className="w-4 h-4" />}
                             />
                             <StatCard
                                 label="Plano Premium"
-                                value={realUsers.filter(u => u.plan_level === 'PREMIUM').length}
+                                value={realUsers.filter((u: any) => u.plan_level === 'PREMIUM').length}
                                 color="text-primary"
                                 icon={<Star className="w-4 h-4" />}
                             />
                             <StatCard
                                 label="Cadastro Incompleto"
-                                value={realUsers.filter(u => !u.institution || !u.graduation_year).length}
+                                value={realUsers.filter((u: any) => !u.institution || !u.graduation_year).length}
                                 color="text-rose-500"
                                 icon={<AlertCircle className="w-4 h-4" />}
                             />

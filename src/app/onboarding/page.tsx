@@ -1,15 +1,17 @@
 "use client"
 
-import { useState } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { motion } from 'framer-motion'
 import { User, Phone, BookOpen, Calendar, Save, Sparkles, Target } from 'lucide-react'
 import { useAuth } from '@/store/use-auth'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
+import { isMasterEmail } from '@/lib/auth-constants'
 
 export default function OnboardingPage() {
-    const { user, completeProfile } = useAuth()
+    const { user, completeProfile, isAuthenticated } = useAuth()
     const router = useRouter()
+    const [isHydrated, setIsHydrated] = useState(false)
     const [formData, setFormData] = useState({
         name: user?.name || '',
         phone: '',
@@ -18,13 +20,32 @@ export default function OnboardingPage() {
         specialty_of_interest: '',
     })
 
+    useEffect(() => {
+        setIsHydrated(true)
+    }, [])
+
     const isFormValid = formData.name && formData.phone && formData.institution && formData.graduation_year && formData.specialty_of_interest
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
         if (!isFormValid) return
-        completeProfile(formData)
+        await completeProfile(formData)
         router.push('/dashboard')
+    }
+
+    // Se estiver carregando, não mostra nada ainda
+    if (!isHydrated) return null
+
+    // Se não estiver logado, volta pro início
+    if (!isAuthenticated) {
+        router.push('/')
+        return null
+    }
+
+    // Se for MASTER ou já tiver completado, pula onboarding
+    if (user?.role === 'MASTER' || isMasterEmail(user?.email) || user?.profile_completed) {
+        router.push('/dashboard')
+        return null
     }
 
     return (

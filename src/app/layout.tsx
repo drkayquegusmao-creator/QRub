@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import { AuthProvider } from "@/components/auth-provider";
 import { SupportChatWidget } from "@/components/support-chat-widget";
 
 const inter = Inter({
@@ -28,8 +29,10 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
-          <SupportChatWidget />
+          <AuthProvider>
+            {children}
+            <SupportChatWidget />
+          </AuthProvider>
         </ThemeProvider>
       </body>
     </html>
