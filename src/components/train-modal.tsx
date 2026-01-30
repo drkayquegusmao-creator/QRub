@@ -103,13 +103,34 @@ export function TrainModal({ isOpen, onClose, initialMode, initialSpecialtyId }:
     }, [mode, searchQuery])
 
     const renderMenu = () => (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl mx-auto">
-            <MenuOption icon={<BookOpen className="w-6 h-6" />} title="Por Curso" description="Treine todo o conteúdo de um curso" onClick={() => setMode('COURSE')} color="text-blue-500" bg="bg-blue-500/10" />
-            <MenuOption icon={<Stethoscope className="w-6 h-6" />} title="Por Especialidade" description="Foque em uma especialidade médica" onClick={() => setMode('SPECIALTY')} color="text-emerald-500" bg="bg-emerald-500/10" />
-            <MenuOption icon={<Microscope className="w-6 h-6" />} title="Por Sub-Especialidade" description="Aprofunde-se em uma área específica" onClick={() => setMode('SUBSPECIALTY')} color="text-purple-500" bg="bg-purple-500/10" />
-            <MenuOption icon={<Search className="w-6 h-6" />} title="Por Assunto" description="Busque e treine tópicos pontuais" onClick={() => setMode('SUBJECT')} color="text-orange-500" bg="bg-orange-500/10" />
-            <div className="md:col-span-2">
-                <MenuOption icon={<LayoutGrid className="w-6 h-6" />} title="Treinar Tudo" description="Questões aleatórias de todo o banco" onClick={() => handleStart('scope=ALL')} color="text-primary" bg="bg-primary/10" highlight />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 h-[500px] overflow-y-auto pr-2 custom-scrollbar">
+            {/* Header Section inside Modal Content if needed, but the external header handles title */}
+
+            {COURSES[0].specialties.map((spec) => (
+                <button
+                    key={spec.id}
+                    onClick={() => { setSelectedSpecialtyId(spec.id); setMode('CONFIG'); }}
+                    className="group w-full text-left p-5 rounded-[25px] border border-slate-100 bg-slate-50/50 hover:bg-white hover:border-primary/20 hover:shadow-xl hover:shadow-primary/5 transition-all flex items-center justify-between"
+                >
+                    <div className="space-y-1">
+                        <h4 className="font-black italic uppercase text-xs tracking-tight text-[#1A1033] group-hover:text-primary transition-colors">{spec.name}</h4>
+                        <p className="text-[9px] font-bold text-slate-400 uppercase tracking-widest">{spec.category || 'Especialidades Básicas'}</p>
+                    </div>
+                    <div className="w-10 h-10 rounded-full bg-white border border-slate-100 flex items-center justify-center text-slate-300 group-hover:bg-primary group-hover:text-white group-hover:border-primary transition-all shadow-sm">
+                        <Play className="w-4 h-4 fill-current ml-0.5" />
+                    </div>
+                </button>
+            ))}
+
+            {/* Option to Train Everything/Random */}
+            <div className="md:col-span-2 pt-4">
+                <button
+                    onClick={() => handleStart('scope=ALL')}
+                    className="w-full p-4 rounded-xl border border-dashed border-slate-300 hover:border-primary hover:bg-primary/5 text-slate-400 hover:text-primary transition-all flex items-center justify-center gap-2 font-black uppercase text-xs tracking-widest"
+                >
+                    <LayoutGrid className="w-4 h-4" />
+                    Treinar Tudo (Aleatório)
+                </button>
             </div>
         </div>
     )
@@ -253,7 +274,8 @@ export function TrainModal({ isOpen, onClose, initialMode, initialSpecialtyId }:
                             </button>
                         )}
                         <h2 className="text-2xl font-black italic tracking-tighter uppercase text-[#1A1033]">
-                            {mode === 'CONFIG' ? 'Configurar Treino' : 'Personalizar Treino'}
+                            {mode === 'MENU' ? 'Treinar por Área' :
+                                mode === 'CONFIG' ? 'Configurar Treino' : 'Personalizar Treino'}
                         </h2>
                     </div>
                     <button onClick={onClose} className="p-2 rounded-full hover:bg-slate-100 text-slate-400"><X className="w-6 h-6" /></button>
