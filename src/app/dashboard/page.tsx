@@ -34,6 +34,7 @@ import { useDashboard, WidgetId } from '@/store/use-dashboard'
 import { SectionHeader, Divider } from '@/components/dashboard-ui'
 import { PaywallModal } from '@/components/paywall-modal'
 import { PlansModal } from '@/components/plans-modal'
+import { TrainModal } from '@/components/train-modal'
 import { SRSDashboardWidget } from '@/components/srs-dashboard-widget'
 import {
     AreaChart,
@@ -59,6 +60,7 @@ export default function StudentDashboard() {
 
     const [showPaywall, setShowPaywall] = useState(false)
     const [showPlansModal, setShowPlansModal] = useState(false)
+    const [showTrainModal, setShowTrainModal] = useState(false)
 
     // Load responses and SRS progress on mount
     useEffect(() => {
@@ -415,35 +417,37 @@ export default function StudentDashboard() {
     }
 
     const renderFastPractice = () => {
-        const specialties = COURSES[0].specialties
         return (
-            <div className="bg-white border-2 border-slate-100 rounded-[50px] p-10 md:p-14 soft-shadow h-full flex flex-col gap-10">
-                <div className="flex items-center justify-between">
-                    <div className="space-y-1">
-                        <h3 className="text-2xl font-black italic uppercase tracking-tighter text-[#1A1033]">Treinar por Área</h3>
-                        <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Escolha um campo para iniciar agora</p>
-                    </div>
-                    <div className="p-4 bg-primary/10 rounded-2xl text-primary">
-                        <Target className="w-6 h-6" />
-                    </div>
+            <div className="bg-white border-2 border-slate-100 rounded-[50px] p-10 md:p-14 soft-shadow h-full flex flex-col items-center justify-center text-center gap-8 relative overflow-hidden group hover:border-primary/30 transition-all">
+                <div className="absolute inset-0 bg-gradient-to-br from-slate-50 to-white -z-10" />
+                <div className="absolute top-0 right-0 p-10 opacity-5 group-hover:scale-110 transition-transform duration-700">
+                    <Target className="w-40 h-40 text-[#1A1033]" />
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {specialties.map((spec) => (
-                        <div key={spec.id} className="bg-slate-50 border border-slate-100 rounded-[35px] p-6 hover:border-primary/30 transition-all group flex items-center justify-between">
-                            <div className="space-y-1">
-                                <h4 className="font-black italic uppercase text-xs tracking-tight group-hover:text-primary transition-colors">{spec.name}</h4>
-                                <p className="text-[8px] text-slate-400 font-bold uppercase tracking-widest">{spec.category || 'Geral'}</p>
-                            </div>
-                            <button
-                                onClick={() => router.push(`/dashboard/quiz/auto?mode=TREINO&specialtyId=${encodeURIComponent(spec.id)}&count=15`)}
-                                className="p-3 bg-white border border-slate-200 text-slate-400 rounded-2xl group-hover:bg-primary group-hover:text-white group-hover:border-primary group-hover:scale-110 active:scale-95 transition-all shadow-sm"
-                            >
-                                <Play className="w-3 h-3 fill-current" />
-                            </button>
-                        </div>
-                    ))}
+                <div className="space-y-4 max-w-md relative z-10">
+                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-[10px] font-black uppercase tracking-[0.2em] mb-2">
+                        <Zap className="w-3 h-3" />
+                        Acesso Rápido
+                    </div>
+                    <h3 className="text-3xl md:text-5xl font-black italic uppercase tracking-tighter text-[#1A1033] leading-[0.9]">
+                        Treinar <br />
+                        <span className="royal-gradient-text">Por Área</span>
+                    </h3>
+                    <p className="text-slate-500 font-medium text-sm leading-relaxed">
+                        Escolha entre cursos, especialidades, sub-especialidades ou assuntos específicos para focar seus estudos.
+                    </p>
                 </div>
+
+                <button
+                    onClick={() => setShowTrainModal(true)}
+                    className="relative group/btn z-10 w-full max-w-xs"
+                >
+                    <div className="absolute -inset-1 bg-primary/30 rounded-2xl blur-lg opacity-0 group-hover/btn:opacity-100 transition-opacity" />
+                    <div className="relative bg-[#1A1033] text-white py-5 px-8 rounded-2xl font-black uppercase text-sm tracking-[0.2em] shadow-2xl flex items-center justify-center gap-4 hover:scale-[1.02] active:scale-95 transition-all">
+                        Iniciar Agora
+                        <Play className="w-5 h-5 fill-current" />
+                    </div>
+                </button>
             </div>
         )
     }
@@ -462,31 +466,31 @@ export default function StudentDashboard() {
     return (
         <div className="space-y-8 pb-32 max-w-7xl mx-auto px-4 md:px-0">
 
-            {/* TOOLBAR DA DASHBOARD */}
-            <div className="flex items-center justify-between bg-white/50 backdrop-blur-md p-4 md:p-6 rounded-[30px] border border-white/20 sticky top-4 z-50 shadow-sm">
+            {/* TOOLBAR DA DASHBOARD FIXA NO RODAPÉ */}
+            <div className="fixed bottom-0 left-0 right-0 w-full bg-white/80 backdrop-blur-2xl p-4 border-t border-white/40 z-[100] shadow-[0_-10px_40px_rgba(0,0,0,0.05)] flex items-center justify-between animate-in fade-in slide-in-from-bottom-4 duration-500">
                 <div className="flex items-center gap-3">
                     <div className="p-2 bg-primary/10 rounded-xl">
                         <Activity className="w-5 h-5 text-primary" />
                     </div>
-                    <div>
-                        <h1 className="text-lg font-black italic uppercase tracking-tight leading-none">Dashboard</h1>
-                        <p className="text-[9px] font-bold text-slate-500 uppercase tracking-widest mt-1">Status em Tempo Real</p>
+                    <div className="hidden sm:block">
+                        <h1 className="text-sm font-black italic uppercase tracking-tight leading-none">Controle</h1>
+                        <p className="text-[9px] font-bold text-slate-500 uppercase tracking-widest mt-1">Personalização</p>
                     </div>
                 </div>
 
                 <div className="flex items-center gap-2">
                     {isEditMode ? (
-                        <div className="flex items-center gap-2 animate-in fade-in slide-in-from-right-4">
-                            <button onClick={resetLayout} className="hidden md:flex items-center gap-2 px-4 py-2 text-[10px] font-black uppercase tracking-widest text-slate-400 hover:text-primary transition-colors">
-                                <RotateCcw className="w-4 h-4" /> Resetar
+                        <div className="flex items-center gap-2">
+                            <button onClick={resetLayout} className="flex items-center gap-2 px-4 py-2 text-[10px] font-black uppercase tracking-widest text-slate-400 hover:text-primary transition-colors">
+                                <RotateCcw className="w-4 h-4" /> <span className="hidden md:inline">Resetar</span>
                             </button>
                             <button onClick={toggleEditMode} className="bg-emerald-500 text-white px-6 py-2.5 rounded-xl font-black uppercase text-[10px] tracking-widest flex items-center gap-2 shadow-lg shadow-emerald-500/20 hover:scale-105 active:scale-95 transition-all">
                                 <Check className="w-4 h-4" /> Finalizar
                             </button>
                         </div>
                     ) : (
-                        <button onClick={toggleEditMode} className="bg-white border border-slate-200 text-slate-600 px-6 py-2.5 rounded-xl font-black uppercase text-[10px] tracking-widest flex items-center gap-2 hover:border-primary hover:text-primary transition-all shadow-sm">
-                            <Settings2 className="w-4 h-4" /> Personalizar
+                        <button onClick={toggleEditMode} className="royal-gradient text-white px-8 py-3 rounded-xl font-black uppercase text-[11px] tracking-[0.1em] flex items-center gap-2 hover:scale-[1.02] active:scale-95 transition-all shadow-xl shadow-primary/20">
+                            <Settings2 className="w-4 h-4" /> Personalizar Dashboard
                         </button>
                     )}
                 </div>
@@ -494,10 +498,13 @@ export default function StudentDashboard() {
 
             <PlansModal isOpen={showPlansModal} onClose={() => setShowPlansModal(false)} />
             <PaywallModal isOpen={showPaywall} onClose={() => setShowPaywall(false)} reason="feature" requiredPlan="INSANO" />
+            <TrainModal isOpen={showTrainModal} onClose={() => setShowTrainModal(false)} />
+
+            {renderUpgradeBanner()}
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
                 <AnimatePresence mode="popLayout">
-                    {widgets.map((widget, index) => {
+                    {widgets.filter(w => w.id !== 'UPGRADE_BANNER').map((widget, index) => {
                         const content = WIDGET_MAP[widget.id]()
                         if (!content && !isEditMode) return null
                         if (!widget.visible && !isEditMode) return null
