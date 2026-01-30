@@ -44,7 +44,7 @@ export function TrainModal({ isOpen, onClose, initialMode, initialSpecialtyId }:
     }, [isOpen, initialMode, initialSpecialtyId])
 
     const selectedSpecialty = useMemo(() => {
-        if (!selectedSpecialtyId) return null
+        if (!selectedSpecialtyId || !COURSES?.[0]?.specialties) return null
         return COURSES[0].specialties.find(s => s.id === selectedSpecialtyId)
     }, [selectedSpecialtyId])
 
@@ -77,6 +77,8 @@ export function TrainModal({ isOpen, onClose, initialMode, initialSpecialtyId }:
     // LIST RENDERER (For standard menu selections)
     const filteredItems = useMemo(() => {
         const query = searchQuery.toLowerCase()
+        if (!COURSES || COURSES.length === 0) return []
+
         if (mode === 'COURSE') return COURSES.filter(c => c.name.toLowerCase().includes(query))
         if (mode === 'SPECIALTY') return COURSES.flatMap(c => c.specialties).filter(s => s.name.toLowerCase().includes(query))
         if (mode === 'SUBSPECIALTY') return COURSES.flatMap(c => c.specialties.flatMap(s => s.subspecialties)).filter(sub => sub.name.toLowerCase().includes(query))
