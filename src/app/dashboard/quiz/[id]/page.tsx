@@ -28,7 +28,7 @@ export default function QuizPage() {
     const { user, visitorCount, incrementVisitorCount, dailyQuestionCount, incrementDailyCount, visitorId } = useAuth()
     const { add_response } = useQuiz()
     const { process_answer } = useSRS()
-    const { questions: allQuestions, loadQuestions } = useQuestions()
+    const { questions: allQuestions, loadQuestions, loading: questionsLoading } = useQuestions()
     const { markAsAnswered, hasAnswered, getAnsweredCount, resetAnswered } = useAnsweredQuestions()
 
     const [currentIdx, setCurrentIdx] = useState(0)
@@ -47,8 +47,13 @@ export default function QuizPage() {
 
     // Load questions from IndexedDB on mount
     useEffect(() => {
-        loadQuestions()
-    }, [])
+        loadQuestions({
+            course_id: courseId,
+            specialty_id: specialtyId,
+            subspecialty_id: subspecialtyId,
+            subject_id: subjectId
+        })
+    }, [courseId, specialtyId, subspecialtyId, subjectId])
 
     // Filtrar questões baseado nos parâmetros selecionados
     const filteredQuestions = useMemo(() => {
@@ -83,12 +88,39 @@ export default function QuizPage() {
     const isInsano = user?.plan_level === 'INSANO'
     const isFree = user?.plan_level === 'FREE'
 
-    if (!question) {
+    if (questionsLoading && allQuestions.length === 0) {
         return (
             <div className="min-h-screen flex items-center justify-center bg-background">
                 <div className="flex flex-col items-center gap-4 animate-pulse">
                     <div className="w-12 h-12 rounded-full border-4 border-primary border-t-transparent animate-spin" />
-                    <p className="text-sm font-black uppercase tracking-widest text-primary">Carregando Questão...</p>
+                    <p className="text-sm font-black uppercase tracking-widest text-primary">Carregando Questões...</p>
+                </div>
+            </div>
+        )
+    }
+
+    if (!question) {
+        return (
+            <div className="min-h-screen flex items-center justify-center bg-background p-6">
+                <div className="w-full max-w-md bg-card border border-border rounded-[40px] p-10 text-center space-y-6 animate-in fade-in zoom-in duration-500">
+                    <div className="w-20 h-20 bg-primary/10 rounded-3xl flex items-center justify-center mx-auto">
+                        <Target className="w-10 h-10 text-primary" />
+                    </div>
+                    <div className="space-y-2">
+                        <h3 className="text-2xl font-black italic uppercase tracking-tighter">Ops! Sem questões.</h3>
+                        <p className="text-muted-foreground font-medium text-sm">Não encontramos questões disponíveis para o tópico selecionado no momento.</p>
+                    </div>
+                    <button
+                        onClick={() => router.push('/dashboard')}
+                        className="w-full royal-gradient text-white py-4 rounded-2xl font-black uppercase text-xs tracking-widest shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all"
+                    >
+                        Voltar ao Dashboard
+                    </button>
+                    {user?.role === 'MASTER' && (
+                        <p className="text-[10px] text-muted-foreground uppercase font-black tracking-widest">
+                            Dica: Use o Painel Admin para gerar questões de demonstração.
+                        </p>
+                    )}
                 </div>
             </div>
         )

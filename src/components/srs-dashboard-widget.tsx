@@ -54,7 +54,9 @@ export function SRSDashboardWidget() {
     const getSubjectInfo = (id: string) => {
         for (const c of COURSES) {
             for (const s of c.specialties) {
+                if (s.id === id) return { name: s.name, specialty: s.category || 'Especialidade' }
                 for (const sub of s.subspecialties) {
+                    if (sub.id === id) return { name: sub.name, specialty: s.name }
                     const found = sub.subjects.find(subj => subj.id === id)
                     if (found) return { name: found.name, specialty: s.name }
                 }
@@ -125,7 +127,7 @@ export function SRSDashboardWidget() {
                                 <p className="text-white/60 font-bold uppercase text-xs tracking-wider">{primaryInfo.specialty}</p>
                             </div>
                             <div className={`p-4 rounded-2xl ${(primaryAction.level === 'PENDING' || primaryAction.level === 'NOT_LEVELED') ? 'bg-blue-500/20 text-blue-400' :
-                                    primaryAction.level === 'FRACO' ? 'bg-rose-500/20 text-rose-400' : 'bg-amber-500/20 text-amber-400'
+                                primaryAction.level === 'FRACO' ? 'bg-rose-500/20 text-rose-400' : 'bg-amber-500/20 text-amber-400'
                                 }`}>
                                 {(primaryAction.level === 'PENDING' || primaryAction.level === 'NOT_LEVELED') ? <Zap className="w-8 h-8" /> : <AlertCircle className="w-8 h-8" />}
                             </div>
@@ -158,10 +160,10 @@ export function SRSDashboardWidget() {
                     </div>
 
                     <div className="relative z-10 mt-8">
-                        <Link href={`/dashboard/setup?subjectId=${primaryAction.subject_id}&mode=SRS&count=10`}>
+                        <Link href={`/dashboard/quiz/auto?mode=TREINO&specialtyId=${primaryAction.subject_id}&count=10`}>
                             <button className="w-full md:w-auto px-8 py-4 bg-white text-black rounded-2xl font-black uppercase text-xs tracking-[0.2em] hover:bg-orange-400 hover:text-white transition-all shadow-xl flex items-center gap-3">
                                 <Play className="w-4 h-4 fill-current" />
-                                {primaryAction.level === 'PENDING' ? 'Iniciar Sessão Automática' : 'Treinar Agora'}
+                                {primaryAction.level === 'PENDING' || primaryAction.level === 'NOT_LEVELED' ? 'Iniciar Nivelamento' : 'Treinar Agora'}
                             </button>
                         </Link>
                     </div>

@@ -60,14 +60,6 @@ function AdminLayoutContent({ children }: { children: React.ReactNode }) {
                     <AdminNavLink href="/admin/finance" icon={DollarSign} label="Faturamento e Planos" active={isActive('/admin/finance')} />
                     <AdminNavLink href="/admin/settings" icon={Settings} label="Configurações do Sistema" active={isActive('/admin/settings')} />
                 </nav>
-
-                <button
-                    onClick={() => { logout(); router.push('/') }}
-                    className="flex items-center gap-3 p-4 rounded-xl text-muted-foreground hover:bg-destructive/10 hover:text-destructive transition-all font-bold text-sm"
-                >
-                    <LogOut className="w-5 h-5" />
-                    Sair do Painel
-                </button>
             </aside>
 
             {/* Main Content */}
@@ -75,17 +67,23 @@ function AdminLayoutContent({ children }: { children: React.ReactNode }) {
                 <div className="max-w-6xl mx-auto">
                     <div className="flex items-center justify-between mb-12">
                         <div>
-                            <h1 className="text-3xl font-black mb-2">Painel de Controle</h1>
-                            <p className="text-muted-foreground flex items-center gap-2">
+                            <h1 className="text-3xl font-black mb-2 text-[#1A1033]">Painel de Controle</h1>
+                            <p className="text-muted-foreground flex items-center gap-2 text-xs font-bold uppercase tracking-widest">
                                 <Shield className="w-4 h-4 text-primary" />
                                 Acesso Master: {user?.name}
                             </p>
                         </div>
                         <div className="flex items-center gap-4">
-
-                            <div className="hidden md:block bg-primary/10 text-primary px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest border border-primary/20">
+                            <div className="hidden md:block bg-emerald-50 text-emerald-600 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest border border-emerald-100">
                                 Sistema Online
                             </div>
+
+                            <Link href="/dashboard">
+                                <button className="flex items-center gap-2 bg-rose-500 text-white px-6 py-3 rounded-xl text-xs font-black uppercase tracking-widest hover:bg-rose-600 transition-all shadow-lg shadow-rose-200">
+                                    <LogOut className="w-4 h-4" />
+                                    Sair do Painel
+                                </button>
+                            </Link>
                         </div>
                     </div>
                     {children}

@@ -11,8 +11,10 @@ import { useRouter } from 'next/navigation'
 import { useEffect } from 'react'
 import { useAuth } from '@/store/use-auth'
 import { useSettings } from '@/store/use-settings'
+import { useTheme } from 'next-themes'
 
 export default function Home() {
+  const { setTheme } = useTheme()
   const [isAuthOpen, setIsAuthOpen] = useState(false)
   const { isAuthenticated } = useAuth()
   const { prices } = useSettings()
@@ -21,7 +23,8 @@ export default function Home() {
 
   useEffect(() => {
     setIsHydrated(true)
-  }, [])
+    setTheme('light')
+  }, [setTheme])
 
   useEffect(() => {
     if (isHydrated && isAuthenticated) {

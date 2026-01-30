@@ -7,10 +7,12 @@ import { supabase } from '@/lib/supabase'
 import { useRouter } from 'next/navigation'
 import { useAuth } from '@/store/use-auth'
 import Image from 'next/image'
+import { useTheme } from 'next-themes'
 
 import { isMasterEmail } from '@/lib/auth-constants'
 
 export default function AuthPage() {
+    const { setTheme } = useTheme()
     const router = useRouter()
     const { setUser, isAuthenticated } = useAuth()
     const [mode, setMode] = useState<'login' | 'signup'>('login')
@@ -31,7 +33,8 @@ export default function AuthPage() {
 
     useEffect(() => {
         setIsHydrated(true)
-    }, [])
+        setTheme('light')
+    }, [setTheme])
 
     useEffect(() => {
         if (isHydrated && isAuthenticated) {
@@ -50,12 +53,17 @@ export default function AuthPage() {
         try {
             if (mode === 'signup') {
                 // 1. Sign Up in Supabase Auth
+                // Profile creation is handled by 'on_auth_user_created' trigger in database
                 const { data: authData, error: signUpError } = await supabase.auth.signUp({
                     email: formData.email,
                     password: formData.password,
                     options: {
                         data: {
-                            displayName: formData.name
+                            displayName: formData.name,
+                            name: formData.name,
+                            rg: formData.rg,
+                            address: formData.address,
+                            phone: formData.phone
                         }
                     }
                 })
@@ -63,25 +71,22 @@ export default function AuthPage() {
                 if (signUpError) throw signUpError
                 if (!authData.user) throw new Error('Erro ao criar usuário')
 
-                // 2. Create Profile in 'users' table
-                const isMaster = isMasterEmail(formData.email)
-
-                const { error: profileError } = await supabase.from('users').upsert({
-                    id: authData.user.id,
-                    email: formData.email.toLowerCase().trim(),
-                    name: formData.name,
-                    role: isMaster ? 'MASTER' : 'ALUNO',
-                    plan_level: isMaster ? 'INSANO' : 'FREE',
-                    profile_completed: isMaster, // Master doesn't need onboarding
-                    rg: formData.rg,
-                    address: formData.address,
-                    phone: formData.phone,
-                    streak: 0
-                })
-
-                if (profileError) throw profileError
-
-                setSuccess('Cadastro realizado! Verifique seu e-mail para confirmar.')
+                // 2. If email confirmation is disabled, we might have a session immediately
+                if (authData.session) {
+                    const isMaster = isMasterEmail(formData.email)
+                    setUser({
+                        id: authData.user.id,
+                        email: authData.user.email || formData.email,
+                        name: formData.name,
+                        role: isMaster ? 'MASTER' : 'ALUNO',
+                        plan_level: isMaster ? 'INSANO' : 'FREE',
+                        profile_completed: isMaster
+                    })
+                    setSuccess('Cadastro realizado com sucesso! Redirecionando...')
+                    setTimeout(() => window.location.assign('/dashboard'), 1500)
+                } else {
+                    setSuccess('Cadastro realizado! Verifique seu e-mail para confirmar.')
+                }
             } else {
                 // 1. Sign In in Supabase Auth
                 const { data: authData, error: signInError } = await supabase.auth.signInWithPassword({
@@ -112,10 +117,10 @@ export default function AuthPage() {
                         role: isMaster ? 'MASTER' : 'ALUNO',
                         plan_level: isMaster ? 'INSANO' : 'FREE',
                         profile_completed: isMaster
-                    }).select().single()
+                    }).select()
 
                     if (createError) throw createError
-                    profile = newProfile
+                    profile = newProfile && newProfile.length > 0 ? newProfile[0] : null
                 }
 
                 // 4. Force Master role if email matches (security/convenience)

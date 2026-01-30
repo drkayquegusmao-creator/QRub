@@ -25,11 +25,12 @@ export function AuthProvider({ children }: AuthProviderProps) {
             if (session?.user) {
                 setLoading(true)
                 try {
-                    const { data: profile, error } = await supabase
+                    const { data: profiles, error } = await supabase
                         .from('users')
                         .select('*')
                         .eq('id', session.user.id)
-                        .single()
+
+                    const profile = profiles && profiles.length > 0 ? profiles[0] : null
 
                     if (profile && !error) {
                         setUser(profile)

@@ -298,18 +298,18 @@ export const useSRS = create<SRSState>()(
                 }
 
                 // 4. Priority: Start New Leveling (Maintenance/Progression)
-                // Get all available specialty names from hierarchy
+                // Get all available specialty IDs from hierarchy
                 const { MEDICAL_HIERARCHY } = require('@/lib/medical-specialties')
-                const allSpecialties = MEDICAL_HIERARCHY[0].specialties.map((s: any) => s.name)
+                const allSpecialties = MEDICAL_HIERARCHY[0].specialties
 
                 // Find specialties the user hasn't started yet
-                const untracked = allSpecialties.filter((name: string) => !subjects[name])
+                const untracked = allSpecialties.filter((spec: any) => !subjects[spec.id])
 
                 if (untracked.length > 0) {
                     // Pick the first untracked specialty
                     return {
                         type: 'NIVELAMENTO',
-                        subject_id: untracked[0],
+                        subject_id: untracked[0].id,
                         status: 'NÃO_NIVELADO'
                     }
                 }
@@ -365,13 +365,13 @@ export const useSRS = create<SRSState>()(
                 if (combined.length === 0) {
                     const { MEDICAL_HIERARCHY } = require('@/lib/medical-specialties')
                     // Flatten hierarchy to get all subject names (specialties in this case)
-                    const allSpecialties = MEDICAL_HIERARCHY[0].specialties.map((s: any) => s.name)
-                    const untracked = allSpecialties.filter((name: string) => !subjects[name])
+                    const allSpecialties = MEDICAL_HIERARCHY[0].specialties
+                    const untracked = allSpecialties.filter((spec: any) => !subjects[spec.id])
 
                     if (untracked.length > 0) {
                         // Suggest first 3 untracked subjects as PENDING
-                        return untracked.slice(0, 3).map((id: string) => ({
-                            subject_id: id,
+                        return untracked.slice(0, 3).map((spec: any) => ({
+                            subject_id: spec.id,
                             stage: 'NEUTRAL',
                             level: 'NOT_LEVELED',
                             next_review_date: null
