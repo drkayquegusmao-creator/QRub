@@ -313,21 +313,29 @@ export const useSRS = create<SRSState>()(
                         const questionsStore = useQuestions.getState()
                         const questions = questionsStore.questions || []
 
+                        console.log('[SRS DEBUG] Total questions in store:', questions.length)
+                        console.log('[SRS DEBUG] Untracked specialties:', untracked.map((s: any) => s.name))
+
                         // Find first untracked specialty that has questions
-                        const specialtyWithQuestions = untracked.find((spec: any) =>
-                            questions.some((q: any) => q.specialty_id === spec.id)
-                        )
+                        const specialtyWithQuestions = untracked.find((spec: any) => {
+                            const count = questions.filter((q: any) => q.specialty_id === spec.id).length
+                            console.log(`[SRS DEBUG] Specialty "${spec.name}" (${spec.id}): ${count} questions`)
+                            return count > 0
+                        })
 
                         if (specialtyWithQuestions) {
+                            console.log('[SRS DEBUG] Selected specialty for leveling:', specialtyWithQuestions.name)
                             return {
                                 type: 'NIVELAMENTO',
                                 subject_id: specialtyWithQuestions.id,
                                 status: 'NÃO_NIVELADO'
                             }
+                        } else {
+                            console.log('[SRS DEBUG] No untracked specialties with questions found!')
                         }
                     } catch (err) {
                         // If questions store is not available, fall back to old behavior
-                        console.warn('Could not check questions availability:', err)
+                        console.warn('[SRS DEBUG] Could not check questions availability:', err)
                     }
                 }
 
