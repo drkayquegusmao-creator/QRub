@@ -242,6 +242,36 @@ export default function AdminDashboard() {
                 `Encaminhar para especialista sem estabilização inicial`
             ]
 
+            // Randomizar qual alternativa será a correta
+            const correctAnswerText = `Iniciar protocolo terapêutico conforme diretriz brasileira atualizada de ${randomSpec.name}, com estabilização clínica e investigação complementar direcionada para ${chosenSubject.name}`
+            const allOptionIds = ['a', 'b', 'c', 'd', 'e']
+            const correctOptionId = allOptionIds[Math.floor(Math.random() * 5)]
+
+            // Criar array de opções com a correta na posição randomizada
+            const optionsTexts = [...distractorTypes]
+            const correctIndex = allOptionIds.indexOf(correctOptionId)
+            optionsTexts.splice(correctIndex, 1, correctAnswerText)
+
+            const options = allOptionIds.map((id, idx) => ({
+                id,
+                text: optionsTexts[idx]
+            }))
+
+            // Gerar explicações dinâmicas baseadas na alternativa correta
+            const altExplanations: Record<string, string> = {}
+            allOptionIds.forEach((id) => {
+                if (id === correctOptionId) return
+
+                const incorrectTexts = [
+                    `INCORRETA. A conduta expectante não é apropriada neste contexto clínico de ${chosenSub.name}, pois o quadro exige intervenção terapêutica imediata conforme diretriz de ${randomSpec.name}.`,
+                    `INCORRETA. O tratamento sintomático isolado sem investigação complementar não é adequado para ${chosenSubject.name}.`,
+                    `INCORRETA. Realizar procedimento invasivo sem estabilização prévia em quadro de ${chosenSubject.name} constitui erro grave de conduta médica.`,
+                    `INCORRETA. A administração de medicação em dose subterapêutica para tratar ${chosenSub.name} resultará em falha terapêutica.`,
+                    `INCORRETA. A estabilização inicial de ${chosenSubject.name} é prioritária antes de qualquer encaminhamento.`
+                ]
+                altExplanations[id] = incorrectTexts[Math.floor(Math.random() * incorrectTexts.length)]
+            })
+
             return {
                 id: `QRUB-MED-${Math.random().toString(36).substr(2, 8).toUpperCase()}`,
                 course_id: targetCourse.id,
@@ -257,22 +287,11 @@ export default function AdminDashboard() {
                     physical_exam: `BEG, corad${genderAdj}, hidratad${genderAdj}, acianótic${genderAdj}, anictéric${genderAdj}. Sinais vitais estáveis. Exame físico segmentar revela achados específicos compatíveis com a hipótese diagnóstica principal de ${chosenSub.name}.`,
                     lab_results: `Hemograma: Hb ${(11 + Math.random() * 3).toFixed(1).replace('.', ',')} g/dL, Leucócitos ${6000 + Math.floor(Math.random() * 8000)}/mm³, Plaquetas ${150000 + Math.floor(Math.random() * 200000)}/mm³. Função renal: Creatinina ${(0.8 + Math.random() * 0.5).toFixed(1).replace('.', ',')} mg/dL, Ureia ${25 + Math.floor(Math.random() * 20)} mg/dL.`
                 },
-                options: [
-                    { id: 'a', text: distractorTypes[0] },
-                    { id: 'b', text: `Iniciar protocolo terapêutico conforme diretriz brasileira atualizada de ${randomSpec.name}, com estabilização clínica e investigação complementar direcionada para ${chosenSubject.name}` },
-                    { id: 'c', text: distractorTypes[2] },
-                    { id: 'd', text: distractorTypes[3] },
-                    { id: 'e', text: distractorTypes[4] }
-                ],
-                correct_option_id: 'b',
-                explanation: `A alternativa B está CORRETA pois representa a conduta padrão-ouro segundo as diretrizes brasileiras atualizadas de ${randomSpec.name} (2024). O quadro clínico apresentado evidencia critérios diagnósticos para ${chosenSub.name}, exigindo abordagem terapêutica imediata e baseada em evidências para o quadro de ${chosenSubject.name}.`,
-                alternative_explanations: {
-                    a: `INCORRETA. A conduta expectante não é apropriada neste contexto clínico de ${chosenSub.name}, pois o quadro exige intervenção terapêutica imediata conforme diretriz de ${randomSpec.name}.`,
-                    c: `INCORRETA. Realizar procedimento invasivo sem estabilização prévia em quadro de ${chosenSubject.name} constitui erro grave de conduta médica.`,
-                    d: `INCORRETA. A administração de medicação em dose subterapêutica para tratar ${chosenSub.name} resultará em falha terapêutica.`,
-                    e: `INCORRETA. A estabilização inicial de ${chosenSubject.name} é prioritária antes de qualquer encaminhamento.`
-                },
-                severe_error_alert: i % 10 === 0 ? `⚠️ ALERTA DE ERRO GRAVE: A escolha da alternativa C neste caso de ${chosenSub.name} resultaria em risco iminente de complicações graves em um cenário de ${chosenSubject.name}.` : undefined,
+                options,
+                correct_option_id: correctOptionId,
+                explanation: `A alternativa ${correctOptionId.toUpperCase()} está CORRETA pois representa a conduta padrão-ouro segundo as diretrizes brasileiras atualizadas de ${randomSpec.name} (2024). O quadro clínico apresentado evidencia critérios diagnósticos para ${chosenSub.name}, exigindo abordagem terapêutica imediata e baseada em evidências para o quadro de ${chosenSubject.name}.`,
+                alternative_explanations: altExplanations,
+                severe_error_alert: i % 10 === 0 ? `⚠️ ALERTA DE ERRO GRAVE: A escolha de uma alternativa incorreta neste caso de ${chosenSub.name} resultaria em risco iminente de complicações graves em um cenário de ${chosenSubject.name}.` : undefined,
                 hash: Math.random().toString(36).substr(2, 12)
             }
         })
