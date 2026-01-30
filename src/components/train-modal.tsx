@@ -278,28 +278,38 @@ export function TrainModal({ isOpen, onClose, initialMode, initialSpecialtyId }:
         </div>
     )
 
+
+    if (!isOpen) return null
+
     return (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-background/80 backdrop-blur-sm">
-            <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="relative w-full max-w-3xl bg-white rounded-[40px] shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
-                <div className="p-8 pb-4 flex items-center justify-between border-b border-slate-100">
-                    <div>
-                        {mode !== 'MENU' && !initialSpecialtyId && (
-                            <button onClick={() => { setMode('MENU'); setSearchQuery('') }} className="text-xs font-bold text-slate-400 hover:text-primary mb-1 flex items-center gap-1">
-                                <ChevronRight className="w-3 h-3 rotate-180" /> Voltar
-                            </button>
-                        )}
-                        <h2 className="text-2xl font-black italic tracking-tighter uppercase text-[#1A1033]">
-                            {mode === 'MENU' ? 'Treinar por Área' :
-                                mode === 'CONFIG' ? 'Configurar Treino' : 'Personalizar Treino'}
-                        </h2>
+        <AnimatePresence>
+            <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-background/80 backdrop-blur-sm">
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.95 }}
+                    className="relative w-full max-w-3xl bg-white rounded-[40px] shadow-2xl overflow-hidden flex flex-col max-h-[90vh]"
+                >
+                    <div className="p-8 pb-4 flex items-center justify-between border-b border-slate-100">
+                        <div>
+                            {mode !== 'MENU' && !initialSpecialtyId && (
+                                <button onClick={() => { setMode('MENU'); setSearchQuery('') }} className="text-xs font-bold text-slate-400 hover:text-primary mb-1 flex items-center gap-1">
+                                    <ChevronRight className="w-3 h-3 rotate-180" /> Voltar
+                                </button>
+                            )}
+                            <h2 className="text-2xl font-black italic tracking-tighter uppercase text-[#1A1033]">
+                                {mode === 'MENU' ? 'Treinar por Área' :
+                                    mode === 'CONFIG' ? 'Configurar Treino' : 'Personalizar Treino'}
+                            </h2>
+                        </div>
+                        <button onClick={onClose} className="p-2 rounded-full hover:bg-slate-100 text-slate-400"><X className="w-6 h-6" /></button>
                     </div>
-                    <button onClick={onClose} className="p-2 rounded-full hover:bg-slate-100 text-slate-400"><X className="w-6 h-6" /></button>
-                </div>
-                <div className="p-8 pt-6 overflow-hidden">
-                    {mode === 'MENU' ? renderMenu() : mode === 'CONFIG' ? renderConfig() : renderList()}
-                </div>
-            </motion.div>
-        </div>
+                    <div className="p-8 pt-6 overflow-hidden">
+                        {mode === 'MENU' ? renderMenu() : mode === 'CONFIG' ? renderConfig() : renderList()}
+                    </div>
+                </motion.div>
+            </div>
+        </AnimatePresence>
     )
 }
 
