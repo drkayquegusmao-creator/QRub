@@ -25,7 +25,11 @@ import {
     EyeOff,
     Check,
     RotateCcw,
-    GripVertical
+    GripVertical,
+    BookOpen,
+    Microscope,
+    Search,
+    LayoutGrid
 } from 'lucide-react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
@@ -61,6 +65,7 @@ export default function StudentDashboard() {
     const [showPaywall, setShowPaywall] = useState(false)
     const [showPlansModal, setShowPlansModal] = useState(false)
     const [showTrainModal, setShowTrainModal] = useState(false)
+    const [trainModalInitialSpecialty, setTrainModalInitialSpecialty] = useState<string | undefined>(undefined)
 
     // Load responses and SRS progress on mount
     useEffect(() => {
@@ -417,37 +422,43 @@ export default function StudentDashboard() {
     }
 
     const renderFastPractice = () => {
+        // Get primary specialties from the first course (Medicina)
+        const specialties = COURSES[0].specialties
+
         return (
-            <div className="bg-white border-2 border-slate-100 rounded-[50px] p-10 md:p-14 soft-shadow h-full flex flex-col items-center justify-center text-center gap-8 relative overflow-hidden group hover:border-primary/30 transition-all">
-                <div className="absolute inset-0 bg-gradient-to-br from-slate-50 to-white -z-10" />
-                <div className="absolute top-0 right-0 p-10 opacity-5 group-hover:scale-110 transition-transform duration-700">
-                    <Target className="w-40 h-40 text-[#1A1033]" />
+            <div className="bg-white border-2 border-slate-100 rounded-[50px] p-10 md:p-14 soft-shadow h-full flex flex-col gap-8">
+                <div className="flex items-center justify-between">
+                    <div className="space-y-1">
+                        <h3 className="text-2xl font-black italic uppercase tracking-tighter text-[#1A1033]">Treinar por Área</h3>
+                        <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Escolha um campo para iniciar agora</p>
+                    </div>
+                    <div className="p-4 bg-primary/10 rounded-2xl text-primary">
+                        <Target className="w-6 h-6" />
+                    </div>
                 </div>
 
-                <div className="space-y-4 max-w-md relative z-10">
-                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-[10px] font-black uppercase tracking-[0.2em] mb-2">
-                        <Zap className="w-3 h-3" />
-                        Acesso Rápido
-                    </div>
-                    <h3 className="text-3xl md:text-5xl font-black italic uppercase tracking-tighter text-[#1A1033] leading-[0.9]">
-                        Treinar <br />
-                        <span className="royal-gradient-text">Por Área</span>
-                    </h3>
-                    <p className="text-slate-500 font-medium text-sm leading-relaxed">
-                        Escolha entre cursos, especialidades, sub-especialidades ou assuntos específicos para focar seus estudos.
-                    </p>
-                </div>
+                <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 max-h-[400px] overflow-y-auto pr-2 custom-scrollbar">
+                    {specialties.map((spec) => (
+                        <button
+                            key={spec.id}
+                            onClick={() => { setTrainModalInitialSpecialty(spec.id); setShowTrainModal(true) }}
+                            className="group p-5 rounded-[25px] border border-slate-100 bg-slate-50/50 hover:bg-white hover:border-primary/20 hover:shadow-xl hover:shadow-primary/5 transition-all text-left flex items-center justify-between"
+                        >
+                            <div className="space-y-1">
+                                <h4 className="font-black italic uppercase text-xs tracking-tight text-[#1A1033] group-hover:text-primary transition-colors">{spec.name}</h4>
+                                <p className="text-[9px] font-bold text-slate-400 uppercase tracking-widest">{spec.category || 'Especialidades Básicas'}</p>
+                            </div>
+                            <div className="w-10 h-10 rounded-full bg-white border border-slate-100 flex items-center justify-center text-slate-300 group-hover:bg-primary group-hover:text-white group-hover:border-primary transition-all shadow-sm">
+                                <Play className="w-4 h-4 fill-current ml-0.5" />
+                            </div>
+                        </button>
+                    ))}
 
-                <button
-                    onClick={() => setShowTrainModal(true)}
-                    className="relative group/btn z-10 w-full max-w-xs"
-                >
-                    <div className="absolute -inset-1 bg-primary/30 rounded-2xl blur-lg opacity-0 group-hover/btn:opacity-100 transition-opacity" />
-                    <div className="relative bg-[#1A1033] text-white py-5 px-8 rounded-2xl font-black uppercase text-sm tracking-[0.2em] shadow-2xl flex items-center justify-center gap-4 hover:scale-[1.02] active:scale-95 transition-all">
-                        Iniciar Agora
-                        <Play className="w-5 h-5 fill-current" />
-                    </div>
-                </button>
+                    <button onClick={() => { setTrainModalInitialSpecialty(undefined); setShowTrainModal(true) }} className="group p-5 rounded-[25px] border border-dashed border-slate-200 hover:border-primary/30 hover:bg-primary/5 transition-all text-center flex items-center justify-center gap-2 col-span-1 xl:col-span-2 opacity-60 hover:opacity-100">
+                        <LayoutGrid className="w-4 h-4 text-slate-400 group-hover:text-primary" />
+                        <span className="text-[10px] font-black uppercase text-slate-400 group-hover:text-primary tracking-widest">Ver Todas / Configurar</span>
+                    </button>
+                </div>
             </div>
         )
     }
@@ -467,30 +478,32 @@ export default function StudentDashboard() {
         <div className="space-y-8 pb-32 max-w-7xl mx-auto px-4 md:px-0">
 
             {/* TOOLBAR DA DASHBOARD FIXA NO RODAPÉ */}
-            <div className="fixed bottom-[88px] md:bottom-0 left-0 right-0 w-full bg-white/80 backdrop-blur-2xl p-4 border-t border-white/40 z-[100] shadow-[0_-10px_40px_rgba(0,0,0,0.05)] flex items-center justify-between animate-in fade-in slide-in-from-bottom-4 duration-500">
-                <div className="flex items-center gap-3">
-                    <div className="p-2 bg-primary/10 rounded-xl">
-                        <Activity className="w-5 h-5 text-primary" />
+            {/* STATUS BAR FLUTUANTE PILL DESIGN */}
+            <div className="fixed bottom-[90px] md:bottom-10 left-1/2 -translate-x-1/2 w-[95%] max-w-5xl bg-[#F5F3FF]/80 backdrop-blur-2xl border border-white/60 p-2.5 rounded-full shadow-[0_8px_30px_rgba(124,58,237,0.05)] z-[100] flex items-center justify-between transition-all animate-in fade-in slide-in-from-bottom-8 duration-700">
+                <div className="flex items-center gap-4 pl-2">
+                    <div className="w-10 h-10 rounded-full bg-[#EBE5FF] flex items-center justify-center text-[#7C3AED] shadow-inner">
+                        <Activity className="w-5 h-5" />
                     </div>
-                    <div className="hidden sm:block">
-                        <h1 className="text-sm font-black italic uppercase tracking-tight leading-none">Controle</h1>
-                        <p className="text-[9px] font-bold text-slate-500 uppercase tracking-widest mt-1">Personalização</p>
+                    <div>
+                        <h1 className="text-sm font-black italic uppercase tracking-tighter text-[#1A1033] leading-none">DASHBOARD</h1>
+                        <p className="text-[9px] font-bold text-[#7C3AED] uppercase tracking-widest mt-0.5">Status em tempo real</p>
                     </div>
                 </div>
 
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 pr-1">
                     {isEditMode ? (
                         <div className="flex items-center gap-2">
-                            <button onClick={resetLayout} className="flex items-center gap-2 px-4 py-2 text-[10px] font-black uppercase tracking-widest text-slate-400 hover:text-primary transition-colors">
-                                <RotateCcw className="w-4 h-4" /> <span className="hidden md:inline">Resetar</span>
+                            <button onClick={resetLayout} className="hidden md:flex items-center gap-2 px-4 py-2 text-[10px] font-black uppercase tracking-widest text-slate-400 hover:text-primary transition-colors">
+                                <RotateCcw className="w-3 h-3" /> Resetar
                             </button>
-                            <button onClick={toggleEditMode} className="bg-emerald-500 text-white px-6 py-2.5 rounded-xl font-black uppercase text-[10px] tracking-widest flex items-center gap-2 shadow-lg shadow-emerald-500/20 hover:scale-105 active:scale-95 transition-all">
-                                <Check className="w-4 h-4" /> Finalizar
+                            <button onClick={toggleEditMode} className="bg-emerald-500 text-white px-6 py-2.5 rounded-full font-black uppercase text-[10px] tracking-widest flex items-center gap-2 shadow-lg shadow-emerald-500/20 hover:scale-105 active:scale-95 transition-all">
+                                <Check className="w-3 h-3" /> <span className="hidden sm:inline">Finalizar</span>
                             </button>
                         </div>
                     ) : (
-                        <button onClick={toggleEditMode} className="royal-gradient text-white px-8 py-3 rounded-xl font-black uppercase text-[11px] tracking-[0.1em] flex items-center gap-2 hover:scale-[1.02] active:scale-95 transition-all shadow-xl shadow-primary/20">
-                            <Settings2 className="w-4 h-4" /> Personalizar Dashboard
+                        <button onClick={toggleEditMode} className="bg-white text-[#1A1033] px-6 py-2.5 rounded-full font-black uppercase text-[10px] tracking-widest hover:bg-white hover:shadow-xl hover:-translate-y-0.5 transition-all flex items-center gap-2 shadow-sm border border-slate-100 group">
+                            <Settings2 className="w-3 h-3 text-slate-400 group-hover:text-primary transition-colors" />
+                            Personalizar
                         </button>
                     )}
                 </div>
@@ -498,7 +511,7 @@ export default function StudentDashboard() {
 
             <PlansModal isOpen={showPlansModal} onClose={() => setShowPlansModal(false)} />
             <PaywallModal isOpen={showPaywall} onClose={() => setShowPaywall(false)} reason="feature" requiredPlan="INSANO" />
-            <TrainModal isOpen={showTrainModal} onClose={() => setShowTrainModal(false)} />
+            <TrainModal isOpen={showTrainModal} onClose={() => setShowTrainModal(false)} initialSpecialtyId={trainModalInitialSpecialty} />
 
             {renderUpgradeBanner()}
 
