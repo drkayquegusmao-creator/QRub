@@ -51,8 +51,9 @@ export default function AuthPage() {
                         setShowConfirmModal(true)
                     } else {
                         setTimeout(() => {
-                            if (result.role === 'MASTER') {
-                                router.push('/admin')
+                            const currentUser = useAuth.getState().user
+                            if (result.role === 'MASTER' || currentUser?.profile_completed) {
+                                router.push('/dashboard')
                             } else {
                                 router.push('/onboarding')
                             }

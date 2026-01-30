@@ -52,7 +52,7 @@ export const useAuth = create<AuthState>()(
     persist(
         (set, get) => ({
             user: null,
-            visitorId: Math.random().toString(36).substr(2, 9),
+            visitorId: '',
             isAuthenticated: false,
             visitorCount: 0,
             dailyQuestionCount: 0,

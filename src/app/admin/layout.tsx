@@ -2,30 +2,39 @@
 
 import { useAuth } from '@/store/use-auth'
 import { useRouter, usePathname, useSearchParams } from 'next/navigation'
-import { useEffect } from 'react'
+import { Suspense, useEffect, useState } from 'react'
 import { Shield, LayoutDashboard, Database, Settings, LogOut, Hexagon, DollarSign, ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
-    // const { user, isAuthenticated, logout } = useAuth()
+    return (
+        <Suspense fallback={<div className="min-h-screen bg-background flex items-center justify-center">
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+        </div>}>
+            <AdminLayoutContent>{children}</AdminLayoutContent>
+        </Suspense>
+    )
+}
+
+function AdminLayoutContent({ children }: { children: React.ReactNode }) {
+    const { user, isAuthenticated, logout } = useAuth()
     const router = useRouter()
     const pathname = usePathname()
     const searchParams = useSearchParams()
+    const [isHydrated, setIsHydrated] = useState(false)
 
-    // Mock props for build
-    const user = { name: 'Master', role: 'MASTER' }
-    const isAuthenticated = true
-    const logout = () => { }
-
-    /*
     useEffect(() => {
-        if (!isAuthenticated || user?.role !== 'MASTER') {
+        setIsHydrated(true)
+    }, [])
+
+    useEffect(() => {
+        if (isHydrated && (!isAuthenticated || user?.role !== 'MASTER')) {
             router.push('/')
         }
-    }, [isAuthenticated, user, router])
-    
+    }, [isHydrated, isAuthenticated, user, router])
+
+    if (!isHydrated) return null
     if (!isAuthenticated || user?.role !== 'MASTER') return null
-    */
 
     // Determine if a link is active. 
     // Exact match for root '/admin', partial match for sub-routes
@@ -69,7 +78,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                             <h1 className="text-3xl font-black mb-2">Painel de Controle</h1>
                             <p className="text-muted-foreground flex items-center gap-2">
                                 <Shield className="w-4 h-4 text-primary" />
-                                Acesso Master: {user.name}
+                                Acesso Master: {user?.name}
                             </p>
                         </div>
                         <div className="flex items-center gap-4">

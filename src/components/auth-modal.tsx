@@ -38,13 +38,15 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
         setIsLoading(false)
 
         if (result.success) {
-            onClose()
-            // Redirecionar baseado no role
-            if (result.role === 'MASTER') {
+            const currentUser = useAuth.getState().user
+
+            // Redirecionar baseado no role ou completude do perfil
+            if (result.role === 'MASTER' || currentUser?.profile_completed) {
                 router.push('/dashboard')
             } else {
                 router.push('/onboarding')
             }
+            onClose()
         } else {
             setError(result.message)
         }
