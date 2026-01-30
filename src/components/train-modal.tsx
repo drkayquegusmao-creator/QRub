@@ -2,7 +2,7 @@
 
 import { useState, useMemo, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { X, ChevronRight, BookOpen, Stethoscope, Microscope, Search, Check, Play, LayoutGrid, Settings2, Filter } from 'lucide-react'
+import { X, ChevronRight, BookOpen, Stethoscope, Microscope, Search, Check, Play, LayoutGrid, Settings2, Filter, AlertCircle } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import { COURSES, Course, Specialty, Subspecialty } from '@/lib/data-mock'
 
@@ -102,38 +102,51 @@ export function TrainModal({ isOpen, onClose, initialMode, initialSpecialtyId }:
         return []
     }, [mode, searchQuery])
 
-    const renderMenu = () => (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 h-[500px] overflow-y-auto pr-2 custom-scrollbar">
-            {/* Header Section inside Modal Content if needed, but the external header handles title */}
+    const renderMenu = () => {
+        const specialties = COURSES?.[0]?.specialties || []
 
-            {COURSES[0].specialties.map((spec) => (
-                <button
-                    key={spec.id}
-                    onClick={() => { setSelectedSpecialtyId(spec.id); setMode('CONFIG'); }}
-                    className="group w-full text-left p-5 rounded-[25px] border border-slate-100 bg-slate-50/50 hover:bg-white hover:border-primary/20 hover:shadow-xl hover:shadow-primary/5 transition-all flex items-center justify-between"
-                >
-                    <div className="space-y-1">
-                        <h4 className="font-black italic uppercase text-xs tracking-tight text-[#1A1033] group-hover:text-primary transition-colors">{spec.name}</h4>
-                        <p className="text-[9px] font-bold text-slate-400 uppercase tracking-widest">{spec.category || 'Especialidades Básicas'}</p>
-                    </div>
-                    <div className="w-10 h-10 rounded-full bg-white border border-slate-100 flex items-center justify-center text-slate-300 group-hover:bg-primary group-hover:text-white group-hover:border-primary transition-all shadow-sm">
-                        <Play className="w-4 h-4 fill-current ml-0.5" />
-                    </div>
-                </button>
-            ))}
+        if (specialties.length === 0) {
+            return (
+                <div className="flex flex-col items-center justify-center h-[300px] text-slate-400">
+                    <AlertCircle className="w-12 h-12 mb-4 opacity-50" />
+                    <p className="font-bold">Nenhuma especialidade encontrada.</p>
+                </div>
+            )
+        }
 
-            {/* Option to Train Everything/Random */}
-            <div className="md:col-span-2 pt-4">
-                <button
-                    onClick={() => handleStart('scope=ALL')}
-                    className="w-full p-4 rounded-xl border border-dashed border-slate-300 hover:border-primary hover:bg-primary/5 text-slate-400 hover:text-primary transition-all flex items-center justify-center gap-2 font-black uppercase text-xs tracking-widest"
-                >
-                    <LayoutGrid className="w-4 h-4" />
-                    Treinar Tudo (Aleatório)
-                </button>
+        return (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 h-[500px] overflow-y-auto pr-2 custom-scrollbar">
+                {/* Header Section inside Modal Content if needed, but the external header handles title */}
+
+                {specialties.map((spec) => (
+                    <button
+                        key={spec.id}
+                        onClick={() => { setSelectedSpecialtyId(spec.id); setMode('CONFIG'); }}
+                        className="group w-full text-left p-5 rounded-[25px] border border-slate-100 bg-slate-50/50 hover:bg-white hover:border-primary/20 hover:shadow-xl hover:shadow-primary/5 transition-all flex items-center justify-between"
+                    >
+                        <div className="space-y-1">
+                            <h4 className="font-black italic uppercase text-xs tracking-tight text-[#1A1033] group-hover:text-primary transition-colors">{spec.name}</h4>
+                            <p className="text-[9px] font-bold text-slate-400 uppercase tracking-widest">{spec.category || 'Especialidades Básicas'}</p>
+                        </div>
+                        <div className="w-10 h-10 rounded-full bg-white border border-slate-100 flex items-center justify-center text-slate-300 group-hover:bg-primary group-hover:text-white group-hover:border-primary transition-all shadow-sm">
+                            <Play className="w-4 h-4 fill-current ml-0.5" />
+                        </div>
+                    </button>
+                ))}
+
+                {/* Option to Train Everything/Random */}
+                <div className="md:col-span-2 pt-4">
+                    <button
+                        onClick={() => handleStart('scope=ALL')}
+                        className="w-full p-4 rounded-xl border border-dashed border-slate-300 hover:border-primary hover:bg-primary/5 text-slate-400 hover:text-primary transition-all flex items-center justify-center gap-2 font-black uppercase text-xs tracking-widest"
+                    >
+                        <LayoutGrid className="w-4 h-4" />
+                        Treinar Tudo (Aleatório)
+                    </button>
+                </div>
             </div>
-        </div>
-    )
+        )
+    }
 
     const renderList = () => (
         <div className="flex flex-col h-[500px]">
