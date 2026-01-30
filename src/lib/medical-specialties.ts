@@ -1,10 +1,11 @@
-import { Course } from './data-mock'
+// Removed import to avoid circular dependency
+// import { Course } from './data-mock'
 
 /**
  * Estrutura completa de TODAS as especialidades médicas reconhecidas no Brasil
  * Organizada em hierarquia: Curso → Especialidade → Subespecialidade → Assuntos
  */
-export const MEDICAL_HIERARCHY: Course[] = [
+export const MEDICAL_HIERARCHY = [
     {
         id: 'medicina',
         name: 'Medicina',
