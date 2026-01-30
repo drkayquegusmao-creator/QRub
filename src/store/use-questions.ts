@@ -46,7 +46,7 @@ export const useQuestions = create<QuestionsState>()(
 
                     const { data, error } = await query
                         .order('created_at', { ascending: false })
-                        .limit(1000)
+                        .limit(20000)
 
                     if (error) throw error
 
