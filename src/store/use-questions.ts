@@ -36,21 +36,40 @@ export const useQuestions = create<QuestionsState>()(
 
             try {
                 if (isSupabaseConfigured()) {
-                    let query = supabase.from('questions').select('*')
+                    let allQuestions: Question[] = []
+                    let hasMore = true
+                    let page = 0
+                    const pageSize = 1000
 
-                    // Apply filters if provided
-                    if (filters?.course_id) query = query.eq('course_id', filters.course_id)
-                    if (filters?.specialty_id) query = query.eq('specialty_id', filters.specialty_id)
-                    if (filters?.subspecialty_id) query = query.eq('subspecialty_id', filters.subspecialty_id)
-                    if (filters?.subject_id) query = query.eq('subject_id', filters.subject_id)
+                    // Fetch in batches to bypass Supabase 1000-row limit
+                    while (hasMore && allQuestions.length < 20000) {
+                        let query = supabase.from('questions').select('*')
 
-                    const { data, error } = await query
-                        .order('created_at', { ascending: false })
-                        .limit(20000)
+                        // Apply filters if provided
+                        if (filters?.course_id) query = query.eq('course_id', filters.course_id)
+                        if (filters?.specialty_id) query = query.eq('specialty_id', filters.specialty_id)
+                        if (filters?.subspecialty_id) query = query.eq('subspecialty_id', filters.subspecialty_id)
+                        if (filters?.subject_id) query = query.eq('subject_id', filters.subject_id)
 
-                    if (error) throw error
+                        const { data, error } = await query
+                            .order('created_at', { ascending: false })
+                            .range(page * pageSize, (page + 1) * pageSize - 1)
 
-                    set({ questions: data || [], loading: false })
+                        if (error) throw error
+
+                        if (data) {
+                            allQuestions = [...allQuestions, ...data]
+                            if (data.length < pageSize) {
+                                hasMore = false
+                            } else {
+                                page++
+                            }
+                        } else {
+                            hasMore = false
+                        }
+                    }
+
+                    set({ questions: allQuestions, loading: false })
                 } else {
                     // Load from local storage (already persisted)
                     const { questions } = get()
