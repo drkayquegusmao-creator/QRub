@@ -39,13 +39,13 @@ interface AuthState {
     dailyQuestionCount: number
     lastQuestionDate: string | null
     login: (email: string, name: string) => void
-    loginWithPassword: (email: string, password: string, name?: string, id?: string) => { success: boolean, message: string, role?: UserRole }
+    loginWithPassword: (email: string, password: string, name?: string, id?: string) => Promise<{ success: boolean, message: string, role?: UserRole }>
     logout: () => void
     incrementDailyCount: () => void
     incrementVisitorCount: () => void
-    completeProfile: (data: Partial<User>) => void
-    updatePlan: (plan: PlanLevel) => void
-    updateUserPlan: (plan: PlanLevel) => void // Alias for updatePlan
+    completeProfile: (data: Partial<User>) => Promise<void>
+    updatePlan: (plan: PlanLevel) => Promise<void>
+    updateUserPlan: (plan: PlanLevel) => Promise<void> // Alias for updatePlan
 }
 
 export const useAuth = create<AuthState>()(
@@ -75,7 +75,7 @@ export const useAuth = create<AuthState>()(
                 })
             },
 
-            loginWithPassword: (email, password, name, id) => {
+            loginWithPassword: async (email, password, name, id) => {
                 // Verificar se é conta master
                 const masterCredential = MASTER_CREDENTIALS.find(
                     cred => cred.email.toLowerCase() === email.toLowerCase()
@@ -118,17 +118,9 @@ export const useAuth = create<AuthState>()(
                     user: userToSet
                 })
 
-                // Register in "Real" DB
-                // We use dynamic import or just standard import since it is client side
-                // But to avoid circular dep issues in some frameworks, we can just assume standard usage if they are separate stores.
-                // Since Zustand stores are hooks/functions, we can call them outside if accessible or just import here.
-
-                // NOTE: We will use the store instance directly.
-                // But to keep this file clean, we should import the hook at top level. 
-                // However, inside a hook action we might not want to call another hook.
-                // Best pattern: use the store api directly.
+                // Sync with DB
                 const { useUserDb } = require('./use-user-db')
-                useUserDb.getState().addUser({
+                await useUserDb.getState().addUser({
                     id: userToSet.id,
                     name: userToSet.name,
                     email: userToSet.email,
@@ -158,40 +150,36 @@ export const useAuth = create<AuthState>()(
                 visitorCount: state.visitorCount + 1
             })),
 
-            completeProfile: (data) => {
-                set((state) => {
-                    const newUser = state.user ? { ...state.user, ...data, profile_completed: true } : null
-                    if (newUser) {
-                        // Update in DB too
-                        const { useUserDb } = require('./use-user-db')
-                        // We don't have a updateFullUser in DB yet, but we can assume we might need it later.
-                        // For now, let's just keep the local user updated.
-                        // But for "Real Data" request, we should update the DB. This might require 'updateUser' method in DB.
-                    }
-                    return { user: newUser }
-                })
+            completeProfile: async (data) => {
+                const state = get()
+                const newUser = state.user ? { ...state.user, ...data, profile_completed: true } : null
+
+                if (newUser) {
+                    set({ user: newUser })
+                    // Update in DB too
+                    const { useUserDb } = require('./use-user-db')
+                    await useUserDb.getState().updateUserProfile(newUser.id, data)
+                }
             },
 
-            updatePlan: (plan) => {
-                set((state) => {
-                    const newUser = state.user ? { ...state.user, plan_level: plan } : null
-                    if (newUser) {
-                        const { useUserDb } = require('./use-user-db')
-                        useUserDb.getState().updateUserPlan(newUser.id, plan)
-                    }
-                    return { user: newUser }
-                })
+            updatePlan: async (plan) => {
+                const state = get()
+                const newUser = state.user ? { ...state.user, plan_level: plan } : null
+                if (newUser) {
+                    set({ user: newUser })
+                    const { useUserDb } = require('./use-user-db')
+                    await useUserDb.getState().updateUserPlan(newUser.id, plan)
+                }
             },
 
-            updateUserPlan: (plan) => {
-                set((state) => {
-                    const newUser = state.user ? { ...state.user, plan_level: plan } : null
-                    if (newUser) {
-                        const { useUserDb } = require('./use-user-db')
-                        useUserDb.getState().updateUserPlan(newUser.id, plan)
-                    }
-                    return { user: newUser }
-                })
+            updateUserPlan: async (plan) => {
+                const state = get()
+                const newUser = state.user ? { ...state.user, plan_level: plan } : null
+                if (newUser) {
+                    set({ user: newUser })
+                    const { useUserDb } = require('./use-user-db')
+                    await useUserDb.getState().updateUserPlan(newUser.id, plan)
+                }
             }
         }),
         {

@@ -67,7 +67,7 @@ export const useQuiz = create<QuizState>()(
                                 timestamp: response.timestamp
                             })
                     } catch (err) {
-                        console.error('Error saving response to Supabase:', err)
+                        console.warn('Could not save response to Supabase (saved locally):', err instanceof Error ? err.message : 'Unknown error')
                     }
                 }
 
@@ -108,7 +108,10 @@ export const useQuiz = create<QuizState>()(
             },
 
             load_responses: async (userId?: string) => {
-                if (!isSupabaseConfigured() || !userId) return;
+                if (!isSupabaseConfigured() || !userId) {
+                    console.log('Supabase not configured or no user ID, using local responses')
+                    return
+                }
 
                 // Precautionary check: Supabase UUID columns will throw if the string is not a valid UUID format
                 const isUuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(userId);
@@ -119,8 +122,6 @@ export const useQuiz = create<QuizState>()(
                 }
 
                 try {
-                    // Check for valid UUID if it's not a master-admin string
-                    // But Supabase typically handles the type conversion and throws if invalid.
                     const { data, error } = await supabase
                         .from('user_responses')
                         .select('*')
@@ -128,12 +129,18 @@ export const useQuiz = create<QuizState>()(
                         .order('timestamp', { ascending: true })
 
                     if (error) {
-                        console.error('Supabase error loading responses:', error)
-                        throw error
+                        console.warn('Could not load responses from Supabase:', error.message)
+                        return
                     }
-                    if (data) set({ responses: data })
+
+                    if (data && data.length > 0) {
+                        set({ responses: data })
+                        console.log(`Loaded ${data.length} responses from Supabase`)
+                    } else {
+                        console.log('No responses found in Supabase for this user')
+                    }
                 } catch (err: any) {
-                    console.error('Critical error in load_responses:', err.message || err)
+                    console.warn('Error loading responses (using local data):', err.message || 'Unknown error')
                 }
             },
 

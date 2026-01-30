@@ -160,7 +160,7 @@ export default function QuizPage() {
                 is_correct: isCorrect,
                 timestamp: new Date().toISOString()
             }
-            process_answer(isInsano, responseObj, question.subject_id)
+            process_answer(user?.id || null, responseObj, question.subject_id)
 
             if (!user) {
                 incrementVisitorCount()

@@ -33,9 +33,10 @@ export interface SubjectSRS {
 
 interface SRSState {
     subjects: Record<string, SubjectSRS>
+    loading: boolean
 
     // Action called whenever a user answers a question
-    process_answer: (is_insano: boolean, response: UserResponse, subject_id: string) => void
+    process_answer: (user_id: string | null, response: UserResponse, subject_id: string) => Promise<void>
 
     // Core Engine Logic
     get_intelligent_action: () => {
@@ -43,6 +44,10 @@ interface SRSState {
         subject_id: string | null,
         status: 'ALERTA' | 'ATRASADO' | 'MANUTENÇÃO' | 'NÃO_NIVELADO' | 'NORMAL'
     }
+
+    // Supabase Sync
+    load_progress: (user_id: string) => Promise<void>
+    save_progress: (user_id: string, subject_id: string) => Promise<void>
 
     // Getters for UI
     get_daily_agenda: () => SubjectSRS[]
@@ -70,8 +75,9 @@ export const useSRS = create<SRSState>()(
     persist(
         (set, get) => ({
             subjects: {},
+            loading: false,
 
-            process_answer: (is_insano, response, subject_id) => {
+            process_answer: async (user_id, response, subject_id) => {
                 // The leveling logic is invisible but mandatory
                 set((state) => {
                     const subjects = { ...state.subjects }
@@ -134,15 +140,118 @@ export const useSRS = create<SRSState>()(
                         }
 
                         // Every session of revision (usually 5-12 questions) triggers a re-eval
-                        // For simplicity in this mock, we re-eval after any answer but adaptive logic applies
-                        const session_accuracy = response.is_correct ? 100 : 0 // Simplified for single answer processing
+                        const accuracy = (sub.total_correct / sub.total_questions) * 100
+                        sub.last_accuracy = accuracy
+                        sub.last_eval_date = new Date().toISOString()
 
-                        // Logic: After a set of questions (handled by the caller or quiz end)
-                        // But let's refine current_interval based on trend
+                        // Adaptive Interval: Increase if streak is high, decrease if streak is 0
+                        if (response.is_correct && sub.streak >= 3) {
+                            sub.current_interval = Math.min(60, sub.current_interval + 7)
+                        } else if (!response.is_correct) {
+                            sub.current_interval = Math.max(1, Math.floor(sub.current_interval / 2))
+                        }
+
+                        sub.next_review_date = addDays(new Date(), sub.current_interval).toISOString()
+                        sub.level = classify_accuracy(accuracy)
                     }
 
                     return { subjects }
                 })
+
+                if (user_id) {
+                    await get().save_progress(user_id, subject_id)
+                }
+            },
+
+            load_progress: async (user_id) => {
+                try {
+                    const { supabase, isSupabaseConfigured } = require('@/lib/supabase')
+                    if (!isSupabaseConfigured()) {
+                        console.log('Supabase not configured, skipping SRS progress load')
+                        return
+                    }
+
+                    set({ loading: true })
+
+                    const { data, error } = await supabase
+                        .from('subject_progress')
+                        .select('*')
+                        .eq('user_id', user_id)
+
+                    if (error) {
+                        // If table doesn't exist or other DB error, just log and continue
+                        console.warn('Could not load SRS progress from Supabase:', error.message)
+                        return
+                    }
+
+                    if (data && data.length > 0) {
+                        const subjects: Record<string, SubjectSRS> = {}
+                        data.forEach((row: any) => {
+                            subjects[row.subject_id] = {
+                                subject_id: row.subject_id,
+                                stage: row.stage,
+                                level: row.level,
+                                leveling_count: row.leveling_count,
+                                leveling_correct: row.leveling_correct,
+                                total_questions: row.total_questions,
+                                total_correct: row.total_correct,
+                                streak: row.streak,
+                                current_interval: row.current_interval,
+                                last_accuracy: row.last_accuracy,
+                                last_eval_date: row.last_eval_date,
+                                next_review_date: row.next_review_date,
+                                history: row.history || []
+                            }
+                        })
+                        set({ subjects })
+                        console.log(`Loaded SRS progress for ${Object.keys(subjects).length} subjects`)
+                    } else {
+                        console.log('No SRS progress found in Supabase for this user')
+                    }
+                } catch (err) {
+                    // Catch any unexpected errors (network issues, etc)
+                    console.warn('Error loading SRS progress (using local data):', err instanceof Error ? err.message : 'Unknown error')
+                } finally {
+                    set({ loading: false })
+                }
+            },
+
+            save_progress: async (user_id, subject_id) => {
+                try {
+                    const { supabase, isSupabaseConfigured } = require('@/lib/supabase')
+                    if (!isSupabaseConfigured()) {
+                        // Silently skip if Supabase not configured
+                        return
+                    }
+
+                    const sub = get().subjects[subject_id]
+                    if (!sub) return
+
+                    const { error } = await supabase
+                        .from('subject_progress')
+                        .upsert({
+                            user_id,
+                            subject_id,
+                            stage: sub.stage,
+                            level: sub.level,
+                            leveling_count: sub.leveling_count,
+                            leveling_correct: sub.leveling_correct,
+                            total_questions: sub.total_questions,
+                            total_correct: sub.total_correct,
+                            streak: sub.streak,
+                            current_interval: sub.current_interval,
+                            last_accuracy: sub.last_accuracy,
+                            last_eval_date: sub.last_eval_date,
+                            next_review_date: sub.next_review_date,
+                            history: sub.history
+                        }, { onConflict: 'user_id,subject_id' })
+
+                    if (error) {
+                        console.warn('Could not save SRS progress to Supabase:', error.message)
+                    }
+                } catch (err) {
+                    console.warn('Error saving SRS progress (data saved locally):', err instanceof Error ? err.message : 'Unknown error')
+                }
             },
 
             get_intelligent_action: () => {
@@ -189,11 +298,27 @@ export const useSRS = create<SRSState>()(
                 }
 
                 // 4. Priority: Start New Leveling (Maintenance/Progression)
-                // In a real app, we'd pick a subject the user hasn't touched.
+                // Get all available specialty names from hierarchy
+                const { MEDICAL_HIERARCHY } = require('@/lib/medical-specialties')
+                const allSpecialties = MEDICAL_HIERARCHY[0].specialties.map((s: any) => s.name)
+
+                // Find specialties the user hasn't started yet
+                const untracked = allSpecialties.filter((name: string) => !subjects[name])
+
+                if (untracked.length > 0) {
+                    // Pick the first untracked specialty
+                    return {
+                        type: 'NIVELAMENTO',
+                        subject_id: untracked[0],
+                        status: 'NÃO_NIVELADO'
+                    }
+                }
+
+                // 5. Fallback: If everything is tracked and up to date
                 return {
-                    type: 'NIVELAMENTO',
-                    subject_id: 'Clinica Médica', // Default suggestion
-                    status: 'NÃO_NIVELADO'
+                    type: 'TUDO_EM_DIA',
+                    subject_id: null,
+                    status: 'NORMAL'
                 }
             },
 

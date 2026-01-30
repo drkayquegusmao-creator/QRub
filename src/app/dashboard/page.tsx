@@ -45,16 +45,17 @@ import { useState, useMemo, useEffect } from 'react'
 export default function StudentDashboard() {
     const router = useRouter()
     const { user } = useAuth()
-    const { get_intelligent_action, get_pending_tasks, get_critical_points } = useSRS()
+    const { get_intelligent_action, get_pending_tasks, get_critical_points, load_progress } = useSRS()
     const { responses, get_accuracy_by_specialty, get_weekly_accuracy, load_responses } = useQuiz()
     const [timeRange, setTimeRange] = useState<'7d' | '30d' | 'total'>('7d')
     const [showPaywall, setShowPaywall] = useState(false)
     const [showPlansModal, setShowPlansModal] = useState(false)
 
-    // Load responses on mount
+    // Load responses and SRS progress on mount
     useEffect(() => {
         if (user?.id) {
             load_responses(user.id)
+            load_progress(user.id)
         }
     }, [user?.id])
 
