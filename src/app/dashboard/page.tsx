@@ -471,37 +471,7 @@ export default function StudentDashboard() {
     return (
         <div className="space-y-8 pb-32 max-w-7xl mx-auto px-4 md:px-0">
 
-            {/* TOOLBAR DA DASHBOARD FIXA NO RODAPÉ */}
-            {/* STATUS BAR FLUTUANTE PILL DESIGN */}
-            <div className="fixed bottom-[90px] md:bottom-10 left-1/2 -translate-x-1/2 w-[95%] max-w-5xl bg-[#F5F3FF]/80 backdrop-blur-2xl border border-white/60 p-2.5 rounded-full shadow-[0_8px_30px_rgba(124,58,237,0.05)] z-[100] flex items-center justify-between transition-all animate-in fade-in slide-in-from-bottom-8 duration-700">
-                <div className="flex items-center gap-4 pl-2">
-                    <div className="w-10 h-10 rounded-full bg-[#EBE5FF] flex items-center justify-center text-[#7C3AED] shadow-inner">
-                        <Activity className="w-5 h-5" />
-                    </div>
-                    <div>
-                        <h1 className="text-sm font-black italic uppercase tracking-tighter text-[#1A1033] leading-none">DASHBOARD</h1>
-                        <p className="text-[9px] font-bold text-[#7C3AED] uppercase tracking-widest mt-0.5">Status em tempo real</p>
-                    </div>
-                </div>
 
-                <div className="flex items-center gap-2 pr-1">
-                    {isEditMode ? (
-                        <div className="flex items-center gap-2">
-                            <button onClick={resetLayout} className="hidden md:flex items-center gap-2 px-4 py-2 text-[10px] font-black uppercase tracking-widest text-slate-400 hover:text-primary transition-colors">
-                                <RotateCcw className="w-3 h-3" /> Resetar
-                            </button>
-                            <button onClick={toggleEditMode} className="bg-emerald-500 text-white px-6 py-2.5 rounded-full font-black uppercase text-[10px] tracking-widest flex items-center gap-2 shadow-lg shadow-emerald-500/20 hover:scale-105 active:scale-95 transition-all">
-                                <Check className="w-3 h-3" /> <span className="hidden sm:inline">Finalizar</span>
-                            </button>
-                        </div>
-                    ) : (
-                        <button onClick={toggleEditMode} className="bg-white text-[#1A1033] px-6 py-2.5 rounded-full font-black uppercase text-[10px] tracking-widest hover:bg-white hover:shadow-xl hover:-translate-y-0.5 transition-all flex items-center gap-2 shadow-sm border border-slate-100 group">
-                            <Settings2 className="w-3 h-3 text-slate-400 group-hover:text-primary transition-colors" />
-                            Personalizar
-                        </button>
-                    )}
-                </div>
-            </div>
 
             <PlansModal isOpen={showPlansModal} onClose={() => setShowPlansModal(false)} />
             <PaywallModal isOpen={showPaywall} onClose={() => setShowPaywall(false)} reason="feature" requiredPlan="INSANO" />
@@ -568,6 +538,36 @@ export default function StudentDashboard() {
                         )
                     })}
                 </AnimatePresence>
+            </div>
+            {/* TOOLBAR DA DASHBOARD FIXA NO RODAPÉ DO SITE (NÃO DA TELA) */}
+            <div className="relative mt-12 mb-8 mx-auto w-[95%] max-w-5xl bg-[#F5F3FF] border border-white/60 p-2.5 rounded-full shadow-sm flex items-center justify-between transition-all">
+                <div className="flex items-center gap-4 pl-2">
+                    <div className="w-10 h-10 rounded-full bg-[#EBE5FF] flex items-center justify-center text-[#7C3AED] shadow-inner">
+                        <Activity className="w-5 h-5" />
+                    </div>
+                    <div>
+                        <h1 className="text-sm font-black italic uppercase tracking-tighter text-[#1A1033] leading-none">DASHBOARD</h1>
+                        <p className="text-[9px] font-bold text-[#7C3AED] uppercase tracking-widest mt-0.5">Status em tempo real</p>
+                    </div>
+                </div>
+
+                <div className="flex items-center gap-2 pr-1">
+                    {isEditMode ? (
+                        <div className="flex items-center gap-2">
+                            <button onClick={resetLayout} className="hidden md:flex items-center gap-2 px-4 py-2 text-[10px] font-black uppercase tracking-widest text-slate-400 hover:text-primary transition-colors">
+                                <RotateCcw className="w-3 h-3" /> Resetar
+                            </button>
+                            <button onClick={toggleEditMode} className="bg-emerald-500 text-white px-6 py-2.5 rounded-full font-black uppercase text-[10px] tracking-widest flex items-center gap-2 shadow-lg shadow-emerald-500/20 hover:scale-105 active:scale-95 transition-all">
+                                <Check className="w-3 h-3" /> <span className="hidden sm:inline">Finalizar</span>
+                            </button>
+                        </div>
+                    ) : (
+                        <button onClick={toggleEditMode} className="bg-white text-[#1A1033] px-6 py-2.5 rounded-full font-black uppercase text-[10px] tracking-widest hover:bg-white hover:shadow-xl hover:-translate-y-0.5 transition-all flex items-center gap-2 shadow-sm border border-slate-100 group">
+                            <Settings2 className="w-3 h-3 text-slate-400 group-hover:text-primary transition-colors" />
+                            Personalizar
+                        </button>
+                    )}
+                </div>
             </div>
         </div >
     )
