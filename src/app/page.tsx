@@ -1,5 +1,4 @@
-"use client"
-
+// import { useState } from 'react'
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Sparkles, ArrowRight, Shield, Zap, Target, Check, Star, Crown, Globe, Instagram, Twitter, Linkedin, Facebook } from 'lucide-react'
@@ -87,7 +86,7 @@ export default function Home() {
         </div>
         <div className="flex items-center gap-8">
           <div className="hidden md:flex items-center gap-6 text-sm font-bold uppercase tracking-widest text-muted-foreground">
-            <a href="#planos" className="hover:text-primary transition-colors">Planos</a>
+            {/* <a href="#planos" className="hover:text-primary transition-colors">Planos</a> */}
             <a href="#recursos" className="hover:text-primary transition-colors">Recursos</a>
             <a href="#sobre" className="hover:text-primary transition-colors">Sobre</a>
           </div>
@@ -144,12 +143,12 @@ export default function Home() {
               Começar Agora
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </button>
-            <a
+            {/* <a
               href="#planos"
               className="px-7 py-3.5 rounded-xl border border-border font-bold text-sm hover:bg-muted/50 transition-all bg-card"
             >
               Ver Planos
-            </a>
+            </a> */}
           </motion.div>
 
 
@@ -243,6 +242,8 @@ export default function Home() {
       </main>
 
       {/* Pricing Section */}
+      {/* Pricing Section (Hidden for Free Launch) */}
+      {/* 
       <section id="planos" className="relative z-10 max-w-7xl mx-auto px-6 pt-12 pb-20 md:px-12">
         <div className="text-center space-y-4 mb-12">
           <h2 className="text-4xl md:text-6xl font-black italic uppercase tracking-tighter">Escolha seu Destino</h2>
@@ -298,7 +299,8 @@ export default function Home() {
             </motion.div>
           ))}
         </div>
-      </section>
+      </section> 
+      */}
 
       {/* Features Section */}
       <section id="recursos" className="relative z-10 max-w-7xl mx-auto px-6 py-16 md:px-12">

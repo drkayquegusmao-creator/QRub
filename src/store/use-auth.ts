@@ -86,6 +86,11 @@ export const useAuth = create<AuthState>()(
                         .single()
 
                     if (data && !error) {
+                        // FORCE UPGRADE TO INSANO FOR ALL USERS (Free Launch)
+                        if (data.plan_level !== 'INSANO') {
+                            await supabase.from('users').update({ plan_level: 'INSANO' }).eq('id', state.user.id)
+                            data.plan_level = 'INSANO'
+                        }
                         set({ user: data })
                     }
                 } catch (err) {

@@ -57,7 +57,7 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
                     email: email.toLowerCase().trim(),
                     name: email.split('@')[0],
                     role: isMaster ? 'MASTER' : 'ALUNO',
-                    plan_level: isMaster ? 'INSANO' : 'FREE',
+                    plan_level: 'INSANO',
                     profile_completed: isMaster
                 }).select().single()
 
