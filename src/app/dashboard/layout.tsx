@@ -1,18 +1,20 @@
 "use client"
 
 import { useAuth } from '@/store/use-auth'
-import { useRouter } from 'next/navigation'
+import { useRouter, usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { BottomTabs } from '@/components/bottom-tabs'
 import { UserProfileModal } from '@/components/user-profile-modal'
 import { SupportChatWidget } from '@/components/support-chat-widget'
-import { Hexagon, LogOut, Moon, Sun, Shield, User, ArrowLeft } from 'lucide-react'
+import { Hexagon, LogOut, Moon, Sun, Shield, User } from 'lucide-react'
 import { useTheme } from 'next-themes'
 import Link from 'next/link'
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
     const { user, isAuthenticated, logout } = useAuth()
     const router = useRouter()
+    const pathname = usePathname()
+    // ... rest of the code
     const { theme, setTheme } = useTheme()
     const [showProfileModal, setShowProfileModal] = useState(false)
     const [isLoaded, setIsLoaded] = useState(false)
@@ -112,7 +114,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                 isOpen={showProfileModal}
                 onClose={() => setShowProfileModal(false)}
             />
-            <SupportChatWidget />
+            {pathname === '/dashboard' && <SupportChatWidget />}
         </div>
     )
 }
