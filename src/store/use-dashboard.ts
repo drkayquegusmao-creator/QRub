@@ -32,10 +32,10 @@ interface DashboardState {
 
 const DEFAULT_WIDGETS: WidgetConfig[] = [
     { id: 'UPGRADE_BANNER', title: 'Banner de Upgrade', visible: true, width: 'full' },
-    { id: 'INTELLIGENT_AGENDA', title: 'Agenda Inteligente', visible: true, width: 'full' },
+    { id: 'INTELLIGENT_AGENDA', title: 'Agenda Inteligente', visible: true, width: 'half' },
+    { id: 'FAST_PRACTICE', title: 'Treino por Área', visible: true, width: 'half' },
     { id: 'PENDING_CRITICAL', title: 'Pendentes & Atenção', visible: true, width: 'full' },
     { id: 'EVOLUTION_STATS', title: 'Evolução Global', visible: true, width: 'full' },
-    { id: 'FAST_PRACTICE', title: 'Treino por Área', visible: true, width: 'full' },
     { id: 'PERFORMANCE_BY_AREA', title: 'Performance por Área', visible: true, width: 'half' },
     { id: 'READINESS_INDEX', title: 'Índice de Prontidão', visible: true, width: 'half' },
     { id: 'TACTICAL_SHORTCUTS', title: 'Atalhos Táticos', visible: true, width: 'full' },
@@ -67,7 +67,7 @@ export const useDashboard = create<DashboardState>()(
             resetLayout: () => set({ widgets: DEFAULT_WIDGETS })
         }),
         {
-            name: 'qrub-dashboard-layout'
+            name: 'qrub-dashboard-layout-v2'
         }
     )
 )
