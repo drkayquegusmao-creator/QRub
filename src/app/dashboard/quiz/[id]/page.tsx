@@ -56,6 +56,17 @@ export default function QuizPage() {
         })
     }, [courseId, specialtyId, subspecialtyId, subjectId])
 
+
+    // Timer for SIMULADO mode
+    useEffect(() => {
+        if (mode === 'SIMULADO') {
+            const timer = setInterval(() => {
+                setTimeLeft((prev) => (prev > 0 ? prev - 1 : 0))
+            }, 1000)
+            return () => clearInterval(timer)
+        }
+    }, [mode])
+
     // Filtrar questões baseado nos parâmetros selecionados
     const filteredQuestions = useMemo(() => {
         const filtered = filterQuestions(allQuestions, {
@@ -151,14 +162,8 @@ export default function QuizPage() {
         )
     }
 
-    useEffect(() => {
-        if (mode === 'SIMULADO') {
-            const timer = setInterval(() => {
-                setTimeLeft((prev) => (prev > 0 ? prev - 1 : 0))
-            }, 1000)
-            return () => clearInterval(timer)
-        }
-    }, [mode])
+
+
 
     const handleSelect = (optionId: string) => {
         if (hasConfirmed) return // Não pode mudar após confirmar
