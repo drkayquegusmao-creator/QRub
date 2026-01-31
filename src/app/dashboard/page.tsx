@@ -96,7 +96,7 @@ export default function StudentDashboard() {
         const action = get_intelligent_action()
         if (!action.subject_id) return
         const count = action.type === 'NIVELAMENTO' ? 10 : Math.floor(Math.random() * (12 - 5 + 1)) + 5
-        router.push(`/dashboard/quiz/auto?mode=TREINO&specialtyId=${encodeURIComponent(action.subject_id)}&count=${count}`)
+        router.push(`/dashboard/quiz/auto?mode=TREINO&subjectId=${encodeURIComponent(action.subject_id)}&count=${count}`)
     }
 
     const intelligentActionName = useMemo(() => {
@@ -140,9 +140,9 @@ export default function StudentDashboard() {
     }
 
     const renderIntelligentAgenda = () => (
-        <section className="relative group perspective-1000">
+        <section className="relative group perspective-1000 h-full">
             <div className="absolute -inset-4 bg-gradient-to-r from-primary/30 via-purple-600/20 to-indigo-600/30 rounded-[60px] blur-3xl opacity-50 group-hover:opacity-100 transition-all duration-1000 animate-pulse" />
-            <div className="relative bg-white/70 backdrop-blur-3xl border-2 border-primary/20 rounded-[50px] p-10 md:p-14 shadow-2xl overflow-hidden">
+            <div className="relative bg-white/70 backdrop-blur-3xl border-2 border-primary/20 rounded-[50px] p-10 md:p-14 shadow-2xl overflow-hidden h-full flex flex-col justify-center">
                 <div className="absolute top-0 right-0 p-12 opacity-5 pointer-events-none">
                     <BrainCircuit className="w-64 h-64 text-primary" />
                 </div>
@@ -445,7 +445,7 @@ export default function StudentDashboard() {
 
                 <button
                     onClick={() => { setTrainModalInitialSpecialty(undefined); setShowTrainModal(true) }}
-                    className="relative group/btn z-10 w-full max-w-xs"
+                    className="relative group/btn z-20 w-full max-w-xs"
                 >
                     <div className="absolute -inset-1 bg-primary/30 rounded-2xl blur-lg opacity-0 group-hover/btn:opacity-100 transition-opacity" />
                     <div className="relative bg-[#1A1033] text-white py-5 px-8 rounded-2xl font-black uppercase text-sm tracking-[0.2em] shadow-2xl flex items-center justify-center gap-4 hover:scale-[1.02] active:scale-95 transition-all">
