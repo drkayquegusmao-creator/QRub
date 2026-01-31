@@ -104,7 +104,7 @@ export default function OnboardingPage() {
     }
 
     const isFormValid = formData.name && formData.phone && formData.institution &&
-        formData.graduation_year && formData.specialty_of_interest &&
+        formData.graduation_year &&
         formData.address_city && formData.address_state
 
     const handleSubmit = async (e: React.FormEvent) => {
@@ -281,25 +281,15 @@ export default function OnboardingPage() {
                             </div>
                         </div>
 
-                        {/* Especialidade de Interesse */}
-                        <div className="md:col-span-2 relative">
-                            <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground ml-1">Especialidade de Interesse</label>
-                            <button
-                                type="button"
-                                onClick={() => setShowSpecialtyList(!showSpecialtyList)}
-                                className="w-full h-[58px] bg-muted border border-border rounded-xl flex items-center gap-4 px-4 hover:border-primary transition-all font-bold text-sm"
-                            >
-                                <Target className="w-4 h-4 text-primary" />
-                                <span className={formData.specialty_of_interest ? 'text-foreground' : 'text-muted-foreground'}>
-                                    {formData.specialty_of_interest || 'Selecione uma especialidade médica'}
-                                </span>
-                            </button>
-                            <DropdownList
-                                show={showSpecialtyList}
-                                onClose={() => setShowSpecialtyList(false)}
-                                items={specialties.map(s => ({ id: s, name: s }))}
-                                onSelect={(val) => setFormData({ ...formData, specialty_of_interest: val })}
-                                hasSearch
+                        {/* Especialidade de Interesse (Opcional) */}
+                        <div className="md:col-span-2">
+                            <InputField
+                                label="Especialidade de Interesse (Opcional)"
+                                icon={<Target className="w-4 h-4" />}
+                                placeholder="Ex: Cardiologia, Radiologia..."
+                                value={formData.specialty_of_interest}
+                                onChange={(val) => setFormData({ ...formData, specialty_of_interest: val })}
+                                required={false}
                             />
                         </div>
                     </div>
@@ -328,14 +318,14 @@ export default function OnboardingPage() {
     )
 }
 
-function InputField({ label, icon, placeholder, value, onChange }: { label: string, icon: any, placeholder: string, value: string, onChange: (val: string) => void }) {
+function InputField({ label, icon, placeholder, value, onChange, required = true }: { label: string, icon: any, placeholder: string, value: string, onChange: (val: string) => void, required?: boolean }) {
     return (
         <div className="space-y-2">
             <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground ml-1">{label}</label>
             <div className="relative">
                 <div className="absolute left-4 top-1/2 -translate-y-1/2 text-primary">{icon}</div>
                 <input
-                    required
+                    required={required}
                     type="text"
                     value={value}
                     onChange={(e) => onChange(e.target.value)}
