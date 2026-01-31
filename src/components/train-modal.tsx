@@ -59,7 +59,9 @@ export function TrainModal({ isOpen, onClose, initialMode, initialSpecialtyId }:
         return availableSubspecialties.flatMap(s => s.subjects)
     }, [selectedSubId, availableSubspecialties])
 
-    if (!isOpen) return null
+    // Hooks are safe here
+    // filteredItems useMemo is below
+
 
     const handleStart = (params: string) => {
         router.push(`/dashboard/quiz/auto?mode=TREINO&${params}&count=${questionCount}`)

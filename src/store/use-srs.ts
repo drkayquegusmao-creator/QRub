@@ -306,36 +306,32 @@ export const useSRS = create<SRSState>()(
                 const untracked = allSpecialties.filter((spec: any) => !subjects[spec.id])
 
                 if (untracked.length > 0) {
-                    // Check if there are questions available for this specialty
-                    // We need to import the questions store to check
+                    // Try to find one with existing questions first
+                    let selected: any = null
+
                     try {
                         const { useQuestions } = require('@/store/use-questions')
                         const questionsStore = useQuestions.getState()
                         const questions = questionsStore.questions || []
 
-                        console.log('[SRS DEBUG] Total questions in store:', questions.length)
-                        console.log('[SRS DEBUG] Untracked specialties:', untracked.map((s: any) => s.name))
-
-                        // Find first untracked specialty that has questions
-                        const specialtyWithQuestions = untracked.find((spec: any) => {
-                            const count = questions.filter((q: any) => q.specialty_id === spec.id).length
-                            console.log(`[SRS DEBUG] Specialty "${spec.name}" (${spec.id}): ${count} questions`)
-                            return count > 0
+                        selected = untracked.find((spec: any) => {
+                            return questions.some((q: any) => q.specialty_id === spec.id)
                         })
-
-                        if (specialtyWithQuestions) {
-                            console.log('[SRS DEBUG] Selected specialty for leveling:', specialtyWithQuestions.name)
-                            return {
-                                type: 'NIVELAMENTO',
-                                subject_id: specialtyWithQuestions.id,
-                                status: 'NÃO_NIVELADO'
-                            }
-                        } else {
-                            console.log('[SRS DEBUG] No untracked specialties with questions found!')
-                        }
                     } catch (err) {
-                        // If questions store is not available, fall back to old behavior
                         console.warn('[SRS DEBUG] Could not check questions availability:', err)
+                    }
+
+                    // Fallback to first untracked if none found with questions (Auto-gen will handle it)
+                    if (!selected) {
+                        selected = untracked[0]
+                    }
+
+                    if (selected) {
+                        return {
+                            type: 'NIVELAMENTO',
+                            subject_id: selected.id,
+                            status: 'NÃO_NIVELADO'
+                        }
                     }
                 }
 
