@@ -76,9 +76,9 @@ export default function OnboardingPage() {
     }, [])
 
     const years = useMemo(() => {
-        const currentYear = new Date().getFullYear()
-        return Array.from({ length: 15 }, (_, i) => (currentYear - 5 + i).toString())
+        return Array.from({ length: 2050 - 1960 + 1 }, (_, i) => (2050 - i).toString())
     }, [])
+
 
     const specialties = useMemo(() => {
         return MEDICAL_HIERARCHY[0].specialties.map(s => s.name).sort()
