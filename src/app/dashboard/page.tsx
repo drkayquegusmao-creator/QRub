@@ -170,9 +170,9 @@ export default function StudentDashboard() {
                             </div>
                         </div>
                         <div className="pt-4">
-                            <button onClick={startIntelligentSession} className="group relative w-full md:w-auto">
+                            <button onClick={startIntelligentSession} className="group relative w-full">
                                 <div className="absolute -inset-2 bg-primary rounded-[25px] blur-xl opacity-40 group-hover:opacity-70 transition-all" />
-                                <div className="relative royal-gradient text-white px-12 py-7 rounded-[22px] font-black uppercase text-sm md:text-base tracking-[0.2em] shadow-2xl flex items-center justify-center gap-4 hover:scale-[1.03] active:scale-95 transition-all">
+                                <div className="relative royal-gradient text-white py-6 rounded-[22px] font-black uppercase text-sm md:text-base tracking-[0.2em] shadow-2xl flex items-center justify-center gap-4 hover:scale-[1.03] active:scale-95 transition-all">
                                     INICIAR {intelligentAction.type === 'NIVELAMENTO' ? 'NIVELAMENTO' : 'REVISÃO'}
                                     <Play className="w-6 h-6 fill-current ml-1" />
                                 </div>
@@ -445,10 +445,10 @@ export default function StudentDashboard() {
 
                 <button
                     onClick={() => { setTrainModalInitialSpecialty(undefined); setShowTrainModal(true) }}
-                    className="relative group/btn z-20 w-full max-w-xs"
+                    className="relative group/btn z-30 w-full"
                 >
                     <div className="absolute -inset-1 bg-primary/30 rounded-2xl blur-lg opacity-0 group-hover/btn:opacity-100 transition-opacity" />
-                    <div className="relative bg-[#1A1033] text-white py-5 px-8 rounded-2xl font-black uppercase text-sm tracking-[0.2em] shadow-2xl flex items-center justify-center gap-4 hover:scale-[1.02] active:scale-95 transition-all">
+                    <div className="relative bg-[#1A1033] text-white py-6 rounded-2xl font-black uppercase text-sm tracking-[0.2em] shadow-2xl flex items-center justify-center gap-4 hover:scale-[1.02] active:scale-95 transition-all">
                         Iniciar Agora
                         <Play className="w-5 h-5 fill-current" />
                     </div>
