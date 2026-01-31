@@ -1,7 +1,7 @@
-// import { useState } from 'react'
+"use client"
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Sparkles, ArrowRight, Shield, Zap, Target, Check, Star, Crown, Globe, Instagram, Twitter, Linkedin, Facebook } from 'lucide-react'
+import { Sparkles, ArrowRight, Shield, Zap, Globe, Instagram, Twitter, Linkedin, Facebook, Target } from 'lucide-react'
 import { AuthModal } from '@/components/auth-modal'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -16,7 +16,7 @@ export default function Home() {
   const { setTheme } = useTheme()
   const [isAuthOpen, setIsAuthOpen] = useState(false)
   const { isAuthenticated } = useAuth()
-  const { prices } = useSettings()
+  // const { prices } = useSettings()
   const router = useRouter()
   const [isHydrated, setIsHydrated] = useState(false)
 
@@ -33,41 +33,8 @@ export default function Home() {
 
   if (!isHydrated) return null
 
-  const plans = [
-    {
-      name: 'Free',
-      limit: 'Limitado',
-      price: 'R$ 0',
-      description: 'Ideal para conhecer a plataforma.',
-      features: ['5 questões por dia', 'Filtros básicos', 'Métricas simples', 'Modo Treino'],
-      button: 'Começar Grátis',
-      color: 'bg-muted/50 border-border',
-      icon: <Target className="w-5 h-5 text-muted-foreground" />,
-      popular: false
-    },
-    {
-      name: 'Premium',
-      limit: 'Ilimitado',
-      price: `R$ ${prices.premium.toFixed(0)}`,
-      description: 'O padrão ouro para sua aprovação.',
-      features: ['Questões ilimitadas', 'Explicações completas', 'Heatmap de maestria', 'Todos os filtros', 'Caderno de Erros'],
-      button: 'Assinar Agora',
-      color: 'bg-primary/5 border-primary shadow-xl shadow-primary/10',
-      icon: <Star className="w-5 h-5 text-primary" />,
-      popular: true
-    },
-    {
-      name: 'Insano',
-      limit: 'Elite',
-      price: `R$ ${prices.insano.toFixed(0)}`,
-      description: 'Para quem não aceita nada menos que o 1º lugar.',
-      features: ['Tudo do Premium', 'IA Preditiva de Provas', 'Simulados Personalizados', 'Suporte 24h VIP', 'Acesso Antecipado'],
-      button: 'Seja Insano',
-      color: 'bg-orange-500/5 border-orange-500',
-      icon: <Crown className="w-5 h-5 text-orange-500" />,
-      popular: false
-    }
-  ]
+  // plans variable removed
+
 
   return (
     <div className="min-h-screen relative overflow-hidden bg-background selection:bg-primary/30">
