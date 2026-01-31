@@ -28,7 +28,7 @@ export default function QuizPage() {
     const { user, visitorCount, incrementVisitorCount, dailyQuestionCount, incrementDailyCount, visitorId } = useAuth()
     const { add_response } = useQuiz()
     const { process_answer } = useSRS()
-    const { questions: allQuestions, loadQuestions, loading: questionsLoading } = useQuestions()
+    const { questions: allQuestions, loadQuestions, loading: questionsLoading, generateQuestions } = useQuestions()
     const { markAsAnswered, hasAnswered, getAnsweredCount, resetAnswered } = useAnsweredQuestions()
 
     const [currentIdx, setCurrentIdx] = useState(0)
@@ -44,6 +44,7 @@ export default function QuizPage() {
     const [aiExplanation, setAiExplanation] = useState<string | null>(null)
     const [isAiLoading, setIsAiLoading] = useState(false)
     const [isZoomOpen, setIsZoomOpen] = useState(false)
+    const [isGenerating, setIsGenerating] = useState(false)
 
     // Load questions from IndexedDB on mount
     useEffect(() => {
@@ -67,6 +68,30 @@ export default function QuizPage() {
         // Limitar à quantidade selecionada
         return filtered.slice(0, maxQuestions)
     }, [allQuestions, courseId, specialtyId, subspecialtyId, subjectId, maxQuestions])
+
+    // Auto-generate questions if none exist for the selected filter
+    useEffect(() => {
+        const generateIfNeeded = async () => {
+            if (!questionsLoading && allQuestions.length > 0 && filteredQuestions.length === 0 && (specialtyId || subjectId)) {
+                if (isGenerating) return
+
+                console.log("⚠️ No questions found for filter. Auto-generating...")
+                setIsGenerating(true)
+                try {
+                    await generateQuestions({
+                        specialty_id: specialtyId || 'geral',
+                        subspecialty_id: subspecialtyId,
+                        subject_id: subjectId,
+                        count: maxQuestions,
+                        difficulty: 'Médio'
+                    })
+                } finally {
+                    setIsGenerating(false)
+                }
+            }
+        }
+        generateIfNeeded()
+    }, [questionsLoading, allQuestions.length, filteredQuestions.length, specialtyId, subjectId])
 
     // Anti-repetition logic: show unanswered questions first, then cycle
     // Anti-repetition logic: show unanswered questions first, then cycle
