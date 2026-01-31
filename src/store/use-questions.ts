@@ -69,7 +69,15 @@ export const useQuestions = create<QuestionsState>()(
                         }
                     }
 
-                    set({ questions: allQuestions, loading: false })
+                    // Fallback to mock data if Supabase returns no questions (empty DB or no matches)
+                    // This ensures the app always has questions to show
+                    if (allQuestions.length === 0) {
+                        console.warn('⚠️ Supabase returned 0 questions. Falling back to Mock Data.')
+                        const { QUESTIONS } = await import('@/lib/data-mock')
+                        set({ questions: QUESTIONS, loading: false })
+                    } else {
+                        set({ questions: allQuestions, loading: false })
+                    }
                 } else {
                     // Load from local storage (already persisted)
                     const { questions } = get()

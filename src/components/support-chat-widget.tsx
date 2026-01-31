@@ -84,7 +84,7 @@ export function SupportChatWidget() {
                         animate={{ scale: 1, opacity: 1 }}
                         exit={{ scale: 0, opacity: 0 }}
                         onClick={() => setIsOpen(true)}
-                        className="fixed bottom-6 right-6 z-50 w-16 h-16 bg-primary text-white rounded-full shadow-2xl shadow-primary/30 flex items-center justify-center hover:scale-110 active:scale-95 transition-transform group"
+                        className="fixed bottom-28 md:bottom-6 right-6 z-50 w-16 h-16 bg-primary text-white rounded-full shadow-2xl shadow-primary/30 flex items-center justify-center hover:scale-110 active:scale-95 transition-transform group"
                     >
                         <span className="absolute inset-0 rounded-full bg-primary animate-ping opacity-20" />
                         <MessageCircle className="w-8 h-8 fill-current" />
@@ -102,7 +102,7 @@ export function SupportChatWidget() {
                         initial={{ opacity: 0, y: 100, scale: 0.9 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 100, scale: 0.9 }}
-                        className="fixed bottom-6 right-6 z-[60] w-[90vw] md:w-[400px] h-[600px] max-h-[80vh] bg-background border border-border rounded-[30px] shadow-2xl overflow-hidden flex flex-col"
+                        className="fixed bottom-28 md:bottom-6 right-6 z-[60] w-[90vw] md:w-[400px] h-[600px] max-h-[80vh] bg-background border border-border rounded-[30px] shadow-2xl overflow-hidden flex flex-col"
                     >
                         {/* HEADER */}
                         <div className="bg-primary p-6 text-white flex justify-between items-center relative overflow-hidden">
@@ -137,8 +137,8 @@ export function SupportChatWidget() {
                                 >
                                     <div
                                         className={`max-w-[80%] p-4 rounded-2xl text-sm font-medium ${msg.isUser
-                                                ? 'bg-primary text-white rounded-br-none'
-                                                : 'bg-card border border-border text-foreground rounded-bl-none shadow-sm'
+                                            ? 'bg-primary text-white rounded-br-none'
+                                            : 'bg-card border border-border text-foreground rounded-bl-none shadow-sm'
                                             }`}
                                     >
                                         {msg.text}
