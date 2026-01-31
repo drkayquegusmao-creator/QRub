@@ -86,11 +86,10 @@ export const useAuth = create<AuthState>()(
                         .single()
 
                     if (data && !error) {
-                        // FORCE UPGRADE TO INSANO FOR ALL USERS (Free Launch)
-                        if (data.plan_level !== 'INSANO') {
-                            await supabase.from('users').update({ plan_level: 'INSANO' }).eq('id', state.user.id)
-                            data.plan_level = 'INSANO'
-                        }
+                        // FORCE UPGRADE TO INSANO FOR ALL USERS
+                        await supabase.from('users').update({ plan_level: 'INSANO' }).eq('id', state.user.id)
+                        data.plan_level = 'INSANO'
+
                         set({ user: data })
                     }
                 } catch (err) {
@@ -110,7 +109,8 @@ export const useAuth = create<AuthState>()(
                         ...data,
                         profile_completed: true,
                         role: isMaster ? 'MASTER' : state.user.role,
-                        plan_level: isMaster ? 'INSANO' : state.user.plan_level
+                        plan_level: 'INSANO' // Todos os usuários começam como INSANO
+
                     }
                     set({ user: updatedUser as User })
 
@@ -120,7 +120,8 @@ export const useAuth = create<AuthState>()(
                             .update({
                                 ...data,
                                 profile_completed: true,
-                                ...(isMaster ? { role: 'MASTER', plan_level: 'INSANO' } : {})
+                                plan_level: 'INSANO', // Garantir que salva como INSANO
+                                ...(isMaster ? { role: 'MASTER' } : {})
                             })
                             .eq('id', state.user.id)
                     }

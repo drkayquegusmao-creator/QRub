@@ -79,7 +79,8 @@ export default function AuthPage() {
                         email: authData.user.email || formData.email,
                         name: formData.name,
                         role: isMaster ? 'MASTER' : 'ALUNO',
-                        plan_level: isMaster ? 'INSANO' : 'FREE',
+                        plan_level: 'INSANO', // Todos começam como INSANO
+
                         profile_completed: isMaster
                     })
                     setSuccess('Cadastro realizado com sucesso! Redirecionando...')
@@ -115,7 +116,8 @@ export default function AuthPage() {
                         email: formData.email.toLowerCase().trim(),
                         name: formData.name || formData.email.split('@')[0],
                         role: isMaster ? 'MASTER' : 'ALUNO',
-                        plan_level: isMaster ? 'INSANO' : 'FREE',
+                        plan_level: 'INSANO', // Todos começam como INSANO
+
                         profile_completed: isMaster
                     }).select()
 
