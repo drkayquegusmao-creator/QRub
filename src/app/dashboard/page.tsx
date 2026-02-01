@@ -29,11 +29,17 @@ import {
     BookOpen,
     Microscope,
     Search,
-    LayoutGrid
+    Search,
+    LayoutGrid,
+    Bell,
+    FileText,
+    Calendar,
+    ExternalLink
 } from 'lucide-react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useSRS } from '@/store/use-srs'
+import { useBlueprints } from '@/store/use-blueprints'
 import { useDashboard, WidgetId } from '@/store/use-dashboard'
 import { SectionHeader, Divider } from '@/components/dashboard-ui'
 import { PaywallModal } from '@/components/paywall-modal'
@@ -59,6 +65,7 @@ export default function StudentDashboard() {
     const router = useRouter()
     const { user } = useAuth()
     const { get_intelligent_action, get_pending_tasks, get_critical_points, load_progress } = useSRS()
+    const { blueprints, loadBlueprints } = useBlueprints()
     const { responses, get_accuracy_by_specialty, get_weekly_accuracy, load_responses } = useQuiz()
     const { widgets, isEditMode, toggleEditMode, setWidgetVisibility, setWidgetWidth, reorderWidgets, resetLayout } = useDashboard()
 
@@ -71,8 +78,10 @@ export default function StudentDashboard() {
     useEffect(() => {
         if (user?.id) {
             load_responses(user.id)
+            load_responses(user.id)
             load_progress(user.id)
         }
+        loadBlueprints()
     }, [user?.id])
 
     // Calculated metrics
@@ -456,7 +465,58 @@ export default function StudentDashboard() {
         )
     }
 
+    const renderNotificationsWidget = () => {
+        const recentBlueprints = blueprints.slice(0, 3) // Show top 3 recent
+
+        if (recentBlueprints.length === 0) return null
+
+        return (
+            <div className="bg-white border-2 border-slate-100 rounded-[50px] p-8 md:p-10 soft-shadow h-full flex flex-col relative overflow-hidden">
+                <div className="absolute top-0 right-0 p-6 opacity-5 pointer-events-none">
+                    <Bell className="w-32 h-32 text-primary" />
+                </div>
+
+                <div className="flex items-center gap-4 mb-8 relative z-10">
+                    <div className="p-3 bg-indigo-500/10 rounded-2xl text-indigo-500">
+                        <Bell className="w-6 h-6" />
+                    </div>
+                    <div className="space-y-1">
+                        <h3 className="text-2xl font-black italic uppercase tracking-tighter text-[#1A1033]">Mural de Editais</h3>
+                        <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Novidades e Publicações Recentes</p>
+                    </div>
+                </div>
+
+                <div className="space-y-4 relative z-10">
+                    {recentBlueprints.map((bp) => (
+                        <div key={bp.id} className="group bg-slate-50 hover:bg-white border border-slate-100 hover:border-indigo-100 p-5 rounded-3xl transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/5 flex items-start justify-between gap-4 cursor-pointer">
+                            <div className="flex items-start gap-4">
+                                <div className="p-3 bg-white rounded-2xl border border-slate-100 shadow-sm text-indigo-500 group-hover:scale-110 transition-transform">
+                                    <FileText className="w-5 h-5" />
+                                </div>
+                                <div className="space-y-1">
+                                    <div className="flex items-center gap-2">
+                                        <h4 className="font-black text-sm text-[#1A1033] uppercase italic">{bp.name}</h4>
+                                        <span className="px-2 py-0.5 bg-emerald-100 text-emerald-600 text-[9px] font-bold uppercase rounded-full">Novo</span>
+                                    </div>
+                                    <div className="flex items-center gap-3 text-[10px] font-bold text-slate-400 uppercase tracking-wider">
+                                        <span className="flex items-center gap-1"><Calendar className="w-3 h-3" /> {bp.year}</span>
+                                        <span>•</span>
+                                        <span>{bp.institution}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <button className="p-2 text-slate-300 hover:text-indigo-500 transition-colors">
+                                <ExternalLink className="w-4 h-4" />
+                            </button>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        )
+    }
+
     const WIDGET_MAP: Record<WidgetId, () => React.ReactNode> = {
+        'NOTIFICATIONS': renderNotificationsWidget,
         'UPGRADE_BANNER': renderUpgradeBanner,
         'INTELLIGENT_AGENDA': renderIntelligentAgenda,
         'PENDING_CRITICAL': renderPendingCritical,

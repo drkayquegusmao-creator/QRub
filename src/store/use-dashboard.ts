@@ -10,6 +10,7 @@ export type WidgetId =
     | 'EVOLUTION_STATS'
     | 'PERFORMANCE_BY_AREA'
     | 'FAST_PRACTICE'
+    | 'NOTIFICATIONS'
 
 export type WidgetSize = 'full' | 'half'
 
@@ -31,6 +32,7 @@ interface DashboardState {
 }
 
 const DEFAULT_WIDGETS: WidgetConfig[] = [
+    { id: 'NOTIFICATIONS', title: 'Editais & Avisos', visible: true, width: 'full' },
     { id: 'UPGRADE_BANNER', title: 'Banner de Upgrade', visible: true, width: 'full' },
     { id: 'INTELLIGENT_AGENDA', title: 'Agenda Inteligente', visible: true, width: 'half' },
     { id: 'FAST_PRACTICE', title: 'Treino por Área', visible: true, width: 'half' },
