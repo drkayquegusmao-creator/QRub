@@ -3,7 +3,7 @@
 import { useParams, useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { useBlueprints } from '@/store/use-blueprints'
-import { ArrowLeft, BookOpen, BrainCircuit, Calendar, CheckCircle2, ChevronRight, FileText, Play, Target, Zap } from 'lucide-react'
+import { ArrowLeft, BookOpen, BrainCircuit, Calendar, CheckCircle2, FileText, Play, Target, Zap } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { SectionHeader } from '@/components/dashboard-ui'
 
@@ -103,8 +103,8 @@ export default function EditalPage() {
                                     key={item.id}
                                     onClick={() => setFilter(item.id as any)}
                                     className={`w-full text-left px-5 py-4 rounded-2xl font-bold uppercase text-xs tracking-wider transition-all flex items-center justify-between ${filter === item.id
-                                            ? 'bg-[#1A1033] text-white shadow-lg'
-                                            : 'bg-slate-50 text-slate-400 hover:bg-slate-100'
+                                        ? 'bg-[#1A1033] text-white shadow-lg'
+                                        : 'bg-slate-50 text-slate-400 hover:bg-slate-100'
                                         }`}
                                 >
                                     {item.label}
@@ -137,8 +137,8 @@ export default function EditalPage() {
                                 <div className="flex items-start justify-between relative z-10">
                                     <div className="flex items-center gap-4">
                                         <div className={`w-12 h-12 rounded-2xl flex items-center justify-center text-white font-black text-lg shadow-lg ${box.cognitive_level === 'Avançado' ? 'bg-rose-500' :
-                                                box.cognitive_level === 'Intermediário' ? 'bg-amber-500' :
-                                                    'bg-emerald-500'
+                                            box.cognitive_level === 'Intermediário' ? 'bg-amber-500' :
+                                                'bg-emerald-500'
                                             }`}>
                                             {box.weight?.toFixed(0)}%
                                         </div>
