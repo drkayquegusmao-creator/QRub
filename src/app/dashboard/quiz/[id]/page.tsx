@@ -14,6 +14,7 @@ import { PaywallModal } from '@/components/paywall-modal'
 import { filterQuestions } from '@/lib/data-mock'
 import { ReportModal } from '@/components/report-modal'
 import { AlertTriangle } from 'lucide-react'
+import { QuizSummaryModal } from '@/components/quiz-summary-modal'
 
 
 export default function QuizPage() {
@@ -49,6 +50,7 @@ export default function QuizPage() {
     const [isZoomOpen, setIsZoomOpen] = useState(false)
     const [isGenerating, setIsGenerating] = useState(false)
     const [showReportModal, setShowReportModal] = useState(false)
+    const [showSummaryModal, setShowSummaryModal] = useState(false)
 
 
 
@@ -64,16 +66,6 @@ export default function QuizPage() {
     }, [courseId, specialtyId, subspecialtyId, subjectId])
 
 
-    // Timer for SIMULADO mode
-    useEffect(() => {
-        if (mode === 'SIMULADO') {
-            const timer = setInterval(() => {
-                setTimeLeft((prev) => (prev > 0 ? prev - 1 : 0))
-            }, 1000)
-            return () => clearInterval(timer)
-        }
-    }, [mode])
-
     // Filtrar questões baseado nos parâmetros selecionados
     const filteredQuestions = useMemo(() => {
         const filtered = filterQuestions(allQuestions, {
@@ -86,6 +78,56 @@ export default function QuizPage() {
         // Limitar à quantidade selecionada
         return filtered.slice(0, maxQuestions)
     }, [allQuestions, courseId, specialtyId, subspecialtyId, subjectId, maxQuestions])
+
+    // Anti-repetition logic: show unanswered questions first, then cycle
+    const availableQuestions = useMemo(() => {
+        const userId = user?.id || visitorId
+
+        const unanswered = filteredQuestions.filter(q => !hasAnswered(userId, q.id))
+
+        // If all questions answered, reset and start over
+        if (unanswered.length === 0 && filteredQuestions.length > 0) {
+            resetAnswered(userId)
+            return filteredQuestions
+        }
+
+        return unanswered.length > 0 ? unanswered : filteredQuestions
+    }, [filteredQuestions, user, visitorId, hasAnswered, resetAnswered])
+
+    const handleFinish = () => {
+        setShowSummaryModal(true)
+    }
+
+    const quizStats = useMemo(() => {
+        const answers = Object.values(answeredQuestions)
+        const total = availableQuestions.length
+        const correct = answers.filter(a => a.correct).length
+        const incorrect = answers.length - correct
+        const percentage = answers.length > 0 ? (correct / answers.length) * 100 : 0
+
+        return { total, correct, incorrect, percentage }
+    }, [answeredQuestions, availableQuestions.length])
+
+    // Timer for SIMULADO mode
+    useEffect(() => {
+        if (mode === 'SIMULADO' && availableQuestions.length > 0) {
+            // Set time based on question count (e.g., 90 seconds per question)
+            const totalSeconds = availableQuestions.length * 90
+            setTimeLeft(totalSeconds)
+
+            const timer = setInterval(() => {
+                setTimeLeft((prev) => {
+                    if (prev <= 1) {
+                        clearInterval(timer)
+                        handleFinish()
+                        return 0
+                    }
+                    return prev - 1
+                })
+            }, 1000)
+            return () => clearInterval(timer)
+        }
+    }, [mode, availableQuestions.length])
 
     // Auto-generate questions if none exist for the selected filter
     useEffect(() => {
@@ -110,22 +152,6 @@ export default function QuizPage() {
         }
         generateIfNeeded()
     }, [questionsLoading, allQuestions.length, filteredQuestions.length, specialtyId, subjectId])
-
-    // Anti-repetition logic: show unanswered questions first, then cycle
-    // Anti-repetition logic: show unanswered questions first, then cycle
-    const availableQuestions = useMemo(() => {
-        const userId = user?.id || visitorId
-
-        const unanswered = filteredQuestions.filter(q => !hasAnswered(userId, q.id))
-
-        // If all questions answered, reset and start over
-        if (unanswered.length === 0 && filteredQuestions.length > 0) {
-            resetAnswered(userId)
-            return filteredQuestions
-        }
-
-        return unanswered.length > 0 ? unanswered : filteredQuestions
-    }, [filteredQuestions, user, visitorId, hasAnswered, resetAnswered])
 
     const question = availableQuestions[currentIdx]
     const isInsano = user?.plan_level === 'INSANO'
@@ -467,7 +493,7 @@ export default function QuizPage() {
                 <motion.button
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    onClick={() => router.push('/dashboard/stats')}
+                    onClick={handleFinish}
                     className="bg-background/80 backdrop-blur-md border border-border text-muted-foreground hover:text-destructive hover:border-destructive/50 px-6 py-4 md:px-8 md:py-5 rounded-2xl font-black uppercase text-[10px] tracking-widest transition-all shadow-lg flex items-center gap-2"
                 >
                     <Flag className="w-4 h-4" /> <span className="hidden md:inline">Finalizar Simulado</span>
@@ -502,7 +528,7 @@ export default function QuizPage() {
                                     setStruckOutIds([]);
                                     setAiExplanation(null)
                                 } else {
-                                    router.push('/dashboard/stats')
+                                    handleFinish()
                                 }
                             }}
                             className="royal-gradient text-white px-8 py-4 md:px-10 md:py-5 rounded-2xl font-black uppercase text-xs tracking-widest hover:scale-[1.02] active:scale-95 transition-all shadow-xl shadow-primary/30 flex items-center gap-3"
@@ -523,6 +549,11 @@ export default function QuizPage() {
                 isOpen={showReportModal}
                 onClose={() => setShowReportModal(false)}
                 questionId={question.id}
+            />
+            <QuizSummaryModal
+                isOpen={showSummaryModal}
+                onClose={() => setShowSummaryModal(false)}
+                stats={quizStats}
             />
         </div>
     )
