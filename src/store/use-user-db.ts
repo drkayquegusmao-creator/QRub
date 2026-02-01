@@ -1,6 +1,7 @@
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 import { PlanLevel, UserRole } from '@/store/use-auth'
+import { supabase, isSupabaseConfigured } from '@/lib/supabase'
 
 export interface RegisteredUser {
     id: string
@@ -34,7 +35,6 @@ export const useUserDb = create<UserDbState>()(
 
             loadUsers: async () => {
                 try {
-                    const { supabase, isSupabaseConfigured } = require('@/lib/supabase')
                     if (!isSupabaseConfigured()) {
                         return
                     }
@@ -63,7 +63,6 @@ export const useUserDb = create<UserDbState>()(
             },
 
             addUser: async (user) => {
-                const { supabase, isSupabaseConfigured } = require('@/lib/supabase')
 
                 set((state) => {
                     if (state.users.some(u => u.id === user.id)) return state
@@ -96,7 +95,6 @@ export const useUserDb = create<UserDbState>()(
                     users: state.users.map(u => u.id === userId ? { ...u, plan_level: plan } : u)
                 }))
 
-                const { supabase, isSupabaseConfigured } = require('@/lib/supabase')
                 if (isSupabaseConfigured()) {
                     await supabase
                         .from('users')
@@ -110,7 +108,6 @@ export const useUserDb = create<UserDbState>()(
                     users: state.users.map(u => u.id === userId ? { ...u, ...data, profile_completed: true } : u)
                 }))
 
-                const { supabase, isSupabaseConfigured } = require('@/lib/supabase')
                 if (isSupabaseConfigured()) {
                     await supabase
                         .from('users')
@@ -137,7 +134,6 @@ export const useUserDb = create<UserDbState>()(
                     users: state.users.filter(u => !userIds.includes(u.id))
                 }))
 
-                const { supabase, isSupabaseConfigured } = require('@/lib/supabase')
                 if (isSupabaseConfigured()) {
                     await supabase
                         .from('users')
