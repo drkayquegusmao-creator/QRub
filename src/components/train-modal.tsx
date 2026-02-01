@@ -108,6 +108,12 @@ export function TrainModal({ isOpen, onClose, initialMode, initialSpecialtyId }:
 
     const renderMenu = () => {
         const specialties = COURSES?.[0]?.specialties || []
+        const query = searchQuery.toLowerCase()
+
+        const filteredSpecialties = specialties.filter(spec =>
+            spec.name.toLowerCase().includes(query) ||
+            (spec.category && spec.category.toLowerCase().includes(query))
+        )
 
         if (specialties.length === 0) {
             return (
@@ -119,34 +125,55 @@ export function TrainModal({ isOpen, onClose, initialMode, initialSpecialtyId }:
         }
 
         return (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 h-[500px] overflow-y-auto pr-2 custom-scrollbar">
-                {/* Header Section inside Modal Content if needed, but the external header handles title */}
+            <div className="flex flex-col gap-6">
+                {/* Search Bar */}
+                <div className="relative group">
+                    <Search className="absolute left-6 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 group-focus-within:text-primary transition-colors" />
+                    <input
+                        type="text"
+                        placeholder="Qual especialidade deseja treinar?"
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                        className="w-full pl-14 pr-6 py-5 rounded-[25px] border border-slate-100 bg-slate-50/50 focus:bg-white focus:border-primary/20 focus:shadow-xl focus:shadow-primary/5 focus:outline-none transition-all font-bold text-sm text-[#1A1033] placeholder:text-slate-400 placeholder:font-bold"
+                    />
+                </div>
 
-                {specialties.map((spec) => (
-                    <button
-                        key={spec.id}
-                        onClick={() => { setSelectedSpecialtyId(spec.id); setMode('CONFIG'); }}
-                        className="group w-full text-left p-5 rounded-[25px] border border-slate-100 bg-slate-50/50 hover:bg-white hover:border-primary/20 hover:shadow-xl hover:shadow-primary/5 transition-all flex items-center justify-between"
-                    >
-                        <div className="space-y-1">
-                            <h4 className="font-black italic uppercase text-xs tracking-tight text-[#1A1033] group-hover:text-primary transition-colors">{spec.name}</h4>
-                            <p className="text-[9px] font-bold text-slate-400 uppercase tracking-widest">{spec.category || 'Especialidades Básicas'}</p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-h-[400px] overflow-y-auto pr-2 custom-scrollbar">
+                    {filteredSpecialties.length > 0 ? (
+                        filteredSpecialties.map((spec) => (
+                            <button
+                                key={spec.id}
+                                onClick={() => { setSelectedSpecialtyId(spec.id); setMode('CONFIG'); }}
+                                className="group w-full text-left p-5 rounded-[25px] border border-slate-100 bg-slate-50/50 hover:bg-white hover:border-primary/20 hover:shadow-xl hover:shadow-primary/5 transition-all flex items-center justify-between"
+                            >
+                                <div className="space-y-1">
+                                    <h4 className="font-black italic uppercase text-xs tracking-tight text-[#1A1033] group-hover:text-primary transition-colors">{spec.name}</h4>
+                                    <p className="text-[9px] font-bold text-slate-400 uppercase tracking-widest">{spec.category || 'Especialidades Básicas'}</p>
+                                </div>
+                                <div className="w-10 h-10 rounded-full bg-white border border-slate-100 flex items-center justify-center text-slate-300 group-hover:bg-primary group-hover:text-white group-hover:border-primary transition-all shadow-sm">
+                                    <Play className="w-4 h-4 fill-current ml-0.5" />
+                                </div>
+                            </button>
+                        ))
+                    ) : (
+                        <div className="md:col-span-2 flex flex-col items-center justify-center py-10 text-slate-400">
+                            <Search className="w-8 h-8 mb-2 opacity-20" />
+                            <p className="text-xs font-bold uppercase tracking-widest">Nenhuma especialidade encontrada para "{searchQuery}"</p>
                         </div>
-                        <div className="w-10 h-10 rounded-full bg-white border border-slate-100 flex items-center justify-center text-slate-300 group-hover:bg-primary group-hover:text-white group-hover:border-primary transition-all shadow-sm">
-                            <Play className="w-4 h-4 fill-current ml-0.5" />
-                        </div>
-                    </button>
-                ))}
+                    )}
 
-                {/* Option to Train Everything/Random */}
-                <div className="md:col-span-2 pt-4">
-                    <button
-                        onClick={() => handleStart('scope=ALL')}
-                        className="w-full p-4 rounded-xl border border-dashed border-slate-300 hover:border-primary hover:bg-primary/5 text-slate-400 hover:text-primary transition-all flex items-center justify-center gap-2 font-black uppercase text-xs tracking-widest"
-                    >
-                        <LayoutGrid className="w-4 h-4" />
-                        Treinar Tudo (Aleatório)
-                    </button>
+                    {/* Option to Train Everything/Random - Only show if not searching or if relevant */}
+                    {searchQuery === '' && (
+                        <div className="md:col-span-2 pt-4">
+                            <button
+                                onClick={() => handleStart('scope=ALL')}
+                                className="w-full p-4 rounded-xl border border-dashed border-slate-300 hover:border-primary hover:bg-primary/5 text-slate-400 hover:text-primary transition-all flex items-center justify-center gap-2 font-black uppercase text-xs tracking-widest"
+                            >
+                                <LayoutGrid className="w-4 h-4" />
+                                Treinar Tudo (Aleatório)
+                            </button>
+                        </div>
+                    )}
                 </div>
             </div>
         )
