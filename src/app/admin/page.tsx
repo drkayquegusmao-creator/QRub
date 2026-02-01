@@ -60,6 +60,81 @@ export default function AdminDashboard() {
     const [userFilter, setUserFilter] = useState<'all' | 'insano' | 'premium' | 'incomplete'>('all')
     const [userSearch, setUserSearch] = useState('')
 
+    // AI Generator State
+    const [apiKey, setApiKey] = useState('')
+    const [isGenerating, setIsGenerating] = useState(false)
+    const [aiTopic, setAiTopic] = useState('')
+    const [aiCount, setAiCount] = useState(5)
+
+    useEffect(() => {
+        const storedKey = localStorage.getItem('openai_api_key')
+        if (storedKey) setApiKey(storedKey)
+    }, [])
+
+    const handleGenerateAiQuestions = async () => {
+        if (!apiKey) {
+            alert('Por favor, insira sua OpenAI API Key.')
+            return
+        }
+        if (!selectedSpecialty || !aiTopic) {
+            alert('Selecione uma especialidade e defina um tema.')
+            return
+        }
+
+        setIsGenerating(true)
+        setImportStatus({ type: 'success', msg: '🧠 O Dr. QRub está pensando... (Isso pode levar até 30s)' })
+
+        try {
+            const specName = activeCourse?.specialties.find(s => s.id === selectedSpecialty)?.name || 'Medicina Geral'
+
+            const response = await fetch('/api/generate', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    apiKey,
+                    topic: aiTopic,
+                    specialty: specName,
+                    count: aiCount
+                })
+            })
+
+            const data = await response.json()
+
+            if (!response.ok) {
+                throw new Error(data.error || 'Falha na geração')
+            }
+
+            // Converter formato da IA para formato do App
+            const convertedQuestions: Question[] = data.questions.map((q: any) => ({
+                id: `QRUB-AI-${Math.random().toString(36).substr(2, 6).toUpperCase()}`,
+                course_id: selectedCourse,
+                specialty_id: selectedSpecialty,
+                subspecialty_id: selectedSubspecialty || '', // pode estar vazio, ok
+                subject_id: selectedSubject || '',
+                difficulty: q.dificuldade || 'Médio',
+                enunciado: q.enunciado,
+                options: q.alternativas ? q.alternativas.map((alt: any) => ({
+                    id: alt.id.toLowerCase(),
+                    text: alt.texto
+                })) : [],
+                correct_option_id: q.resposta_correta?.toLowerCase(),
+                explanation: q.comentario || 'Sem comentário gerado.',
+                alternative_explanations: q.distratores_comentados || {},
+                ai_metadata: q.metadata
+            }))
+
+            setJsonInput(JSON.stringify(convertedQuestions, null, 2))
+            setImportStatus({ type: 'success', msg: `✅ ${convertedQuestions.length} questões geradas com sucesso! Valide e salve abaixo.` })
+
+        } catch (error: any) {
+            console.error(error)
+            setImportStatus({ type: 'error', msg: `❌ Erro: ${error.message}` })
+        } finally {
+            setIsGenerating(false)
+        }
+    }
+
+
     const filteredUsers = useMemo(() => {
         return realUsers.filter(u => {
             const matchesFilter =
@@ -595,6 +670,7 @@ export default function AdminDashboard() {
                 <div className="flex flex-wrap gap-2 p-1.5 bg-muted rounded-2xl w-fit">
                     <NavBtn active={view === 'analytics'} onClick={() => setView('analytics')} icon={<BarChart3 className="w-4 h-4" />} label="Dashboard" />
                     <NavBtn active={view === 'questions'} onClick={() => setView('questions')} icon={<Database className="w-4 h-4" />} label="Banco" />
+                    <NavBtn active={view === 'import'} onClick={() => setView('import')} icon={<Sparkles className="w-4 h-4 text-amber-400" />} label="Dr. QRub (IA)" />
                     <NavBtn active={view === 'reports'} onClick={() => setView('reports')} icon={<AlertCircle className="w-4 h-4" />} label="Regulagem" />
 
                     <NavBtn active={view === 'users'} onClick={() => setView('users')} icon={<Users className="w-4 h-4" />} label="Alunos" />
@@ -1187,6 +1263,128 @@ export default function AdminDashboard() {
                                     <p className="text-[9px] font-bold text-muted-foreground uppercase mt-4">Padrão de aprovação: 70%</p>
                                 </div>
                             </div>
+                        </div>
+                    </motion.div>
+                )}
+                {view === 'import' && (
+                    <motion.div key="import-view" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} className="max-w-5xl mx-auto space-y-8">
+                        <div className="bg-card border border-border rounded-[32px] p-8 shadow-xl">
+                            <div className="flex items-start justify-between mb-8">
+                                <div>
+                                    <h2 className="text-3xl font-black italic tracking-tighter flex items-center gap-3">
+                                        <div className="bg-amber-400/20 p-2 rounded-xl text-amber-500"><Sparkles className="w-8 h-8" /></div>
+                                        GERADOR PADRÃO-OURO
+                                    </h2>
+                                    <p className="text-muted-foreground font-medium mt-2 max-w-2xl">
+                                        Utilize a inteligência artificial para criar questões inéditas seguindo estritamente o modelo Revalida/ENARE.
+                                    </p>
+                                </div>
+                                <div className="flex flex-col items-end gap-2">
+                                    <input
+                                        type="password"
+                                        placeholder="OpenAI API Key (sk-...)"
+                                        value={apiKey}
+                                        onChange={(e) => {
+                                            setApiKey(e.target.value)
+                                            localStorage.setItem('openai_api_key', e.target.value)
+                                        }}
+                                        className="bg-muted border border-border rounded-lg px-3 py-1 text-xs font-mono w-64 focus:ring-2 focus:ring-primary/20 outline-none"
+                                    />
+                                    <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-widest">Sua chave é salva localmente</span>
+                                </div>
+                            </div>
+
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                                <div className="space-y-2">
+                                    <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Especialidade Alvo</label>
+                                    <select
+                                        value={selectedSpecialty}
+                                        onChange={(e) => setSelectedSpecialty(e.target.value)}
+                                        className="w-full bg-muted/50 border border-border rounded-xl p-3 font-bold text-sm"
+                                    >
+                                        <option value="">Selecione...</option>
+                                        {activeCourse?.specialties.map(s => <option key={s.id} value={s.id}>{s.name}</option>)}
+                                    </select>
+                                </div>
+                                <div className="space-y-2">
+                                    <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Tema Foco (Contexto)</label>
+                                    <input
+                                        type="text"
+                                        value={aiTopic}
+                                        onChange={(e) => setAiTopic(e.target.value)}
+                                        placeholder="Ex: Hipertensão na Gestação, Trauma Abdominal..."
+                                        className="w-full bg-muted/50 border border-border rounded-xl p-3 font-bold text-sm outline-none focus:border-primary transition-colors"
+                                    />
+                                </div>
+                                <div className="space-y-2">
+                                    <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Quantidade</label>
+                                    <select
+                                        value={aiCount}
+                                        onChange={(e) => setAiCount(Number(e.target.value))}
+                                        className="w-full bg-muted/50 border border-border rounded-xl p-3 font-bold text-sm"
+                                    >
+                                        <option value={1}>1 Questão (Teste)</option>
+                                        <option value={3}>3 Questões</option>
+                                        <option value={5}>5 Questões (Lote Padrão)</option>
+                                        <option value={10}>10 Questões (Pode demorar)</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div className="flex flex-col gap-4">
+                                <button
+                                    onClick={handleGenerateAiQuestions}
+                                    disabled={isGenerating || !apiKey || !aiTopic}
+                                    className="w-full py-4 rounded-xl font-black uppercase tracking-widest text-sm bg-gradient-to-r from-amber-400 to-orange-500 text-white shadow-lg hover:shadow-amber-500/20 active:scale-[0.99] transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                                >
+                                    {isGenerating ? <RefreshCw className="w-5 h-5 animate-spin" /> : <Sparkles className="w-5 h-5" />}
+                                    {isGenerating ? 'Gerando Conteúdo Padrão-Ouro...' : 'Gerar Questões Agora'}
+                                </button>
+
+                                <div className="h-px bg-border my-2" />
+
+                                <div className="space-y-2">
+                                    <div className="flex justify-between items-center">
+                                        <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">JSON Resultante (Editável)</label>
+                                        <div className="flex gap-2">
+                                            <button onClick={() => navigator.clipboard.writeText(jsonInput)} className="text-[10px] font-bold uppercase bg-muted px-3 py-1 rounded-lg hover:bg-muted/80">Copiar</button>
+                                            <button onClick={() => setJsonInput('')} className="text-[10px] font-bold uppercase bg-muted px-3 py-1 rounded-lg hover:bg-muted/80 text-destructive">Limpar</button>
+                                        </div>
+                                    </div>
+                                    <textarea
+                                        value={jsonInput}
+                                        onChange={(e) => setJsonInput(e.target.value)}
+                                        className="w-full h-64 bg-slate-950 text-slate-50 font-mono text-xs p-4 rounded-xl resize-y border border-slate-800"
+                                        placeholder="// O resultado aparecerá aqui..."
+                                    />
+                                </div>
+
+                                {importStatus && (
+                                    <div className={`p-4 rounded-xl border flex items-center gap-3 font-medium text-sm ${importStatus.type === 'success' ? 'bg-emerald-500/10 border-emerald-500/20 text-emerald-600' : 'bg-red-500/10 border-red-500/20 text-red-600'}`}>
+                                        {importStatus.type === 'success' ? <CheckCircle2 className="w-5 h-5" /> : <AlertCircle className="w-5 h-5" />}
+                                        {importStatus.msg}
+                                    </div>
+                                )}
+
+                                {jsonInput && (
+                                    <button
+                                        onClick={handleValidateJSON}
+                                        className="w-full py-4 rounded-xl font-black uppercase tracking-widest text-sm bg-primary text-white shadow-lg hover:bg-primary/90 active:scale-[0.99] transition-all flex items-center justify-center gap-2"
+                                    >
+                                        <Database className="w-5 h-5" />
+                                        Validar e Salvar no Banco
+                                    </button>
+                                )}
+                            </div>
+                        </div>
+
+                        {/* Dicas de Prompt */}
+                        <div className="bg-muted/30 border border-border rounded-2xl p-6">
+                            <h4 className="font-bold text-sm flex items-center gap-2 mb-2"><ShieldCheck className="w-4 h-4 text-emerald-500" /> Garantia de Qualidade</h4>
+                            <p className="text-xs text-muted-foreground leading-relaxed">
+                                Este gerador utiliza o <strong>Prompt Padrão-Ouro V1.0</strong>. Todas as questões passam por um filtro rigoroso de consistência estrutural.
+                                Certifique-se de revisar os casos clínicos gerados antes de salvar. O sistema bloqueará automaticamente questões com menos de 4 alternativas ou sem resposta correta definida.
+                            </p>
                         </div>
                     </motion.div>
                 )}
