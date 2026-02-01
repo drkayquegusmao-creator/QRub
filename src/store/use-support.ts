@@ -60,7 +60,7 @@ export const useSupport = create<SupportState>((set, get) => ({
         if (error) {
             console.error('Error fetching tickets:', error)
         } else if (data) {
-            set({ tickets: data as any })
+            set({ tickets: data as SupportTicket[] })
         }
         set({ loading: false })
     },

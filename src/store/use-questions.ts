@@ -1,7 +1,7 @@
 
 import { create } from 'zustand'
 import { supabase, isSupabaseConfigured } from '@/lib/supabase'
-import { Question, Guideline } from '@/lib/data-mock'
+import { Question, Guideline, Subspecialty, Subject } from '@/lib/data-mock'
 
 interface QuestionsState {
     questions: Question[]
@@ -31,7 +31,7 @@ interface QuestionsState {
 }
 
 export const useQuestions = create<QuestionsState>()(
-    (set, get) => ({
+    (set) => ({
         questions: [],
         guidelines: [],
         loading: false,
@@ -75,8 +75,8 @@ export const useQuestions = create<QuestionsState>()(
 
                     set({ questions: allQuestions, loading: false })
                 }
-            } catch (err: any) {
-                set({ error: err.message, loading: false })
+            } catch (err: unknown) {
+                set({ error: err instanceof Error ? err.message : String(err), loading: false })
             }
         },
 
@@ -110,8 +110,8 @@ export const useQuestions = create<QuestionsState>()(
                 }))
 
                 return { success: true, message: 'Questão salva com sucesso!' }
-            } catch (err: any) {
-                return { success: false, message: err.message || 'Erro ao salvar questão' }
+            } catch (err: unknown) {
+                return { success: false, message: err instanceof Error ? err.message : 'Erro ao salvar questão' }
             }
         },
 
@@ -131,8 +131,8 @@ export const useQuestions = create<QuestionsState>()(
                 }))
 
                 return { success: true, message: `${questions.length} questões importadas com sucesso!` }
-            } catch (err: any) {
-                return { success: false, message: err.message || 'Erro ao importar questões' }
+            } catch (err: unknown) {
+                return { success: false, message: err instanceof Error ? err.message : 'Erro ao importar questões' }
             }
         },
 
@@ -157,8 +157,8 @@ export const useQuestions = create<QuestionsState>()(
                 }))
 
                 return { success: true, message: 'Questão removida com sucesso!' }
-            } catch (err: any) {
-                return { success: false, message: err.message || 'Erro ao remover questão' }
+            } catch (err: unknown) {
+                return { success: false, message: err instanceof Error ? err.message : 'Erro ao remover questão' }
             }
         },
 
@@ -190,9 +190,9 @@ export const useQuestions = create<QuestionsState>()(
                 }))
 
                 return { success: true, message: `${ids.length} questões removidas com sucesso!` }
-            } catch (err: any) {
+            } catch (err: unknown) {
                 console.error('Core delete error:', err)
-                return { success: false, message: err.message || 'Erro ao remover questões' }
+                return { success: false, message: err instanceof Error ? err.message : 'Erro ao remover questões' }
             }
         },
 
@@ -206,10 +206,8 @@ export const useQuestions = create<QuestionsState>()(
                 const targetCourse = COURSES.find(c => c.id === 'medicina') || COURSES[0]
                 const spec = targetCourse.specialties.find(s => s.id === specialty_id) || targetCourse.specialties[0]
                 const sub = spec.subspecialties.find(ss => ss.id === subspecialty_id) || spec.subspecialties[0] || { id: 'geral', name: 'geral', subjects: [] }
-                const subName = sub.name || 'Geral'
-
-                const subjects = (sub as any).subjects || []
-                const subj = subjects.find((s: any) => s.id === subject_id) || subjects[0] || { id: 'geral', name: 'geral' }
+                const subjects = (sub as Subspecialty).subjects || []
+                const subj = subjects.find((s: Subject) => s.id === subject_id) || subjects[0] || { id: 'geral', name: 'geral' }
                 const subjName = subj.name || 'Geral'
 
                 for (let i = 0; i < count; i++) {
@@ -288,7 +286,7 @@ export const useQuestions = create<QuestionsState>()(
                         specialty_id: specialty_id,
                         subspecialty_id: subspecialty_id || 'geral',
                         subject_id: subject_id || 'geral',
-                        difficulty: (difficulty as any) || 'Médio',
+                        difficulty: (difficulty as 'Fácil' | 'Médio' | 'Difícil') || 'Médio',
                         enunciado: questionPrompt,
                         case_study: {
                             history: intro,
@@ -326,12 +324,12 @@ export const useQuestions = create<QuestionsState>()(
                     message: `${count} questões geradas com sucesso!`,
                     generated: count
                 }
-            } catch (err: any) {
+            } catch (err: unknown) {
                 console.error('Erro na geração:', err)
                 set({ loading: false })
                 return {
                     success: false,
-                    message: err.message || 'Erro ao gerar questões'
+                    message: err instanceof Error ? err.message : 'Erro ao gerar questões'
                 }
             }
         }

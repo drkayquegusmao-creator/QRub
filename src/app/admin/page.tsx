@@ -11,9 +11,10 @@ import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
 import { useQuestions as useQuestionsStore } from '@/store/use-questions'
 import { COURSES, QUESTIONS, Question } from '@/lib/data-mock'
-import { useAuth, PlanLevel } from '@/store/use-auth'
+import { useAuth, PlanLevel, UserRole } from '@/store/use-auth'
 import { useUserDb } from '@/store/use-user-db'
 import { useModeration } from '@/store/use-moderation'
+import { useQuiz } from '@/store/use-quiz'
 import { useRouter } from 'next/navigation'
 
 import { motion, AnimatePresence } from 'framer-motion'
@@ -31,9 +32,9 @@ export default function AdminDashboard() {
     const [selectedUserIds, setSelectedUserIds] = useState<string[]>([])
 
     const { reports, loadReports, updateReportStatus, loading: reportsLoading } = useModeration()
+    const { responses, load_all_responses: loadAllResponses } = useQuiz()
     // Sync view with URL param 'tab'
     const [view, setViewInternal] = useState<'questions' | 'users' | 'analytics' | 'import' | 'reports'>('analytics')
-
 
     const setView = (newView: string) => {
         setViewInternal(newView as any)
@@ -47,11 +48,10 @@ export default function AdminDashboard() {
         if (tab && ['questions', 'users', 'analytics', 'import', 'reports'].includes(tab)) {
             setViewInternal(tab as any)
         } else if (!tab && view === 'analytics') {
-
-            // Default if no tab
             setViewInternal('analytics')
         }
     }, [searchParams])
+
     const [searchTerm, setSearchTerm] = useState('')
     const [jsonInput, setJsonInput] = useState('')
     const [importStatus, setImportStatus] = useState<{ type: 'success' | 'error', msg: string } | null>(null)
@@ -94,9 +94,92 @@ export default function AdminDashboard() {
         setSelectedUserIds([])
     }, [userFilter, userSearch])
 
+    // Real Demographic Stats
+    const stats = useMemo(() => {
+        const total = realUsers.length
+        const premium = realUsers.filter(u => u.plan_level === 'PREMIUM' || u.plan_level === 'INSANO').length
+        const free = total - premium
+        const admins = realUsers.filter(u => u.role === 'MASTER').length
+
+        // Mocking inactive for now as we don't have last_login, but making it proportional
+        const inactive = realUsers.filter(u => {
+            const lastUpdate = u.created_at ? new Date(u.created_at) : new Date()
+            const daysSince = (new Date().getTime() - lastUpdate.getTime()) / (1000 * 3600 * 24)
+            return daysSince > 14
+        }).length
+
+        return {
+            total,
+            premium,
+            free,
+            admins,
+            inactive,
+            premiumPct: total > 0 ? Math.round((premium / total) * 100) : 0,
+            freePct: total > 0 ? Math.round((free / total) * 100) : 0
+        }
+    }, [realUsers])
+
+    // Global performance metrics from all user responses (requires global fetching)
+    const names = useMemo(() => {
+        const specs: Record<string, string> = {}
+        const subs: Record<string, string> = {}
+        COURSES.forEach(c => {
+            c.specialties.forEach(s => {
+                specs[s.id] = s.name
+                s.subspecialties.forEach(sub => {
+                    subs[sub.id] = sub.name
+                })
+            })
+        })
+        return { specs, subs }
+    }, [])
+
+    const globalPerformance = useMemo(() => {
+        if (responses.length === 0) return { accuracy: 0, bySpecialty: [], bySubject: [] }
+
+        const totalResp = responses.length
+        const accuracy = Math.round((responses.filter(r => r.is_correct).length / totalResp) * 100)
+
+        // Grouping
+        const specs: Record<string, { total: number, errors: number }> = {}
+        const subjects: Record<string, { total: number, errors: number }> = {}
+
+        responses.forEach(r => {
+            if (!specs[r.specialty_id]) specs[r.specialty_id] = { total: 0, errors: 0 }
+            specs[r.specialty_id].total++
+            if (!r.is_correct) specs[r.specialty_id].errors++
+
+            if (r.subject_id) {
+                if (!subjects[r.subject_id]) subjects[r.subject_id] = { total: 0, errors: 0 }
+                subjects[r.subject_id].total++
+                if (!r.is_correct) subjects[r.subject_id].errors++
+            }
+        })
+
+        const bySpecialty = Object.entries(specs)
+            .map(([id, s]) => ({
+                name: names.specs[id] || id,
+                errorRate: Math.round((s.errors / s.total) * 100)
+            }))
+            .sort((a, b) => b.errorRate - a.errorRate)
+            .slice(0, 3)
+
+        const bySubject = Object.entries(subjects)
+            .map(([id, s]) => ({
+                name: names.subs[id] || id,
+                errorRate: Math.round((s.errors / s.total) * 100)
+            }))
+            .sort((a, b) => b.errorRate - a.errorRate)
+            .slice(0, 3)
+
+        return { accuracy, bySpecialty, bySubject }
+    }, [responses, names])
+
+
     useEffect(() => {
         loadUsers()
-    }, [loadUsers])
+        loadAllResponses()
+    }, [loadUsers, loadAllResponses])
 
     // Pagination State
     const [currentPage, setCurrentPage] = useState(1)
@@ -1318,7 +1401,7 @@ export default function AdminDashboard() {
                                     <div className="bg-primary/10 border border-primary/20 rounded-2xl p-4 flex gap-3 items-center">
                                         <Zap className="w-5 h-5 text-primary shrink-0" />
                                         <p className="text-[10px] font-bold text-muted-foreground uppercase leading-relaxed">
-                                            Insight: <span className="text-primary">"60% dos usuários saem antes da 3ª questão"</span>
+                                            Insight: <span className="text-primary">&quot;60% dos usuários saem antes da 3ª questão&quot;</span>
                                         </p>
                                     </div>
                                 </div>
@@ -1406,15 +1489,15 @@ export default function AdminDashboard() {
                                 <div className="flex gap-4">
                                     <div className="text-right">
                                         <p className="text-[10px] font-black text-muted-foreground uppercase leading-none">Inativos {'>'} 14 dias</p>
-                                        <p className="text-xl font-black italic text-rose-500">12 usuários</p>
+                                        <p className="text-xl font-black italic text-rose-500">{stats.inactive} usuários</p>
                                     </div>
                                 </div>
                             </div>
                             <div className="grid grid-cols-1 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-border">
-                                <UserQuickStat label="Total Cadastrados" value="1,244" />
-                                <UserQuickStat label="Premium" value="312" sub="25%" />
-                                <UserQuickStat label="Free" value="920" sub="74%" />
-                                <UserQuickStat label="Admins" value="12" sub="Master/Ops" />
+                                <UserQuickStat label="Total Cadastrados" value={stats.total.toLocaleString('pt-BR')} />
+                                <UserQuickStat label="Premium" value={stats.premium.toLocaleString('pt-BR')} sub={`${stats.premiumPct}%`} />
+                                <UserQuickStat label="Free" value={stats.free.toLocaleString('pt-BR')} sub={`${stats.freePct}%`} />
+                                <UserQuickStat label="Admins" value={stats.admins.toString()} sub="Master/Ops" />
                             </div>
                         </section>
 
@@ -1424,19 +1507,23 @@ export default function AdminDashboard() {
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
                                 <div className="space-y-6">
                                     <p className="text-[10px] font-black uppercase text-muted-foreground tracking-widest">Áreas mais Erradas</p>
-                                    <ThemeBar label="Obstetrícia de Alto Risco" percent={42} color="bg-rose-500" />
-                                    <ThemeBar label="Medicina Preventiva" percent={38} color="bg-orange-500" />
-                                    <ThemeBar label="Estatística Médica" percent={35} color="bg-rose-400" />
+                                    {globalPerformance.bySpecialty.length > 0 ? globalPerformance.bySpecialty.map((s, i) => (
+                                        <ThemeBar key={s.name} label={s.name} percent={s.errorRate} color={i === 0 ? "bg-rose-500" : i === 1 ? "bg-orange-500" : "bg-rose-400"} />
+                                    )) : (
+                                        <p className="text-xs text-muted-foreground italic">Sem dados suficientes...</p>
+                                    )}
                                 </div>
                                 <div className="space-y-6">
                                     <p className="text-[10px] font-black uppercase text-muted-foreground tracking-widest">Temas Críticos (Global)</p>
-                                    <ThemeBar label="Pré-eclâmpsia" percent={68} color="bg-primary" />
-                                    <ThemeBar label="Cetoacidose Diabética" percent={54} color="bg-primary" />
-                                    <ThemeBar label="Trauma Abdominal" percent={51} color="bg-primary" />
+                                    {globalPerformance.bySubject.length > 0 ? globalPerformance.bySubject.map((s, i) => (
+                                        <ThemeBar key={s.name} label={s.name} percent={s.errorRate} color="bg-primary" />
+                                    )) : (
+                                        <p className="text-xs text-muted-foreground italic">Sem dados suficientes...</p>
+                                    )}
                                 </div>
                                 <div className="flex flex-col items-center justify-center p-8 bg-muted/20 rounded-[35px] border border-white/5">
                                     <p className="text-[10px] font-black uppercase text-muted-foreground mb-4">Média de Acertos Geral</p>
-                                    <h3 className="text-7xl font-black italic text-primary">64%</h3>
+                                    <h3 className="text-7xl font-black italic text-primary">{globalPerformance.accuracy}%</h3>
                                     <p className="text-[9px] font-bold text-muted-foreground uppercase mt-4">Padrão de aprovação: 70%</p>
                                 </div>
                             </div>
@@ -1448,7 +1535,7 @@ export default function AdminDashboard() {
     )
 }
 
-function NavBtn({ active, onClick, icon, label }: { active: boolean, onClick: () => void, icon: any, label: string }) {
+function NavBtn({ active, onClick, icon, label }: { active: boolean, onClick: () => void, icon: React.ReactNode, label: string }) {
     return (
         <button
             onClick={onClick}
@@ -1460,7 +1547,7 @@ function NavBtn({ active, onClick, icon, label }: { active: boolean, onClick: ()
     )
 }
 
-function StatCard({ label, value, sub, color, icon, alert, onClick, active }: { label: string, value: any, sub?: string, color: string, icon?: any, alert?: boolean, onClick?: () => void, active?: boolean }) {
+function StatCard({ label, value, sub, color, icon, alert, onClick, active }: { label: string, value: string | number, sub?: string, color: string, icon?: React.ReactNode, alert?: boolean, onClick?: () => void, active?: boolean }) {
     return (
         <div
             onClick={onClick}
@@ -1500,7 +1587,7 @@ function AlertItem({ type, msg, time }: { type: 'critical' | 'warning' | 'info',
     )
 }
 
-function OpButton({ icon, label, desc, primary }: { icon: any, label: string, desc: string, primary?: boolean }) {
+function OpButton({ icon, label, desc, primary }: { icon: React.ReactNode, label: string, desc: string, primary?: boolean }) {
     return (
         <button className={`p-4 rounded-[24px] border border-border flex flex-col gap-2 text-left transition-all hover:scale-[1.02] active:scale-95 group ${primary ? 'bg-primary text-white border-primary shadow-xl shadow-primary/20' : 'bg-muted/30 hover:bg-muted/50'}`}>
             <div className={`${primary ? 'text-white' : 'text-primary'} mb-1`}>{icon}</div>

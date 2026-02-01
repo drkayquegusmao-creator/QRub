@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from 'react'
-import { Plus, Save, X, ChevronRight, BookOpen, Database, Download, Upload, FileSpreadsheet, ShieldCheck } from 'lucide-react'
+import { Save, ChevronRight, BookOpen, Database, Download, Upload, FileSpreadsheet, ShieldCheck } from 'lucide-react'
 import { COURSES, Course, Specialty, Subspecialty, QuestionMetadata } from '@/lib/data-mock'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useQuestions } from '@/store/use-questions'
@@ -39,7 +39,7 @@ export default function DatabaseContent() {
     useEffect(() => {
         loadQuestions()
         loadGuidelines()
-    }, [])
+    }, [loadQuestions, loadGuidelines])
 
     const handleExportXLS = async () => {
         const XLSX = await import('xlsx')
@@ -123,8 +123,7 @@ export default function DatabaseContent() {
                 }))
 
                 if (parsedQuestions.length > 0) {
-                    // @ts-ignore
-                    await addQuestions(parsedQuestions)
+                    await addQuestions(parsedQuestions as any)
                     alert(`${parsedQuestions.length} questões importadas via XLS com sucesso!`)
                     loadQuestions()
                 } else {
@@ -157,8 +156,7 @@ export default function DatabaseContent() {
                     try {
                         const parsedQuestions = JSON.parse(e.target.result as string)
                         if (Array.isArray(parsedQuestions)) {
-                            // @ts-ignore
-                            await addQuestions(parsedQuestions)
+                            await addQuestions(parsedQuestions as any)
                             alert(`${parsedQuestions.length} questões importadas com sucesso!`)
                             loadQuestions()
                         } else {
@@ -390,7 +388,7 @@ export default function DatabaseContent() {
                             {['Fácil', 'Médio', 'Difícil'].map((d) => (
                                 <button
                                     key={d}
-                                    onClick={() => setDifficulty(d as any)}
+                                    onClick={() => setDifficulty(d as 'Fácil' | 'Médio' | 'Difícil')}
                                     className={`px-3 py-1 rounded-full text-[10px] font-black uppercase transition-all ${difficulty === d ? 'bg-primary text-white' : 'bg-muted text-muted-foreground'}`}
                                 >
                                     {d}
@@ -469,7 +467,7 @@ export default function DatabaseContent() {
     )
 }
 
-function FilterSelect({ label, options, onSelect }: { label: string, options: any[], onSelect: (id: string) => void }) {
+function FilterSelect({ label, options, onSelect }: { label: string, options: { id: string, name: string }[], onSelect: (id: string) => void }) {
     return (
         <div className="space-y-2">
             <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground ml-1">{label}</label>

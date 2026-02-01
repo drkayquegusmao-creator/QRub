@@ -10,7 +10,7 @@ interface ModerationState {
     updateReportStatus: (id: string, status: QuestionReport['status']) => Promise<{ success: boolean, message: string }>
 }
 
-export const useModeration = create<ModerationState>((set, get) => ({
+export const useModeration = create<ModerationState>((set) => ({
     reports: [],
     loading: false,
 
@@ -25,7 +25,7 @@ export const useModeration = create<ModerationState>((set, get) => ({
 
             if (error) throw error
             set({ reports: data || [], loading: false })
-        } catch (err: any) {
+        } catch (err: unknown) {
             console.error('Error loading reports:', err)
             set({ loading: false })
         }
@@ -47,8 +47,8 @@ export const useModeration = create<ModerationState>((set, get) => ({
                     .eq('id', reportData.question_id)
             }
             return { success: true, message: 'Reporte enviado com sucesso! Nossa equipe reguladora irá analisar.' }
-        } catch (err: any) {
-            return { success: false, message: err.message || 'Erro ao enviar reporte' }
+        } catch (err: unknown) {
+            return { success: false, message: err instanceof Error ? err.message : 'Erro ao enviar reporte' }
         }
     },
 
@@ -69,8 +69,8 @@ export const useModeration = create<ModerationState>((set, get) => ({
                 }))
             }
             return { success: true, message: 'Status atualizado!' }
-        } catch (err: any) {
-            return { success: false, message: err.message }
+        } catch (err: unknown) {
+            return { success: false, message: err instanceof Error ? err.message : String(err) }
         }
     }
 }))

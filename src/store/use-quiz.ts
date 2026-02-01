@@ -23,6 +23,7 @@ interface QuizState {
     get_probability_of_passing: () => number
     get_daily_mission: () => string[]
     load_responses: (userId?: string) => Promise<void>
+    load_all_responses: () => Promise<void>
 }
 
 export const useQuiz = create<QuizState>()(
@@ -142,6 +143,27 @@ export const useQuiz = create<QuizState>()(
                     }
                 } catch (err: any) {
                     console.warn('Error loading responses (using local data):', err.message || 'Unknown error')
+                }
+            },
+
+            load_all_responses: async () => {
+                if (!isSupabaseConfigured()) return
+
+                try {
+                    const { data, error } = await supabase
+                        .from('user_responses')
+                        .select('*')
+                        .order('timestamp', { ascending: false })
+                        .limit(5000)
+
+                    if (error) throw error
+
+                    if (data) {
+                        set({ responses: data })
+                        console.log(`Loaded ${data.length} global responses from Supabase`)
+                    }
+                } catch (err: any) {
+                    console.error('Error loading all responses:', err.message)
                 }
             },
 

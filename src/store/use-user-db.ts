@@ -29,7 +29,7 @@ interface UserDbState {
 
 export const useUserDb = create<UserDbState>()(
     persist(
-        (set, get) => ({
+        (set) => ({
             users: [],
             loading: false,
 
