@@ -165,17 +165,24 @@ export const useQuestions = create<QuestionsState>()(
         deleteQuestions: async (ids: string[]) => {
             try {
                 if (!isSupabaseConfigured()) throw new Error('Supabase not configured')
+                if (ids.length === 0) return { success: true, message: 'Nenhuma questão para remover.' }
 
-                const { error } = await supabase
-                    .from('questions')
-                    .delete()
-                    .in('id', ids)
+                // Batch into chunks of 50 to avoid URL length limits in the Supabase API
+                const CHUNK_SIZE = 50
+                for (let i = 0; i < ids.length; i += CHUNK_SIZE) {
+                    const chunk = ids.slice(i, i + CHUNK_SIZE)
+                    const { error } = await supabase
+                        .from('questions')
+                        .delete()
+                        .in('id', chunk)
 
-                if (error) {
-                    if (error.code === '23503') {
-                        throw new Error('Algumas questões possuem respostas de usuários e não puderam ser excluídas.')
+                    if (error) {
+                        console.error(`Error deleting chunk ${i / CHUNK_SIZE}:`, error)
+                        if (error.code === '23503') {
+                            throw new Error('Algumas questões possuem vínculos e não puderam ser excluídas.')
+                        }
+                        throw error
                     }
-                    throw error
                 }
 
                 set((state) => ({
@@ -184,6 +191,7 @@ export const useQuestions = create<QuestionsState>()(
 
                 return { success: true, message: `${ids.length} questões removidas com sucesso!` }
             } catch (err: any) {
+                console.error('Core delete error:', err)
                 return { success: false, message: err.message || 'Erro ao remover questões' }
             }
         },
