@@ -488,7 +488,7 @@ export default function StudentDashboard() {
 
                 <div className="space-y-4 relative z-10">
                     {recentBlueprints.map((bp) => (
-                        <div key={bp.id} className="group bg-slate-50 hover:bg-white border border-slate-100 hover:border-indigo-100 p-5 rounded-3xl transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/5 flex items-start justify-between gap-4 cursor-pointer">
+                        <div key={bp.id} onClick={() => router.push(`/dashboard/edital/${bp.id}`)} className="group bg-slate-50 hover:bg-white border border-slate-100 hover:border-indigo-100 p-5 rounded-3xl transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/5 flex items-start justify-between gap-4 cursor-pointer">
                             <div className="flex items-start gap-4">
                                 <div className="p-3 bg-white rounded-2xl border border-slate-100 shadow-sm text-indigo-500 group-hover:scale-110 transition-transform">
                                     <FileText className="w-5 h-5" />
