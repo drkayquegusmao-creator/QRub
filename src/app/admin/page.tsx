@@ -77,59 +77,91 @@ export default function AdminDashboard() {
             alert('Por favor, insira sua OpenAI API Key.')
             return
         }
-        if (!selectedSpecialty || !aiTopic) {
-            alert('Selecione uma especialidade e defina um tema.')
+        if (!selectedSpecialty) {
+            alert('Selecione uma especialidade alvo.')
             return
         }
 
+        if (aiCount > 20) {
+            if (!confirm(`⚠️ GERAÇÃO EM MASSA: Você solicitou ${aiCount} questões.\nIsso será feito em vários lotes pequenos para garantir qualidade.\nIsso consumirá bastante da sua cota da OpenAI.\n\nDeseja continuar?`)) {
+                return
+            }
+        }
+
         setIsGenerating(true)
-        setImportStatus({ type: 'success', msg: '🧠 O Dr. QRub está pensando... (Isso pode levar até 30s)' })
+        setJsonInput('') // Limpa anterior
+
+        const BATCH_SIZE = 5 // Limite seguro para garantir JSON completo e válido da OpenAI
+        const totalBatches = Math.ceil(aiCount / BATCH_SIZE)
+        let totalGenerated: Question[] = []
 
         try {
             const specName = activeCourse?.specialties.find(s => s.id === selectedSpecialty)?.name || 'Medicina Geral'
+            const topicToSend = aiTopic || 'DIVERSOS (TEMAS VARIADOS)'
 
-            const response = await fetch('/api/generate', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    apiKey,
-                    topic: aiTopic,
-                    specialty: specName,
-                    count: aiCount
+            for (let i = 0; i < totalBatches; i++) {
+                const currentBatchNumber = i + 1
+                const remaining = aiCount - (i * BATCH_SIZE)
+                const currentCount = Math.min(BATCH_SIZE, remaining)
+
+                setImportStatus({
+                    type: 'success',
+                    msg: `🧠 Processando lote ${currentBatchNumber}/${totalBatches}... (${totalGenerated.length} prontas)`
                 })
-            })
 
-            const data = await response.json()
+                // Scroll to status if possible
 
-            if (!response.ok) {
-                throw new Error(data.error || 'Falha na geração')
+                const response = await fetch('/api/generate', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        apiKey,
+                        topic: topicToSend,
+                        specialty: specName,
+                        count: currentCount
+                    })
+                })
+
+                const data = await response.json()
+
+                if (!response.ok) {
+                    console.error(`Lote ${currentBatchNumber} falhou:`, data.error)
+                    // Não para tudo, tenta continuar ou avisa
+                    // throw new Error(data.error || 'Falha na geração')
+                    setImportStatus({ type: 'error', msg: `⚠️ Lote ${currentBatchNumber} falhou ou timed out. Continuando...` })
+                    continue;
+                }
+
+                if (data.questions && Array.isArray(data.questions)) {
+                    const convertedBatch: Question[] = data.questions.map((q: any) => ({
+                        id: `QRUB-AI-${Math.random().toString(36).substr(2, 6).toUpperCase()}`,
+                        course_id: selectedCourse,
+                        specialty_id: selectedSpecialty,
+                        subspecialty_id: selectedSubspecialty || '',
+                        subject_id: selectedSubject || '',
+                        difficulty: q.dificuldade || 'Médio',
+                        enunciado: q.enunciado,
+                        options: q.alternativas ? q.alternativas.map((alt: any) => ({
+                            id: alt.id.toLowerCase(),
+                            text: alt.texto
+                        })) : [],
+                        correct_option_id: q.resposta_correta?.toLowerCase(),
+                        explanation: q.comentario || 'Sem comentário gerado.',
+                        alternative_explanations: q.distratores_comentados || {},
+                        ai_metadata: q.metadata
+                    }))
+
+                    totalGenerated = [...totalGenerated, ...convertedBatch]
+                    // Atualiza o JSON visualmente a cada lote
+                    setJsonInput(JSON.stringify(totalGenerated, null, 2))
+                }
             }
 
-            // Converter formato da IA para formato do App
-            const convertedQuestions: Question[] = data.questions.map((q: any) => ({
-                id: `QRUB-AI-${Math.random().toString(36).substr(2, 6).toUpperCase()}`,
-                course_id: selectedCourse,
-                specialty_id: selectedSpecialty,
-                subspecialty_id: selectedSubspecialty || '', // pode estar vazio, ok
-                subject_id: selectedSubject || '',
-                difficulty: q.dificuldade || 'Médio',
-                enunciado: q.enunciado,
-                options: q.alternativas ? q.alternativas.map((alt: any) => ({
-                    id: alt.id.toLowerCase(),
-                    text: alt.texto
-                })) : [],
-                correct_option_id: q.resposta_correta?.toLowerCase(),
-                explanation: q.comentario || 'Sem comentário gerado.',
-                alternative_explanations: q.distratores_comentados || {},
-                ai_metadata: q.metadata
-            }))
-
-            setJsonInput(JSON.stringify(convertedQuestions, null, 2))
-            setImportStatus({ type: 'success', msg: `✅ ${convertedQuestions.length} questões geradas com sucesso! Valide e salve abaixo.` })
+            setImportStatus({ type: 'success', msg: `✅ DEU CERTO! ${totalGenerated.length} questões geradas. Valide e salve abaixo.` })
 
         } catch (error: any) {
             console.error(error)
-            setImportStatus({ type: 'error', msg: `❌ Erro: ${error.message}` })
+            setImportStatus({ type: 'error', msg: `❌ Erro crítico: ${error.message}` })
         } finally {
             setIsGenerating(false)
         }
@@ -1313,7 +1345,7 @@ export default function AdminDashboard() {
                                         type="text"
                                         value={aiTopic}
                                         onChange={(e) => setAiTopic(e.target.value)}
-                                        placeholder="Ex: Hipertensão na Gestação, Trauma Abdominal..."
+                                        placeholder="Deixe vazio para DIVERSOS TEMAS ou digite um assunto..."
                                         className="w-full bg-muted/50 border border-border rounded-xl p-3 font-bold text-sm outline-none focus:border-primary transition-colors"
                                     />
                                 </div>
@@ -1325,9 +1357,11 @@ export default function AdminDashboard() {
                                         className="w-full bg-muted/50 border border-border rounded-xl p-3 font-bold text-sm"
                                     >
                                         <option value={1}>1 Questão (Teste)</option>
-                                        <option value={3}>3 Questões</option>
-                                        <option value={5}>5 Questões (Lote Padrão)</option>
-                                        <option value={10}>10 Questões (Pode demorar)</option>
+                                        <option value={5}>5 Questões (Rápido)</option>
+                                        <option value={10}>10 Questões</option>
+                                        <option value={50}>50 Questões (Lote Médio)</option>
+                                        <option value={100}>100 Questões (Lote Grande)</option>
+                                        <option value={500}>500 Questões (ULTRA MASSIVE 🔥)</option>
                                     </select>
                                 </div>
                             </div>

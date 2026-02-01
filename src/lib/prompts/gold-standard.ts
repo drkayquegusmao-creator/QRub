@@ -67,11 +67,17 @@ Cada objeto deve seguir este esquema:
 `;
 
 export function buildPrompt(topic: string, specialty: string, count: number = 1): string {
-    return `
+  const isDiverse = topic.toUpperCase().includes('DIVERSO') || topic.trim() === '';
+
+  const topicInstruction = isDiverse
+    ? `TEMA: GERE QUESTÕES DE TEMAS VARIADOS E DIFERENTES DENTRO DE ${specialty}. NÃO REPITA O MESMO ASSUNTO.`
+    : `TEMA FOCO: ${topic}`;
+
+  return `
     GERE ${count} QUESTÃO(ÕES) INÉDITA(S) NO PADRÃO-OURO REVALIDA.
 
     ESPECIALIDADE: ${specialty}
-    TEMA FOCO: ${topic}
+    ${topicInstruction}
     DIFICULDADE: Moderada/Alta
 
     Certifique-se de que cada questão seja ÚNICA. Use casos clínicos diferentes.
