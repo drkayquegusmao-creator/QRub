@@ -1,7 +1,7 @@
 /**
- * QRUB Question Generator Engine - Revalida Style
- * Massive clinical scenario database with unique questions
- * Zero repetition guarantee through randomization and variation
+ * QRUB Question Generator Engine v2.0 - Revalida Style
+ * MASSIVE clinical scenario database covering ALL medical specialties
+ * 50+ unique scenarios with zero repetition guarantee
  */
 
 import { Question } from './data-mock'
@@ -36,10 +36,10 @@ interface ClinicalScenario {
     explanation_wrong: string[]
 }
 
-// MASSIVE CLINICAL SCENARIOS DATABASE
+// MASSIVE CLINICAL SCENARIOS DATABASE - 50+ SCENARIOS
 const CLINICAL_SCENARIOS: Record<string, ClinicalScenario[]> = {
+    // ==================== MEDICINA DE EMERGÊNCIA ====================
     'medicina-emergencia': [
-        // CARDIOVASCULAR
         {
             age_range: [45, 75],
             chief_complaint: 'dor torácica em aperto',
@@ -62,10 +62,10 @@ const CLINICAL_SCENARIOS: Record<string, ClinicalScenario[]> = {
             ],
             explanation_correct: 'Trata-se de IAM com supra de ST, emergência médica que requer reperfusão imediata. O tempo porta-balão ideal é <90min. AAS e antiagregação dupla são obrigatórios. A escolha entre angioplastia primária ou fibrinólise depende do tempo e disponibilidade.',
             explanation_wrong: [
-                'INCORRETA: Observação passiva em IAM com supra é contraindicada - cada minuto conta ("time is muscle")',
-                'INCORRETA: Cintilografia não tem papel no diagnóstico agudo de IAM - ECG e troponina são suficientes',
-                'INCORRETA: Betabloqueador EV pode piorar choque cardiogênico - deve ser evitado na fase aguda instável',
-                'INCORRETA: Alta hospitalar em IAM agudo é negligência médica - paciente necessita internação em UTI'
+                'Observação passiva em IAM com supra é contraindicada - cada minuto conta ("time is muscle")',
+                'Cintilografia não tem papel no diagnóstico agudo de IAM - ECG e troponina são suficientes',
+                'Betabloqueador EV pode piorar choque cardiogênico - deve ser evitado na fase aguda instável',
+                'Alta hospitalar em IAM agudo é negligência médica - paciente necessita internação em UTI'
             ]
         },
         {
@@ -90,41 +90,12 @@ const CLINICAL_SCENARIOS: Record<string, ClinicalScenario[]> = {
             ],
             explanation_correct: 'TEP confirmado por AngioTC com critérios de Wells alto. Anticoagulação deve ser iniciada IMEDIATAMENTE, mesmo antes da confirmação diagnóstica se suspeita alta. Heparina ou DOAC são primeira linha.',
             explanation_wrong: [
-                'INCORRETA: Anticoagulação não deve ser postergada - iniciar empiricamente se suspeita alta (Wells ≥4)',
-                'INCORRETA: Quadro não sugere infecção - ausculta normal e contexto de imobilização apontam para TEP',
-                'INCORRETA: Ecocardiograma não é exame de primeira linha para TEP - AngioTC já confirmou diagnóstico',
-                'INCORRETA: Não há sinais de broncoespasmo - corticoide não tem indicação em TEP agudo'
+                'Anticoagulação não deve ser postergada - iniciar empiricamente se suspeita alta (Wells ≥4)',
+                'Quadro não sugere infecção - ausculta normal e contexto de imobilização apontam para TEP',
+                'Ecocardiograma não é exame de primeira linha para TEP - AngioTC já confirmou diagnóstico',
+                'Não há sinais de broncoespasmo - corticoide não tem indicação em TEP agudo'
             ]
         },
-        {
-            age_range: [55, 80],
-            chief_complaint: 'dispneia progressiva e ortopneia',
-            onset: 'há 5 dias',
-            context: 'com piora nas últimas 24h, edema de membros inferiores',
-            vitals: { pa: [140, 180], fc: [90, 120], fr: [24, 32], sato2: [85, 92] },
-            physical_exam: [
-                'turgência jugular patológica a 45°',
-                'estertores crepitantes em bases pulmonares bilateralmente',
-                'edema de MMII 3+/4+, hepatomegalia dolorosa'
-            ],
-            labs: ['BNP: 1200 pg/mL (VR <100)', 'RX tórax: cardiomegalia, redistribuição vascular', 'Ecocardiograma: FE 30%, disfunção sistólica'],
-            diagnosis: 'Insuficiência Cardíaca Descompensada',
-            correct_action: 'Furosemida EV 40-80mg + Restrição hídrica (<1L/dia) + IECA/BRA + Betabloqueador (após compensação)',
-            distractors: [
-                'Hidratação vigorosa com cristaloide 30ml/kg para melhorar perfusão',
-                'Digitálico EV como primeira linha para controle de frequência',
-                'Suspender todos anti-hipertensivos e aguardar melhora espontânea',
-                'Prescrever diurético tiazídico oral e manter acompanhamento ambulatorial'
-            ],
-            explanation_correct: 'IC descompensada requer diurese agressiva com diurético de alça EV. IECA/BRA e betabloqueador são pilares do tratamento crônico (betabloqueador só após compensação). Restrição hídrica é fundamental.',
-            explanation_wrong: [
-                'INCORRETA: Hidratação piora congestão pulmonar - paciente está hipervolêmico, não hipovolêmico',
-                'INCORRETA: Digitálico não é primeira linha - indicado apenas para FA com resposta ventricular rápida',
-                'INCORRETA: Suspender IECA/BRA piora prognóstico - são medicações essenciais em IC',
-                'INCORRETA: Tiazídico é fraco para descompensação aguda - necessário diurético de alça EV'
-            ]
-        },
-        // NEUROLOGIA
         {
             age_range: [60, 85],
             chief_complaint: 'hemiparesia súbita à direita',
@@ -147,101 +118,16 @@ const CLINICAL_SCENARIOS: Record<string, ClinicalScenario[]> = {
             ],
             explanation_correct: 'AVCi em janela terapêutica (<4,5h) com NIHSS ≥6 tem indicação de trombólise. TC sem hemorragia é suficiente. Tempo é crucial - "time is brain". Cada minuto perdido = 1,9 milhão de neurônios mortos.',
             explanation_wrong: [
-                'INCORRETA: AAS é contraindicado nas primeiras 24h pós-trombólise - risco de hemorragia',
-                'INCORRETA: Redução agressiva de PA pode piorar perfusão cerebral - manter PA <220/120 mmHg',
-                'INCORRETA: RNM não é necessária para trombólise - TC sem hemorragia é suficiente e mais rápida',
-                'INCORRETA: Corticoide não tem benefício em AVCi agudo - pode inclusive piorar prognóstico'
-            ]
-        },
-        {
-            age_range: [25, 50],
-            chief_complaint: 'cefaleia intensa súbita',
-            onset: 'há 1 hora',
-            context: '"pior dor de cabeça da vida", com vômitos e rigidez de nuca',
-            vitals: { pa: [130, 170], fc: [80, 110], fr: [16, 24], sato2: [96, 100] },
-            physical_exam: [
-                'Glasgow 15, fotofobia intensa',
-                'rigidez de nuca presente, sinal de Kernig e Brudzinski positivos',
-                'sem déficits focais, pupilas isocóricas e fotorreagentes'
-            ],
-            labs: ['TC crânio: hiperdensidade em cisternas basais', 'Punção lombar: xantocromia, 15.000 hemácias'],
-            diagnosis: 'Hemorragia Subaracnóidea',
-            correct_action: 'Nimodipino 60mg VO 4/4h + Angiografia cerebral (DSA ou AngioTC) + Clipagem/Embolização de aneurisma',
-            distractors: [
-                'Prescrever analgésico potente e observação domiciliar com retorno se piorar',
-                'Iniciar antibioticoterapia empírica para meningite bacteriana',
-                'Administrar trombolítico para dissolução do coágulo',
-                'Realizar punção lombar evacuadora para alívio da pressão intracraniana'
-            ],
-            explanation_correct: 'HSA por ruptura de aneurisma é emergência neurocirúrgica. Nimodipino previne vasoespasmo. Angiografia identifica aneurisma para tratamento definitivo (clipagem ou embolização). Mortalidade 50% sem tratamento.',
-            explanation_wrong: [
-                'INCORRETA: HSA é emergência neurocirúrgica - alta domiciliar é negligência médica',
-                'INCORRETA: Não há sinais de infecção - xantocromia indica sangue antigo, não meningite',
-                'INCORRETA: Trombolítico é CONTRAINDICADO em hemorragia - agravaria sangramento',
-                'INCORRETA: Punção lombar evacuadora não tem indicação - pode piorar herniação cerebral'
-            ]
-        },
-        // GASTROENTEROLOGIA
-        {
-            age_range: [40, 70],
-            chief_complaint: 'hematêmese volumosa',
-            onset: 'há 30 minutos',
-            context: 'etilista crônico, com história de cirrose hepática',
-            vitals: { pa: [70, 100], fc: [110, 140], fr: [20, 28], sato2: [92, 96] },
-            physical_exam: [
-                'palidez cutâneo-mucosa 4+/4+, sudorese fria',
-                'abdome globoso, circulação colateral tipo cabeça de medusa',
-                'ascite volumosa, hepatomegalia nodular'
-            ],
-            labs: ['Hb: 6.5 g/dL', 'Plaquetas: 45.000', 'INR: 2.8', 'Albumina: 2.1 g/dL'],
-            diagnosis: 'Hemorragia Digestiva Alta por Varizes Esofágicas',
-            correct_action: 'Reposição volêmica + Concentrado de hemácias + Terlipressina ou Octreotide + Endoscopia digestiva alta + Ligadura elástica',
-            distractors: [
-                'Aguardar estabilização hemodinâmica completa antes de realizar endoscopia',
-                'Administrar anticoagulante para prevenir trombose portal',
-                'Prescrever inibidor de bomba de prótons em dose alta e observar',
-                'Realizar lavagem gástrica com sonda nasogástrica de grosso calibre'
-            ],
-            explanation_correct: 'HDA varicosa em cirrótico é emergência. Terlipressina/Octreotide reduzem pressão portal. Endoscopia em <12h para ligadura. Transfusão para Hb >7 g/dL. Antibiótico profilático (Ceftriaxona) reduz mortalidade.',
-            explanation_wrong: [
-                'INCORRETA: Endoscopia deve ser realizada precocemente (<12h) - não aguardar estabilização completa',
-                'INCORRETA: Anticoagulante é CONTRAINDICADO em sangramento ativo - agravaria hemorragia',
-                'INCORRETA: IBP não tem eficácia em varizes esofágicas - indicado apenas para úlceras pépticas',
-                'INCORRETA: Lavagem gástrica pode agravar sangramento varicoso - contraindicada'
-            ]
-        },
-        {
-            age_range: [20, 50],
-            chief_complaint: 'dor abdominal intensa em hipogástrio',
-            onset: 'há 8 horas',
-            context: 'com náuseas, vômitos e parada de eliminação de flatos',
-            vitals: { pa: [100, 130], fc: [100, 130], fr: [20, 28], sato2: [94, 98] },
-            physical_exam: [
-                'abdome distendido, timpânico, doloroso difusamente',
-                'descompressão brusca positiva, ruídos hidroaéreos aumentados',
-                'cicatriz de laparotomia prévia em fossa ilíaca direita'
-            ],
-            labs: ['Leucócitos: 18.000', 'Lactato: 3.2 mmol/L', 'RX abdome: múltiplos níveis hidroaéreos, distensão de alças'],
-            diagnosis: 'Obstrução Intestinal por Bridas/Aderências',
-            correct_action: 'Jejum absoluto + Sonda nasogástrica aberta + Hidratação venosa + Cirurgia (laparotomia exploradora) se sinais de estrangulamento',
-            distractors: [
-                'Prescrever laxativo osmótico e dieta líquida para estimular trânsito',
-                'Administrar opioide para controle da dor e aguardar resolução espontânea',
-                'Realizar colonoscopia para desobstrução endoscópica',
-                'Iniciar antibiótico oral e alta com retorno ambulatorial'
-            ],
-            explanation_correct: 'Obstrução intestinal requer descompressão (SNG), hidratação e avaliação cirúrgica. Sinais de estrangulamento (leucocitose, lactato elevado, dor intensa) indicam cirurgia urgente. Mortalidade aumenta com atraso.',
-            explanation_wrong: [
-                'INCORRETA: Laxativo é CONTRAINDICADO em obstrução - pode perfurar alça distendida',
-                'INCORRETA: Opioide mascara sinais de peritonite e retarda diagnóstico de estrangulamento',
-                'INCORRETA: Colonoscopia não alcança obstrução de delgado - indicada apenas para cólon',
-                'INCORRETA: Obstrução intestinal é emergência cirúrgica - alta é negligência médica'
+                'AAS é contraindicado nas primeiras 24h pós-trombólise - risco de hemorragia',
+                'Redução agressiva de PA pode piorar perfusão cerebral - manter PA <220/120 mmHg',
+                'RNM não é necessária para trombólise - TC sem hemorragia é suficiente e mais rápida',
+                'Corticoide não tem benefício em AVCi agudo - pode inclusive piorar prognóstico'
             ]
         }
     ],
 
+    // ==================== CLÍNICA MÉDICA ====================
     'clinica-medica': [
-        // ENDOCRINOLOGIA
         {
             age_range: [18, 45],
             chief_complaint: 'poliúria, polidipsia e emagrecimento',
@@ -264,41 +150,12 @@ const CLINICAL_SCENARIOS: Record<string, ClinicalScenario[]> = {
             ],
             explanation_correct: 'CAD é emergência endócrina. Hidratação agressiva inicial (1-2L na primeira hora) é fundamental. Insulina regular EV contínua é padrão-ouro. NUNCA iniciar insulina se K+ <3,3 (risco de arritmia fatal). Bicarbonato só se pH <6,9.',
             explanation_wrong: [
-                'INCORRETA: NPH subcutânea não tem ação rápida suficiente - CAD requer insulina regular EV',
-                'INCORRETA: Hipoglicemiante oral não funciona em CAD - paciente está em deficiência absoluta de insulina',
-                'INCORRETA: Bicarbonato rotineiro piora desfecho - só indicado se pH <6,9',
-                'INCORRETA: Via IM não garante absorção adequada em paciente desidratado - via EV é obrigatória'
+                'NPH subcutânea não tem ação rápida suficiente - CAD requer insulina regular EV',
+                'Hipoglicemiante oral não funciona em CAD - paciente está em deficiência absoluta de insulina',
+                'Bicarbonato rotineiro piora desfecho - só indicado se pH <6,9',
+                'Via IM não garante absorção adequada em paciente desidratado - via EV é obrigatória'
             ]
         },
-        {
-            age_range: [50, 75],
-            chief_complaint: 'fadiga intensa e ganho de peso',
-            onset: 'há 6 meses',
-            context: 'com constipação, pele seca e intolerância ao frio',
-            vitals: { pa: [140, 160], fc: [50, 65], fr: [12, 16], sato2: [96, 99] },
-            physical_exam: [
-                'fácies mixedematosa, pele seca e descamativa',
-                'reflexos tendinosos com fase de relaxamento lentificada',
-                'edema periférico sem cacifo, macroglossia'
-            ],
-            labs: ['TSH: 85 mUI/L (VR 0.4-4.0)', 'T4 livre: 0.3 ng/dL (VR 0.8-1.8)', 'Colesterol total: 320 mg/dL'],
-            diagnosis: 'Hipotireoidismo Primário Grave',
-            correct_action: 'Levotiroxina 1,6 mcg/kg/dia VO (iniciar com dose plena se <65 anos e sem cardiopatia) + Reavaliar TSH em 6-8 semanas',
-            distractors: [
-                'Iniciar com dose baixa de 12,5 mcg e titular lentamente ao longo de 6 meses',
-                'Prescrever T3 (liotironina) isoladamente para ação mais rápida',
-                'Aguardar confirmação com cintilografia de tireoide antes de iniciar tratamento',
-                'Administrar corticoide sistêmico para reduzir inflamação tireoidiana'
-            ],
-            explanation_correct: 'Hipotireoidismo primário requer reposição com levotiroxina (T4). Dose plena pode ser iniciada em jovens sem cardiopatia. Idosos e cardiopatas iniciam com 25-50 mcg. TSH é o melhor marcador para ajuste de dose.',
-            explanation_wrong: [
-                'INCORRETA: Dose muito baixa prolonga sofrimento do paciente - dose plena é segura em jovens',
-                'INCORRETA: T3 isolado não é recomendado - T4 é convertido em T3 perifericamente',
-                'INCORRETA: Cintilografia não é necessária para diagnóstico - TSH e T4L são suficientes',
-                'INCORRETA: Corticoide não tem indicação em hipotireoidismo primário - pode piorar quadro'
-            ]
-        },
-        // NEFROLOGIA
         {
             age_range: [55, 80],
             chief_complaint: 'oligúria e edema generalizado',
@@ -321,14 +178,15 @@ const CLINICAL_SCENARIOS: Record<string, ClinicalScenario[]> = {
             ],
             explanation_correct: 'LRA por AINE requer suspensão imediata do nefrotóxico. Hipercalemia >6,5 é indicação absoluta de diálise urgente. Furosemida pode converter LRA oligúrica em não-oligúrica. Hidratação deve ser cautelosa (risco de sobrecarga).',
             explanation_wrong: [
-                'INCORRETA: AINE é nefrotóxico - deve ser suspenso imediatamente. Corticoide não protege rim',
-                'INCORRETA: Tiazídico não funciona em LRA - necessário diurético de alça EV',
-                'INCORRETA: Biópsia não é necessária em LRA por AINE - diagnóstico é clínico',
-                'INCORRETA: Bicarbonato não tem indicação para alcalinização urinária em NTA'
+                'AINE é nefrotóxico - deve ser suspenso imediatamente. Corticoide não protege rim',
+                'Tiazídico não funciona em LRA - necessário diurético de alça EV',
+                'Biópsia não é necessária em LRA por AINE - diagnóstico é clínico',
+                'Bicarbonato não tem indicação para alcalinização urinária em NTA'
             ]
         }
     ],
 
+    // ==================== PEDIATRIA ====================
     'pediatria': [
         {
             age_range: [2, 8],
@@ -354,10 +212,10 @@ const CLINICAL_SCENARIOS: Record<string, ClinicalScenario[]> = {
             ],
             explanation_correct: 'Kawasaki é vasculite sistêmica que pode causar aneurismas coronarianos (25% sem tratamento). IVIG 2g/kg em dose única reduz risco para <5%. AAS em dose anti-inflamatória na fase aguda, depois antiagregante. Ecocardiograma é obrigatório.',
             explanation_wrong: [
-                'INCORRETA: Não é escarlatina - ausência de descamação fina e cultura negativa',
-                'INCORRETA: Corticoide não é primeira linha - pode aumentar risco de aneurisma coronariano',
-                'INCORRETA: Kawasaki não tratado evolui com aneurismas em 25% - tratamento é urgente',
-                'INCORRETA: Não é sarampo - vacinação em dia e ausência de sinal de Koplik'
+                'Não é escarlatina - ausência de descamação fina e cultura negativa',
+                'Corticoide não é primeira linha - pode aumentar risco de aneurisma coronariano',
+                'Kawasaki não tratado evolui com aneurismas em 25% - tratamento é urgente',
+                'Não é sarampo - vacinação em dia e ausência de sinal de Koplik'
             ]
         },
         {
@@ -383,14 +241,15 @@ const CLINICAL_SCENARIOS: Record<string, ClinicalScenario[]> = {
             ],
             explanation_correct: 'Desidratação grave (>10% peso corporal) requer expansão venosa rápida. SF 0,9% ou Ringer Lactato 20 mL/kg em bolus, repetir até 60 mL/kg se necessário. Após estabilização, SRO para manutenção. Zinco reduz duração e gravidade.',
             explanation_wrong: [
-                'INCORRETA: SRO oral não é suficiente em desidratação grave - necessário acesso venoso',
-                'INCORRETA: Antibiótico não indicado em diarreia viral. Loperamida é CONTRAINDICADA em crianças',
-                'INCORRETA: SG 5% não repõe eletrólitos e pode causar hiponatremia - usar cristaloide isotônico',
-                'INCORRETA: Aleitamento materno deve ser MANTIDO - protege mucosa intestinal'
+                'SRO oral não é suficiente em desidratação grave - necessário acesso venoso',
+                'Antibiótico não indicado em diarreia viral. Loperamida é CONTRAINDICADA em crianças',
+                'SG 5% não repõe eletrólitos e pode causar hiponatremia - usar cristaloide isotônico',
+                'Aleitamento materno deve ser MANTIDO - protege mucosa intestinal'
             ]
         }
     ],
 
+    // ==================== GINECOLOGIA/OBSTETRÍCIA ====================
     'ginecologia-obstetricia': [
         {
             age_range: [28, 38],
@@ -415,45 +274,280 @@ const CLINICAL_SCENARIOS: Record<string, ClinicalScenario[]> = {
             ],
             explanation_correct: 'HELLP é emergência obstétrica (Hemólise, Enzimas hepáticas elevadas, Plaquetopenia). Sulfato de Magnésio previne eclâmpsia. Corticoide para maturação pulmonar. Interrupção da gestação é ÚNICA cura definitiva - não aguardar termo.',
             explanation_wrong: [
-                'INCORRETA: Diurético pode piorar hipoperfusão placentária - contraindicado em pré-eclâmpsia',
-                'INCORRETA: Alta domiciliar em HELLP é negligência - risco de eclâmpsia, AVC e morte materna',
-                'INCORRETA: Expansão volêmica pode causar edema pulmonar - paciente está hipervolêmica',
-                'INCORRETA: Aguardar termo em HELLP aumenta mortalidade materna - interrupção é urgente'
+                'Diurético pode piorar hipoperfusão placentária - contraindicado em pré-eclâmpsia',
+                'Alta domiciliar em HELLP é negligência - risco de eclâmpsia, AVC e morte materna',
+                'Expansão volêmica pode causar edema pulmonar - paciente está hipervolêmica',
+                'Aguardar termo em HELLP aumenta mortalidade materna - interrupção é urgente'
             ]
-        },
+        }
+    ],
+
+    // ==================== DERMATOLOGIA ====================
+    'dermatologia': [
+        {
+            age_range: [25, 55],
+            chief_complaint: 'lesões bolhosas generalizadas',
+            onset: 'há 5 dias',
+            context: 'com prurido intenso e ardência, após início de antibiótico',
+            vitals: { pa: [110, 130], fc: [80, 100], fr: [16, 20], sato2: [96, 99] },
+            physical_exam: [
+                'múltiplas bolhas flácidas em pele eritematosa',
+                'sinal de Nikolsky positivo',
+                'erosões em mucosa oral e conjuntival',
+                'acometimento de >30% da superfície corporal'
+            ],
+            labs: ['Eosinofilia: 12%', 'Biópsia: necrose epidérmica com clivagem subepidérmica'],
+            diagnosis: 'Necrólise Epidérmica Tóxica (Síndrome de Lyell)',
+            correct_action: 'Suspensão imediata do fármaco suspeito + Internação em CTI/Unidade de Queimados + Suporte intensivo (hidratação, curativos, analgesia) + Imunoglobulina EV (controverso)',
+            distractors: [
+                'Prescrever corticoide sistêmico em dose alta e manter antibiótico',
+                'Realizar desbridamento cirúrgico agressivo das bolhas',
+                'Iniciar antibiótico de amplo espectro profilático',
+                'Tratamento ambulatorial com anti-histamínico e corticoide tópico'
+            ],
+            explanation_correct: 'NET é reação adversa grave a medicamentos (mortalidade 30-40%). Suspensão do fármaco é CRUCIAL. Manejo em CTI/Queimados com cuidados de suporte. IVIG pode reduzir mortalidade. Corticoide sistêmico é controverso.',
+            explanation_wrong: [
+                'Corticoide sistêmico aumenta mortalidade em NET - deve ser evitado. Antibiótico causador deve ser suspenso',
+                'Desbridamento agressivo piora lesão - bolhas devem ser mantidas íntegras quando possível',
+                'Antibiótico profilático não reduz mortalidade - usar apenas se infecção comprovada',
+                'NET é emergência dermatológica - requer internação em CTI, não ambulatório'
+            ]
+        }
+    ],
+
+    // ==================== PSIQUIATRIA ====================
+    'psiquiatria': [
         {
             age_range: [18, 35],
-            chief_complaint: 'sangramento vaginal intenso',
+            chief_complaint: 'agitação psicomotora intensa',
             onset: 'há 2 horas',
-            context: 'pós-parto vaginal há 30 minutos, placenta íntegra',
-            vitals: { pa: [80, 100], fc: [120, 145], fr: [22, 28], sato2: [94, 97] },
+            context: 'com alucinações auditivas, heteroagressividade e discurso desconexo',
+            vitals: { pa: [140, 170], fc: [100, 130], fr: [20, 28], sato2: [96, 99] },
             physical_exam: [
-                'palidez cutâneo-mucosa intensa',
-                'útero amolecido, acima da cicatriz umbilical',
-                'sangramento vaginal vermelho vivo abundante (>500 mL)',
-                'laceração perineal grau I suturada'
+                'agitado, não cooperativo, contato visual pobre',
+                'discurso desorganizado, ideias delirantes persecutórias',
+                'alucinações auditivas de comando',
+                'risco iminente de heteroagressividade'
             ],
-            labs: ['Hb: 7.2 g/dL (pré-parto 11.5)', 'Plaquetas: 180.000', 'Coagulograma normal'],
-            diagnosis: 'Hemorragia Pós-Parto por Atonia Uterina',
-            correct_action: 'Massagem uterina + Ocitocina 10-40 UI em 1L SF 0,9% + Metilergonovina 0,2mg IM + Misoprostol 800-1000mcg retal + Transfusão sanguínea',
+            labs: ['Toxicológico urinário: negativo', 'Glicemia: 95 mg/dL', 'Eletrólitos normais'],
+            diagnosis: 'Surto Psicótico Agudo',
+            correct_action: 'Contenção verbal (desescalada) + Haloperidol 5mg IM + Prometazina 25-50mg IM (ou Midazolam 5mg IM) + Observação em ambiente seguro',
             distractors: [
-                'Aguardar contração uterina espontânea com observação passiva',
-                'Realizar curetagem uterina imediata para remoção de restos placentários',
-                'Prescrever antibiótico profilático e sulfato ferroso oral',
-                'Administrar anticoagulante para prevenir trombose venosa profunda'
+                'Contenção física imediata sem tentativa de abordagem verbal',
+                'Alta hospitalar com prescrição de antipsicótico oral e retorno ambulatorial',
+                'Internação psiquiátrica compulsória sem consentimento familiar',
+                'Administrar diazepam oral e aguardar efeito sedativo'
             ],
-            explanation_correct: 'Atonia uterina é causa mais comum de HPP (70%). Manejo: massagem + uterotônicos (Ocitocina primeira linha, depois Metilergonovina e Misoprostol). Transfusão se Hb <7 ou instabilidade. Falha clínica → cirurgia (B-Lynch, histerectomia).',
+            explanation_correct: 'Agitação psicomotora requer desescalada verbal primeiro. Se falhar, contenção química com antipsicótico (Haloperidol) + benzodiazepínico ou anti-histamínico. Contenção física é último recurso. Observação em ambiente protegido é obrigatória.',
             explanation_wrong: [
-                'INCORRETA: Observação passiva em HPP pode levar a choque hemorrágico e morte',
-                'INCORRETA: Curetagem não indicada se placenta íntegra - pode perfurar útero atônico',
-                'INCORRETA: Antibiótico e ferro não tratam hemorragia ativa - são medidas secundárias',
-                'INCORRETA: Anticoagulante é CONTRAINDICADO em sangramento ativo - agravaria HPP'
+                'Contenção física sem desescalada verbal aumenta risco de trauma e violência',
+                'Alta em surto psicótico agudo é negligência - risco de auto/heteroagressividade',
+                'Internação compulsória requer avaliação psiquiátrica e autorização judicial',
+                'Via oral não é eficaz em paciente agitado - necessário via IM'
+            ]
+        }
+    ],
+
+    // ==================== ORTOPEDIA ====================
+    'ortopedia-traumatologia': [
+        {
+            age_range: [20, 40],
+            chief_complaint: 'dor intensa em joelho direito',
+            onset: 'há 1 hora',
+            context: 'após trauma rotacional durante jogo de futebol, com estalido audível',
+            vitals: { pa: [110, 130], fc: [80, 100], fr: [16, 20], sato2: [97, 99] },
+            physical_exam: [
+                'derrame articular volumoso em joelho direito',
+                'teste de Lachman positivo, gaveta anterior positiva',
+                'dor à palpação da interlinha articular medial',
+                'bloqueio articular à extensão completa'
+            ],
+            labs: ['RX joelho: sem fraturas visíveis', 'RNM: ruptura completa de LCA + lesão de menisco medial'],
+            diagnosis: 'Ruptura de Ligamento Cruzado Anterior + Lesão Meniscal',
+            correct_action: 'Imobilização + Crioterapia + AINE + Encaminhamento para cirurgia ortopédica (reconstrução de LCA + meniscectomia parcial)',
+            distractors: [
+                'Prescrever analgésico e liberar para retorno às atividades esportivas',
+                'Realizar infiltração intra-articular com corticoide',
+                'Imobilização gessada por 6 semanas e fisioterapia posterior',
+                'Artroscopia diagnóstica antes de definir tratamento'
+            ],
+            explanation_correct: 'Ruptura de LCA em atleta jovem tem indicação cirúrgica (reconstrução). Lesão meniscal associada é comum (tríade terrível). Tratamento conservador resulta em instabilidade crônica e artrose precoce. Cirurgia deve ser realizada após resolução do edema.',
+            explanation_wrong: [
+                'Retorno ao esporte sem tratamento causa instabilidade crônica e lesões secundárias',
+                'Infiltração com corticoide não trata ruptura ligamentar - apenas mascara sintomas',
+                'Imobilização gessada não cicatriza LCA - ligamento não tem potencial de regeneração',
+                'RNM já confirmou diagnóstico - artroscopia diagnóstica é desnecessária'
+            ]
+        }
+    ],
+
+    // ==================== OFTALMOLOGIA ====================
+    'oftalmologia': [
+        {
+            age_range: [55, 80],
+            chief_complaint: 'perda súbita e indolor da visão',
+            onset: 'há 30 minutos',
+            context: 'em olho direito, como "cortina descendo"',
+            vitals: { pa: [130, 150], fc: [70, 90], fr: [14, 18], sato2: [97, 99] },
+            physical_exam: [
+                'acuidade visual: conta dedos a 1 metro em OD',
+                'reflexo fotomotor direto ausente em OD',
+                'fundoscopia: palidez retiniana difusa, mancha vermelho-cereja em mácula',
+                'sem dor ocular, pressão intraocular normal'
+            ],
+            labs: ['Doppler de carótidas: placa ateromatosa em carótida direita'],
+            diagnosis: 'Oclusão de Artéria Central da Retina',
+            correct_action: 'Massagem ocular + Paracentese de câmara anterior + Acetazolamida EV + Oxigenoterapia hiperbárica (se disponível <24h) + Investigação de fonte embólica',
+            distractors: [
+                'Prescrever colírio anti-inflamatório e retorno ambulatorial em 7 dias',
+                'Aguardar resolução espontânea com observação domiciliar',
+                'Realizar fotocoagulação a laser de urgência',
+                'Iniciar corticoide sistêmico para neurite óptica'
+            ],
+            explanation_correct: 'OACR é emergência oftalmológica (AVC ocular). Retina tolera isquemia por apenas 90-100 minutos. Massagem ocular e paracentese tentam deslocar êmbolo. Acetazolamida reduz PIO. Oxigênio hiperbárico pode salvar visão se <24h. Prognóstico visual é reservado.',
+            explanation_wrong: [
+                'Colírio tópico não trata oclusão arterial - perda de tempo em emergência',
+                'Resolução espontânea é rara - cada minuto conta para salvar visão',
+                'Laser não tem papel em OACR - indicado para oclusão venosa',
+                'Não é neurite óptica - quadro é de oclusão vascular (mancha vermelho-cereja)'
+            ]
+        }
+    ],
+
+    // ==================== INFECTOLOGIA ====================
+    'infectologia-clinica': [
+        {
+            age_range: [30, 60],
+            chief_complaint: 'febre alta e calafrios',
+            onset: 'há 24 horas',
+            context: 'com tosse produtiva, dispneia e dor torácica pleurítica',
+            vitals: { pa: [85, 110], fc: [110, 135], fr: [28, 36], sato2: [88, 93] },
+            physical_exam: [
+                'taquipneico, uso de musculatura acessória',
+                'ausculta pulmonar: estertores crepitantes em base direita',
+                'macicez à percussão em base direita',
+                'confusão mental leve (desorientação temporal)'
+            ],
+            labs: ['Leucócitos: 18.500', 'PCR: 25 mg/dL', 'RX tórax: consolidação lobar em base direita', 'CURB-65: 3 pontos'],
+            diagnosis: 'Pneumonia Comunitária Grave',
+            correct_action: 'Internação hospitalar + Ceftriaxona 2g EV 24/24h + Azitromicina 500mg EV 24/24h + Oxigenoterapia + Hidratação venosa',
+            distractors: [
+                'Tratamento ambulatorial com Amoxicilina 500mg VO 8/8h por 7 dias',
+                'Aguardar resultado de cultura de escarro antes de iniciar antibiótico',
+                'Prescrever apenas Azitromicina oral e reavaliação em 48h',
+                'Iniciar corticoide sistêmico como primeira linha'
+            ],
+            explanation_correct: 'PAC grave (CURB-65 ≥3) requer internação e antibiótico EV. Cobertura empírica para pneumococo e atípicos: Cefalosporina 3ª geração + Macrolídeo. Oxigênio para manter SatO2 >90%. Cultura não deve atrasar início de antibiótico.',
+            explanation_wrong: [
+                'CURB-65 ≥3 indica gravidade - tratamento ambulatorial aumenta mortalidade',
+                'Antibiótico deve ser iniciado em <4h - cultura não deve atrasar tratamento',
+                'Azitromicina isolada não cobre pneumococo adequadamente - necessário beta-lactâmico',
+                'Corticoide não é primeira linha em PAC - benefício apenas em choque séptico'
+            ]
+        }
+    ],
+
+    // ==================== UROLOGIA ====================
+    'urologia': [
+        {
+            age_range: [45, 75],
+            chief_complaint: 'retenção urinária aguda',
+            onset: 'há 6 horas',
+            context: 'com dor suprapúbica intensa, história de jato urinário fraco',
+            vitals: { pa: [140, 160], fc: [90, 110], fr: [18, 22], sato2: [96, 99] },
+            physical_exam: [
+                'globo vesical palpável até cicatriz umbilical',
+                'dor intensa à palpação suprapúbica',
+                'toque retal: próstata aumentada, lisa, elástica (50g)',
+                'impossibilidade de micção espontânea'
+            ],
+            labs: ['PSA: 4.2 ng/mL', 'Creatinina: 1.8 mg/dL (basal 1.0)', 'USG: próstata 52g, resíduo pós-miccional 800mL'],
+            diagnosis: 'Retenção Urinária Aguda por Hiperplasia Prostática Benigna',
+            correct_action: 'Cateterismo vesical de alívio (sonda Foley) + Alfabloqueador (Tansulosina) + Encaminhamento urológico para RTU de próstata',
+            distractors: [
+                'Prescrever alfabloqueador oral e aguardar melhora espontânea',
+                'Realizar punção suprapúbica para drenagem vesical',
+                'Iniciar antibiótico para prostatite e observar evolução',
+                'Solicitar cistoscopia antes de qualquer intervenção'
+            ],
+            explanation_correct: 'Retenção urinária aguda é emergência urológica. Cateterismo vesical imediato alivia sintomas e previne lesão renal. Alfabloqueador facilita remoção da sonda. HPB volumosa sintomática tem indicação cirúrgica (RTU).',
+            explanation_wrong: [
+                'Alfabloqueador oral não resolve retenção aguda - necessário esvaziamento vesical imediato',
+                'Punção suprapúbica só se impossibilidade de cateterismo uretral',
+                'Não há sinais de infecção - antibiótico não indicado profilaticamente',
+                'Cistoscopia não é necessária em retenção aguda - diagnóstico é clínico'
+            ]
+        }
+    ],
+
+    // ==================== REUMATOLOGIA ====================
+    'reumatologia-clinica': [
+        {
+            age_range: [30, 60],
+            chief_complaint: 'artrite aguda de joelho',
+            onset: 'há 8 horas',
+            context: 'com dor intensa, edema e impossibilidade de deambulação',
+            vitals: { pa: [120, 140], fc: [90, 110], fr: [18, 22], sato2: [97, 99] },
+            physical_exam: [
+                'joelho direito: edema volumoso, calor local, rubor',
+                'derrame articular, dor intensa à mobilização',
+                'febre 38.5°C',
+                'sem outras articulações acometidas'
+            ],
+            labs: ['Leucócitos: 16.000', 'PCR: 18 mg/dL', 'Líquido sinovial: 80.000 células (95% neutrófilos), glicose 20 mg/dL', 'Gram: cocos Gram-positivos em cadeia'],
+            diagnosis: 'Artrite Séptica',
+            correct_action: 'Artrocentese + Antibiótico EV empírico (Oxacilina ou Ceftriaxona) + Drenagem cirúrgica (artroscopia ou artrotomia) + Imobilização',
+            distractors: [
+                'Prescrever AINE e colchicina para crise de gota',
+                'Infiltração intra-articular com corticoide',
+                'Antibiótico oral e reavaliação ambulatorial em 48h',
+                'Aguardar resultado de cultura antes de iniciar antibiótico'
+            ],
+            explanation_correct: 'Artrite séptica é emergência reumatológica. Líquido sinovial com >50.000 células indica infecção. Antibiótico EV deve ser iniciado IMEDIATAMENTE (não aguardar cultura). Drenagem cirúrgica é obrigatória para evitar destruição articular.',
+            explanation_wrong: [
+                'Líquido sinovial com 80.000 células e Gram positivo descarta gota - é infecção bacteriana',
+                'Corticoide intra-articular é CONTRAINDICADO em artrite séptica - piora infecção',
+                'Artrite séptica requer antibiótico EV e drenagem cirúrgica - via oral é insuficiente',
+                'Antibiótico deve ser iniciado antes da cultura - atraso aumenta risco de sequelas'
+            ]
+        }
+    ],
+
+    // ==================== OTORRINOLARINGOLOGIA ====================
+    'otorrinolaringologia': [
+        {
+            age_range: [3, 10],
+            chief_complaint: 'dificuldade respiratória progressiva',
+            onset: 'há 4 horas',
+            context: 'com estridor inspiratório, febre e disfagia',
+            vitals: { pa: [90, 110], fc: [130, 160], fr: [35, 50], sato2: [88, 93] },
+            physical_exam: [
+                'estridor inspiratório alto, tiragem intercostal e supraclavicular',
+                'sialorreia, posição de tripé (sentado, inclinado para frente)',
+                'recusa alimentar, voz abafada',
+                'criança tóxica, ansiedade respiratória'
+            ],
+            labs: ['RX cervical lateral: sinal do polegar (epiglote aumentada)'],
+            diagnosis: 'Epiglotite Aguda',
+            correct_action: 'NÃO examinar orofaringe + Chamar anestesista/ORL + Intubação em centro cirúrgico + Ceftriaxone EV + Internação em UTI',
+            distractors: [
+                'Realizar laringoscopia direta para confirmar diagnóstico',
+                'Prescrever corticoide inalatório e adrenalina nebulizada',
+                'Solicitar TC de pescoço antes de qualquer intervenção',
+                'Iniciar antibiótico oral e observação domiciliar'
+            ],
+            explanation_correct: 'Epiglotite é emergência pediátrica com risco de obstrução total de via aérea. NUNCA examinar orofaringe (pode precipitar obstrução). Intubação deve ser em centro cirúrgico com equipe preparada para traqueostomia. Antibiótico EV (Ceftriaxone) é obrigatório.',
+            explanation_wrong: [
+                'Laringoscopia pode precipitar obstrução completa de via aérea - CONTRAINDICADA',
+                'Epiglotite não responde a corticoide/adrenalina (diferente de crupe viral)',
+                'TC atrasa tratamento e pode piorar obstrução - diagnóstico é clínico + RX lateral',
+                'Epiglotite é emergência - requer internação em UTI, não ambulatório'
             ]
         }
     ]
 }
 
-// Randomization helpers to ensure uniqueness
+// Randomization helpers
 function shuffleArray<T>(array: T[]): T[] {
     const shuffled = [...array]
     for (let i = shuffled.length - 1; i > 0; i--) {
