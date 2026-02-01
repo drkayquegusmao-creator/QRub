@@ -1,22 +1,10 @@
 "use client"
 
 import { useState, useRef, useEffect } from 'react'
-import { MessageCircle, X, Send, Paperclip, Minimize2 } from 'lucide-react'
+import { MessageCircle, X, Send, Paperclip, Minimize2, Loader2, MessageSquare } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useAuth } from '@/store/use-auth'
-
-interface Message {
-    id: string
-    text: string
-    isUser: boolean
-    timestamp: Date
-}
-
-import { useState, useRef, useEffect } from 'react'
-import { MessageCircle, X, Send, Paperclip, Minimize2, Loader2 } from 'lucide-react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { useAuth } from '@/store/use-auth'
-import { useSupport, SupportMessage } from '@/store/use-support'
+import { useSupport } from '@/store/use-support'
 
 export function SupportChatWidget() {
     const { user } = useAuth()

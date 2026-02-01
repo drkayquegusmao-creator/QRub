@@ -57,7 +57,9 @@ export const useSupport = create<SupportState>((set, get) => ({
             `)
             .order('last_message_at', { ascending: false })
 
-        if (!error && data) {
+        if (error) {
+            console.error('Error fetching tickets:', error)
+        } else if (data) {
             set({ tickets: data as any })
         }
         set({ loading: false })
@@ -70,7 +72,9 @@ export const useSupport = create<SupportState>((set, get) => ({
             .eq('ticket_id', ticketId)
             .order('created_at', { ascending: true })
 
-        if (!error && data) {
+        if (error) {
+            console.error('Error fetching messages:', error)
+        } else if (data) {
             set(state => ({
                 messages: { ...state.messages, [ticketId]: data }
             }))
@@ -79,7 +83,10 @@ export const useSupport = create<SupportState>((set, get) => ({
 
     createTicket: async (subject, initialMessage) => {
         const { data: { user } } = await supabase.auth.getUser()
-        if (!user) return null
+        if (!user) {
+            console.error('Cannot create ticket: No user logged in')
+            return null
+        }
 
         const { data: ticket, error: ticketError } = await supabase
             .from('support_tickets')
@@ -92,14 +99,21 @@ export const useSupport = create<SupportState>((set, get) => ({
             .select()
             .single()
 
-        if (ticketError || !ticket) return null
+        if (ticketError || !ticket) {
+            console.error('Error creating ticket:', ticketError)
+            return null
+        }
 
-        await supabase.from('support_messages').insert({
+        const { error: msgError } = await supabase.from('support_messages').insert({
             ticket_id: ticket.id,
             sender_id: user.id,
             text: initialMessage,
             is_admin: false
         })
+
+        if (msgError) {
+            console.error('Error sending initial message:', msgError)
+        }
 
         get().fetchTickets()
         return ticket.id
@@ -107,7 +121,10 @@ export const useSupport = create<SupportState>((set, get) => ({
 
     sendMessage: async (ticketId, text, isAdmin = false) => {
         const { data: { user } } = await supabase.auth.getUser()
-        if (!user) return
+        if (!user) {
+            console.error('Cannot send message: No user logged in')
+            return
+        }
 
         const { error } = await supabase
             .from('support_messages')
@@ -118,15 +135,22 @@ export const useSupport = create<SupportState>((set, get) => ({
                 is_admin: isAdmin
             })
 
-        if (!error) {
-            // Update last_message_at
-            await supabase
-                .from('support_tickets')
-                .update({ last_message_at: new Date().toISOString() })
-                .eq('id', ticketId)
-
-            get().fetchMessages(ticketId)
+        if (error) {
+            console.error('Error sending message:', error)
+            return
         }
+
+        // Update last_message_at
+        const { error: updateError } = await supabase
+            .from('support_tickets')
+            .update({ last_message_at: new Date().toISOString() })
+            .eq('id', ticketId)
+
+        if (updateError) {
+            console.error('Error updating last_message_at:', updateError)
+        }
+
+        get().fetchMessages(ticketId)
     },
 
     updateTicketStatus: async (ticketId, status) => {

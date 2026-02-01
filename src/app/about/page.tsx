@@ -79,11 +79,11 @@ export default function AboutPage() {
                             O <span className="text-emerald-400 font-bold">Dr. QRub</span> é o seu Mentor de Inteligência Artificial, treinado especificamente nos protocolos brasileiros (SUS, Sociedades Brasileiras e bibliografias padrão). Ele é o cérebro por trás do nosso <span className="text-orange-500 font-bold">Plano Insano</span>.
                         </p>
                         <p>
-                            Diferente de uma IA genérica, o Dr. QRub entende o contexto das provas brasileiras, como o Revalida. Ele não apenas aponta o erro, mas analisa a sua linha de raciocínio, explica o "porquê" de cada alternativa e gerencia o seu Caderno de Erros através de algoritmos de repetição espaçada.
+                            Diferente de uma IA genérica, o Dr. QRub entende o contexto das provas brasileiras, como o Revalida. Ele não apenas aponta o erro, mas analisa a sua linha de raciocínio, explica o &quot;porquê&quot; de cada alternativa e gerencia o seu Caderno de Erros através de algoritmos de repetição espaçada.
                         </p>
                         <div className="bg-white/5 border border-white/10 p-8 rounded-3xl mt-8">
                             <p className="italic text-gray-400">
-                                "Quando você cansa, o Dr. QRub assume a estratégia, montando sua agenda diária e garantindo que você nunca estude o que já sabe, mas sim o que precisa para passar."
+                                &quot;Quando você cansa, o Dr. QRub assume a estratégia, montando sua agenda diária e garantindo que você nunca estude o que já sabe, mas sim o que precisa para passar.&quot;
                             </p>
                         </div>
                     </motion.div>

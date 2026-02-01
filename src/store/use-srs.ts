@@ -380,7 +380,7 @@ export const useSRS = create<SRSState>()(
                 // 2. Get Ongoing Leveling
                 const ongoingLeveling = Object.values(subjects).filter(s => s.stage === 'LEVELING')
 
-                let combined = [...dueReviews, ...ongoingLeveling]
+                const combined = [...dueReviews, ...ongoingLeveling]
 
                 // 3. If empty, suggest new subjects from hierarchy
                 if (combined.length === 0) {

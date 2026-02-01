@@ -73,7 +73,7 @@ export const useQuiz = create<QuizState>()(
 
                 set((state) => {
                     const new_responses = [...state.responses, response]
-                    let new_error_notebook = [...state.error_notebook]
+                    const new_error_notebook = [...state.error_notebook]
 
                     if (!response.is_correct) {
                         const existing = new_error_notebook.find(e => e.question_id === response.question_id)

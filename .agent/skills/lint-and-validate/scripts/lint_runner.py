@@ -42,7 +42,7 @@ def detect_project_type(project_path: Path) -> dict:
             
             # Check for lint script
             if "lint" in scripts:
-                result["linters"].append({"name": "npm lint", "cmd": ["npm", "run", "lint"]})
+                result["linters"].append({"name": "npm lint", "cmd": ["npx", "eslint", ".", "--fix"]})
             elif "eslint" in deps:
                 result["linters"].append({"name": "eslint", "cmd": ["npx", "eslint", "."]})
             

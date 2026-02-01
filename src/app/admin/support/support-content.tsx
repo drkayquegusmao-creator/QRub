@@ -11,8 +11,20 @@ export default function SupportInbox() {
     const [replyText, setReplyText] = useState('')
     const [searchTerm, setSearchTerm] = useState('')
 
+    const [connectionStatus, setConnectionStatus] = useState<'checking' | 'connected' | 'error'>('checking')
+
     useEffect(() => {
-        fetchTickets()
+        const load = async () => {
+            setConnectionStatus('checking')
+            try {
+                await fetchTickets()
+                setConnectionStatus('connected')
+            } catch (err) {
+                console.error('Connection error:', err)
+                setConnectionStatus('error')
+            }
+        }
+        load()
         const unsubscribe = subscribeToTickets()
         return () => unsubscribe()
     }, [])
@@ -46,13 +58,30 @@ export default function SupportInbox() {
                 {/* Search Header */}
                 <div className="p-6 border-b border-border space-y-4">
                     <div className="flex items-center justify-between">
-                        <h2 className="text-lg font-black uppercase italic tracking-tighter flex items-center gap-2">
-                            <Inbox className="w-5 h-5 text-primary" />
-                            Suporte
-                        </h2>
-                        <span className="bg-primary/10 text-primary text-[10px] font-black px-2 py-1 rounded-full">
-                            {tickets.filter(t => t.status === 'open').length} Novos
-                        </span>
+                        <div className="flex flex-col">
+                            <h2 className="text-lg font-black uppercase italic tracking-tighter flex items-center gap-2">
+                                <Inbox className="w-5 h-5 text-primary" />
+                                Suporte
+                            </h2>
+                            <div className="flex items-center gap-1.5 mt-1">
+                                <div className={`w-1.5 h-1.5 rounded-full ${connectionStatus === 'connected' ? 'bg-emerald-500' : connectionStatus === 'checking' ? 'bg-amber-500 animate-pulse' : 'bg-rose-500'}`} />
+                                <span className="text-[8px] font-black uppercase tracking-widest opacity-60">
+                                    {connectionStatus === 'connected' ? 'Sincronizado' : connectionStatus === 'checking' ? 'Conectando...' : 'Erro de Conexão'}
+                                </span>
+                            </div>
+                        </div>
+                        <div className="flex items-center gap-2">
+                            <button
+                                onClick={() => fetchTickets()}
+                                className="p-2 hover:bg-muted rounded-lg transition-all text-muted-foreground"
+                                title="Atualizar dados"
+                            >
+                                <Clock className="w-4 h-4" />
+                            </button>
+                            <span className="bg-primary/10 text-primary text-[10px] font-black px-2 py-1 rounded-full">
+                                {tickets.filter(t => t.status === 'open').length} Novos
+                            </span>
+                        </div>
                     </div>
                     <div className="bg-background border border-border rounded-xl p-3 flex items-center gap-2 focus-within:ring-2 focus-within:ring-primary/20 transition-all">
                         <Search className="w-4 h-4 text-muted-foreground" />
