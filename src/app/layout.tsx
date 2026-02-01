@@ -36,6 +36,15 @@ export const metadata: Metadata = {
     description: "A tecnologia que acelera sua aprovação.",
     images: ["/qrub_premium_logo_3d.jpg"],
   },
+  icons: {
+    icon: [
+      { url: "/icon.jpg" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: [
+      { url: "/apple-icon.jpg" },
+    ],
+  },
 };
 
 export default function RootLayout({
