@@ -11,8 +11,31 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "QRub | Plataforma de Questões SaaS",
-  description: "A plataforma de questões definitiva para sua aprovação.",
+  metadataBase: new URL("https://q-rub.vercel.app"),
+  title: "QRub | Plataforma de Questões de Alta Performance",
+  description: "A plataforma definitiva para sua aprovação. Inteligência Artificial, SRS e questões comentadas.",
+  openGraph: {
+    title: "QRub | Domine seus Exames",
+    description: "Prepare-se com a melhor tecnologia educacional do mercado.",
+    url: "https://q-rub.vercel.app",
+    siteName: "QRub",
+    images: [
+      {
+        url: "/qrub_premium_logo_3d.jpg",
+        width: 1200,
+        height: 630,
+        alt: "QRub Logo",
+      },
+    ],
+    locale: "pt_BR",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "QRub | Plataforma de Questões",
+    description: "A tecnologia que acelera sua aprovação.",
+    images: ["/qrub_premium_logo_3d.jpg"],
+  },
 };
 
 export default function RootLayout({
