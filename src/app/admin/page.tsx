@@ -220,13 +220,13 @@ export default function AdminDashboard() {
                 const res = await deleteQuestions(selectedQuestions)
                 if (res.success) {
                     setSelectedQuestions([])
-                    setImportStatus({ type: 'success', msg: `✅ ${res.message}` })
+                    alert(`✅ ${res.message}`)
                 } else {
-                    setImportStatus({ type: 'error', msg: `❌ ${res.message}` })
+                    alert(`❌ ${res.message}`)
                 }
             } catch (error) {
                 console.error('Error deleting questions:', error)
-                setImportStatus({ type: 'error', msg: '❌ Erro ao deletar questões no sistema.' })
+                alert('❌ Erro ao deletar questões no sistema.')
             }
         }
     }
@@ -236,13 +236,13 @@ export default function AdminDashboard() {
             try {
                 const res = await deleteQuestion(id)
                 if (res.success) {
-                    setImportStatus({ type: 'success', msg: `✅ ${res.message}` })
+                    alert(`✅ ${res.message}`)
                 } else {
-                    setImportStatus({ type: 'error', msg: `❌ ${res.message}` })
+                    alert(`❌ ${res.message}`)
                 }
             } catch (error) {
                 console.error('Error deleting question:', error)
-                setImportStatus({ type: 'error', msg: '❌ Erro ao deletar a questão.' })
+                alert('❌ Erro ao deletar a questão.')
             }
         }
     }
