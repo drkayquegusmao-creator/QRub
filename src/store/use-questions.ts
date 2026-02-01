@@ -198,140 +198,76 @@ export const useQuestions = create<QuestionsState>()(
 
         generateQuestions: async ({ specialty_id, subspecialty_id, subject_id, count, difficulty, blueprint_id, study_box_id }) => {
             const { COURSES } = await import('@/lib/data-mock')
+            const { generateBatchQuestions } = await import('@/lib/question-generator-engine')
+
             set({ loading: true })
             try {
-                const generatedQuestions: Question[] = []
-
-                // Helper to find data in hierarchy
+                // Find specialty and subject names for context
                 const targetCourse = COURSES.find(c => c.id === 'medicina') || COURSES[0]
                 const spec = targetCourse.specialties.find(s => s.id === specialty_id) || targetCourse.specialties[0]
                 const sub = spec.subspecialties.find(ss => ss.id === subspecialty_id) || spec.subspecialties[0] || { id: 'geral', name: 'geral', subjects: [] }
                 const subjects = (sub as Subspecialty).subjects || []
                 const subj = subjects.find((s: Subject) => s.id === subject_id) || subjects[0] || { id: 'geral', name: 'geral' }
-                const subjName = subj.name || 'Geral'
 
-                for (let i = 0; i < count; i++) {
-                    const age = 18 + Math.floor(Math.random() * 65)
-                    const gender = Math.random() > 0.5 ? 'masculino' : 'feminino'
-                    const genderAdj = gender === 'masculino' ? 'o' : 'a'
-                    const article = gender === 'masculino' ? 'um' : 'uma'
-                    const questionId = `QRUB-REV-${Date.now()}-${i}`
+                // Use new Revalida-style generator
+                const generatedQuestions = generateBatchQuestions({
+                    specialty_id,
+                    subspecialty_id: subspecialty_id || 'geral',
+                    subject_id: subject_id || 'geral',
+                    difficulty: (difficulty as 'Fácil' | 'Médio' | 'Difícil') || 'Médio',
+                    specialty_name: spec.name,
+                    subspecialty_name: sub.name,
+                    subject_name: subj.name
+                }, count)
 
-                    // --- ESTRUTURA REVALIDA/RESIDÊNCIA ---
-                    // 1. Identificação + QP + HDA
-                    const clinicalStart = [
-                        `Paciente de ${age} anos, sexo ${gender}, pardo, procura a UPA queixando-se de ${subjName} há 3 dias, com piora progressiva nas últimas 12 horas.`,
-                        `${article.charAt(0).toUpperCase() + article.slice(1)} paciente de ${age} anos, sexo ${gender}, é trazid${genderAdj} pelo SAMU com rebaixamento do nível de consciência e história de ${subjName}.`,
-                        `Paciente de ${age} anos, ${gender}, tabagista e hipertenso, dá entrada no PS com quadro súbito de ${subjName} associado a sudorese fria.`
-                    ]
+                // Add blueprint and study_box references if provided
+                const questionsWithMetadata = generatedQuestions.map(q => ({
+                    ...q,
+                    blueprint_id: blueprint_id || undefined,
+                    study_box_id: study_box_id || undefined
+                }))
 
-                    // 2. Exame Físico Rico (Vitals + Findings)
-                    const vitals = `PA: ${90 + Math.floor(Math.random() * 60)}/${50 + Math.floor(Math.random() * 40)} mmHg | FC: ${60 + Math.floor(Math.random() * 60)} bpm | FR: ${14 + Math.floor(Math.random() * 20)} irpm | SatO2: ${85 + Math.floor(Math.random() * 14)}%`
-
-                    const physicalExam = [
-                        `Mau estado geral, descorad${genderAdj} (3+/4+), desidratad${genderAdj}. ${vitals}. Ausculta pulmonar com estertores crepitantes em bases. Abdome distendido, doloroso à palpação difusa, com descompressão brusca positiva.`,
-                        `Estado geral regular, vigil, orientado. ${vitals}. Exame segmentar revela edema de membros inferiores (2+/4+) e turgencia jugular patológica. Ictus cordis desviado para esquerda.`,
-                        `Torporoso (Glasgow 10), pupilas isocóricas. ${vitals}. Extremidades frias e perfusão capilar > 3 segundos. Ritmo cardíaco irregular, sem sopros.`
-                    ]
-
-                    // 3. Exames Complementares (Labs + Imagem)
-                    const labs = `Hb: ${(8 + Math.random() * 6).toFixed(1).replace('.', ',')} g/dL | Leuco: ${4000 + Math.floor(Math.random() * 15000)} | Plq: ${150000 + Math.floor(Math.random() * 200000)} | Cr: ${(0.7 + Math.random() * 2).toFixed(1).replace('.', ',')} | Na: 135 | K: 4.5`
-
-                    // Montagem do Caso Completo
-                    // Montagem do Caso Completo
-                    const intro = clinicalStart[Math.floor(Math.random() * clinicalStart.length)]
-                    const exam = physicalExam[Math.floor(Math.random() * physicalExam.length)]
-
-                    const questionPrompt = [
-                        `Diante deste quadro clínico e considerando as diretrizes atuais de ${spec.name}, assinale a alternativa que apresenta o diagnóstico mais provável e a conduta imediata:`,
-                        `Qual a estratégia de reperfusão preferencial considerando que o hospital não dispõe de hemodinâmica e o tempo de transporte é superior a 120 minutos?`,
-                        `Qual a classe farmacológica de primeira linha para controle sintomático e melhoria de prognóstico a longo prazo?`
-                    ][Math.floor(Math.random() * 3)]
-
-                    // Gerar Alternativas Complexas (Diagnóstico + Conduta)
-                    const correctOptions = [
-                        `Diagnóstico: Infarto Agudo do Miocárdio com Supra de ST; Conduta: Fibrinólise química imediata com Tenecteplase (se sem contraindicações) e posterior transferência.`,
-                        `Diagnóstico: Sepse de foco pulmonar; Conduta: Iniciar pacote de 1 hora (cristaloides 30ml/kg + coleta de cultura + antibiótico largo espectro).`,
-                        `Diagnóstico: Cetoacidose Diabética; Conduta: Hidratação vigorosa inicial com SF 0,9%, seguida de insulinoterapia venosa após confirmação do Potássio.`
-                    ]
-                    const distractorOptions = [
-                        `Diagnóstico: Angina Instável; Conduta: Estratificação não invasiva em 24h e dupla antiagregação plaquetária.`,
-                        `Diagnóstico: Insuficiência Cardíaca Descompensada (Perfil B); Conduta: Diureticoterapia endovenosa e vasodilatador se PA permitir.`,
-                        `Diagnóstico: Choque Cardiogênico; Conduta: Dobutamina imediata e restrição volêmica rigorosa.`,
-                        `Diagnóstico: Pneumonia Comunitária não grave; Conduta: Tratamento ambulatorial com Amoxicilina + Clavulanato.`,
-                        `Diagnóstico: Tromboembolismo Pulmonar; Conduta: Anticoagulação plena com Enoxaparina 1mg/kg 12/12h.`
-                    ]
-
-                    const correctAnswer = correctOptions[Math.floor(Math.random() * correctOptions.length)]
-                    const allIds = ['a', 'b', 'c', 'd', 'e']
-                    const correctIdx = Math.floor(Math.random() * 5)
-                    const correctId = allIds[correctIdx]
-
-                    const finalOptions = allIds.map((id, idx) => {
-                        if (id === correctId) return { id, text: correctAnswer }
-                        // Pegar distradores randomicos sem repetir
-                        const wrong = distractorOptions[(idx + Math.floor(Math.random() * distractorOptions.length)) % distractorOptions.length]
-                        return { id, text: wrong }
-                    })
-
-                    const altExplanations: Record<string, string> = {}
-                    allIds.forEach((id) => {
-                        if (id === correctId) return
-                        altExplanations[id] = `INCORRETA. O quadro descrito (com dados vitais alterados e sinais de gravidade) não condiz com esta hipótese. A conduta proposta seria iatrogênica pois atrasaria o manejo definitivo.`
-                    })
-
-                    const question: Question = {
-                        id: questionId,
-                        course_id: 'medicina',
-                        specialty_id: specialty_id,
-                        subspecialty_id: subspecialty_id || 'geral',
-                        subject_id: subject_id || 'geral',
-                        difficulty: (difficulty as 'Fácil' | 'Médio' | 'Difícil') || 'Médio',
-                        enunciado: questionPrompt,
-                        case_study: {
-                            history: intro,
-                            physical_exam: exam,
-                            lab_results: labs
-                        },
-                        options: finalOptions,
-                        correct_option_id: correctId,
-                        explanation: `A alternativa ${correctId.toUpperCase()} está CORRETA.\n\nFUNDAMENTAÇÃO:\nO paciente apresenta sinais claros de instabilidade/gravidade (${vitals}) que corroboram com o diagnóstico de ${subjName} complexo. Segundo a Diretriz Brasileira, a conduta padrão-ouro neste cenário específico é a intervenção imediata descrita na opção correta, visando reduzir morbi-mortalidade. As demais opções subestimam a gravidade ou propõem tratamentos para diagnósticos diferenciais menos prováveis.`,
-                        alternative_explanations: altExplanations,
-                        blueprint_id,
-                        study_box_id,
-                        metadata: {
-                            origem: 'QRub AI (Revalida Std)',
-                            data_geracao: new Date().toISOString(),
-                            tema: subjName
-                        }
-                    }
-
-                    generatedQuestions.push(question)
-                }
-
+                // Save to Supabase if configured
                 if (isSupabaseConfigured()) {
-                    const { error } = await supabase.from('questions').insert(generatedQuestions)
+                    const { error } = await supabase.from('questions').insert(questionsWithMetadata)
                     if (error) throw error
                 }
 
+                // Update local state
                 set(state => ({
-                    questions: [...generatedQuestions, ...state.questions],
+                    questions: [...state.questions, ...questionsWithMetadata],
                     loading: false
                 }))
 
-                return {
-                    success: true,
-                    message: `${count} questões geradas com sucesso!`,
-                    generated: count
-                }
+                return { success: true, count: questionsWithMetadata.length }
             } catch (err: unknown) {
-                console.error('Erro na geração:', err)
                 set({ loading: false })
-                return {
-                    success: false,
-                    message: err instanceof Error ? err.message : 'Erro ao gerar questões'
+                console.error('Error generating questions:', err)
+                throw err
+            }
+        },
+
+        addQuestions: async (newQuestions: Question[]) => {
+            try {
+                // Save to Supabase if configured
+                if (isSupabaseConfigured()) {
+                    const { error } = await supabase.from('questions').insert(newQuestions)
+                    if (error) throw error
                 }
+
+                // Update local state
+                set(state => ({
+                    questions: [...state.questions, ...newQuestions]
+                }))
+
+                return { success: true, count: newQuestions.length }
+            } catch (err: unknown) {
+                console.error('Error adding questions:', err)
+                throw err
             }
         }
-    })
-)
+    },
+    {
+        name: 'qrub-questions-storage',
+    }
+    ))
