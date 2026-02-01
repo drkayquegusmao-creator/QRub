@@ -48,6 +48,8 @@ export interface QuestionMetadata {
     subtema?: string
     origem?: string
     data_geracao?: string
+    quality_score?: number
+    scenario_id?: string
 }
 
 export interface ExamBlueprint {

@@ -1,7 +1,7 @@
 
 import { create } from 'zustand'
 import { supabase, isSupabaseConfigured } from '@/lib/supabase'
-import { Question, Guideline, Subspecialty, Subject } from '@/lib/data-mock'
+import { Question, Guideline } from '@/lib/data-mock'
 
 interface QuestionsState {
     questions: Question[]
@@ -19,15 +19,6 @@ interface QuestionsState {
     addQuestions: (questions: Question[]) => Promise<{ success: boolean, message: string }>
     deleteQuestion: (id: string) => Promise<{ success: boolean, message: string }>
     deleteQuestions: (ids: string[]) => Promise<{ success: boolean, message: string }>
-    generateQuestions: (params: {
-        specialty_id: string
-        subspecialty_id?: string
-        subject_id?: string
-        count: number
-        difficulty?: "Fácil" | "Médio" | "Difícil"
-        blueprint_id?: string
-        study_box_id?: string
-    }) => Promise<{ success: boolean, message: string, generated?: number }>
 }
 
 export const useQuestions = create<QuestionsState>()(
@@ -194,80 +185,6 @@ export const useQuestions = create<QuestionsState>()(
                 console.error('Core delete error:', err)
                 return { success: false, message: err instanceof Error ? err.message : 'Erro ao remover questões' }
             }
-        },
-
-        generateQuestions: async ({ specialty_id, subspecialty_id, subject_id, count, difficulty, blueprint_id, study_box_id }) => {
-            const { COURSES } = await import('@/lib/data-mock')
-            const { generateBatchQuestions } = await import('@/lib/question-generator-engine')
-
-            set({ loading: true })
-            try {
-                // Find specialty and subject names for context
-                const targetCourse = COURSES.find(c => c.id === 'medicina') || COURSES[0]
-                const spec = targetCourse.specialties.find(s => s.id === specialty_id) || targetCourse.specialties[0]
-                const sub = spec.subspecialties.find(ss => ss.id === subspecialty_id) || spec.subspecialties[0] || { id: 'geral', name: 'geral', subjects: [] }
-                const subjects = (sub as Subspecialty).subjects || []
-                const subj = subjects.find((s: Subject) => s.id === subject_id) || subjects[0] || { id: 'geral', name: 'geral' }
-
-                // Use new Revalida-style generator
-                const generatedQuestions = generateBatchQuestions({
-                    specialty_id,
-                    subspecialty_id: subspecialty_id || 'geral',
-                    subject_id: subject_id || 'geral',
-                    difficulty: (difficulty as 'Fácil' | 'Médio' | 'Difícil') || 'Médio',
-                    specialty_name: spec.name,
-                    subspecialty_name: sub.name,
-                    subject_name: subj.name
-                }, count)
-
-                // Add blueprint and study_box references if provided
-                const questionsWithMetadata = generatedQuestions.map(q => ({
-                    ...q,
-                    blueprint_id: blueprint_id || undefined,
-                    study_box_id: study_box_id || undefined
-                }))
-
-                // Save to Supabase if configured
-                if (isSupabaseConfigured()) {
-                    const { error } = await supabase.from('questions').insert(questionsWithMetadata)
-                    if (error) throw error
-                }
-
-                // Update local state
-                set(state => ({
-                    questions: [...state.questions, ...questionsWithMetadata],
-                    loading: false
-                }))
-
-                return { success: true, count: questionsWithMetadata.length }
-            } catch (err: unknown) {
-                set({ loading: false })
-                console.error('Error generating questions:', err)
-                throw err
-            }
-        },
-
-        addQuestions: async (newQuestions: Question[]) => {
-            try {
-                // Save to Supabase if configured
-                if (isSupabaseConfigured()) {
-                    const { error } = await supabase.from('questions').insert(newQuestions)
-                    if (error) throw error
-                }
-
-                // Update local state
-                set(state => ({
-                    questions: [...state.questions, ...newQuestions]
-                }))
-
-                return { success: true, count: newQuestions.length }
-            } catch (err: unknown) {
-                console.error('Error adding questions:', err)
-                throw err
-            }
         }
-    },
-    {
-        name: 'qrub-questions-storage',
-    }
-    ))
+    })
+)

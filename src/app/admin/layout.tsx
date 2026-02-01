@@ -3,7 +3,7 @@
 import { useAuth } from '@/store/use-auth'
 import { useRouter, usePathname, useSearchParams } from 'next/navigation'
 import { Suspense, useEffect, useState } from 'react'
-import { Shield, LayoutDashboard, Database, Settings, LogOut, Hexagon, DollarSign, ArrowLeft, MessageSquare } from 'lucide-react'
+import { Shield, LayoutDashboard, Database, Settings, LogOut, Hexagon, DollarSign, ArrowLeft, MessageSquare, ClipboardCheck } from 'lucide-react'
 import Link from 'next/link'
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
@@ -57,6 +57,7 @@ function AdminLayoutContent({ children }: { children: React.ReactNode }) {
                 <nav className="flex-1 flex flex-col gap-2">
                     <AdminNavLink href="/admin?tab=analytics" icon={LayoutDashboard} label="Dashboard" active={isActive('/admin') && (!searchParams.get('tab') || searchParams.get('tab') === 'analytics')} />
                     <AdminNavLink href="/admin?tab=questions" icon={Database} label="Banco de Dados" active={isActive('/admin') && searchParams.get('tab') === 'questions'} />
+
                     <AdminNavLink href="/admin/support" icon={MessageSquare} label="Suporte ao Aluno" active={isActive('/admin/support')} />
                     <AdminNavLink href="/admin/finance" icon={DollarSign} label="Faturamento e Planos" active={isActive('/admin/finance')} />
                     <AdminNavLink href="/admin/settings" icon={Settings} label="Configurações do Sistema" active={isActive('/admin/settings')} />

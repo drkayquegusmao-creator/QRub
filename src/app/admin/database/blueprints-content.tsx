@@ -5,12 +5,11 @@ import { useState, useEffect } from 'react'
 import { FileText, Upload, Plus, ChevronRight, Binary, Database, Trash2, CheckCircle2, Clock, BrainCircuit, School, Loader2 } from 'lucide-react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useBlueprints } from '@/store/use-blueprints'
-import { useQuestions } from '@/store/use-questions'
+import { useBlueprints } from '@/store/use-blueprints'
 import { ExamBlueprint } from '@/lib/data-mock'
 
 export default function BlueprintsAdmin() {
     const { blueprints, loadBlueprints, createBlueprint, uploadPDF, processBlueprint, loadStudyBoxes, studyBoxes, loading } = useBlueprints()
-    const { generateQuestions } = useQuestions()
     const [isAdding, setIsAdding] = useState(false)
     const [name, setName] = useState('')
     const [institution, setInstitution] = useState('')
@@ -83,34 +82,6 @@ export default function BlueprintsAdmin() {
             alert(error.message || 'Erro ao processar arquivo.')
         } finally {
             setIsProcessing(false)
-        }
-    }
-
-    const handleGenerateQuestions = async (box: any) => {
-        if (isGenerating) return
-        setIsGenerating(box.id)
-
-        try {
-            const result = await generateQuestions({
-                specialty_id: box.specialty_id,
-                subspecialty_id: box.subspecialty_id || 'geral',
-                subject_id: 'geral',
-                count: 5, // Gerar 5 por clique
-                difficulty: box.cognitive_level === 'Avançado' ? 'Difícil' : box.cognitive_level === 'Intermediário' ? 'Médio' : 'Fácil',
-                blueprint_id: box.blueprint_id,
-                study_box_id: box.id
-            })
-
-            if (result.success) {
-                alert(`Sucesso! ${result.generated} questões geradas para "${box.title}"`)
-            } else {
-                alert('Erro ao gerar questões: ' + result.message)
-            }
-        } catch (error) {
-            console.error(error)
-            alert('Erro inesperado ao gerar questões.')
-        } finally {
-            setIsGenerating(null)
         }
     }
 
@@ -337,14 +308,6 @@ export default function BlueprintsAdmin() {
                                         <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-primary/70">
                                             <Binary className="w-3 h-3" /> Perfil: {box.charge_profile}
                                         </div>
-                                        <button
-                                            onClick={() => handleGenerateQuestions(box)}
-                                            disabled={isGenerating === box.id}
-                                            className="text-[10px] font-black uppercase tracking-widest bg-primary text-white px-4 py-2 rounded-lg hover:brightness-110 transition-all flex items-center gap-2 disabled:opacity-50"
-                                        >
-                                            {isGenerating === box.id ? <Loader2 className="w-3 h-3 animate-spin" /> : <BrainCircuit className="w-3 h-3" />}
-                                            {isGenerating === box.id ? 'Gerando...' : 'Gerar Questões'}
-                                        </button>
                                     </div>
                                 </div>
                             ))}
