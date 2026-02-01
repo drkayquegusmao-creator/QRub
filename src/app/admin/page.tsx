@@ -298,34 +298,35 @@ export default function AdminDashboard() {
 
     const handleBulkDelete = async () => {
         if (selectedQuestions.length === 0) return
-        if (confirm(`Tem certeza que deseja deletar ${selectedQuestions.length} questões selecionadas? Esta ação é irreversível e afetará o banco de dados.`)) {
+        if (confirm(`⚠️ ATENÇÃO: Tem certeza que deseja DELETAR PERMANENTEMENTE ${selectedQuestions.length} questões?`)) {
             try {
                 const res = await deleteQuestions(selectedQuestions)
                 if (res.success) {
                     setSelectedQuestions([])
+                    await loadQuestions()
                     alert(`✅ ${res.message}`)
                 } else {
-                    alert(`❌ ${res.message}`)
+                    alert(`❌ Erro: ${res.message}`)
                 }
-            } catch (error) {
+            } catch (error: any) {
                 console.error('Error deleting questions:', error)
-                alert('❌ Erro ao deletar questões no sistema.')
+                alert(`❌ Erro crítico: ${error.message || 'Falha desconhecida'}`)
             }
         }
     }
 
     const handleDeleteSingleQuestion = async (id: string) => {
-        if (confirm('Tem certeza que deseja excluir esta questão permanentemente?')) {
+        if (confirm('🗑️ Deseja excluir esta questão do banco de dados?')) {
             try {
                 const res = await deleteQuestion(id)
                 if (res.success) {
-                    alert(`✅ ${res.message}`)
+                    await loadQuestions()
                 } else {
-                    alert(`❌ ${res.message}`)
+                    alert(`❌ Não foi possível excluir: ${res.message}`)
                 }
-            } catch (error) {
+            } catch (error: any) {
                 console.error('Error deleting question:', error)
-                alert('❌ Erro ao deletar a questão.')
+                alert(`❌ Erro ao deletar: ${error.message}`)
             }
         }
     }
