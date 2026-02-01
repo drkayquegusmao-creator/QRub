@@ -142,22 +142,22 @@ export default function StudentDashboard() {
     const renderIntelligentAgenda = () => (
         <section className="relative group perspective-1000 h-full">
             <div className="absolute -inset-4 bg-gradient-to-r from-primary/30 via-purple-600/20 to-indigo-600/30 rounded-[60px] blur-3xl opacity-50 group-hover:opacity-100 transition-all duration-1000 animate-pulse" />
-            <div className="relative bg-white/70 backdrop-blur-3xl border-2 border-primary/20 rounded-[50px] p-10 md:p-14 shadow-2xl overflow-hidden h-full flex flex-col justify-center">
+            <div className="relative bg-white/70 backdrop-blur-3xl border-2 border-primary/20 rounded-[50px] p-10 md:p-14 shadow-2xl overflow-hidden h-full flex flex-col">
                 <div className="absolute top-0 right-0 p-12 opacity-5 pointer-events-none">
                     <BrainCircuit className="w-64 h-64 text-primary" />
                 </div>
-                <div className="flex flex-col md:flex-row items-center justify-between gap-12">
-                    <div className="space-y-6 flex-1 text-center md:text-left">
-                        <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-black uppercase tracking-[0.2em]">
+                <div className="flex-1 flex flex-col justify-center space-y-6 text-center md:text-left">
+                    <div>
+                        <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-black uppercase tracking-[0.2em] mb-6">
                             <Zap className="w-4 h-4 fill-primary" />
                             Sugestão do Dr. QRub
                         </div>
-                        <div className="space-y-2">
+                        <div className="space-y-4">
                             <h2 className="text-4xl md:text-7xl font-black italic uppercase tracking-tighter leading-[0.85] text-[#1A1033]">
                                 {intelligentAction.type === 'NIVELAMENTO' ? 'Sessão de' : 'Revisão'} <br />
                                 <span className="royal-gradient-text italic">{intelligentActionName}</span>
                             </h2>
-                            <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 mt-4">
+                            <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 mt-6">
                                 <span className={`px-4 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest ${intelligentAction.status === 'ATRASADO' ? 'bg-rose-500 text-white animate-pulse' :
                                     intelligentAction.status === 'NÃO_NIVELADO' ? 'bg-amber-500 text-white' :
                                         'bg-emerald-500 text-white'
@@ -169,16 +169,16 @@ export default function StudentDashboard() {
                                 </span>
                             </div>
                         </div>
-                        <div className="pt-4">
-                            <button onClick={startIntelligentSession} className="group relative w-full">
-                                <div className="absolute -inset-2 bg-primary rounded-[25px] blur-xl opacity-40 group-hover:opacity-70 transition-all" />
-                                <div className="relative royal-gradient text-white py-6 rounded-[22px] font-black uppercase text-sm md:text-base tracking-[0.2em] shadow-2xl flex items-center justify-center gap-4 hover:scale-[1.03] active:scale-95 transition-all">
-                                    INICIAR {intelligentAction.type === 'NIVELAMENTO' ? 'NIVELAMENTO' : 'REVISÃO'}
-                                    <Play className="w-6 h-6 fill-current ml-1" />
-                                </div>
-                            </button>
-                        </div>
                     </div>
+                </div>
+                <div className="mt-10">
+                    <button onClick={startIntelligentSession} className="group relative w-full">
+                        <div className="absolute -inset-2 bg-primary rounded-[25px] blur-xl opacity-40 group-hover:opacity-70 transition-all" />
+                        <div className="relative royal-gradient text-white py-6 rounded-[22px] font-black uppercase text-sm md:text-base tracking-[0.2em] shadow-2xl flex items-center justify-center gap-4 hover:scale-[1.03] active:scale-95 transition-all">
+                            INICIAR {intelligentAction.type === 'NIVELAMENTO' ? 'NIVELAMENTO' : 'REVISÃO'}
+                            <Play className="w-6 h-6 fill-current ml-1" />
+                        </div>
+                    </button>
                 </div>
             </div>
         </section>
@@ -423,36 +423,40 @@ export default function StudentDashboard() {
 
     const renderFastPractice = () => {
         return (
-            <div className="bg-white border-2 border-slate-100 rounded-[50px] p-10 md:p-14 soft-shadow h-full flex flex-col items-center justify-center text-center gap-8 relative overflow-hidden group hover:border-primary/30 transition-all">
+            <div className="bg-white border-2 border-slate-100 rounded-[50px] p-10 md:p-14 soft-shadow h-full flex flex-col items-center relative overflow-hidden group hover:border-primary/30 transition-all">
                 <div className="absolute inset-0 bg-gradient-to-br from-slate-50 to-white -z-10" />
                 <div className="absolute top-0 right-0 p-10 opacity-5 group-hover:scale-110 transition-transform duration-700">
                     <Target className="w-40 h-40 text-[#1A1033]" />
                 </div>
 
-                <div className="space-y-4 max-w-md relative z-10">
-                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-[10px] font-black uppercase tracking-[0.2em] mb-2">
-                        <Zap className="w-3 h-3" />
-                        Acesso Rápido
+                <div className="flex-1 flex flex-col justify-center items-center text-center space-y-6 max-w-md relative z-10">
+                    <div>
+                        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-[10px] font-black uppercase tracking-[0.2em] mb-6">
+                            <Zap className="w-3 h-3" />
+                            Acesso Rápido
+                        </div>
+                        <h3 className="text-3xl md:text-5xl font-black italic uppercase tracking-tighter text-[#1A1033] leading-[0.9] mb-4">
+                            Treinar <br />
+                            <span className="royal-gradient-text">Por Área</span>
+                        </h3>
+                        <p className="text-slate-500 font-medium text-sm leading-relaxed">
+                            Acesse todo o banco de questões organizado por especialidades médicas. Escolha sua área e comece agora.
+                        </p>
                     </div>
-                    <h3 className="text-3xl md:text-5xl font-black italic uppercase tracking-tighter text-[#1A1033] leading-[0.9]">
-                        Treinar <br />
-                        <span className="royal-gradient-text">Por Área</span>
-                    </h3>
-                    <p className="text-slate-500 font-medium text-sm leading-relaxed">
-                        Acesse todo o banco de questões organizado por especialidades médicas. Escolha sua área e comece agora.
-                    </p>
                 </div>
 
-                <button
-                    onClick={() => { setTrainModalInitialSpecialty(undefined); setShowTrainModal(true) }}
-                    className="relative group/btn z-30 w-full"
-                >
-                    <div className="absolute -inset-1 bg-primary/30 rounded-2xl blur-lg opacity-0 group-hover/btn:opacity-100 transition-opacity" />
-                    <div className="relative bg-[#1A1033] text-white py-6 rounded-2xl font-black uppercase text-sm tracking-[0.2em] shadow-2xl flex items-center justify-center gap-4 hover:scale-[1.02] active:scale-95 transition-all">
-                        Iniciar Agora
-                        <Play className="w-5 h-5 fill-current" />
-                    </div>
-                </button>
+                <div className="mt-10 w-full">
+                    <button
+                        onClick={() => { setTrainModalInitialSpecialty(undefined); setShowTrainModal(true) }}
+                        className="relative group/btn z-30 w-full"
+                    >
+                        <div className="absolute -inset-1 bg-primary/30 rounded-2xl blur-lg opacity-0 group-hover/btn:opacity-100 transition-opacity" />
+                        <div className="relative bg-[#1A1033] text-white py-6 rounded-2xl font-black uppercase text-sm tracking-[0.2em] shadow-2xl flex items-center justify-center gap-4 hover:scale-[1.02] active:scale-95 transition-all">
+                            Iniciar Agora
+                            <Play className="w-5 h-5 fill-current" />
+                        </div>
+                    </button>
+                </div>
             </div>
         )
     }
