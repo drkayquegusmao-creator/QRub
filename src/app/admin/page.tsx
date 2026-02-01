@@ -16,6 +16,7 @@ import { useUserDb } from '@/store/use-user-db'
 import { useModeration } from '@/store/use-moderation'
 import { useQuiz } from '@/store/use-quiz'
 import { useRouter } from 'next/navigation'
+import { GOLD_STANDARD_SYSTEM_PROMPT, buildPrompt } from '@/lib/prompts/gold-standard'
 
 import { motion, AnimatePresence } from 'framer-motion'
 import {
@@ -1332,14 +1333,29 @@ export default function AdminDashboard() {
                             </div>
 
                             <div className="flex flex-col gap-4">
-                                <button
-                                    onClick={handleGenerateAiQuestions}
-                                    disabled={isGenerating || !apiKey || !aiTopic}
-                                    className="w-full py-4 rounded-xl font-black uppercase tracking-widest text-sm bg-gradient-to-r from-amber-400 to-orange-500 text-white shadow-lg hover:shadow-amber-500/20 active:scale-[0.99] transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
-                                >
-                                    {isGenerating ? <RefreshCw className="w-5 h-5 animate-spin" /> : <Sparkles className="w-5 h-5" />}
-                                    {isGenerating ? 'Gerando Conteúdo Padrão-Ouro...' : 'Gerar Questões Agora'}
-                                </button>
+                                <div className="flex gap-4">
+                                    <button
+                                        onClick={handleGenerateAiQuestions}
+                                        disabled={isGenerating || !apiKey || !aiTopic}
+                                        className="flex-1 py-4 rounded-xl font-black uppercase tracking-widest text-sm bg-gradient-to-r from-amber-400 to-orange-500 text-white shadow-lg hover:shadow-amber-500/20 active:scale-[0.99] transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                                    >
+                                        {isGenerating ? <RefreshCw className="w-5 h-5 animate-spin" /> : <Sparkles className="w-5 h-5" />}
+                                        {isGenerating ? 'Gerando...' : 'Gerar Automático (Requer Key)'}
+                                    </button>
+                                    <button
+                                        onClick={() => {
+                                            if (!aiTopic) { alert('Defina um tema primeiro.'); return }
+                                            const specName = activeCourse?.specialties.find(s => s.id === selectedSpecialty)?.name || 'Medicina Geral'
+                                            const fullPrompt = `${GOLD_STANDARD_SYSTEM_PROMPT}\n\n${buildPrompt(aiTopic, specName, aiCount)}`
+                                            navigator.clipboard.writeText(fullPrompt)
+                                            alert('Prompt COPIADO! Cole no Chat GPT, gere, copie o JSON e cole abaixo.')
+                                        }}
+                                        className="px-6 py-4 rounded-xl font-black uppercase tracking-widest text-xs bg-slate-800 text-white hover:bg-slate-700 active:scale-[0.99] transition-all flex items-center justify-center gap-2"
+                                    >
+                                        <div className="bg-white/10 p-1 rounded-md"><Sparkles className="w-3 h-3" /></div>
+                                        Copiar Prompt (Grátis)
+                                    </button>
+                                </div>
 
                                 <div className="h-px bg-border my-2" />
 
