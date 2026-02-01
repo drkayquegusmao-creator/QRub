@@ -466,6 +466,9 @@ export default function StudentDashboard() {
     }
 
     const renderNotificationsWidget = () => {
+        // Only show for admin users
+        if (user?.role !== 'MASTER') return null
+
         const recentBlueprints = blueprints.slice(0, 3) // Show top 3 recent
 
         if (recentBlueprints.length === 0) return null
