@@ -1,0 +1,79 @@
+[
+    {
+        "id": "QRUB-EBS-2026-001",
+        "course_id": "medicina",
+        "specialty_id": "medicina-preventiva-social",
+        "subspecialty_id": "geral",
+        "subject_id": "legislacao-ebserh",
+        "difficulty": "Médio",
+        "enunciado": "A Empresa Brasileira de Serviços Hospitalares (EBSERH) foi criada pela Lei nº 12.550/2011 com o objetivo principal de prestar serviços gratuitos de assistência médico-hospitalar, ambulatorial e de apoio diagnóstico e terapêutico à comunidade. De acordo com o Art. 2º desta lei, em qual âmbito esses serviços devem ser prestados?",
+        "options": [
+            {
+                "id": "a",
+                "text": "Exclusivamente no âmbito de hospitais filantrópicos conveniados."
+            },
+            {
+                "id": "b",
+                "text": "Integrados exclusivamente às Secretarias Estaduais de Saúde."
+            },
+            {
+                "id": "c",
+                "text": "No âmbito do Sistema Único de Saúde (SUS) e integrados às Instituições Federais de Ensino Superior ou instituições congêneres."
+            },
+            {
+                "id": "d",
+                "text": "Em regime de mercado, competindo com operadoras de saúde suplementar."
+            },
+            {
+                "id": "e",
+                "text": "Focados apenas em pacientes com planos de saúde cadastrados."
+            }
+        ],
+        "correct_option_id": "c",
+        "explanation": "Pela Lei nº 12.550/2011, a EBSERH tem o dever de atuar no âmbito do SUS, vinculada ao Ministério da Educação, servindo como campo de prática e ensino para as Instituições Federais de Ensino Superior (IFES).",
+        "blueprint_id": "e2b4f6a1-c2e3-4d5f-9a1b-c3d4e5f6a7b8",
+        "study_box_id": "58e912a1-3b41-4125-95de-6fb6fec3024e",
+        "metadata": {
+            "origem": "EBSERH 2026', 'concurso': 'Ebserh/FGV', 'ano': 2026"
+        }
+    },
+    {
+        "id": "QRUB-EBS-2026-002",
+        "course_id": "medicina",
+        "specialty_id": "clinica-medica",
+        "subspecialty_id": "cardiologia",
+        "subject_id": "ic",
+        "difficulty": "Difícil",
+        "enunciado": "Paciente masculino, 64 anos, com Insuficiência Cardíaca de Fração de Ejeção Reduzida (ICFEr = 32%). Sinais vitais: PA: 112/68 mmHg. FC: 72 bpm. T: 36,4 °C. FR: 18 irpm. Já utiliza Enalapril 10 mg 12/12h, Carvedilol 25 mg 12/12h e Espironolactona 25 mg/dia. Persiste em Classe Funcional III (NYHA). Segundo a Diretriz Brasileira de IC (SBC 2021), qual a conduta para otimização terapêutica conforme o Edital EBSERH/2026?",
+        "options": [
+            {
+                "id": "a",
+                "text": "Substituir o Enalapril por Sacubitril-Valsartana (ARNI) e considerar adição de iSGLT2."
+            },
+            {
+                "id": "b",
+                "text": "Aumentar a dose de Espironolactona para 50 mg/dia."
+            },
+            {
+                "id": "c",
+                "text": "Puncionar e drenar edema de membros inferiores."
+            },
+            {
+                "id": "d",
+                "text": "Adicionar Nifedipino após o Enalapril."
+            },
+            {
+                "id": "e",
+                "text": "Suspender o Carvedilol para melhorar a perfusão periférica."
+            }
+        ],
+        "correct_option_id": "a",
+        "explanation": "A conduta 'quadrúpla' clássica (IECA/BRA ou ARNI + Beta-bloq + AM + iSGLT2) é a recomendação atual Nível I A para ICFEr sintomático.",
+        "blueprint_id": "e2b4f6a1-c2e3-4d5f-9a1b-c3d4e5f6a7b8",
+        "study_box_id": "8d98c434-dd02-4918-b7be-4b01daeb9ea5",
+        "metadata": {
+            "origem": "EBSERH 2026",
+            "perfil": "Especialista"
+        }
+    }
+]

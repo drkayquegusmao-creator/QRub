@@ -27,6 +27,57 @@ export interface Option {
     text: string
 }
 
+export interface Guideline {
+    id: string
+    specialty_id: string
+    name: string
+    institution: string
+    version: string
+    year: number
+    status: 'Ativa' | 'Arquivada'
+    summary?: string
+    key_points?: any
+    created_at?: string
+}
+
+export interface QuestionMetadata {
+    concurso?: string
+    cargo?: string
+    eixo?: string
+    tema?: string
+    subtema?: string
+    origem?: string
+    data_geracao?: string
+}
+
+export interface ExamBlueprint {
+    id: string
+    name: string
+    institution: string
+    year: number
+    exam_type: 'Residência Médica' | 'Título de Especialista' | 'Prova Nacional' | 'Outras'
+    status: 'processing' | 'active' | 'archived'
+    raw_pdf_url?: string
+    metadata?: {
+        total_items?: number
+        main_areas?: string[]
+    }
+}
+
+export interface StudyBox {
+    id: string
+    blueprint_id: string
+    title: string
+    specialty_id: string
+    subspecialty_id?: string
+    base_text?: string
+    keywords?: string[]
+    cognitive_level: 'Básico' | 'Intermediário' | 'Avançado'
+    charge_profile: 'Clínica' | 'Guideline' | 'Epidemiológica' | 'Técnica'
+    weight: number
+    status: 'não iniciado' | 'em progresso' | 'concluído'
+}
+
 export interface Question {
     id: string
     course_id: string
@@ -48,7 +99,23 @@ export interface Question {
     references?: string
     image_url?: string
     revision_link?: string
-    hash?: string // Anti-repetição
+    hash?: string
+    status?: 'active' | 'flagged' | 'archived'
+    guideline_id?: string
+    guideline_version?: string
+    blueprint_id?: string // Link com o Edital
+    study_box_id?: string  // Link com a Caixinha
+    metadata?: QuestionMetadata
+}
+
+export interface QuestionReport {
+    id: string
+    user_id: string
+    question_id: string
+    type: 'ENUNCIADO' | 'GABARITO' | 'EXPLICAÇÃO' | 'OUTRO'
+    description: string
+    status: 'pending' | 'resolved' | 'dismissed'
+    created_at: string
 }
 
 export interface UserResponse {
@@ -103,57 +170,5 @@ export function filterQuestions(
     })
 }
 
-export const QUESTIONS: Question[] = [
-    {
-        "id": "QRUB-MED-GO-001",
-        "course_id": "medicina",
-        "specialty_id": "ginecologia-obstetricia",
-        "subspecialty_id": "obstetricia-alto-risco",
-        "subject_id": "pre-eclampsia",
-        "difficulty": "Alta",
-        "enunciado": "Primigesta, 32 semanas, refere cefaleia persistente e turvação visual. Antecedente de HAS crônica. PA 170/115 mmHg, edema de membros inferiores (3+/4+), reflexos exaltados. Proteinúria de 24h: 5g. Plaquetas: 90.000/mm³. Creatinina: 1.2 mg/dL.",
-        "case_study": {
-            "history": "Primigesta, 32 semanas, refere cefaleia persistente e turvação visual. Antecedente de HAS crônica.",
-            "physical_exam": "PA 170/115 mmHg, edema de membros inferiores (3+/4+), reflexos exaltados.",
-            "lab_results": "Proteinúria de 24h: 5g. Plaquetas: 90.000/mm³. Creatinina: 1.2 mg/dL."
-        },
-        "options": [
-            { "id": "a", "text": "Aguardar 37 semanas for interrupção da gestação." },
-            { "id": "b", "text": "Iniciar Sulfato de Magnésio e planejar interrupção após estabilização." },
-            { "id": "c", "text": "Administrar apenas Hidralazina e dar alta para pré-natal de alto risco." },
-            { "id": "d", "text": "Realizar cesariana imediata sem necessidade de magnésio." },
-            { "id": "e", "text": "Iniciar apenas corticoterapia para maturação pulmonar e reavaliar em 1 semana." }
-        ],
-        "correct_option_id": "b",
-        "explanation": "Paciente apresenta critérios de gravidade (PA > 160/110, plaquetopenia, iminência de eclâmpsia). A conduta imediata é a prevenção de crises convulsivas com Sulfato de Magnésio.",
-        "references": "Protocolos FEBRASGO / Ministério da Saúde.",
-        "revision_link": "https://www.febrasgo.org.br/pt/noticias/item/425-pre-eclampsia",
-        "image_url": "https://images.unsplash.com/photo-1576091160550-2173599211d0?auto=format&fit=crop&q=80&w=400"
-    },
-    {
-        "id": "QRUB-MED-CM-002",
-        "course_id": "medicina",
-        "specialty_id": "clinica-medica",
-        "subspecialty_id": "endocrinologia",
-        "subject_id": "cetoacidose",
-        "difficulty": "Média",
-        "enunciado": "Paciente, 19 anos, DM1, chega com hálito cetônico, dor abdominal e vômitos há 12h. Desidratado, respiração de Kussmaul. Glicemia capilar: 450 mg/dL. pH arterial: 7.1, HCO3: 12 mEq/L, Cetonúria positiva (4+).",
-        "case_study": {
-            "history": "Paciente, 19 anos, DM1, chega com hálito cetônico, dor abdominal e vômitos há 12h.",
-            "physical_exam": "Desidratado, respiração de Kussmaul. Glicemia capilar: 450 mg/dL.",
-            "lab_results": "pH arterial: 7.1, HCO3: 12 mEq/L, Cetonúria positiva (4+)."
-        },
-        "options": [
-            { "id": "a", "text": "Bicarbonato de sódio IV imediato para todos os pacientes com pH < 7.2." },
-            { "id": "b", "text": "Insulina SC em bólus e hidratação oral." },
-            { "id": "c", "text": "Expansão volêmica vigorosa with SF 0,9% and insulinoterapia IV contínua (0,1 UI/kg/h)." },
-            { "id": "d", "text": "Apenas observação e dieta zero." },
-            { "id": "e", "text": "Insulina NPH IM e potássio via oral." }
-        ],
-        "correct_option_id": "c",
-        "explanation": "O pilar do tratamento da cetoacidose diabética é a reposição volêmica e a insulinoterapia endovenosa contínua para bloquear a cetogênese.",
-        "references": "Diretrizes Sociedade Brasileira de Diabetes (SBD).",
-        "revision_link": "https://www.diabetes.org.br/profissionais/diretrizes-sbd",
-        "image_url": "https://images.unsplash.com/photo-1576671081837-49000212a370?auto=format&fit=crop&q=80&w=400"
-    }
-]
+export const QUESTIONS: Question[] = []
+

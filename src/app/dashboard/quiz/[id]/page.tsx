@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ChevronLeft, Clock, Target, CheckCircle2, XCircle, Info, Maximize2, Minimize2, Sparkles, BrainCircuit, Crown, ArrowLeft, ArrowRight, Flag } from 'lucide-react'
+import { ChevronLeft, Clock, Target, CheckCircle2, XCircle, Info, Maximize2, Minimize2, Sparkles, BrainCircuit, Crown, ArrowLeft, ArrowRight, Flag, ShieldCheck } from 'lucide-react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { useQuestions } from '@/store/use-questions'
 import { useAuth, DAILY_QUESTION_LIMIT_FREE } from '@/store/use-auth'
@@ -12,6 +12,9 @@ import { useSRS } from '@/store/use-srs'
 import { RegistrationModal } from '@/components/registration-modal'
 import { PaywallModal } from '@/components/paywall-modal'
 import { filterQuestions } from '@/lib/data-mock'
+import { ReportModal } from '@/components/report-modal'
+import { AlertTriangle } from 'lucide-react'
+
 
 export default function QuizPage() {
     const searchParams = useSearchParams()
@@ -45,6 +48,10 @@ export default function QuizPage() {
     const [isAiLoading, setIsAiLoading] = useState(false)
     const [isZoomOpen, setIsZoomOpen] = useState(false)
     const [isGenerating, setIsGenerating] = useState(false)
+    const [showReportModal, setShowReportModal] = useState(false)
+
+
+
 
     // Load questions from IndexedDB on mount
     useEffect(() => {
@@ -294,9 +301,27 @@ export default function QuizPage() {
             {/* Question Body */}
             <div className={`flex-1 space-y-8 max-w-5xl mx-auto w-full ${isFocusMode ? 'animate-in fade-in zoom-in duration-500' : ''}`}>
                 <div className="space-y-6">
-                    <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-muted-foreground">
-                        <Target className="w-4 h-4 text-primary" />
-                        {question.specialty_id} • {question.subject_id}
+                    <div className="flex items-center justify-between gap-4">
+                        <div className="flex items-center gap-4 flex-wrap">
+                            <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-muted-foreground">
+                                <Target className="w-4 h-4 text-primary" />
+                                {question.specialty_id} • {question.subject_id}
+                            </div>
+
+                            {question.guideline_id && (
+                                <div className="flex items-center gap-2 bg-primary/10 text-primary px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest border border-primary/20">
+                                    <ShieldCheck className="w-3 h-3" />
+                                    Baseado em: {question.guideline_version || 'Diretriz Oficial'}
+                                </div>
+                            )}
+                        </div>
+                        <button
+                            onClick={() => setShowReportModal(true)}
+                            className="bg-rose-500/10 hover:bg-rose-500/20 text-rose-500 px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest transition-all flex items-center gap-1.5 border border-rose-500/20"
+                        >
+                            <AlertTriangle className="w-3.5 h-3.5" />
+                            Reportar Erro
+                        </button>
                     </div>
 
                     {question.image_url && (
@@ -487,6 +512,18 @@ export default function QuizPage() {
                     )}
                 </AnimatePresence>
             </div>
+            <RegistrationModal isOpen={showRegModal} onClose={() => setShowRegModal(false)} />
+            <PaywallModal
+                isOpen={showPaywall}
+                onClose={() => setShowPaywall(false)}
+                reason="feature"
+                requiredPlan="INSANO"
+            />
+            <ReportModal
+                isOpen={showReportModal}
+                onClose={() => setShowReportModal(false)}
+                questionId={question.id}
+            />
         </div>
     )
 }

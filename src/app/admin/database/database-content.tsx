@@ -1,16 +1,27 @@
 "use client"
 
 import { useState, useEffect } from 'react'
-import { Plus, Save, X, ChevronRight, BookOpen, Database, Download, Upload, FileSpreadsheet } from 'lucide-react'
-import { COURSES, Course, Specialty, Subspecialty } from '@/lib/data-mock'
+import { Plus, Save, X, ChevronRight, BookOpen, Database, Download, Upload, FileSpreadsheet, ShieldCheck } from 'lucide-react'
+import { COURSES, Course, Specialty, Subspecialty, QuestionMetadata } from '@/lib/data-mock'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useQuestions } from '@/store/use-questions'
 
 export default function DatabaseContent() {
-    const { questions, loadQuestions, addQuestion, addQuestions } = useQuestions()
+    const { questions, guidelines, loadQuestions, loadGuidelines, addQuestion, addQuestions } = useQuestions()
     const [selectedCourse, setSelectedCourse] = useState<Course | null>(null)
     const [selectedSpecialty, setSelectedSpecialty] = useState<Specialty | null>(null)
     const [selectedSubspecialty, setSelectedSubspecialty] = useState<Subspecialty | null>(null)
+
+    const [selectedGuidelineId, setSelectedGuidelineId] = useState('')
+    const [metadata, setMetadata] = useState<QuestionMetadata>({
+        concurso: '',
+        cargo: '',
+        eixo: '',
+        tema: '',
+        subtema: '',
+        origem: 'Gerada automaticamente – QRub',
+        data_geracao: new Date().toISOString()
+    })
 
     const [enunciado, setEnunciado] = useState('')
     const [options, setOptions] = useState([
@@ -18,14 +29,16 @@ export default function DatabaseContent() {
         { id: 'b', text: '' },
         { id: 'c', text: '' },
         { id: 'd', text: '' },
+        { id: 'e', text: '' }
     ])
     const [correctOptionId, setCorrectOptionId] = useState('a')
     const [explanation, setExplanation] = useState('')
-    const [difficulty, setDifficulty] = useState('Médio')
+    const [difficulty, setDifficulty] = useState<'Fácil' | 'Médio' | 'Difícil'>('Médio')
 
-    // Load questions on mount
+    // Load data on mount
     useEffect(() => {
         loadQuestions()
+        loadGuidelines()
     }, [])
 
     const handleExportXLS = async () => {
@@ -46,6 +59,12 @@ export default function DatabaseContent() {
             OpcaoE: q.options.find(o => o.id === 'e')?.text || '',
             Correta: q.correct_option_id,
             Explicação: q.explanation,
+            DiretrizID: q.guideline_id || '',
+            Concurso: q.metadata?.concurso || '',
+            Cargo: q.metadata?.cargo || '',
+            Eixo: q.metadata?.eixo || '',
+            Tema: q.metadata?.tema || '',
+            Origem: q.metadata?.origem || '',
             Imagem: q.image_url || '',
             Referencia: q.references || '',
             LinkRevisao: q.revision_link || ''
@@ -86,13 +105,21 @@ export default function DatabaseContent() {
                         { id: 'c', text: row.OpcaoC || '' },
                         { id: 'd', text: row.OpcaoD || '' },
                         { id: 'e', text: row.OpcaoE || '' },
-                    ].filter(o => o.text), // Filter empty options if any
+                    ].filter(o => o.text),
                     correct_option_id: row.Correta?.toLowerCase() || 'a',
                     explanation: row.Explicação || '',
+                    guideline_id: row.DiretrizID || undefined,
+                    metadata: {
+                        concurso: row.Concurso || '',
+                        cargo: row.Cargo || '',
+                        eixo: row.Eixo || '',
+                        tema: row.Tema || '',
+                        origem: row.Origem || 'Importado via XLS',
+                        data_geracao: new Date().toISOString()
+                    },
                     image_url: row.Imagem || undefined,
                     references: row.Referencia || undefined,
-                    revision_link: row.LinkRevisao || undefined,
-                    case_study: { history: '', physical_exam: '', lab_results: '' } // Default empty for XLS imports
+                    revision_link: row.LinkRevisao || undefined
                 }))
 
                 if (parsedQuestions.length > 0) {
@@ -146,7 +173,6 @@ export default function DatabaseContent() {
         }
     }
 
-    // Reset dependent filters
     useEffect(() => {
         setSelectedSpecialty(null)
         setSelectedSubspecialty(null)
@@ -161,23 +187,31 @@ export default function DatabaseContent() {
         if (!selectedCourse) return
 
         try {
+            const selectedGuideline = guidelines.find(g => g.id === selectedGuidelineId)
+
             await addQuestion({
                 course_id: selectedCourse.id,
                 specialty_id: selectedSpecialty?.id || 'geral',
                 subspecialty_id: selectedSubspecialty?.id || 'geral',
-                subject_id: 'manual',
-                difficulty: difficulty as any,
+                subject_id: metadata.tema || 'manual',
+                difficulty: difficulty,
                 enunciado,
                 options,
                 correct_option_id: correctOptionId,
                 explanation,
+                guideline_id: selectedGuidelineId || undefined,
+                guideline_version: selectedGuideline?.version || undefined,
+                metadata: {
+                    ...metadata,
+                    data_geracao: new Date().toISOString()
+                },
                 case_study: { history: '', physical_exam: '', lab_results: '' }
             })
 
-            alert('Questão salva!')
-            // Reset form
+            alert('Questão salva com sucesso seguindo os padrões QRub!')
             setEnunciado('')
-            setOptions([{ id: 'a', text: '' }, { id: 'b', text: '' }, { id: 'c', text: '' }, { id: 'd', text: '' }])
+            setOptions([{ id: 'a', text: '' }, { id: 'b', text: '' }, { id: 'c', text: '' }, { id: 'd', text: '' }, { id: 'e', text: '' }])
+            loadQuestions()
         } catch (error) {
             console.error('Error saving question:', error)
             alert('Erro ao salvar questão. Tente novamente.')
@@ -191,11 +225,10 @@ export default function DatabaseContent() {
                     <div className="bg-primary p-2 rounded-xl">
                         <Database className="w-6 h-6 text-white" />
                     </div>
-                    <h1 className="text-3xl font-black italic uppercase tracking-tighter">Gestão de Conteúdo</h1>
+                    <h1 className="text-3xl font-black italic uppercase tracking-tighter">Gestão de Conteúdo (QRub Pro)</h1>
                 </div>
 
                 <div className="flex gap-2">
-                    {/* XLS Group */}
                     <div className="flex gap-2 mr-4 border-r border-border pr-4">
                         <button
                             onClick={handleExportXLS}
@@ -216,7 +249,6 @@ export default function DatabaseContent() {
                         </label>
                     </div>
 
-                    {/* JSON Group */}
                     <button
                         onClick={handleExportJSON}
                         className="flex items-center gap-2 px-4 py-2 bg-card border border-border rounded-xl text-xs font-black uppercase tracking-widest text-muted-foreground hover:bg-muted hover:text-foreground transition-all"
@@ -238,43 +270,112 @@ export default function DatabaseContent() {
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-                {/* Step 1: Filters */}
-                <section className="space-y-6">
-                    <h3 className="text-xs font-black uppercase tracking-widest text-primary flex items-center gap-2">
-                        <span className="w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center text-[10px]">1</span>
-                        Filtros Hierárquicos
-                    </h3>
+                {/* Step 1: Hierarquia e Diretrizes */}
+                <section className="space-y-8">
+                    <div className="space-y-6">
+                        <h3 className="text-xs font-black uppercase tracking-widest text-primary flex items-center gap-2">
+                            <span className="w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center text-[10px]">1</span>
+                            Hierarquia e Diretrizes
+                        </h3>
 
-                    <div className="space-y-4">
-                        <FilterSelect
-                            label="Curso"
-                            options={COURSES}
-                            onSelect={(id) => setSelectedCourse(COURSES.find(c => c.id === id) || null)}
-                        />
+                        <div className="space-y-4">
+                            <FilterSelect
+                                label="Curso"
+                                options={COURSES}
+                                onSelect={(id) => setSelectedCourse(COURSES.find(c => c.id === id) || null)}
+                            />
 
-                        <AnimatePresence>
-                            {selectedCourse && (
-                                <motion.div initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }}>
-                                    <FilterSelect
-                                        label="Especialidade"
-                                        options={selectedCourse.specialties}
-                                        onSelect={(id) => setSelectedSpecialty(selectedCourse.specialties.find(s => s.id === id) || null)}
-                                    />
-                                </motion.div>
-                            )}
-                        </AnimatePresence>
+                            <AnimatePresence>
+                                {selectedCourse && (
+                                    <motion.div initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }}>
+                                        <FilterSelect
+                                            label="Especialidade"
+                                            options={selectedCourse.specialties}
+                                            onSelect={(id) => setSelectedSpecialty(selectedCourse.specialties.find(s => s.id === id) || null)}
+                                        />
+                                    </motion.div>
+                                )}
+                            </AnimatePresence>
 
-                        <AnimatePresence>
-                            {selectedSpecialty && (
-                                <motion.div initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }}>
-                                    <FilterSelect
-                                        label="Subespecialidade"
-                                        options={selectedSpecialty.subspecialties}
-                                        onSelect={(id) => setSelectedSubspecialty(selectedSpecialty.subspecialties.find(s => s.id === id) || null)}
-                                    />
-                                </motion.div>
-                            )}
-                        </AnimatePresence>
+                            <AnimatePresence>
+                                {selectedSpecialty && (
+                                    <motion.div initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }}>
+                                        <div className="space-y-4">
+                                            <FilterSelect
+                                                label="Subespecialidade"
+                                                options={selectedSpecialty.subspecialties}
+                                                onSelect={(id) => setSelectedSubspecialty(selectedSpecialty.subspecialties.find(s => s.id === id) || null)}
+                                            />
+
+                                            <div className="space-y-2">
+                                                <label className="text-[10px] font-black uppercase tracking-widest text-primary flex items-center gap-2">
+                                                    <ShieldCheck className="w-3 h-3" />
+                                                    Diretriz Base
+                                                </label>
+                                                <select
+                                                    value={selectedGuidelineId}
+                                                    onChange={(e) => setSelectedGuidelineId(e.target.value)}
+                                                    className="w-full bg-primary/5 border border-primary/20 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary/20 outline-none font-bold text-sm text-primary"
+                                                >
+                                                    <option value="">Nenhuma vinculada...</option>
+                                                    {guidelines.filter(g => g.specialty_id === selectedSpecialty.id || g.specialty_id === 'geral').map(g => (
+                                                        <option key={g.id} value={g.id}>{g.name} ({g.version})</option>
+                                                    ))}
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </motion.div>
+                                )}
+                            </AnimatePresence>
+                        </div>
+                    </div>
+
+                    <div className="space-y-6 pt-6 border-t border-border">
+                        <h3 className="text-xs font-black uppercase tracking-widest text-muted-foreground flex items-center gap-2">
+                            Metadados Obrigatórios
+                        </h3>
+                        <div className="grid grid-cols-2 gap-4">
+                            <div className="space-y-1">
+                                <label className="text-[10px] font-bold uppercase text-muted-foreground px-1">Concurso</label>
+                                <input
+                                    type="text"
+                                    value={metadata.concurso}
+                                    onChange={(e) => setMetadata({ ...metadata, concurso: e.target.value })}
+                                    className="w-full bg-card border border-border rounded-lg px-3 py-2 text-xs font-bold"
+                                    placeholder="Ex: Revalida"
+                                />
+                            </div>
+                            <div className="space-y-1">
+                                <label className="text-[10px] font-bold uppercase text-muted-foreground px-1">Cargo</label>
+                                <input
+                                    type="text"
+                                    value={metadata.cargo}
+                                    onChange={(e) => setMetadata({ ...metadata, cargo: e.target.value })}
+                                    className="w-full bg-card border border-border rounded-lg px-3 py-2 text-xs font-bold"
+                                    placeholder="Ex: Médico"
+                                />
+                            </div>
+                            <div className="space-y-1">
+                                <label className="text-[10px] font-bold uppercase text-muted-foreground px-1">Eixo</label>
+                                <input
+                                    type="text"
+                                    value={metadata.eixo}
+                                    onChange={(e) => setMetadata({ ...metadata, eixo: e.target.value })}
+                                    className="w-full bg-card border border-border rounded-lg px-3 py-2 text-xs font-bold"
+                                    placeholder="Ex: Pediatria"
+                                />
+                            </div>
+                            <div className="space-y-1">
+                                <label className="text-[10px] font-bold uppercase text-muted-foreground px-1">Tema</label>
+                                <input
+                                    type="text"
+                                    value={metadata.tema}
+                                    onChange={(e) => setMetadata({ ...metadata, tema: e.target.value })}
+                                    className="w-full bg-card border border-border rounded-lg px-3 py-2 text-xs font-bold"
+                                    placeholder="Ex: Asma"
+                                />
+                            </div>
+                        </div>
                     </div>
                 </section>
 
@@ -283,13 +384,13 @@ export default function DatabaseContent() {
                     <div className="flex items-center justify-between">
                         <h3 className="text-xs font-black uppercase tracking-widest text-primary flex items-center gap-2">
                             <span className="w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center text-[10px]">2</span>
-                            Corpo da Questão
+                            Corpo da Questão (Padrão QRub)
                         </h3>
                         <div className="flex gap-2">
                             {['Fácil', 'Médio', 'Difícil'].map((d) => (
                                 <button
                                     key={d}
-                                    onClick={() => setDifficulty(d)}
+                                    onClick={() => setDifficulty(d as any)}
                                     className={`px-3 py-1 rounded-full text-[10px] font-black uppercase transition-all ${difficulty === d ? 'bg-primary text-white' : 'bg-muted text-muted-foreground'}`}
                                 >
                                     {d}
@@ -300,7 +401,10 @@ export default function DatabaseContent() {
 
                     <div className="space-y-6">
                         <div className="space-y-2">
-                            <label className="text-xs font-bold uppercase text-muted-foreground">Enunciado (Markdown)</label>
+                            <div className="flex justify-between items-center">
+                                <label className="text-xs font-bold uppercase text-muted-foreground">Enunciado (Markdown)</label>
+                                <span className="text-[10px] text-primary font-black uppercase tracking-tighter">Siga a ordem: ID + Queixa + Tempo + SV + Exames</span>
+                            </div>
                             <textarea
                                 value={enunciado}
                                 onChange={(e) => setEnunciado(e.target.value)}
@@ -310,7 +414,7 @@ export default function DatabaseContent() {
                         </div>
 
                         <div className="grid gap-4">
-                            <label className="text-xs font-bold uppercase text-muted-foreground">Alternativas</label>
+                            <label className="text-xs font-bold uppercase text-muted-foreground">Alternativas (A-E)</label>
                             {options.map((opt, idx) => (
                                 <div key={opt.id} className="flex gap-4">
                                     <button
@@ -337,20 +441,21 @@ export default function DatabaseContent() {
                         <div className="space-y-2">
                             <div className="flex items-center gap-2 text-primary">
                                 <BookOpen className="w-4 h-4" />
-                                <label className="text-xs font-bold uppercase">Explicação do Especialista</label>
+                                <label className="text-xs font-bold uppercase">Explicação Baseada em Diretriz</label>
                             </div>
                             <textarea
                                 value={explanation}
                                 onChange={(e) => setExplanation(e.target.value)}
-                                placeholder="Por que esta é a alternativa correta?"
-                                className="w-full h-32 bg-primary/5 border border-primary/20 rounded-2xl p-6 focus:ring-2 focus:ring-primary/20 outline-none transition-all font-medium italic italic"
+                                placeholder="Cite a diretriz e explique por que as outras opções estão incorretas (Padrão Psicométrico)..."
+                                className="w-full h-32 bg-primary/5 border border-primary/20 rounded-2xl p-6 focus:ring-2 focus:ring-primary/20 outline-none transition-all font-medium italic"
                             />
                         </div>
 
                         <div className="pt-8 flex justify-end">
                             <button
                                 onClick={handleSave}
-                                disabled={!selectedCourse || !enunciado}
+                                disabled={!selectedCourse || !enunciado || !selectedGuidelineId}
+                                title={!selectedGuidelineId ? "Vincule uma diretriz para salvar" : ""}
                                 className="royal-gradient text-white px-12 py-5 rounded-2xl font-black text-xl flex items-center gap-3 soft-shadow hover:scale-[1.02] active:scale-95 transition-all disabled:opacity-50 disabled:grayscale"
                             >
                                 <Save className="w-6 h-6" />

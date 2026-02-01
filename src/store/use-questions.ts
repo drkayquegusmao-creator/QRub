@@ -1,10 +1,11 @@
+
 import { create } from 'zustand'
-import { persist } from 'zustand/middleware'
-import { Question } from '@/lib/data-mock'
 import { supabase, isSupabaseConfigured } from '@/lib/supabase'
+import { Question, Guideline } from '@/lib/data-mock'
 
 interface QuestionsState {
     questions: Question[]
+    guidelines: Guideline[]
     loading: boolean
     error: string | null
     loadQuestions: (filters?: {
@@ -13,6 +14,7 @@ interface QuestionsState {
         subspecialty_id?: string,
         subject_id?: string
     }) => Promise<void>
+    loadGuidelines: () => Promise<void>
     addQuestion: (question: Omit<Question, 'id'>) => Promise<{ success: boolean, message: string }>
     addQuestions: (questions: Question[]) => Promise<{ success: boolean, message: string }>
     deleteQuestion: (id: string) => Promise<{ success: boolean, message: string }>
@@ -22,12 +24,15 @@ interface QuestionsState {
         subject_id?: string
         count: number
         difficulty?: "Fácil" | "Médio" | "Difícil"
+        blueprint_id?: string
+        study_box_id?: string
     }) => Promise<{ success: boolean, message: string, generated?: number }>
 }
 
 export const useQuestions = create<QuestionsState>()(
     (set, get) => ({
         questions: [],
+        guidelines: [],
         loading: false,
         error: null,
 
@@ -41,11 +46,9 @@ export const useQuestions = create<QuestionsState>()(
                     let page = 0
                     const pageSize = 1000
 
-                    // Fetch in batches to bypass Supabase 1000-row limit
                     while (hasMore && allQuestions.length < 20000) {
                         let query = supabase.from('questions').select('*')
 
-                        // Apply filters if provided
                         if (filters?.course_id) query = query.eq('course_id', filters.course_id)
                         if (filters?.specialty_id) query = query.eq('specialty_id', filters.specialty_id)
                         if (filters?.subspecialty_id) query = query.eq('subspecialty_id', filters.subspecialty_id)
@@ -69,92 +72,85 @@ export const useQuestions = create<QuestionsState>()(
                         }
                     }
 
-                    // Fallback to mock data if Supabase returns no questions (empty DB or no matches)
-                    // This ensures the app always has questions to show
-                    if (allQuestions.length === 0) {
-                        console.warn('⚠️ Supabase returned 0 questions. Falling back to Mock Data.')
-                        const { QUESTIONS } = await import('@/lib/data-mock')
-                        set({ questions: QUESTIONS, loading: false })
-                    } else {
-                        set({ questions: allQuestions, loading: false })
-                    }
-                } else {
-                    // Load from local storage (already persisted)
-                    const { questions } = get()
-                    if (questions.length === 0) {
-                        const { QUESTIONS } = await import('@/lib/data-mock')
-                        set({ questions: QUESTIONS, loading: false })
-                    } else {
-                        set({ loading: false })
-                    }
+                    set({ questions: allQuestions, loading: false })
                 }
             } catch (err: any) {
                 set({ error: err.message, loading: false })
             }
         },
 
-        addQuestion: async (questionData: Omit<Question, 'id'>) => {
+        loadGuidelines: async () => {
             try {
-                const newQuestion: Question = {
-                    ...questionData,
-                    id: `QRUB-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
-                }
+                const { data, error } = await supabase
+                    .from('guidelines')
+                    .select('*')
+                    .order('name')
 
-                if (isSupabaseConfigured()) {
-                    // Save to Supabase
-                    const { error } = await supabase
-                        .from('questions')
-                        .insert(newQuestion)
-
-                    if (error) throw error
-                }
-
-                // Update local state
-                set((state) => ({
-                    questions: [newQuestion, ...state.questions]
-                }))
-
-                return { success: true, message: 'Questão adicionada com sucesso!' }
-            } catch (err: any) {
-                return { success: false, message: err.message || 'Erro ao adicionar questão' }
+                if (error) throw error
+                set({ guidelines: data || [] })
+            } catch (error) {
+                console.error('Error loading guidelines:', error)
             }
         },
 
-        addQuestions: async (newQuestions: Question[]) => {
+        addQuestion: async (question) => {
             try {
-                if (isSupabaseConfigured()) {
-                    // Bulk insert to Supabase
-                    const { error } = await supabase
-                        .from('questions')
-                        .insert(newQuestions)
+                if (!isSupabaseConfigured()) throw new Error('Supabase not configured')
 
-                    if (error) throw error
-                }
+                const { data, error } = await supabase
+                    .from('questions')
+                    .insert([question])
+                    .select()
 
-                // Update local state by merging
+                if (error) throw error
+
                 set((state) => ({
-                    questions: [...newQuestions, ...state.questions]
+                    questions: [data[0], ...state.questions]
                 }))
 
-                return { success: true, message: `${newQuestions.length} questões adicionadas com sucesso!` }
+                return { success: true, message: 'Questão salva com sucesso!' }
             } catch (err: any) {
-                return { success: false, message: err.message || 'Erro ao adicionar lote de questões' }
+                return { success: false, message: err.message || 'Erro ao salvar questão' }
+            }
+        },
+
+        addQuestions: async (questions) => {
+            try {
+                if (!isSupabaseConfigured()) throw new Error('Supabase not configured')
+
+                const { data, error } = await supabase
+                    .from('questions')
+                    .insert(questions)
+                    .select()
+
+                if (error) throw error
+
+                set((state) => ({
+                    questions: [...(data || []), ...state.questions]
+                }))
+
+                return { success: true, message: `${questions.length} questões importadas com sucesso!` }
+            } catch (err: any) {
+                return { success: false, message: err.message || 'Erro ao importar questões' }
             }
         },
 
         deleteQuestion: async (id) => {
             try {
-                if (isSupabaseConfigured()) {
-                    // Delete from Supabase
-                    const { error } = await supabase
-                        .from('questions')
-                        .delete()
-                        .eq('id', id)
+                if (!isSupabaseConfigured()) throw new Error('Supabase not configured')
 
-                    if (error) throw error
+                const { error } = await supabase
+                    .from('questions')
+                    .delete()
+                    .eq('id', id)
+
+                if (error) {
+                    if (error.code === '23503') {
+                        throw new Error('Esta questão possui respostas de usuários e não pode ser excluída para manter a integridade dos dados.')
+                    }
+                    throw error
                 }
 
-                // Update local state
                 set((state) => ({
                     questions: state.questions.filter(q => q.id !== id)
                 }))
@@ -165,7 +161,8 @@ export const useQuestions = create<QuestionsState>()(
             }
         },
 
-        generateQuestions: async ({ specialty_id, subspecialty_id, subject_id, count, difficulty }) => {
+        generateQuestions: async ({ specialty_id, subspecialty_id, subject_id, count, difficulty, blueprint_id, study_box_id }) => {
+            set({ loading: true })
             try {
                 const generatedQuestions: Question[] = []
 
@@ -181,33 +178,43 @@ export const useQuestions = create<QuestionsState>()(
                         subspecialty_id: finalSub,
                         subject_id: finalSubject,
                         difficulty: (difficulty as any) || 'Médio',
-                        enunciado: `[Questão #${i + 1}] Paciente apresenta quadro clínico de alta complexidade em ${specialty_id}${subspecialty_id ? ' (' + subspecialty_id + ')' : ''}. Com base nos protocolos mais recentes para ${finalSubject}, qual a conduta imediata?`,
+                        enunciado: study_box_id
+                            ? `[Questão de Edital] Paciente apresenta quadro clínico baseado na caixinha ${study_box_id}.`
+                            : `[Questão Clínica #${i + 1}] Paciente apresenta quadro clínico seguindo os novos padrões QRub para ${specialty_id}.`,
+                        case_study: {
+                            history: "Identificação: ... Queixa principal: ... Tempo de evolução: ...",
+                            physical_exam: "Sinais Vitais decimais (ex: 36,5 °C). FC: 80 bpm. PA: 120/80 mmHg.",
+                            lab_results: "Exames em g/dL, /mm³."
+                        },
                         options: [
-                            { id: 'a', text: 'Opção A' },
-                            { id: 'b', text: 'Opção B (Correta)' },
-                            { id: 'c', text: 'Opção C' },
-                            { id: 'd', text: 'Opção D' },
-                            { id: 'e', text: 'Opção E' }
+                            { id: 'a', text: 'Conduta baseada em diretriz do edital' },
+                            { id: 'b', text: 'Distrator 1' },
+                            { id: 'c', text: 'Distrator 2' },
+                            { id: 'd', text: 'Distrator 3' },
+                            { id: 'e', text: 'Distrator 4' }
                         ],
-                        correct_option_id: 'b',
-                        explanation: 'Esta é uma questão gerada automaticamente para demonstração.'
+                        correct_option_id: 'a',
+                        explanation: 'Explicação detalhada citando a diretriz oficial contida no perfil do edital.',
+                        blueprint_id,
+                        study_box_id,
+                        metadata: {
+                            origem: 'Gerada via PDF/Edital – QRub',
+                            data_geracao: new Date().toISOString(),
+                            tema: finalSubject
+                        }
                     }
 
                     generatedQuestions.push(question)
                 }
 
                 if (isSupabaseConfigured()) {
-                    // Bulk insert to Supabase
-                    const { error } = await supabase
-                        .from('questions')
-                        .insert(generatedQuestions)
-
+                    const { error } = await supabase.from('questions').insert(generatedQuestions)
                     if (error) throw error
                 }
 
-                // Update local state
-                set((state) => ({
-                    questions: [...generatedQuestions, ...state.questions]
+                set(state => ({
+                    questions: [...generatedQuestions, ...state.questions],
+                    loading: false
                 }))
 
                 return {
@@ -216,6 +223,8 @@ export const useQuestions = create<QuestionsState>()(
                     generated: count
                 }
             } catch (err: any) {
+                console.error('Erro na geração:', err)
+                set({ loading: false })
                 return {
                     success: false,
                     message: err.message || 'Erro ao gerar questões'

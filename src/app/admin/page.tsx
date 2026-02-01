@@ -5,7 +5,7 @@ import {
     Plus, Search, Edit2, Trash2, Users, Crown, Star,
     RefreshCw, Database, BarChart3, Upload, CheckCircle2,
     AlertCircle, History, ExternalLink, Mail, Phone, BookOpen, GraduationCap, Sparkles, X, ShieldCheck, DollarSign, Settings, ArrowLeft,
-    Activity, Target, Zap, TrendingUp, ChevronLeft, ChevronRight
+    Activity, Target, Zap, TrendingUp, ChevronLeft, ChevronRight, Flag
 } from 'lucide-react'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
@@ -13,7 +13,9 @@ import { useQuestions as useQuestionsStore } from '@/store/use-questions'
 import { COURSES, QUESTIONS, Question } from '@/lib/data-mock'
 import { useAuth, PlanLevel } from '@/store/use-auth'
 import { useUserDb } from '@/store/use-user-db'
+import { useModeration } from '@/store/use-moderation'
 import { useRouter } from 'next/navigation'
+
 import { motion, AnimatePresence } from 'framer-motion'
 import {
     BarChart, Bar, ResponsiveContainer, XAxis, YAxis, Tooltip, CartesianGrid, LineChart, Line
@@ -27,8 +29,10 @@ export default function AdminDashboard() {
     const { questions, deleteQuestion, addQuestion, addQuestions, loadQuestions, loading } = useQuestionsStore()
     const { users: realUsers, loadUsers, updateUserPlan } = useUserDb()
 
+    const { reports, loadReports, updateReportStatus, loading: reportsLoading } = useModeration()
     // Sync view with URL param 'tab'
-    const [view, setViewInternal] = useState<'questions' | 'users' | 'analytics' | 'import'>('analytics')
+    const [view, setViewInternal] = useState<'questions' | 'users' | 'analytics' | 'import' | 'reports'>('analytics')
+
 
     const setView = (newView: string) => {
         setViewInternal(newView as any)
@@ -39,9 +43,10 @@ export default function AdminDashboard() {
 
     useEffect(() => {
         const tab = searchParams.get('tab')
-        if (tab && ['questions', 'users', 'analytics', 'import'].includes(tab)) {
+        if (tab && ['questions', 'users', 'analytics', 'import', 'reports'].includes(tab)) {
             setViewInternal(tab as any)
         } else if (!tab && view === 'analytics') {
+
             // Default if no tab
             setViewInternal('analytics')
         }
@@ -89,7 +94,9 @@ export default function AdminDashboard() {
     // Load questions from IndexedDB on mount
     useEffect(() => {
         loadQuestions()
+        loadReports()
     }, [])
+
 
     // Protection Logic
     useEffect(() => {
@@ -573,8 +580,10 @@ export default function AdminDashboard() {
                 <div className="flex flex-wrap gap-2 p-1.5 bg-muted rounded-2xl w-fit">
                     <NavBtn active={view === 'analytics'} onClick={() => setView('analytics')} icon={<BarChart3 className="w-4 h-4" />} label="Dashboard" />
                     <NavBtn active={view === 'questions'} onClick={() => setView('questions')} icon={<Database className="w-4 h-4" />} label="Banco" />
+                    <NavBtn active={view === 'reports'} onClick={() => setView('reports')} icon={<AlertCircle className="w-4 h-4" />} label="Regulagem" />
                     <NavBtn active={view === 'import'} onClick={() => setView('import')} icon={<Sparkles className="w-4 h-4" />} label="Dr. QRub (IA)" />
                     <NavBtn active={view === 'users'} onClick={() => setView('users')} icon={<Users className="w-4 h-4" />} label="Alunos" />
+
                 </div>
 
                 <div className="flex gap-3">
@@ -594,8 +603,9 @@ export default function AdminDashboard() {
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                             <StatCard label="Total Questões" value={questions.length} color="text-primary" icon={<Database className="w-4 h-4" />} />
                             <StatCard label="Especialidades" value="12" color="text-blue-500" icon={<BookOpen className="w-4 h-4" />} />
-                            <StatCard label="Aguardando Revisão" value="0" color="text-emerald-500" icon={<CheckCircle2 className="w-4 h-4" />} />
-                            <StatCard label="Erros Reportados" value="0" color="text-rose-500" icon={<AlertCircle className="w-4 h-4" />} />
+                            <StatCard label="Questões com Flag" value={questions.filter(q => q.status === 'flagged').length} color="text-orange-500" icon={<Flag className="w-4 h-4" />} />
+                            <StatCard label="Erros Reportados" value={reports.filter(r => r.status === 'pending').length} color="text-rose-500" icon={<AlertCircle className="w-4 h-4" />} />
+
                         </div>
 
                         <div className="bg-card border border-border rounded-[32px] overflow-hidden soft-shadow">
@@ -672,6 +682,7 @@ export default function AdminDashboard() {
                                                     <div className="text-[10px] font-mono text-muted-foreground italic uppercase flex items-center gap-2">
                                                         {q.id}
                                                         {q.image_url && <span className="text-[8px] bg-primary/20 text-primary px-1 rounded">IMAGE</span>}
+                                                        {q.status === 'flagged' && <span className="text-[8px] bg-rose-500/20 text-rose-500 px-1 rounded flex items-center gap-1 font-black"><AlertCircle className="w-2.5 h-2.5" /> FLAG</span>}
                                                     </div>
                                                 </td>
                                                 <td className="px-8 py-6">
@@ -810,6 +821,80 @@ export default function AdminDashboard() {
                                                 </td>
                                             </tr>
                                         ))}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </motion.div>
+                )}
+
+                {view === 'reports' && (
+                    <motion.div key="r" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} className="space-y-6">
+                        <div className="bg-card border border-border rounded-[32px] overflow-hidden soft-shadow">
+                            <div className="p-8 border-b border-border bg-muted/20">
+                                <h3 className="text-xl font-black italic uppercase tracking-tighter flex items-center gap-2 text-rose-500">
+                                    <AlertCircle className="w-5 h-5" /> Fila de Regulação Médica
+                                </h3>
+                                <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest opacity-60">Analise os erros reportados pelos alunos e corrija as questões.</p>
+                            </div>
+                            <div className="overflow-x-auto">
+                                <table className="w-full text-left">
+                                    <thead className="bg-muted/50 text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground">
+                                        <tr>
+                                            <th className="px-8 py-6">ID Questão</th>
+                                            <th className="px-8 py-6">Tipo</th>
+                                            <th className="px-8 py-6">Descrição</th>
+                                            <th className="px-8 py-6 text-right">Ações</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody className="divide-y divide-border">
+                                        {reports.map(r => (
+                                            <tr key={r.id} className="hover:bg-rose-500/5 transition-colors">
+                                                <td className="px-8 py-6">
+                                                    <div className="font-mono text-[10px] font-black">{r.question_id}</div>
+                                                    <div className="text-[8px] text-muted-foreground">{new Date(r.created_at).toLocaleString()}</div>
+                                                </td>
+                                                <td className="px-8 py-6">
+                                                    <span className="bg-rose-500/10 text-rose-500 px-2 py-1 rounded text-[8px] font-black uppercase">{r.type}</span>
+                                                </td>
+                                                <td className="px-8 py-6">
+                                                    <div className="text-sm font-medium">{r.description}</div>
+                                                </td>
+                                                <td className="px-8 py-6 text-right">
+                                                    <div className="flex justify-end gap-2">
+                                                        <button
+                                                            onClick={async () => {
+                                                                const q = questions.find(qst => qst.id === r.question_id)
+                                                                if (q) handleOpenEditor(q)
+                                                            }}
+                                                            className="px-3 py-1.5 rounded-lg bg-primary/10 text-primary text-[10px] font-black uppercase hover:bg-primary/20 transition-all"
+                                                        >
+                                                            Editar Questão
+                                                        </button>
+                                                        <button
+                                                            onClick={() => updateReportStatus(r.id, 'resolved')}
+                                                            className="px-3 py-1.5 rounded-lg bg-emerald-500/10 text-emerald-500 text-[10px] font-black uppercase hover:bg-emerald-500/20 transition-all"
+                                                        >
+                                                            Resolvido
+                                                        </button>
+                                                        <button
+                                                            onClick={() => updateReportStatus(r.id, 'dismissed')}
+                                                            className="px-3 py-1.5 rounded-lg bg-muted text-muted-foreground text-[10px] font-black uppercase hover:bg-muted/80 transition-all"
+                                                        >
+                                                            Dispensar
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        ))}
+                                        {reports.length === 0 && (
+                                            <tr>
+                                                <td colSpan={4} className="px-8 py-20 text-center">
+                                                    <CheckCircle2 className="w-10 h-10 text-emerald-500 mx-auto mb-4" />
+                                                    <p className="text-sm font-black uppercase tracking-widest text-muted-foreground">Tudo limpo! Sem pendências de regulação.</p>
+                                                </td>
+                                            </tr>
+                                        )}
                                     </tbody>
                                 </table>
                             </div>
