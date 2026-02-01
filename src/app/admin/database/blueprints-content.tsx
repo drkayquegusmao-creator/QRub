@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react'
 import { FileText, Upload, Plus, ChevronRight, Binary, Database, Trash2, CheckCircle2, Clock, BrainCircuit, School, Loader2 } from 'lucide-react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useBlueprints } from '@/store/use-blueprints'
-import { useBlueprints } from '@/store/use-blueprints'
+
 import { ExamBlueprint } from '@/lib/data-mock'
 
 export default function BlueprintsAdmin() {
