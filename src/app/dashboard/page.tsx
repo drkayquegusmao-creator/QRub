@@ -29,7 +29,7 @@ import {
     BookOpen,
     Microscope,
     Search,
-    Search,
+
     LayoutGrid,
     Bell,
     FileText,
