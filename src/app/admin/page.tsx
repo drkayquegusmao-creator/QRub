@@ -1379,13 +1379,16 @@ export default function AdminDashboard() {
                                     </select>
                                 </div>
                                 <div className="space-y-2">
-                                    <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Tema Foco (Contexto)</label>
+                                    <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground flex justify-between">
+                                        Tema (Opcional)
+                                        <span className="text-emerald-500 font-bold text-[9px]">Padrão: Diversos</span>
+                                    </label>
                                     <input
                                         type="text"
                                         value={aiTopic}
                                         onChange={(e) => setAiTopic(e.target.value)}
-                                        placeholder="Deixe vazio para DIVERSOS TEMAS ou digite um assunto..."
-                                        className="w-full bg-muted/50 border border-border rounded-xl p-3 font-bold text-sm outline-none focus:border-primary transition-colors"
+                                        placeholder="Deixe vazio para gerar temas variados..."
+                                        className="w-full bg-muted/30 border border-border rounded-xl p-3 font-bold text-sm outline-none focus:border-primary transition-colors text-muted-foreground focus:text-foreground"
                                     />
                                 </div>
                                 <div className="space-y-2">
@@ -1400,75 +1403,88 @@ export default function AdminDashboard() {
                                         <option value={10}>10 Questões</option>
                                         <option value={50}>50 Questões (Lote Médio)</option>
                                         <option value={100}>100 Questões (Lote Grande)</option>
-                                        <option value={500}>500 Questões (ULTRA MASSIVE 🔥)</option>
+                                        <option value={500}>500 Questões (Massivo)</option>
                                     </select>
                                 </div>
                             </div>
 
-                            <div className="flex flex-col gap-4">
-                                <div className="flex gap-4">
-                                    <button
-                                        onClick={handleGenerateAiQuestions}
-                                        disabled={isGenerating || !apiKey || !aiTopic}
-                                        className="flex-1 py-4 rounded-xl font-black uppercase tracking-widest text-sm bg-gradient-to-r from-amber-400 to-orange-500 text-white shadow-lg hover:shadow-amber-500/20 active:scale-[0.99] transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
-                                    >
-                                        {isGenerating ? <RefreshCw className="w-5 h-5 animate-spin" /> : <Sparkles className="w-5 h-5" />}
-                                        {isGenerating ? 'Gerando...' : 'Gerar Automático (Requer Key)'}
-                                    </button>
-                                    <button
-                                        onClick={() => {
-                                            if (!aiTopic) { alert('Defina um tema primeiro.'); return }
-                                            const specName = activeCourse?.specialties.find(s => s.id === selectedSpecialty)?.name || 'Medicina Geral'
-                                            const fullPrompt = `${GOLD_STANDARD_SYSTEM_PROMPT}\n\n${buildPrompt(aiTopic, specName, aiCount)}`
-                                            navigator.clipboard.writeText(fullPrompt)
-                                            alert('Prompt COPIADO! Cole no Chat GPT, gere, copie o JSON e cole abaixo.')
-                                        }}
-                                        className="px-6 py-4 rounded-xl font-black uppercase tracking-widest text-xs bg-slate-800 text-white hover:bg-slate-700 active:scale-[0.99] transition-all flex items-center justify-center gap-2"
-                                    >
-                                        <div className="bg-white/10 p-1 rounded-md"><Sparkles className="w-3 h-3" /></div>
-                                        Copiar Prompt (Grátis)
-                                    </button>
+                            <button
+                                onClick={handleGenerateAiQuestions}
+                                disabled={isGenerating}
+                                className={`w-full py-6 rounded-2xl font-black text-lg uppercase tracking-widest shadow-xl transition-all flex items-center justify-center gap-3 mb-8 ${isGenerating
+                                    ? 'bg-muted text-muted-foreground cursor-wait'
+                                    : 'bg-amber-400 hover:bg-amber-500 text-amber-950 hover:scale-[1.01] active:scale-95'
+                                    }`}
+                            >
+                                {isGenerating ? (
+                                    <>
+                                        <RefreshCw className="w-6 h-6 animate-spin" />
+                                        Gerando e Salvando...
+                                    </>
+                                ) : (
+                                    <>
+                                        <Sparkles className="w-6 h-6" />
+                                        Gerar Questões Automaticamente
+                                    </>
+                                )}
+                            </button>
+
+                            {/* Área de Logs Simplificada */}
+                            <div className="bg-black/5 rounded-3xl p-6 border border-border">
+                                <div className="flex items-center justify-between mb-4">
+                                    <h3 className="text-xs font-black uppercase tracking-widest text-muted-foreground">Status da Operação</h3>
+                                    {jsonInput && <button onClick={() => setJsonInput('')} className="text-[10px] font-bold text-red-500 hover:underline">Limpar</button>}
                                 </div>
 
-                                <div className="h-px bg-border my-2" />
-
-                                <div className="space-y-2">
-                                    <div className="flex justify-between items-center">
-                                        <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">JSON Resultante (Editável)</label>
-                                        <div className="flex gap-2">
-                                            <button onClick={() => navigator.clipboard.writeText(jsonInput)} className="text-[10px] font-bold uppercase bg-muted px-3 py-1 rounded-lg hover:bg-muted/80">Copiar</button>
-                                            <button onClick={() => setJsonInput('')} className="text-[10px] font-bold uppercase bg-muted px-3 py-1 rounded-lg hover:bg-muted/80 text-destructive">Limpar</button>
+                                {importStatus ? (
+                                    <div className={`p-6 rounded-2xl border mb-4 flex items-center gap-4 ${importStatus.type === 'success' ? 'bg-emerald-500/10 border-emerald-500/20 text-emerald-600' : 'bg-red-500/10 border-red-500/20 text-red-600'}`}>
+                                        <div className={`p-2 rounded-full ${importStatus.type === 'success' ? 'bg-emerald-500/20' : 'bg-red-500/20'}`}>
+                                            {importStatus.type === 'success' ? <CheckCircle2 className="w-6 h-6" /> : <AlertCircle className="w-6 h-6" />}
+                                        </div>
+                                        <div>
+                                            <p className="font-black text-lg">{importStatus.type === 'success' ? 'Sucesso!' : 'Atenção'}</p>
+                                            <p className="font-medium text-sm opacity-90">{importStatus.msg}</p>
                                         </div>
                                     </div>
-                                    <textarea
-                                        value={jsonInput}
-                                        onChange={(e) => setJsonInput(e.target.value)}
-                                        className="w-full h-64 bg-slate-950 text-slate-50 font-mono text-xs p-4 rounded-xl resize-y border border-slate-800"
-                                        placeholder="// O resultado aparecerá aqui..."
-                                    />
-                                </div>
-
-                                {importStatus && (
-                                    <div className={`p-4 rounded-xl border flex items-center gap-3 font-medium text-sm ${importStatus.type === 'success' ? 'bg-emerald-500/10 border-emerald-500/20 text-emerald-600' : 'bg-red-500/10 border-red-500/20 text-red-600'}`}>
-                                        {importStatus.type === 'success' ? <CheckCircle2 className="w-5 h-5" /> : <AlertCircle className="w-5 h-5" />}
-                                        {importStatus.msg}
+                                ) : (
+                                    <div className="text-center py-12 border-2 border-dashed border-border/50 rounded-2xl">
+                                        <div className="w-12 h-12 bg-muted rounded-full flex items-center justify-center mx-auto mb-3">
+                                            <Sparkles className="w-6 h-6 text-muted-foreground/50" />
+                                        </div>
+                                        <p className="text-muted-foreground text-sm font-medium">Aguardando comando...</p>
+                                        <p className="text-[10px] text-muted-foreground/60 uppercase font-bold tracking-widest mt-1">Configure acima e clique em Gerar</p>
                                     </div>
                                 )}
 
+                                {/* Detalhes Técnicos (JSON) escondidos em accordion visualmente simples */}
                                 {jsonInput && (
-                                    <button
-                                        onClick={handleValidateJSON}
-                                        className="w-full py-4 rounded-xl font-black uppercase tracking-widest text-sm bg-primary text-white shadow-lg hover:bg-primary/90 active:scale-[0.99] transition-all flex items-center justify-center gap-2"
-                                    >
-                                        <Database className="w-5 h-5" />
-                                        Validar e Salvar no Banco
-                                    </button>
+                                    <div className="mt-4 pt-4 border-t border-dashed border-border/50">
+                                        <details className="group">
+                                            <summary className="text-[10px] uppercase font-bold text-muted-foreground mb-2 cursor-pointer hover:text-foreground list-none flex items-center gap-2">
+                                                <div className="w-4 h-4 bg-muted rounded flex items-center justify-center group-open:rotate-90 transition-transform">▸</div>
+                                                Ver Detalhes Técnicos ({JSON.parse(jsonInput || '[]').length} itens gerados)
+                                            </summary>
+                                            <div className="bg-black/90 rounded-xl p-4 max-h-40 overflow-y-auto font-mono text-[10px] text-green-400 scrollbar-thin mt-2 shadow-inner">
+                                                <pre>{jsonInput}</pre>
+                                            </div>
+                                        </details>
+                                    </div>
                                 )}
+                            </div>
+
+                            {/* Botão Manual movido para baixo/segundo plano */}
+                            <div className="mt-8 pt-6 text-center">
+                                <button
+                                    onClick={handleManualPromptCopy}
+                                    className="px-4 py-2 text-muted-foreground hover:text-foreground rounded-lg text-[10px] font-bold uppercase tracking-widest hover:bg-muted transition-all flex items-center gap-2 mx-auto"
+                                >
+                                    <Database className="w-3 h-3" />
+                                    Não tem API Key? Copiar Prompt Manualmente
+                                </button>
                             </div>
                         </div>
 
-                        {/* Dicas de Prompt */}
-                        <div className="bg-muted/30 border border-border rounded-2xl p-6">
+                        <div className="bg-muted/30 border border-border rounded-2xl p-6 mt-8">
                             <h4 className="font-bold text-sm flex items-center gap-2 mb-2"><ShieldCheck className="w-4 h-4 text-emerald-500" /> Garantia de Qualidade</h4>
                             <p className="text-xs text-muted-foreground leading-relaxed">
                                 Este gerador utiliza o <strong>Prompt Padrão-Ouro V1.0</strong>. Todas as questões passam por um filtro rigoroso de consistência estrutural.
@@ -1478,7 +1494,7 @@ export default function AdminDashboard() {
                     </motion.div>
                 )}
             </AnimatePresence>
-        </div >
+        </div>
     )
 }
 
