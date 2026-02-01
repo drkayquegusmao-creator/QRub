@@ -62,6 +62,16 @@ export interface ExamBlueprint {
         total_items?: number
         main_areas?: string[]
     }
+    is_course?: boolean // Se true, funciona como um "Curso" (ex: EBSERH, SUS-SP)
+    details?: {
+        exam_date?: string
+        registration_start?: string
+        registration_end?: string
+        salary?: string
+        vacancies?: number
+        phases?: string[]
+        description?: string
+    }
 }
 
 export interface StudyBox {

@@ -2,20 +2,24 @@
 "use client"
 
 import { useState, useEffect } from 'react'
-import { FileText, Upload, Plus, ChevronRight, Binary, Database, Trash2, CheckCircle2, Clock } from 'lucide-react'
+import { FileText, Upload, Plus, ChevronRight, Binary, Database, Trash2, CheckCircle2, Clock, BrainCircuit, School, Loader2 } from 'lucide-react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useBlueprints } from '@/store/use-blueprints'
+import { useQuestions } from '@/store/use-questions'
 import { ExamBlueprint } from '@/lib/data-mock'
 
 export default function BlueprintsAdmin() {
     const { blueprints, loadBlueprints, createBlueprint, uploadPDF, processBlueprint, loadStudyBoxes, studyBoxes, loading } = useBlueprints()
+    const { generateQuestions } = useQuestions()
     const [isAdding, setIsAdding] = useState(false)
     const [name, setName] = useState('')
     const [institution, setInstitution] = useState('')
     const [year, setYear] = useState(new Date().getFullYear())
     const [examType, setExamType] = useState<any>('Residência Médica')
+    const [isCourse, setIsCourse] = useState(false)
     const [selectedFile, setSelectedFile] = useState<File | null>(null)
     const [isProcessing, setIsProcessing] = useState(false)
+    const [isGenerating, setIsGenerating] = useState<string | null>(null) // ID da box gerando
 
     const [selectedBlueprint, setSelectedBlueprint] = useState<ExamBlueprint | null>(null)
 
@@ -47,6 +51,7 @@ export default function BlueprintsAdmin() {
                 institution,
                 year,
                 exam_type: examType,
+                is_course: isCourse,
                 raw_pdf_url: pdfUrl,
                 status: 'processing'
             })
@@ -62,6 +67,8 @@ export default function BlueprintsAdmin() {
                 setIsAdding(false)
                 setName('')
                 setInstitution('')
+                setYear(new Date().getFullYear())
+                setIsCourse(false)
                 setSelectedFile(null)
             } else {
                 alert('Ocorreu um erro no processamento do edital.')
@@ -71,6 +78,34 @@ export default function BlueprintsAdmin() {
             alert(error.message || 'Erro ao processar arquivo.')
         } finally {
             setIsProcessing(false)
+        }
+    }
+
+    const handleGenerateQuestions = async (box: any) => {
+        if (isGenerating) return
+        setIsGenerating(box.id)
+
+        try {
+            const result = await generateQuestions({
+                specialty_id: box.specialty_id,
+                subspecialty_id: box.subspecialty_id || 'geral',
+                subject_id: 'geral',
+                count: 5, // Gerar 5 por clique
+                difficulty: box.cognitive_level === 'Avançado' ? 'Difícil' : box.cognitive_level === 'Intermediário' ? 'Médio' : 'Fácil',
+                blueprint_id: box.blueprint_id,
+                study_box_id: box.id
+            })
+
+            if (result.success) {
+                alert(`Sucesso! ${result.generated} questões geradas para "${box.title}"`)
+            } else {
+                alert('Erro ao gerar questões: ' + result.message)
+            }
+        } catch (error) {
+            console.error(error)
+            alert('Erro inesperado ao gerar questões.')
+        } finally {
+            setIsGenerating(null)
         }
     }
 
@@ -154,6 +189,20 @@ export default function BlueprintsAdmin() {
                                     <option>Outras</option>
                                 </select>
                             </div>
+                        </div>
+
+                        <div className="mt-6 flex items-center gap-4 p-4 bg-indigo-50 rounded-2xl border border-indigo-100">
+                            <div className={`p-2 rounded-xl transition-colors ${isCourse ? 'bg-indigo-500 text-white' : 'bg-indigo-200 text-indigo-400'}`}>
+                                <School className="w-5 h-5" />
+                            </div>
+                            <div className="flex-1">
+                                <h4 className="text-sm font-black uppercase text-[#1A1033]">Classificar como Curso Principal</h4>
+                                <p className="text-[10px] text-muted-foreground leading-tight">Se ativo, aparecerá com destaque e filtros de curso (ex: EBSERH como "Curso").</p>
+                            </div>
+                            <label className="relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" checked={isCourse} onChange={e => setIsCourse(e.target.checked)} className="sr-only peer" />
+                                <div className="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-indigo-500"></div>
+                            </label>
                         </div>
 
                         <div className="mt-8 flex items-center justify-between border-t border-border pt-8">
@@ -270,8 +319,13 @@ export default function BlueprintsAdmin() {
                                         <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-primary/70">
                                             <Binary className="w-3 h-3" /> Perfil: {box.charge_profile}
                                         </div>
-                                        <button className="text-[10px] font-black uppercase tracking-widest bg-primary text-white px-4 py-2 rounded-lg hover:brightness-110 transition-all">
-                                            Gerar Questões
+                                        <button
+                                            onClick={() => handleGenerateQuestions(box)}
+                                            disabled={isGenerating === box.id}
+                                            className="text-[10px] font-black uppercase tracking-widest bg-primary text-white px-4 py-2 rounded-lg hover:brightness-110 transition-all flex items-center gap-2 disabled:opacity-50"
+                                        >
+                                            {isGenerating === box.id ? <Loader2 className="w-3 h-3 animate-spin" /> : <BrainCircuit className="w-3 h-3" />}
+                                            {isGenerating === box.id ? 'Gerando...' : 'Gerar Questões'}
                                         </button>
                                     </div>
                                 </div>

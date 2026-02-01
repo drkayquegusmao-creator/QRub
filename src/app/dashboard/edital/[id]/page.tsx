@@ -60,14 +60,36 @@ export default function EditalPage() {
                             <span className="flex items-center gap-1 text-slate-400 font-bold uppercase text-[10px] tracking-wider">
                                 <Calendar className="w-3 h-3" /> {currentBlueprint.year}
                             </span>
+                            {currentBlueprint.is_course && (
+                                <span className="px-3 py-1 bg-indigo-100 text-indigo-600 rounded-full text-[10px] font-black uppercase tracking-widest">
+                                    Curso Completo
+                                </span>
+                            )}
                         </div>
                         <h1 className="text-3xl md:text-5xl font-black italic uppercase tracking-tighter text-[#1A1033] leading-[0.9]">
                             {currentBlueprint.name}
                         </h1>
                         <p className="text-slate-500 font-medium max-w-2xl">
-                            Estratégia personalizada baseada no edital {currentBlueprint.institution}.
-                            Foque nos assuntos de maior incidência e resolva questões filtradas.
+                            {currentBlueprint.details?.description || `Estratégia personalizada baseada no edital ${currentBlueprint.institution}. Foque nos assuntos de maior incidência e resolva questões filtradas.`}
                         </p>
+
+                        {currentBlueprint.details && (
+                            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
+                                {[
+                                    { label: 'Prova', value: currentBlueprint.details.exam_date, icon: <Calendar className="w-4 h-4" /> },
+                                    { label: 'Inscrições', value: `${currentBlueprint.details.registration_start?.split('/').slice(0, 2).join('/')} - ${currentBlueprint.details.registration_end?.split('/').slice(0, 2).join('/')}`, icon: <Target className="w-4 h-4" /> },
+                                    { label: 'Bolsa/Salário', value: currentBlueprint.details.salary, icon: <Zap className="w-4 h-4" /> },
+                                    { label: 'Vagas', value: currentBlueprint.details.vacancies, icon: <CheckCircle2 className="w-4 h-4" /> }
+                                ].map((item, i) => item.value && (
+                                    <div key={i} className="bg-slate-50 border border-slate-100 p-3 rounded-2xl flex flex-col gap-1">
+                                        <div className="flex items-center gap-2 text-[9px] font-bold uppercase tracking-widest text-slate-400">
+                                            {item.icon} {item.label}
+                                        </div>
+                                        <div className="font-black text-xs text-[#1A1033]">{item.value}</div>
+                                    </div>
+                                ))}
+                            </div>
+                        )}
                     </div>
 
                     <div className="flex gap-4">
