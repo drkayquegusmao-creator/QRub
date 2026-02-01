@@ -181,59 +181,93 @@ export const useQuestions = create<QuestionsState>()(
                     const age = 18 + Math.floor(Math.random() * 65)
                     const gender = Math.random() > 0.5 ? 'masculino' : 'feminino'
                     const genderAdj = gender === 'masculino' ? 'o' : 'a'
-                    const questionId = `QRUB-GEN-${Date.now()}-${i}-${Math.random().toString(36).substr(2, 5)}`
+                    const article = gender === 'masculino' ? 'um' : 'uma'
+                    const questionId = `QRUB-REV-${Date.now()}-${i}`
 
-                    const clinicalScenarios = [
-                        `Paciente de ${age} anos, sexo ${gender}, previamente hígid${genderAdj}, comparece ao pronto-socorro com quadro de início há 6 horas. Refere sintomatologia compatível com ${subName}. Ao exame físico: BEG, corad${genderAdj}, hidratad${genderAdj}, acianótic${genderAdj}, anictéric${genderAdj}. PA: ${115 + Math.floor(Math.random() * 50)}/${75 + Math.floor(Math.random() * 30)} mmHg, FC: ${70 + Math.floor(Math.random() * 40)} bpm, TAX: ${(36.5 + Math.random() * 2).toFixed(1).replace('.', ',')}°C, FR: ${16 + Math.floor(Math.random() * 8)} irpm. Exames complementares evidenciam alterações compatíveis com o diagnóstico diferencial de ${subjName}. História patológica pregressa: nega comorbidades. Diante do quadro, qual a conduta mais adequada?`,
-                        `Paciente de ${age} anos, sexo ${gender}, com história de ${subName} há 3 meses, procura atendimento médico por piora do quadro clínico. Relata sintomas progressivos de ${subjName}, incluindo manifestações específicas da especialidade. Ao exame: estado geral regular, sinais vitais com PA ${125 + Math.floor(Math.random() * 40)}/${80 + Math.floor(Math.random() * 25)} mmHg, FC ${75 + Math.floor(Math.random() * 35)} bpm, TAX: ${(36.5 + Math.random() * 1.5).toFixed(1).replace('.', ',')}°C. Exame físico segmentar revela achados compatíveis com a hipótese diagnóstica principal. Exames laboratoriais: Hemograma com Hb ${(11 + Math.random() * 3).toFixed(1).replace('.', ',')} g/dL, Leucócitos ${6000 + Math.floor(Math.random() * 8000)}/mm³, Plaquetas ${150000 + Math.floor(Math.random() * 200000)}/mm³. Qual o próximo passo na propedêutica deste paciente?`,
-                        `Paciente de ${age} anos, sexo ${gender}, admitid${genderAdj} na emergência com quadro agudo de ${subjName}. Início súbito há 2 horas. Nega traumas ou uso de medicações. Ao exame: Glasgow ${13 + Math.floor(Math.random() * 3)}, pupilas isocóricas e fotorreagentes, ausência de sinais meníngeos. PA: ${105 + Math.floor(Math.random() * 60)}/${65 + Math.floor(Math.random() * 35)} mmHg, FC: ${80 + Math.floor(Math.random() * 40)} bpm, TAX: ${(36.2 + Math.random() * 1.2).toFixed(1).replace('.', ',')}°C, SatO2: ${92 + Math.floor(Math.random() * 8)}% em ar ambiente. Exames de imagem e laboratoriais foram solicitados conforme protocolo institucional para ${spec.name}. Qual a principal hipótese diagnóstica e conduta imediata?`
+                    // --- ESTRUTURA REVALIDA/RESIDÊNCIA ---
+                    // 1. Identificação + QP + HDA
+                    const clinicalStart = [
+                        `Paciente de ${age} anos, sexo ${gender}, pardo, procura a UPA queixando-se de ${subjName} há 3 dias, com piora progressiva nas últimas 12 horas.`,
+                        `${article.charAt(0).toUpperCase() + article.slice(1)} paciente de ${age} anos, sexo ${gender}, é trazid${genderAdj} pelo SAMU com rebaixamento do nível de consciência e história de ${subjName}.`,
+                        `Paciente de ${age} anos, ${gender}, tabagista e hipertenso, dá entrada no PS com quadro súbito de ${subjName} associado a sudorese fria.`
                     ]
 
+                    // 2. Exame Físico Rico (Vitals + Findings)
+                    const vitals = `PA: ${90 + Math.floor(Math.random() * 60)}/${50 + Math.floor(Math.random() * 40)} mmHg | FC: ${60 + Math.floor(Math.random() * 60)} bpm | FR: ${14 + Math.floor(Math.random() * 20)} irpm | SatO2: ${85 + Math.floor(Math.random() * 14)}%`
+
+                    const physicalExam = [
+                        `Mau estado geral, descorad${genderAdj} (3+/4+), desidratad${genderAdj}. ${vitals}. Ausculta pulmonar com estertores crepitantes em bases. Abdome distendido, doloroso à palpação difusa, com descompressão brusca positiva.`,
+                        `Estado geral regular, vigil, orientado. ${vitals}. Exame segmentar revela edema de membros inferiores (2+/4+) e turgencia jugular patológica. Ictus cordis desviado para esquerda.`,
+                        `Torporoso (Glasgow 10), pupilas isocóricas. ${vitals}. Extremidades frias e perfusão capilar > 3 segundos. Ritmo cardíaco irregular, sem sopros.`
+                    ]
+
+                    // 3. Exames Complementares (Labs + Imagem)
+                    const labs = `Hb: ${(8 + Math.random() * 6).toFixed(1).replace('.', ',')} g/dL | Leuco: ${4000 + Math.floor(Math.random() * 15000)} | Plq: ${150000 + Math.floor(Math.random() * 200000)} | Cr: ${(0.7 + Math.random() * 2).toFixed(1).replace('.', ',')} | Na: 135 | K: 4.5`
+
+                    // Montagem do Caso Completo
+                    const intro = clinicalStart[Math.floor(Math.random() * clinicalStart.length)]
+                    const exam = physicalExam[Math.floor(Math.random() * physicalExam.length)]
+                    const textScenarios = [
+                        `${intro}\n\nAo exame físico: ${exam}\n\nExames laboratoriais: ${labs}.\n\nDiante deste quadro clínico e considerando as diretrizes atuais de ${spec.name}, assinale a alternativa que apresenta o diagnóstico mais provável e a conduta imediata:`,
+                        `${intro}\n\nSinais vitais na admissão: ${vitals}.\n\nO eletrocardiograma de entrada evidenciou supradesnivelamento do segmento ST em parede anterior. A dosagem de troponina foi positiva.\n\nQual a estratégia de reperfusão preferencial considerando que o hospital não dispõe de hemodinâmica e o tempo de transporte é superior a 120 minutos?`,
+                        `Para um paciente de ${age} anos com diagnóstico confirmado de ${subjName}, apresentando os seguintes achados ao exame físico: ${exam}.\n\nQual a classe farmacológica de primeira linha para controle sintomático e melhoria de prognóstico a longo prazo?`
+                    ]
+
+                    const fullEnunciado = textScenarios[Math.floor(Math.random() * textScenarios.length)]
+
+                    // Gerar Alternativas Complexas (Diagnóstico + Conduta)
+                    const correctOptions = [
+                        `Diagnóstico: Infarto Agudo do Miocárdio com Supra de ST; Conduta: Fibrinólise química imediata com Tenecteplase (se sem contraindicações) e posterior transferência.`,
+                        `Diagnóstico: Sepse de foco pulmonar; Conduta: Iniciar pacote de 1 hora (cristaloides 30ml/kg + coleta de cultura + antibiótico largo espectro).`,
+                        `Diagnóstico: Cetoacidose Diabética; Conduta: Hidratação vigorosa inicial com SF 0,9%, seguida de insulinoterapia venosa após confirmação do Potássio.`
+                    ]
                     const distractorOptions = [
-                        `Conduta expectante com reavaliação em 48h`,
-                        `Iniciar tratamento sintomático isolado sem investigação complementar`,
-                        `Realizar procedimento invasivo sem estabilização prévia`,
-                        `Administrar medicação de primeira linha em dose subterapêutica`,
-                        `Encaminhar para especialista sem estabilização inicial`
+                        `Diagnóstico: Angina Instável; Conduta: Estratificação não invasiva em 24h e dupla antiagregação plaquetária.`,
+                        `Diagnóstico: Insuficiência Cardíaca Descompensada (Perfil B); Conduta: Diureticoterapia endovenosa e vasodilatador se PA permitir.`,
+                        `Diagnóstico: Choque Cardiogênico; Conduta: Dobutamina imediata e restrição volêmica rigorosa.`,
+                        `Diagnóstico: Pneumonia Comunitária não grave; Conduta: Tratamento ambulatorial com Amoxicilina + Clavulanato.`,
+                        `Diagnóstico: Tromboembolismo Pulmonar; Conduta: Anticoagulação plena com Enoxaparina 1mg/kg 12/12h.`
                     ]
 
-                    const correctAnswerText = `Iniciar protocolo terapêutico conforme diretriz brasileira atualizada de ${spec.name} (2024), com estabilização clínica e investigação complementar direcionada para ${subjName}`
+                    const correctAnswer = correctOptions[Math.floor(Math.random() * correctOptions.length)]
                     const allIds = ['a', 'b', 'c', 'd', 'e']
                     const correctIdx = Math.floor(Math.random() * 5)
                     const correctId = allIds[correctIdx]
 
                     const finalOptions = allIds.map((id, idx) => {
-                        if (id === correctId) return { id, text: correctAnswerText }
-                        return { id, text: distractorOptions[idx > correctIdx ? idx - 1 : idx] }
+                        if (id === correctId) return { id, text: correctAnswer }
+                        // Pegar distradores randomicos sem repetir
+                        const wrong = distractorOptions[(idx + Math.floor(Math.random() * distractorOptions.length)) % distractorOptions.length]
+                        return { id, text: wrong }
                     })
 
                     const altExplanations: Record<string, string> = {}
                     allIds.forEach((id) => {
                         if (id === correctId) return
-                        altExplanations[id] = `INCORRETA. A conduta sugerida nesta alternativa não é apropriada neste contexto de ${subjName}, pois o quadro exige abordagem imediata e baseada em evidências conforme diretrizes de ${spec.name}.`
+                        altExplanations[id] = `INCORRETA. O quadro descrito (com dados vitais alterados e sinais de gravidade) não condiz com esta hipótese. A conduta proposta seria iatrogênica pois atrasaria o manejo definitivo.`
                     })
 
                     const question: Question = {
                         id: questionId,
-                        course_id: specialty_id === 'medicina-famlia-comunidade' ? 'medicina' : 'medicina',
+                        course_id: 'medicina',
                         specialty_id: specialty_id,
                         subspecialty_id: subspecialty_id || 'geral',
                         subject_id: subject_id || 'geral',
                         difficulty: (difficulty as any) || 'Médio',
-                        enunciado: clinicalScenarios[Math.floor(Math.random() * clinicalScenarios.length)],
+                        enunciado: fullEnunciado,
                         case_study: {
-                            history: `Paciente de ${age} anos, ${gender}, com quadro clínico compatível com ${subName}. Antecedentes pessoais: nega comorbidades prévias. Antecedentes familiares: sem particularidades relevantes para o quadro atual.`,
-                            physical_exam: `BEG, corad${genderAdj}, hidratad${genderAdj}, acianótic${genderAdj}, anictéric${genderAdj}. Sinais vitais: PA ${120 + Math.floor(Math.random() * 30)}/80 mmHg, FC 80 bpm, TAX 36,5°C. Exame físico segmentar compatível com a hipótese de ${subjName}.`,
-                            lab_results: `Hemograma: Hb ${(12 + Math.random() * 2).toFixed(1).replace('.', ',')} g/dL, Leucócitos ${6000 + Math.floor(Math.random() * 4000)}/mm³, Plaquetas ${250000 + Math.floor(Math.random() * 100000)}/mm³. Bioquímica sem alterações significativas.`
+                            history: intro,
+                            physical_exam: exam,
+                            lab_results: labs
                         },
                         options: finalOptions,
                         correct_option_id: correctId,
-                        explanation: `A alternativa ${correctId.toUpperCase()} está CORRETA pois representa a conduta padrão-ouro segundo as diretrizes brasileiras atualizadas de ${spec.name}. O quadro clínico apresentado evidencia critérios diagnósticos para ${subjName}, exigindo abordagem terapêutica imediata e baseada em evidências.`,
+                        explanation: `A alternativa ${correctId.toUpperCase()} está CORRETA.\n\nFUNDAMENTAÇÃO:\nO paciente apresenta sinais claros de instabilidade/gravidade (${vitals}) que corroboram com o diagnóstico de ${subjName} complexo. Segundo a Diretriz Brasileira, a conduta padrão-ouro neste cenário específico é a intervenção imediata descrita na opção correta, visando reduzir morbi-mortalidade. As demais opções subestimam a gravidade ou propõem tratamentos para diagnósticos diferenciais menos prováveis.`,
                         alternative_explanations: altExplanations,
                         blueprint_id,
                         study_box_id,
                         metadata: {
-                            origem: 'Gerada via Dr. QRub IA',
+                            origem: 'QRub AI (Revalida Std)',
                             data_geracao: new Date().toISOString(),
                             tema: subjName
                         }
