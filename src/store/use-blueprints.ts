@@ -45,15 +45,17 @@ export const useBlueprints = create<BlueprintState>((set, get) => ({
 
     uploadPDF: async (file: File) => {
         const fileExt = file.name.split('.').pop()
-        const fileName = `${Math.random()}.${fileExt}`
-        const filePath = `blueprints/${fileName}`
+        const fileName = `${Date.now()}-${Math.random().toString(36).substring(2)}.${fileExt}`
+        const filePath = fileName // Salvando na raiz do bucket
 
         const { error: uploadError } = await supabase.storage
             .from('blueprints')
-            .upload(filePath, file)
+            .upload(filePath, file, {
+                upsert: true
+            })
 
         if (uploadError) {
-            console.error('Error uploading PDF:', uploadError)
+            console.error('Detalhes do Erro Supabase:', uploadError)
             return null
         }
 
