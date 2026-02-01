@@ -1,5 +1,5 @@
 import { OpenAI } from 'openai';
-import { GoogleGenerativeAI } from '@google/generative-ai';
+import { GoogleGenerativeAI, HarmCategory, HarmBlockThreshold } from '@google/generative-ai';
 import { NextResponse } from 'next/server';
 import { GOLD_STANDARD_SYSTEM_PROMPT, buildPrompt } from '@/lib/prompts/gold-standard';
 
@@ -17,21 +17,33 @@ export async function POST(req: Request) {
         // --- GOOGLE GEMINI HANDLER ---
         if (provider === 'gemini') {
             const genAI = new GoogleGenerativeAI(apiKey);
-            const model = genAI.getGenerativeModel({ model: "gemini-1.5-pro" });
-
-            // Gemini não usa "system role" da mesma forma estrita nos SDKs antigos, mas o 1.5 suporta instruction
-            // Vamos fundir o prompt para garantir
-            const finalPrompt = `${GOLD_STANDARD_SYSTEM_PROMPT}\n\n-----\n\n${userPrompt}`;
-
-            const result = await model.generateContent({
-                contents: [{ role: "user", parts: [{ text: finalPrompt }] }],
-                generationConfig: {
-                    responseMimeType: "application/json",
-                }
+            const model = genAI.getGenerativeModel({
+                model: "gemini-1.5-flash", // Flash é mais rápido e menos propenso a timeout no Vercel (60s limit)
+                safetySettings: [
+                    { category: HarmCategory.HARM_CATEGORY_HARASSMENT, threshold: HarmBlockThreshold.BLOCK_NONE },
+                    { category: HarmCategory.HARM_CATEGORY_HATE_SPEECH, threshold: HarmBlockThreshold.BLOCK_NONE },
+                    { category: HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT, threshold: HarmBlockThreshold.BLOCK_NONE },
+                    { category: HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT, threshold: HarmBlockThreshold.BLOCK_NONE },
+                ]
             });
 
-            const text = result.response.text();
-            parsedResult = JSON.parse(text);
+            const finalPrompt = `${GOLD_STANDARD_SYSTEM_PROMPT}\n\n-----\n\n${userPrompt}`;
+
+            try {
+                const result = await model.generateContent({
+                    contents: [{ role: "user", parts: [{ text: finalPrompt }] }],
+                    generationConfig: {
+                        responseMimeType: "application/json",
+                    }
+                });
+
+                const text = result.response.text();
+                if (!text) throw new Error('Gemini retornou texto vazio.');
+                parsedResult = JSON.parse(text);
+            } catch (geminiError: any) {
+                console.error('Gemini Internal Error:', geminiError);
+                throw new Error(`Erro no Gemini: ${geminiError.message || 'Bloqueio de Segurança ou Timeout'}`);
+            }
 
         }
         // --- OPENAI HANDLER (DEFAULT) ---
@@ -65,6 +77,11 @@ export async function POST(req: Request) {
             // Tenta achar o primeiro array no objeto
             const firstArray = Object.values(parsedResult).find(v => Array.isArray(v));
             questions = firstArray ? (firstArray as any[]) : [parsedResult];
+        }
+
+        // Validação básica para não retornar array vazio silenciosamente se o parse falhou na estrutura
+        if (questions.length === 0) {
+            console.warn('Parsed result was empty:', parsedResult);
         }
 
         return NextResponse.json({ questions });

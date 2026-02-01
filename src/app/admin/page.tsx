@@ -159,7 +159,11 @@ export default function AdminDashboard() {
                 }
             }
 
-            setImportStatus({ type: 'success', msg: `✅ DEU CERTO! ${totalGenerated.length} questões geradas. Valide e salve abaixo.` })
+            if (totalGenerated.length === 0) {
+                setImportStatus({ type: 'error', msg: `❌ Falha: Nenhuma questão foi gerada. Verifique se sua chave tem cota/permissões ativas.` })
+            } else {
+                setImportStatus({ type: 'success', msg: `✅ DEU CERTO! ${totalGenerated.length} questões geradas. Valide e salve abaixo.` })
+            }
 
         } catch (error: any) {
             console.error(error)
