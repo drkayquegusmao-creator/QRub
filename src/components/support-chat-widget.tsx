@@ -12,62 +12,58 @@ interface Message {
     timestamp: Date
 }
 
+import { useState, useRef, useEffect } from 'react'
+import { MessageCircle, X, Send, Paperclip, Minimize2, Loader2 } from 'lucide-react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { useAuth } from '@/store/use-auth'
+import { useSupport, SupportMessage } from '@/store/use-support'
+
 export function SupportChatWidget() {
     const { user } = useAuth()
+    const { tickets, messages, sendMessage, createTicket, fetchTickets, fetchMessages, subscribeToMessages } = useSupport()
     const [isOpen, setIsOpen] = useState(false)
-    const [messages, setMessages] = useState<Message[]>([])
     const [inputValue, setInputValue] = useState('')
-    const [isTyping, setIsTyping] = useState(false)
+    const [isSending, setIsSending] = useState(false)
     const messagesEndRef = useRef<HTMLDivElement>(null)
 
-    // Initial Greeting
+    // Find active ticket for this user
+    const activeTicket = tickets.find(t => t.user_id === user?.id && t.status !== 'closed')
+    const chatMessages = activeTicket ? (messages[activeTicket.id] || []) : []
+
     useEffect(() => {
-        if (isOpen && messages.length === 0) {
-            setIsTyping(true)
-            setTimeout(() => {
-                setMessages([
-                    {
-                        id: '1',
-                        text: `Olá${user?.name ? ', ' + user.name.split(' ')[0] : ''}! 👋 Bem-vindo ao Suporte QRub. Como podemos te ajudar hoje?`,
-                        isUser: false,
-                        timestamp: new Date()
-                    }
-                ])
-                setIsTyping(false)
-            }, 1000)
+        if (user) fetchTickets()
+    }, [user])
+
+    useEffect(() => {
+        if (activeTicket) {
+            fetchMessages(activeTicket.id)
+            const unsubscribe = subscribeToMessages(activeTicket.id)
+            return () => unsubscribe()
         }
-    }, [isOpen, user, messages.length])
+    }, [activeTicket?.id])
 
     // Auto-scroll
     useEffect(() => {
         messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
-    }, [messages, isTyping])
+    }, [chatMessages])
 
-    const handleSendMessage = () => {
-        if (!inputValue.trim()) return
+    const handleSendMessage = async () => {
+        if (!inputValue.trim() || !user) return
+        setIsSending(true)
 
-        const newUserMsg: Message = {
-            id: Date.now().toString(),
-            text: inputValue,
-            isUser: true,
-            timestamp: new Date()
-        }
-
-        setMessages(prev => [...prev, newUserMsg])
-        setInputValue('')
-        setIsTyping(true)
-
-        // Mock Reply
-        setTimeout(() => {
-            const replyMsg: Message = {
-                id: (Date.now() + 1).toString(),
-                text: "Entendido! Um de nossos especialistas em aprovação vai analisar sua dúvida e te responder em instantes. 🚀",
-                isUser: false,
-                timestamp: new Date()
+        try {
+            if (!activeTicket) {
+                // Auto-create ticket if none active
+                await createTicket(`Suporte: ${user.name}`, inputValue)
+            } else {
+                await sendMessage(activeTicket.id, inputValue)
             }
-            setMessages(prev => [...prev, replyMsg])
-            setIsTyping(false)
-        }, 1500)
+            setInputValue('')
+        } catch (err) {
+            console.error('Support error:', err)
+        } finally {
+            setIsSending(false)
+        }
     }
 
     const handleKeyDown = (e: React.KeyboardEvent) => {
@@ -88,8 +84,6 @@ export function SupportChatWidget() {
                     >
                         <span className="absolute inset-0 rounded-full bg-primary animate-ping opacity-20" />
                         <MessageCircle className="w-8 h-8 fill-current" />
-
-                        {/* Notification Badge */}
                         <span className="absolute top-0 right-0 w-4 h-4 bg-red-500 rounded-full border-2 border-background" />
                     </motion.button>
                 )}
@@ -107,7 +101,6 @@ export function SupportChatWidget() {
                         {/* HEADER */}
                         <div className="bg-primary p-6 text-white flex justify-between items-center relative overflow-hidden">
                             <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay" />
-
                             <div className="relative z-10 flex items-center gap-3">
                                 <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
                                     <MessageCircle className="w-6 h-6 fill-white" />
@@ -120,7 +113,6 @@ export function SupportChatWidget() {
                                     </p>
                                 </div>
                             </div>
-
                             <div className="relative z-10 flex gap-2">
                                 <button onClick={() => setIsOpen(false)} className="p-2 hover:bg-white/10 rounded-xl transition-colors">
                                     <Minimize2 className="w-5 h-5" />
@@ -130,29 +122,21 @@ export function SupportChatWidget() {
 
                         {/* MESSAGES AREA */}
                         <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-muted/20">
-                            {messages.map((msg) => (
-                                <div
-                                    key={msg.id}
-                                    className={`flex ${msg.isUser ? 'justify-end' : 'justify-start'}`}
-                                >
-                                    <div
-                                        className={`max-w-[80%] p-4 rounded-2xl text-sm font-medium ${msg.isUser
-                                            ? 'bg-primary text-white rounded-br-none'
-                                            : 'bg-card border border-border text-foreground rounded-bl-none shadow-sm'
-                                            }`}
-                                    >
+                            {chatMessages.length === 0 && (
+                                <div className="p-4 bg-card border border-border rounded-2xl text-xs font-medium text-center text-muted-foreground italic">
+                                    Olá{user?.name ? ', ' + user.name.split(' ')[0] : ''}! 👋 <br />Como podemos te ajudar hoje?
+                                </div>
+                            )}
+                            {chatMessages.map((msg) => (
+                                <div key={msg.id} className={`flex ${!msg.is_admin ? 'justify-end' : 'justify-start'}`}>
+                                    <div className={`max-w-[80%] p-4 rounded-2xl text-sm font-medium ${!msg.is_admin ? 'bg-primary text-white rounded-br-none' : 'bg-card border border-border text-foreground rounded-bl-none shadow-sm'}`}>
                                         {msg.text}
                                     </div>
                                 </div>
                             ))}
-
-                            {isTyping && (
-                                <div className="flex justify-start">
-                                    <div className="bg-card border border-border px-4 py-3 rounded-2xl rounded-bl-none shadow-sm flex gap-1 items-center">
-                                        <span className="w-1.5 h-1.5 bg-primary/40 rounded-full animate-bounce [animation-delay:-0.3s]" />
-                                        <span className="w-1.5 h-1.5 bg-primary/40 rounded-full animate-bounce [animation-delay:-0.15s]" />
-                                        <span className="w-1.5 h-1.5 bg-primary/40 rounded-full animate-bounce" />
-                                    </div>
+                            {isSending && (
+                                <div className="flex justify-end opacity-50">
+                                    <Loader2 className="w-4 h-4 animate-spin" />
                                 </div>
                             )}
                             <div ref={messagesEndRef} />
@@ -169,20 +153,14 @@ export function SupportChatWidget() {
                                     placeholder="Digite sua mensagem..."
                                     className="flex-1 bg-transparent border-none outline-none text-sm font-medium"
                                 />
-                                <button className="p-2 text-muted-foreground hover:text-primary transition-colors">
-                                    <Paperclip className="w-5 h-5" />
-                                </button>
                                 <button
                                     onClick={handleSendMessage}
-                                    disabled={!inputValue.trim()}
-                                    className="p-3 bg-primary text-white rounded-xl hover:scale-105 active:scale-95 disabled:opacity-50 disabled:hover:scale-100 transition-all shadow-lg shadow-primary/20"
+                                    disabled={!inputValue.trim() || isSending}
+                                    className="p-3 bg-primary text-white rounded-xl hover:scale-105 active:scale-95 disabled:opacity-50 transition-all shadow-lg shadow-primary/20"
                                 >
                                     <Send className="w-4 h-4 fill-current" />
                                 </button>
                             </div>
-                            <p className="text-[9px] text-center text-muted-foreground mt-2 font-bold uppercase tracking-widest">
-                                Tempo médio de resposta: 2 minutos
-                            </p>
                         </div>
                     </motion.div>
                 )}

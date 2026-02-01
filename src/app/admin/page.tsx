@@ -56,7 +56,7 @@ export default function AdminDashboard() {
     const [importStatus, setImportStatus] = useState<{ type: 'success' | 'error', msg: string } | null>(null)
     const [selectedQuestions, setSelectedQuestions] = useState<string[]>([])
     const [loadingManual, setLoadingManual] = useState(false)
-    const [userFilter, setUserFilter] = useState<'all' | 'incomplete'>('all')
+    const [userFilter, setUserFilter] = useState<'all' | 'insano' | 'premium' | 'incomplete'>('all')
 
     useEffect(() => {
         loadUsers()
@@ -739,18 +739,24 @@ export default function AdminDashboard() {
                                 value={realUsers.length}
                                 color="text-emerald-500"
                                 icon={<Users className="w-4 h-4" />}
+                                onClick={() => setUserFilter('all')}
+                                active={userFilter === 'all'}
                             />
                             <StatCard
                                 label="Plano Insano"
                                 value={realUsers.filter((u: any) => u.plan_level === 'INSANO').length}
                                 color="text-orange-500"
                                 icon={<Crown className="w-4 h-4" />}
+                                onClick={() => setUserFilter('insano')}
+                                active={userFilter === 'insano'}
                             />
                             <StatCard
                                 label="Plano Premium"
                                 value={realUsers.filter((u: any) => u.plan_level === 'PREMIUM').length}
                                 color="text-primary"
                                 icon={<Star className="w-4 h-4" />}
+                                onClick={() => setUserFilter('premium')}
+                                active={userFilter === 'premium'}
                             />
                             <StatCard
                                 label="Cadastro Incompleto"
@@ -763,10 +769,10 @@ export default function AdminDashboard() {
                         </div>
 
                         <div className="flex justify-end gap-2">
-                            {userFilter === 'incomplete' && (
+                            {userFilter !== 'all' && (
                                 <button
                                     onClick={() => setUserFilter('all')}
-                                    className="px-4 py-2 bg-muted text-muted-foreground rounded-xl text-xs font-black uppercase tracking-widest hover:bg-muted/80"
+                                    className="px-4 py-2 bg-muted text-muted-foreground rounded-xl text-xs font-black uppercase tracking-widest hover:bg-muted/80 border border-border"
                                 >
                                     Limpar Filtro
                                 </button>
@@ -793,7 +799,12 @@ export default function AdminDashboard() {
                                     </thead>
                                     <tbody className="divide-y divide-border">
                                         {realUsers
-                                            .filter(u => userFilter === 'all' || (!u.institution || !u.graduation_year))
+                                            .filter(u => {
+                                                if (userFilter === 'insano') return u.plan_level === 'INSANO'
+                                                if (userFilter === 'premium') return u.plan_level === 'PREMIUM'
+                                                if (userFilter === 'incomplete') return !u.institution || !u.graduation_year
+                                                return true
+                                            })
                                             .map(u => (
                                                 <tr key={u.id} className="hover:bg-muted/10 transition-colors">
                                                     <td className="px-8 py-6">

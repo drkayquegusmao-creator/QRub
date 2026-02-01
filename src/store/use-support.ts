@@ -1,0 +1,175 @@
+import { create } from 'zustand'
+import { supabase } from '@/lib/supabase'
+
+export interface SupportTicket {
+    id: string
+    user_id: string
+    subject: string
+    status: 'open' | 'pending' | 'closed'
+    priority: 'low' | 'medium' | 'high'
+    last_message_at: string
+    created_at: string
+    updated_at: string
+    user?: {
+        name: string
+        email: string
+    }
+}
+
+export interface SupportMessage {
+    id: string
+    ticket_id: string
+    sender_id: string
+    text: string
+    is_admin: boolean
+    created_at: string
+}
+
+interface SupportState {
+    tickets: SupportTicket[]
+    messages: Record<string, SupportMessage[]>
+    loading: boolean
+
+    // Actions
+    fetchTickets: () => Promise<void>
+    fetchMessages: (ticketId: string) => Promise<void>
+    createTicket: (subject: string, initialMessage: string) => Promise<string | null>
+    sendMessage: (ticketId: string, text: string, isAdmin?: boolean) => Promise<void>
+    updateTicketStatus: (ticketId: string, status: SupportTicket['status']) => Promise<void>
+
+    // Real-time hooks
+    subscribeToTickets: () => (() => void)
+    subscribeToMessages: (ticketId: string) => (() => void)
+}
+
+export const useSupport = create<SupportState>((set, get) => ({
+    tickets: [],
+    messages: {},
+    loading: false,
+
+    fetchTickets: async () => {
+        set({ loading: true })
+        const { data, error } = await supabase
+            .from('support_tickets')
+            .select(`
+                *,
+                user:users!user_id(name, email)
+            `)
+            .order('last_message_at', { ascending: false })
+
+        if (!error && data) {
+            set({ tickets: data as any })
+        }
+        set({ loading: false })
+    },
+
+    fetchMessages: async (ticketId) => {
+        const { data, error } = await supabase
+            .from('support_messages')
+            .select('*')
+            .eq('ticket_id', ticketId)
+            .order('created_at', { ascending: true })
+
+        if (!error && data) {
+            set(state => ({
+                messages: { ...state.messages, [ticketId]: data }
+            }))
+        }
+    },
+
+    createTicket: async (subject, initialMessage) => {
+        const { data: { user } } = await supabase.auth.getUser()
+        if (!user) return null
+
+        const { data: ticket, error: ticketError } = await supabase
+            .from('support_tickets')
+            .insert({
+                user_id: user.id,
+                subject,
+                status: 'open',
+                priority: 'medium'
+            })
+            .select()
+            .single()
+
+        if (ticketError || !ticket) return null
+
+        await supabase.from('support_messages').insert({
+            ticket_id: ticket.id,
+            sender_id: user.id,
+            text: initialMessage,
+            is_admin: false
+        })
+
+        get().fetchTickets()
+        return ticket.id
+    },
+
+    sendMessage: async (ticketId, text, isAdmin = false) => {
+        const { data: { user } } = await supabase.auth.getUser()
+        if (!user) return
+
+        const { error } = await supabase
+            .from('support_messages')
+            .insert({
+                ticket_id: ticketId,
+                sender_id: user.id,
+                text,
+                is_admin: isAdmin
+            })
+
+        if (!error) {
+            // Update last_message_at
+            await supabase
+                .from('support_tickets')
+                .update({ last_message_at: new Date().toISOString() })
+                .eq('id', ticketId)
+
+            get().fetchMessages(ticketId)
+        }
+    },
+
+    updateTicketStatus: async (ticketId, status) => {
+        const { error } = await supabase
+            .from('support_tickets')
+            .update({ status })
+            .eq('id', ticketId)
+
+        if (!error) {
+            set(state => ({
+                tickets: state.tickets.map(t => t.id === ticketId ? { ...t, status } : t)
+            }))
+        }
+    },
+
+    subscribeToTickets: () => {
+        const channel = supabase
+            .channel('public:support_tickets')
+            .on('postgres_changes', { event: '*', schema: 'public', table: 'support_tickets' }, () => {
+                get().fetchTickets()
+            })
+            .subscribe()
+
+        return () => supabase.removeChannel(channel)
+    },
+
+    subscribeToMessages: (ticketId) => {
+        const channel = supabase
+            .channel(`public:support_messages:${ticketId}`)
+            .on('postgres_changes',
+                { event: 'INSERT', schema: 'public', table: 'support_messages', filter: `ticket_id=eq.${ticketId}` },
+                (payload) => {
+                    const newMessage = payload.new as SupportMessage
+                    set(state => ({
+                        messages: {
+                            ...state.messages,
+                            [ticketId]: [...(state.messages[ticketId] || []), newMessage]
+                        }
+                    }))
+                }
+            )
+            .subscribe()
+
+        return () => supabase.removeChannel(channel)
+    }
+}))
