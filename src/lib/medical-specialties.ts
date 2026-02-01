@@ -82,7 +82,41 @@ export const MEDICAL_HIERARCHY = [
             { id: 'medicina-preventiva-social', name: 'Medicina Preventiva e Social', category: 'Especialidades Clínicas', subspecialties: [] },
             { id: 'genetica-medica', name: 'Genética Médica', category: 'Especialidades Clínicas', subspecialties: [] },
             { id: 'medicina-intensiva', name: 'Medicina Intensiva', category: 'Especialidades Clínicas', subspecialties: [] },
-            { id: 'medicina-emergencia', name: 'Medicina de Emergência', category: 'Especialidades Clínicas', subspecialties: [] },
+            {
+                id: 'medicina-emergencia', name: 'Medicina de Emergência', category: 'Especialidades Clínicas', subspecialties: [
+                    {
+                        id: 'emergencias-clinicas', name: 'Emergências Clínicas', subjects: [
+                            { id: 'sepse-choque', name: 'Sepse e Choque Séptico' },
+                            { id: 'insuficiencia-respiratoria', name: 'Insuficiência Respiratória' },
+                            { id: 'equilibrio-acido-base', name: 'Distúrbios Ácido-Base' },
+                            { id: 'emergencias-endocrinas', name: 'Emergências Endócrinas' }
+                        ]
+                    },
+                    {
+                        id: 'emergencias-cardiovasculares', name: 'Emergências Cardiovasculares', subjects: [
+                            { id: 'iam', name: 'Infarto Agudo do Miocárdio' },
+                            { id: 'arritmias', name: 'Arritmias Cardíacas' },
+                            { id: 'edema-pulmao', name: 'Edema Agudo de Pulmão' },
+                            { id: 'crise-hipertensiva', name: 'Crise Hipertensiva' }
+                        ]
+                    },
+                    {
+                        id: 'trauma', name: 'Trauma', subjects: [
+                            { id: 'atls', name: 'Atendimento Inicial (ATLS)' },
+                            { id: 'tce', name: 'Traumatismo Cranioencefálico' },
+                            { id: 'trauma-toracico', name: 'Trauma Torácico' },
+                            { id: 'trauma-abdominal', name: 'Trauma Abdominal' }
+                        ]
+                    },
+                    {
+                        id: 'emergencias-neurologicas', name: 'Emergências Neurológicas', subjects: [
+                            { id: 'ave', name: 'Acidente Vascular Encefálico' },
+                            { id: 'estado-mal-epileptico', name: 'Estado de Mal Epiléptico' },
+                            { id: 'coma', name: 'Coma e Rebaixamento do Nível de Consciência' }
+                        ]
+                    }
+                ]
+            },
             { id: 'medicina-sono', name: 'Medicina do Sono', category: 'Especialidades Clínicas', subspecialties: [] },
 
             // ESPECIALIDADES CIRÚRGICAS
