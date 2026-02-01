@@ -249,7 +249,21 @@ export default function AuthPage() {
                                     required
                                     type="email"
                                     value={formData.email}
-                                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                                    onChange={(e) => {
+                                        setFormData({ ...formData, email: e.target.value })
+                                        if (error.includes('já está cadastrado')) setError('')
+                                    }}
+                                    onBlur={async () => {
+                                        if (mode === 'signup' && formData.email.includes('@')) {
+                                            // Tenta verificar duplicidade antes do submit
+                                            const { data } = await supabase.from('users').select('id').eq('email', formData.email.toLowerCase().trim()).maybeSingle()
+
+                                            // Se RLS permitir e achar, avisa. Se não permitir, falha silenciosamente e deixa o signUp lidar.
+                                            if (data) {
+                                                setError('⚠️ Este e-mail já possui conta. Por favor, faça login.')
+                                            }
+                                        }
+                                    }}
                                     placeholder="seu@email.com"
                                     className="w-full bg-muted border border-border rounded-xl pl-12 pr-4 py-4 focus:ring-2 focus:ring-primary/20 outline-none transition-all font-bold text-sm"
                                 />

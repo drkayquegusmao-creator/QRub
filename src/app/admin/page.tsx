@@ -139,7 +139,7 @@ export default function AdminDashboard() {
                         id: `QRUB-AI-${Math.random().toString(36).substr(2, 6).toUpperCase()}`,
                         course_id: selectedCourse,
                         specialty_id: selectedSpecialty,
-                        subspecialty_id: selectedSubspecialty || '',
+                        subspecialty_id: selectedSubspecialty || '', // pode estar vazio, ok
                         subject_id: selectedSubject || '',
                         difficulty: q.dificuldade || 'Médio',
                         enunciado: q.enunciado,
@@ -153,16 +153,32 @@ export default function AdminDashboard() {
                         ai_metadata: q.metadata
                     }))
 
-                    totalGenerated = [...totalGenerated, ...convertedBatch]
-                    // Atualiza o JSON visualmente a cada lote
-                    setJsonInput(JSON.stringify(totalGenerated, null, 2))
+                    try {
+                        const { success, message } = await addQuestions(convertedBatch)
+
+                        if (success) {
+                            setImportStatus({
+                                type: 'success',
+                                msg: `💾 Lote ${currentBatchNumber}/${totalBatches} SALVO AUTOMATICAMENTE! (${convertedBatch.length} geradas)`
+                            })
+                            // Adicionar ao total visual
+                            totalGenerated = [...totalGenerated, ...convertedBatch]
+                            setJsonInput(JSON.stringify(totalGenerated, null, 2))
+                        } else {
+                            throw new Error(message)
+                        }
+                    } catch (saveError: any) {
+                        console.error('Erro ao salvar lote:', saveError)
+                        setImportStatus({ type: 'error', msg: `⚠️ Erro ao salvar no banco: ${saveError.message}` })
+                    }
                 }
             }
 
             if (totalGenerated.length === 0) {
-                setImportStatus({ type: 'error', msg: `❌ Falha: Nenhuma questão foi gerada. Verifique se sua chave tem cota/permissões ativas.` })
+                setImportStatus({ type: 'error', msg: `❌ Falha: Nenhuma questão gerada. Verifique se sua chave API (${provider.toUpperCase()}) tem cota.` })
             } else {
-                setImportStatus({ type: 'success', msg: `✅ DEU CERTO! ${totalGenerated.length} questões geradas. Valide e salve abaixo.` })
+                setImportStatus({ type: 'success', msg: `✅ SUCESSO! ${totalGenerated.length} questões foram geradas e salvas no banco.` })
+                loadQuestions() // Refresh na tabela
             }
 
         } catch (error: any) {
