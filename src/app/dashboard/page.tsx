@@ -335,15 +335,10 @@ export default function StudentDashboard() {
         </div>
     )
     const renderEvolutionStats = () => {
-        const evolutionData = [
-            { name: 'Seg', val: 65 },
-            { name: 'Ter', val: 58 },
-            { name: 'Qua', val: 72 },
-            { name: 'Qui', val: 68 },
-            { name: 'Sex', val: 85 },
-            { name: 'Sab', val: 78 },
-            { name: 'Dom', val: 82 },
-        ]
+        const evolutionData = get_weekly_accuracy().map(d => ({
+            name: d.day,
+            val: d.accuracy
+        }))
 
         return (
             <div className="bg-white border-2 border-slate-100 rounded-[50px] p-10 md:p-14 soft-shadow h-full flex flex-col">
@@ -384,7 +379,7 @@ export default function StudentDashboard() {
     const renderPerformanceByArea = () => {
         const performanceData = COURSES[0].specialties.map(s => ({
             name: s.name,
-            val: Math.floor(Math.random() * 40) + 40 // Simulated
+            val: get_accuracy_by_specialty(s.id)
         })).sort((a, b) => b.val - a.val).slice(0, 5)
 
         return (
