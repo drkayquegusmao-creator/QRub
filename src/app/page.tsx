@@ -1,4 +1,5 @@
 "use client"
+// Build Trigger: 2026-01-31 22:36
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Sparkles, ArrowRight, Shield, Zap, Globe, Instagram, Twitter, Linkedin, Facebook, Target } from 'lucide-react'
