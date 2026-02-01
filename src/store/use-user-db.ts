@@ -9,7 +9,7 @@ export interface RegisteredUser {
     role: UserRole
     plan_level: PlanLevel
     profile_completed: boolean
-    joined_at: string
+    created_at: string
     phone?: string
     institution?: string
     graduation_year?: string
@@ -28,16 +28,13 @@ interface UserDbState {
 export const useUserDb = create<UserDbState>()(
     persist(
         (set, get) => ({
-            users: [
-                { id: 'master-1', name: 'Kayque Gusmão', email: 'kayquegusmao@gmail.com', role: 'MASTER', plan_level: 'INSANO', profile_completed: true, joined_at: '2024-01-01', institution: 'System Owner', graduation_year: 'N/A' }
-            ],
+            users: [],
             loading: false,
 
             loadUsers: async () => {
                 try {
                     const { supabase, isSupabaseConfigured } = require('@/lib/supabase')
                     if (!isSupabaseConfigured()) {
-                        console.log('Supabase not configured, using local user data')
                         return
                     }
 
@@ -46,18 +43,19 @@ export const useUserDb = create<UserDbState>()(
                     const { data, error } = await supabase
                         .from('users')
                         .select('*')
+                        .order('created_at', { ascending: false })
 
                     if (error) {
                         console.warn('Could not load users from Supabase:', error.message)
                         return
                     }
 
-                    if (data && data.length > 0) {
+                    if (data) {
                         set({ users: data })
                         console.log(`Loaded ${data.length} users from Supabase`)
                     }
                 } catch (err) {
-                    console.warn('Error loading users (using local data):', err instanceof Error ? err.message : 'Unknown error')
+                    console.warn('Error loading users:', err instanceof Error ? err.message : 'Unknown error')
                 } finally {
                     set({ loading: false })
                 }

@@ -57,6 +57,7 @@ export default function AdminDashboard() {
     const [selectedQuestions, setSelectedQuestions] = useState<string[]>([])
     const [loadingManual, setLoadingManual] = useState(false)
     const [userFilter, setUserFilter] = useState<'all' | 'insano' | 'premium' | 'incomplete'>('all')
+    const [userSearch, setUserSearch] = useState('')
 
     useEffect(() => {
         loadUsers()
@@ -768,22 +769,41 @@ export default function AdminDashboard() {
                             />
                         </div>
 
-                        <div className="flex justify-end gap-2">
-                            {userFilter !== 'all' && (
+                        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                            <div className="relative w-full md:w-96 flex items-center">
+                                <Search className="absolute left-4 w-4 h-4 text-muted-foreground" />
+                                <input
+                                    type="text"
+                                    placeholder="Procurar aluno por nome ou email..."
+                                    value={userSearch}
+                                    onChange={(e) => setUserSearch(e.target.value)}
+                                    className="w-full bg-card border border-border rounded-2xl py-3 pl-12 pr-4 text-xs font-medium focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                                />
+                            </div>
+                            <div className="flex gap-2 w-full md:w-auto overflow-x-auto pb-1 md:pb-0">
+                                {userFilter !== 'all' && (
+                                    <button
+                                        onClick={() => setUserFilter('all')}
+                                        className="px-4 py-3 bg-muted text-muted-foreground rounded-2xl text-[10px] font-black uppercase tracking-widest hover:bg-muted/80 border border-border flex items-center gap-2"
+                                    >
+                                        <X className="w-3 h-3" /> Limpar Filtro
+                                    </button>
+                                )}
                                 <button
-                                    onClick={() => setUserFilter('all')}
-                                    className="px-4 py-2 bg-muted text-muted-foreground rounded-xl text-xs font-black uppercase tracking-widest hover:bg-muted/80 border border-border"
+                                    onClick={handleExportUsers}
+                                    className="flex-1 md:flex-none flex items-center justify-center gap-2 bg-emerald-500 text-white px-6 py-3 rounded-2xl font-black uppercase text-[10px] tracking-widest hover:scale-105 transition-all shadow-xl shadow-emerald-500/20 whitespace-nowrap"
                                 >
-                                    Limpar Filtro
+                                    <Database className="w-3 h-3" />
+                                    Exportar XLs
                                 </button>
-                            )}
-                            <button
-                                onClick={handleExportUsers}
-                                className="flex items-center gap-2 bg-emerald-500 text-white px-6 py-3 rounded-xl font-black uppercase text-xs tracking-widest hover:scale-105 transition-all shadow-xl shadow-emerald-500/20"
-                            >
-                                <Database className="w-4 h-4" />
-                                Exportar Relatório (XLS)
-                            </button>
+                                <button
+                                    onClick={() => loadUsers()}
+                                    className="p-3 bg-muted/30 rounded-2xl hover:bg-muted/50 transition-all border border-border"
+                                    title="Atualizar Lista"
+                                >
+                                    <RefreshCw className={`w-4 h-4 text-muted-foreground ${loading ? 'animate-spin' : ''}`} />
+                                </button>
+                            </div>
                         </div>
 
                         <div className="bg-card border border-border rounded-[32px] overflow-hidden soft-shadow">
@@ -798,53 +818,77 @@ export default function AdminDashboard() {
                                         </tr>
                                     </thead>
                                     <tbody className="divide-y divide-border">
-                                        {realUsers
-                                            .filter(u => {
-                                                if (userFilter === 'insano') return u.plan_level === 'INSANO'
-                                                if (userFilter === 'premium') return u.plan_level === 'PREMIUM'
-                                                if (userFilter === 'incomplete') return !u.institution || !u.graduation_year
-                                                return true
-                                            })
-                                            .map(u => (
-                                                <tr key={u.id} className="hover:bg-muted/10 transition-colors">
-                                                    <td className="px-8 py-6">
-                                                        <div className="font-bold flex items-center gap-2">
-                                                            {u.name}
-                                                            <ExternalLink className="w-3 h-3 text-muted-foreground" />
-                                                        </div>
-                                                        <div className="text-[10px] text-muted-foreground uppercase flex items-center gap-1">
-                                                            <Mail className="w-3 h-3" /> {u.email}
-                                                        </div>
-                                                    </td>
-                                                    <td className="px-8 py-6">
-                                                        <div className="space-y-1">
-                                                            <div className="flex items-center gap-2 text-xs font-bold">
-                                                                <BookOpen className="w-3 h-3 text-primary" /> {u.institution || 'N/A'}
+                                        {loading ? (
+                                            <tr>
+                                                <td colSpan={4} className="px-8 py-20 text-center">
+                                                    <div className="flex flex-col items-center gap-4">
+                                                        <RefreshCw className="w-8 h-8 text-primary animate-spin" />
+                                                        <p className="text-xs font-black uppercase tracking-widest text-muted-foreground">Carregando alunos...</p>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        ) : realUsers.length === 0 ? (
+                                            <tr>
+                                                <td colSpan={4} className="px-8 py-20 text-center text-muted-foreground uppercase text-xs font-black tracking-widest">
+                                                    Nenhum aluno encontrado
+                                                </td>
+                                            </tr>
+                                        ) : (
+                                            realUsers
+                                                .filter(u => {
+                                                    const matchesFilter =
+                                                        userFilter === 'insano' ? u.plan_level === 'INSANO' :
+                                                            userFilter === 'premium' ? u.plan_level === 'PREMIUM' :
+                                                                userFilter === 'incomplete' ? (!u.institution || !u.graduation_year) :
+                                                                    true;
+
+                                                    const matchesSearch =
+                                                        u.name.toLowerCase().includes(userSearch.toLowerCase()) ||
+                                                        u.email.toLowerCase().includes(userSearch.toLowerCase());
+
+                                                    return matchesFilter && matchesSearch;
+                                                })
+                                                .map(u => (
+                                                    <tr key={u.id} className="hover:bg-muted/10 transition-colors">
+                                                        <td className="px-8 py-6">
+                                                            <div className="font-bold flex items-center gap-2">
+                                                                {u.name}
+                                                                <ExternalLink className="w-3 h-3 text-muted-foreground" />
                                                             </div>
-                                                            <div className="flex items-center gap-4 text-[10px] text-muted-foreground uppercase font-black">
-                                                                <span className="flex items-center gap-1"><GraduationCap className="w-3 h-3" /> {u.graduation_year || 'N/A'}</span>
-                                                                <span className="flex items-center gap-1"><Phone className="w-3 h-3" /> {u.phone || 'N/A'}</span>
+                                                            <div className="text-[10px] text-muted-foreground uppercase flex items-center gap-1">
+                                                                <Mail className="w-3 h-3" /> {u.email}
                                                             </div>
-                                                        </div>
-                                                    </td>
-                                                    <td className="px-8 py-6">
-                                                        <PlanBadge plan={u.plan_level} />
-                                                    </td>
-                                                    <td className="px-8 py-6 text-right">
-                                                        <div className="flex justify-end gap-2">
-                                                            {['FREE', 'PREMIUM', 'INSANO'].map(p => (
-                                                                <button
-                                                                    key={p}
-                                                                    onClick={() => handlePlanChange(u.id, p as PlanLevel)}
-                                                                    className={`px-3 py-1.5 rounded-lg text-[10px] font-black uppercase transition-all ${u.plan_level === p ? 'bg-primary text-white' : 'bg-muted text-muted-foreground hover:bg-primary/20'}`}
-                                                                >
-                                                                    {p}
-                                                                </button>
-                                                            ))}
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            ))}
+                                                        </td>
+                                                        <td className="px-8 py-6">
+                                                            <div className="space-y-1">
+                                                                <div className="flex items-center gap-2 text-xs font-bold">
+                                                                    <BookOpen className="w-3 h-3 text-primary" /> {u.institution || 'N/A'}
+                                                                </div>
+                                                                <div className="flex items-center gap-4 text-[10px] text-muted-foreground uppercase font-black">
+                                                                    <span className="flex items-center gap-1"><GraduationCap className="w-3 h-3" /> {u.graduation_year || 'N/A'}</span>
+                                                                    <span className="flex items-center gap-1"><Phone className="w-3 h-3" /> {u.phone || 'N/A'}</span>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td className="px-8 py-6">
+                                                            <PlanBadge plan={u.plan_level} />
+                                                        </td>
+                                                        <td className="px-8 py-6 text-right">
+                                                            <div className="flex justify-end gap-2">
+                                                                {['FREE', 'PREMIUM', 'INSANO'].map(p => (
+                                                                    <button
+                                                                        key={p}
+                                                                        onClick={() => handlePlanChange(u.id, p as PlanLevel)}
+                                                                        className={`px-3 py-1.5 rounded-lg text-[10px] font-black uppercase transition-all ${u.plan_level === p ? 'bg-primary text-white' : 'bg-muted text-muted-foreground hover:bg-primary/20'}`}
+                                                                    >
+                                                                        {p}
+                                                                    </button>
+                                                                ))}
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                ))
+                                        )}
                                     </tbody>
                                 </table>
                             </div>
