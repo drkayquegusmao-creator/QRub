@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ChevronLeft, Clock, Target, CheckCircle2, XCircle, Info, Maximize2, Minimize2, Sparkles, BrainCircuit, Crown, ArrowLeft, ArrowRight, Flag, ShieldCheck } from 'lucide-react'
+import { ChevronLeft, Clock, Target, CheckCircle2, XCircle, Info, Maximize2, Minimize2, Sparkles, BrainCircuit, Crown, ArrowLeft, ArrowRight, Flag, ShieldCheck, History as HistoryIcon, Activity, Microscope } from 'lucide-react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { useQuestions } from '@/store/use-questions'
 import { useAuth, DAILY_QUESTION_LIMIT_FREE } from '@/store/use-auth'
@@ -329,15 +329,15 @@ export default function QuizPage() {
                 <div className="space-y-6">
                     <div className="flex items-center justify-between gap-4">
                         <div className="flex items-center gap-4 flex-wrap">
-                            <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-muted-foreground">
+                            <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-muted-foreground bg-muted/30 px-3 py-1.5 rounded-lg border border-border/50">
                                 <Target className="w-4 h-4 text-primary" />
-                                {question.specialty_id} • {question.subject_id}
+                                {question.metadata?.tema || question.subject_id}
                             </div>
 
                             {question.guideline_id && (
-                                <div className="flex items-center gap-2 bg-primary/10 text-primary px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest border border-primary/20">
-                                    <ShieldCheck className="w-3 h-3" />
-                                    Baseado em: {question.guideline_version || 'Diretriz Oficial'}
+                                <div className="flex items-center gap-2 bg-primary/10 text-primary px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest border border-primary/20">
+                                    <ShieldCheck className="w-3.5 h-3.5" />
+                                    {question.guideline_version || 'Diretriz Oficial'}
                                 </div>
                             )}
                         </div>
@@ -365,9 +365,38 @@ export default function QuizPage() {
                         </div>
                     )}
 
-                    <h2 className={`text-2xl md:text-3xl font-bold leading-relaxed ${isFocusMode ? 'text-white' : 'text-foreground'}`}>
+                    <h2 className={`text-2xl md:text-3xl font-bold leading-tight ${isFocusMode ? 'text-white' : 'text-[#1A1033]'}`}>
                         {question.enunciado}
                     </h2>
+
+                    {question.case_study && (
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+                            {question.case_study.history && (
+                                <div className="bg-card/50 border border-border/50 p-6 rounded-3xl space-y-3">
+                                    <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-primary">
+                                        <HistoryIcon className="w-3.5 h-3.5" /> História Clínica
+                                    </div>
+                                    <p className="text-sm font-medium leading-relaxed text-muted-foreground">{question.case_study.history}</p>
+                                </div>
+                            )}
+                            {question.case_study.physical_exam && (
+                                <div className="bg-card/50 border border-border/50 p-6 rounded-3xl space-y-3">
+                                    <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-blue-500">
+                                        <Activity className="w-3.5 h-3.5" /> Exame Físico
+                                    </div>
+                                    <p className="text-sm font-medium leading-relaxed text-muted-foreground">{question.case_study.physical_exam}</p>
+                                </div>
+                            )}
+                            {question.case_study.lab_results && (
+                                <div className="bg-card/50 border border-border/50 p-6 rounded-3xl space-y-3">
+                                    <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-emerald-500">
+                                        <Microscope className="w-3.5 h-3.5" /> Exames Lab.
+                                    </div>
+                                    <p className="text-sm font-medium leading-relaxed text-muted-foreground">{question.case_study.lab_results}</p>
+                                </div>
+                            )}
+                        </div>
+                    )}
                 </div>
 
                 <div className="space-y-3">
@@ -405,17 +434,24 @@ export default function QuizPage() {
                 {isAnswered && mode === 'TREINO' && (
                     <div className="mt-8 space-y-4">
                         <div className="bg-primary/5 border border-primary/20 rounded-[32px] p-6 md:p-10">
-                            <div className="flex items-center justify-between mb-4">
+                            <div className="flex items-center justify-between mb-6">
                                 <div className="flex items-center gap-2 text-primary font-black uppercase text-xs tracking-widest">
-                                    <Info className="w-4 h-4" /> Explicação do Especialista
+                                    <Sparkles className="w-4 h-4" /> Comentários do Especialista
                                 </div>
                                 {!aiExplanation && (
-                                    <button onClick={handleAiExplain} className="flex items-center gap-2 bg-primary text-white px-4 py-2 rounded-xl text-[10px] font-black uppercase hover:scale-105 transition-all shadow-lg shadow-primary/20">
-                                        <Sparkles className="w-3 h-3" /> Análise do Dr. QRub
+                                    <button onClick={handleAiExplain} className="flex items-center gap-2 bg-primary text-white px-4 py-2.5 rounded-xl text-[10px] font-black uppercase hover:scale-105 transition-all shadow-lg shadow-primary/20">
+                                        <BrainCircuit className="w-3.5 h-3.5" /> Mentor Dr. QRub
                                     </button>
                                 )}
                             </div>
-                            <p className="text-muted-foreground leading-relaxed italic text-lg">{question.explanation}</p>
+                            <div className="space-y-4">
+                                <p className="text-[#1A1033] leading-relaxed font-bold text-xl">{question.explanation}</p>
+                                {question.alternative_explanations?.[selectedOptionId!] && (
+                                    <div className="p-4 bg-rose-500/5 border-l-4 border-rose-500 rounded-r-xl">
+                                        <p className="text-sm font-medium text-rose-700">{question.alternative_explanations[selectedOptionId!]}</p>
+                                    </div>
+                                )}
+                            </div>
                             {question.references && <p className="mt-4 text-[10px] font-bold uppercase tracking-widest text-muted-foreground/60">Referência: {question.references}</p>}
                         </div>
 
