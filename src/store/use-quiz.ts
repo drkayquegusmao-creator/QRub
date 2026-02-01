@@ -4,6 +4,7 @@ import { UserResponse } from '@/lib/data-mock'
 import { subDays, format, isSameDay } from 'date-fns'
 import { supabase, isSupabaseConfigured } from '@/lib/supabase'
 import { ptBR } from 'date-fns/locale'
+import { safeParseDate } from '@/lib/date-utils'
 
 interface ErrorItem {
     question_id: string
@@ -39,7 +40,7 @@ export const useQuiz = create<QuizState>()(
                     const formatted_label = day_label.charAt(0).toUpperCase() + day_label.slice(1)
 
                     const day_responses = get().responses.filter(r =>
-                        isSameDay(new Date(r.timestamp), date)
+                        isSameDay(safeParseDate(r.timestamp), date)
                     )
 
                     const accuracy = day_responses.length > 0
@@ -160,7 +161,7 @@ export const useQuiz = create<QuizState>()(
                     const formatted_label = day_label.charAt(0).toUpperCase() + day_label.slice(1)
 
                     const count = get().responses.filter(r =>
-                        isSameDay(new Date(r.timestamp), date)
+                        isSameDay(safeParseDate(r.timestamp), date)
                     ).length
 
                     return {

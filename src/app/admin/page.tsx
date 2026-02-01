@@ -26,8 +26,9 @@ export default function AdminDashboard() {
     const { user, isAuthenticated } = useAuth()
     const router = useRouter()
     const searchParams = useSearchParams()
-    const { questions, deleteQuestion, addQuestion, addQuestions, loadQuestions, loading } = useQuestionsStore()
-    const { users: realUsers, loadUsers, updateUserPlan } = useUserDb()
+    const { questions, deleteQuestion, deleteQuestions, addQuestion, addQuestions, loadQuestions, loading } = useQuestionsStore()
+    const { users: realUsers, loadUsers, updateUserPlan, deleteUser, deleteUsers } = useUserDb()
+    const [selectedUserIds, setSelectedUserIds] = useState<string[]>([])
 
     const { reports, loadReports, updateReportStatus, loading: reportsLoading } = useModeration()
     // Sync view with URL param 'tab'
@@ -58,6 +59,40 @@ export default function AdminDashboard() {
     const [loadingManual, setLoadingManual] = useState(false)
     const [userFilter, setUserFilter] = useState<'all' | 'insano' | 'premium' | 'incomplete'>('all')
     const [userSearch, setUserSearch] = useState('')
+
+    const filteredUsers = useMemo(() => {
+        return realUsers.filter(u => {
+            const matchesFilter =
+                userFilter === 'insano' ? u.plan_level === 'INSANO' :
+                    userFilter === 'premium' ? u.plan_level === 'PREMIUM' :
+                        userFilter === 'incomplete' ? (!u.institution || !u.graduation_year) :
+                            true;
+
+            const matchesSearch =
+                u.name.toLowerCase().includes(userSearch.toLowerCase()) ||
+                u.email.toLowerCase().includes(userSearch.toLowerCase());
+
+            return matchesFilter && matchesSearch;
+        })
+    }, [realUsers, userFilter, userSearch])
+
+    const handleBulkUserDelete = async () => {
+        if (selectedUserIds.length === 0) return
+        if (!confirm(`Tem certeza que deseja excluir ${selectedUserIds.length} usuários? Esta ação é irreversível!`)) return
+
+        try {
+            await deleteUsers(selectedUserIds)
+            setSelectedUserIds([])
+            alert('Usuários excluídos com sucesso!')
+        } catch (error) {
+            console.error(error)
+            alert('Erro ao excluir usuários.')
+        }
+    }
+
+    useEffect(() => {
+        setSelectedUserIds([])
+    }, [userFilter, userSearch])
 
     useEffect(() => {
         loadUsers()
@@ -145,7 +180,7 @@ export default function AdminDashboard() {
     const activeSubspecialty = activeSpecialty?.subspecialties.find(sub => sub.id === selectedSubspecialty)
 
     const handleExportUsers = () => {
-        const ws = XLSX.utils.json_to_sheet(realUsers.map((u: any) => ({
+        const ws = XLSX.utils.json_to_sheet(filteredUsers.map((u: any) => ({
             ID: u.id,
             Nome: u.name,
             Email: u.email,
@@ -180,14 +215,34 @@ export default function AdminDashboard() {
 
     const handleBulkDelete = async () => {
         if (selectedQuestions.length === 0) return
-        if (confirm(`Tem certeza que deseja deletar ${selectedQuestions.length} questões selecionadas?`)) {
+        if (confirm(`Tem certeza que deseja deletar ${selectedQuestions.length} questões selecionadas? Esta ação é irreversível e afetará o banco de dados.`)) {
             try {
-                await Promise.all(selectedQuestions.map(id => deleteQuestion(id)))
-                setSelectedQuestions([])
-                setImportStatus({ type: 'success', msg: `✅ ${selectedQuestions.length} questões deletadas com sucesso!` })
+                const res = await deleteQuestions(selectedQuestions)
+                if (res.success) {
+                    setSelectedQuestions([])
+                    setImportStatus({ type: 'success', msg: `✅ ${res.message}` })
+                } else {
+                    setImportStatus({ type: 'error', msg: `❌ ${res.message}` })
+                }
             } catch (error) {
                 console.error('Error deleting questions:', error)
-                setImportStatus({ type: 'error', msg: '❌ Erro ao deletar questões. Tente novamente.' })
+                setImportStatus({ type: 'error', msg: '❌ Erro ao deletar questões no sistema.' })
+            }
+        }
+    }
+
+    const handleDeleteSingleQuestion = async (id: string) => {
+        if (confirm('Tem certeza que deseja excluir esta questão permanentemente?')) {
+            try {
+                const res = await deleteQuestion(id)
+                if (res.success) {
+                    setImportStatus({ type: 'success', msg: `✅ ${res.message}` })
+                } else {
+                    setImportStatus({ type: 'error', msg: `❌ ${res.message}` })
+                }
+            } catch (error) {
+                console.error('Error deleting question:', error)
+                setImportStatus({ type: 'error', msg: '❌ Erro ao deletar a questão.' })
             }
         }
     }
@@ -696,7 +751,7 @@ export default function AdminDashboard() {
                                                 <td className="px-8 py-6 text-right">
                                                     <div className="flex justify-end gap-2">
                                                         <button onClick={() => handleOpenEditor(q)} className="p-2 hover:bg-primary/10 hover:text-primary rounded-lg transition-all"><Edit2 className="w-4 h-4" /></button>
-                                                        <button onClick={() => deleteQuestion(q.id)} className="p-2 hover:bg-destructive/10 hover:text-destructive rounded-lg transition-all"><Trash2 className="w-4 h-4" /></button>
+                                                        <button onClick={() => handleDeleteSingleQuestion(q.id)} className="p-2 hover:bg-destructive/10 hover:text-destructive rounded-lg transition-all"><Trash2 className="w-4 h-4" /></button>
                                                     </div>
                                                 </td>
                                             </tr>
@@ -789,6 +844,15 @@ export default function AdminDashboard() {
                                         <X className="w-3 h-3" /> Limpar Filtro
                                     </button>
                                 )}
+                                {selectedUserIds.length > 0 && (
+                                    <button
+                                        onClick={handleBulkUserDelete}
+                                        className="flex-1 md:flex-none flex items-center justify-center gap-2 bg-rose-500 text-white px-6 py-3 rounded-2xl font-black uppercase text-[10px] tracking-widest hover:scale-105 transition-all shadow-xl shadow-rose-500/20 whitespace-nowrap"
+                                    >
+                                        <Trash2 className="w-3 h-3" />
+                                        Excluir ({selectedUserIds.length})
+                                    </button>
+                                )}
                                 <button
                                     onClick={handleExportUsers}
                                     className="flex-1 md:flex-none flex items-center justify-center gap-2 bg-emerald-500 text-white px-6 py-3 rounded-2xl font-black uppercase text-[10px] tracking-widest hover:scale-105 transition-all shadow-xl shadow-emerald-500/20 whitespace-nowrap"
@@ -811,7 +875,18 @@ export default function AdminDashboard() {
                                 <table className="w-full text-left">
                                     <thead className="bg-muted/50 text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground">
                                         <tr>
-                                            <th className="px-8 py-6">Aluno</th>
+                                            <th className="px-4 py-6 text-center">
+                                                <input
+                                                    type="checkbox"
+                                                    className="w-4 h-4 rounded border-border text-primary focus:ring-primary/20"
+                                                    checked={filteredUsers.length > 0 && selectedUserIds.length === filteredUsers.length}
+                                                    onChange={(e) => {
+                                                        if (e.target.checked) setSelectedUserIds(filteredUsers.map(u => u.id))
+                                                        else setSelectedUserIds([])
+                                                    }}
+                                                />
+                                            </th>
+                                            <th className="px-4 py-6">Aluno</th>
                                             <th className="px-8 py-6">Formação</th>
                                             <th className="px-8 py-6">Plano</th>
                                             <th className="px-8 py-6 text-right">Controle Master</th>
@@ -820,74 +895,81 @@ export default function AdminDashboard() {
                                     <tbody className="divide-y divide-border">
                                         {loading ? (
                                             <tr>
-                                                <td colSpan={4} className="px-8 py-20 text-center">
+                                                <td colSpan={5} className="px-8 py-20 text-center">
                                                     <div className="flex flex-col items-center gap-4">
                                                         <RefreshCw className="w-8 h-8 text-primary animate-spin" />
                                                         <p className="text-xs font-black uppercase tracking-widest text-muted-foreground">Carregando alunos...</p>
                                                     </div>
                                                 </td>
                                             </tr>
-                                        ) : realUsers.length === 0 ? (
+                                        ) : filteredUsers.length === 0 ? (
                                             <tr>
-                                                <td colSpan={4} className="px-8 py-20 text-center text-muted-foreground uppercase text-xs font-black tracking-widest">
+                                                <td colSpan={5} className="px-8 py-20 text-center text-muted-foreground uppercase text-xs font-black tracking-widest">
                                                     Nenhum aluno encontrado
                                                 </td>
                                             </tr>
                                         ) : (
-                                            realUsers
-                                                .filter(u => {
-                                                    const matchesFilter =
-                                                        userFilter === 'insano' ? u.plan_level === 'INSANO' :
-                                                            userFilter === 'premium' ? u.plan_level === 'PREMIUM' :
-                                                                userFilter === 'incomplete' ? (!u.institution || !u.graduation_year) :
-                                                                    true;
-
-                                                    const matchesSearch =
-                                                        u.name.toLowerCase().includes(userSearch.toLowerCase()) ||
-                                                        u.email.toLowerCase().includes(userSearch.toLowerCase());
-
-                                                    return matchesFilter && matchesSearch;
-                                                })
-                                                .map(u => (
-                                                    <tr key={u.id} className="hover:bg-muted/10 transition-colors">
-                                                        <td className="px-8 py-6">
-                                                            <div className="font-bold flex items-center gap-2">
-                                                                {u.name}
-                                                                <ExternalLink className="w-3 h-3 text-muted-foreground" />
+                                            filteredUsers.map(u => (
+                                                <tr key={u.id} className={`${selectedUserIds.includes(u.id) ? 'bg-primary/5' : ''} hover:bg-muted/10 transition-colors`}>
+                                                    <td className="px-4 py-6 text-center">
+                                                        <input
+                                                            type="checkbox"
+                                                            className="w-4 h-4 rounded border-border text-primary focus:ring-primary/20"
+                                                            checked={selectedUserIds.includes(u.id)}
+                                                            onChange={() => {
+                                                                setSelectedUserIds(prev =>
+                                                                    prev.includes(u.id) ? prev.filter(id => id !== u.id) : [...prev, u.id]
+                                                                )
+                                                            }}
+                                                        />
+                                                    </td>
+                                                    <td className="px-4 py-6">
+                                                        <div className="font-bold flex items-center gap-2">
+                                                            {u.name}
+                                                            <ExternalLink className="w-3 h-3 text-muted-foreground" />
+                                                        </div>
+                                                        <div className="text-[10px] text-muted-foreground uppercase flex items-center gap-1">
+                                                            <Mail className="w-3 h-3" /> {u.email}
+                                                        </div>
+                                                    </td>
+                                                    <td className="px-8 py-6">
+                                                        <div className="space-y-1">
+                                                            <div className="flex items-center gap-2 text-xs font-bold">
+                                                                <BookOpen className="w-3 h-3 text-primary" /> {u.institution || 'N/A'}
                                                             </div>
-                                                            <div className="text-[10px] text-muted-foreground uppercase flex items-center gap-1">
-                                                                <Mail className="w-3 h-3" /> {u.email}
+                                                            <div className="flex items-center gap-4 text-[10px] text-muted-foreground uppercase font-black">
+                                                                <span className="flex items-center gap-1"><GraduationCap className="w-3 h-3" /> {u.graduation_year || 'N/A'}</span>
+                                                                <span className="flex items-center gap-1"><Phone className="w-3 h-3" /> {u.phone || 'N/A'}</span>
                                                             </div>
-                                                        </td>
-                                                        <td className="px-8 py-6">
-                                                            <div className="space-y-1">
-                                                                <div className="flex items-center gap-2 text-xs font-bold">
-                                                                    <BookOpen className="w-3 h-3 text-primary" /> {u.institution || 'N/A'}
-                                                                </div>
-                                                                <div className="flex items-center gap-4 text-[10px] text-muted-foreground uppercase font-black">
-                                                                    <span className="flex items-center gap-1"><GraduationCap className="w-3 h-3" /> {u.graduation_year || 'N/A'}</span>
-                                                                    <span className="flex items-center gap-1"><Phone className="w-3 h-3" /> {u.phone || 'N/A'}</span>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                        <td className="px-8 py-6">
-                                                            <PlanBadge plan={u.plan_level} />
-                                                        </td>
-                                                        <td className="px-8 py-6 text-right">
-                                                            <div className="flex justify-end gap-2">
-                                                                {['FREE', 'PREMIUM', 'INSANO'].map(p => (
-                                                                    <button
-                                                                        key={p}
-                                                                        onClick={() => handlePlanChange(u.id, p as PlanLevel)}
-                                                                        className={`px-3 py-1.5 rounded-lg text-[10px] font-black uppercase transition-all ${u.plan_level === p ? 'bg-primary text-white' : 'bg-muted text-muted-foreground hover:bg-primary/20'}`}
-                                                                    >
-                                                                        {p}
-                                                                    </button>
-                                                                ))}
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                ))
+                                                        </div>
+                                                    </td>
+                                                    <td className="px-8 py-6">
+                                                        <PlanBadge plan={u.plan_level} />
+                                                    </td>
+                                                    <td className="px-8 py-6 text-right">
+                                                        <div className="flex justify-end gap-2">
+                                                            {['FREE', 'PREMIUM', 'INSANO'].map(p => (
+                                                                <button
+                                                                    key={p}
+                                                                    onClick={() => updateUserPlan(u.id, p as PlanLevel)}
+                                                                    className={`px-3 py-1.5 rounded-lg text-[10px] font-black uppercase transition-all ${u.plan_level === p ? 'bg-primary text-white' : 'bg-muted text-muted-foreground hover:bg-primary/20'}`}
+                                                                >
+                                                                    {p}
+                                                                </button>
+                                                            ))}
+                                                            <button
+                                                                onClick={() => {
+                                                                    if (confirm('Deseja excluir este usuário?')) deleteUser(u.id)
+                                                                }}
+                                                                className="p-1.5 rounded-lg text-rose-500 hover:bg-rose-500/10 transition-all ml-2"
+                                                                title="Excluir Usuário"
+                                                            >
+                                                                <Trash2 className="w-4 h-4" />
+                                                            </button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            ))
                                         )}
                                     </tbody>
                                 </table>

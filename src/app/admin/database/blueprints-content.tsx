@@ -20,6 +20,7 @@ export default function BlueprintsAdmin() {
     const [selectedFile, setSelectedFile] = useState<File | null>(null)
     const [isProcessing, setIsProcessing] = useState(false)
     const [isGenerating, setIsGenerating] = useState<string | null>(null) // ID da box gerando
+    const [isAiEnabled, setIsAiEnabled] = useState(false) // Toggle para processamento automático
 
     const [selectedBlueprint, setSelectedBlueprint] = useState<ExamBlueprint | null>(null)
 
@@ -60,19 +61,23 @@ export default function BlueprintsAdmin() {
 
             // 3. Processar Inteligência QRub (Simulado)
             // Aqui o sistema lê o PDF e cria as Caixinhas automaticamente
-            const success = await processBlueprint(blueprint.id)
-
-            if (success) {
-                alert('Edital processado com sucesso! As caixinhas de conteúdo foram geradas.')
-                setIsAdding(false)
-                setName('')
-                setInstitution('')
-                setYear(new Date().getFullYear())
-                setIsCourse(false)
-                setSelectedFile(null)
+            if (isAiEnabled) {
+                const success = await processBlueprint(blueprint.id)
+                if (success) {
+                    alert('Edital processado com sucesso! As caixinhas de conteúdo foram geradas.')
+                } else {
+                    alert('Ocorreu um erro no processamento do edital (IA).')
+                }
             } else {
-                alert('Ocorreu um erro no processamento do edital.')
+                alert('Edital criado! O processamento automático da IA está desativado.')
             }
+
+            setIsAdding(false)
+            setName('')
+            setInstitution('')
+            setYear(new Date().getFullYear())
+            setIsCourse(false)
+            setSelectedFile(null)
         } catch (error: any) {
             console.error(error)
             alert(error.message || 'Erro ao processar arquivo.')
@@ -122,12 +127,25 @@ export default function BlueprintsAdmin() {
                     </div>
                 </div>
 
-                <button
-                    onClick={() => setIsAdding(true)}
-                    className="royal-gradient text-white px-6 py-3 rounded-2xl font-black text-xs uppercase tracking-widest flex items-center gap-2 hover:scale-[1.02] active:scale-95 transition-all shadow-lg shadow-primary/20"
-                >
-                    <Plus className="w-4 h-4" /> Novo Edital
-                </button>
+                <div className="flex items-center gap-4">
+                    <button
+                        onClick={() => setIsAiEnabled(!isAiEnabled)}
+                        className={`flex items-center gap-2 px-4 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all border ${isAiEnabled
+                            ? 'bg-emerald-500/10 text-emerald-500 border-emerald-500/20'
+                            : 'bg-rose-500/10 text-rose-500 border-rose-500/20'
+                            }`}
+                    >
+                        <BrainCircuit className="w-4 h-4" />
+                        IA: {isAiEnabled ? 'Ativada' : 'Desativada'}
+                    </button>
+
+                    <button
+                        onClick={() => setIsAdding(true)}
+                        className="royal-gradient text-white px-6 py-3 rounded-2xl font-black text-xs uppercase tracking-widest flex items-center gap-2 hover:scale-[1.02] active:scale-95 transition-all shadow-lg shadow-primary/20"
+                    >
+                        <Plus className="w-4 h-4" /> Novo Edital
+                    </button>
+                </div>
             </header>
 
             <AnimatePresence>

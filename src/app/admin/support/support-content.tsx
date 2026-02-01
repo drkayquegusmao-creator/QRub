@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { Search, Inbox, MessageSquare, Star, Clock, CheckCircle2, MoreVertical, Reply, Send, Loader2 } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useSupport, SupportTicket } from '@/store/use-support'
+import { safeParseDate, formatDate, formatTime } from '@/lib/date-utils'
 
 export default function SupportInbox() {
     const { tickets, messages, fetchTickets, fetchMessages, sendMessage, updateTicketStatus, subscribeToTickets, subscribeToMessages, loading } = useSupport()
@@ -111,7 +112,7 @@ export default function SupportInbox() {
                                     {ticket.user?.name || 'Sistema'}
                                 </span>
                                 <span className="text-[9px] font-bold text-muted-foreground">
-                                    {new Date(ticket.last_message_at).toLocaleDateString()}
+                                    {formatDate(ticket.last_message_at)}
                                 </span>
                             </div>
                             <h4 className={`text-xs font-bold mb-1 truncate ${selectedTicket?.id === ticket.id ? 'text-primary' : 'text-foreground'}`}>
@@ -175,7 +176,7 @@ export default function SupportInbox() {
                                                 {msg.text}
                                             </div>
                                             <span className="text-[9px] font-bold text-muted-foreground/60 uppercase tracking-widest px-1">
-                                                {new Date(msg.created_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                                                {formatTime(msg.created_at)}
                                             </span>
                                         </div>
                                     </div>

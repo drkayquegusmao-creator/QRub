@@ -6,6 +6,7 @@ import { Save, DollarSign, QrCode, CheckCircle, XCircle, Search, Clock, FileText
 import { useSettings } from '@/store/use-settings'
 import { useSales, SaleStatus } from '@/store/use-sales'
 import { useAuth } from '@/store/use-auth'
+import { safeParseDate, formatDate, formatTime } from '@/lib/date-utils'
 
 export default function FinanceContent() {
     const [activeTab, setActiveTab] = useState<'settings' | 'sales'>('settings')
@@ -268,8 +269,8 @@ function SalesTab() {
                                 <td className="p-6 text-sm font-medium text-muted-foreground">
                                     <div className="flex items-center gap-2">
                                         <Clock className="w-4 h-4" />
-                                        {new Date(sale.date).toLocaleDateString('pt-BR')} <br />
-                                        {new Date(sale.date).toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })}
+                                        {formatDate(sale.date)} <br />
+                                        {formatTime(sale.date)}
                                     </div>
                                 </td>
                                 <td className="p-6">

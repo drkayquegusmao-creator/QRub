@@ -18,6 +18,7 @@ interface QuestionsState {
     addQuestion: (question: Omit<Question, 'id'>) => Promise<{ success: boolean, message: string }>
     addQuestions: (questions: Question[]) => Promise<{ success: boolean, message: string }>
     deleteQuestion: (id: string) => Promise<{ success: boolean, message: string }>
+    deleteQuestions: (ids: string[]) => Promise<{ success: boolean, message: string }>
     generateQuestions: (params: {
         specialty_id: string
         subspecialty_id?: string
@@ -161,6 +162,32 @@ export const useQuestions = create<QuestionsState>()(
             }
         },
 
+        deleteQuestions: async (ids: string[]) => {
+            try {
+                if (!isSupabaseConfigured()) throw new Error('Supabase not configured')
+
+                const { error } = await supabase
+                    .from('questions')
+                    .delete()
+                    .in('id', ids)
+
+                if (error) {
+                    if (error.code === '23503') {
+                        throw new Error('Algumas questões possuem respostas de usuários e não puderam ser excluídas.')
+                    }
+                    throw error
+                }
+
+                set((state) => ({
+                    questions: state.questions.filter(q => !ids.includes(q.id))
+                }))
+
+                return { success: true, message: `${ids.length} questões removidas com sucesso!` }
+            } catch (err: any) {
+                return { success: false, message: err.message || 'Erro ao remover questões' }
+            }
+        },
+
         generateQuestions: async ({ specialty_id, subspecialty_id, subject_id, count, difficulty, blueprint_id, study_box_id }) => {
             const { COURSES } = await import('@/lib/data-mock')
             set({ loading: true })
@@ -205,15 +232,15 @@ export const useQuestions = create<QuestionsState>()(
                     const labs = `Hb: ${(8 + Math.random() * 6).toFixed(1).replace('.', ',')} g/dL | Leuco: ${4000 + Math.floor(Math.random() * 15000)} | Plq: ${150000 + Math.floor(Math.random() * 200000)} | Cr: ${(0.7 + Math.random() * 2).toFixed(1).replace('.', ',')} | Na: 135 | K: 4.5`
 
                     // Montagem do Caso Completo
+                    // Montagem do Caso Completo
                     const intro = clinicalStart[Math.floor(Math.random() * clinicalStart.length)]
                     const exam = physicalExam[Math.floor(Math.random() * physicalExam.length)]
-                    const textScenarios = [
-                        `${intro}\n\nAo exame físico: ${exam}\n\nExames laboratoriais: ${labs}.\n\nDiante deste quadro clínico e considerando as diretrizes atuais de ${spec.name}, assinale a alternativa que apresenta o diagnóstico mais provável e a conduta imediata:`,
-                        `${intro}\n\nSinais vitais na admissão: ${vitals}.\n\nO eletrocardiograma de entrada evidenciou supradesnivelamento do segmento ST em parede anterior. A dosagem de troponina foi positiva.\n\nQual a estratégia de reperfusão preferencial considerando que o hospital não dispõe de hemodinâmica e o tempo de transporte é superior a 120 minutos?`,
-                        `Para um paciente de ${age} anos com diagnóstico confirmado de ${subjName}, apresentando os seguintes achados ao exame físico: ${exam}.\n\nQual a classe farmacológica de primeira linha para controle sintomático e melhoria de prognóstico a longo prazo?`
-                    ]
 
-                    const fullEnunciado = textScenarios[Math.floor(Math.random() * textScenarios.length)]
+                    const questionPrompt = [
+                        `Diante deste quadro clínico e considerando as diretrizes atuais de ${spec.name}, assinale a alternativa que apresenta o diagnóstico mais provável e a conduta imediata:`,
+                        `Qual a estratégia de reperfusão preferencial considerando que o hospital não dispõe de hemodinâmica e o tempo de transporte é superior a 120 minutos?`,
+                        `Qual a classe farmacológica de primeira linha para controle sintomático e melhoria de prognóstico a longo prazo?`
+                    ][Math.floor(Math.random() * 3)]
 
                     // Gerar Alternativas Complexas (Diagnóstico + Conduta)
                     const correctOptions = [
@@ -254,7 +281,7 @@ export const useQuestions = create<QuestionsState>()(
                         subspecialty_id: subspecialty_id || 'geral',
                         subject_id: subject_id || 'geral',
                         difficulty: (difficulty as any) || 'Médio',
-                        enunciado: fullEnunciado,
+                        enunciado: questionPrompt,
                         case_study: {
                             history: intro,
                             physical_exam: exam,

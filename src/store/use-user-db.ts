@@ -22,6 +22,7 @@ interface UserDbState {
     updateUserPlan: (userId: string, plan: PlanLevel) => Promise<void>
     updateUserProfile: (userId: string, data: Partial<RegisteredUser>) => Promise<void>
     deleteUser: (userId: string) => Promise<void>
+    deleteUsers: (userIds: string[]) => Promise<void>
     loadUsers: () => Promise<void>
 }
 
@@ -123,12 +124,25 @@ export const useUserDb = create<UserDbState>()(
                     users: state.users.filter(u => u.id !== userId)
                 }))
 
-                const { supabase, isSupabaseConfigured } = require('@/lib/supabase')
                 if (isSupabaseConfigured()) {
                     await supabase
                         .from('users')
                         .delete()
                         .eq('id', userId)
+                }
+            },
+
+            deleteUsers: async (userIds) => {
+                set((state) => ({
+                    users: state.users.filter(u => !userIds.includes(u.id))
+                }))
+
+                const { supabase, isSupabaseConfigured } = require('@/lib/supabase')
+                if (isSupabaseConfigured()) {
+                    await supabase
+                        .from('users')
+                        .delete()
+                        .in('id', userIds)
                 }
             }
         }),

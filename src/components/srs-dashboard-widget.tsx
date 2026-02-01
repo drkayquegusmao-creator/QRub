@@ -9,6 +9,7 @@ import { BrainCircuit, Zap, CheckCircle2, TrendingUp, Calendar, ArrowRight, Play
 import { formatDistanceToNow } from 'date-fns'
 import { ptBR } from 'date-fns/locale'
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
+import { safeParseDate } from '@/lib/date-utils'
 
 export function SRSDashboardWidget() {
     const { user } = useAuth()
@@ -152,7 +153,7 @@ export function SRSDashboardWidget() {
                                 <div>
                                     <p className="text-[9px] font-black uppercase text-white/40">Vencimento</p>
                                     <p className="text-sm font-bold uppercase text-rose-400">
-                                        {formatDistanceToNow(new Date(primaryAction.next_review_date), { locale: ptBR, addSuffix: true })}
+                                        {formatDistanceToNow(safeParseDate(primaryAction.next_review_date), { locale: ptBR, addSuffix: true })}
                                     </p>
                                 </div>
                             )}

@@ -290,7 +290,7 @@ export default function QuizPage() {
     }
 
     return (
-        <div className={`min-h-[100vh] flex flex-col transition-all duration-500 ${isFocusMode ? 'bg-[#0a0a0a] text-white p-8 md:p-20' : 'bg-background'}`}>
+        <div className={`min-h-screen flex flex-col transition-all duration-500 ${isFocusMode ? 'bg-[#0a0a0a] text-white p-8 md:p-20' : 'bg-background'}`}>
             <RegistrationModal isOpen={showRegModal} onClose={() => setShowRegModal(false)} />
             <PaywallModal
                 isOpen={showPaywall}
@@ -365,38 +365,31 @@ export default function QuizPage() {
                         </div>
                     )}
 
-                    <h2 className={`text-2xl md:text-3xl font-bold leading-tight ${isFocusMode ? 'text-white' : 'text-[#1A1033]'}`}>
-                        {question.enunciado}
-                    </h2>
-
                     {question.case_study && (
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+                        <div className={`space-y-6 mb-8 transition-all ${isFocusMode ? 'text-white/90' : 'text-[#1A1033]/90'}`}>
                             {question.case_study.history && (
-                                <div className="bg-card/50 border border-border/50 p-6 rounded-3xl space-y-3">
-                                    <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-primary">
-                                        <HistoryIcon className="w-3.5 h-3.5" /> História Clínica
-                                    </div>
-                                    <p className="text-sm font-medium leading-relaxed text-muted-foreground">{question.case_study.history}</p>
-                                </div>
+                                <p className="text-xl md:text-2xl font-medium leading-relaxed">
+                                    {question.case_study.history}
+                                </p>
                             )}
                             {question.case_study.physical_exam && (
-                                <div className="bg-card/50 border border-border/50 p-6 rounded-3xl space-y-3">
-                                    <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-blue-500">
-                                        <Activity className="w-3.5 h-3.5" /> Exame Físico
-                                    </div>
-                                    <p className="text-sm font-medium leading-relaxed text-muted-foreground">{question.case_study.physical_exam}</p>
-                                </div>
+                                <p className="text-xl md:text-2xl font-medium leading-relaxed">
+                                    <strong className="uppercase text-sm tracking-widest opacity-70 block mb-1">Exame Físico</strong>
+                                    {question.case_study.physical_exam}
+                                </p>
                             )}
                             {question.case_study.lab_results && (
-                                <div className="bg-card/50 border border-border/50 p-6 rounded-3xl space-y-3">
-                                    <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-emerald-500">
-                                        <Microscope className="w-3.5 h-3.5" /> Exames Lab.
-                                    </div>
-                                    <p className="text-sm font-medium leading-relaxed text-muted-foreground">{question.case_study.lab_results}</p>
-                                </div>
+                                <p className="text-xl md:text-2xl font-medium leading-relaxed">
+                                    <strong className="uppercase text-sm tracking-widest opacity-70 block mb-1">Exames Complementares</strong>
+                                    {question.case_study.lab_results}
+                                </p>
                             )}
                         </div>
                     )}
+
+                    <h2 className={`text-2xl md:text-3xl font-bold leading-tight ${isFocusMode ? 'text-white' : 'text-[#1A1033]'}`}>
+                        {question.enunciado}
+                    </h2>
                 </div>
 
                 <div className="space-y-3">
