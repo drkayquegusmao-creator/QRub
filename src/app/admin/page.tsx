@@ -56,6 +56,7 @@ export default function AdminDashboard() {
     const [importStatus, setImportStatus] = useState<{ type: 'success' | 'error', msg: string } | null>(null)
     const [selectedQuestions, setSelectedQuestions] = useState<string[]>([])
     const [loadingManual, setLoadingManual] = useState(false)
+    const [userFilter, setUserFilter] = useState<'all' | 'incomplete'>('all')
 
     useEffect(() => {
         loadUsers()
@@ -756,10 +757,20 @@ export default function AdminDashboard() {
                                 value={realUsers.filter((u: any) => !u.institution || !u.graduation_year).length}
                                 color="text-rose-500"
                                 icon={<AlertCircle className="w-4 h-4" />}
+                                onClick={() => setUserFilter('incomplete')}
+                                active={userFilter === 'incomplete'}
                             />
                         </div>
 
-                        <div className="flex justify-end">
+                        <div className="flex justify-end gap-2">
+                            {userFilter === 'incomplete' && (
+                                <button
+                                    onClick={() => setUserFilter('all')}
+                                    className="px-4 py-2 bg-muted text-muted-foreground rounded-xl text-xs font-black uppercase tracking-widest hover:bg-muted/80"
+                                >
+                                    Limpar Filtro
+                                </button>
+                            )}
                             <button
                                 onClick={handleExportUsers}
                                 className="flex items-center gap-2 bg-emerald-500 text-white px-6 py-3 rounded-xl font-black uppercase text-xs tracking-widest hover:scale-105 transition-all shadow-xl shadow-emerald-500/20"
@@ -781,46 +792,48 @@ export default function AdminDashboard() {
                                         </tr>
                                     </thead>
                                     <tbody className="divide-y divide-border">
-                                        {realUsers.map(u => (
-                                            <tr key={u.id} className="hover:bg-muted/10 transition-colors">
-                                                <td className="px-8 py-6">
-                                                    <div className="font-bold flex items-center gap-2">
-                                                        {u.name}
-                                                        <ExternalLink className="w-3 h-3 text-muted-foreground" />
-                                                    </div>
-                                                    <div className="text-[10px] text-muted-foreground uppercase flex items-center gap-1">
-                                                        <Mail className="w-3 h-3" /> {u.email}
-                                                    </div>
-                                                </td>
-                                                <td className="px-8 py-6">
-                                                    <div className="space-y-1">
-                                                        <div className="flex items-center gap-2 text-xs font-bold">
-                                                            <BookOpen className="w-3 h-3 text-primary" /> {u.institution || 'N/A'}
+                                        {realUsers
+                                            .filter(u => userFilter === 'all' || (!u.institution || !u.graduation_year))
+                                            .map(u => (
+                                                <tr key={u.id} className="hover:bg-muted/10 transition-colors">
+                                                    <td className="px-8 py-6">
+                                                        <div className="font-bold flex items-center gap-2">
+                                                            {u.name}
+                                                            <ExternalLink className="w-3 h-3 text-muted-foreground" />
                                                         </div>
-                                                        <div className="flex items-center gap-4 text-[10px] text-muted-foreground uppercase font-black">
-                                                            <span className="flex items-center gap-1"><GraduationCap className="w-3 h-3" /> {u.graduation_year || 'N/A'}</span>
-                                                            <span className="flex items-center gap-1"><Phone className="w-3 h-3" /> {u.phone || 'N/A'}</span>
+                                                        <div className="text-[10px] text-muted-foreground uppercase flex items-center gap-1">
+                                                            <Mail className="w-3 h-3" /> {u.email}
                                                         </div>
-                                                    </div>
-                                                </td>
-                                                <td className="px-8 py-6">
-                                                    <PlanBadge plan={u.plan_level} />
-                                                </td>
-                                                <td className="px-8 py-6 text-right">
-                                                    <div className="flex justify-end gap-2">
-                                                        {['FREE', 'PREMIUM', 'INSANO'].map(p => (
-                                                            <button
-                                                                key={p}
-                                                                onClick={() => handlePlanChange(u.id, p as PlanLevel)}
-                                                                className={`px-3 py-1.5 rounded-lg text-[10px] font-black uppercase transition-all ${u.plan_level === p ? 'bg-primary text-white' : 'bg-muted text-muted-foreground hover:bg-primary/20'}`}
-                                                            >
-                                                                {p}
-                                                            </button>
-                                                        ))}
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        ))}
+                                                    </td>
+                                                    <td className="px-8 py-6">
+                                                        <div className="space-y-1">
+                                                            <div className="flex items-center gap-2 text-xs font-bold">
+                                                                <BookOpen className="w-3 h-3 text-primary" /> {u.institution || 'N/A'}
+                                                            </div>
+                                                            <div className="flex items-center gap-4 text-[10px] text-muted-foreground uppercase font-black">
+                                                                <span className="flex items-center gap-1"><GraduationCap className="w-3 h-3" /> {u.graduation_year || 'N/A'}</span>
+                                                                <span className="flex items-center gap-1"><Phone className="w-3 h-3" /> {u.phone || 'N/A'}</span>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td className="px-8 py-6">
+                                                        <PlanBadge plan={u.plan_level} />
+                                                    </td>
+                                                    <td className="px-8 py-6 text-right">
+                                                        <div className="flex justify-end gap-2">
+                                                            {['FREE', 'PREMIUM', 'INSANO'].map(p => (
+                                                                <button
+                                                                    key={p}
+                                                                    onClick={() => handlePlanChange(u.id, p as PlanLevel)}
+                                                                    className={`px-3 py-1.5 rounded-lg text-[10px] font-black uppercase transition-all ${u.plan_level === p ? 'bg-primary text-white' : 'bg-muted text-muted-foreground hover:bg-primary/20'}`}
+                                                                >
+                                                                    {p}
+                                                                </button>
+                                                            ))}
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            ))}
                                     </tbody>
                                 </table>
                             </div>
@@ -1310,9 +1323,12 @@ function NavBtn({ active, onClick, icon, label }: { active: boolean, onClick: ()
     )
 }
 
-function StatCard({ label, value, sub, color, icon, alert }: { label: string, value: any, sub?: string, color: string, icon?: any, alert?: boolean }) {
+function StatCard({ label, value, sub, color, icon, alert, onClick, active }: { label: string, value: any, sub?: string, color: string, icon?: any, alert?: boolean, onClick?: () => void, active?: boolean }) {
     return (
-        <div className={`bg-card border ${alert ? 'border-rose-500/30 bg-rose-500/5' : 'border-border'} rounded-[32px] p-8 soft-shadow group hover:border-primary/30 transition-all relative overflow-hidden`}>
+        <div
+            onClick={onClick}
+            className={`bg-card border ${alert ? 'border-rose-500/30 bg-rose-500/5' : active ? 'border-primary ring-2 ring-primary/20' : 'border-border'} rounded-[32px] p-8 soft-shadow group hover:border-primary/30 transition-all relative overflow-hidden ${onClick ? 'cursor-pointer hover:bg-muted/5' : ''}`}
+        >
             {alert && <div className="absolute top-0 right-0 w-16 h-16 bg-rose-500/10 blur-2xl -translate-y-1/2 translate-x-1/2" />}
             <div className="flex justify-between items-start mb-4">
                 <p className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground">{label}</p>
