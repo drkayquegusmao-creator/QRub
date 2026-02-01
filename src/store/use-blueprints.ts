@@ -44,23 +44,39 @@ export const useBlueprints = create<BlueprintState>((set, get) => ({
     },
 
     uploadPDF: async (file: File) => {
-        const fileExt = file.name.split('.').pop()
-        const fileName = `${Date.now()}-${Math.random().toString(36).substring(2)}.${fileExt}`
-        const filePath = fileName // Salvando na raiz do bucket
+        try {
+            console.log('📤 Iniciando upload do PDF:', file.name, `(${(file.size / 1024 / 1024).toFixed(2)} MB)`)
 
-        const { error: uploadError } = await supabase.storage
-            .from('blueprints')
-            .upload(filePath, file, {
-                upsert: true
-            })
+            const fileExt = file.name.split('.').pop()
+            const fileName = `${Date.now()}-${Math.random().toString(36).substring(2)}.${fileExt}`
+            const filePath = fileName
 
-        if (uploadError) {
-            console.error('Detalhes do Erro Supabase:', uploadError)
+            const { data: uploadData, error: uploadError } = await supabase.storage
+                .from('blueprints')
+                .upload(filePath, file, {
+                    cacheControl: '3600',
+                    upsert: true
+                })
+
+            if (uploadError) {
+                console.error('❌ Erro no upload do PDF:', {
+                    message: uploadError.message,
+                    statusCode: uploadError.statusCode,
+                    error: uploadError
+                })
+                throw new Error(`Falha no upload: ${uploadError.message}`)
+            }
+
+            console.log('✅ Upload concluído:', uploadData.path)
+
+            const { data } = supabase.storage.from('blueprints').getPublicUrl(filePath)
+            console.log('🔗 URL pública gerada:', data.publicUrl)
+
+            return data.publicUrl
+        } catch (error: any) {
+            console.error('❌ Erro crítico no uploadPDF:', error)
             return null
         }
-
-        const { data } = supabase.storage.from('blueprints').getPublicUrl(filePath)
-        return data.publicUrl
     },
 
     processBlueprint: async (blueprintId: string) => {
