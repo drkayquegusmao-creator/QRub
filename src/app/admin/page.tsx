@@ -63,18 +63,19 @@ export default function AdminDashboard() {
 
     // AI Generator State
     const [apiKey, setApiKey] = useState('')
+    const [provider, setProvider] = useState<'openai' | 'gemini'>('openai')
     const [isGenerating, setIsGenerating] = useState(false)
     const [aiTopic, setAiTopic] = useState('')
     const [aiCount, setAiCount] = useState(5)
 
     useEffect(() => {
-        const storedKey = localStorage.getItem('openai_api_key')
+        const storedKey = localStorage.getItem(`${provider}_api_key`)
         if (storedKey) setApiKey(storedKey)
-    }, [])
+    }, [provider])
 
     const handleGenerateAiQuestions = async () => {
         if (!apiKey) {
-            alert('Por favor, insira sua OpenAI API Key.')
+            alert(`Por favor, insira sua chave da API (${provider.toUpperCase()}).`)
             return
         }
         if (!selectedSpecialty) {
@@ -118,7 +119,8 @@ export default function AdminDashboard() {
                         apiKey,
                         topic: topicToSend,
                         specialty: specName,
-                        count: currentCount
+                        count: currentCount,
+                        provider
                     })
                 })
 
@@ -860,6 +862,7 @@ export default function AdminDashboard() {
                             <StatCard
                                 label="Alunos Totais"
                                 value={realUsers.length}
+                                sub="+12 hoje"
                                 color="text-emerald-500"
                                 icon={<Users className="w-4 h-4" />}
                                 onClick={() => setUserFilter('all')}
@@ -1305,25 +1308,41 @@ export default function AdminDashboard() {
                             <div className="flex items-start justify-between mb-8">
                                 <div>
                                     <h2 className="text-3xl font-black italic tracking-tighter flex items-center gap-3">
-                                        <div className="bg-amber-400/20 p-2 rounded-xl text-amber-500"><Sparkles className="w-8 h-8" /></div>
+                                        <div className={`p-2 rounded-xl ${provider === 'openai' ? 'bg-emerald-400/20 text-emerald-500' : 'bg-blue-400/20 text-blue-500'}`}>
+                                            {provider === 'openai' ? <Sparkles className="w-8 h-8" /> : <Zap className="w-8 h-8" />}
+                                        </div>
                                         GERADOR PADRÃO-OURO
                                     </h2>
                                     <p className="text-muted-foreground font-medium mt-2 max-w-2xl">
-                                        Utilize a inteligência artificial para criar questões inéditas seguindo estritamente o modelo Revalida/ENARE.
+                                        Motor AI Ativo: <span className="text-foreground font-black uppercase">{provider === 'openai' ? 'OpenAI GPT-4o' : 'Google Gemini 1.5 Pro'}</span>
                                     </p>
                                 </div>
                                 <div className="flex flex-col items-end gap-2">
+                                    <div className="flex gap-1 bg-muted p-1 rounded-lg mb-1">
+                                        <button
+                                            onClick={() => setProvider('openai')}
+                                            className={`px-3 py-1 text-[10px] font-black uppercase rounded-md transition-all ${provider === 'openai' ? 'bg-white text-black shadow-sm' : 'text-muted-foreground hover:text-foreground'}`}
+                                        >
+                                            OpenAI
+                                        </button>
+                                        <button
+                                            onClick={() => setProvider('gemini')}
+                                            className={`px-3 py-1 text-[10px] font-black uppercase rounded-md transition-all ${provider === 'gemini' ? 'bg-white text-black shadow-sm' : 'text-muted-foreground hover:text-foreground'}`}
+                                        >
+                                            Gemini
+                                        </button>
+                                    </div>
                                     <input
                                         type="password"
-                                        placeholder="OpenAI API Key (sk-...)"
+                                        placeholder={provider === 'openai' ? "OpenAI Key (sk-...)" : "Google AI Key (AIza...)"}
                                         value={apiKey}
                                         onChange={(e) => {
                                             setApiKey(e.target.value)
-                                            localStorage.setItem('openai_api_key', e.target.value)
+                                            localStorage.setItem(`${provider}_api_key`, e.target.value)
                                         }}
                                         className="bg-muted border border-border rounded-lg px-3 py-1 text-xs font-mono w-64 focus:ring-2 focus:ring-primary/20 outline-none"
                                     />
-                                    <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-widest">Sua chave é salva localmente</span>
+                                    <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-widest">Chave salva para {provider}</span>
                                 </div>
                             </div>
 
