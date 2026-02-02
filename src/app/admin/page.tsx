@@ -392,6 +392,16 @@ export default function AdminDashboard() {
     const activeSpecialty = activeCourse?.specialties.find(s => s.id === selectedSpecialty)
     const activeSubspecialty = activeSpecialty?.subspecialties.find(sub => sub.id === selectedSubspecialty)
 
+    const handleManualPromptCopy = () => {
+        if (!selectedSpecialty) { alert('Selecione uma especialidade primeiro.'); return }
+
+        const specName = activeCourse?.specialties.find(s => s.id === selectedSpecialty)?.name || 'Medicina Geral'
+        const fullPrompt = `${GOLD_STANDARD_SYSTEM_PROMPT}\n\n${buildPrompt(aiTopic || 'DIVERSOS', specName, aiCount || 1)}`
+
+        navigator.clipboard.writeText(fullPrompt)
+        alert('✅ Prompt Copiado! Cole no ChatGPT/Gemini e use o JSON gerado.')
+    }
+
     const handleExportUsers = () => {
         const ws = XLSX.utils.json_to_sheet(filteredUsers.map((u: any) => ({
             ID: u.id,

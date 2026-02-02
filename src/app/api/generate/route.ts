@@ -39,7 +39,10 @@ export async function POST(req: Request) {
 
                 const text = result.response.text();
                 if (!text) throw new Error('Gemini retornou texto vazio.');
-                parsedResult = JSON.parse(text);
+
+                // Limpeza extra para prevenir markdown indevido
+                const cleanText = text.replace(/```json/g, '').replace(/```/g, '').trim();
+                parsedResult = JSON.parse(cleanText);
             } catch (geminiError: any) {
                 console.error('Gemini Internal Error:', geminiError);
                 throw new Error(`Erro no Gemini: ${geminiError.message || 'Bloqueio de Segurança ou Timeout'}`);
