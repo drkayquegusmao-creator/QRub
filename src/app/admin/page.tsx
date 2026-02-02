@@ -67,6 +67,7 @@ export default function AdminDashboard() {
     const [isGenerating, setIsGenerating] = useState(false)
     const [aiTopic, setAiTopic] = useState('')
     const [aiCount, setAiCount] = useState(5)
+    const [showManualImport, setShowManualImport] = useState(false)
 
     useEffect(() => {
         const storedKey = localStorage.getItem(`${provider}_api_key`)
@@ -405,7 +406,58 @@ export default function AdminDashboard() {
         const fullPrompt = `${GOLD_STANDARD_SYSTEM_PROMPT}\n\n${buildPrompt(aiTopic || 'DIVERSOS', specName, aiCount || 1)}`
 
         navigator.clipboard.writeText(fullPrompt)
-        alert('✅ Prompt Copiado! Cole no ChatGPT/Gemini e use o JSON gerado.')
+        alert('✅ Prompt Copiado! Use em qualquer IA e depois clique em "Colar JSON" abaixo para salvar.')
+        setShowManualImport(true) // Já abre a área de colagem pra facilitar
+    }
+
+    const handleManualImportSave = async () => {
+        if (!jsonInput.trim()) {
+            alert('Cole o JSON gerado antes de salvar.')
+            return
+        }
+
+        setLoadingManual(true)
+        try {
+            const rawJson = jsonInput.trim()
+            // Tenta limpar markdown se o usuário colou com ```json
+            const cleanJson = rawJson.replace(/```json/g, '').replace(/```/g, '').trim()
+            const parsed = JSON.parse(cleanJson)
+
+            const questionsToSave = Array.isArray(parsed) ? parsed : (parsed.questions || [parsed])
+
+            const convertedBatch: Question[] = questionsToSave.map((q: any) => ({
+                id: `QRUB-MANUAL-${Math.random().toString(36).substr(2, 6).toUpperCase()}`,
+                course_id: selectedCourse,
+                specialty_id: selectedSpecialty,
+                subspecialty_id: selectedSubspecialty || '',
+                subject_id: selectedSubject || '',
+                difficulty: q.dificuldade || 'Médio',
+                enunciado: q.enunciado,
+                options: q.alternativas ? q.alternativas.map((alt: any) => ({
+                    id: alt.id.toLowerCase(),
+                    text: alt.texto
+                })) : [],
+                correct_option_id: q.resposta_correta?.toLowerCase(),
+                explanation: q.comentario || 'Importado manualmente.',
+                alternative_explanations: q.distratores_comentados || {},
+                metadata: { ...q.metadata, data_importacao: new Date().toISOString() }
+            }))
+
+            const { success, message } = await addQuestions(convertedBatch)
+            if (success) {
+                setImportStatus({ type: 'success', msg: `✅ ${convertedBatch.length} questões importadas com sucesso!` })
+                setJsonInput('')
+                setShowManualImport(false)
+                loadQuestions()
+            } else {
+                throw new Error(message)
+            }
+        } catch (error: any) {
+            alert('Erro no formato do JSON: ' + error.message)
+            setImportStatus({ type: 'error', msg: 'Erro no JSON: ' + error.message })
+        } finally {
+            setLoadingManual(false)
+        }
     }
 
     const handleExportUsers = () => {
@@ -1424,32 +1476,71 @@ export default function AdminDashboard() {
                                 </div>
                             </div>
 
-                            <button
-                                onClick={handleGenerateAiQuestions}
-                                disabled={isGenerating}
-                                className={`w-full py-6 rounded-2xl font-black text-lg uppercase tracking-widest shadow-xl transition-all flex items-center justify-center gap-3 mb-8 ${isGenerating
-                                    ? 'bg-muted text-muted-foreground cursor-wait'
-                                    : 'bg-amber-400 hover:bg-amber-500 text-amber-950 hover:scale-[1.01] active:scale-95'
-                                    }`}
-                            >
-                                {isGenerating ? (
-                                    <>
-                                        <RefreshCw className="w-6 h-6 animate-spin" />
-                                        Gerando e Salvando...
-                                    </>
-                                ) : (
-                                    <>
-                                        <Sparkles className="w-6 h-6" />
-                                        Gerar Questões Automaticamente
-                                    </>
-                                )}
-                            </button>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                                <button
+                                    onClick={handleGenerateAiQuestions}
+                                    disabled={isGenerating}
+                                    className={`py-6 rounded-2xl font-black text-lg uppercase tracking-widest shadow-xl transition-all flex items-center justify-center gap-3 ${isGenerating
+                                        ? 'bg-muted text-muted-foreground cursor-wait'
+                                        : 'bg-amber-400 hover:bg-amber-500 text-amber-950 hover:scale-[1.01] active:scale-95'
+                                        }`}
+                                >
+                                    {isGenerating ? (
+                                        <>
+                                            <RefreshCw className="w-6 h-6 animate-spin" />
+                                            Gerando...
+                                        </>
+                                    ) : (
+                                        <>
+                                            <Sparkles className="w-6 h-6" />
+                                            Gerar Automático
+                                        </>
+                                    )}
+                                </button>
+
+                                <button
+                                    onClick={() => setShowManualImport(!showManualImport)}
+                                    className={`py-6 rounded-2xl font-black text-lg uppercase tracking-widest shadow-xl transition-all flex items-center justify-center gap-3 ${showManualImport
+                                        ? 'bg-primary text-white'
+                                        : 'bg-muted hover:bg-muted/80 text-muted-foreground'
+                                        }`}
+                                >
+                                    <Database className="w-6 h-6" />
+                                    {showManualImport ? 'Fechar Editor' : 'Colar JSON'}
+                                </button>
+                            </div>
+
+                            {showManualImport && (
+                                <motion.div
+                                    initial={{ opacity: 0, height: 0 }}
+                                    animate={{ opacity: 1, height: 'auto' }}
+                                    className="mb-8 space-y-4 p-6 bg-black/90 rounded-3xl border-2 border-primary/30 shadow-2xl"
+                                >
+                                    <div className="flex justify-between items-center px-1">
+                                        <label className="text-xs font-black uppercase tracking-widest text-primary">Área de Colagem (JSON)</label>
+                                        <button onClick={() => setJsonInput('')} className="text-[10px] font-bold text-rose-500 hover:underline px-2">Limpar</button>
+                                    </div>
+                                    <textarea
+                                        value={jsonInput}
+                                        onChange={(e) => setJsonInput(e.target.value)}
+                                        placeholder="Cole aqui o array JSON gerado pela IA..."
+                                        className="w-full h-48 bg-black text-emerald-400 p-6 font-mono text-xs rounded-2xl border border-white/10 focus:border-primary outline-none transition-all scrollbar-thin shadow-inner"
+                                    />
+                                    <button
+                                        onClick={handleManualImportSave}
+                                        disabled={loadingManual}
+                                        className="w-full py-4 bg-primary hover:bg-primary/90 text-white font-black uppercase tracking-widest rounded-xl shadow-lg transition-all flex items-center justify-center gap-2 group"
+                                    >
+                                        {loadingManual ? <RefreshCw className="w-5 h-5 animate-spin" /> : <CheckCircle2 className="w-5 h-5 group-hover:scale-110 transition-transform" />}
+                                        Validar e Salvar no Banco
+                                    </button>
+                                </motion.div>
+                            )}
 
                             {/* Área de Logs Simplificada */}
                             <div className="bg-black/5 rounded-3xl p-6 border border-border">
                                 <div className="flex items-center justify-between mb-4">
                                     <h3 className="text-xs font-black uppercase tracking-widest text-muted-foreground">Status da Operação</h3>
-                                    {jsonInput && <button onClick={() => setJsonInput('')} className="text-[10px] font-bold text-red-500 hover:underline">Limpar</button>}
                                 </div>
 
                                 {importStatus ? (
