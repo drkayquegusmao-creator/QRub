@@ -91,14 +91,21 @@ export const useQuestions = create<QuestionsState>()(
 
                 const { data, error } = await supabase
                     .from('questions')
-                    .insert([question])
+                    .upsert([question])
                     .select()
 
                 if (error) throw error
 
-                set((state) => ({
-                    questions: [data[0], ...state.questions]
-                }))
+                set((state) => {
+                    const exists = state.questions.findIndex(q => q.id === data[0].id)
+                    let newQuestions = [...state.questions]
+                    if (exists >= 0) {
+                        newQuestions[exists] = data[0]
+                    } else {
+                        newQuestions = [data[0], ...newQuestions]
+                    }
+                    return { questions: newQuestions }
+                })
 
                 return { success: true, message: 'Questão salva com sucesso!' }
             } catch (err: unknown) {
@@ -112,16 +119,18 @@ export const useQuestions = create<QuestionsState>()(
 
                 const { data, error } = await supabase
                     .from('questions')
-                    .insert(questions)
+                    .upsert(questions)
                     .select()
 
                 if (error) throw error
 
-                set((state) => ({
-                    questions: [...(data || []), ...state.questions]
-                }))
+                set((state) => {
+                    const incomingIds = new Set((data || []).map(q => q.id))
+                    const filteredOld = state.questions.filter(q => !incomingIds.has(q.id))
+                    return { questions: [...(data || []), ...filteredOld] }
+                })
 
-                return { success: true, message: `${questions.length} questões importadas com sucesso!` }
+                return { success: true, message: `${questions.length} questões processadas com sucesso!` }
             } catch (err: unknown) {
                 return { success: false, message: err instanceof Error ? err.message : 'Erro ao importar questões' }
             }

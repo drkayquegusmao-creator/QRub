@@ -378,6 +378,7 @@ export default function AdminDashboard() {
             ],
             correct_option_id: 'a',
             explanation: '',
+            alternative_explanations: {},
             subject_id: '',
             specialty_id: '',
             subspecialty_id: '',
@@ -747,6 +748,50 @@ export default function AdminDashboard() {
                                             </div>
                                         ))}
                                     </div>
+                                </div>
+                            </div>
+
+                            {/* Nova Seção: Fundamentação Técnica */}
+                            <div className="mt-8 pt-8 border-t border-border space-y-8">
+                                <div className="flex items-center gap-3">
+                                    <div className="bg-amber-400/10 p-2 rounded-xl text-amber-500"><Sparkles className="w-5 h-5" /></div>
+                                    <h3 className="text-xl font-black italic uppercase tracking-tighter">Fundamentação Técnica</h3>
+                                </div>
+
+                                <div className="space-y-2">
+                                    <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Explicação Principal (Resposta Correta)</label>
+                                    <textarea
+                                        value={editingQuestion?.explanation || ''}
+                                        onChange={(e) => setEditingQuestion({ ...editingQuestion, explanation: e.target.value })}
+                                        className="w-full h-32 bg-muted border border-border rounded-2xl p-4 font-bold text-sm focus:ring-2 focus:ring-primary/20 outline-none resize-none"
+                                        placeholder="Descreva a lógica clínica e a diretriz utilizada..."
+                                    />
+                                </div>
+
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    {['a', 'b', 'c', 'd', 'e'].map((id) => (
+                                        <div key={id} className="space-y-2">
+                                            <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground flex items-center gap-2">
+                                                <span className="w-4 h-4 rounded bg-muted flex items-center justify-center text-[8px]">{id.toUpperCase()}</span>
+                                                Erro da Alternativa
+                                            </label>
+                                            <textarea
+                                                value={editingQuestion?.alternative_explanations?.[id] || ''}
+                                                onChange={(e) => {
+                                                    const currentExps = editingQuestion?.alternative_explanations || {}
+                                                    setEditingQuestion({
+                                                        ...editingQuestion,
+                                                        alternative_explanations: {
+                                                            ...currentExps,
+                                                            [id]: e.target.value
+                                                        }
+                                                    })
+                                                }}
+                                                className="w-full h-24 bg-muted/50 border border-border rounded-xl p-3 font-medium text-xs focus:ring-2 focus:ring-primary/20 outline-none resize-none"
+                                                placeholder={`Por que a alternativa ${id.toUpperCase()} está incorreta?`}
+                                            />
+                                        </div>
+                                    ))}
                                 </div>
                             </div>
 
