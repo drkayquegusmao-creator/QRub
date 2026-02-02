@@ -40,9 +40,20 @@ export async function POST(req: Request) {
                 const text = result.response.text();
                 if (!text) throw new Error('Gemini retornou texto vazio.');
 
-                // Limpeza extra para prevenir markdown indevido
-                const cleanText = text.replace(/```json/g, '').replace(/```/g, '').trim();
-                parsedResult = JSON.parse(cleanText);
+                // Tenta limpar markdown primeiro
+                let cleanText = text.replace(/```json/g, '').replace(/```/g, '').trim();
+
+                try {
+                    parsedResult = JSON.parse(cleanText);
+                } catch (e) {
+                    // Fallback: Tenta extrair apenas o array JSON via Regex se houver texto em volta
+                    const jsonArrayMatch = cleanText.match(/\[[\s\S]*\]/);
+                    if (jsonArrayMatch) {
+                        parsedResult = JSON.parse(jsonArrayMatch[0]);
+                    } else {
+                        throw new Error('Não foi possível encontrar um JSON válido na resposta do Gemini.');
+                    }
+                }
             } catch (geminiError: any) {
                 console.error('Gemini Internal Error:', geminiError);
                 throw new Error(`Erro no Gemini: ${geminiError.message || 'Bloqueio de Segurança ou Timeout'}`);

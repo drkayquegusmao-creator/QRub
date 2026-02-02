@@ -127,10 +127,13 @@ export default function AdminDashboard() {
                 const data = await response.json()
 
                 if (!response.ok) {
-                    console.error(`Lote ${currentBatchNumber} falhou:`, data.error)
-                    // Não para tudo, tenta continuar ou avisa
-                    // throw new Error(data.error || 'Falha na geração')
-                    setImportStatus({ type: 'error', msg: `⚠️ Lote ${currentBatchNumber} falhou ou timed out. Continuando...` })
+                    const errorMsg = data.error || data.details || 'Falha na geração'
+                    console.error(`Lote ${currentBatchNumber} falhou:`, errorMsg)
+                    setImportStatus({ type: 'error', msg: `⚠️ Erro no Lote ${currentBatchNumber}: ${errorMsg}` })
+                    // Se for erro de cota ou chave, paramos o loop
+                    if (errorMsg.toLowerCase().includes('key') || errorMsg.toLowerCase().includes('quota') || errorMsg.toLowerCase().includes('cota')) {
+                        throw new Error(errorMsg)
+                    }
                     continue;
                 }
 
@@ -139,7 +142,7 @@ export default function AdminDashboard() {
                         id: `QRUB-AI-${Math.random().toString(36).substr(2, 6).toUpperCase()}`,
                         course_id: selectedCourse,
                         specialty_id: selectedSpecialty,
-                        subspecialty_id: selectedSubspecialty || '', // pode estar vazio, ok
+                        subspecialty_id: selectedSubspecialty || '',
                         subject_id: selectedSubject || '',
                         difficulty: q.dificuldade || 'Médio',
                         enunciado: q.enunciado,
@@ -148,9 +151,12 @@ export default function AdminDashboard() {
                             text: alt.texto
                         })) : [],
                         correct_option_id: q.resposta_correta?.toLowerCase(),
-                        explanation: q.comentario || 'Sem comentário gerado.',
+                        explanation: q.comentario || 'Explicação baseada em diretrizes oficiais.',
                         alternative_explanations: q.distratores_comentados || {},
-                        ai_metadata: q.metadata
+                        metadata: {
+                            ...q.metadata,
+                            data_geracao: new Date().toISOString()
+                        }
                     }))
 
                     try {

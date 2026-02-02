@@ -49,13 +49,15 @@ Cada objeto deve seguir este esquema:
     { "id": "c", "texto": "Texto da alternativa C" },
     { "id": "d", "texto": "Texto da alternativa D" }
   ],
-  "resposta_correta": "a", // ou "b", "c", "d" (minúsculo)
-  "comentario": "Explicação detalhada da resposta correta baseada em diretriz.",
-  "distratores_comentados": { // Opcional mas recomendado
-     "a": "Por que está errada...",
-     "b": "Por que está errada..."
+  "resposta_correta": "a", 
+  "comentario": "Explicação detalhada da resposta correta baseada em diretriz/protocolo.",
+  "distratores_comentados": { 
+     "a": "Explicação técnica do erro...",
+     "b": "Explicação técnica do erro...",
+     "c": "Explicação técnica do erro...",
+     "d": "Explicação técnica do erro..."
   },
-  "dificuldade": "Médio", // ou "Fácil", "Difícil"
+  "dificuldade": "Médio", 
   "metadata": {
      "tema": "Tema da questão",
      "diretriz": "Nome da diretriz base"
@@ -83,5 +85,12 @@ export function buildPrompt(topic: string, specialty: string, count: number = 1)
     Certifique-se de que cada questão seja ÚNICA. Use casos clínicos diferentes.
     As alternativas devem ser diferentes entre as questões.
     RETORNE APENAS O JSON (ARRAY), SEM MARKDOWN, SEM TEXTO ADICIONAL.
+
+    REGRAS OBRIGATÓRIAS:
+    1. Retorne APENAS o Array JSON. Sem markdown (\`\`\`json), sem introdução.
+    2. O 'comentario' deve explicar profundamente a resposta correta e a lógica clínica.
+    3. O objeto 'distratores_comentados' é OBRIGATÓRIO. Para cada alternativa incorreta, explique o PORQUÊ está errada (erro conceitual, contraindicação, etc).
+    4. Use linguagem técnica médica adequada.
+    5. Crie casos clínicos complexos, evitando perguntas diretas de decoreba.
     `;
 }
