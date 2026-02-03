@@ -765,58 +765,92 @@ export default function AdminDashboard() {
         setLoadingManual(true)
         try {
             const rawJson = jsonInput.trim()
-            // Tenta limpar markdown se o usuário colou com ```json
             const cleanJson = rawJson.replace(/```json/g, '').replace(/```/g, '').trim()
             const parsed = JSON.parse(cleanJson)
-
             const questionsToSave = Array.isArray(parsed) ? parsed : (parsed.questions || [parsed])
 
+            const SPECIALTY_MAP: Record<string, string> = {
+                "Ginecologia e Obstetrícia": "ginecologia-obstetricia",
+                "Clínica Médica": "clinica-medica",
+                "Pediatria": "pediatria",
+                "Cirurgia Geral": "cirurgia-geral",
+                "Medicina de Família e Comunidade": "medicina-familia-comunidade",
+                "Preventiva": "preventiva-social"
+            }
+
             const convertedBatch: Question[] = questionsToSave.map((q: any) => {
-                // Tenta extrair ID de objetos ou strings do JSON
-                const jsonSpecialty = typeof q.area === 'object' ? q.area.id : (q.specialty || q.area)
-                const jsonSubspecialty = typeof q.subarea === 'object' ? q.subarea.id : (q.subspecialty || q.subarea)
-                const jsonSubject = typeof q.tema === 'object' ? q.tema.id : (q.tema || q.subject)
+                // Determine ID
+                const id = q.id || `QRB-IMP-${Math.random().toString(36).substr(2, 6).toUpperCase()}`
+
+                // Determine specialty-sub-tema IDs
+                const rawSpec = q.especialidade || (typeof q.area === 'object' ? q.area.id : q.area)
+                const rawSub = q.subespecialidade || (typeof q.subarea === 'object' ? q.subarea.id : q.subarea)
+                const rawTema = q.tema || (typeof q.tema === 'object' ? q.tema.id : q.tema)
+
+                const specialty_id = SPECIALTY_MAP[rawSpec] || selectedSpecialty || rawSpec?.toLowerCase().replace(/\s+/g, '-') || 'clinica-medica'
+                const subspecialty_id = rawSub || selectedSubspecialty || 'geral'
+                const subject_id = rawTema || selectedSubject || 'geral'
+
+                // Handle Options (Array or Object)
+                let options = []
+                if (q.alternativas && typeof q.alternativas === 'object' && !Array.isArray(q.alternativas)) {
+                    // It's an object like { "A": "...", "B": "..." }
+                    options = Object.entries(q.alternativas).map(([key, text]) => ({
+                        id: key.toLowerCase(),
+                        text: text as string
+                    }))
+                } else if (Array.isArray(q.alternativas)) {
+                    // It's an array of strings or objects
+                    options = q.alternativas.map((opt: any, idx: number) => ({
+                        id: String.fromCharCode(97 + idx), // a, b, c...
+                        text: typeof opt === 'string' ? opt : (opt.texto || opt.text || '')
+                    }))
+                } else if (Array.isArray(q.options)) {
+                    options = q.options
+                }
+
+                // Handle Correct Option
+                const correct = (q.gabarito || q.correct_option_id || q.correct_answer || 'a').toLowerCase()
+
+                // Normalize alternative explanations
+                const altExps = q.alternative_explanations || q.justificativas_alternativas || q.por_que_nao_as_outras || {}
+                const normalizedExps = Object.fromEntries(
+                    Object.entries(altExps).map(([k, v]) => [k.toLowerCase(), v])
+                )
 
                 return {
-                    id: q.id?.startsWith('QRB') ? q.id : `QRUB-MANUAL-${Math.random().toString(36).substr(2, 6).toUpperCase()}`,
-                    course_id: selectedCourse,
-                    specialty_id: (jsonSpecialty || selectedSpecialty || 'clinica-medica').toLowerCase().replace(/\s+/g, '-'),
-                    subspecialty_id: jsonSubspecialty || selectedSubspecialty || 'geral',
-                    subject_id: jsonSubject || selectedSubject || 'geral',
-                    difficulty: q.dificuldade || 'Médio',
-                    enunciado: q.question_text || q.enunciado,
+                    id,
+                    course_id: q.course_id || selectedCourse || 'medicina',
+                    specialty_id,
+                    subspecialty_id,
+                    subject_id,
+                    area_id: specialty_id,
+                    subarea_id: subspecialty_id,
+                    tema_id: subject_id,
+                    difficulty: q.difficulty || q.nivel || 'Média',
+                    enunciado: q.enunciado || q.question_text || '',
                     comando: q.comando || '',
-                    options: (q.option_a || q.alternativas) ? [
-                        { id: 'a', text: q.option_a || (q.alternativas?.[0]?.texto || '') },
-                        { id: 'b', text: q.option_b || (q.alternativas?.[1]?.texto || '') },
-                        { id: 'c', text: q.option_c || (q.alternativas?.[2]?.texto || '') },
-                        { id: 'd', text: q.option_d || (q.alternativas?.[3]?.texto || '') },
-                        { id: 'e', text: q.option_e || (q.alternativas?.[4]?.texto || '') },
-                    ].filter(opt => opt.text) : [],
-                    correct_option_id: (q.correct_answer || q.gabarito || 'a').toLowerCase(),
-                    explanation: q.explanation || q.justificativa_gabarito || 'Importado manualmente.',
-                    alternative_explanations: q.por_que_nao_as_outras || {},
-                    tag_transversal: q.tag_transversal || [],
+                    options,
+                    correct_option_id: correct,
+                    explanation: q.explanation || q.explicacao_gabarito || q.justificativa_gabarito || '',
+                    alternative_explanations: normalizedExps,
+                    fonte: q.fonte || (q.origem ? 'ia' : 'importada'),
                     status_validacao: q.status_validacao || 'PENDENTE',
-                    erros_graves: q.erros_graves || [],
-                    exam_type: q.exam_type,
-                    year: q.year,
-                    source: q.source,
-                    metadata: { ...q.metadata, data_importacao: new Date().toISOString() }
-                }
+                    metadata: { ...q.metadata, import_date: new Date().toISOString() }
+                } as Question
             })
 
             const { success, message } = await addQuestions(convertedBatch)
             if (success) {
-                setImportStatus({ type: 'success', msg: `✅ ${convertedBatch.length} questões importadas com sucesso!` })
+                setImportStatus({ type: 'success', msg: `✅ ${convertedBatch.length} questões processadas e salvas no banco!` })
                 setJsonInput('')
                 loadQuestions()
             } else {
                 throw new Error(message)
             }
         } catch (error: any) {
-            alert('Erro no formato do JSON: ' + error.message)
-            setImportStatus({ type: 'error', msg: 'Erro no JSON: ' + error.message })
+            console.error('Import error:', error)
+            setImportStatus({ type: 'error', msg: `❌ Erro no JSON: ${error.message}` })
         } finally {
             setLoadingManual(false)
         }
@@ -927,73 +961,6 @@ export default function AdminDashboard() {
 
 
 
-    const handleValidateJSON = async () => {
-        try {
-            const parsed = JSON.parse(jsonInput)
-
-            // Validação básica de estrutura
-            if (!Array.isArray(parsed)) {
-                setImportStatus({ type: 'error', msg: '❌ Erro: O JSON deve ser um array de questões.' })
-                return
-            }
-
-            // Mapeamento para o formato interno
-            const mappedQuestions = parsed.map((q: any) => {
-                // Se já estiver no formato interno, retorna como está
-                if (q.options && q.correct_option_id) return q
-
-                // Conversão de "alternativas" (Object) para "options" (Array)
-                const options = q.alternativas
-                    ? Object.entries(q.alternativas).map(([id, text]) => ({
-                        id: id.toLowerCase(),
-                        text: text as string
-                    }))
-                    : (q.options || [])
-
-                // Conversão de justificativas para chaves minúsculas
-                const altExps = q.alternative_explanations || q.justificativas_alternativas || {}
-                const normalizedExps = Object.fromEntries(
-                    Object.entries(altExps).map(([k, v]) => [k.toLowerCase(), v])
-                )
-
-                return {
-                    ...q,
-                    course_id: q.course_id || 'medicina',
-                    specialty_id: q.specialty_id || q.especialidade || 'outros',
-                    subspecialty_id: q.subspecialty_id || q.subespecialidade || 'geral',
-                    subject_id: q.subject_id || q.tema || 'geral',
-                    area_id: q.area_id || q.especialidade || 'outros',
-                    subarea_id: q.subarea_id || q.subespecialidade || 'geral',
-                    tema_id: q.tema_id || q.tema || 'geral',
-                    difficulty: q.difficulty || q.nivel || 'Média',
-                    enunciado: q.enunciado,
-                    comando: q.comando || '',
-                    options,
-                    correct_option_id: q.correct_option_id || (q.gabarito ? q.gabarito.toLowerCase() : 'a'),
-                    explanation: q.explanation || q.explicacao_gabarito || '',
-                    alternative_explanations: normalizedExps,
-                    fonte: q.fonte || (q.origem ? 'ia' : 'importada'),
-                    status_validacao: q.status_validacao || 'PENDENTE'
-                }
-            })
-
-            // Validar campos obrigatórios no mapeado
-            for (let i = 0; i < mappedQuestions.length; i++) {
-                const q = mappedQuestions[i]
-                if (!q.id || !q.enunciado || q.options.length < 2 || !q.correct_option_id) {
-                    setImportStatus({ type: 'error', msg: `❌ Erro na questão ${i + 1}: Dados incompletos. Verifique enunciado, alternativas e gabarito.` })
-                    return
-                }
-            }
-
-            // Se passou, salvar
-            await addQuestions(mappedQuestions)
-            const newTotal = questions.length + mappedQuestions.length
-            setImportStatus({ type: 'success', msg: `✅ ${mappedQuestions.length} questões processadas e salvas! Total no banco: ${newTotal}.` })
-        } catch (error: any) {
-            setImportStatus({ type: 'error', msg: `❌ JSON Inválido: ${error.message}` })
-        }
-    }
 
     const handleDownloadBackup = () => {
         const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(questions, null, 2))
