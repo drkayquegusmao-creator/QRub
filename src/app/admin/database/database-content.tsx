@@ -24,6 +24,8 @@ export default function DatabaseContent() {
     })
 
     const [enunciado, setEnunciado] = useState('')
+    const [comando, setComando] = useState('')
+    const [statusValidacao, setStatusValidacao] = useState<'PENDENTE' | 'APROVADA' | 'REPROVADA'>('PENDENTE')
     const [options, setOptions] = useState([
         { id: 'a', text: '' },
         { id: 'b', text: '' },
@@ -194,6 +196,8 @@ export default function DatabaseContent() {
                 subject_id: metadata.tema || 'manual',
                 difficulty: difficulty,
                 enunciado,
+                comando,
+                status_validacao: statusValidacao,
                 options,
                 correct_option_id: correctOptionId,
                 explanation,
@@ -407,7 +411,31 @@ export default function DatabaseContent() {
                                 value={enunciado}
                                 onChange={(e) => setEnunciado(e.target.value)}
                                 placeholder="Insira o texto da questão aqui..."
-                                className="w-full h-40 bg-card border border-border rounded-2xl p-6 focus:ring-2 focus:ring-primary/20 outline-none transition-all font-medium leading-relaxed"
+                                className="w-full h-32 bg-card border border-border rounded-2xl p-6 focus:ring-2 focus:ring-primary/20 outline-none transition-all font-medium leading-relaxed"
+                            />
+                        </div>
+
+                        <div className="space-y-2">
+                            <div className="flex justify-between items-center">
+                                <label className="text-xs font-bold uppercase text-muted-foreground">Comando (Pergunta Final)</label>
+                                <div className="flex gap-2">
+                                    {(['PENDENTE', 'APROVADA', 'REPROVADA'] as const).map(s => (
+                                        <button
+                                            key={s}
+                                            onClick={() => setStatusValidacao(s)}
+                                            className={`px-2 py-0.5 rounded-full text-[8px] font-black uppercase transition-all ${statusValidacao === s ? (s === 'APROVADA' ? 'bg-emerald-500 text-white' : s === 'REPROVADA' ? 'bg-red-500 text-white' : 'bg-primary text-white') : 'bg-muted text-muted-foreground'}`}
+                                        >
+                                            {s}
+                                        </button>
+                                    ))}
+                                </div>
+                            </div>
+                            <input
+                                type="text"
+                                value={comando}
+                                onChange={(e) => setComando(e.target.value)}
+                                placeholder="Ex: Qual a conduta imediata para este paciente?"
+                                className="w-full bg-card border border-border rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary/20 outline-none transition-all font-bold text-sm"
                             />
                         </div>
 

@@ -16,7 +16,7 @@ import { useUserDb } from '@/store/use-user-db'
 import { useModeration } from '@/store/use-moderation'
 import { useQuiz } from '@/store/use-quiz'
 import { useRouter } from 'next/navigation'
-import { GOLD_STANDARD_SYSTEM_PROMPT, buildPrompt } from '@/lib/prompts/gold-standard'
+import { GOLD_STANDARD_SYSTEM_PROMPT, buildPrompt, buildIngestionPrompt } from '@/lib/prompts/gold-standard'
 
 import { motion, AnimatePresence } from 'framer-motion'
 import {
@@ -68,6 +68,12 @@ export default function AdminDashboard() {
     const [aiTopic, setAiTopic] = useState('')
     const [aiCount, setAiCount] = useState(5)
     const [showManualImport, setShowManualImport] = useState(false)
+    const [examText, setExamText] = useState('')
+    const [answerKey, setAnswerKey] = useState('')
+    const [rangeStart, setRangeStart] = useState(1)
+    const [rangeEnd, setRangeEnd] = useState(10)
+    const [sourceName, setSourceName] = useState('')
+    const [chunkSize, setChunkSize] = useState(10)
 
     useEffect(() => {
         const storedKey = localStorage.getItem(`${provider}_api_key`)
@@ -111,8 +117,6 @@ export default function AdminDashboard() {
                     msg: `🧠 Processando lote ${currentBatchNumber}/${totalBatches}... (${totalGenerated.length} prontas)`
                 })
 
-                // Scroll to status if possible
-
                 const response = await fetch('/api/generate', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
@@ -131,7 +135,6 @@ export default function AdminDashboard() {
                     const errorMsg = data.error || data.details || 'Falha na geração'
                     console.error(`Lote ${currentBatchNumber} falhou:`, errorMsg)
                     setImportStatus({ type: 'error', msg: `⚠️ Erro no Lote ${currentBatchNumber}: ${errorMsg}` })
-                    // Se for erro de cota ou chave, paramos o loop
                     if (errorMsg.toLowerCase().includes('key') || errorMsg.toLowerCase().includes('quota') || errorMsg.toLowerCase().includes('cota')) {
                         throw new Error(errorMsg)
                     }
@@ -140,20 +143,24 @@ export default function AdminDashboard() {
 
                 if (data.questions && Array.isArray(data.questions)) {
                     const convertedBatch: Question[] = data.questions.map((q: any) => ({
-                        id: `QRUB-AI-${Math.random().toString(36).substr(2, 6).toUpperCase()}`,
+                        id: q.id?.startsWith('QRB') ? q.id : `QRUB-AI-${Math.random().toString(36).substr(2, 6).toUpperCase()}`,
                         course_id: selectedCourse,
                         specialty_id: selectedSpecialty,
-                        subspecialty_id: selectedSubspecialty || '',
-                        subject_id: selectedSubject || '',
+                        subspecialty_id: q.subspecialty || selectedSubspecialty || '',
+                        subject_id: q.tema || selectedSubject || '',
                         difficulty: q.dificuldade || 'Médio',
                         enunciado: q.enunciado,
+                        comando: q.comando || '',
                         options: q.alternativas ? q.alternativas.map((alt: any) => ({
-                            id: alt.id.toLowerCase(),
+                            id: (alt.letra || alt.id || 'a').toLowerCase(),
                             text: alt.texto
                         })) : [],
-                        correct_option_id: q.resposta_correta?.toLowerCase(),
-                        explanation: q.comentario || 'Explicação baseada em diretrizes oficiais.',
-                        alternative_explanations: q.distratores_comentados || {},
+                        correct_option_id: (q.gabarito || q.resposta_correta || 'a').toLowerCase(),
+                        explanation: q.justificativa_gabarito || q.comentario || 'Explicação baseada em diretrizes oficiais.',
+                        alternative_explanations: q.por_que_nao_as_outras || q.distratores_comentados || {},
+                        tag_transversal: q.tag_transversal || [],
+                        status_validacao: q.status_validacao || 'PENDENTE',
+                        erros_graves: q.erros_graves || [],
                         metadata: {
                             ...q.metadata,
                             data_geracao: new Date().toISOString()
@@ -162,13 +169,11 @@ export default function AdminDashboard() {
 
                     try {
                         const { success, message } = await addQuestions(convertedBatch)
-
                         if (success) {
                             setImportStatus({
                                 type: 'success',
                                 msg: `💾 Lote ${currentBatchNumber}/${totalBatches} SALVO AUTOMATICAMENTE! (${convertedBatch.length} geradas)`
                             })
-                            // Adicionar ao total visual
                             totalGenerated = [...totalGenerated, ...convertedBatch]
                             setJsonInput(JSON.stringify(totalGenerated, null, 2))
                         } else {
@@ -185,12 +190,92 @@ export default function AdminDashboard() {
                 setImportStatus({ type: 'error', msg: `❌ Falha: Nenhuma questão gerada. Verifique se sua chave API (${provider.toUpperCase()}) tem cota.` })
             } else {
                 setImportStatus({ type: 'success', msg: `✅ SUCESSO! ${totalGenerated.length} questões foram geradas e salvas no banco.` })
-                loadQuestions() // Refresh na tabela
+                loadQuestions()
             }
 
         } catch (error: any) {
             console.error(error)
             setImportStatus({ type: 'error', msg: `❌ Erro crítico: ${error.message}` })
+        } finally {
+            setIsGenerating(false)
+        }
+    }
+
+    const handleIngestPdfQuestions = async () => {
+        if (!apiKey) { alert(`Insira sua chave ${provider.toUpperCase()}`); return }
+        if (!examText || !answerKey) { alert('Cole o texto da prova e o gabarito.'); return }
+
+        setIsGenerating(true)
+        setJsonInput('')
+
+        const totalToProcess = (rangeEnd - rangeStart) + 1
+        const totalBatches = Math.ceil(totalToProcess / chunkSize)
+        let totalIngested: Question[] = []
+
+        try {
+            for (let i = 0; i < totalBatches; i++) {
+                const currentStart = rangeStart + (i * chunkSize)
+                const currentEnd = Math.min(currentStart + chunkSize - 1, rangeEnd)
+                const batchIndex = i + 1
+
+                setImportStatus({
+                    type: 'success',
+                    msg: `🧠 Ingerindo questões ${currentStart} a ${currentEnd} (${batchIndex}/${totalBatches})...`
+                })
+
+                const response = await fetch('/api/generate', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        apiKey,
+                        mode: 'ingestion',
+                        examText,
+                        answerKey,
+                        start: currentStart,
+                        end: currentEnd,
+                        source: sourceName,
+                        provider,
+                        course_id: selectedCourse
+                    })
+                })
+
+                const data = await response.json()
+                if (!response.ok) throw new Error(data.error || 'Falha na ingestão')
+
+                if (data.questions && Array.isArray(data.questions)) {
+                    const prefix = (sourceName || 'IA').substring(0, 3).toUpperCase()
+                    const converted = data.questions.map((q: any) => ({
+                        id: q.id?.startsWith('QRB') ? q.id : `QRB-${prefix}-${q.id_original || Math.random().toString(36).substr(2, 4).toUpperCase()}`,
+                        course_id: selectedCourse,
+                        specialty_id: q.especialidade?.toLowerCase() || selectedSpecialty,
+                        subspecialty_id: q.subspecialty || '',
+                        subject_id: q.tema || '',
+                        difficulty: q.dificuldade || 'Médio',
+                        enunciado: q.enunciado,
+                        comando: q.comando || '',
+                        options: q.alternativas?.map((alt: any) => ({
+                            id: (alt.letra || alt.id || 'a').toLowerCase(),
+                            text: alt.texto
+                        })),
+                        correct_option_id: (q.gabarito || q.resposta_correta || 'a').toLowerCase(),
+                        explanation: q.justificativa_gabarito || q.comentario,
+                        alternative_explanations: q.por_que_nao_as_outras || q.distratores_comentados || {},
+                        tag_transversal: q.tag_transversal || [],
+                        status_validacao: q.status_validacao || 'PENDENTE',
+                        erros_graves: q.erros_graves || [],
+                        metadata: { ...q.metadata, status: 'imported', created_at: new Date().toISOString() }
+                    }))
+
+                    await addQuestions(converted)
+                    totalIngested = [...totalIngested, ...converted]
+                    setJsonInput(JSON.stringify(totalIngested, null, 2))
+                    setImportStatus({ type: 'success', msg: `💾 Lote ${batchIndex}/${totalBatches} processado e salvo!` })
+                }
+            }
+            setImportStatus({ type: 'success', msg: `✅ Ingestão completa: ${totalIngested.length} questões importadas.` })
+            loadQuestions()
+        } catch (error: any) {
+            setImportStatus({ type: 'error', msg: `❌ Erro na Ingestão: \${error.message}` })
         } finally {
             setIsGenerating(false)
         }
@@ -427,20 +512,24 @@ export default function AdminDashboard() {
             const questionsToSave = Array.isArray(parsed) ? parsed : (parsed.questions || [parsed])
 
             const convertedBatch: Question[] = questionsToSave.map((q: any) => ({
-                id: `QRUB-MANUAL-${Math.random().toString(36).substr(2, 6).toUpperCase()}`,
+                id: q.id?.startsWith('QRB') ? q.id : `QRUB-MANUAL-${Math.random().toString(36).substr(2, 6).toUpperCase()}`,
                 course_id: selectedCourse,
                 specialty_id: selectedSpecialty,
-                subspecialty_id: selectedSubspecialty || '',
-                subject_id: selectedSubject || '',
+                subspecialty_id: q.subspecialty || selectedSubspecialty || '',
+                subject_id: q.tema || selectedSubject || '',
                 difficulty: q.dificuldade || 'Médio',
                 enunciado: q.enunciado,
+                comando: q.comando || '',
                 options: q.alternativas ? q.alternativas.map((alt: any) => ({
-                    id: alt.id.toLowerCase(),
+                    id: (alt.letra || alt.id || 'a').toLowerCase(),
                     text: alt.texto
                 })) : [],
-                correct_option_id: q.resposta_correta?.toLowerCase(),
-                explanation: q.comentario || 'Importado manualmente.',
-                alternative_explanations: q.distratores_comentados || {},
+                correct_option_id: (q.gabarito || q.resposta_correta || 'a').toLowerCase(),
+                explanation: q.justificativa_gabarito || q.comentario || 'Importado manualmente.',
+                alternative_explanations: q.por_que_nao_as_outras || q.distratores_comentados || {},
+                tag_transversal: q.tag_transversal || [],
+                status_validacao: q.status_validacao || 'PENDENTE',
+                erros_graves: q.erros_graves || [],
                 metadata: { ...q.metadata, data_importacao: new Date().toISOString() }
             }))
 
@@ -628,6 +717,30 @@ export default function AdminDashboard() {
                                             onChange={(e) => setEditingQuestion({ ...editingQuestion, enunciado: e.target.value })}
                                             className="w-full h-32 bg-muted border border-border rounded-2xl p-4 font-bold text-sm focus:ring-2 focus:ring-primary/20 outline-none resize-none"
                                             placeholder="Descreva o caso clínico..."
+                                        />
+                                    </div>
+
+                                    <div className="space-y-1">
+                                        <div className="flex justify-between items-center px-1">
+                                            <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Comando da Pergunta</label>
+                                            <div className="flex gap-1">
+                                                {(['PENDENTE', 'APROVADA', 'REPROVADA'] as const).map(s => (
+                                                    <button
+                                                        key={s}
+                                                        onClick={() => setEditingQuestion({ ...editingQuestion, status_validacao: s })}
+                                                        className={`px-2 py-0.5 rounded-full text-[8px] font-black uppercase transition-all ${editingQuestion?.status_validacao === s ? (s === 'APROVADA' ? 'bg-emerald-500 text-white' : s === 'REPROVADA' ? 'bg-red-500 text-white' : 'bg-primary text-white') : 'bg-muted text-muted-foreground'}`}
+                                                    >
+                                                        {s}
+                                                    </button>
+                                                ))}
+                                            </div>
+                                        </div>
+                                        <input
+                                            type="text"
+                                            value={editingQuestion?.comando}
+                                            onChange={(e) => setEditingQuestion({ ...editingQuestion, comando: e.target.value })}
+                                            className="w-full bg-muted border border-border rounded-xl p-3 font-bold text-sm"
+                                            placeholder="Ex: Qual o diagnóstico mais provável?"
                                         />
                                     </div>
 
@@ -1521,38 +1634,113 @@ export default function AdminDashboard() {
                                 </div>
                             </div>
 
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-                                <button
-                                    onClick={handleGenerateAiQuestions}
-                                    disabled={isGenerating}
-                                    className={`py-6 rounded-2xl font-black text-lg uppercase tracking-widest shadow-xl transition-all flex items-center justify-center gap-3 ${isGenerating
-                                        ? 'bg-muted text-muted-foreground cursor-wait'
-                                        : 'bg-amber-400 hover:bg-amber-500 text-amber-950 hover:scale-[1.01] active:scale-95'
-                                        }`}
-                                >
-                                    {isGenerating ? (
-                                        <>
-                                            <RefreshCw className="w-6 h-6 animate-spin" />
-                                            Gerando...
-                                        </>
-                                    ) : (
-                                        <>
-                                            <Sparkles className="w-6 h-6" />
-                                            Gerar Automático
-                                        </>
-                                    )}
-                                </button>
+                            <div className="bg-muted/20 border border-primary/20 rounded-3xl p-8 mb-8">
+                                <h3 className="text-xl font-black italic uppercase tracking-tighter mb-6 flex items-center gap-3">
+                                    <div className="bg-primary/20 p-2 rounded-xl text-primary"><RefreshCw className="w-5 h-5" /></div>
+                                    Mecanismo de Ingestão (Prova + Gabarito)
+                                </h3>
+
+                                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+                                    <div className="space-y-2">
+                                        <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground flex justify-between">
+                                            Nome da Instituição / Prova
+                                            <span className="text-primary font-bold">Ex: REVALIDA 2024</span>
+                                        </label>
+                                        <input
+                                            value={sourceName}
+                                            onChange={(e) => setSourceName(e.target.value)}
+                                            className="w-full bg-muted border border-border rounded-xl p-3 font-bold text-sm"
+                                            placeholder="Ex: USP 2024, SMS-SP..."
+                                        />
+                                    </div>
+                                    <div className="grid grid-cols-3 gap-4">
+                                        <div className="space-y-2">
+                                            <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Range Início</label>
+                                            <input type="number" value={rangeStart} onChange={e => setRangeStart(Number(e.target.value))} className="w-full bg-muted border border-border rounded-xl p-3 font-bold text-sm" />
+                                        </div>
+                                        <div className="space-y-2">
+                                            <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Range Fim</label>
+                                            <input type="number" value={rangeEnd} onChange={e => setRangeEnd(Number(e.target.value))} className="w-full bg-muted border border-border rounded-xl p-3 font-bold text-sm" />
+                                        </div>
+                                        <div className="space-y-2">
+                                            <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Lote (IA)</label>
+                                            <select value={chunkSize} onChange={e => setChunkSize(Number(e.target.value))} className="w-full bg-muted border border-border rounded-xl p-3 font-bold text-sm">
+                                                <option value={5}>5 qst</option>
+                                                <option value={10}>10 qst</option>
+                                                <option value={20}>20 qst</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+                                    <div className="space-y-2">
+                                        <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Conteúdo da Prova (Texto do PDF)</label>
+                                        <textarea
+                                            value={examText}
+                                            onChange={(e) => setExamText(e.target.value)}
+                                            className="w-full h-40 bg-muted/30 border border-border rounded-2xl p-4 font-medium text-xs focus:ring-2 focus:ring-primary/20 outline-none resize-none"
+                                            placeholder="Arraste ou cole o texto extraído da prova aqui..."
+                                        />
+                                    </div>
+                                    <div className="space-y-2">
+                                        <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Conteúdo do Gabarito (Texto do PDF)</label>
+                                        <textarea
+                                            value={answerKey}
+                                            onChange={(e) => setAnswerKey(e.target.value)}
+                                            className="w-full h-40 bg-muted/30 border border-border rounded-2xl p-4 font-medium text-xs focus:ring-2 focus:ring-primary/20 outline-none resize-none"
+                                            placeholder="Arraste ou cole o texto do gabarito aqui..."
+                                        />
+                                    </div>
+                                </div>
 
                                 <button
-                                    onClick={() => setShowManualImport(!showManualImport)}
-                                    className={`py-6 rounded-2xl font-black text-lg uppercase tracking-widest shadow-xl transition-all flex items-center justify-center gap-3 ${showManualImport
-                                        ? 'bg-primary text-white'
-                                        : 'bg-muted hover:bg-muted/80 text-muted-foreground'
+                                    onClick={handleIngestPdfQuestions}
+                                    disabled={isGenerating}
+                                    className={`w-full py-5 rounded-2xl font-black text-lg uppercase tracking-widest shadow-xl transition-all flex items-center justify-center gap-3 ${isGenerating
+                                        ? 'bg-muted text-muted-foreground cursor-wait'
+                                        : 'bg-primary hover:bg-primary/90 text-white hover:scale-[1.01] active:scale-95 shadow-primary/30'
                                         }`}
                                 >
-                                    <Database className="w-6 h-6" />
-                                    {showManualImport ? 'Fechar Editor' : 'Colar JSON'}
+                                    {isGenerating ? <><RefreshCw className="w-6 h-6 animate-spin" /> Processando Lotes...</> : <><Database className="w-6 h-6" /> Iniciar Ingestão Inteligente</>}
                                 </button>
+                            </div>
+
+                            <div className="border-t border-border pt-10 mb-10">
+                                <h3 className="text-xs font-black uppercase tracking-[0.2em] text-muted-foreground mb-6">Ou use o Gerador de Temas Variados</h3>
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <button
+                                        onClick={handleGenerateAiQuestions}
+                                        disabled={isGenerating}
+                                        className={`py-6 rounded-2xl font-black text-lg uppercase tracking-widest shadow-xl transition-all flex items-center justify-center gap-3 ${isGenerating
+                                            ? 'bg-muted text-muted-foreground cursor-wait'
+                                            : 'bg-amber-400 hover:bg-amber-500 text-amber-950 hover:scale-[1.01] active:scale-95'
+                                            }`}
+                                    >
+                                        {isGenerating ? (
+                                            <>
+                                                <RefreshCw className="w-6 h-6 animate-spin" />
+                                                Gerando...
+                                            </>
+                                        ) : (
+                                            <>
+                                                <Sparkles className="w-6 h-6" />
+                                                Gerar Temas por IA
+                                            </>
+                                        )}
+                                    </button>
+
+                                    <button
+                                        onClick={() => setShowManualImport(!showManualImport)}
+                                        className={`py-6 rounded-2xl font-black text-lg uppercase tracking-widest shadow-xl transition-all flex items-center justify-center gap-3 ${showManualImport
+                                            ? 'bg-primary text-white'
+                                            : 'bg-muted hover:bg-muted/80 text-muted-foreground'
+                                            }`}
+                                    >
+                                        <Upload className="w-6 h-6" />
+                                        {showManualImport ? 'Fechar Editor' : 'Importar JSON Manual'}
+                                    </button>
+                                </div>
                             </div>
 
                             {showManualImport && (

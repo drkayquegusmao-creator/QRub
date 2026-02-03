@@ -37,6 +37,11 @@ export function BottomTabs() {
         finalTabs.push({ label: 'Master', icon: Settings, href: '/admin' })
     }
 
+    // Hide bottom tabs on quiz and error pages
+    if (pathname?.includes('/dashboard/quiz') || pathname?.includes('/dashboard/errors')) {
+        return null
+    }
+
     return (
         <div className="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] max-w-md z-40">
             <nav className="bg-card/90 backdrop-blur-2xl border border-border rounded-[30px] p-2 flex justify-around items-center shadow-[0_20px_40px_-5px_rgba(0,0,0,0.1)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.5)]">

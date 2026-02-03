@@ -113,6 +113,11 @@ export interface Question {
     revision_link?: string
     hash?: string
     status?: 'active' | 'flagged' | 'archived'
+    status_validacao?: 'PENDENTE' | 'APROVADA' | 'REPROVADA'
+    tag_transversal?: string[]
+    comando?: string
+    por_que_nao_as_outras?: Record<string, string>
+    erros_graves?: string[]
     guideline_id?: string
     guideline_version?: string
     blueprint_id?: string // Link com o Edital

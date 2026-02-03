@@ -1,17 +1,32 @@
 import { OpenAI } from 'openai';
 import { GoogleGenerativeAI, HarmCategory, HarmBlockThreshold } from '@google/generative-ai';
 import { NextResponse } from 'next/server';
-import { GOLD_STANDARD_SYSTEM_PROMPT, buildPrompt } from '@/lib/prompts/gold-standard';
+import { GOLD_STANDARD_SYSTEM_PROMPT, buildPrompt, buildIngestionPrompt } from '@/lib/prompts/gold-standard';
 
 export async function POST(req: Request) {
     try {
-        const { apiKey, topic, specialty, count, provider = 'openai' } = await req.json();
+        const {
+            apiKey,
+            topic,
+            specialty,
+            count,
+            provider = 'openai',
+            mode = 'generation',
+            examText,
+            answerKey,
+            start,
+            end,
+            source
+        } = await req.json();
 
         if (!apiKey) {
             return NextResponse.json({ error: 'API Key is required' }, { status: 400 });
         }
 
-        const userPrompt = buildPrompt(topic, specialty, count);
+        const userPrompt = mode === 'ingestion'
+            ? buildIngestionPrompt(examText, answerKey, start, end, source)
+            : buildPrompt(topic, specialty, count);
+
         let parsedResult;
 
         // --- GOOGLE GEMINI HANDLER ---
