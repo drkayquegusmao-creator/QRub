@@ -72,28 +72,50 @@ export default function AdminDashboard() {
     const [userSearch, setUserSearch] = useState('')
 
     // QRUB MASTER - Logic
+    // QRUB MASTER - Logic
     const handleStructuralGenerate = async () => {
-        if (!structuralArea || !structuralSubarea || !structuralTema) {
-            alert('Selecione todos os níveis (Área, Subárea e Tema).')
+        if (!structuralArea) {
+            alert('Selecione ao menos a Área da Prova.')
             return
         }
 
         const areaObj = MEDICAL_HIERARCHY[0].specialties.find(s => s.id === structuralArea)
-        const subareaObj = areaObj?.subspecialties.find(sub => sub.id === structuralSubarea)
-        const temaObj = subareaObj?.subjects.find(t => t.id === structuralTema)
+        if (!areaObj) return
 
-        if (!areaObj || !subareaObj || !temaObj) return
+        // 1. Resolve Subarea (Auto-pick or Generic)
+        let subareaObj = areaObj.subspecialties.find(sub => sub.id === structuralSubarea)
+        if (!subareaObj) {
+            if (areaObj.subspecialties.length > 0) {
+                // Auto-pick random available subspecialty
+                subareaObj = areaObj.subspecialties[Math.floor(Math.random() * areaObj.subspecialties.length)]
+            } else {
+                // Formatting for Generic fallback
+                subareaObj = { id: 'geral', name: 'Geral', subjects: [], category: 'N/A' } as any
+            }
+        }
+
+        // 2. Resolve Tema (Auto-pick or Generic)
+        let temaObj = subareaObj?.subjects?.find(t => t.id === structuralTema)
+        if (!temaObj) {
+            if (subareaObj && subareaObj.subjects && subareaObj.subjects.length > 0) {
+                // Auto-pick random subject
+                temaObj = subareaObj.subjects[Math.floor(Math.random() * subareaObj.subjects.length)]
+            } else {
+                // Generic fallback
+                temaObj = { id: 'geral', name: 'Geral' }
+            }
+        }
 
         const newQuestion = generateStructuralQuestion(
             { id: areaObj.id, nome: areaObj.name },
-            { id: subareaObj.id, nome: subareaObj.name },
-            { id: temaObj.id, nome: temaObj.name }
+            { id: subareaObj!.id, nome: subareaObj!.name },
+            { id: temaObj!.id, nome: temaObj!.name }
         )
 
         setLoadingManual(true)
         const result = await addQuestion(newQuestion)
         if (result.success) {
-            setImportStatus({ type: 'success', msg: `✅ Questão gerada com sucesso para o tema ${temaObj.name}!` })
+            setImportStatus({ type: 'success', msg: `✅ Gerado: ${areaObj.name} > ${subareaObj!.name} > ${temaObj!.name}` })
             loadQuestions()
         } else {
             setImportStatus({ type: 'error', msg: `❌ Erro ao salvar: ${result.message}` })
@@ -211,7 +233,7 @@ export default function AdminDashboard() {
 
                         <button
                             onClick={handleStructuralGenerate}
-                            disabled={loadingManual || !structuralTema}
+                            disabled={loadingManual || !structuralArea}
                             className="w-full royal-gradient text-white py-6 rounded-2xl font-black uppercase text-sm tracking-[0.2em] shadow-2xl shadow-primary/30 hover:scale-[1.02] active:scale-95 transition-all disabled:opacity-50 flex items-center justify-center gap-4"
                         >
                             {loadingManual ? <RefreshCw className="w-5 h-5 animate-spin" /> : <Sparkles className="w-6 h-6" />}

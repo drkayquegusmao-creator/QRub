@@ -19,3 +19,14 @@
  GET /dashboard 200 in 413ms (compile: 45ms, render: 367ms)
  GET /admin 200 in 868ms (compile: 177ms, render: 691ms)
  GET /admin?tab=structural 200 in 295ms (compile: 55ms, render: 240ms)
+✓ Compiled in 5.1s
+✓ Compiled in 1030ms
+ GET /admin?tab=structural 200 in 1481ms (compile: 543ms, render: 938ms)
+ GET /admin?tab=validation 200 in 564ms (compile: 169ms, render: 395ms)
+ GET /admin?tab=structural 200 in 196ms (compile: 36ms, render: 160ms)
+ GET /admin?tab=validation 200 in 1595ms (compile: 206ms, render: 1389ms)
+ GET /admin?tab=structural 200 in 215ms (compile: 63ms, render: 151ms)
+✓ Compiled in 1487ms
+ GET /admin?tab=structural 200 in 1702ms (compile: 596ms, render: 1106ms)
+✓ Compiled in 2.3s
+ GET /admin?tab=validation 200 in 2.1s (compile: 1714ms, render: 345ms)

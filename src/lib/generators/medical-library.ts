@@ -48,5 +48,23 @@ export const MEDICAL_LIBRARY: Record<string, StructuralTheme> = {
                 dificuldade: "moderada"
             }
         ]
+    },
+    "CM-PNEUMO-TEP": {
+        id: "CM-PNEUMO-TEP",
+        name: "Tromboembolismo Pulmonar (TEP)",
+        scenarios: [
+            {
+                enunciado_template: "Paciente de 54 anos, sexo feminino, obesa, no 5º dia de pós-operatório de artroplastia total de quadril, apresenta dispneia súbita e dor torácica pleurítica. Ao exame: taquipneia (FC 110 bpm, SatO2 88% em ar ambiente). Panturrilha direita com empastamento e dor à dorsiflexão.",
+                diagnostico: "Tromboembolismo Pulmonar Agudo",
+                conduta_correta: "Realizar Angiotomografia de tórax (padrão-ouro para diagnóstico) e iniciar anticoagulação se confirmado.",
+                distratores: [
+                    { texto: "Solicitar apenas radiografia de tórax e prescrever antibiótico para pneumonia.", motivo: "Ignora fatores de risco claros para fenômenos tromboembólicos." },
+                    { texto: "Aguardar dosagem de D-dímero para decidir conduta em paciente de alta probabilidade clínica.", motivo: "D-dímero tem valor preditivo negativo, mas não deve atrasar diagnóstico em alta probabilidade." },
+                    { texto: "Realizar apenas ECG e liberar com analgésicos se não houver supra de ST.", motivo: "Subestima gravidade de quadro compatível com embolia pulmonar." }
+                ],
+                erros_graves: ["Atraso diagnóstico em patologia de alta mortalidade", "Falha na profilaxia ou reconhecimento de tromboembolismo venoso"],
+                dificuldade: "moderada"
+            }
+        ]
     }
 };

@@ -33,7 +33,7 @@ export function generateStructuralQuestion(
     const correctLetter = alternatives.find(a => a.text === scenario.conduta_correta)?.id || 'a'
 
     const question: Question = {
-        id: `QRUB-EST-${tema.id}-${Math.floor(Math.random() * 1000)}`,
+        id: crypto.randomUUID(), // Using valid UUID for Supabase
         course_id: 'medicina',
         area_id: area.id,
         subarea_id: subarea.id,

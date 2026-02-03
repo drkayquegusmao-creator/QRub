@@ -20,7 +20,7 @@ export const MEDICAL_HIERARCHY = [
                     { id: 'hematologia', name: 'Hematologia', subjects: [{ id: 'geral', name: 'Geral' }] },
                     { id: 'infectologia', name: 'Infectologia', subjects: [{ id: 'geral', name: 'Geral' }] },
                     { id: 'nefrologia', name: 'Nefrologia', subjects: [{ id: 'geral', name: 'Geral' }] },
-                    { id: 'pneumologia', name: 'Pneumologia', subjects: [{ id: 'geral', name: 'Geral' }] },
+                    { id: 'pneumologia', name: 'Pneumologia', subjects: [{ id: 'CM-PNEUMO-TEP', name: 'Tromboembolismo Pulmonar (TEP)' }] },
                     { id: 'reumatologia', name: 'Reumatologia', subjects: [{ id: 'geral', name: 'Geral' }] },
                     { id: 'oncologia-clinica', name: 'Oncologia Clínica', subjects: [{ id: 'geral', name: 'Geral' }] }
                 ]
