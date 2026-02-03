@@ -99,7 +99,7 @@ export function MaintenanceOverlay() {
                             </div>
                             <h1 className="text-5xl md:text-7xl font-black italic uppercase tracking-tighter leading-[0.85] text-white">
                                 Melhorando o <br />
-                                <span className="royal-gradient-text italic">QRUB MASTER</span>
+                                <span className="royal-gradient-text italic">QRUB</span>
                             </h1>
                         </motion.div>
 

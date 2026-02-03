@@ -19,3 +19,14 @@
  GET /admin?tab=validation 200 in 57ms (compile: 7ms, render: 50ms)
 ✓ Compiled in 1092ms
 ✓ Compiled in 406ms
+○ Compiling / ...
+ GET / 200 in 8.8s (compile: 6.3s, render: 2.5s)
+ GET /favicon-32x32.png 404 in 4.3s (compile: 3.0s, render: 1379ms)
+ GET /dashboard 200 in 3.9s (compile: 3.5s, render: 376ms)
+✓ Finished writing to filesystem cache in 11.1s
+○ Compiling /maintenance ...
+ GET /maintenance 200 in 14.1s (compile: 12.1s, render: 2.1s)
+✓ Finished filesystem cache database compaction in 26.7s
+ GET /dashboard 200 in 1884ms (compile: 112ms, render: 1772ms)
+✓ Compiled in 1344ms
+✓ Compiled in 292ms
