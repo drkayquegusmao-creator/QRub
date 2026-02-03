@@ -141,6 +141,26 @@ export function PaywallModal({ isOpen, onClose, reason, requiredPlan }: PaywallM
                                         <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                                     </button>
 
+                                    {/* Bypass Key Section */}
+                                    <div className="pt-4 border-t border-border/10">
+                                        <input
+                                            type="text"
+                                            placeholder="Possui um código de acesso?"
+                                            className="w-full bg-muted/30 border border-border/50 rounded-xl px-4 py-2 text-[10px] font-bold uppercase tracking-widest text-center focus:ring-1 focus:ring-primary/20 outline-none transition-all placeholder:opacity-50"
+                                            onChange={async (e) => {
+                                                if (e.target.value === 'DRQRUB-FREE') {
+                                                    const { useAuth } = await import('@/store/use-auth')
+                                                    const auth = useAuth.getState()
+                                                    if (auth.user) {
+                                                        await auth.updateUserPlan('INSANO')
+                                                        alert('🚀 CÓDIGO ACEITO! Plano INSANO liberado com sucesso.')
+                                                        onClose()
+                                                        window.location.reload()
+                                                    }
+                                                }
+                                            }}
+                                        />
+                                    </div>
                                 </div>
                             )}
 

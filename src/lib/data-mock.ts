@@ -93,34 +93,48 @@ export interface StudyBox {
 export interface Question {
     id: string
     course_id: string
+
+    // QRUB MASTER Mapping
+    area_id: string      // ex: "CM"
+    subarea_id: string   // ex: "CM-CARD"
+    tema_id: string      // ex: "CM-CARD-IAM"
+
+    // Legacy mapping (keep for compatibility)
     specialty_id: string
     subspecialty_id: string
     subject_id: string
-    difficulty: 'Fácil' | 'Médio' | 'Difícil' | 'Alta' | 'Média'
+
+    difficulty: 'Fácil' | 'Médio' | 'Difícil' | 'Alta' | 'Média' | 'moderada' | 'dificil'
     enunciado: string
+    comando?: string
+
     case_study?: {
         history: string
         physical_exam: string
         lab_results: string
     }
+
     options: Option[]
     correct_option_id: string
+
     explanation: string
     alternative_explanations?: Record<string, string>
+    por_que_nao_as_outras?: Record<string, string> | any[] // Supporting both formats
+
     severe_error_alert?: string
-    references?: string
+    erros_graves?: string[]
+
     image_url?: string
     revision_link?: string
-    hash?: string
-    status?: 'active' | 'flagged' | 'archived'
-    status_validacao?: 'PENDENTE' | 'APROVADA' | 'REPROVADA'
+    guideline_id?: string
+    guideline_version?: string
+    references?: string
+
     tag_transversal?: string[]
-    comando?: string
-    por_que_nao_as_outras?: Record<string, string>
-    erros_graves?: string[]
-    exam_type?: 'revalida' | 'enare_enamed' | 'oab' | 'inedita'
-    year?: string
-    source?: string
+    fonte: 'estrutural' | 'importada' | 'ia'
+    status_validacao: 'PENDENTE' | 'APROVADA' | 'REPROVADA'
+    status?: 'flagged' | 'normal'
+    created_at?: string
     metadata?: QuestionMetadata
 }
 

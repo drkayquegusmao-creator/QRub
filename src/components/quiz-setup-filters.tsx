@@ -108,7 +108,7 @@ export function QuizSetupFilters() {
         specialty_id: selectedSpecialty?.id,
         subspecialty_id: selectedSubspecialty?.id,
         subject_id: selectedSubject?.id
-    })
+    }).filter(q => q.status_validacao === 'APROVADA')
 
     const handleStart = () => {
         if (isFree && !user?.profile_completed) {
@@ -155,7 +155,7 @@ export function QuizSetupFilters() {
                     <div className="px-6 py-3 bg-card border border-border/50 rounded-2xl flex flex-col items-end hover:border-primary/30 transition-all cursor-default group">
                         <span className="text-[10px] font-black uppercase tracking-widest text-muted-foreground/60 group-hover:text-primary/60 transition-colors">Banco Total</span>
                         <span className="text-2xl font-black italic text-foreground group-hover:text-primary transition-colors">
-                            {questions.length.toLocaleString('pt-BR')}
+                            {questions.filter(q => q.status_validacao === 'APROVADA').length.toLocaleString('pt-BR')}
                             <span className="ml-2 text-[10px] uppercase not-italic opacity-40">Questões</span>
                         </span>
                     </div>

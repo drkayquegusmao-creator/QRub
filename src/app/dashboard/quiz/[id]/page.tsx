@@ -67,12 +67,15 @@ export default function QuizPage() {
 
     // Filtrar questões baseado nos parâmetros selecionados
     const filteredQuestions = useMemo(() => {
-        const filtered = filterQuestions(allQuestions, {
+        let filtered = filterQuestions(allQuestions, {
             course_id: courseId,
             specialty_id: specialtyId,
             subspecialty_id: subspecialtyId,
             subject_id: subjectId
         })
+
+        // QRUB MASTER: Somente questões APROVADAS chegam ao Aluno
+        filtered = filtered.filter(q => q.status_validacao === 'APROVADA')
 
         // Limitar à quantidade selecionada
         return filtered.slice(0, maxQuestions)

@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { AuthProvider } from "@/components/auth-provider";
 import { SupportChatWidget } from "@/components/support-chat-widget";
+import { MaintenanceOverlay } from "@/components/maintenance-overlay";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -62,6 +63,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <AuthProvider>
+            <MaintenanceOverlay />
             {children}
             <SupportChatWidget />
           </AuthProvider>

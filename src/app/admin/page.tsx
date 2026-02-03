@@ -3,9 +3,9 @@
 import { useState, useEffect, useMemo } from 'react'
 import {
     Plus, Search, Edit2, Trash2, Users, Crown, Star,
-    RefreshCw, Database, BarChart3, Upload, CheckCircle2,
+    RefreshCw, Database, BarChart3, Upload, CheckCircle2, XCircle,
     AlertCircle, History, ExternalLink, Mail, Phone, BookOpen, GraduationCap, Sparkles, X, ShieldCheck, DollarSign, Settings, ArrowLeft,
-    Activity, Target, Zap, TrendingUp, ChevronLeft, ChevronRight, Flag
+    Activity, Target, Zap, TrendingUp, ChevronLeft, ChevronRight, Flag, Hammer, Wrench, ShieldAlert
 } from 'lucide-react'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
@@ -16,13 +16,18 @@ import { useUserDb } from '@/store/use-user-db'
 import { useModeration } from '@/store/use-moderation'
 import { useQuiz } from '@/store/use-quiz'
 import { useRouter } from 'next/navigation'
-import { GOLD_STANDARD_SYSTEM_PROMPT, buildPrompt, buildIngestionPrompt } from '@/lib/prompts/gold-standard'
+// Removed AI Prompt imports
 
 import { motion, AnimatePresence } from 'framer-motion'
 import {
     BarChart, Bar, ResponsiveContainer, XAxis, YAxis, Tooltip, CartesianGrid, LineChart, Line
 } from 'recharts'
 import * as XLSX from 'xlsx'
+import { useSystem } from '@/store/use-system'
+// Redundant imports removed
+import { generateStructuralQuestion } from '@/lib/generators/structural-engine'
+import { MEDICAL_LIBRARY } from '@/lib/generators/medical-library'
+import { MEDICAL_HIERARCHY } from '@/lib/medical-specialties'
 
 export default function AdminDashboard() {
     const { user, isAuthenticated } = useAuth()
@@ -34,8 +39,13 @@ export default function AdminDashboard() {
 
     const { reports, loadReports, updateReportStatus, loading: reportsLoading } = useModeration()
     const { responses, load_all_responses: loadAllResponses } = useQuiz()
-    // Sync view with URL param 'tab'
-    const [view, setViewInternal] = useState<'questions' | 'users' | 'analytics' | 'import' | 'reports' | 'validation'>('analytics')
+    // QRUB MASTER - Structural State
+    const [view, setViewInternal] = useState<'questions' | 'users' | 'analytics' | 'reports' | 'import' | 'structural' | 'validation' | 'settings'>('analytics')
+    const { isMaintenanceMode, maintenanceMessage, setMaintenanceMode } = useSystem()
+    const [structuralArea, setStructuralArea] = useState('')
+    const [structuralSubarea, setStructuralSubarea] = useState('')
+    const [structuralTema, setStructuralTema] = useState('')
+    const [validationFilter, setValidationFilter] = useState<'PENDENTE' | 'APROVADA' | 'REPROVADA'>('PENDENTE')
 
     const setView = (newView: string) => {
         setViewInternal(newView as any)
@@ -46,7 +56,7 @@ export default function AdminDashboard() {
 
     useEffect(() => {
         const tab = searchParams.get('tab')
-        if (tab && ['questions', 'users', 'analytics', 'import', 'reports', 'validation'].includes(tab)) {
+        if (tab && ['questions', 'users', 'analytics', 'reports', 'import', 'structural', 'validation', 'settings'].includes(tab)) {
             setViewInternal(tab as any)
         } else if (!tab && view === 'analytics') {
             setViewInternal('analytics')
@@ -61,235 +71,35 @@ export default function AdminDashboard() {
     const [userFilter, setUserFilter] = useState<'all' | 'insano' | 'premium' | 'incomplete'>('all')
     const [userSearch, setUserSearch] = useState('')
 
-    // AI Generator State
-    const [apiKey, setApiKey] = useState('')
-    const [provider, setProvider] = useState<'openai' | 'gemini'>('openai')
-    const [isGenerating, setIsGenerating] = useState(false)
-    const [aiTopic, setAiTopic] = useState('')
-    const [aiCount, setAiCount] = useState(50)
-    const [showManualImport, setShowManualImport] = useState(false)
-    const [examText, setExamText] = useState('')
-    const [answerKey, setAnswerKey] = useState('')
-    const [rangeStart, setRangeStart] = useState(1)
-    const [rangeEnd, setRangeEnd] = useState(10)
-    const [sourceName, setSourceName] = useState('')
-    const [chunkSize, setChunkSize] = useState(10)
-
-    useEffect(() => {
-        const storedKey = localStorage.getItem(`${provider}_api_key`)
-        if (storedKey) setApiKey(storedKey)
-    }, [provider])
-
-    const handleGenerateAiQuestions = async () => {
-        if (!apiKey) {
-            alert(`Por favor, insira sua chave da API (${provider.toUpperCase()}).`)
-            return
-        }
-        if (!selectedSpecialty) {
-            alert('Selecione uma especialidade alvo.')
+    // QRUB MASTER - Logic
+    const handleStructuralGenerate = async () => {
+        if (!structuralArea || !structuralSubarea || !structuralTema) {
+            alert('Selecione todos os níveis (Área, Subárea e Tema).')
             return
         }
 
-        if (aiCount > 20) {
-            if (!confirm(`⚠️ GERAÇÃO EM MASSA: Você solicitou ${aiCount} questões.\nIsso será feito em vários lotes pequenos para garantir qualidade.\nIsso consumirá bastante da sua cota da OpenAI.\n\nDeseja continuar?`)) {
-                return
-            }
-        }
+        const areaObj = MEDICAL_HIERARCHY[0].specialties.find(s => s.id === structuralArea)
+        const subareaObj = areaObj?.subspecialties.find(sub => sub.id === structuralSubarea)
+        const temaObj = subareaObj?.subjects.find(t => t.id === structuralTema)
 
-        setIsGenerating(true)
-        setJsonInput('') // Limpa anterior
+        if (!areaObj || !subareaObj || !temaObj) return
 
-        const BATCH_SIZE = 5 // Limite seguro para garantir JSON completo e válido da OpenAI
-        const totalBatches = Math.ceil(aiCount / BATCH_SIZE)
-        let totalGenerated: Question[] = []
+        const newQuestion = generateStructuralQuestion(
+            { id: areaObj.id, nome: areaObj.name },
+            { id: subareaObj.id, nome: subareaObj.name },
+            { id: temaObj.id, nome: temaObj.name }
+        )
 
-        try {
-            const specName = activeCourse?.specialties.find(s => s.id === selectedSpecialty)?.name || 'Medicina Geral'
-            const topicToSend = aiTopic || 'DIVERSOS (TEMAS VARIADOS)'
-
-            for (let i = 0; i < totalBatches; i++) {
-                const currentBatchNumber = i + 1
-                const remaining = aiCount - (i * BATCH_SIZE)
-                const currentCount = Math.min(BATCH_SIZE, remaining)
-
-                setImportStatus({
-                    type: 'success',
-                    msg: `🧠 Processando lote ${currentBatchNumber}/${totalBatches}... (${totalGenerated.length} prontas)`
-                })
-
-                const response = await fetch('/api/generate', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        apiKey,
-                        topic: topicToSend,
-                        specialty: specName,
-                        count: currentCount,
-                        provider
-                    })
-                })
-
-                const data = await response.json()
-
-                if (!response.ok) {
-                    const errorMsg = data.error || data.details || 'Falha na geração'
-                    console.error(`Lote ${currentBatchNumber} falhou:`, errorMsg)
-                    setImportStatus({ type: 'error', msg: `⚠️ Erro no Lote ${currentBatchNumber}: ${errorMsg}` })
-                    if (errorMsg.toLowerCase().includes('key') || errorMsg.toLowerCase().includes('quota') || errorMsg.toLowerCase().includes('cota')) {
-                        throw new Error(errorMsg)
-                    }
-                    continue;
-                }
-
-                if (data.questions && Array.isArray(data.questions)) {
-                    const convertedBatch: Question[] = data.questions.map((q: any) => ({
-                        id: q.id?.startsWith('QRB') ? q.id : `QRUB-AI-${Math.random().toString(36).substr(2, 6).toUpperCase()}`,
-                        course_id: selectedCourse,
-                        specialty_id: q.specialty?.toLowerCase() || selectedSpecialty,
-                        subspecialty_id: q.subspecialty || selectedSubspecialty || '',
-                        subject_id: q.tema || selectedSubject || '',
-                        difficulty: q.dificuldade || 'Médio',
-                        enunciado: q.question_text || q.enunciado,
-                        comando: q.comando || '',
-                        options: (q.option_a || q.alternativas) ? [
-                            { id: 'a', text: q.option_a || (q.alternativas?.[0]?.texto || '') },
-                            { id: 'b', text: q.option_b || (q.alternativas?.[1]?.texto || '') },
-                            { id: 'c', text: q.option_c || (q.alternativas?.[2]?.texto || '') },
-                            { id: 'd', text: q.option_d || (q.alternativas?.[3]?.texto || '') },
-                            { id: 'e', text: q.option_e || (q.alternativas?.[4]?.texto || '') },
-                        ].filter(opt => opt.text) : [],
-                        correct_option_id: (q.correct_answer || q.gabarito || 'a').toLowerCase(),
-                        explanation: q.explanation || q.justificativa_gabarito || 'Explicação baseada em protocolos clínicos.',
-                        alternative_explanations: q.por_que_nao_as_outras || {},
-                        tag_transversal: q.tag_transversal || [],
-                        status_validacao: q.status_validacao || 'PENDENTE',
-                        erros_graves: q.erros_graves || [],
-                        exam_type: q.exam_type,
-                        year: q.year,
-                        source: q.source,
-                        metadata: {
-                            ...q.metadata,
-                            data_geracao: new Date().toISOString()
-                        }
-                    }))
-
-                    try {
-                        const { success, message } = await addQuestions(convertedBatch)
-                        if (success) {
-                            setImportStatus({
-                                type: 'success',
-                                msg: `💾 Lote ${currentBatchNumber}/${totalBatches} SALVO AUTOMATICAMENTE! (${convertedBatch.length} geradas)`
-                            })
-                            totalGenerated = [...totalGenerated, ...convertedBatch]
-                            setJsonInput(JSON.stringify(totalGenerated, null, 2))
-                        } else {
-                            throw new Error(message)
-                        }
-                    } catch (saveError: any) {
-                        console.error('Erro ao salvar lote:', saveError)
-                        setImportStatus({ type: 'error', msg: `⚠️ Erro ao salvar no banco: ${saveError.message}` })
-                    }
-                }
-            }
-
-            if (totalGenerated.length === 0) {
-                setImportStatus({ type: 'error', msg: `❌ Falha: Nenhuma questão gerada. Verifique se sua chave API (${provider.toUpperCase()}) tem cota.` })
-            } else {
-                setImportStatus({
-                    type: 'success',
-                    msg: `✅ SUCESSO! ${totalGenerated.length} questões foram geradas e estão na fila de VALIDÁÇÃO.`
-                })
-                loadQuestions()
-            }
-
-        } catch (error: any) {
-            console.error(error)
-            setImportStatus({ type: 'error', msg: `❌ Erro crítico: ${error.message}` })
-        } finally {
-            setIsGenerating(false)
-        }
-    }
-
-    const handleIngestPdfQuestions = async () => {
-        if (!apiKey) { alert(`Insira sua chave ${provider.toUpperCase()}`); return }
-        if (!examText || !answerKey) { alert('Cole o texto da prova e o gabarito.'); return }
-
-        setIsGenerating(true)
-        setJsonInput('')
-
-        const totalToProcess = (rangeEnd - rangeStart) + 1
-        const totalBatches = Math.ceil(totalToProcess / chunkSize)
-        let totalIngested: Question[] = []
-
-        try {
-            for (let i = 0; i < totalBatches; i++) {
-                const currentStart = rangeStart + (i * chunkSize)
-                const currentEnd = Math.min(currentStart + chunkSize - 1, rangeEnd)
-                const batchIndex = i + 1
-
-                setImportStatus({
-                    type: 'success',
-                    msg: `🧠 Ingerindo questões ${currentStart} a ${currentEnd} (${batchIndex}/${totalBatches})...`
-                })
-
-                const response = await fetch('/api/generate', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        apiKey,
-                        mode: 'ingestion',
-                        examText,
-                        answerKey,
-                        start: currentStart,
-                        end: currentEnd,
-                        source: sourceName,
-                        provider,
-                        course_id: selectedCourse
-                    })
-                })
-
-                const data = await response.json()
-                if (!response.ok) throw new Error(data.error || 'Falha na ingestão')
-
-                if (data.questions && Array.isArray(data.questions)) {
-                    const prefix = (sourceName || 'IA').substring(0, 3).toUpperCase()
-                    const converted = data.questions.map((q: any) => ({
-                        id: q.id?.startsWith('QRB') ? q.id : `QRB-${prefix}-${q.id_original || Math.random().toString(36).substr(2, 4).toUpperCase()}`,
-                        course_id: selectedCourse,
-                        specialty_id: q.especialidade?.toLowerCase() || selectedSpecialty,
-                        subspecialty_id: q.subspecialty || '',
-                        subject_id: q.tema || '',
-                        difficulty: q.dificuldade || 'Médio',
-                        enunciado: q.enunciado,
-                        comando: q.comando || '',
-                        options: q.alternativas?.map((alt: any) => ({
-                            id: (alt.letra || alt.id || 'a').toLowerCase(),
-                            text: alt.texto
-                        })),
-                        correct_option_id: (q.gabarito || q.resposta_correta || 'a').toLowerCase(),
-                        explanation: q.justificativa_gabarito || q.comentario,
-                        alternative_explanations: q.por_que_nao_as_outras || q.distratores_comentados || {},
-                        tag_transversal: q.tag_transversal || [],
-                        status_validacao: q.status_validacao || 'PENDENTE',
-                        erros_graves: q.erros_graves || [],
-                        metadata: { ...q.metadata, status: 'imported', created_at: new Date().toISOString() }
-                    }))
-
-                    await addQuestions(converted)
-                    totalIngested = [...totalIngested, ...converted]
-                    setJsonInput(JSON.stringify(totalIngested, null, 2))
-                    setImportStatus({ type: 'success', msg: `💾 Lote ${batchIndex}/${totalBatches} processado e salvo!` })
-                }
-            }
-            setImportStatus({ type: 'success', msg: `✅ Ingestão completa: ${totalIngested.length} questões importadas.` })
+        setLoadingManual(true)
+        const result = await addQuestion(newQuestion)
+        if (result.success) {
+            setImportStatus({ type: 'success', msg: `✅ Questão gerada com sucesso para o tema ${temaObj.name}!` })
             loadQuestions()
-        } catch (error: any) {
-            setImportStatus({ type: 'error', msg: `❌ Erro na Ingestão: \${error.message}` })
-        } finally {
-            setIsGenerating(false)
+        } else {
+            setImportStatus({ type: 'error', msg: `❌ Erro ao salvar: ${result.message}` })
         }
+        setLoadingManual(false)
     }
-
 
     const filteredUsers = useMemo(() => {
         return realUsers.filter(u => {
@@ -325,6 +135,357 @@ export default function AdminDashboard() {
         setSelectedUserIds([])
     }, [userFilter, userSearch])
 
+    const renderStructuralGenerator = () => {
+        const specialties = MEDICAL_HIERARCHY[0].specialties
+        const activeArea = specialties.find(s => s.id === structuralArea)
+        const activeSubarea = activeArea?.subspecialties.find(sub => sub.id === structuralSubarea)
+
+        return (
+            <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
+                <div className="bg-card border border-border rounded-[40px] p-8 md:p-12 soft-shadow relative overflow-hidden">
+                    <div className="absolute top-0 right-0 p-12 opacity-5 pointer-events-none">
+                        <Sparkles className="w-64 h-64 text-primary" />
+                    </div>
+
+                    <div className="max-w-3xl space-y-8 relative z-10">
+                        <div className="space-y-2">
+                            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-[10px] font-black uppercase tracking-widest border border-primary/20">
+                                <Zap className="w-3.5 h-3.5 fill-primary" />
+                                Qrub Master Structural
+                            </div>
+                            <h2 className="text-4xl md:text-5xl font-black italic uppercase tracking-tighter leading-none">
+                                Gerador <span className="royal-gradient-text">Oficial</span>
+                            </h2>
+                            <p className="text-muted-foreground font-medium max-w-xl">
+                                Gere questões médicas baseadas em bibliotecas fixas, sem dependência de IA.
+                                Controle total sobre a hierarquia e temas oficiais QRUB.
+                            </p>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div className="space-y-2">
+                                <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground ml-2">Área Prova</label>
+                                <select
+                                    value={structuralArea}
+                                    onChange={(e) => {
+                                        setStructuralArea(e.target.value)
+                                        setStructuralSubarea('')
+                                        setStructuralTema('')
+                                    }}
+                                    className="w-full h-14 bg-muted/50 border border-border rounded-2xl px-5 font-bold focus:ring-2 focus:ring-primary/20 outline-none transition-all cursor-pointer"
+                                >
+                                    <option value="">Selecionar Área</option>
+                                    {specialties.map(s => <option key={s.id} value={s.id}>{s.name}</option>)}
+                                </select>
+                            </div>
+
+                            <div className="space-y-2">
+                                <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground ml-2">Subárea</label>
+                                <select
+                                    value={structuralSubarea}
+                                    onChange={(e) => {
+                                        setStructuralSubarea(e.target.value)
+                                        setStructuralTema('')
+                                    }}
+                                    disabled={!structuralArea}
+                                    className="w-full h-14 bg-muted/50 border border-border rounded-2xl px-5 font-bold focus:ring-2 focus:ring-primary/20 outline-none transition-all cursor-pointer disabled:opacity-50"
+                                >
+                                    <option value="">Selecionar Subárea</option>
+                                    {activeArea?.subspecialties.map(sub => <option key={sub.id} value={sub.id}>{sub.name}</option>)}
+                                </select>
+                            </div>
+
+                            <div className="space-y-2">
+                                <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground ml-2">Tema</label>
+                                <select
+                                    value={structuralTema}
+                                    onChange={(e) => setStructuralTema(e.target.value)}
+                                    disabled={!structuralSubarea}
+                                    className="w-full h-14 bg-muted/50 border border-border rounded-2xl px-5 font-bold focus:ring-2 focus:ring-primary/20 outline-none transition-all cursor-pointer disabled:opacity-50"
+                                >
+                                    <option value="">Selecionar Tema</option>
+                                    {activeSubarea?.subjects.map(t => <option key={t.id} value={t.id}>{t.name}</option>)}
+                                </select>
+                            </div>
+                        </div>
+
+                        <button
+                            onClick={handleStructuralGenerate}
+                            disabled={loadingManual || !structuralTema}
+                            className="w-full royal-gradient text-white py-6 rounded-2xl font-black uppercase text-sm tracking-[0.2em] shadow-2xl shadow-primary/30 hover:scale-[1.02] active:scale-95 transition-all disabled:opacity-50 flex items-center justify-center gap-4"
+                        >
+                            {loadingManual ? <RefreshCw className="w-5 h-5 animate-spin" /> : <Sparkles className="w-6 h-6" />}
+                            GERAR QUESTÃO ESTRUTURAL
+                        </button>
+                    </div>
+                </div>
+
+                {importStatus && (
+                    <div className={`p-6 rounded-3xl border ${importStatus.type === 'success' ? 'bg-emerald-500/10 border-emerald-500/20 text-emerald-600' : 'bg-rose-500/10 border-rose-500/20 text-rose-600'} flex items-center gap-4 transition-all animate-in zoom-in-95`}>
+                        {importStatus.type === 'success' ? <CheckCircle2 className="w-6 h-6" /> : <AlertCircle className="w-6 h-6" />}
+                        <p className="font-black uppercase text-[10px] tracking-widest leading-relaxed flex-1">{importStatus.msg}</p>
+                        <button onClick={() => setImportStatus(null)} className="p-2 hover:bg-black/5 rounded-xl"><X className="w-4 h-4" /></button>
+                    </div>
+                )}
+            </div>
+        )
+    }
+
+    const renderValidationQueue = () => {
+        const filteredQuestions = questions.filter(q => q.status_validacao === validationFilter)
+
+        return (
+            <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                    <div className="space-y-1">
+                        <h2 className="text-3xl font-black italic uppercase tracking-tighter">Fila de Validação</h2>
+                        <p className="text-muted-foreground text-xs font-black uppercase tracking-widest opacity-60">Questões aguardando aprovação master</p>
+                    </div>
+
+                    <div className="flex bg-muted p-1.5 rounded-2xl">
+                        {(['PENDENTE', 'APROVADA', 'REPROVADA'] as const).map(f => (
+                            <button
+                                key={f}
+                                onClick={() => { setValidationFilter(f); setSelectedQuestions([]) }}
+                                className={`px-6 py-2.5 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all ${validationFilter === f ? 'bg-white text-primary shadow-sm' : 'text-muted-foreground hover:bg-white/50'}`}
+                            >
+                                {f} ({questions.filter(q => q.status_validacao === f).length})
+                            </button>
+                        ))}
+                    </div>
+                </div>
+
+                {selectedQuestions.length > 0 && (
+                    <div className="flex items-center gap-4 bg-primary/10 border border-primary/20 p-4 rounded-3xl animate-in zoom-in-95">
+                        <span className="text-xs font-black uppercase tracking-widest text-primary ml-4">
+                            {selectedQuestions.length} questões selecionadas
+                        </span>
+                        <div className="flex-1" />
+                        <button
+                            onClick={handleBulkApprove}
+                            className="bg-emerald-500 text-white px-6 py-3 rounded-2xl font-black text-xs uppercase tracking-widest flex items-center gap-2 hover:scale-105 transition-all shadow-lg shadow-emerald-500/20"
+                        >
+                            <CheckCircle2 className="w-4 h-4" /> Aprovar Em Lote
+                        </button>
+                        <button
+                            onClick={handleBulkReject}
+                            className="bg-rose-500 text-white px-6 py-3 rounded-2xl font-black text-xs uppercase tracking-widest flex items-center gap-2 hover:scale-105 transition-all shadow-lg shadow-rose-500/20"
+                        >
+                            <XCircle className="w-4 h-4" /> Reprovar Em Lote
+                        </button>
+                    </div>
+                )}
+
+                <div className="bg-card border border-border rounded-[40px] overflow-hidden soft-shadow">
+                    <table className="w-full text-left">
+                        <thead className="bg-muted/50 text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground">
+                            <tr>
+                                <th className="px-8 py-6 w-12 text-center">
+                                    <input
+                                        type="checkbox"
+                                        className="w-4 h-4 rounded border-border"
+                                        checked={selectedQuestions.length === filteredQuestions.length && filteredQuestions.length > 0}
+                                        onChange={() => {
+                                            if (selectedQuestions.length === filteredQuestions.length) setSelectedQuestions([])
+                                            else setSelectedQuestions(filteredQuestions.map(q => q.id))
+                                        }}
+                                    />
+                                </th>
+                                <th className="px-8 py-6">Questão / Tema</th>
+                                <th className="px-8 py-6">Fonte</th>
+                                <th className="px-8 py-6 text-right">Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody className="divide-y divide-border">
+                            {filteredQuestions.length === 0 ? (
+                                <tr>
+                                    <td colSpan={3} className="px-8 py-20 text-center text-muted-foreground uppercase text-xs font-black tracking-widest">Fila Vazia</td>
+                                </tr>
+                            ) : filteredQuestions.map(q => (
+                                <tr key={q.id} className="hover:bg-muted/10 transition-colors group">
+                                    <td className="px-8 py-6 text-center">
+                                        <input
+                                            type="checkbox"
+                                            className="w-4 h-4 rounded border-border"
+                                            checked={selectedQuestions.includes(q.id)}
+                                            onChange={() => {
+                                                if (selectedQuestions.includes(q.id)) setSelectedQuestions(selectedQuestions.filter(id => id !== q.id))
+                                                else setSelectedQuestions([...selectedQuestions, q.id])
+                                            }}
+                                        />
+                                    </td>
+                                    <td className="px-8 py-6">
+                                        <div className="space-y-2 max-w-2xl">
+                                            <div className="flex items-center gap-2">
+                                                <span className="px-2 py-0.5 bg-primary/10 text-primary text-[9px] font-black rounded-lg">{q.id}</span>
+                                                <span className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">{q.area_id} › {q.subarea_id}</span>
+                                            </div>
+                                            <p className="text-sm font-bold leading-relaxed line-clamp-2 text-[#1A1033]">{q.enunciado}</p>
+                                        </div>
+                                    </td>
+                                    <td className="px-8 py-6">
+                                        <span className={`px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest border ${q.fonte === 'estrutural' ? 'bg-indigo-500/10 border-indigo-500/20 text-indigo-500' :
+                                            q.fonte === 'ia' ? 'bg-primary/10 border-primary/20 text-primary' :
+                                                'bg-slate-500/10 border-slate-500/20 text-slate-500'
+                                            }`}>
+                                            {q.fonte}
+                                        </span>
+                                    </td>
+                                    <td className="px-8 py-6 text-right space-x-2">
+                                        {q.status_validacao !== 'APROVADA' && (
+                                            <button
+                                                onClick={async () => {
+                                                    const res = await addQuestion({ ...q, status_validacao: 'APROVADA' })
+                                                    if (res.success) loadQuestions()
+                                                }}
+                                                className="p-3 bg-emerald-500/10 text-emerald-500 rounded-xl hover:bg-emerald-500 hover:text-white transition-all border border-emerald-500/20"
+                                                title="Aprovar"
+                                            >
+                                                <CheckCircle2 className="w-4 h-4" />
+                                            </button>
+                                        )}
+                                        {q.status_validacao !== 'REPROVADA' && (
+                                            <button
+                                                onClick={async () => {
+                                                    const res = await addQuestion({ ...q, status_validacao: 'REPROVADA' })
+                                                    if (res.success) loadQuestions()
+                                                }}
+                                                className="p-3 bg-rose-500/10 text-rose-500 rounded-xl hover:bg-rose-500 hover:text-white transition-all border border-rose-500/20"
+                                                title="Reprovar"
+                                            >
+                                                <XCircle className="w-4 h-4" />
+                                            </button>
+                                        )}
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        )
+    }
+
+    const renderSettingsSection = () => {
+        return (
+            <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
+                <div className="bg-card border border-border rounded-[40px] p-8 md:p-12 soft-shadow relative overflow-hidden">
+                    <div className="absolute top-0 right-0 p-12 opacity-5 pointer-events-none">
+                        <Settings className="w-64 h-64 text-primary" />
+                    </div>
+
+                    <div className="max-w-3xl space-y-12 relative z-10">
+                        <div className="space-y-2">
+                            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-[10px] font-black uppercase tracking-widest border border-primary/20">
+                                <ShieldAlert className="w-3.5 h-3.5" />
+                                Controle de Ativos do Sistema
+                            </div>
+                            <h2 className="text-4xl md:text-5xl font-black italic uppercase tracking-tighter leading-none">
+                                Ajustes <span className="royal-gradient-text">Críticos</span>
+                            </h2>
+                            <p className="text-muted-foreground font-medium max-w-xl">
+                                Utilize estas ferramentas para gerenciar a estabilidade da plataforma durante janelas de manutenção ou correções de bugs.
+                            </p>
+                        </div>
+
+                        {/* Maintenance Toggle Card */}
+                        <div className={`p-8 rounded-[32px] border-2 transition-all ${isMaintenanceMode ? 'bg-amber-500/5 border-amber-500 shadow-xl shadow-amber-500/10' : 'bg-muted/30 border-border hover:border-primary/20'}`}>
+                            <div className="flex flex-col md:flex-row md:items-center justify-between gap-8">
+                                <div className="space-y-4 flex-1">
+                                    <div className="flex items-center gap-4">
+                                        <div className={`p-4 rounded-2xl ${isMaintenanceMode ? 'bg-amber-500 text-white animate-pulse' : 'bg-muted text-muted-foreground'}`}>
+                                            <Hammer className="w-6 h-6" />
+                                        </div>
+                                        <div>
+                                            <h3 className="text-xl font-black uppercase italic tracking-tighter leading-none mb-1">Modo Manutenção</h3>
+                                            <p className="text-muted-foreground text-[10px] font-black uppercase tracking-widest">Aviso global para todos os usuários</p>
+                                        </div>
+                                    </div>
+
+                                    <div className="space-y-4">
+                                        <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground ml-2">Mensagem de Aviso</label>
+                                        <textarea
+                                            value={maintenanceMessage}
+                                            onChange={(e) => setMaintenanceMode(isMaintenanceMode, e.target.value)}
+                                            className="w-full h-24 bg-white/50 border border-border rounded-2xl p-4 text-xs font-bold focus:ring-2 focus:ring-primary/20 outline-none resize-none transition-all"
+                                            placeholder="Descreva o motivo da manutenção..."
+                                        />
+                                    </div>
+                                </div>
+
+                                <div className="shrink-0">
+                                    <button
+                                        onClick={() => setMaintenanceMode(!isMaintenanceMode, maintenanceMessage)}
+                                        className={`w-20 h-10 rounded-full relative transition-all duration-500 ${isMaintenanceMode ? 'bg-amber-500' : 'bg-slate-300'}`}
+                                    >
+                                        <div className={`absolute top-1 left-1 w-8 h-8 bg-white rounded-full shadow-lg transition-transform duration-500 ${isMaintenanceMode ? 'translate-x-10' : ''} flex items-center justify-center`}>
+                                            <div className={`w-1.5 h-1.5 rounded-full ${isMaintenanceMode ? 'bg-amber-500' : 'bg-slate-300'}`} />
+                                        </div>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 opacity-40 grayscale pointer-events-none">
+                            <div className="bg-card border border-border p-6 rounded-3xl space-y-3">
+                                <div className="p-3 bg-muted rounded-xl w-fit"><Zap className="w-4 h-4" /></div>
+                                <h4 className="font-black text-xs uppercase italic">Flush Cache</h4>
+                                <p className="text-[9px] font-bold text-muted-foreground uppercase leading-relaxed">Limpar memória temporária do servidor</p>
+                            </div>
+                            <div className="bg-card border border-border p-6 rounded-3xl space-y-3">
+                                <div className="p-3 bg-muted rounded-xl w-fit"><Wrench className="w-4 h-4" /></div>
+                                <h4 className="font-black text-xs uppercase italic">Debug Mode</h4>
+                                <p className="text-[9px] font-bold text-muted-foreground uppercase leading-relaxed">Habilitar logs avançados no console</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        )
+    }
+
+    const renderImportSection = () => {
+        return (
+            <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
+                <div className="bg-card border border-border rounded-[40px] p-8 md:p-12 soft-shadow">
+                    <div className="space-y-8">
+                        <div className="space-y-2">
+                            <h2 className="text-3xl font-black italic uppercase tracking-tighter">Importação em Lote</h2>
+                            <p className="text-muted-foreground text-sm font-medium">Insira o JSON oficial seguindo o schema QRUB MASTER.</p>
+                        </div>
+
+                        <div className="space-y-4">
+                            <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground ml-2">JSON das Questões</label>
+                            <textarea
+                                value={jsonInput}
+                                onChange={(e) => setJsonInput(e.target.value)}
+                                className="w-full h-80 bg-muted/30 border-2 border-dashed border-border rounded-[32px] p-8 font-mono text-xs focus:ring-2 focus:ring-primary/20 outline-none transition-all resize-none"
+                                placeholder='[ { "id": "...", "area": { ... }, "subarea": { ... }, "tema": { ... }, "enunciado": "...", ... } ]'
+                            />
+                        </div>
+
+                        <button
+                            onClick={handleManualImportSave}
+                            disabled={loadingManual || !jsonInput.trim()}
+                            className="w-full bg-[#1A1033] text-white py-6 rounded-2xl font-black uppercase text-sm tracking-[0.2em] shadow-xl hover:scale-[1.02] active:scale-95 transition-all disabled:opacity-50 flex items-center justify-center gap-4"
+                        >
+                            {loadingManual ? <RefreshCw className="w-5 h-5 animate-spin" /> : <Upload className="w-6 h-6" />}
+                            PROCESSAR E SALVAR LOTE
+                        </button>
+                    </div>
+                </div>
+
+                {importStatus && (
+                    <div className={`p-6 rounded-3xl border ${importStatus.type === 'success' ? 'bg-emerald-500/10 border-emerald-500/20 text-emerald-600' : 'bg-rose-500/10 border-rose-500/20 text-rose-600'} flex items-center gap-4 animate-in zoom-in-95`}>
+                        {importStatus.type === 'success' ? <CheckCircle2 className="w-6 h-6" /> : <AlertCircle className="w-6 h-6" />}
+                        <p className="font-black uppercase text-[10px] tracking-widest flex-1">{importStatus.msg}</p>
+                        <button onClick={() => setImportStatus(null)} className="p-2 hover:bg-black/5 rounded-xl"><X className="w-4 h-4" /></button>
+                    </div>
+                )}
+            </div>
+        )
+    }
+
     // Real Demographic Stats
     const stats = useMemo(() => {
         const total = realUsers.length
@@ -349,6 +510,13 @@ export default function AdminDashboard() {
             freePct: total > 0 ? Math.round((free / total) * 100) : 0
         }
     }, [realUsers])
+
+    const active7d = useMemo(() => {
+        const weekAgo = new Date()
+        weekAgo.setDate(weekAgo.getDate() - 7)
+        const uniqueUsers = new Set(responses.filter(r => new Date(r.timestamp) > weekAgo).map(r => r.user_id))
+        return uniqueUsers.size
+    }, [responses])
 
     // Global performance metrics from all user responses (requires global fetching)
     const names = useMemo(() => {
@@ -494,16 +662,6 @@ export default function AdminDashboard() {
     const activeSpecialty = activeCourse?.specialties.find(s => s.id === selectedSpecialty)
     const activeSubspecialty = activeSpecialty?.subspecialties.find(sub => sub.id === selectedSubspecialty)
 
-    const handleManualPromptCopy = () => {
-        if (!selectedSpecialty) { alert('Selecione uma especialidade primeiro.'); return }
-
-        const specName = activeCourse?.specialties.find(s => s.id === selectedSpecialty)?.name || 'Medicina Geral'
-        const fullPrompt = `${GOLD_STANDARD_SYSTEM_PROMPT}\n\n${buildPrompt(aiTopic || 'DIVERSOS', specName, aiCount || 1)}`
-
-        navigator.clipboard.writeText(fullPrompt)
-        alert('✅ Prompt Copiado! Use em qualquer IA e depois clique em "Colar JSON" abaixo para salvar.')
-        setShowManualImport(true) // Já abre a área de colagem pra facilitar
-    }
 
     const handleManualImportSave = async () => {
         if (!jsonInput.trim()) {
@@ -552,7 +710,6 @@ export default function AdminDashboard() {
             if (success) {
                 setImportStatus({ type: 'success', msg: `✅ ${convertedBatch.length} questões importadas com sucesso!` })
                 setJsonInput('')
-                setShowManualImport(false)
                 loadQuestions()
             } else {
                 throw new Error(message)
@@ -596,6 +753,40 @@ export default function AdminDashboard() {
             setSelectedQuestions([])
         } else {
             setSelectedQuestions(questions.map(q => q.id))
+        }
+    }
+
+    const handleBulkApprove = async () => {
+        if (selectedQuestions.length === 0) return
+        if (confirm(`✅ Aprovar ${selectedQuestions.length} questões selecionadas?`)) {
+            setLoadingManual(true)
+            const batch = questions
+                .filter(q => selectedQuestions.includes(q.id))
+                .map(q => ({ ...q, status_validacao: 'APROVADA' as const }))
+            const res = await addQuestions(batch)
+            if (res.success) {
+                setImportStatus({ type: 'success', msg: `✅ ${selectedQuestions.length} questões confirmadas!` })
+                setSelectedQuestions([])
+                loadQuestions()
+            }
+            setLoadingManual(false)
+        }
+    }
+
+    const handleBulkReject = async () => {
+        if (selectedQuestions.length === 0) return
+        if (confirm(`❌ Reprovar ${selectedQuestions.length} questões selecionadas?`)) {
+            setLoadingManual(true)
+            const batch = questions
+                .filter(q => selectedQuestions.includes(q.id))
+                .map(q => ({ ...q, status_validacao: 'REPROVADA' as const }))
+            const res = await addQuestions(batch)
+            if (res.success) {
+                setImportStatus({ type: 'success', msg: `❌ ${selectedQuestions.length} questões arquivadas.` })
+                setSelectedQuestions([])
+                loadQuestions()
+            }
+            setLoadingManual(false)
         }
     }
 
@@ -964,12 +1155,14 @@ export default function AdminDashboard() {
                 </div>
 
                 <div className="flex flex-wrap gap-2 p-1.5 bg-muted rounded-2xl w-fit">
-                    <NavBtn active={view === 'analytics'} onClick={() => setView('analytics')} icon={<BarChart3 className="w-4 h-4" />} label="Dashboard" />
+                    <NavBtn active={view === 'analytics'} onClick={() => setView('analytics')} icon={<BarChart3 className="w-4 h-4" />} label="Stats" />
                     <NavBtn active={view === 'questions'} onClick={() => setView('questions')} icon={<Database className="w-4 h-4" />} label="Banco" />
-                    <NavBtn active={view === 'import'} onClick={() => setView('import')} icon={<Zap className="w-4 h-4" />} label="Dr. QRub (IA)" />
-                    <NavBtn active={view === 'validation'} onClick={() => setView('validation')} icon={<ShieldCheck className="w-4 h-4" />} label="Validação IA" />
+                    <NavBtn active={view === 'validation'} onClick={() => setView('validation')} icon={<ShieldCheck className="w-4 h-4" />} label="Validação" />
+                    <NavBtn active={view === 'structural'} onClick={() => setView('structural')} icon={<Sparkles className="w-4 h-4" />} label="Gerador" />
+                    <NavBtn active={view === 'import'} onClick={() => setView('import')} icon={<Upload className="w-4 h-4" />} label="Import" />
                     <NavBtn active={view === 'reports'} onClick={() => setView('reports')} icon={<AlertCircle className="w-4 h-4" />} label="Regulação" />
                     <NavBtn active={view === 'users'} onClick={() => setView('users')} icon={<Users className="w-4 h-4" />} label="Alunos" />
+                    <NavBtn active={view === 'settings'} onClick={() => setView('settings')} icon={<Settings className="w-4 h-4" />} label="Ajustes" />
                 </div>
 
                 <div className="flex gap-3">
@@ -1382,126 +1575,10 @@ export default function AdminDashboard() {
                     </motion.div>
                 )}
 
-                {view === 'validation' && (
-                    <motion.div key="v" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} className="space-y-6">
-                        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-                            <div>
-                                <h3 className="text-2xl font-black italic uppercase tracking-tighter flex items-center gap-2">
-                                    <ShieldCheck className="w-6 h-6 text-primary" /> Fila de Validação (IA)
-                                </h3>
-                                <p className="text-[10px] font-black text-muted-foreground uppercase tracking-widest mt-1">
-                                    {questions.filter(q => q.status_validacao === 'PENDENTE').length} questões aguardando revisão oficial.
-                                </p>
-                            </div>
-                            <div className="flex gap-3">
-                                <button
-                                    onClick={async () => {
-                                        const pendentes = questions.filter(q => q.status_validacao === 'PENDENTE')
-                                        if (pendentes.length === 0) return
-                                        if (confirm(`Deseja APROVAR TODAS as ${pendentes.length} questões pendentes?`)) {
-                                            const updated = pendentes.map(q => ({ ...q, status_validacao: 'APROVADA' as const }))
-                                            const res = await addQuestions(updated)
-                                            if (res.success) {
-                                                alert(res.message)
-                                                await loadQuestions() // Recarrega para limpar a fila
-                                            } else {
-                                                alert(`Erro: ${res.message}`)
-                                            }
-                                        }
-                                    }}
-                                    className="px-6 py-3 bg-emerald-500 text-white rounded-2xl text-[10px] font-black uppercase tracking-widest hover:scale-105 transition-all shadow-xl shadow-emerald-500/20"
-                                >
-                                    Aprovar Todas em Lote
-                                </button>
-                                <button
-                                    onClick={() => loadQuestions()}
-                                    className="p-3 bg-muted rounded-2xl hover:bg-muted/80 transition-all"
-                                >
-                                    <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} />
-                                </button>
-                            </div>
-                        </div>
-
-                        <div className="bg-card border border-border rounded-[32px] overflow-hidden soft-shadow">
-                            <div className="overflow-x-auto">
-                                <table className="w-full text-left">
-                                    <thead className="bg-muted/50 text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground">
-                                        <tr>
-                                            <th className="px-8 py-6">Questão / Fonte</th>
-                                            <th className="px-8 py-6">Especialidade / Tema</th>
-                                            <th className="px-8 py-6">Status Interno</th>
-                                            <th className="px-8 py-6 text-right">Ações de Curador</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody className="divide-y divide-border">
-                                        {questions.filter(q => q.status_validacao === 'PENDENTE').length === 0 ? (
-                                            <tr>
-                                                <td colSpan={4} className="px-8 py-32 text-center">
-                                                    <div className="max-w-xs mx-auto">
-                                                        <div className="w-16 h-16 bg-emerald-500/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                                                            <CheckCircle2 className="w-8 h-8 text-emerald-500" />
-                                                        </div>
-                                                        <h4 className="text-lg font-black italic uppercase tracking-tighter mb-2">Banco Verificado!</h4>
-                                                        <p className="text-xs font-medium text-muted-foreground">Não há questões pendentes de validação no momento.</p>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        ) : (
-                                            questions.filter(q => q.status_validacao === 'PENDENTE').map(q => (
-                                                <tr key={q.id} className="hover:bg-muted/5 transition-colors">
-                                                    <td className="px-8 py-6 max-w-md">
-                                                        <div className="font-mono text-[10px] text-primary font-black mb-1">{q.id}</div>
-                                                        <div className="text-xs font-bold line-clamp-2 mb-2">{q.enunciado}</div>
-                                                        <div className="flex items-center gap-2">
-                                                            <span className="bg-muted px-2 py-0.5 rounded text-[8px] font-black uppercase border border-border">{q.exam_type || 'IA'}</span>
-                                                            <span className="text-[9px] text-muted-foreground font-medium italic">{q.source || 'Sem fonte'}</span>
-                                                        </div>
-                                                    </td>
-                                                    <td className="px-8 py-6">
-                                                        <div className="text-[10px] font-black uppercase tracking-widest text-foreground">{q.specialty_id}</div>
-                                                        <div className="text-[9px] text-muted-foreground uppercase font-bold">{q.subject_id || 'Tema variado'}</div>
-                                                    </td>
-                                                    <td className="px-8 py-6">
-                                                        <span className="bg-amber-500/10 text-amber-600 border border-amber-500/20 px-3 py-1 rounded-lg text-[9px] font-black uppercase">
-                                                            Pendente IA
-                                                        </span>
-                                                    </td>
-                                                    <td className="px-8 py-6 text-right">
-                                                        <div className="flex justify-end gap-2">
-                                                            <button
-                                                                onClick={() => handleOpenEditor(q)}
-                                                                className="p-2.5 bg-muted hover:bg-muted/80 rounded-xl transition-all"
-                                                                title="Visualizar Completa"
-                                                            >
-                                                                <Edit2 className="w-4 h-4 text-muted-foreground" />
-                                                            </button>
-                                                            <button
-                                                                onClick={async () => {
-                                                                    await addQuestions([{ ...q, status_validacao: 'APROVADA' as const }])
-                                                                }}
-                                                                className="px-4 py-2 bg-emerald-500 text-white rounded-xl text-[9px] font-black uppercase tracking-widest hover:bg-emerald-600 transition-all shadow-lg shadow-emerald-500/10"
-                                                            >
-                                                                Aprovar
-                                                            </button>
-                                                            <button
-                                                                onClick={async () => {
-                                                                    await addQuestions([{ ...q, status_validacao: 'REPROVADA' as const }])
-                                                                }}
-                                                                className="px-4 py-2 bg-rose-500 text-white rounded-xl text-[9px] font-black uppercase tracking-widest hover:bg-rose-600 transition-all shadow-lg shadow-rose-500/10"
-                                                            >
-                                                                Reprovar
-                                                            </button>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            ))
-                                        )}
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </motion.div>
-                )}
+                {view === 'structural' && renderStructuralGenerator()}
+                {view === 'validation' && renderValidationQueue()}
+                {view === 'import' && renderImportSection()}
+                {view === 'settings' && renderSettingsSection()}
 
 
 
@@ -1518,31 +1595,33 @@ export default function AdminDashboard() {
                             <StatCard
                                 label="Usuários Totais"
                                 value={realUsers.length.toLocaleString('pt-BR')}
-                                sub="+12 hoje"
+                                sub={`+${realUsers.filter(u => {
+                                    const d = u.created_at ? new Date(u.created_at) : new Date();
+                                    return d.toDateString() === new Date().toDateString();
+                                }).length} hoje`}
                                 color="text-primary"
                                 icon={<Users className="w-5 h-5" />}
                             />
                             <StatCard
                                 label="Ativos (7 Dias)"
-                                value="842"
-                                sub="68% do total"
+                                value={active7d.toString()}
+                                sub={`${stats.total > 0 ? Math.round((active7d / stats.total) * 100) : 0}% do total`}
                                 color="text-emerald-500"
                                 icon={<Activity className="w-5 h-5" />}
                             />
                             <StatCard
-                                label="Ativos Reais (>10m)"
-                                value="312"
-                                sub="Engajamento Alto"
+                                label="Questões no Banco"
+                                value={questions.length.toLocaleString('pt-BR')}
+                                sub={`${questions.filter(q => q.status_validacao === 'PENDENTE').length} pendentes`}
                                 color="text-blue-500"
-                                icon={<Target className="w-5 h-5" />}
+                                icon={<Database className="w-5 h-5" />}
                             />
                             <StatCard
-                                label="Sessões Hoje"
-                                value="1,840"
-                                sub="Pico às 14:00"
+                                label="Acertos Global"
+                                value={`${globalPerformance.accuracy}%`}
+                                sub="Média de todos alunos"
                                 color="text-orange-500"
-                                icon={<History className="w-5 h-5" />}
-                                alert={true} // Visual alert if needed
+                                icon={<Target className="w-5 h-5" />}
                             />
                         </div>
 
@@ -1593,10 +1672,13 @@ export default function AdminDashboard() {
                             <section className="bg-card glass-card border border-border/50 rounded-[40px] p-8 space-y-6">
                                 <h4 className="text-xl font-black italic uppercase tracking-tighter">Motor Dr. QRub</h4>
                                 <div className="space-y-4">
-                                    <GenStat label="Geradas Hoje" value="12,500" />
-                                    <GenStat label="Cache Utilizado" value="84%" />
-                                    <GenStat label="Requisições Falhas" value="0.2%" color="text-emerald-500" />
-                                    <GenStat label="Tempo Médio Geração" value="1.42s" />
+                                    <GenStat label="Geradas Hoje" value={questions.filter(q => {
+                                        const d = q.created_at ? new Date(q.created_at) : new Date();
+                                        return d.toDateString() === new Date().toDateString();
+                                    }).length.toString()} />
+                                    <GenStat label="Aguardando Validação" value={questions.filter(q => q.status_validacao === 'PENDENTE').length.toString()} />
+                                    <GenStat label="Taxa de Erro Reportado" value={reports.length > 0 ? `${Math.round((reports.length / questions.length) * 100)}%` : '0%'} color="text-emerald-500" />
+                                    <GenStat label="Temas Cobertos" value={new Set(questions.map(q => q.subject_id)).size.toString()} />
                                     <div className="pt-6 mt-6 border-t border-border flex justify-between items-center">
                                         <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Custo Indireto</p>
                                         <span className="bg-emerald-500/10 text-emerald-500 px-3 py-1 rounded-full text-[9px] font-black">BAIXO</span>
@@ -1683,240 +1765,7 @@ export default function AdminDashboard() {
                         </div>
                     </motion.div>
                 )}
-                {view === 'import' && (
-                    <motion.div key="import-view" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} className="max-w-6xl mx-auto space-y-8">
-                        <div className="bg-card border border-border rounded-[40px] p-10 shadow-2xl relative overflow-hidden">
-                            {/* Target Progress Banner */}
-                            <div className="absolute top-0 left-0 w-full h-1 bg-muted">
-                                <div
-                                    className="h-full bg-emerald-500 transition-all duration-1000"
-                                    style={{ width: `${Math.min(((countsBySpecialty[selectedSpecialty] || 0) / 500) * 100, 100)}%` }}
-                                />
-                            </div>
-
-                            <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8 mb-12">
-                                <div>
-                                    <div className="flex items-center gap-2 text-primary font-black uppercase text-[10px] tracking-[0.3em] mb-4">
-                                        <ShieldCheck className="w-4 h-4" />
-                                        Protocolo Alimentador de Banco de Dados
-                                    </div>
-                                    <h2 className="text-4xl font-black italic tracking-tighter flex items-center gap-3">
-                                        QRUB <span className="text-primary underline">MASTER</span> BULK.
-                                    </h2>
-                                    <p className="text-muted-foreground font-medium mt-2 max-w-xl">
-                                        Monitorando: <span className="text-foreground font-black uppercase">{selectedSpecialty || 'Selecione Especialidade'}</span>
-                                        {selectedSpecialty && (
-                                            <> — <span className="text-emerald-500 font-bold">{countsBySpecialty[selectedSpecialty] || 0}</span> / 500 questões</>
-                                        )}
-                                    </p>
-                                </div>
-                                <div className="flex flex-col items-end gap-3 bg-muted/30 p-6 rounded-[28px] border border-border/50">
-                                    <div className="flex gap-1 bg-background/50 p-1 rounded-xl mb-1">
-                                        <button
-                                            onClick={() => setProvider('openai')}
-                                            className={`px-4 py-2 text-[10px] font-black uppercase rounded-lg transition-all ${provider === 'openai' ? 'bg-white text-black shadow-md' : 'text-muted-foreground hover:text-foreground'}`}
-                                        >
-                                            OpenAI GPT-4o
-                                        </button>
-                                        <button
-                                            onClick={() => setProvider('gemini')}
-                                            className={`px-4 py-2 text-[10px] font-black uppercase rounded-lg transition-all ${provider === 'gemini' ? 'bg-white text-black shadow-md' : 'text-muted-foreground hover:text-foreground'}`}
-                                        >
-                                            Gemini 1.5 Pro
-                                        </button>
-                                    </div>
-                                    <div className="relative w-full">
-                                        <ShieldCheck className="absolute left-3 top-1/2 -translate-y-1/2 w-3 h-3 text-muted-foreground" />
-                                        <input
-                                            type="password"
-                                            placeholder="Inserir Chave de Operação..."
-                                            value={apiKey}
-                                            onChange={(e) => {
-                                                setApiKey(e.target.value)
-                                                localStorage.setItem(`${provider}_api_key`, e.target.value)
-                                            }}
-                                            className="bg-background border border-border rounded-xl pl-9 pr-4 py-2 text-xs font-mono w-full focus:ring-2 focus:ring-primary/20 outline-none"
-                                        />
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                                <div className="space-y-2">
-                                    <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Especialidade Alvo</label>
-                                    <select
-                                        value={selectedSpecialty}
-                                        onChange={(e) => setSelectedSpecialty(e.target.value)}
-                                        className="w-full bg-muted/50 border border-border rounded-xl p-3 font-bold text-sm"
-                                    >
-                                        <option value="">Selecione...</option>
-                                        {activeCourse?.specialties.map(s => <option key={s.id} value={s.id}>{s.name}</option>)}
-                                    </select>
-                                </div>
-                                <div className="space-y-2">
-                                    <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground flex justify-between">
-                                        Tema (Opcional)
-                                        <span className="text-emerald-500 font-bold text-[9px]">Padrão: Diversos</span>
-                                    </label>
-                                    <input
-                                        type="text"
-                                        value={aiTopic}
-                                        onChange={(e) => setAiTopic(e.target.value)}
-                                        placeholder="Deixe vazio para gerar temas variados..."
-                                        className="w-full bg-muted/30 border border-border rounded-xl p-3 font-bold text-sm outline-none focus:border-primary transition-colors text-muted-foreground focus:text-foreground"
-                                    />
-                                </div>
-                                <div className="space-y-2">
-                                    <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Quantidade</label>
-                                    <select
-                                        value={aiCount}
-                                        onChange={(e) => setAiCount(Number(e.target.value))}
-                                        className="w-full bg-muted/50 border border-border rounded-xl p-3 font-bold text-sm"
-                                    >
-                                        <option value={1}>1 Questão (Teste)</option>
-                                        <option value={5}>5 Questões (Rápido)</option>
-                                        <option value={10}>10 Questões</option>
-                                        <option value={50}>50 Questões (Lote Médio)</option>
-                                        <option value={100}>100 Questões (Lote Grande)</option>
-                                        <option value={500}>500 Questões (Massivo)</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div className="pt-2 mb-10">
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                    <button
-                                        onClick={handleGenerateAiQuestions}
-                                        disabled={isGenerating || (countsBySpecialty[selectedSpecialty] || 0) >= 500}
-                                        className={`py-8 rounded-[30px] font-black text-xl uppercase tracking-widest shadow-2xl transition-all flex flex-col items-center justify-center gap-2 ${isGenerating
-                                            ? 'bg-muted text-muted-foreground cursor-wait'
-                                            : (countsBySpecialty[selectedSpecialty] || 0) >= 500
-                                                ? 'bg-emerald-500/20 text-emerald-500 cursor-not-allowed border border-emerald-500/30'
-                                                : 'bg-primary hover:bg-primary/90 text-white hover:scale-[1.02] active:scale-95 shadow-primary/30'
-                                            }`}
-                                    >
-                                        {isGenerating ? (
-                                            <>
-                                                <RefreshCw className="w-8 h-8 animate-spin" />
-                                                Alimentando Banco...
-                                            </>
-                                        ) : (countsBySpecialty[selectedSpecialty] || 0) >= 500 ? (
-                                            <>
-                                                <ShieldCheck className="w-8 h-8" />
-                                                Meta 500 Atingida
-                                            </>
-                                        ) : (
-                                            <>
-                                                <Zap className="w-8 h-8" />
-                                                Alimentar em Massa (Lote 50)
-                                            </>
-                                        )}
-                                    </button>
-
-                                    <button
-                                        onClick={() => setShowManualImport(!showManualImport)}
-                                        className={`py-6 rounded-2xl font-black text-lg uppercase tracking-widest shadow-xl transition-all flex items-center justify-center gap-3 ${showManualImport
-                                            ? 'bg-primary text-white'
-                                            : 'bg-muted hover:bg-muted/80 text-muted-foreground'
-                                            }`}
-                                    >
-                                        <Upload className="w-6 h-6" />
-                                        {showManualImport ? 'Fechar Editor' : 'Importar JSON Manual'}
-                                    </button>
-                                </div>
-                            </div>
-
-                            {showManualImport && (
-                                <motion.div
-                                    initial={{ opacity: 0, height: 0 }}
-                                    animate={{ opacity: 1, height: 'auto' }}
-                                    className="mb-8 space-y-4 p-6 bg-black/90 rounded-3xl border-2 border-primary/30 shadow-2xl"
-                                >
-                                    <div className="flex justify-between items-center px-1">
-                                        <label className="text-xs font-black uppercase tracking-widest text-primary">Área de Colagem (JSON)</label>
-                                        <button onClick={() => setJsonInput('')} className="text-[10px] font-bold text-rose-500 hover:underline px-2">Limpar</button>
-                                    </div>
-                                    <textarea
-                                        value={jsonInput}
-                                        onChange={(e) => setJsonInput(e.target.value)}
-                                        placeholder="Cole aqui o array JSON gerado pela IA..."
-                                        className="w-full h-48 bg-black text-emerald-400 p-6 font-mono text-xs rounded-2xl border border-white/10 focus:border-primary outline-none transition-all scrollbar-thin shadow-inner"
-                                    />
-                                    <button
-                                        onClick={handleManualImportSave}
-                                        disabled={loadingManual}
-                                        className="w-full py-4 bg-primary hover:bg-primary/90 text-white font-black uppercase tracking-widest rounded-xl shadow-lg transition-all flex items-center justify-center gap-2 group"
-                                    >
-                                        {loadingManual ? <RefreshCw className="w-5 h-5 animate-spin" /> : <CheckCircle2 className="w-5 h-5 group-hover:scale-110 transition-transform" />}
-                                        Validar e Salvar no Banco
-                                    </button>
-                                </motion.div>
-                            )}
-
-                            {/* Área de Logs Simplificada */}
-                            <div className="bg-black/5 rounded-3xl p-6 border border-border">
-                                <div className="flex items-center justify-between mb-4">
-                                    <h3 className="text-xs font-black uppercase tracking-widest text-muted-foreground">Status da Operação</h3>
-                                </div>
-
-                                {importStatus ? (
-                                    <div className={`p-6 rounded-2xl border mb-4 flex items-center gap-4 ${importStatus.type === 'success' ? 'bg-emerald-500/10 border-emerald-500/20 text-emerald-600' : 'bg-red-500/10 border-red-500/20 text-red-600'}`}>
-                                        <div className={`p-2 rounded-full ${importStatus.type === 'success' ? 'bg-emerald-500/20' : 'bg-red-500/20'}`}>
-                                            {importStatus.type === 'success' ? <CheckCircle2 className="w-6 h-6" /> : <AlertCircle className="w-6 h-6" />}
-                                        </div>
-                                        <div>
-                                            <p className="font-black text-lg">{importStatus.type === 'success' ? 'Sucesso!' : 'Atenção'}</p>
-                                            <p className="font-medium text-sm opacity-90">{importStatus.msg}</p>
-                                        </div>
-                                    </div>
-                                ) : (
-                                    <div className="text-center py-12 border-2 border-dashed border-border/50 rounded-2xl">
-                                        <div className="w-12 h-12 bg-muted rounded-full flex items-center justify-center mx-auto mb-3">
-                                            <Sparkles className="w-6 h-6 text-muted-foreground/50" />
-                                        </div>
-                                        <p className="text-muted-foreground text-sm font-medium">Aguardando comando...</p>
-                                        <p className="text-[10px] text-muted-foreground/60 uppercase font-bold tracking-widest mt-1">Configure acima e clique em Gerar</p>
-                                    </div>
-                                )}
-
-                                {/* Detalhes Técnicos (JSON) escondidos em accordion visualmente simples */}
-                                {jsonInput && (
-                                    <div className="mt-4 pt-4 border-t border-dashed border-border/50">
-                                        <details className="group">
-                                            <summary className="text-[10px] uppercase font-bold text-muted-foreground mb-2 cursor-pointer hover:text-foreground list-none flex items-center gap-2">
-                                                <div className="w-4 h-4 bg-muted rounded flex items-center justify-center group-open:rotate-90 transition-transform">▸</div>
-                                                Ver Detalhes Técnicos ({JSON.parse(jsonInput || '[]').length} itens gerados)
-                                            </summary>
-                                            <div className="bg-black/90 rounded-xl p-4 max-h-40 overflow-y-auto font-mono text-[10px] text-green-400 scrollbar-thin mt-2 shadow-inner">
-                                                <pre>{jsonInput}</pre>
-                                            </div>
-                                        </details>
-                                    </div>
-                                )}
-                            </div>
-
-                            {/* Botão Manual movido para baixo/segundo plano */}
-                            <div className="mt-8 pt-6 text-center">
-                                <button
-                                    onClick={handleManualPromptCopy}
-                                    className="px-4 py-2 text-muted-foreground hover:text-foreground rounded-lg text-[10px] font-bold uppercase tracking-widest hover:bg-muted transition-all flex items-center gap-2 mx-auto"
-                                >
-                                    <Database className="w-3 h-3" />
-                                    Não tem API Key? Copiar Prompt Manualmente
-                                </button>
-                            </div>
-                        </div>
-
-                        <div className="bg-muted/30 border border-border rounded-2xl p-6 mt-8">
-                            <h4 className="font-bold text-sm flex items-center gap-2 mb-2"><ShieldCheck className="w-4 h-4 text-emerald-500" /> Protocolo QRUB MASTER</h4>
-                            <p className="text-xs text-muted-foreground leading-relaxed">
-                                Este agente opera em modo <strong>Bulk (Lote)</strong>. Ele está programado para localizar e replicar questões reais (Revalida/ENARE) e gerar questões inéditas complementares fundamentadas no SUS/PCDT 2024-2025.
-                                <br /><br />
-                                <strong>Regra de Teto:</strong> A geração cessará automaticamente para qualquer especialidade que atingir o marco de <strong>500 questões</strong> para garantir diversidade e qualidade premium.
-                            </p>
-                        </div>
-                    </motion.div>
-                )}
+                {/* Import view removed */}
             </AnimatePresence>
         </div>
     )
