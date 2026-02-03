@@ -482,6 +482,53 @@ export default function AdminDashboard() {
                             <p className="text-muted-foreground text-sm font-medium">Insira o JSON oficial seguindo o schema QRUB MASTER.</p>
                         </div>
 
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div className="space-y-2">
+                                <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground ml-2">Área Prova (Opcional)</label>
+                                <select
+                                    value={selectedSpecialty}
+                                    onChange={(e) => {
+                                        setSelectedSpecialty(e.target.value)
+                                        setSelectedSubspecialty('')
+                                        setSelectedSubject('')
+                                    }}
+                                    className="w-full h-14 bg-muted/50 border border-border rounded-2xl px-5 font-bold focus:ring-2 focus:ring-primary/20 outline-none transition-all cursor-pointer"
+                                >
+                                    <option value="">Detectar Automático</option>
+                                    {MEDICAL_HIERARCHY[0].specialties.map(s => <option key={s.id} value={s.id}>{s.name}</option>)}
+                                </select>
+                            </div>
+
+                            <div className="space-y-2">
+                                <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground ml-2">Subárea (Opcional)</label>
+                                <select
+                                    value={selectedSubspecialty}
+                                    onChange={(e) => {
+                                        setSelectedSubspecialty(e.target.value)
+                                        setSelectedSubject('')
+                                    }}
+                                    disabled={!selectedSpecialty}
+                                    className="w-full h-14 bg-muted/50 border border-border rounded-2xl px-5 font-bold focus:ring-2 focus:ring-primary/20 outline-none transition-all cursor-pointer disabled:opacity-50"
+                                >
+                                    <option value="">Detectar Automático</option>
+                                    {activeSpecialty?.subspecialties.map(sub => <option key={sub.id} value={sub.id}>{sub.name}</option>)}
+                                </select>
+                            </div>
+
+                            <div className="space-y-2">
+                                <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground ml-2">Tema (Opcional)</label>
+                                <select
+                                    value={selectedSubject}
+                                    onChange={(e) => setSelectedSubject(e.target.value)}
+                                    disabled={!selectedSubspecialty}
+                                    className="w-full h-14 bg-muted/50 border border-border rounded-2xl px-5 font-bold focus:ring-2 focus:ring-primary/20 outline-none transition-all cursor-pointer disabled:opacity-50"
+                                >
+                                    <option value="">Detectar Automático</option>
+                                    {activeSubspecialty?.subjects.map(t => <option key={t.id} value={t.id}>{t.name}</option>)}
+                                </select>
+                            </div>
+                        </div>
+
                         <div className="space-y-4">
                             <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground ml-2">JSON das Questões</label>
                             <textarea
@@ -678,7 +725,7 @@ export default function AdminDashboard() {
     }
 
     const [selectedCourse, setSelectedCourse] = useState(COURSES[0].id)
-    const [selectedSpecialty, setSelectedSpecialty] = useState(COURSES[0].specialties[0].id)
+    const [selectedSpecialty, setSelectedSpecialty] = useState('')
     const [selectedSubspecialty, setSelectedSubspecialty] = useState('')
     const [selectedSubject, setSelectedSubject] = useState('')
     const [customSubspecialty, setCustomSubspecialty] = useState('')
@@ -686,7 +733,7 @@ export default function AdminDashboard() {
     const [selectedDifficulty, setSelectedDifficulty] = useState<'Fácil' | 'Médio' | 'Difícil' | 'RANDOM'>('RANDOM')
     const [selectedBatchSize, setSelectedBatchSize] = useState(500)
 
-    const activeCourse = COURSES.find(c => c.id === selectedCourse)
+    const activeCourse = MEDICAL_HIERARCHY[0]
     const activeSpecialty = activeCourse?.specialties.find(s => s.id === selectedSpecialty)
     const activeSubspecialty = activeSpecialty?.subspecialties.find(sub => sub.id === selectedSubspecialty)
 
@@ -706,33 +753,40 @@ export default function AdminDashboard() {
 
             const questionsToSave = Array.isArray(parsed) ? parsed : (parsed.questions || [parsed])
 
-            const convertedBatch: Question[] = questionsToSave.map((q: any) => ({
-                id: q.id?.startsWith('QRB') ? q.id : `QRUB-MANUAL-${Math.random().toString(36).substr(2, 6).toUpperCase()}`,
-                course_id: selectedCourse,
-                specialty_id: q.specialty?.toLowerCase() || selectedSpecialty,
-                subspecialty_id: q.subspecialty || selectedSubspecialty || '',
-                subject_id: q.tema || selectedSubject || '',
-                difficulty: q.dificuldade || 'Médio',
-                enunciado: q.question_text || q.enunciado,
-                comando: q.comando || '',
-                options: (q.option_a || q.alternativas) ? [
-                    { id: 'a', text: q.option_a || (q.alternativas?.[0]?.texto || '') },
-                    { id: 'b', text: q.option_b || (q.alternativas?.[1]?.texto || '') },
-                    { id: 'c', text: q.option_c || (q.alternativas?.[2]?.texto || '') },
-                    { id: 'd', text: q.option_d || (q.alternativas?.[3]?.texto || '') },
-                    { id: 'e', text: q.option_e || (q.alternativas?.[4]?.texto || '') },
-                ].filter(opt => opt.text) : [],
-                correct_option_id: (q.correct_answer || q.gabarito || 'a').toLowerCase(),
-                explanation: q.explanation || q.justificativa_gabarito || 'Importado manualmente.',
-                alternative_explanations: q.por_que_nao_as_outras || {},
-                tag_transversal: q.tag_transversal || [],
-                status_validacao: q.status_validacao || 'PENDENTE',
-                erros_graves: q.erros_graves || [],
-                exam_type: q.exam_type,
-                year: q.year,
-                source: q.source,
-                metadata: { ...q.metadata, data_importacao: new Date().toISOString() }
-            }))
+            const convertedBatch: Question[] = questionsToSave.map((q: any) => {
+                // Tenta extrair ID de objetos ou strings do JSON
+                const jsonSpecialty = typeof q.area === 'object' ? q.area.id : (q.specialty || q.area)
+                const jsonSubspecialty = typeof q.subarea === 'object' ? q.subarea.id : (q.subspecialty || q.subarea)
+                const jsonSubject = typeof q.tema === 'object' ? q.tema.id : (q.tema || q.subject)
+
+                return {
+                    id: q.id?.startsWith('QRB') ? q.id : `QRUB-MANUAL-${Math.random().toString(36).substr(2, 6).toUpperCase()}`,
+                    course_id: selectedCourse,
+                    specialty_id: (jsonSpecialty || selectedSpecialty || 'clinica-medica').toLowerCase().replace(/\s+/g, '-'),
+                    subspecialty_id: jsonSubspecialty || selectedSubspecialty || 'geral',
+                    subject_id: jsonSubject || selectedSubject || 'geral',
+                    difficulty: q.dificuldade || 'Médio',
+                    enunciado: q.question_text || q.enunciado,
+                    comando: q.comando || '',
+                    options: (q.option_a || q.alternativas) ? [
+                        { id: 'a', text: q.option_a || (q.alternativas?.[0]?.texto || '') },
+                        { id: 'b', text: q.option_b || (q.alternativas?.[1]?.texto || '') },
+                        { id: 'c', text: q.option_c || (q.alternativas?.[2]?.texto || '') },
+                        { id: 'd', text: q.option_d || (q.alternativas?.[3]?.texto || '') },
+                        { id: 'e', text: q.option_e || (q.alternativas?.[4]?.texto || '') },
+                    ].filter(opt => opt.text) : [],
+                    correct_option_id: (q.correct_answer || q.gabarito || 'a').toLowerCase(),
+                    explanation: q.explanation || q.justificativa_gabarito || 'Importado manualmente.',
+                    alternative_explanations: q.por_que_nao_as_outras || {},
+                    tag_transversal: q.tag_transversal || [],
+                    status_validacao: q.status_validacao || 'PENDENTE',
+                    erros_graves: q.erros_graves || [],
+                    exam_type: q.exam_type,
+                    year: q.year,
+                    source: q.source,
+                    metadata: { ...q.metadata, data_importacao: new Date().toISOString() }
+                }
+            })
 
             const { success, message } = await addQuestions(convertedBatch)
             if (success) {
