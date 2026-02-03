@@ -937,19 +937,59 @@ export default function AdminDashboard() {
                 return
             }
 
-            // Validar campos obrigatórios
-            for (let i = 0; i < parsed.length; i++) {
-                const q = parsed[i]
-                if (!q.id || !q.enunciado || !q.options || !q.correct_option_id) {
-                    setImportStatus({ type: 'error', msg: `❌ Erro na questão ${i + 1}: Campos obrigatórios faltando (id, enunciado, options, correct_option_id).` })
+            // Mapeamento para o formato interno
+            const mappedQuestions = parsed.map((q: any) => {
+                // Se já estiver no formato interno, retorna como está
+                if (q.options && q.correct_option_id) return q
+
+                // Conversão de "alternativas" (Object) para "options" (Array)
+                const options = q.alternativas
+                    ? Object.entries(q.alternativas).map(([id, text]) => ({
+                        id: id.toLowerCase(),
+                        text: text as string
+                    }))
+                    : (q.options || [])
+
+                // Conversão de justificativas para chaves minúsculas
+                const altExps = q.alternative_explanations || q.justificativas_alternativas || {}
+                const normalizedExps = Object.fromEntries(
+                    Object.entries(altExps).map(([k, v]) => [k.toLowerCase(), v])
+                )
+
+                return {
+                    ...q,
+                    course_id: q.course_id || 'medicina',
+                    specialty_id: q.specialty_id || q.especialidade || 'outros',
+                    subspecialty_id: q.subspecialty_id || q.subespecialidade || 'geral',
+                    subject_id: q.subject_id || q.tema || 'geral',
+                    area_id: q.area_id || q.especialidade || 'outros',
+                    subarea_id: q.subarea_id || q.subespecialidade || 'geral',
+                    tema_id: q.tema_id || q.tema || 'geral',
+                    difficulty: q.difficulty || q.nivel || 'Média',
+                    enunciado: q.enunciado,
+                    comando: q.comando || '',
+                    options,
+                    correct_option_id: q.correct_option_id || (q.gabarito ? q.gabarito.toLowerCase() : 'a'),
+                    explanation: q.explanation || q.explicacao_gabarito || '',
+                    alternative_explanations: normalizedExps,
+                    fonte: q.fonte || (q.origem ? 'ia' : 'importada'),
+                    status_validacao: q.status_validacao || 'PENDENTE'
+                }
+            })
+
+            // Validar campos obrigatórios no mapeado
+            for (let i = 0; i < mappedQuestions.length; i++) {
+                const q = mappedQuestions[i]
+                if (!q.id || !q.enunciado || q.options.length < 2 || !q.correct_option_id) {
+                    setImportStatus({ type: 'error', msg: `❌ Erro na questão ${i + 1}: Dados incompletos. Verifique enunciado, alternativas e gabarito.` })
                     return
                 }
             }
 
             // Se passou, salvar
-            await addQuestions(parsed)
-            const newTotal = questions.length + parsed.length
-            setImportStatus({ type: 'success', msg: `✅ ${parsed.length} questões validadas e salvas! Total no banco: ${newTotal}.` })
+            await addQuestions(mappedQuestions)
+            const newTotal = questions.length + mappedQuestions.length
+            setImportStatus({ type: 'success', msg: `✅ ${mappedQuestions.length} questões processadas e salvas! Total no banco: ${newTotal}.` })
         } catch (error: any) {
             setImportStatus({ type: 'error', msg: `❌ JSON Inválido: ${error.message}` })
         }
