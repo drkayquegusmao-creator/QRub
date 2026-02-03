@@ -85,7 +85,7 @@ export async function POST(req: Request) {
                     { role: "system", content: GOLD_STANDARD_SYSTEM_PROMPT },
                     { role: "user", content: userPrompt }
                 ],
-                temperature: 0.7,
+                temperature: 0.4,
                 response_format: { type: "json_object" }
             });
 
