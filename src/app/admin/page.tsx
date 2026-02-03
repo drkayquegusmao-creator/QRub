@@ -280,22 +280,40 @@ export default function AdminDashboard() {
                 </div>
 
                 {selectedQuestions.length > 0 && (
-                    <div className="flex items-center gap-4 bg-primary/10 border border-primary/20 p-4 rounded-3xl animate-in zoom-in-95">
-                        <span className="text-xs font-black uppercase tracking-widest text-primary ml-4">
-                            {selectedQuestions.length} questões selecionadas
-                        </span>
+                    <div className="flex items-center gap-4 bg-primary/10 border border-primary/20 p-6 rounded-[32px] animate-in zoom-in-95 shadow-xl shadow-primary/5">
+                        <div className="flex items-center gap-4">
+                            <div className="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-black">
+                                {selectedQuestions.length}
+                            </div>
+                            <div>
+                                <p className="font-black italic uppercase text-sm text-primary">Questões Selecionadas</p>
+                                <p className="text-[10px] font-bold text-primary/60 uppercase tracking-widest leading-none">Ações em lote disponíveis</p>
+                            </div>
+                        </div>
                         <div className="flex-1" />
+                        <button
+                            onClick={() => setSelectedQuestions([])}
+                            className="px-6 py-3 rounded-xl font-black uppercase text-[10px] tracking-widest text-muted-foreground hover:bg-muted transition-all"
+                        >
+                            Cancelar
+                        </button>
+                        <button
+                            onClick={handleBulkDelete}
+                            className="bg-rose-500 text-white px-6 py-3 rounded-2xl font-black text-xs uppercase tracking-widest flex items-center gap-2 hover:scale-105 transition-all shadow-lg shadow-rose-500/20"
+                        >
+                            <Trash2 className="w-4 h-4" /> Deletar
+                        </button>
                         <button
                             onClick={handleBulkApprove}
                             className="bg-emerald-500 text-white px-6 py-3 rounded-2xl font-black text-xs uppercase tracking-widest flex items-center gap-2 hover:scale-105 transition-all shadow-lg shadow-emerald-500/20"
                         >
-                            <CheckCircle2 className="w-4 h-4" /> Aprovar Em Lote
+                            <CheckCircle2 className="w-4 h-4" /> Aprovar
                         </button>
                         <button
                             onClick={handleBulkReject}
                             className="bg-rose-500 text-white px-6 py-3 rounded-2xl font-black text-xs uppercase tracking-widest flex items-center gap-2 hover:scale-105 transition-all shadow-lg shadow-rose-500/20"
                         >
-                            <XCircle className="w-4 h-4" /> Reprovar Em Lote
+                            <XCircle className="w-4 h-4" /> Reprovar
                         </button>
                     </div>
                 )}
@@ -831,10 +849,10 @@ export default function AdminDashboard() {
     }
 
     const handleToggleAll = () => {
-        if (selectedQuestions.length === questions.length) {
+        if (selectedQuestions.length === filteredQuestions.length) {
             setSelectedQuestions([])
         } else {
-            setSelectedQuestions(questions.map(q => q.id))
+            setSelectedQuestions(filteredQuestions.map(q => q.id))
         }
     }
 
@@ -1297,17 +1315,32 @@ export default function AdminDashboard() {
                                 </label>
                             </div>
                             {selectedQuestions.length > 0 && (
-                                <div className="bg-destructive/10 border border-destructive/20 rounded-2xl px-6 py-4 flex items-center justify-between mb-4">
-                                    <span className="text-sm font-bold text-destructive">
-                                        {selectedQuestions.length} questões selecionadas
-                                    </span>
-                                    <button
-                                        onClick={handleBulkDelete}
-                                        className="flex items-center gap-2 bg-destructive text-white px-4 py-2 rounded-xl font-bold text-xs uppercase tracking-widest hover:bg-destructive/90 transition-all"
-                                    >
-                                        <Trash2 className="w-4 h-4" />
-                                        Deletar Selecionadas
-                                    </button>
+                                <div className="mx-8 mt-4 mb-4 bg-rose-500/10 border-2 border-rose-500/20 rounded-[24px] px-8 py-5 flex items-center justify-between animate-in slide-in-from-top-4 duration-300">
+                                    <div className="flex items-center gap-4">
+                                        <div className="w-10 h-10 rounded-full bg-rose-500 text-white flex items-center justify-center font-black">
+                                            {selectedQuestions.length}
+                                        </div>
+                                        <div>
+                                            <p className="font-black italic uppercase text-sm text-rose-500">Questões Selecionadas</p>
+                                            <p className="text-[10px] font-bold text-rose-500/60 uppercase tracking-widest leading-none">Ações em lote disponíveis</p>
+                                        </div>
+                                    </div>
+
+                                    <div className="flex items-center gap-3">
+                                        <button
+                                            onClick={() => setSelectedQuestions([])}
+                                            className="px-6 py-3 rounded-xl font-black uppercase text-[10px] tracking-widest text-muted-foreground hover:bg-muted transition-all"
+                                        >
+                                            Cancelar
+                                        </button>
+                                        <button
+                                            onClick={handleBulkDelete}
+                                            className="flex items-center gap-2 bg-rose-500 text-white px-8 py-4 rounded-2xl font-black text-xs uppercase tracking-[0.2em] shadow-xl shadow-rose-500/20 hover:scale-[1.03] active:scale-95 transition-all"
+                                        >
+                                            <Trash2 className="w-4 h-4" />
+                                            Deletar Todas
+                                        </button>
+                                    </div>
                                 </div>
                             )}
                             <div className="overflow-x-auto">
