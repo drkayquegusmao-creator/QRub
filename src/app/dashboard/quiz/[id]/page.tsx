@@ -37,7 +37,6 @@ export default function QuizPage() {
 
     const [currentIdx, setCurrentIdx] = useState(0)
     const [selectedOptionId, setSelectedOptionId] = useState<string | null>(null)
-    const [struckOutIds, setStruckOutIds] = useState<string[]>([])
     const [isAnswered, setIsAnswered] = useState(false)
     const [hasConfirmed, setHasConfirmed] = useState(false) // Novo: controlar se confirmou a resposta
     const [answeredQuestions, setAnsweredQuestions] = useState<Record<number, { correct: boolean, selectedId: string }>>({})
@@ -180,7 +179,6 @@ export default function QuizPage() {
 
     const handleSelect = (optionId: string) => {
         if (hasConfirmed) return // Não pode mudar após confirmar
-        if (struckOutIds.includes(optionId)) return
 
         setSelectedOptionId(optionId)
     }
@@ -245,11 +243,6 @@ export default function QuizPage() {
         }
     }
 
-    const toggleStrikeOut = (id: string, e: React.MouseEvent) => {
-        e.preventDefault()
-        if (isAnswered) return
-        setStruckOutIds(prev => prev.includes(id) ? prev.filter(x => x !== id) : [...prev, id])
-    }
 
     const handleAiExplain = () => {
         if (!isInsano) {
@@ -309,10 +302,12 @@ export default function QuizPage() {
                 <div className="space-y-6">
                     <div className="flex items-center justify-between gap-4">
                         <div className="flex items-center gap-4 flex-wrap">
-                            <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-muted-foreground bg-muted/30 px-3 py-1.5 rounded-lg border border-border/50">
-                                <Target className="w-4 h-4 text-primary" />
-                                {question.metadata?.tema || question.subject_id}
-                            </div>
+                            {isAnswered && (
+                                <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-muted-foreground bg-muted/30 px-3 py-1.5 rounded-lg border border-border/50">
+                                    <Target className="w-4 h-4 text-primary" />
+                                    {question.metadata?.tema || question.subject_id}
+                                </div>
+                            )}
 
                             {question.guideline_id && (
                                 <div className="flex items-center gap-2 bg-primary/10 text-primary px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest border border-primary/20">
@@ -373,11 +368,9 @@ export default function QuizPage() {
                 </div>
 
                 <div className="space-y-3">
-                    <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground mb-4 opacity-60">Botão direito para riscar alternativas</p>
-                    {question.options.map((opt) => {
+                    {[...question.options].sort((a, b) => a.id.localeCompare(b.id)).map((opt) => {
                         const isCorrect = opt.id === question.correct_option_id
                         const isSelected = opt.id === selectedOptionId
-                        const isStruck = struckOutIds.includes(opt.id)
                         const showFeedback = isAnswered && mode === 'TREINO'
 
                         let statusClasses = isFocusMode ? 'bg-white/5 border-white/10' : 'bg-card border-border hover:border-primary/50'
@@ -385,16 +378,13 @@ export default function QuizPage() {
                             if (isCorrect) statusClasses = "bg-emerald-500/10 border-emerald-500 text-emerald-500 ring-2 ring-emerald-500/20"
                             else if (isSelected) statusClasses = "bg-rose-500/10 border-rose-500 text-rose-500"
                         } else if (isSelected) statusClasses = isFocusMode ? "bg-primary text-white border-primary" : "bg-primary/10 border-primary text-primary"
-                        if (isStruck) statusClasses += " opacity-30 grayscale scale-[0.98]"
 
                         return (
                             <button
                                 key={opt.id}
                                 onClick={() => handleSelect(opt.id)}
-                                onContextMenu={(e) => toggleStrikeOut(opt.id, e)}
                                 className={`w-full text-left p-5 rounded-2xl border-2 transition-all flex items-start gap-4 font-semibold group relative overflow-hidden ${statusClasses}`}
                             >
-                                {isStruck && <div className="absolute inset-0 bg-transparent flex items-center px-8 pointer-events-none"><div className="w-full h-[2px] bg-muted-foreground/50 rounded-full" /></div>}
                                 <span className={`w-8 h-8 rounded-lg flex items-center justify-center text-xs shrink-0 ${isSelected ? 'bg-primary text-white' : isFocusMode ? 'bg-white/10 text-white' : 'bg-muted text-muted-foreground group-hover:bg-primary/10 group-hover:text-primary'}`}>
                                     {opt.id.toUpperCase()}
                                 </span>
@@ -480,7 +470,6 @@ export default function QuizPage() {
                                     setSelectedOptionId(null)
                                     setHasConfirmed(false)
                                     setIsAnswered(false)
-                                    setStruckOutIds([])
                                     setAiExplanation(null)
                                 }}
                                 className={`w-12 h-12 rounded-xl font-black text-sm transition-all hover:scale-110 ${bgColor}`}
@@ -534,7 +523,6 @@ export default function QuizPage() {
                                     setIsAnswered(false);
                                     setHasConfirmed(false);
                                     setSelectedOptionId(null);
-                                    setStruckOutIds([]);
                                     setAiExplanation(null)
                                 } else {
                                     handleFinish()
