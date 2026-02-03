@@ -28,7 +28,7 @@ export const MEDICAL_HIERARCHY = [
             { id: 'cirurgia-geral', name: 'Cirurgia Geral', category: 'Especialidades Básicas', subspecialties: [] },
             {
                 id: 'pediatria', name: 'Pediatria', category: 'Especialidades Básicas', subspecialties: [
-                    { id: 'neonatologia', name: 'Neonatologia', subjects: [{ id: 'geral', name: 'Geral' }] },
+                    { id: 'neonatologia', name: 'Neonatologia', subjects: [{ id: 'PED-NEO-SEPSE', name: 'Sepse Neonatal' }] },
                     { id: 'cardiologia-pediatrica', name: 'Cardiologia Pediátrica', subjects: [{ id: 'geral', name: 'Geral' }] },
                     { id: 'endocrinologia-pediatrica', name: 'Endocrinologia Pediátrica', subjects: [{ id: 'geral', name: 'Geral' }] },
                     { id: 'gastroenterologia-pediatrica', name: 'Gastroenterologia Pediátrica', subjects: [{ id: 'geral', name: 'Geral' }] },

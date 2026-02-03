@@ -28,6 +28,7 @@ import { useSystem } from '@/store/use-system'
 import { generateStructuralQuestion } from '@/lib/generators/structural-engine'
 import { MEDICAL_LIBRARY } from '@/lib/generators/medical-library'
 import { MEDICAL_HIERARCHY } from '@/lib/medical-specialties'
+import { QuestionPreviewModal } from '@/components/question-preview-modal'
 
 export default function AdminDashboard() {
     const { user, isAuthenticated } = useAuth()
@@ -46,6 +47,7 @@ export default function AdminDashboard() {
     const [structuralSubarea, setStructuralSubarea] = useState('')
     const [structuralTema, setStructuralTema] = useState('')
     const [validationFilter, setValidationFilter] = useState<'PENDENTE' | 'APROVADA' | 'REPROVADA'>('PENDENTE')
+    const [previewQuestion, setPreviewQuestion] = useState<Question | null>(null)
 
     const setView = (newView: string) => {
         setViewInternal(newView as any)
@@ -324,8 +326,12 @@ export default function AdminDashboard() {
                                     <td colSpan={3} className="px-8 py-20 text-center text-muted-foreground uppercase text-xs font-black tracking-widest">Fila Vazia</td>
                                 </tr>
                             ) : filteredQuestions.map(q => (
-                                <tr key={q.id} className="hover:bg-muted/10 transition-colors group">
-                                    <td className="px-8 py-6 text-center">
+                                <tr
+                                    key={q.id}
+                                    className="hover:bg-muted/10 transition-colors group cursor-pointer"
+                                    onClick={() => setPreviewQuestion(q)}
+                                >
+                                    <td className="px-8 py-6 text-center" onClick={(e) => e.stopPropagation()}>
                                         <input
                                             type="checkbox"
                                             className="w-4 h-4 rounded border-border"
@@ -1789,6 +1795,12 @@ export default function AdminDashboard() {
                 )}
                 {/* Import view removed */}
             </AnimatePresence>
+
+            <QuestionPreviewModal
+                isOpen={!!previewQuestion}
+                onClose={() => setPreviewQuestion(null)}
+                question={previewQuestion}
+            />
         </div>
     )
 }
