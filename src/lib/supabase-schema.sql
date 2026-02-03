@@ -239,3 +239,17 @@ GRANT USAGE ON SCHEMA public TO anon, authenticated;
 GRANT ALL ON ALL TABLES IN SCHEMA public TO anon, authenticated;
 GRANT ALL ON ALL SEQUENCES IN SCHEMA public TO anon, authenticated;
 GRANT ALL ON ALL FUNCTIONS IN SCHEMA public TO anon, authenticated;
+
+-- ============================================
+-- STRUCTURAL GENERATOR COLUMNS
+-- ============================================
+ALTER TABLE public.questions 
+ADD COLUMN IF NOT EXISTS area_id TEXT,
+ADD COLUMN IF NOT EXISTS tema_id TEXT,
+ADD COLUMN IF NOT EXISTS comando TEXT,
+ADD COLUMN IF NOT EXISTS por_que_nao_as_outras JSONB,
+ADD COLUMN IF NOT EXISTS erros_graves TEXT[],
+ADD COLUMN IF NOT EXISTS fonte TEXT DEFAULT 'importada',
+ADD COLUMN IF NOT EXISTS status_validacao TEXT DEFAULT 'PENDENTE',
+ADD COLUMN IF NOT EXISTS tag_transversal TEXT[],
+ADD COLUMN IF NOT EXISTS status TEXT DEFAULT 'normal';
