@@ -35,7 +35,7 @@ export default function AdminDashboard() {
     const { reports, loadReports, updateReportStatus, loading: reportsLoading } = useModeration()
     const { responses, load_all_responses: loadAllResponses } = useQuiz()
     // Sync view with URL param 'tab'
-    const [view, setViewInternal] = useState<'questions' | 'users' | 'analytics' | 'import' | 'reports'>('analytics')
+    const [view, setViewInternal] = useState<'questions' | 'users' | 'analytics' | 'import' | 'reports' | 'validation'>('analytics')
 
     const setView = (newView: string) => {
         setViewInternal(newView as any)
@@ -46,7 +46,7 @@ export default function AdminDashboard() {
 
     useEffect(() => {
         const tab = searchParams.get('tab')
-        if (tab && ['questions', 'users', 'analytics', 'import', 'reports'].includes(tab)) {
+        if (tab && ['questions', 'users', 'analytics', 'import', 'reports', 'validation'].includes(tab)) {
             setViewInternal(tab as any)
         } else if (!tab && view === 'analytics') {
             setViewInternal('analytics')
@@ -195,7 +195,10 @@ export default function AdminDashboard() {
             if (totalGenerated.length === 0) {
                 setImportStatus({ type: 'error', msg: `❌ Falha: Nenhuma questão gerada. Verifique se sua chave API (${provider.toUpperCase()}) tem cota.` })
             } else {
-                setImportStatus({ type: 'success', msg: `✅ SUCESSO! ${totalGenerated.length} questões foram geradas e salvas no banco.` })
+                setImportStatus({
+                    type: 'success',
+                    msg: `✅ SUCESSO! ${totalGenerated.length} questões foram geradas e estão na fila de VALIDÁÇÃO.`
+                })
                 loadQuestions()
             }
 
@@ -963,11 +966,10 @@ export default function AdminDashboard() {
                 <div className="flex flex-wrap gap-2 p-1.5 bg-muted rounded-2xl w-fit">
                     <NavBtn active={view === 'analytics'} onClick={() => setView('analytics')} icon={<BarChart3 className="w-4 h-4" />} label="Dashboard" />
                     <NavBtn active={view === 'questions'} onClick={() => setView('questions')} icon={<Database className="w-4 h-4" />} label="Banco" />
-                    <NavBtn active={view === 'import'} onClick={() => setView('import')} icon={<Sparkles className="w-4 h-4 text-amber-400" />} label="Dr. QRub (IA)" />
-                    <NavBtn active={view === 'reports'} onClick={() => setView('reports')} icon={<AlertCircle className="w-4 h-4" />} label="Regulagem" />
-
+                    <NavBtn active={view === 'import'} onClick={() => setView('import')} icon={<Zap className="w-4 h-4" />} label="Dr. QRub (IA)" />
+                    <NavBtn active={view === 'validation'} onClick={() => setView('validation')} icon={<ShieldCheck className="w-4 h-4" />} label="Validação IA" />
+                    <NavBtn active={view === 'reports'} onClick={() => setView('reports')} icon={<AlertCircle className="w-4 h-4" />} label="Regulação" />
                     <NavBtn active={view === 'users'} onClick={() => setView('users')} icon={<Users className="w-4 h-4" />} label="Alunos" />
-
                 </div>
 
                 <div className="flex gap-3">
@@ -1372,6 +1374,121 @@ export default function AdminDashboard() {
                                                     <p className="text-sm font-black uppercase tracking-widest text-muted-foreground">Tudo limpo! Sem pendências de regulação.</p>
                                                 </td>
                                             </tr>
+                                        )}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </motion.div>
+                )}
+
+                {view === 'validation' && (
+                    <motion.div key="v" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} className="space-y-6">
+                        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                            <div>
+                                <h3 className="text-2xl font-black italic uppercase tracking-tighter flex items-center gap-2">
+                                    <ShieldCheck className="w-6 h-6 text-primary" /> Fila de Validação (IA)
+                                </h3>
+                                <p className="text-[10px] font-black text-muted-foreground uppercase tracking-widest mt-1">
+                                    {questions.filter(q => q.status_validacao === 'PENDENTE').length} questões aguardando revisão oficial.
+                                </p>
+                            </div>
+                            <div className="flex gap-3">
+                                <button
+                                    onClick={async () => {
+                                        const pendentes = questions.filter(q => q.status_validacao === 'PENDENTE')
+                                        if (pendentes.length === 0) return
+                                        if (confirm(`Deseja APROVAR TODAS as ${pendentes.length} questões pendentes?`)) {
+                                            const updated = pendentes.map(q => ({ ...q, status_validacao: 'APROVADA' as const }))
+                                            await addQuestions(updated)
+                                        }
+                                    }}
+                                    className="px-6 py-3 bg-emerald-500 text-white rounded-2xl text-[10px] font-black uppercase tracking-widest hover:scale-105 transition-all shadow-xl shadow-emerald-500/20"
+                                >
+                                    Aprovar Todas em Lote
+                                </button>
+                                <button
+                                    onClick={() => loadQuestions()}
+                                    className="p-3 bg-muted rounded-2xl hover:bg-muted/80 transition-all"
+                                >
+                                    <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} />
+                                </button>
+                            </div>
+                        </div>
+
+                        <div className="bg-card border border-border rounded-[32px] overflow-hidden soft-shadow">
+                            <div className="overflow-x-auto">
+                                <table className="w-full text-left">
+                                    <thead className="bg-muted/50 text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground">
+                                        <tr>
+                                            <th className="px-8 py-6">Questão / Fonte</th>
+                                            <th className="px-8 py-6">Especialidade / Tema</th>
+                                            <th className="px-8 py-6">Status Interno</th>
+                                            <th className="px-8 py-6 text-right">Ações de Curador</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody className="divide-y divide-border">
+                                        {questions.filter(q => q.status_validacao === 'PENDENTE').length === 0 ? (
+                                            <tr>
+                                                <td colSpan={4} className="px-8 py-32 text-center">
+                                                    <div className="max-w-xs mx-auto">
+                                                        <div className="w-16 h-16 bg-emerald-500/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                                                            <CheckCircle2 className="w-8 h-8 text-emerald-500" />
+                                                        </div>
+                                                        <h4 className="text-lg font-black italic uppercase tracking-tighter mb-2">Banco Verificado!</h4>
+                                                        <p className="text-xs font-medium text-muted-foreground">Não há questões pendentes de validação no momento.</p>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        ) : (
+                                            questions.filter(q => q.status_validacao === 'PENDENTE').map(q => (
+                                                <tr key={q.id} className="hover:bg-muted/5 transition-colors">
+                                                    <td className="px-8 py-6 max-w-md">
+                                                        <div className="font-mono text-[10px] text-primary font-black mb-1">{q.id}</div>
+                                                        <div className="text-xs font-bold line-clamp-2 mb-2">{q.enunciado}</div>
+                                                        <div className="flex items-center gap-2">
+                                                            <span className="bg-muted px-2 py-0.5 rounded text-[8px] font-black uppercase border border-border">{q.exam_type || 'IA'}</span>
+                                                            <span className="text-[9px] text-muted-foreground font-medium italic">{q.source || 'Sem fonte'}</span>
+                                                        </div>
+                                                    </td>
+                                                    <td className="px-8 py-6">
+                                                        <div className="text-[10px] font-black uppercase tracking-widest text-foreground">{q.specialty_id}</div>
+                                                        <div className="text-[9px] text-muted-foreground uppercase font-bold">{q.subject_id || 'Tema variado'}</div>
+                                                    </td>
+                                                    <td className="px-8 py-6">
+                                                        <span className="bg-amber-500/10 text-amber-600 border border-amber-500/20 px-3 py-1 rounded-lg text-[9px] font-black uppercase">
+                                                            Pendente IA
+                                                        </span>
+                                                    </td>
+                                                    <td className="px-8 py-6 text-right">
+                                                        <div className="flex justify-end gap-2">
+                                                            <button
+                                                                onClick={() => handleOpenEditor(q)}
+                                                                className="p-2.5 bg-muted hover:bg-muted/80 rounded-xl transition-all"
+                                                                title="Visualizar Completa"
+                                                            >
+                                                                <Edit2 className="w-4 h-4 text-muted-foreground" />
+                                                            </button>
+                                                            <button
+                                                                onClick={async () => {
+                                                                    await addQuestions([{ ...q, status_validacao: 'APROVADA' as const }])
+                                                                }}
+                                                                className="px-4 py-2 bg-emerald-500 text-white rounded-xl text-[9px] font-black uppercase tracking-widest hover:bg-emerald-600 transition-all shadow-lg shadow-emerald-500/10"
+                                                            >
+                                                                Aprovar
+                                                            </button>
+                                                            <button
+                                                                onClick={async () => {
+                                                                    await addQuestions([{ ...q, status_validacao: 'REPROVADA' as const }])
+                                                                }}
+                                                                className="px-4 py-2 bg-rose-500 text-white rounded-xl text-[9px] font-black uppercase tracking-widest hover:bg-rose-600 transition-all shadow-lg shadow-rose-500/10"
+                                                            >
+                                                                Reprovar
+                                                            </button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            ))
                                         )}
                                     </tbody>
                                 </table>
