@@ -66,7 +66,7 @@ export default function AdminDashboard() {
     const [provider, setProvider] = useState<'openai' | 'gemini'>('openai')
     const [isGenerating, setIsGenerating] = useState(false)
     const [aiTopic, setAiTopic] = useState('')
-    const [aiCount, setAiCount] = useState(5)
+    const [aiCount, setAiCount] = useState(50)
     const [showManualImport, setShowManualImport] = useState(false)
     const [examText, setExamText] = useState('')
     const [answerKey, setAnswerKey] = useState('')
@@ -145,22 +145,28 @@ export default function AdminDashboard() {
                     const convertedBatch: Question[] = data.questions.map((q: any) => ({
                         id: q.id?.startsWith('QRB') ? q.id : `QRUB-AI-${Math.random().toString(36).substr(2, 6).toUpperCase()}`,
                         course_id: selectedCourse,
-                        specialty_id: selectedSpecialty,
+                        specialty_id: q.specialty?.toLowerCase() || selectedSpecialty,
                         subspecialty_id: q.subspecialty || selectedSubspecialty || '',
                         subject_id: q.tema || selectedSubject || '',
                         difficulty: q.dificuldade || 'Médio',
-                        enunciado: q.enunciado,
+                        enunciado: q.question_text || q.enunciado,
                         comando: q.comando || '',
-                        options: q.alternativas ? q.alternativas.map((alt: any) => ({
-                            id: (alt.letra || alt.id || 'a').toLowerCase(),
-                            text: alt.texto
-                        })) : [],
-                        correct_option_id: (q.gabarito || q.resposta_correta || 'a').toLowerCase(),
-                        explanation: q.justificativa_gabarito || q.comentario || 'Explicação baseada em diretrizes oficiais.',
-                        alternative_explanations: q.por_que_nao_as_outras || q.distratores_comentados || {},
+                        options: (q.option_a || q.alternativas) ? [
+                            { id: 'a', text: q.option_a || (q.alternativas?.[0]?.texto || '') },
+                            { id: 'b', text: q.option_b || (q.alternativas?.[1]?.texto || '') },
+                            { id: 'c', text: q.option_c || (q.alternativas?.[2]?.texto || '') },
+                            { id: 'd', text: q.option_d || (q.alternativas?.[3]?.texto || '') },
+                            { id: 'e', text: q.option_e || (q.alternativas?.[4]?.texto || '') },
+                        ].filter(opt => opt.text) : [],
+                        correct_option_id: (q.correct_answer || q.gabarito || 'a').toLowerCase(),
+                        explanation: q.explanation || q.justificativa_gabarito || 'Explicação baseada em protocolos clínicos.',
+                        alternative_explanations: q.por_que_nao_as_outras || {},
                         tag_transversal: q.tag_transversal || [],
                         status_validacao: q.status_validacao || 'PENDENTE',
                         erros_graves: q.erros_graves || [],
+                        exam_type: q.exam_type,
+                        year: q.year,
+                        source: q.source,
                         metadata: {
                             ...q.metadata,
                             data_geracao: new Date().toISOString()
@@ -514,22 +520,28 @@ export default function AdminDashboard() {
             const convertedBatch: Question[] = questionsToSave.map((q: any) => ({
                 id: q.id?.startsWith('QRB') ? q.id : `QRUB-MANUAL-${Math.random().toString(36).substr(2, 6).toUpperCase()}`,
                 course_id: selectedCourse,
-                specialty_id: selectedSpecialty,
+                specialty_id: q.specialty?.toLowerCase() || selectedSpecialty,
                 subspecialty_id: q.subspecialty || selectedSubspecialty || '',
                 subject_id: q.tema || selectedSubject || '',
                 difficulty: q.dificuldade || 'Médio',
-                enunciado: q.enunciado,
+                enunciado: q.question_text || q.enunciado,
                 comando: q.comando || '',
-                options: q.alternativas ? q.alternativas.map((alt: any) => ({
-                    id: (alt.letra || alt.id || 'a').toLowerCase(),
-                    text: alt.texto
-                })) : [],
-                correct_option_id: (q.gabarito || q.resposta_correta || 'a').toLowerCase(),
-                explanation: q.justificativa_gabarito || q.comentario || 'Importado manualmente.',
-                alternative_explanations: q.por_que_nao_as_outras || q.distratores_comentados || {},
+                options: (q.option_a || q.alternativas) ? [
+                    { id: 'a', text: q.option_a || (q.alternativas?.[0]?.texto || '') },
+                    { id: 'b', text: q.option_b || (q.alternativas?.[1]?.texto || '') },
+                    { id: 'c', text: q.option_c || (q.alternativas?.[2]?.texto || '') },
+                    { id: 'd', text: q.option_d || (q.alternativas?.[3]?.texto || '') },
+                    { id: 'e', text: q.option_e || (q.alternativas?.[4]?.texto || '') },
+                ].filter(opt => opt.text) : [],
+                correct_option_id: (q.correct_answer || q.gabarito || 'a').toLowerCase(),
+                explanation: q.explanation || q.justificativa_gabarito || 'Importado manualmente.',
+                alternative_explanations: q.por_que_nao_as_outras || {},
                 tag_transversal: q.tag_transversal || [],
                 status_validacao: q.status_validacao || 'PENDENTE',
                 erros_graves: q.erros_graves || [],
+                exam_type: q.exam_type,
+                year: q.year,
+                source: q.source,
                 metadata: { ...q.metadata, data_importacao: new Date().toISOString() }
             }))
 
@@ -1549,46 +1561,60 @@ export default function AdminDashboard() {
                     </motion.div>
                 )}
                 {view === 'import' && (
-                    <motion.div key="import-view" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} className="max-w-5xl mx-auto space-y-8">
-                        <div className="bg-card border border-border rounded-[32px] p-8 shadow-xl">
-                            <div className="flex items-start justify-between mb-8">
+                    <motion.div key="import-view" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} className="max-w-6xl mx-auto space-y-8">
+                        <div className="bg-card border border-border rounded-[40px] p-10 shadow-2xl relative overflow-hidden">
+                            {/* Target Progress Banner */}
+                            <div className="absolute top-0 left-0 w-full h-1 bg-muted">
+                                <div
+                                    className="h-full bg-emerald-500 transition-all duration-1000"
+                                    style={{ width: `${Math.min(((countsBySpecialty[selectedSpecialty] || 0) / 500) * 100, 100)}%` }}
+                                />
+                            </div>
+
+                            <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8 mb-12">
                                 <div>
-                                    <h2 className="text-3xl font-black italic tracking-tighter flex items-center gap-3">
-                                        <div className={`p-2 rounded-xl ${provider === 'openai' ? 'bg-emerald-400/20 text-emerald-500' : 'bg-blue-400/20 text-blue-500'}`}>
-                                            {provider === 'openai' ? <Sparkles className="w-8 h-8" /> : <Zap className="w-8 h-8" />}
-                                        </div>
-                                        GERADOR PADRÃO-OURO
+                                    <div className="flex items-center gap-2 text-primary font-black uppercase text-[10px] tracking-[0.3em] mb-4">
+                                        <ShieldCheck className="w-4 h-4" />
+                                        Protocolo Alimentador de Banco de Dados
+                                    </div>
+                                    <h2 className="text-4xl font-black italic tracking-tighter flex items-center gap-3">
+                                        QRUB <span className="text-primary underline">MASTER</span> BULK.
                                     </h2>
-                                    <p className="text-muted-foreground font-medium mt-2 max-w-2xl">
-                                        Motor AI Ativo: <span className="text-foreground font-black uppercase">{provider === 'openai' ? 'OpenAI GPT-4o' : 'Google Gemini 1.5 Pro'}</span>
+                                    <p className="text-muted-foreground font-medium mt-2 max-w-xl">
+                                        Monitorando: <span className="text-foreground font-black uppercase">{selectedSpecialty || 'Selecione Especialidade'}</span>
+                                        {selectedSpecialty && (
+                                            <> — <span className="text-emerald-500 font-bold">{countsBySpecialty[selectedSpecialty] || 0}</span> / 500 questões</>
+                                        )}
                                     </p>
                                 </div>
-                                <div className="flex flex-col items-end gap-2">
-                                    <div className="flex gap-1 bg-muted p-1 rounded-lg mb-1">
+                                <div className="flex flex-col items-end gap-3 bg-muted/30 p-6 rounded-[28px] border border-border/50">
+                                    <div className="flex gap-1 bg-background/50 p-1 rounded-xl mb-1">
                                         <button
                                             onClick={() => setProvider('openai')}
-                                            className={`px-3 py-1 text-[10px] font-black uppercase rounded-md transition-all ${provider === 'openai' ? 'bg-white text-black shadow-sm' : 'text-muted-foreground hover:text-foreground'}`}
+                                            className={`px-4 py-2 text-[10px] font-black uppercase rounded-lg transition-all ${provider === 'openai' ? 'bg-white text-black shadow-md' : 'text-muted-foreground hover:text-foreground'}`}
                                         >
-                                            OpenAI
+                                            OpenAI GPT-4o
                                         </button>
                                         <button
                                             onClick={() => setProvider('gemini')}
-                                            className={`px-3 py-1 text-[10px] font-black uppercase rounded-md transition-all ${provider === 'gemini' ? 'bg-white text-black shadow-sm' : 'text-muted-foreground hover:text-foreground'}`}
+                                            className={`px-4 py-2 text-[10px] font-black uppercase rounded-lg transition-all ${provider === 'gemini' ? 'bg-white text-black shadow-md' : 'text-muted-foreground hover:text-foreground'}`}
                                         >
-                                            Gemini
+                                            Gemini 1.5 Pro
                                         </button>
                                     </div>
-                                    <input
-                                        type="password"
-                                        placeholder={provider === 'openai' ? "OpenAI Key (sk-...)" : "Google AI Key (AIza...)"}
-                                        value={apiKey}
-                                        onChange={(e) => {
-                                            setApiKey(e.target.value)
-                                            localStorage.setItem(`${provider}_api_key`, e.target.value)
-                                        }}
-                                        className="bg-muted border border-border rounded-lg px-3 py-1 text-xs font-mono w-64 focus:ring-2 focus:ring-primary/20 outline-none"
-                                    />
-                                    <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-widest">Chave salva para {provider}</span>
+                                    <div className="relative w-full">
+                                        <ShieldCheck className="absolute left-3 top-1/2 -translate-y-1/2 w-3 h-3 text-muted-foreground" />
+                                        <input
+                                            type="password"
+                                            placeholder="Inserir Chave de Operação..."
+                                            value={apiKey}
+                                            onChange={(e) => {
+                                                setApiKey(e.target.value)
+                                                localStorage.setItem(`${provider}_api_key`, e.target.value)
+                                            }}
+                                            className="bg-background border border-border rounded-xl pl-9 pr-4 py-2 text-xs font-mono w-full focus:ring-2 focus:ring-primary/20 outline-none"
+                                        />
+                                    </div>
                                 </div>
                             </div>
 
@@ -1638,21 +1664,28 @@ export default function AdminDashboard() {
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                     <button
                                         onClick={handleGenerateAiQuestions}
-                                        disabled={isGenerating}
-                                        className={`py-6 rounded-2xl font-black text-lg uppercase tracking-widest shadow-xl transition-all flex items-center justify-center gap-3 ${isGenerating
+                                        disabled={isGenerating || (countsBySpecialty[selectedSpecialty] || 0) >= 500}
+                                        className={`py-8 rounded-[30px] font-black text-xl uppercase tracking-widest shadow-2xl transition-all flex flex-col items-center justify-center gap-2 ${isGenerating
                                             ? 'bg-muted text-muted-foreground cursor-wait'
-                                            : 'bg-amber-400 hover:bg-amber-500 text-amber-950 hover:scale-[1.01] active:scale-95'
+                                            : (countsBySpecialty[selectedSpecialty] || 0) >= 500
+                                                ? 'bg-emerald-500/20 text-emerald-500 cursor-not-allowed border border-emerald-500/30'
+                                                : 'bg-primary hover:bg-primary/90 text-white hover:scale-[1.02] active:scale-95 shadow-primary/30'
                                             }`}
                                     >
                                         {isGenerating ? (
                                             <>
-                                                <RefreshCw className="w-6 h-6 animate-spin" />
-                                                Gerando...
+                                                <RefreshCw className="w-8 h-8 animate-spin" />
+                                                Alimentando Banco...
+                                            </>
+                                        ) : (countsBySpecialty[selectedSpecialty] || 0) >= 500 ? (
+                                            <>
+                                                <ShieldCheck className="w-8 h-8" />
+                                                Meta 500 Atingida
                                             </>
                                         ) : (
                                             <>
-                                                <Sparkles className="w-6 h-6" />
-                                                Gerar Temas por IA
+                                                <Zap className="w-8 h-8" />
+                                                Alimentar em Massa (Lote 50)
                                             </>
                                         )}
                                     </button>
@@ -1752,10 +1785,11 @@ export default function AdminDashboard() {
                         </div>
 
                         <div className="bg-muted/30 border border-border rounded-2xl p-6 mt-8">
-                            <h4 className="font-bold text-sm flex items-center gap-2 mb-2"><ShieldCheck className="w-4 h-4 text-emerald-500" /> Garantia de Qualidade</h4>
+                            <h4 className="font-bold text-sm flex items-center gap-2 mb-2"><ShieldCheck className="w-4 h-4 text-emerald-500" /> Protocolo QRUB MASTER</h4>
                             <p className="text-xs text-muted-foreground leading-relaxed">
-                                Este gerador utiliza o <strong>Prompt Padrão-Ouro V1.0</strong>. Todas as questões passam por um filtro rigoroso de consistência estrutural.
-                                Certifique-se de revisar os casos clínicos gerados antes de salvar. O sistema bloqueará automaticamente questões com menos de 4 alternativas ou sem resposta correta definida.
+                                Este agente opera em modo <strong>Bulk (Lote)</strong>. Ele está programado para localizar e replicar questões reais (Revalida/ENARE) e gerar questões inéditas complementares fundamentadas no SUS/PCDT 2024-2025.
+                                <br /><br />
+                                <strong>Regra de Teto:</strong> A geração cessará automaticamente para qualquer especialidade que atingir o marco de <strong>500 questões</strong> para garantir diversidade e qualidade premium.
                             </p>
                         </div>
                     </motion.div>

@@ -118,10 +118,9 @@ export interface Question {
     comando?: string
     por_que_nao_as_outras?: Record<string, string>
     erros_graves?: string[]
-    guideline_id?: string
-    guideline_version?: string
-    blueprint_id?: string // Link com o Edital
-    study_box_id?: string  // Link com a Caixinha
+    exam_type?: 'revalida' | 'enare_enamed' | 'oab' | 'inedita'
+    year?: string
+    source?: string
     metadata?: QuestionMetadata
 }
 
