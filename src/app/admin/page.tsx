@@ -1400,7 +1400,13 @@ export default function AdminDashboard() {
                                         if (pendentes.length === 0) return
                                         if (confirm(`Deseja APROVAR TODAS as ${pendentes.length} questões pendentes?`)) {
                                             const updated = pendentes.map(q => ({ ...q, status_validacao: 'APROVADA' as const }))
-                                            await addQuestions(updated)
+                                            const res = await addQuestions(updated)
+                                            if (res.success) {
+                                                alert(res.message)
+                                                await loadQuestions() // Recarrega para limpar a fila
+                                            } else {
+                                                alert(`Erro: ${res.message}`)
+                                            }
                                         }
                                     }}
                                     className="px-6 py-3 bg-emerald-500 text-white rounded-2xl text-[10px] font-black uppercase tracking-widest hover:scale-105 transition-all shadow-xl shadow-emerald-500/20"

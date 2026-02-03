@@ -20,8 +20,12 @@ export async function POST(req: Request) {
         } = await req.json();
 
         if (!apiKey) {
-            return NextResponse.json({ error: 'API Key is required' }, { status: 400 });
+            return NextResponse.json({ error: 'Uma Chave de Operação é necessária. Use "DRQRUB-FREE" para testar com chaves do sistema.' }, { status: 400 });
         }
+
+        const effectiveApiKey = apiKey === 'DRQRUB-FREE'
+            ? (process.env.OPENAI_API_KEY || process.env.GOOGLE_GENERATIVE_AI_API_KEY || apiKey)
+            : apiKey;
 
         const userPrompt = mode === 'ingestion'
             ? buildIngestionPrompt(examText, answerKey, start, end, source)
@@ -31,7 +35,7 @@ export async function POST(req: Request) {
 
         // --- GOOGLE GEMINI HANDLER ---
         if (provider === 'gemini') {
-            const genAI = new GoogleGenerativeAI(apiKey);
+            const genAI = new GoogleGenerativeAI(effectiveApiKey);
             const model = genAI.getGenerativeModel({
                 model: "gemini-1.5-flash", // Flash é mais rápido e menos propenso a timeout no Vercel (60s limit)
                 safetySettings: [
@@ -77,7 +81,7 @@ export async function POST(req: Request) {
         }
         // --- OPENAI HANDLER (DEFAULT) ---
         else {
-            const openai = new OpenAI({ apiKey: apiKey });
+            const openai = new OpenAI({ apiKey: effectiveApiKey });
 
             const completion = await openai.chat.completions.create({
                 model: "gpt-4o",
