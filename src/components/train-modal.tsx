@@ -53,10 +53,21 @@ export function TrainModal({ isOpen, onClose, initialMode, initialSpecialtyId }:
     }, [selectedSpecialty])
 
     const availableSubjects = useMemo(() => {
+        let subjects: { id: string, name: string }[] = []
         if (selectedSubId) {
-            return availableSubspecialties.find(s => s.id === selectedSubId)?.subjects || []
+            subjects = availableSubspecialties.find(s => s.id === selectedSubId)?.subjects || []
+        } else {
+            subjects = availableSubspecialties.flatMap(s => s.subjects)
         }
-        return availableSubspecialties.flatMap(s => s.subjects)
+
+        // Remove duplicates by name to prevent multiple "Geral" options
+        const unique = new Map()
+        subjects.forEach(s => {
+            if (!unique.has(s.name)) {
+                unique.set(s.name, s)
+            }
+        })
+        return Array.from(unique.values())
     }, [selectedSubId, availableSubspecialties])
 
     // Hooks are safe here
