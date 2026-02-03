@@ -1,0 +1,21 @@
+
+> qrub@0.1.0 dev
+> next dev
+
+▲ Next.js 16.1.5 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.0.4:3000
+- Environments: .env.local
+
+✓ Starting...
+✓ Ready in 1742ms
+ GET / 200 in 2.1s (compile: 1553ms, render: 545ms)
+ GET / 200 in 175ms (compile: 21ms, render: 155ms)
+ GET /auth 200 in 412ms (compile: 294ms, render: 119ms)
+ GET /dashboard 200 in 565ms (compile: 525ms, render: 40ms)
+ GET /dashboard 200 in 443ms (compile: 13ms, render: 430ms)
+ GET /admin 200 in 101ms (compile: 53ms, render: 47ms)
+ GET /admin?tab=structural 200 in 100ms (compile: 7ms, render: 92ms)
+ GET /admin?tab=validation 200 in 57ms (compile: 7ms, render: 50ms)
+✓ Compiled in 1092ms
+✓ Compiled in 406ms

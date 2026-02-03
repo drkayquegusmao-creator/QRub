@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { AuthProvider } from "@/components/auth-provider";
+import { MaintenanceGuardian } from "@/components/maintenance-guardian";
 import { SupportChatWidget } from "@/components/support-chat-widget";
 import { MaintenanceOverlay } from "@/components/maintenance-overlay";
 
@@ -63,8 +64,10 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <AuthProvider>
-            <MaintenanceOverlay />
-            {children}
+            <MaintenanceGuardian>
+              <MaintenanceOverlay />
+              {children}
+            </MaintenanceGuardian>
             <SupportChatWidget />
           </AuthProvider>
         </ThemeProvider>

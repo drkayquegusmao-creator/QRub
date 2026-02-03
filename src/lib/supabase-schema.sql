@@ -255,3 +255,30 @@ ADD COLUMN IF NOT EXISTS tag_transversal TEXT[],
 ADD COLUMN IF NOT EXISTS status TEXT DEFAULT 'normal';
 
 ALTER TABLE public.questions ADD COLUMN IF NOT EXISTS subarea_id TEXT;
+
+-- ============================================
+-- SYSTEM SETTINGS TABLE
+-- ============================================
+CREATE TABLE IF NOT EXISTS public.system_settings (
+    key TEXT PRIMARY KEY,
+    value JSONB NOT NULL,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+    updated_by UUID REFERENCES public.users(id)
+);
+
+ALTER TABLE public.system_settings ENABLE ROW LEVEL SECURITY;
+
+CREATE POLICY "Everyone can read system settings" ON public.system_settings
+    FOR SELECT USING (true);
+
+CREATE POLICY "Only MASTER can update settings" ON public.system_settings
+    FOR ALL USING (
+        EXISTS (
+            SELECT 1 FROM public.users
+            WHERE id = auth.uid() AND role = 'MASTER'
+        )
+    );
+
+INSERT INTO public.system_settings (key, value)
+VALUES ('maintenance_mode', '{"active": false, "message": "Manutenção programada"}'::jsonb)
+ON CONFLICT (key) DO NOTHING;

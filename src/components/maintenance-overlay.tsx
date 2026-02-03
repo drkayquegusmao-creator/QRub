@@ -4,16 +4,19 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Hammer, Sparkles, Zap, ShieldAlert, Settings, Wrench } from 'lucide-react'
 import { useSystem } from '@/store/use-system'
 import { useAuth } from '@/store/use-auth'
+import { usePathname } from 'next/navigation'
 
 export function MaintenanceOverlay() {
     const { isMaintenanceMode, maintenanceMessage } = useSystem()
     const { user } = useAuth()
+    const pathname = usePathname()
 
     // Não mostrar para o Admin MASTER (ele deve poder desativar ou trabalhar)
     // No entanto, mostramos um aviso discreto se estiver ativo
     const isAdmin = user?.role === 'MASTER'
 
     if (!isMaintenanceMode) return null
+    if (pathname === '/maintenance' && !isAdmin) return null
 
     if (isAdmin) {
         return (

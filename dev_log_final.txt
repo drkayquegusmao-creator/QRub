@@ -278,3 +278,7 @@
  GET /auth 200 in 58ms (compile: 4ms, render: 54ms)
  GET / 200 in 40ms (compile: 3ms, render: 37ms)
  GET /auth 200 in 26ms (compile: 3ms, render: 23ms)
+ GET /admin?tab=structural 200 in 3.4s (compile: 2.1s, render: 1391ms)
+ GET / 200 in 213ms (compile: 159ms, render: 55ms)
+ GET /admin?tab=structural 200 in 212ms (compile: 35ms, render: 177ms)
+ GET / 200 in 68ms (compile: 13ms, render: 55ms)
