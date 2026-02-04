@@ -9,13 +9,15 @@ import { usePathname } from 'next/navigation'
 
 
 export function MaintenanceOverlay() {
-    const { isMaintenanceMode, maintenanceMessage } = useSystem()
-    const { user } = useAuth()
-    const pathname = usePathname()
+    // FORCE DISABLE OVERLAY
+    return null
 
-    // Não mostrar para o Admin MASTER (ele deve poder desativar ou trabalhar)
-    // No entanto, mostramos um aviso discreto se estiver ativo
-    const isAdmin = user?.role === 'MASTER'
+    // Original logic below (disabled)
+    /* 
+    const isMaintenanceMode = useSystem(state => state.isMaintenanceMode)
+    const maintenanceMessage = useSystem(state => state.maintenanceMessage)
+    // ... rest of logic
+    */
 
     if (!isMaintenanceMode) return null
     if (pathname === '/maintenance' && !isAdmin) return null

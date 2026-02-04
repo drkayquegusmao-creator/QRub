@@ -29,11 +29,14 @@ export function MaintenanceGuardian({ children }: { children: React.ReactNode })
         const isMaster = user?.role === 'MASTER'
 
         if (isMaintenanceMode) {
+            // FORCE DISABLE REDIRECT
+            /*
             // If Maintenance is ON
             if (!isMaster && !isMaintenancePage && !isPublicPage) {
                 // If user is NOT master, NOT on maintenance page, and NOT on public page -> Redirect to Maintenance
                 router.replace('/maintenance')
             }
+            */
         } else {
             // If Maintenance is OFF
             if (isMaintenancePage) {
