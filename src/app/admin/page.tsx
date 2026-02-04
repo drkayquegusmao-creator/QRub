@@ -44,6 +44,7 @@ export default function AdminDashboard() {
     const [view, setViewInternal] = useState<'questions' | 'users' | 'analytics' | 'reports' | 'import' | 'structural' | 'validation' | 'settings'>('analytics')
     const { isMaintenanceMode, maintenanceMessage, setMaintenanceMode, openaiApiKey, setOpenaiApiKey } = useSystem()
     const [generationMode, setGenerationMode] = useState<'structural' | 'ai'>('structural')
+    const [generationQuantity, setGenerationQuantity] = useState(1)
     const [structuralArea, setStructuralArea] = useState('')
     const [structuralSubarea, setStructuralSubarea] = useState('')
     const [structuralTema, setStructuralTema] = useState('')
@@ -142,63 +143,73 @@ export default function AdminDashboard() {
         const temaObj = subareaObj?.subjects.find(t => t.id === structuralTema)
 
         setLoadingManual(true)
+        let totalCreated = 0
+
         try {
-            const response = await fetch('/api/ai/generate-question', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    apiKey: openaiApiKey,
-                    especialidade: areaObj?.name,
-                    subespecialidade: subareaObj?.name || 'Geral',
-                    tema: temaObj?.name || 'Geral'
+            for (let i = 0; i < generationQuantity; i++) {
+                setImportStatus({ type: 'success', msg: `⏳ Gerando questão ${i + 1} de ${generationQuantity}...` })
+
+                const response = await fetch('/api/ai/generate-question', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        apiKey: openaiApiKey,
+                        especialidade: areaObj?.name,
+                        subespecialidade: subareaObj?.name || 'Geral',
+                        tema: temaObj?.name || 'Geral'
+                    })
                 })
-            })
 
-            const data = await response.json()
-            if (!response.ok) throw new Error(data.error || 'Erro na geração IA')
+                const data = await response.json()
+                if (!response.ok) throw new Error(data.error || 'Erro na geração IA')
 
-            const alternatives = [
-                { id: 'a', text: data.alternativas.A },
-                { id: 'b', text: data.alternativas.B },
-                { id: 'c', text: data.alternativas.C },
-                { id: 'd', text: data.alternativas.D },
-                { id: 'e', text: data.alternativas.E },
-            ]
+                const alternatives = [
+                    { id: 'a', text: data.alternativas.A },
+                    { id: 'b', text: data.alternativas.B },
+                    { id: 'c', text: data.alternativas.C },
+                    { id: 'd', text: data.alternativas.D },
+                    { id: 'e', text: data.alternativas.E },
+                ]
 
-            const normalizedJustificativas: Record<string, string> = {}
-            if (data.justificativas_incorretas) {
-                Object.entries(data.justificativas_incorretas).forEach(([key, val]) => {
-                    normalizedJustificativas[key.toLowerCase()] = val as string
-                })
+                const normalizedJustificativas: Record<string, string> = {}
+                if (data.justificativas_incorretas) {
+                    Object.entries(data.justificativas_incorretas).forEach(([key, val]) => {
+                        normalizedJustificativas[key.toLowerCase()] = val as string
+                    })
+                }
+
+                const aiQuestion: Question = {
+                    id: crypto.randomUUID(),
+                    course_id: 'medicina',
+                    area_id: areaObj!.id,
+                    subarea_id: subareaObj?.id || 'geral',
+                    tema_id: temaObj?.id || 'geral',
+                    specialty_id: areaObj!.id,
+                    subspecialty_id: subareaObj?.id || 'geral',
+                    subject_id: temaObj?.id || 'geral',
+                    difficulty: data.nivel_dificuldade === 'moderado' ? 'Médio' : 'Difícil',
+                    enunciado: data.enunciado,
+                    comando: "Qual a conduta mais adequada?",
+                    options: alternatives,
+                    correct_option_id: data.resposta_correta.toLowerCase(),
+                    explanation: data.justificativa_correta,
+                    alternative_explanations: normalizedJustificativas,
+                    fonte: 'ia',
+                    status_validacao: 'PENDENTE',
+                    created_at: new Date().toISOString()
+                }
+
+                const result = await addQuestion(aiQuestion)
+                if (result.success) {
+                    totalCreated++
+                } else {
+                    console.error('Erro ao salvar IA:', result.message)
+                }
             }
 
-            const aiQuestion: Question = {
-                id: crypto.randomUUID(),
-                course_id: 'medicina',
-                area_id: areaObj!.id,
-                subarea_id: subareaObj?.id || 'geral',
-                tema_id: temaObj?.id || 'geral',
-                specialty_id: areaObj!.id,
-                subspecialty_id: subareaObj?.id || 'geral',
-                subject_id: temaObj?.id || 'geral',
-                difficulty: data.nivel_dificuldade === 'moderado' ? 'Médio' : 'Difícil',
-                enunciado: data.enunciado,
-                comando: "Qual a conduta mais adequada?",
-                options: alternatives,
-                correct_option_id: data.resposta_correta.toLowerCase(),
-                explanation: data.justificativa_correta,
-                alternative_explanations: normalizedJustificativas,
-                fonte: 'ia',
-                status_validacao: 'PENDENTE',
-                created_at: new Date().toISOString()
-            }
-
-            const result = await addQuestion(aiQuestion)
-            if (result.success) {
-                setImportStatus({ type: 'success', msg: `🚀 IA Gerou: ${areaObj?.name} > ${data.tema}` })
+            if (totalCreated > 0) {
+                setImportStatus({ type: 'success', msg: `🚀 IA Gerou ${totalCreated} questões com sucesso!` })
                 loadQuestions()
-            } else {
-                throw new Error(result.message)
             }
         } catch (error: any) {
             setImportStatus({ type: 'error', msg: `❌ Erro IA: ${error.message}` })
@@ -331,6 +342,37 @@ export default function AdminDashboard() {
                                 </select>
                             </div>
                         </div>
+
+                        {generationMode === 'ai' && (
+                            <div className="space-y-4 bg-primary/5 p-8 rounded-3xl border border-primary/10 animate-in zoom-in-95">
+                                <div className="flex items-center justify-between">
+                                    <div className="space-y-1">
+                                        <h4 className="font-black uppercase italic text-primary">Volume de Geração</h4>
+                                        <p className="text-[10px] font-bold text-primary/60 uppercase tracking-widest">Escolha quantas questões deseja que a IA gere de uma vez</p>
+                                    </div>
+                                    <div className="flex items-center gap-4 bg-white p-2 rounded-2xl border border-primary/20">
+                                        {[1, 5, 10, 20].map(n => (
+                                            <button
+                                                key={n}
+                                                onClick={() => setGenerationQuantity(n)}
+                                                className={`w-12 h-12 rounded-xl font-black transition-all ${generationQuantity === n ? 'bg-primary text-white shadow-lg' : 'hover:bg-primary/5 text-primary'}`}
+                                            >
+                                                {n}
+                                            </button>
+                                        ))}
+                                        <div className="w-px h-8 bg-primary/10 mx-2" />
+                                        <input
+                                            type="number"
+                                            value={generationQuantity}
+                                            onChange={(e) => setGenerationQuantity(Math.max(1, parseInt(e.target.value) || 1))}
+                                            className="w-16 h-12 bg-transparent text-center font-black text-primary outline-none"
+                                            min="1"
+                                            max="50"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        )}
 
                         <button
                             onClick={generationMode === 'structural' ? handleStructuralGenerate : handleAIGenerate}
