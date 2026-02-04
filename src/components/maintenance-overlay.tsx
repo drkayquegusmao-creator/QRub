@@ -143,10 +143,14 @@ export function MaintenanceOverlay() {
                         transition={{ delay: 0.8 }}
                         className="flex flex-col items-center gap-4 pt-8"
                     >
-                        <a href="/auth" className="group flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-muted-foreground/40 hover:text-primary transition-colors cursor-pointer">
+                        <button
+                            onClick={() => window.location.href = '/auth'}
+                            className="group flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-muted-foreground/40 hover:text-primary transition-colors cursor-pointer focus:outline-none focus:text-primary z-50 pointer-events-auto"
+                            title="Acesso Administrativo"
+                        >
                             <ShieldAlert className="w-3 h-3 group-hover:animate-pulse" />
                             Acesso restrito para segurança dos dados
-                        </a>
+                        </button>
                     </motion.div>
                 </div>
             </motion.div>
