@@ -50,6 +50,10 @@ export default function QuizPage() {
     const [showReportModal, setShowReportModal] = useState(false)
     const [showSummaryModal, setShowSummaryModal] = useState(false)
 
+    // Controles de Acessibilidade
+    const [fontSize, setFontSize] = useState(18) // base font size in px
+    const [imageScale, setImageScale] = useState(100) // percent
+
 
 
 
@@ -286,6 +290,25 @@ export default function QuizPage() {
                 </div>
 
                 <div className="flex items-center gap-3">
+                    {/* Controles de Acessibilidade */}
+                    <div className="flex items-center gap-2 bg-muted/30 p-1.5 rounded-xl border border-border mr-4">
+                        <button
+                            onClick={() => setFontSize(prev => Math.max(14, prev - 2))}
+                            className="p-2 hover:bg-white rounded-lg transition-all"
+                            title="Diminuir Fonte"
+                        >
+                            <span className="text-xs font-bold font-serif">A-</span>
+                        </button>
+                        <div className="w-px h-4 bg-border" />
+                        <button
+                            onClick={() => setFontSize(prev => Math.min(32, prev + 2))}
+                            className="p-2 hover:bg-white rounded-lg transition-all"
+                            title="Aumentar Fonte"
+                        >
+                            <span className="text-sm font-bold font-serif">A+</span>
+                        </button>
+                    </div>
+
                     <button onClick={() => setIsFocusMode(!isFocusMode)} className="p-2 rounded-xl text-muted-foreground mr-2">
                         {isFocusMode ? <Minimize2 className="w-6 h-6" /> : <Maximize2 className="w-6 h-6" />}
                     </button>
@@ -326,10 +349,38 @@ export default function QuizPage() {
                     </div>
 
                     {question.image_url && (
-                        <div className="relative group cursor-zoom-in" onClick={() => setIsZoomOpen(true)}>
-                            <img src={question.image_url} alt="Clinical Image" className="rounded-[40px] w-full max-h-[300px] object-cover border border-border soft-shadow transition-all group-hover:brightness-110" />
-                            <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/20 rounded-[40px]">
-                                <Maximize2 className="text-white w-10 h-10" />
+                        <div className="space-y-4">
+                            <div className="flex items-center justify-end gap-4 px-4">
+                                <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground/60">Tamanho da Foto</p>
+                                <div className="flex items-center gap-2 bg-muted/30 p-1 rounded-xl">
+                                    <button
+                                        onClick={() => setImageScale(prev => Math.max(50, prev - 10))}
+                                        className="p-1.5 hover:bg-white rounded-lg transition-all"
+                                    >
+                                        <Minimize2 className="w-3.5 h-3.5" />
+                                    </button>
+                                    <span className="text-[10px] font-black w-8 text-center">{imageScale}%</span>
+                                    <button
+                                        onClick={() => setImageScale(prev => Math.min(200, prev + 10))}
+                                        className="p-1.5 hover:bg-white rounded-lg transition-all"
+                                    >
+                                        <Maximize2 className="w-3.5 h-3.5" />
+                                    </button>
+                                </div>
+                            </div>
+                            <div
+                                className="relative group cursor-zoom-in overflow-hidden rounded-[40px] border border-border soft-shadow transition-all"
+                                style={{ maxWidth: `${imageScale}%`, margin: '0 auto' }}
+                                onClick={() => setIsZoomOpen(true)}
+                            >
+                                <img
+                                    src={question.image_url}
+                                    alt="Clinical Image"
+                                    className="w-full h-auto object-cover transition-all group-hover:brightness-110"
+                                />
+                                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/20">
+                                    <Maximize2 className="text-white w-10 h-10" />
+                                </div>
                             </div>
                         </div>
                     )}
@@ -341,28 +392,28 @@ export default function QuizPage() {
                     )}
 
                     {question.case_study && (
-                        <div className={`space-y-6 mb-8 transition-all ${isFocusMode ? 'text-white/90' : 'text-[#1A1033]/90'}`}>
+                        <div className={`space-y-6 mb-8 transition-all ${isFocusMode ? 'text-white/90' : 'text-[#1A1033]/90'}`} style={{ fontSize: `${fontSize}px` }}>
                             {question.case_study.history && (
-                                <p className="text-xl md:text-2xl font-medium leading-relaxed">
+                                <p className="leading-relaxed" style={{ fontSize: '1.1em' }}>
                                     {question.case_study.history}
                                 </p>
                             )}
                             {question.case_study.physical_exam && (
-                                <p className="text-xl md:text-2xl font-medium leading-relaxed">
-                                    <strong className="uppercase text-sm tracking-widest opacity-70 block mb-1">Exame Físico</strong>
+                                <p className="leading-relaxed" style={{ fontSize: '1.1em' }}>
+                                    <strong className="uppercase text-[10px] tracking-widest opacity-70 block mb-1">Exame Físico</strong>
                                     {question.case_study.physical_exam}
                                 </p>
                             )}
                             {question.case_study.lab_results && (
-                                <p className="text-xl md:text-2xl font-medium leading-relaxed">
-                                    <strong className="uppercase text-sm tracking-widest opacity-70 block mb-1">Exames Complementares</strong>
+                                <p className="leading-relaxed" style={{ fontSize: '1.1em' }}>
+                                    <strong className="uppercase text-[10px] tracking-widest opacity-70 block mb-1">Exames Complementares</strong>
                                     {question.case_study.lab_results}
                                 </p>
                             )}
                         </div>
                     )}
 
-                    <h2 className={`text-2xl md:text-3xl font-bold leading-tight ${isFocusMode ? 'text-white' : 'text-[#1A1033]'}`}>
+                    <h2 className={`font-bold leading-tight ${isFocusMode ? 'text-white' : 'text-[#1A1033]'}`} style={{ fontSize: `${fontSize * 1.3}px` }}>
                         {question.enunciado}
                     </h2>
                 </div>

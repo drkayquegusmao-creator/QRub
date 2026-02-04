@@ -280,6 +280,20 @@ export default function AdminDashboard() {
         })
     }, [realUsers, userFilter, userSearch])
 
+    const handleBulkUserDelete = async () => {
+        if (selectedUserIds.length === 0) return
+        if (!confirm(`Tem certeza que deseja excluir ${selectedUserIds.length} usuários? Esta ação é irreversível!`)) return
+
+        try {
+            await deleteUsers(selectedUserIds)
+            setSelectedUserIds([])
+            alert('Usuários excluídos com sucesso!')
+        } catch (error) {
+            console.error(error)
+            alert('Erro ao excluir usuários.')
+        }
+    }
+
     const handleBulkAIGenerate = async (target: 'specialty' | 'subspecialty') => {
         if (!confirm(`Isso irá gerar ${generationQuantity} questões para CADA ${target === 'specialty' ? 'especialidade' : 'subespecialidade'} encontrada. Continuar?`)) return
 
@@ -287,7 +301,7 @@ export default function AdminDashboard() {
         let totalCreated = 0
 
         try {
-            const targets = []
+            const targets: { area: string, sub: string, tema: string }[] = []
             if (target === 'specialty') {
                 dynamicHierarchy.forEach((s: any) => targets.push({ area: s.name, sub: 'Detectar Automático', tema: 'Detectar Automático' }))
             } else {
@@ -382,8 +396,8 @@ export default function AdminDashboard() {
 
     const renderStructuralGenerator = () => {
         const specialties = dynamicHierarchy
-        const activeArea = specialties.find(s => s.id === structuralArea)
-        const activeSubarea = activeArea?.subspecialties.find(sub => sub.id === structuralSubarea)
+        const activeArea = specialties.find((s: any) => s.id === structuralArea)
+        const activeSubarea = activeArea?.subspecialties.find((sub: any) => sub.id === structuralSubarea)
 
         return (
             <>
@@ -1492,7 +1506,7 @@ export default function AdminDashboard() {
                                                     placeholder="Escolha ou digite nova..."
                                                 />
                                                 <datalist id="subspecialties-list">
-                                                    {activeCourse?.specialties.find(s => s.id === editingQuestion?.specialty_id)?.subspecialties.map(sub => (
+                                                    {activeCourse?.specialties.find((s: any) => s.id === editingQuestion?.specialty_id)?.subspecialties.map((sub: any) => (
                                                         <option key={sub.id} value={sub.id}>{sub.name}</option>
                                                     ))}
                                                 </datalist>
@@ -2107,10 +2121,10 @@ export default function AdminDashboard() {
                             <StatCard
                                 label="Usuários Totais"
                                 value={realUsers.length.toLocaleString('pt-BR')}
-                                sub={`+${realUsers.filter(u => {
-                                    const d = u.created_at ? new Date(u.created_at) : new Date();
-                                    return d.toDateString() === new Date().toDateString();
-                                }).length} hoje`}
+                                sub={`+${realUsers.filter((u: any) => {
+                                    const date = new Date(u.created_at || '')
+                                    return date > new Date(Date.now() - 7 * 24 * 60 * 60 * 1000)
+                                }).length} esta semana`}
                                 color="text-primary"
                                 icon={<Users className="w-5 h-5" />}
                             />
@@ -2124,7 +2138,7 @@ export default function AdminDashboard() {
                             <StatCard
                                 label="Questões no Banco"
                                 value={questions.length.toLocaleString('pt-BR')}
-                                sub={`${questions.filter(q => q.status_validacao === 'PENDENTE').length} pendentes`}
+                                sub={`${questions.filter((q: any) => q.status_validacao === 'PENDENTE').length} pendentes`}
                                 color="text-blue-500"
                                 icon={<Database className="w-5 h-5" />}
                             />
@@ -2188,9 +2202,9 @@ export default function AdminDashboard() {
                                         const d = q.created_at ? new Date(q.created_at) : new Date();
                                         return d.toDateString() === new Date().toDateString();
                                     }).length.toString()} />
-                                    <GenStat label="Aguardando Validação" value={questions.filter(q => q.status_validacao === 'PENDENTE').length.toString()} />
-                                    <GenStat label="Taxa de Erro Reportado" value={reports.length > 0 ? `${Math.round((reports.length / questions.length) * 100)}%` : '0%'} color="text-emerald-500" />
-                                    <GenStat label="Temas Cobertos" value={new Set(questions.map(q => q.subject_id)).size.toString()} />
+                                    <GenStat label="Aguardando Validação" value={questions.filter((q: any) => q.status_validacao === 'PENDENTE').length.toString()} />
+                                    <GenStat label="Total Questões" value={questions.length.toString()} />
+                                    <GenStat label="Temas Cobertos" value={new Set(questions.map((q: any) => q.subject_id)).size.toString()} />
                                     <div className="pt-6 mt-6 border-t border-border flex justify-between items-center">
                                         <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Custo Indireto</p>
                                         <span className="bg-emerald-500/10 text-emerald-500 px-3 py-1 rounded-full text-[9px] font-black">BAIXO</span>

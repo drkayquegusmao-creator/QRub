@@ -41,10 +41,12 @@ export interface Guideline {
 }
 
 export interface QuestionMetadata {
+    especialidade?: string
+    subespecialidade?: string
+    tema?: string
     concurso?: string
     cargo?: string
     eixo?: string
-    tema?: string
     subtema?: string
     origem?: string
     data_geracao?: string
