@@ -83,6 +83,14 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                                 {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
                             </button>
 
+                            {/* Mobile Logout (Visible on small screens) */}
+                            <button
+                                onClick={() => { logout(); router.push('/') }}
+                                className="md:hidden p-3 rounded-2xl bg-destructive/5 text-destructive hover:bg-destructive hover:text-white transition-all flex items-center justify-center"
+                            >
+                                <LogOut className="w-5 h-5" />
+                            </button>
+
                             <div className="hidden md:flex items-center gap-3 pl-3 border-l border-white/10">
                                 {user?.role === 'MASTER' && (
                                     <Link href="/admin">

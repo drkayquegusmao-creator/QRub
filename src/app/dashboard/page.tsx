@@ -184,9 +184,9 @@ export default function StudentDashboard() {
                 <div className="mt-10">
                     <button onClick={startIntelligentSession} className="group relative w-full">
                         <div className="absolute -inset-2 bg-primary rounded-[25px] blur-xl opacity-40 group-hover:opacity-70 transition-all" />
-                        <div className="relative royal-gradient text-white py-6 rounded-[22px] font-black uppercase text-sm md:text-base tracking-[0.2em] shadow-2xl flex items-center justify-center gap-4 hover:scale-[1.03] active:scale-95 transition-all">
-                            INICIAR {intelligentAction.type === 'NIVELAMENTO' ? 'NIVELAMENTO' : 'REVISÃO'}
-                            <Play className="w-6 h-6 fill-current ml-1" />
+                        <div className="relative royal-gradient text-white py-6 rounded-[22px] font-black uppercase text-sm md:text-base tracking-[0.2em] shadow-2xl flex items-center justify-center gap-4 hover:scale-[1.03] active:scale-95 transition-all leading-none">
+                            <span className="translate-y-[1px]">INICIAR {intelligentAction.type === 'NIVELAMENTO' ? 'NIVELAMENTO' : 'REVISÃO'}</span>
+                            <Play className="w-5 h-5 fill-current" />
                         </div>
                     </button>
                 </div>

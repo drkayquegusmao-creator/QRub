@@ -29,8 +29,8 @@ export function BottomTabs() {
     const finalTabs = [
         { label: 'Início', icon: LayoutDashboard, href: '/dashboard' },
         { label: 'Praticar', icon: BookOpen, href: '/dashboard/setup' },
-        { label: 'Célis', icon: History, href: '/dashboard/errors' },
-        { label: 'Intel', icon: BarChart2, href: '/dashboard/stats' },
+        { label: 'Caderno', icon: History, href: '/dashboard/errors' },
+        { label: 'Métricas', icon: BarChart2, href: '/dashboard/stats' }, // Changed Intel to Métricas as requested
     ]
 
     if (user?.role === 'MASTER') {

@@ -68,7 +68,6 @@ export default function RootLayout({
               <MaintenanceOverlay />
               {children}
             </MaintenanceGuardian>
-            <SupportChatWidget />
           </AuthProvider>
         </ThemeProvider>
       </body>
