@@ -69,8 +69,11 @@ export default function StudentDashboard() {
     const { get_intelligent_action, get_pending_tasks, get_critical_points, load_progress } = useSRS()
     const { blueprints, loadBlueprints } = useBlueprints()
     const { responses, get_accuracy_by_specialty, get_weekly_accuracy, load_responses } = useQuiz()
-    const { loadQuestions } = useQuestions()
+    const { questions, loadQuestions } = useQuestions()
     const { widgets, isEditMode, toggleEditMode, setWidgetVisibility, setWidgetWidth, reorderWidgets, resetLayout } = useDashboard()
+    const intelligentAction = useMemo(() => get_intelligent_action(questions), [get_intelligent_action, questions])
+    const pendingTasks = useMemo(() => get_pending_tasks(), [get_pending_tasks])
+    const criticalPoints = useMemo(() => get_critical_points(), [get_critical_points])
 
     const [showPaywall, setShowPaywall] = useState(false)
     const [showPlansModal, setShowPlansModal] = useState(false)
@@ -100,13 +103,8 @@ export default function StudentDashboard() {
 
     const isFree = user?.plan_level === 'FREE'
 
-    // Agenda Logic
-    const intelligentAction = useMemo(() => get_intelligent_action(), [get_intelligent_action])
-    const pendingTasks = useMemo(() => get_pending_tasks(), [get_pending_tasks])
-    const criticalPoints = useMemo(() => get_critical_points(), [get_critical_points])
-
     const startIntelligentSession = () => {
-        const action = get_intelligent_action()
+        const action = get_intelligent_action(questions)
         if (!action.subject_id) return
         const count = action.type === 'NIVELAMENTO' ? 10 : Math.floor(Math.random() * (12 - 5 + 1)) + 5
         router.push(`/dashboard/quiz/auto?mode=TREINO&specialtyId=${encodeURIComponent(action.subject_id)}&count=${count}`)
@@ -114,7 +112,8 @@ export default function StudentDashboard() {
 
     const intelligentActionName = useMemo(() => {
         if (!intelligentAction.subject_id) return ''
-        const spec = COURSES[0].specialties.find(s => s.id === intelligentAction.subject_id)
+        const { MEDICAL_HIERARCHY } = require('@/lib/medical-specialties')
+        const spec = MEDICAL_HIERARCHY[0].specialties.find((s: any) => s.id === intelligentAction.subject_id)
         return spec ? spec.name : intelligentAction.subject_id
     }, [intelligentAction.subject_id])
 
@@ -180,29 +179,45 @@ export default function StudentDashboard() {
                         </div>
                         <div className="space-y-4">
                             <h2 className="text-4xl md:text-7xl font-black italic uppercase tracking-tighter leading-[0.85] text-[#1A1033]">
-                                {intelligentAction.type === 'NIVELAMENTO' ? 'Sessão de' : 'Revisão'} <br />
-                                <span className="royal-gradient-text italic">{intelligentActionName}</span>
+                                {intelligentAction.type === 'CARREGANDO' ? 'Carregando...' :
+                                    intelligentAction.type === 'TUDO_EM_DIA' ? 'Tudo em' :
+                                        intelligentAction.type === 'NIVELAMENTO' ? 'Sessão de' : 'Revisão'} <br />
+                                <span className="royal-gradient-text italic">
+                                    {intelligentAction.type === 'TUDO_EM_DIA' ? 'Dia' : intelligentActionName}
+                                </span>
                             </h2>
                             <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 mt-6">
                                 <span className={`px-4 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest ${intelligentAction.status === 'ATRASADO' ? 'bg-rose-500 text-white animate-pulse' :
                                     intelligentAction.status === 'NÃO_NIVELADO' ? 'bg-amber-500 text-white' :
-                                        'bg-emerald-500 text-white'
+                                        intelligentAction.status === 'CONCLUÍDO' ? 'bg-emerald-500 text-white' :
+                                            'bg-slate-500 text-white'
                                     }`}>
                                     {intelligentAction.status}
                                 </span>
                                 <span className="text-[#4B5563] font-bold text-sm uppercase tracking-wider">
-                                    {intelligentAction.type === 'NIVELAMENTO' ? '10 questões para identificar seu nível' : 'Manual de manutenção (5-12 questões)'}
+                                    {intelligentAction.type === 'CARREGANDO' ? 'Preparando seu plano de estudo...' :
+                                        intelligentAction.type === 'TUDO_EM_DIA' ? 'Você completou todas as metas por hoje!' :
+                                            intelligentAction.type === 'NIVELAMENTO' ? '10 questões para identificar seu nível' :
+                                                'Manual de manutenção (5-12 questões)'}
                                 </span>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div className="mt-10">
-                    <button onClick={startIntelligentSession} className="group relative w-full">
+                    <button
+                        onClick={startIntelligentSession}
+                        disabled={intelligentAction.type === 'CARREGANDO' || intelligentAction.type === 'TUDO_EM_DIA'}
+                        className={`group relative w-full ${intelligentAction.type === 'TUDO_EM_DIA' ? 'opacity-50 cursor-not-allowed grayscale' : ''}`}
+                    >
                         <div className="absolute -inset-2 bg-primary rounded-[25px] blur-xl opacity-40 group-hover:opacity-70 transition-all" />
                         <div className="relative royal-gradient text-white py-6 rounded-[22px] font-black uppercase text-sm md:text-base tracking-[0.2em] shadow-2xl flex items-center justify-center gap-4 hover:scale-[1.03] active:scale-95 transition-all leading-none">
-                            <span className="translate-y-[1px]">INICIAR {intelligentAction.type === 'NIVELAMENTO' ? 'NIVELAMENTO' : 'REVISÃO'}</span>
-                            <Play className="w-5 h-5 fill-current" />
+                            <span className="translate-y-[1px]">
+                                {intelligentAction.type === 'TUDO_EM_DIA' ? 'METAS CONCLUÍDAS' :
+                                    `INICIAR ${intelligentAction.type === 'NIVELAMENTO' ? 'NIVELAMENTO' : 'REVISÃO'}`}
+                            </span>
+                            {intelligentAction.type !== 'TUDO_EM_DIA' && <Play className="w-5 h-5 fill-current" />}
+                            {intelligentAction.type === 'TUDO_EM_DIA' && <CheckCircle2 className="w-5 h-5" />}
                         </div>
                     </button>
                 </div>
