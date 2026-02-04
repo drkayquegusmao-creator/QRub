@@ -13,7 +13,7 @@ interface TrainModalProps {
     initialSpecialtyId?: string
 }
 
-type Mode = 'MENU' | 'COURSE' | 'SPECIALTY' | 'SUBSPECIALTY' | 'SUBJECT' | 'CONFIG'
+type Mode = 'MENU' | 'COURSE' | 'SPECIALTY' | 'SUBSPECIALTY' | 'SUBJECT' | 'CONFIG' | 'CONFIG_ALL'
 
 export function TrainModal({ isOpen, onClose, initialMode, initialSpecialtyId }: TrainModalProps) {
     const router = useRouter()
@@ -177,7 +177,7 @@ export function TrainModal({ isOpen, onClose, initialMode, initialSpecialtyId }:
                     {searchQuery === '' && (
                         <div className="md:col-span-2 pt-4">
                             <button
-                                onClick={() => handleStart('scope=ALL')}
+                                onClick={() => setMode('CONFIG_ALL')}
                                 className="w-full p-4 rounded-xl border border-dashed border-slate-300 hover:border-primary hover:bg-primary/5 text-slate-400 hover:text-primary transition-all flex items-center justify-center gap-2 font-black uppercase text-xs tracking-widest"
                             >
                                 <LayoutGrid className="w-4 h-4" />
@@ -319,6 +319,64 @@ export function TrainModal({ isOpen, onClose, initialMode, initialSpecialtyId }:
     )
 
 
+    const renderConfigAll = () => (
+        <div className="space-y-8 animate-in fade-in zoom-in-95 duration-300">
+            {/* Context Header */}
+            <div className="flex items-center gap-4 bg-primary/5 p-4 rounded-2xl border border-primary/10">
+                <div className="w-12 h-12 rounded-xl bg-primary/20 text-primary flex items-center justify-center">
+                    <LayoutGrid className="w-6 h-6" />
+                </div>
+                <div>
+                    <h3 className="font-black italic uppercase text-lg text-[#1A1033]">Treino Aleatório</h3>
+                    <p className="text-xs font-bold text-slate-500 uppercase tracking-wider">Banco Geral de Questões</p>
+                </div>
+            </div>
+
+            <div className="p-6 bg-slate-50 rounded-2xl border border-slate-100 text-center space-y-2">
+                <p className="font-bold text-[#1A1033]">Você está prestes a iniciar um treino com questões de todas as áreas.</p>
+                <p className="text-xs text-slate-500">Ideal para testar seus conhecimentos gerais e simular a aleatoriedade da prova real.</p>
+            </div>
+
+            {/* Quantity Slider */}
+            <div className="space-y-6 pt-4 border-t border-slate-100">
+                <div className="flex items-center justify-between">
+                    <label className="text-xs font-black uppercase tracking-widest text-[#1A1033]">Quantidade de Questões</label>
+                    <span className="text-2xl font-black italic text-primary">{questionCount}</span>
+                </div>
+                <div className="relative h-2 bg-slate-100 rounded-full">
+                    <div className="absolute h-full bg-primary rounded-full" style={{ width: `${((questionCount - 10) / 90) * 100}%` }} />
+                    <input
+                        type="range" min="10" max="100" step="10"
+                        value={questionCount}
+                        onChange={(e) => setQuestionCount(Number(e.target.value))}
+                        className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                    />
+                    <div
+                        className="absolute w-6 h-6 bg-white border-2 border-primary rounded-full shadow-lg flex items-center justify-center top-1/2 -translate-y-1/2 pointer-events-none transition-all"
+                        style={{ left: `calc(${((questionCount - 10) / 90) * 100}% - 12px)` }}
+                    >
+                        <div className="w-1.5 h-1.5 bg-primary rounded-full" />
+                    </div>
+                </div>
+                <div className="flex justify-between text-[10px] font-black uppercase text-slate-300 tracking-widest">
+                    <span>10</span>
+                    <span>100</span>
+                </div>
+            </div>
+
+            {/* Start Button */}
+            <button
+                onClick={() => handleStart('scope=ALL')}
+                className="w-full bg-[#1A1033] text-white py-5 rounded-2xl font-black uppercase text-sm tracking-[0.2em] shadow-xl hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-3 relative overflow-hidden group"
+            >
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-purple-500/20 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500" />
+                <span className="relative z-10">Iniciar Modo Aleatório</span>
+                <Play className="w-5 h-5 fill-current relative z-10" />
+            </button>
+        </div>
+    )
+
+
     if (!isOpen) return null
 
     return (
@@ -339,13 +397,17 @@ export function TrainModal({ isOpen, onClose, initialMode, initialSpecialtyId }:
                             )}
                             <h2 className="text-2xl font-black italic tracking-tighter uppercase text-[#1A1033]">
                                 {mode === 'MENU' ? 'Treinar por Área' :
-                                    mode === 'CONFIG' ? 'Configurar Treino' : 'Personalizar Treino'}
+                                    mode === 'CONFIG' ? 'Configurar Treino' :
+                                        mode === 'CONFIG_ALL' ? 'Modo Aleatório' : 'Personalizar Treino'}
                             </h2>
                         </div>
                         <button onClick={onClose} className="p-2 rounded-full hover:bg-slate-100 text-slate-400"><X className="w-6 h-6" /></button>
                     </div>
                     <div className="p-8 pt-6 overflow-hidden">
-                        {mode === 'MENU' ? renderMenu() : mode === 'CONFIG' ? renderConfig() : renderList()}
+                        {mode === 'MENU' ? renderMenu() :
+                            mode === 'CONFIG' ? renderConfig() :
+                                mode === 'CONFIG_ALL' ? renderConfigAll() :
+                                    renderList()}
                     </div>
                 </motion.div>
             </div>
