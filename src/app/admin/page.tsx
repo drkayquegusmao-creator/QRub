@@ -565,6 +565,69 @@ export default function AdminDashboard() {
                             {loadingManual ? <RefreshCw className="w-5 h-5 animate-spin" /> : <Upload className="w-6 h-6" />}
                             PROCESSAR E SALVAR LOTE
                         </button>
+
+                        <div className="mt-8 pt-8 border-t border-border space-y-4">
+                            <div className="flex items-center justify-between">
+                                <h3 className="text-sm font-black uppercase tracking-widest text-primary flex items-center gap-2">
+                                    <Zap className="w-4 h-4 fill-primary" /> Modelo Oficial QRUB
+                                </h3>
+                                <button
+                                    onClick={() => {
+                                        const model = `[
+  {
+    "id": "QRB-ID",
+    "especialidade": "Clínica Médica",
+    "subespecialidade": "Geral",
+    "tema": "Geral",
+    "enunciado": "Texto da questão...",
+    "comando": "Pergunta da questão...",
+    "alternativas": {
+      "a": "Opção A",
+      "b": "Opção B",
+      "c": "Opção C",
+      "d": "Opção D",
+      "e": "Opção E"
+    },
+    "gabarito": "a",
+    "justificativa_gabarito": "Explicação...",
+    "justificativas_alternativas": {
+      "a": "...",
+      "b": "..."
+    },
+    "fonte": "importada"
+  }
+]`;
+                                        navigator.clipboard.writeText(model);
+                                        alert('Modelo copiado!');
+                                    }}
+                                    className="text-[10px] font-black uppercase tracking-widest bg-primary/10 text-primary px-3 py-1 rounded-full hover:bg-primary/20 transition-all"
+                                >
+                                    Copiar Modelo
+                                </button>
+                            </div>
+                            <pre className="bg-muted p-6 rounded-2xl text-[10px] font-mono overflow-x-auto border border-border text-muted-foreground">
+                                {`[
+  {
+    "id": "QRB-ID",
+    "especialidade": "Clínica Médica",
+    "subespecialidade": "Geral",
+    "tema": "Geral",
+    "enunciado": "Texto da questão...",
+    "comando": "Pergunta da questão...",
+    "alternativas": {
+      "a": "Opção A",
+      "b": "Opção B",
+      "c": "Opção C",
+      "d": "Opção D",
+      "e": "Opção E"
+    },
+    "gabarito": "a",
+    "justificativa_gabarito": "Explicação...",
+    "fonte": "importada"
+  }
+]`}
+                            </pre>
+                        </div>
                     </div>
                 </div>
 
