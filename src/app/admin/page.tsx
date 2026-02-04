@@ -41,6 +41,7 @@ export default function AdminDashboard() {
     const { reports, loadReports, updateReportStatus, loading: reportsLoading } = useModeration()
     const { responses, load_all_responses: loadAllResponses } = useQuiz()
     // QRUB MASTER - Structural State
+    const [view, setViewInternal] = useState<'questions' | 'users' | 'analytics' | 'reports' | 'import' | 'structural' | 'validation' | 'settings'>('analytics')
     const { isMaintenanceMode, maintenanceMessage, setMaintenanceMode, openaiApiKey, setOpenaiApiKey } = useSystem()
     const [generationMode, setGenerationMode] = useState<'structural' | 'ai'>('structural')
     const [structuralArea, setStructuralArea] = useState('')
