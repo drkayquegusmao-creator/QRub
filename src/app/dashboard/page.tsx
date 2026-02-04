@@ -117,6 +117,18 @@ export default function StudentDashboard() {
 
     // --- WIDGET RENDERERS ---
 
+    const InfoBubble = ({ text }: { text: string }) => (
+        <div className="absolute top-4 right-4 z-20 group/info">
+            <div className="w-6 h-6 rounded-lg bg-slate-100 hover:bg-primary/10 text-slate-400 hover:text-primary transition-colors flex items-center justify-center cursor-help">
+                <span className="font-bold text-[10px] font-serif italic">i</span>
+            </div>
+            <div className="absolute top-8 right-0 w-48 bg-gray-900 text-white text-[10px] font-medium p-3 rounded-xl shadow-xl opacity-0 scale-95 group-hover/info:opacity-100 group-hover/info:scale-100 transition-all pointer-events-none z-30">
+                {text}
+                <div className="absolute -top-1 right-2 w-2 h-2 bg-gray-900 rotate-45" />
+            </div>
+        </div>
+    )
+
     const renderUpgradeBanner = () => {
         if (!isFree) return null
         return (
@@ -151,6 +163,7 @@ export default function StudentDashboard() {
 
     const renderIntelligentAgenda = () => (
         <section className="relative group perspective-1000 h-full">
+            <InfoBubble text="O Dr. QRub analisa seu desempenho e define a melhor estratégia de estudo para hoje." />
             <div className="absolute -inset-4 bg-gradient-to-r from-primary/30 via-purple-600/20 to-indigo-600/30 rounded-[60px] blur-3xl opacity-50 group-hover:opacity-100 transition-all duration-1000 animate-pulse" />
             <div className="relative bg-white/70 backdrop-blur-3xl border-2 border-primary/20 rounded-[50px] p-10 md:p-14 shadow-2xl overflow-hidden h-full flex flex-col">
                 <div className="absolute top-0 right-0 p-12 opacity-5 pointer-events-none">
@@ -197,7 +210,8 @@ export default function StudentDashboard() {
     const renderPendingCritical = () => (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Card de Pendentes */}
-            <div className="p-10 rounded-[45px] bg-purple-50/50 border border-purple-100 space-y-8 flex flex-col h-full text-[#1A1033]">
+            <div className="p-10 rounded-[45px] bg-purple-50/50 border border-purple-100 space-y-8 flex flex-col h-full text-[#1A1033] relative">
+                <InfoBubble text="Tarefas acumuladas que precisam da sua atenção imediata." />
                 <div className="flex items-center justify-between">
                     <div className="space-y-1">
                         <h3 className="text-2xl font-black italic uppercase tracking-tighter">Pendentes</h3>
@@ -232,6 +246,7 @@ export default function StudentDashboard() {
 
             {/* Card de Pontos de Atenção */}
             <div className="p-10 rounded-[45px] bg-[#1A1033] text-white space-y-8 relative overflow-hidden group/alert">
+                <InfoBubble text="Áreas onde seu desempenho está abaixo do esperado e requer reforço." />
                 <div className="absolute top-0 right-0 p-8 opacity-10 group-hover/alert:scale-110 transition-transform duration-700">
                     <AlertCircle className="w-32 h-32" />
                 </div>
@@ -264,7 +279,8 @@ export default function StudentDashboard() {
     )
 
     const renderTacticalShortcuts = () => (
-        <section className="space-y-6">
+        <section className="space-y-6 relative">
+            <InfoBubble text="Acesso rápido às principais ferramentas de treino e análise." />
             <SectionHeader title="Atalhos Táticos" subtitle="Operações fora da agenda principal" icon={<Sparkles className="w-5 h-5" />} />
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
                 {[
@@ -292,7 +308,8 @@ export default function StudentDashboard() {
     )
 
     const renderReadinessIndex = () => (
-        <div className="bg-white border-2 border-slate-100 rounded-[50px] p-10 md:p-14 soft-shadow">
+        <div className="bg-white border-2 border-slate-100 rounded-[50px] p-10 md:p-14 soft-shadow relative">
+            <InfoBubble text="Índice que mede sua preparação geral baseado em volume e precisão." />
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-10">
                 <div className="space-y-6 flex-1 text-center md:text-left">
                     <div className="space-y-1">
@@ -351,7 +368,8 @@ export default function StudentDashboard() {
         }))
 
         return (
-            <div className="bg-white border-2 border-slate-100 rounded-[50px] p-10 md:p-14 soft-shadow h-full flex flex-col">
+            <div className="bg-white border-2 border-slate-100 rounded-[50px] p-10 md:p-14 soft-shadow h-full flex flex-col relative">
+                <InfoBubble text="Gráfico da sua precisão média dia a dia na última semana." />
                 <div className="flex items-center justify-between mb-10">
                     <div className="space-y-1">
                         <h3 className="text-2xl font-black italic uppercase tracking-tighter text-[#1A1033]">Evolução Global</h3>
@@ -393,7 +411,8 @@ export default function StudentDashboard() {
         })).sort((a, b) => b.val - a.val).slice(0, 5)
 
         return (
-            <div className="bg-white border-2 border-slate-100 rounded-[50px] p-10 md:p-14 soft-shadow h-full flex flex-col">
+            <div className="bg-white border-2 border-slate-100 rounded-[50px] p-10 md:p-14 soft-shadow h-full flex flex-col relative">
+                <InfoBubble text="Suas 5 melhores áreas de desempenho até o momento." />
                 <div className="flex items-center justify-between mb-10">
                     <div className="space-y-1">
                         <h3 className="text-2xl font-black italic uppercase tracking-tighter text-[#1A1033]">Performance por Área</h3>
@@ -429,6 +448,7 @@ export default function StudentDashboard() {
     const renderFastPractice = () => {
         return (
             <div className="bg-white border-2 border-slate-100 rounded-[50px] p-10 md:p-14 soft-shadow h-full flex flex-col items-center relative overflow-hidden group hover:border-primary/30 transition-all">
+                <InfoBubble text="Comece um treino rápido escolhendo a especialidade desejada no momento." />
                 <div className="absolute inset-0 bg-gradient-to-br from-slate-50 to-white -z-10" />
                 <div className="absolute top-0 right-0 p-10 opacity-5 group-hover:scale-110 transition-transform duration-700">
                     <Target className="w-40 h-40 text-[#1A1033]" />
