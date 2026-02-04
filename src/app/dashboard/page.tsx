@@ -2,6 +2,7 @@
 
 import { useAuth } from '@/store/use-auth'
 import { useQuiz } from '@/store/use-quiz'
+import { useQuestions } from '@/store/use-questions'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
     Zap,
@@ -68,6 +69,7 @@ export default function StudentDashboard() {
     const { get_intelligent_action, get_pending_tasks, get_critical_points, load_progress } = useSRS()
     const { blueprints, loadBlueprints } = useBlueprints()
     const { responses, get_accuracy_by_specialty, get_weekly_accuracy, load_responses } = useQuiz()
+    const { loadQuestions } = useQuestions()
     const { widgets, isEditMode, toggleEditMode, setWidgetVisibility, setWidgetWidth, reorderWidgets, resetLayout } = useDashboard()
 
     const [showPaywall, setShowPaywall] = useState(false)
@@ -83,6 +85,7 @@ export default function StudentDashboard() {
             load_progress(user.id)
         }
         loadBlueprints()
+        loadQuestions() // Power Dr. QRub intelligence
     }, [user?.id])
 
     // Calculated metrics

@@ -259,11 +259,17 @@ export const useSRS = create<SRSState>()(
                 const today = startOfDay(new Date())
                 const all_subs = Object.values(subjects)
 
+                // Source of truth for questions
+                const { useQuestions } = require('@/store/use-questions')
+                const questionsStore = useQuestions.getState()
+                const questions = questionsStore.questions || []
+
                 // 1. Priority: Delayed Revisions
                 const overdue = all_subs.find(s =>
                     s.stage === 'ACTIVE' &&
                     s.next_review_date &&
-                    isBefore(parseISO(s.next_review_date), today)
+                    isBefore(parseISO(s.next_review_date), today) &&
+                    questions.some((q: any) => q.specialty_id === s.subject_id && q.status_validacao === 'APROVADA')
                 )
                 if (overdue) {
                     return {
@@ -277,7 +283,8 @@ export const useSRS = create<SRSState>()(
                 const today_review = all_subs.find(s =>
                     s.stage === 'ACTIVE' &&
                     s.next_review_date &&
-                    differenceInDays(parseISO(s.next_review_date), today) === 0
+                    differenceInDays(parseISO(s.next_review_date), today) === 0 &&
+                    questions.some((q: any) => q.specialty_id === s.subject_id && q.status_validacao === 'APROVADA')
                 )
                 if (today_review) {
                     return {
@@ -287,8 +294,11 @@ export const useSRS = create<SRSState>()(
                     }
                 }
 
-                // 3. Priority: In-progress Leveling
-                const incomplete_leveling = all_subs.find(s => s.stage === 'LEVELING')
+                // 3. Priority: In-progress Leveling (only if questions still exist)
+                const incomplete_leveling = all_subs.find(s =>
+                    s.stage === 'LEVELING' &&
+                    questions.some((q: any) => q.specialty_id === s.subject_id && q.status_validacao === 'APROVADA')
+                )
                 if (incomplete_leveling) {
                     return {
                         type: 'NIVELAMENTO',
@@ -298,40 +308,23 @@ export const useSRS = create<SRSState>()(
                 }
 
                 // 4. Priority: Start New Leveling (Maintenance/Progression)
-                // Get all available specialty IDs from hierarchy
                 const { MEDICAL_HIERARCHY } = require('@/lib/medical-specialties')
                 const allSpecialties = MEDICAL_HIERARCHY[0].specialties
 
-                // Find specialties the user hasn't started yet
-                const untracked = allSpecialties.filter((spec: any) => !subjects[spec.id])
+                // Find specialties the user hasn't started yet and THAT HAVE QUESTIONS APROVADAS
+                const untrackedWithQuestions = allSpecialties.filter((spec: any) => {
+                    const isUntracked = !subjects[spec.id]
+                    const hasQuestions = questions.some((q: any) => q.specialty_id === spec.id && q.status_validacao === 'APROVADA')
+                    return isUntracked && hasQuestions
+                })
 
-                if (untracked.length > 0) {
-                    // Try to find one with existing questions first
-                    let selected: any = null
-
-                    try {
-                        const { useQuestions } = require('@/store/use-questions')
-                        const questionsStore = useQuestions.getState()
-                        const questions = questionsStore.questions || []
-
-                        selected = untracked.find((spec: any) => {
-                            return questions.some((q: any) => q.specialty_id === spec.id)
-                        })
-                    } catch (err) {
-                        console.warn('[SRS DEBUG] Could not check questions availability:', err)
-                    }
-
-                    // Fallback to first untracked if none found with questions (Auto-gen will handle it)
-                    if (!selected) {
-                        selected = untracked[0]
-                    }
-
-                    if (selected) {
-                        return {
-                            type: 'NIVELAMENTO',
-                            subject_id: selected.id,
-                            status: 'NÃO_NIVELADO'
-                        }
+                if (untrackedWithQuestions.length > 0) {
+                    // Select first available untracked specialty with questions
+                    const selected = untrackedWithQuestions[0]
+                    return {
+                        type: 'NIVELAMENTO',
+                        subject_id: selected.id,
+                        status: 'NÃO_NIVELADO'
                     }
                 }
 
