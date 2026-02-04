@@ -36,7 +36,7 @@ export interface Guideline {
     year: number
     status: 'Ativa' | 'Arquivada'
     summary?: string
-    key_points?: any
+    key_points?: Record<string, unknown>
     created_at?: string
 }
 
@@ -121,7 +121,7 @@ export interface Question {
 
     explanation: string
     alternative_explanations?: Record<string, string>
-    por_que_nao_as_outras?: Record<string, string> | any[] // Supporting both formats
+    por_que_nao_as_outras?: Record<string, string> | Array<Record<string, string>>
 
     severe_error_alert?: string
     erros_graves?: string[]

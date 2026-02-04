@@ -15,7 +15,7 @@ interface QuestionsState {
         subject_id?: string
     }) => Promise<void>
     loadGuidelines: () => Promise<void>
-    addQuestion: (question: Question | any) => Promise<{ success: boolean, message: string }>
+    addQuestion: (question: Question | Partial<Question>) => Promise<{ success: boolean, message: string }>
     addQuestions: (questions: Question[]) => Promise<{ success: boolean, message: string }>
     deleteQuestion: (id: string) => Promise<{ success: boolean, message: string }>
     deleteQuestions: (ids: string[]) => Promise<{ success: boolean, message: string }>
