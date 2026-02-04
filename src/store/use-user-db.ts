@@ -21,6 +21,7 @@ interface UserDbState {
     loading: boolean
     addUser: (user: RegisteredUser) => Promise<void>
     updateUserPlan: (userId: string, plan: PlanLevel) => Promise<void>
+    updateUserRole: (userId: string, role: UserRole) => Promise<void>
     updateUserProfile: (userId: string, data: Partial<RegisteredUser>) => Promise<void>
     deleteUser: (userId: string) => Promise<void>
     deleteUsers: (userIds: string[]) => Promise<void>
@@ -99,6 +100,19 @@ export const useUserDb = create<UserDbState>()(
                     await supabase
                         .from('users')
                         .update({ plan_level: plan })
+                        .eq('id', userId)
+                }
+            },
+
+            updateUserRole: async (userId, role) => {
+                set((state) => ({
+                    users: state.users.map(u => u.id === userId ? { ...u, role: role } : u)
+                }))
+
+                if (isSupabaseConfigured()) {
+                    await supabase
+                        .from('users')
+                        .update({ role: role })
                         .eq('id', userId)
                 }
             },

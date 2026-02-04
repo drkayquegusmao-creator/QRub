@@ -29,14 +29,14 @@ export function MaintenanceGuardian({ children }: { children: React.ReactNode })
         const isMaster = user?.role === 'MASTER'
 
         if (isMaintenanceMode) {
-            // FORCE DISABLE REDIRECT
-            /*
-            // If Maintenance is ON
-            if (!isMaster && !isMaintenancePage && !isPublicPage) {
-                // If user is NOT master, NOT on maintenance page, and NOT on public page -> Redirect to Maintenance
+            // Check for specific email exception + Role check
+            const isSpecificAdmin = user?.email === 'kayquegusmao1@gmail.com'
+            const canBypass = isMaster || isSpecificAdmin
+
+            if (!canBypass && !isMaintenancePage && !isPublicPage) {
+                // If user is NOT allowed, NOT on maintenance page, and NOT on public page -> Redirect to Maintenance
                 router.replace('/maintenance')
             }
-            */
         } else {
             // If Maintenance is OFF
             if (isMaintenancePage) {
@@ -46,7 +46,10 @@ export function MaintenanceGuardian({ children }: { children: React.ReactNode })
         }
     }, [isMaintenanceMode, user, pathname, loading, authLoading, router])
 
-    if (isMaintenanceMode && !user && pathname !== '/maintenance' && pathname !== '/auth' && pathname !== '/') {
+    const isSpecificAdmin = user?.email === 'kayquegusmao1@gmail.com'
+    const canBypass = user?.role === 'MASTER' || isSpecificAdmin
+
+    if (isMaintenanceMode && !canBypass && pathname !== '/maintenance' && pathname !== '/auth' && pathname !== '/') {
         // Optional: Show loading or nothing while redirecting
         return null
     }

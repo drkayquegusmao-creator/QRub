@@ -36,7 +36,7 @@ export default function AdminDashboard() {
     const router = useRouter()
     const searchParams = useSearchParams()
     const { questions, deleteQuestion, deleteQuestions, addQuestion, addQuestions, loadQuestions, loading } = useQuestionsStore()
-    const { users: realUsers, loadUsers, updateUserPlan, deleteUser, deleteUsers } = useUserDb()
+    const { users: realUsers, loadUsers, updateUserPlan, updateUserRole, deleteUser, deleteUsers } = useUserDb()
     const [selectedUserIds, setSelectedUserIds] = useState<string[]>([])
 
     const { reports, loadReports, updateReportStatus, loading: reportsLoading } = useModeration()
@@ -2004,7 +2004,24 @@ export default function AdminDashboard() {
                                                         <PlanBadge plan={u.plan_level} />
                                                     </td>
                                                     <td className="px-8 py-6 text-right">
-                                                        <div className="flex justify-end gap-2">
+                                                        <div className="flex justify-end gap-2 items-center">
+                                                            {/* ROLE TOGGLE */}
+                                                            <button
+                                                                onClick={() => {
+                                                                    const newRole = u.role === 'MASTER' ? 'ALUNO' : 'MASTER';
+                                                                    if (confirm(`Deseja alterar o acesso de ${u.name} para ${newRole}?`)) {
+                                                                        updateUserRole(u.id, newRole);
+                                                                    }
+                                                                }}
+                                                                className={`px-3 py-1.5 rounded-lg text-[10px] font-black uppercase transition-all flex items-center gap-1 border ${u.role === 'MASTER' ? 'bg-purple-900/20 text-purple-400 border-purple-500/30' : 'bg-muted text-muted-foreground border-transparent hover:bg-muted/80'}`}
+                                                                title={u.role === 'MASTER' ? 'Remover Acesso Master' : 'Tornar Master'}
+                                                            >
+                                                                <ShieldCheck className="w-3 h-3" />
+                                                                {u.role === 'MASTER' ? 'MASTER' : 'ALUNO'}
+                                                            </button>
+
+                                                            <div className="w-px h-4 bg-border mx-2" />
+
                                                             {['FREE', 'PREMIUM', 'INSANO'].map(p => (
                                                                 <button
                                                                     key={p}

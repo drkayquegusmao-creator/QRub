@@ -9,18 +9,16 @@ import { usePathname } from 'next/navigation'
 
 
 export function MaintenanceOverlay() {
-    // FORCE DISABLE OVERLAY
-    return null
+    const { isMaintenanceMode, maintenanceMessage } = useSystem()
+    const { user } = useAuth()
+    const pathname = usePathname()
 
-    // Original logic below (disabled)
-    /* 
-    const isMaintenanceMode = useSystem(state => state.isMaintenanceMode)
-    const maintenanceMessage = useSystem(state => state.maintenanceMessage)
-    // ... rest of logic
-    */
+    const isSpecificAdmin = user?.email === 'kayquegusmao1@gmail.com'
+    const isAdmin = user?.role === 'MASTER' || isSpecificAdmin
 
     if (!isMaintenanceMode) return null
     if (pathname === '/maintenance' && !isAdmin) return null
+    if (pathname === '/auth') return null // Don't show overlay on auth page
 
     if (isAdmin) {
         return (
@@ -145,10 +143,10 @@ export function MaintenanceOverlay() {
                         transition={{ delay: 0.8 }}
                         className="flex flex-col items-center gap-4 pt-8"
                     >
-                        <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-muted-foreground/40">
-                            <ShieldAlert className="w-3 h-3" />
+                        <a href="/auth" className="group flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-muted-foreground/40 hover:text-primary transition-colors cursor-pointer">
+                            <ShieldAlert className="w-3 h-3 group-hover:animate-pulse" />
                             Acesso restrito para segurança dos dados
-                        </div>
+                        </a>
                     </motion.div>
                 </div>
             </motion.div>
