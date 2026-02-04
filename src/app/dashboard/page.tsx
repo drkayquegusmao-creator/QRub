@@ -289,7 +289,7 @@ export default function StudentDashboard() {
                 {[
                     { label: 'Treino Livre', icon: <Play />, href: '/dashboard/setup', color: 'bg-primary/10 text-primary hover:bg-primary' },
                     { label: 'Métricas', icon: <BarChart3 />, href: '/dashboard/stats', color: 'bg-blue-500/10 text-blue-500 hover:bg-blue-500' },
-                    { label: 'Erros', icon: <AlertCircle />, href: '/dashboard/errors', color: 'bg-rose-500/10 text-rose-500 hover:bg-rose-500' },
+                    { label: 'Caderno de Erros', icon: <AlertCircle />, href: '/dashboard/errors', color: 'bg-rose-500/10 text-rose-500 hover:bg-rose-500' },
                     { label: 'Rank Elite', icon: <Crown />, href: '#', color: 'bg-slate-100 text-slate-400 opacity-40 cursor-not-allowed', disabled: true }
                 ].map((item, i) => (
                     item.disabled ? (
