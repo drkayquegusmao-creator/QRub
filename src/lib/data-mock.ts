@@ -177,7 +177,7 @@ export function filterQuestions(
     questions: Question[],
     filters: {
         course_id?: string
-        specialty_id?: string
+        specialty_id?: string | string[]
         subspecialty_id?: string
         subject_id?: string
     }
@@ -187,8 +187,12 @@ export function filterQuestions(
             return false
         }
 
-        if (filters.specialty_id && q.specialty_id !== filters.specialty_id) {
-            return false
+        if (filters.specialty_id) {
+            if (Array.isArray(filters.specialty_id)) {
+                if (!filters.specialty_id.includes(q.specialty_id)) return false
+            } else if (q.specialty_id !== filters.specialty_id) {
+                return false
+            }
         }
 
         if (filters.subspecialty_id && q.subspecialty_id !== filters.subspecialty_id) {

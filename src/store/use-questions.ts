@@ -10,7 +10,7 @@ interface QuestionsState {
     error: string | null
     loadQuestions: (filters?: {
         course_id?: string,
-        specialty_id?: string,
+        specialty_id?: string | string[],
         subspecialty_id?: string,
         subject_id?: string
     }) => Promise<void>
@@ -42,7 +42,15 @@ export const useQuestions = create<QuestionsState>()(
                         let query = supabase.from('questions').select('*')
 
                         if (filters?.course_id) query = query.eq('course_id', filters.course_id)
-                        if (filters?.specialty_id) query = query.eq('specialty_id', filters.specialty_id)
+
+                        if (filters?.specialty_id) {
+                            if (Array.isArray(filters.specialty_id)) {
+                                query = query.in('specialty_id', filters.specialty_id)
+                            } else {
+                                query = query.eq('specialty_id', filters.specialty_id)
+                            }
+                        }
+
                         if (filters?.subspecialty_id) query = query.eq('subspecialty_id', filters.subspecialty_id)
                         if (filters?.subject_id) query = query.eq('subject_id', filters.subject_id)
 

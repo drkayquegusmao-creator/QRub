@@ -23,7 +23,8 @@ export default function QuizPage() {
 
     // Ler filtros dos query params
     const courseId = searchParams.get('courseId') || undefined
-    const specialtyId = searchParams.get('specialtyId') || undefined
+    const specialtyIds = searchParams.getAll('specialtyId')
+    const specialtyId = specialtyIds.length > 0 ? (specialtyIds.length === 1 ? specialtyIds[0] : specialtyIds) : undefined
     const subspecialtyId = searchParams.get('subspecialtyId') || undefined
     const subjectId = searchParams.get('subjectId') || undefined
     const maxQuestions = parseInt(searchParams.get('count') || '20') // Quantidade selecionada
@@ -57,7 +58,6 @@ export default function QuizPage() {
 
 
 
-    // Load questions from IndexedDB on mount
     useEffect(() => {
         loadQuestions({
             course_id: courseId,
