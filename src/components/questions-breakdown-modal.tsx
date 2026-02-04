@@ -14,52 +14,73 @@ interface QuestionsBreakdownModalProps {
 export function QuestionsBreakdownModal({ isOpen, onClose, questions }: QuestionsBreakdownModalProps) {
 
     const breakdown = useMemo(() => {
-        // First, build stats from existing questions
-        const stats: Record<string, { name: string, count: number, subs: Record<string, { name: string, count: number }> }> = {}
+        // Helper function to normalize names for consistent grouping
+        const normalize = (str: string) => {
+            return str
+                .toLowerCase()
+                .normalize('NFD')
+                .replace(/[\u0300-\u036f]/g, '') // Remove accents
+                .replace(/[^a-z0-9]/g, '') // Remove special chars and spaces
+        }
+
+        // Build stats from existing questions using normalized names as keys
+        const stats: Record<string, {
+            name: string,
+            count: number,
+            subs: Record<string, { name: string, count: number }>,
+            officialId?: string
+        }> = {}
 
         questions.forEach(q => {
-            // Normalize IDs
-            const specId = q.specialty_id || 'sem-categoria'
+            // Get the display name (prefer metadata over ID)
             const specName = q.metadata?.especialidade || q.specialty_id || 'Sem Categoria'
-
-            const subId = q.subspecialty_id || 'sem-sub'
             const subName = q.metadata?.subespecialidade || q.subspecialty_id || 'Geral'
 
-            if (!stats[specId]) {
-                stats[specId] = {
+            // Normalize for consistent grouping
+            const specKey = normalize(specName)
+            const subKey = normalize(subName)
+
+            if (!stats[specKey]) {
+                stats[specKey] = {
                     name: specName,
                     count: 0,
-                    subs: {}
+                    subs: {},
+                    officialId: q.specialty_id
                 }
             }
 
-            stats[specId].count++
+            stats[specKey].count++
 
-            if (!stats[specId].subs[subId]) {
-                stats[specId].subs[subId] = {
+            if (!stats[specKey].subs[subKey]) {
+                stats[specKey].subs[subKey] = {
                     name: subName,
                     count: 0
                 }
             }
-            stats[specId].subs[subId].count++
+            stats[specKey].subs[subKey].count++
         })
 
         // Now add ALL specialties from the hierarchy, even if they have 0 questions
         if (COURSES && COURSES[0] && COURSES[0].specialties) {
             COURSES[0].specialties.forEach(specialty => {
-                if (!stats[specialty.id]) {
-                    stats[specialty.id] = {
+                const specKey = normalize(specialty.name)
+
+                if (!stats[specKey]) {
+                    stats[specKey] = {
                         name: specialty.name,
                         count: 0,
-                        subs: {}
+                        subs: {},
+                        officialId: specialty.id
                     }
                 }
 
                 // Add all subspecialties too
                 if (specialty.subspecialties) {
                     specialty.subspecialties.forEach(sub => {
-                        if (!stats[specialty.id].subs[sub.id]) {
-                            stats[specialty.id].subs[sub.id] = {
+                        const subKey = normalize(sub.name)
+
+                        if (!stats[specKey].subs[subKey]) {
+                            stats[specKey].subs[subKey] = {
                                 name: sub.name,
                                 count: 0
                             }
@@ -136,8 +157,8 @@ export function QuestionsBreakdownModal({ isOpen, onClose, questions }: Question
                                         <div
                                             key={i}
                                             className={`bg-white border-2 rounded-[24px] overflow-hidden transition-all group ${hasNoQuestions
-                                                    ? 'border-rose-200 bg-rose-50/30 hover:border-rose-400'
-                                                    : 'border-slate-100 hover:border-primary/20'
+                                                ? 'border-rose-200 bg-rose-50/30 hover:border-rose-400'
+                                                : 'border-slate-100 hover:border-primary/20'
                                                 }`}
                                         >
                                             {/* Specialty Header */}
@@ -145,8 +166,8 @@ export function QuestionsBreakdownModal({ isOpen, onClose, questions }: Question
                                                 }`}>
                                                 <div className="flex items-center gap-3">
                                                     <div className={`p-2 bg-white rounded-lg border ${hasNoQuestions
-                                                            ? 'border-rose-200 text-rose-500'
-                                                            : 'border-slate-100 text-slate-400 group-hover:text-primary'
+                                                        ? 'border-rose-200 text-rose-500'
+                                                        : 'border-slate-100 text-slate-400 group-hover:text-primary'
                                                         } transition-colors`}>
                                                         {hasNoQuestions ? (
                                                             <AlertCircle className="w-4 h-4" />
@@ -183,8 +204,8 @@ export function QuestionsBreakdownModal({ isOpen, onClose, questions }: Question
                                                             <div
                                                                 key={j}
                                                                 className={`flex items-center justify-between p-3 rounded-xl border ${subHasNoQuestions
-                                                                        ? 'bg-rose-50 border-rose-200'
-                                                                        : 'bg-slate-50 border-slate-100'
+                                                                    ? 'bg-rose-50 border-rose-200'
+                                                                    : 'bg-slate-50 border-slate-100'
                                                                     }`}
                                                             >
                                                                 <div className="flex items-center gap-2 min-w-0">
@@ -196,8 +217,8 @@ export function QuestionsBreakdownModal({ isOpen, onClose, questions }: Question
                                                                     </span>
                                                                 </div>
                                                                 <span className={`text-xs font-black px-2 py-1 rounded-md ${subHasNoQuestions
-                                                                        ? 'text-rose-600 bg-rose-100'
-                                                                        : 'text-primary bg-primary/5'
+                                                                    ? 'text-rose-600 bg-rose-100'
+                                                                    : 'text-primary bg-primary/5'
                                                                     }`}>
                                                                     {sub.count}
                                                                 </span>
