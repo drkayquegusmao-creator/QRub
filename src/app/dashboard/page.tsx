@@ -45,6 +45,7 @@ import { SectionHeader, Divider } from '@/components/dashboard-ui'
 import { PaywallModal } from '@/components/paywall-modal'
 import { PlansModal } from '@/components/plans-modal'
 import { TrainModal } from '@/components/train-modal'
+import { WelcomeTutorial } from '@/components/welcome-tutorial'
 import { SRSDashboardWidget } from '@/components/srs-dashboard-widget'
 import {
     AreaChart,
@@ -105,7 +106,7 @@ export default function StudentDashboard() {
         const action = get_intelligent_action()
         if (!action.subject_id) return
         const count = action.type === 'NIVELAMENTO' ? 10 : Math.floor(Math.random() * (12 - 5 + 1)) + 5
-        router.push(`/dashboard/quiz/auto?mode=TREINO&subjectId=${encodeURIComponent(action.subject_id)}&count=${count}`)
+        router.push(`/dashboard/quiz/auto?mode=TREINO&specialtyId=${encodeURIComponent(action.subject_id)}&count=${count}`)
     }
 
     const intelligentActionName = useMemo(() => {
@@ -479,6 +480,7 @@ export default function StudentDashboard() {
 
     return (
         <div className="space-y-8 pb-32 max-w-7xl mx-auto px-4 md:px-0">
+            <WelcomeTutorial />
 
 
 

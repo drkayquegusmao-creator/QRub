@@ -2,7 +2,7 @@
 
 import { useQuiz } from '@/store/use-quiz'
 import { COURSES } from '@/lib/data-mock'
-import { BarChart3, Activity, Target, Share2, Award, Zap, TrendingUp, Calendar, ChevronRight, PieChart, Sparkles, Filter } from 'lucide-react'
+import { BarChart3, Activity, Target, Share2, Award, Zap, TrendingUp, Calendar, ChevronRight, PieChart, Sparkles, Filter, RotateCcw, Trash2 } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { useAuth } from '@/store/use-auth'
 import { SectionHeader, Divider } from '@/components/dashboard-ui'
@@ -63,6 +63,7 @@ export default function StudentStats() {
                         <Share2 className="w-4 h-4" />
                         Exportar
                     </button>
+                    <ResetButton />
                 </div>
             </div>
 
@@ -223,5 +224,44 @@ function StatCard({ label, value, icon, trend, trendUp, sub }: { label: string, 
                 {sub && <p className="text-[10px] text-muted-foreground font-bold mt-1 uppercase">{sub}</p>}
             </div>
         </div>
+    )
+}
+
+function ResetButton() {
+    const { reset_metrics } = useQuiz()
+    const [confirming, setConfirming] = useState(false)
+
+    if (confirming) {
+        return (
+            <div className="flex gap-2 animate-in fade-in slide-in-from-right-4 duration-300">
+                <button
+                    onClick={() => setConfirming(false)}
+                    className="px-4 py-2.5 rounded-xl bg-muted text-muted-foreground font-bold text-xs hover:bg-muted/80 transition-all"
+                >
+                    Cancelar
+                </button>
+                <button
+                    onClick={() => {
+                        reset_metrics()
+                        setConfirming(false)
+                        // Optional: Show toast or reload page logic
+                        window.location.reload()
+                    }}
+                    className="px-4 py-2.5 rounded-xl bg-destructive text-white font-bold text-xs hover:bg-destructive/90 transition-all flex items-center gap-2"
+                >
+                    <Trash2 className="w-4 h-4" /> Confirmar Reset
+                </button>
+            </div>
+        )
+    }
+
+    return (
+        <button
+            onClick={() => setConfirming(true)}
+            className="bg-card border border-destructive/20 text-destructive px-5 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider flex items-center gap-2 hover:bg-destructive/10 transition-all"
+        >
+            <RotateCcw className="w-4 h-4" />
+            Resetar
+        </button>
     )
 }

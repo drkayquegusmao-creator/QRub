@@ -29,6 +29,7 @@ import { generateStructuralQuestion } from '@/lib/generators/structural-engine'
 import { MEDICAL_LIBRARY } from '@/lib/generators/medical-library'
 import { MEDICAL_HIERARCHY } from '@/lib/medical-specialties'
 import { QuestionPreviewModal } from '@/components/question-preview-modal'
+import { QuestionsBreakdownModal } from '@/components/questions-breakdown-modal'
 
 export default function AdminDashboard() {
     const { user, isAuthenticated } = useAuth()
@@ -50,6 +51,7 @@ export default function AdminDashboard() {
     const [structuralTema, setStructuralTema] = useState('')
     const [validationFilter, setValidationFilter] = useState<'PENDENTE' | 'APROVADA' | 'REPROVADA'>('PENDENTE')
     const [previewQuestion, setPreviewQuestion] = useState<Question | null>(null)
+    const [isBreakdownOpen, setIsBreakdownOpen] = useState(false)
 
     const setView = (newView: string) => {
         setViewInternal(newView as any)
@@ -1691,7 +1693,13 @@ export default function AdminDashboard() {
                 {view === 'questions' && (
                     <motion.div key="q" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} className="space-y-6">
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                            <StatCard label="Total Questões" value={questions.length} color="text-primary" icon={<Database className="w-4 h-4" />} />
+                            <StatCard
+                                label="Total Questões"
+                                value={questions.length}
+                                color="text-primary"
+                                icon={<Database className="w-4 h-4" />}
+                                onClick={() => setIsBreakdownOpen(true)}
+                            />
                             <StatCard label="Especialidades" value="12" color="text-blue-500" icon={<BookOpen className="w-4 h-4" />} />
                             <StatCard label="Questões com Flag" value={questions.filter(q => q.status === 'flagged').length} color="text-orange-500" icon={<Flag className="w-4 h-4" />} />
                             <StatCard label="Erros Reportados" value={reports.filter(r => r.status === 'pending').length} color="text-rose-500" icon={<AlertCircle className="w-4 h-4" />} />
@@ -2298,6 +2306,12 @@ export default function AdminDashboard() {
                 isOpen={!!previewQuestion}
                 onClose={() => setPreviewQuestion(null)}
                 question={previewQuestion}
+            />
+
+            <QuestionsBreakdownModal
+                isOpen={isBreakdownOpen}
+                onClose={() => setIsBreakdownOpen(false)}
+                questions={questions}
             />
         </div>
     )
