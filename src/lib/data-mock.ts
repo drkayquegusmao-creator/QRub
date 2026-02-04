@@ -125,6 +125,7 @@ export interface Question {
     erros_graves?: string[]
 
     image_url?: string
+    image_description?: string
     revision_link?: string
     guideline_id?: string
     guideline_version?: string

@@ -1,14 +1,14 @@
 import { NextResponse } from 'next/server'
 
 export async function POST(req: Request) {
-    try {
-        const { apiKey, especialidade, subespecialidade, tema } = await req.json()
+  try {
+    const { apiKey, especialidade, subespecialidade, tema } = await req.json()
 
-        if (!apiKey) {
-            return NextResponse.json({ error: 'API Key missing' }, { status: 400 })
-        }
+    if (!apiKey) {
+      return NextResponse.json({ error: 'API Key missing' }, { status: 400 })
+    }
 
-        const SYSTEM_PROMPT = `VOCÊ É O GERADOR OFICIAL DE QUESTÕES DO QRUB.
+    const SYSTEM_PROMPT = `VOCÊ É O GERADOR OFICIAL DE QUESTÕES DO QRUB.
 
 SUA ÚNICA FUNÇÃO É GERAR QUESTÕES MÉDICAS NO PADRÃO OFICIAL DO REVALIDA (INEP), 
 PARA SEREM SALVAS EM BANCO DE DADOS.
@@ -84,9 +84,10 @@ O ENUNCIADO DEVE CONTER, QUANDO PERTINENTE:
 CLASSIFICAÇÃO E HIERARQUIA
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-- Use EXATAMENTE a Área, Subárea e Tema recebidos.
-- Se a Subárea não existir, CRIE.
-- Se o Tema não existir, CRIE.
+- Use a Área, Subárea e Tema recebidos como BASE.
+- SE a Subárea ou Tema recebidos forem vazios ou "Detectar Automático", VOCÊ deve CRIAR a classificação mais adequada para o caso clínico.
+- Subárea deve ser uma subdivisão técnica da especialidade (ex: Cardiologia, Nefrologia).
+- Tema deve ser o assunto específico (ex: IAM com supra, Glomerulonefrite Difusa Aguda).
 - UMA questão = UM tema central.
 - NÃO misture assuntos.
 
@@ -104,6 +105,7 @@ SEM CAMPOS EXTRAS E SEM TEXTO FORA DO JSON:
   "tema": "string",
   "nivel_dificuldade": "moderado | dificil",
   "enunciado": "texto clínico corrido",
+  "descricao_imagem": "string | null (Descreva detalhadamente uma imagem/exame/achado visual se for essencial ou enriquecedor para a questão, ex: 'Radiografia de tórax demonstrando infiltrado intersticial bilateral em bases'. Se não necessário, use null. NUNCA dê a resposta na descrição.)",
   "alternativas": {
     "A": "string",
     "B": "string",
@@ -142,42 +144,42 @@ SAÍDA
 - Gere exatamente a quantidade solicitada.
 - Finalize a resposta após o JSON.`
 
-        const USER_PROMPT = `Gere uma questão médica oficial para:
+    const USER_PROMPT = `Gere uma questão médica oficial para:
 Área: ${especialidade}
 Subárea: ${subespecialidade}
 Tema: ${tema}
 
 Quantidade: 1 questão.`
 
-        const openaiResponse = await fetch('https://api.openai.com/v1/chat/completions', {
-            method: 'POST',
-            headers: {
-                'Authorization': `Bearer ${apiKey}`,
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                model: 'gpt-4o', // Using gpt-4o for high quality as requested
-                messages: [
-                    { role: 'system', content: SYSTEM_PROMPT },
-                    { role: 'user', content: USER_PROMPT }
-                ],
-                temperature: 0.7,
-                response_format: { type: 'json_object' }
-            })
-        })
+    const openaiResponse = await fetch('https://api.openai.com/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${apiKey}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        model: 'gpt-4o', // Using gpt-4o for high quality as requested
+        messages: [
+          { role: 'system', content: SYSTEM_PROMPT },
+          { role: 'user', content: USER_PROMPT }
+        ],
+        temperature: 0.7,
+        response_format: { type: 'json_object' }
+      })
+    })
 
-        const rawData = await openaiResponse.json()
+    const rawData = await openaiResponse.json()
 
-        if (rawData.error) {
-            return NextResponse.json({ error: rawData.error.message }, { status: 500 })
-        }
-
-        const question = JSON.parse(rawData.choices[0].message.content)
-
-        return NextResponse.json(question)
-
-    } catch (error: any) {
-        console.error('AI Generation Error:', error)
-        return NextResponse.json({ error: error.message }, { status: 500 })
+    if (rawData.error) {
+      return NextResponse.json({ error: rawData.error.message }, { status: 500 })
     }
+
+    const question = JSON.parse(rawData.choices[0].message.content)
+
+    return NextResponse.json(question)
+
+  } catch (error: any) {
+    console.error('AI Generation Error:', error)
+    return NextResponse.json({ error: error.message }, { status: 500 })
+  }
 }
