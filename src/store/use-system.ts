@@ -30,7 +30,7 @@ export const useSystem = create<SystemState>((set, get) => ({
                 const openai = data.find(i => i.key === 'openai_api_key')?.value as any
 
                 set({
-                    isMaintenanceMode: maintenance?.active || false,
+                    isMaintenanceMode: false, // Forced disabled by Admin request
                     maintenanceMessage: maintenance?.message || 'Estamos realizando ajustes técnicos para melhorar sua experiência. Voltamos em breve!',
                     openaiApiKey: openai?.key || '',
                     loading: false
@@ -96,7 +96,7 @@ export const useSystem = create<SystemState>((set, get) => ({
                     const newValue = payload.new as { value: { active: boolean, message: string } }
                     if (newValue && newValue.value) {
                         set({
-                            isMaintenanceMode: newValue.value.active,
+                            isMaintenanceMode: false, // Forced disabled by Admin request
                             maintenanceMessage: newValue.value.message
                         })
                     }
