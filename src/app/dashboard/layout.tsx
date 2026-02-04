@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react'
 import { BottomTabs } from '@/components/bottom-tabs'
 import { UserProfileModal } from '@/components/user-profile-modal'
 import { SupportChatWidget } from '@/components/support-chat-widget'
-import { Hexagon, LogOut, Moon, Sun, Shield, User } from 'lucide-react'
+import { Hexagon, LogOut, Moon, Sun, Shield, User, Share2 } from 'lucide-react'
 import { useTheme } from 'next-themes'
 import Link from 'next/link'
 import { clsx, type ClassValue } from 'clsx'
@@ -66,12 +66,42 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
             {!hideNav && (
                 <header className="fixed top-0 z-40 w-full bg-background/50 backdrop-blur-xl border-b border-white/5">
                     <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-                        <Link href="/dashboard" className="flex items-center gap-3 group transition-all">
-                            <div className="bg-primary p-2 rounded-xl shadow-lg shadow-primary/20 group-hover:scale-110 transition-transform">
-                                <Hexagon className="w-5 h-5 text-white fill-white/20" />
-                            </div>
-                            <span className="text-2xl font-black italic uppercase tracking-tighter">QRub</span>
-                        </Link>
+                        <div className="flex items-center gap-4">
+                            <Link href="/dashboard" className="flex items-center gap-3 group transition-all">
+                                <div className="bg-primary p-2 rounded-xl shadow-lg shadow-primary/20 group-hover:scale-110 transition-transform">
+                                    <Hexagon className="w-5 h-5 text-white fill-white/20" />
+                                </div>
+                                <span className="text-2xl font-black italic uppercase tracking-tighter">QRub</span>
+                            </Link>
+
+                            <button
+                                onClick={async () => {
+                                    const shareData = {
+                                        title: 'QRub | Plataforma de Questões de Alta Performance',
+                                        text: '🚀 QRub: Sua Aprovação Começa Aqui!\n\nA plataforma definitiva para residência médica e concursos.\n\n✅ Questões comentadas por especialistas\n✅ Agenda inteligente (estude o que importa)\n✅ Métricas detalhadas de performance\n\nAcesse agora:',
+                                        url: 'https://qrub.com.br'
+                                    };
+
+                                    if (navigator.share && /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+                                        try {
+                                            await navigator.share(shareData);
+                                        } catch (err) {
+                                            // Fallback if user cancels or error
+                                            const waText = encodeURIComponent(`${shareData.text} ${shareData.url}`);
+                                            window.open(`https://wa.me/?text=${waText}`, '_blank');
+                                        }
+                                    } else {
+                                        const waText = encodeURIComponent(`${shareData.text} ${shareData.url}`);
+                                        window.open(`https://wa.me/?text=${waText}`, '_blank');
+                                    }
+                                }}
+                                className="hidden sm:flex items-center gap-2 px-4 py-2 rounded-2xl bg-emerald-500/10 text-emerald-600 hover:bg-emerald-500 hover:text-white transition-all text-[10px] font-black uppercase tracking-widest border border-emerald-500/20 shadow-sm group/share"
+                                title="Compartilhar QRub"
+                            >
+                                <Share2 className="w-3.5 h-3.5" />
+                                <span className="hidden lg:inline">Compartilhar</span>
+                            </button>
+                        </div>
 
                         <div className="flex items-center gap-3">
 
