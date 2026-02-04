@@ -4,29 +4,35 @@ import { supabase } from '@/lib/supabase'
 interface SystemState {
     isMaintenanceMode: boolean
     maintenanceMessage: string
+    openaiApiKey: string
     loading: boolean
     fetchMaintenanceStatus: () => Promise<void>
     setMaintenanceMode: (active: boolean, message?: string) => Promise<void>
+    setOpenaiApiKey: (key: string) => Promise<void>
     subscribeToMaintenance: () => () => void
 }
 
-export const useSystem = create<SystemState>((set) => ({
+export const useSystem = create<SystemState>((set, get) => ({
     isMaintenanceMode: false,
     maintenanceMessage: 'Estamos realizando ajustes técnicos para melhorar sua experiência. Voltamos em breve!',
+    openaiApiKey: '',
     loading: true,
 
     fetchMaintenanceStatus: async () => {
         try {
             const { data } = await supabase
                 .from('system_settings')
-                .select('value')
-                .eq('key', 'maintenance_mode')
-                .single()
+                .select('key, value')
+                .in('key', ['maintenance_mode', 'openai_api_key'])
 
-            if (data && data.value) {
+            if (data) {
+                const maintenance = data.find(i => i.key === 'maintenance_mode')?.value as any
+                const openai = data.find(i => i.key === 'openai_api_key')?.value as any
+
                 set({
-                    isMaintenanceMode: (data.value as any).active,
-                    maintenanceMessage: (data.value as any).message,
+                    isMaintenanceMode: maintenance?.active || false,
+                    maintenanceMessage: maintenance?.message || 'Estamos realizando ajustes técnicos para melhorar sua experiência. Voltamos em breve!',
+                    openaiApiKey: openai?.key || '',
                     loading: false
                 })
             } else {
@@ -35,6 +41,22 @@ export const useSystem = create<SystemState>((set) => ({
         } catch (error) {
             console.error('Error fetching maintenance status:', error)
             set({ loading: false })
+        }
+    },
+
+    setOpenaiApiKey: async (key: string) => {
+        set({ openaiApiKey: key })
+        try {
+            const { error } = await supabase
+                .from('system_settings')
+                .upsert({
+                    key: 'openai_api_key',
+                    value: { key },
+                    updated_at: new Date().toISOString()
+                })
+            if (error) throw error
+        } catch (error) {
+            console.error('Error updating OpenAI API Key:', error)
         }
     },
 

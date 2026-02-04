@@ -43,7 +43,7 @@ export function MaintenanceGuardian({ children }: { children: React.ReactNode })
         }
     }, [isMaintenanceMode, user, pathname, loading, authLoading, router])
 
-    if (isMaintenanceMode && !user && pathname !== '/maintenance' && pathname !== '/auth') {
+    if (isMaintenanceMode && !user && pathname !== '/maintenance' && pathname !== '/auth' && pathname !== '/') {
         // Optional: Show loading or nothing while redirecting
         return null
     }

@@ -41,8 +41,8 @@ export default function AdminDashboard() {
     const { reports, loadReports, updateReportStatus, loading: reportsLoading } = useModeration()
     const { responses, load_all_responses: loadAllResponses } = useQuiz()
     // QRUB MASTER - Structural State
-    const [view, setViewInternal] = useState<'questions' | 'users' | 'analytics' | 'reports' | 'import' | 'structural' | 'validation' | 'settings'>('analytics')
-    const { isMaintenanceMode, maintenanceMessage, setMaintenanceMode } = useSystem()
+    const { isMaintenanceMode, maintenanceMessage, setMaintenanceMode, openaiApiKey, setOpenaiApiKey } = useSystem()
+    const [generationMode, setGenerationMode] = useState<'structural' | 'ai'>('structural')
     const [structuralArea, setStructuralArea] = useState('')
     const [structuralSubarea, setStructuralSubarea] = useState('')
     const [structuralTema, setStructuralTema] = useState('')
@@ -125,6 +125,87 @@ export default function AdminDashboard() {
         setLoadingManual(false)
     }
 
+    const handleAIGenerate = async () => {
+        if (!openaiApiKey) {
+            alert('Configure a OpenAI API Key em Ajustes primeiro.')
+            setView('settings')
+            return
+        }
+        if (!structuralArea) {
+            alert('Selecione ao menos a Área da Prova.')
+            return
+        }
+
+        const areaObj = MEDICAL_HIERARCHY[0].specialties.find(s => s.id === structuralArea)
+        const subareaObj = areaObj?.subspecialties.find(sub => sub.id === structuralSubarea)
+        const temaObj = subareaObj?.subjects.find(t => t.id === structuralTema)
+
+        setLoadingManual(true)
+        try {
+            const response = await fetch('/api/ai/generate-question', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    apiKey: openaiApiKey,
+                    especialidade: areaObj?.name,
+                    subespecialidade: subareaObj?.name || 'Geral',
+                    tema: temaObj?.name || 'Geral'
+                })
+            })
+
+            const data = await response.json()
+            if (!response.ok) throw new Error(data.error || 'Erro na geração IA')
+
+            const alternatives = [
+                { id: 'a', text: data.alternativas.A },
+                { id: 'b', text: data.alternativas.B },
+                { id: 'c', text: data.alternativas.C },
+                { id: 'd', text: data.alternativas.D },
+                { id: 'e', text: data.alternativas.E },
+            ]
+
+            const normalizedJustificativas: Record<string, string> = {}
+            if (data.justificativas_incorretas) {
+                Object.entries(data.justificativas_incorretas).forEach(([key, val]) => {
+                    normalizedJustificativas[key.toLowerCase()] = val as string
+                })
+            }
+
+            const aiQuestion: Question = {
+                id: crypto.randomUUID(),
+                course_id: 'medicina',
+                area_id: areaObj!.id,
+                subarea_id: subareaObj?.id || 'geral',
+                tema_id: temaObj?.id || 'geral',
+                specialty_id: areaObj!.id,
+                subspecialty_id: subareaObj?.id || 'geral',
+                subject_id: temaObj?.id || 'geral',
+                difficulty: data.nivel_dificuldade === 'moderado' ? 'Médio' : 'Difícil',
+                enunciado: data.enunciado,
+                comando: "Qual a conduta mais adequada?",
+                options: alternatives,
+                correct_option_id: data.resposta_correta.toLowerCase(),
+                explanation: data.justificativa_correta,
+                alternative_explanations: normalizedJustificativas,
+                fonte: 'ia',
+                status_validacao: 'PENDENTE',
+                created_at: new Date().toISOString()
+            }
+
+            const result = await addQuestion(aiQuestion)
+            if (result.success) {
+                setImportStatus({ type: 'success', msg: `🚀 IA Gerou: ${areaObj?.name} > ${data.tema}` })
+                loadQuestions()
+            } else {
+                throw new Error(result.message)
+            }
+        } catch (error: any) {
+            setImportStatus({ type: 'error', msg: `❌ Erro IA: ${error.message}` })
+        } finally {
+            setLoadingManual(false)
+        }
+    }
+
     const filteredUsers = useMemo(() => {
         return realUsers.filter(u => {
             const matchesFilter =
@@ -181,9 +262,26 @@ export default function AdminDashboard() {
                                 Gerador <span className="royal-gradient-text">Oficial</span>
                             </h2>
                             <p className="text-muted-foreground font-medium max-w-xl">
-                                Gere questões médicas baseadas em bibliotecas fixas, sem dependência de IA.
+                                Gere questões médicas baseadas em bibliotecas fixas ou utilize IA avançada.
                                 Controle total sobre a hierarquia e temas oficiais QRUB.
                             </p>
+                        </div>
+
+                        <div className="flex bg-muted/50 p-1 rounded-2xl w-fit border border-border">
+                            <button
+                                onClick={() => setGenerationMode('structural')}
+                                className={`px-6 py-2.5 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all ${generationMode === 'structural' ? 'bg-primary text-white shadow-lg' : 'text-muted-foreground hover:bg-muted'}`}
+                            >
+                                <Zap className={`w-3.5 h-3.5 inline mr-2 ${generationMode === 'structural' ? 'fill-white' : ''}`} />
+                                Estrutural (Fixo)
+                            </button>
+                            <button
+                                onClick={() => setGenerationMode('ai')}
+                                className={`px-6 py-2.5 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all ${generationMode === 'ai' ? 'bg-primary text-white shadow-lg' : 'text-muted-foreground hover:bg-muted'}`}
+                            >
+                                <Sparkles className={`w-3.5 h-3.5 inline mr-2 ${generationMode === 'ai' ? 'fill-white' : ''}`} />
+                                IA Generativa
+                            </button>
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -234,12 +332,12 @@ export default function AdminDashboard() {
                         </div>
 
                         <button
-                            onClick={handleStructuralGenerate}
+                            onClick={generationMode === 'structural' ? handleStructuralGenerate : handleAIGenerate}
                             disabled={loadingManual || !structuralArea}
                             className="w-full royal-gradient text-white py-6 rounded-2xl font-black uppercase text-sm tracking-[0.2em] shadow-2xl shadow-primary/30 hover:scale-[1.02] active:scale-95 transition-all disabled:opacity-50 flex items-center justify-center gap-4"
                         >
-                            {loadingManual ? <RefreshCw className="w-5 h-5 animate-spin" /> : <Sparkles className="w-6 h-6" />}
-                            GERAR QUESTÃO ESTRUTURAL
+                            {loadingManual ? <RefreshCw className="w-5 h-5 animate-spin" /> : (generationMode === 'structural' ? <Sparkles className="w-6 h-6" /> : <Zap className="w-6 h-6 fill-white" />)}
+                            {generationMode === 'structural' ? 'GERAR QUESTÃO ESTRUTURAL' : 'GERAR QUESTÃO COM IA'}
                         </button>
                     </div>
                 </div>
@@ -435,39 +533,74 @@ export default function AdminDashboard() {
                         </div>
 
                         {/* Maintenance Toggle Card */}
-                        <div className={`p-8 rounded-[32px] border-2 transition-all ${isMaintenanceMode ? 'bg-amber-500/5 border-amber-500 shadow-xl shadow-amber-500/10' : 'bg-muted/30 border-border hover:border-primary/20'}`}>
-                            <div className="flex flex-col md:flex-row md:items-center justify-between gap-8">
-                                <div className="space-y-4 flex-1">
-                                    <div className="flex items-center gap-4">
-                                        <div className={`p-4 rounded-2xl ${isMaintenanceMode ? 'bg-amber-500 text-white animate-pulse' : 'bg-muted text-muted-foreground'}`}>
-                                            <Hammer className="w-6 h-6" />
+                        <div className="grid grid-cols-1 gap-6">
+                            <div className={`p-8 rounded-[32px] border-2 transition-all ${isMaintenanceMode ? 'bg-amber-500/5 border-amber-500 shadow-xl shadow-amber-500/10' : 'bg-muted/30 border-border hover:border-primary/20'}`}>
+                                <div className="flex flex-col md:flex-row md:items-center justify-between gap-8">
+                                    <div className="space-y-4 flex-1">
+                                        <div className="flex items-center gap-4">
+                                            <div className={`p-4 rounded-2xl ${isMaintenanceMode ? 'bg-amber-500 text-white animate-pulse' : 'bg-muted text-muted-foreground'}`}>
+                                                <Hammer className="w-6 h-6" />
+                                            </div>
+                                            <div>
+                                                <h3 className="text-xl font-black uppercase italic tracking-tighter leading-none mb-1">Modo Manutenção</h3>
+                                                <p className="text-muted-foreground text-[10px] font-black uppercase tracking-widest">Aviso global para todos os usuários</p>
+                                            </div>
                                         </div>
-                                        <div>
-                                            <h3 className="text-xl font-black uppercase italic tracking-tighter leading-none mb-1">Modo Manutenção</h3>
-                                            <p className="text-muted-foreground text-[10px] font-black uppercase tracking-widest">Aviso global para todos os usuários</p>
+
+                                        <div className="space-y-4">
+                                            <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground ml-2">Mensagem de Aviso</label>
+                                            <textarea
+                                                value={maintenanceMessage}
+                                                onChange={(e) => setMaintenanceMode(isMaintenanceMode, e.target.value)}
+                                                className="w-full h-24 bg-white/50 border border-border rounded-2xl p-4 text-xs font-bold focus:ring-2 focus:ring-primary/20 outline-none resize-none transition-all"
+                                                placeholder="Descreva o motivo da manutenção..."
+                                            />
                                         </div>
                                     </div>
 
-                                    <div className="space-y-4">
-                                        <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground ml-2">Mensagem de Aviso</label>
-                                        <textarea
-                                            value={maintenanceMessage}
-                                            onChange={(e) => setMaintenanceMode(isMaintenanceMode, e.target.value)}
-                                            className="w-full h-24 bg-white/50 border border-border rounded-2xl p-4 text-xs font-bold focus:ring-2 focus:ring-primary/20 outline-none resize-none transition-all"
-                                            placeholder="Descreva o motivo da manutenção..."
-                                        />
+                                    <div className="shrink-0">
+                                        <button
+                                            onClick={() => setMaintenanceMode(!isMaintenanceMode, maintenanceMessage)}
+                                            className={`w-20 h-10 rounded-full relative transition-all duration-500 ${isMaintenanceMode ? 'bg-amber-500' : 'bg-slate-300'}`}
+                                        >
+                                            <div className={`absolute top-1 left-1 w-8 h-8 bg-white rounded-full shadow-lg transition-transform duration-500 ${isMaintenanceMode ? 'translate-x-10' : ''} flex items-center justify-center`}>
+                                                <div className={`w-1.5 h-1.5 rounded-full ${isMaintenanceMode ? 'bg-amber-500' : 'bg-slate-300'}`} />
+                                            </div>
+                                        </button>
                                     </div>
                                 </div>
+                            </div>
 
-                                <div className="shrink-0">
-                                    <button
-                                        onClick={() => setMaintenanceMode(!isMaintenanceMode, maintenanceMessage)}
-                                        className={`w-20 h-10 rounded-full relative transition-all duration-500 ${isMaintenanceMode ? 'bg-amber-500' : 'bg-slate-300'}`}
-                                    >
-                                        <div className={`absolute top-1 left-1 w-8 h-8 bg-white rounded-full shadow-lg transition-transform duration-500 ${isMaintenanceMode ? 'translate-x-10' : ''} flex items-center justify-center`}>
-                                            <div className={`w-1.5 h-1.5 rounded-full ${isMaintenanceMode ? 'bg-amber-500' : 'bg-slate-300'}`} />
+                            <div className={`p-8 rounded-[32px] border-2 transition-all ${openaiApiKey ? 'bg-primary/5 border-primary shadow-xl shadow-primary/10' : 'bg-muted/30 border-border hover:border-primary/20'}`}>
+                                <div className="space-y-6">
+                                    <div className="flex items-center gap-4">
+                                        <div className={`p-4 rounded-2xl ${openaiApiKey ? 'bg-primary text-white' : 'bg-muted text-muted-foreground'}`}>
+                                            <Zap className="w-6 h-6" />
                                         </div>
-                                    </button>
+                                        <div>
+                                            <h3 className="text-xl font-black uppercase italic tracking-tighter leading-none mb-1">OpenAI API Key</h3>
+                                            <p className="text-muted-foreground text-[10px] font-black uppercase tracking-widest">Necessária para o gerador de questões IA</p>
+                                        </div>
+                                    </div>
+
+                                    <div className="space-y-2">
+                                        <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground ml-2">Sua API Key (sk-...)</label>
+                                        <div className="relative">
+                                            <input
+                                                type="password"
+                                                value={openaiApiKey}
+                                                onChange={(e) => setOpenaiApiKey(e.target.value)}
+                                                className="w-full h-14 bg-white/50 border border-border rounded-2xl px-5 font-mono text-sm focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                                                placeholder="sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+                                            />
+                                            {openaiApiKey && (
+                                                <div className="absolute right-4 top-1/2 -translate-y-1/2">
+                                                    <CheckCircle2 className="w-5 h-5 text-emerald-500" />
+                                                </div>
+                                            )}
+                                        </div>
+                                        <p className="text-[9px] font-bold text-muted-foreground uppercase tracking-widest ml-2">A chave é salva de forma segura no banco de dados do sistema.</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
