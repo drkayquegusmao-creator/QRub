@@ -149,6 +149,15 @@ export function TrainModal({ isOpen, onClose, initialMode, initialSpecialtyId }:
                     />
                 </div>
 
+                {/* Fixed Random Training Button - Always Visible */}
+                <button
+                    onClick={() => setMode('CONFIG_ALL')}
+                    className="w-full p-5 rounded-[25px] border-2 border-primary/20 bg-gradient-to-r from-primary/5 to-purple-500/5 hover:from-primary/10 hover:to-purple-500/10 hover:border-primary/40 text-primary hover:text-primary transition-all flex items-center justify-center gap-3 font-black uppercase text-sm tracking-widest shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-95"
+                >
+                    <LayoutGrid className="w-5 h-5" />
+                    Treinar Tudo (Aleatório)
+                </button>
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-h-[400px] overflow-y-auto pr-2 custom-scrollbar">
                     {filteredSpecialties.length > 0 ? (
                         filteredSpecialties.map((spec) => (
@@ -170,19 +179,6 @@ export function TrainModal({ isOpen, onClose, initialMode, initialSpecialtyId }:
                         <div className="md:col-span-2 flex flex-col items-center justify-center py-10 text-slate-400">
                             <Search className="w-8 h-8 mb-2 opacity-20" />
                             <p className="text-xs font-bold uppercase tracking-widest">Nenhuma especialidade encontrada para "{searchQuery}"</p>
-                        </div>
-                    )}
-
-                    {/* Option to Train Everything/Random - Only show if not searching or if relevant */}
-                    {searchQuery === '' && (
-                        <div className="md:col-span-2 pt-4">
-                            <button
-                                onClick={() => setMode('CONFIG_ALL')}
-                                className="w-full p-4 rounded-xl border border-dashed border-slate-300 hover:border-primary hover:bg-primary/5 text-slate-400 hover:text-primary transition-all flex items-center justify-center gap-2 font-black uppercase text-xs tracking-widest"
-                            >
-                                <LayoutGrid className="w-4 h-4" />
-                                Treinar Tudo (Aleatório)
-                            </button>
                         </div>
                     )}
                 </div>
@@ -344,22 +340,22 @@ export function TrainModal({ isOpen, onClose, initialMode, initialSpecialtyId }:
                     <span className="text-2xl font-black italic text-primary">{questionCount}</span>
                 </div>
                 <div className="relative h-2 bg-slate-100 rounded-full">
-                    <div className="absolute h-full bg-primary rounded-full" style={{ width: `${((questionCount - 10) / 90) * 100}%` }} />
+                    <div className="absolute h-full bg-primary rounded-full" style={{ width: `${((questionCount - 1) / 99) * 100}%` }} />
                     <input
-                        type="range" min="10" max="100" step="10"
+                        type="range" min="1" max="100" step="1"
                         value={questionCount}
                         onChange={(e) => setQuestionCount(Number(e.target.value))}
                         className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
                     />
                     <div
                         className="absolute w-6 h-6 bg-white border-2 border-primary rounded-full shadow-lg flex items-center justify-center top-1/2 -translate-y-1/2 pointer-events-none transition-all"
-                        style={{ left: `calc(${((questionCount - 10) / 90) * 100}% - 12px)` }}
+                        style={{ left: `calc(${((questionCount - 1) / 99) * 100}% - 12px)` }}
                     >
                         <div className="w-1.5 h-1.5 bg-primary rounded-full" />
                     </div>
                 </div>
                 <div className="flex justify-between text-[10px] font-black uppercase text-slate-300 tracking-widest">
-                    <span>10</span>
+                    <span>1</span>
                     <span>100</span>
                 </div>
             </div>

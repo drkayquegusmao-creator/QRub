@@ -2,8 +2,8 @@
 
 import { useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { X, Database, ChevronRight, Stethoscope, Microscope } from 'lucide-react'
-import { Question } from '@/lib/data-mock'
+import { X, Database, ChevronRight, Stethoscope, Microscope, AlertCircle } from 'lucide-react'
+import { Question, COURSES } from '@/lib/data-mock'
 
 interface QuestionsBreakdownModalProps {
     isOpen: boolean
@@ -14,6 +14,7 @@ interface QuestionsBreakdownModalProps {
 export function QuestionsBreakdownModal({ isOpen, onClose, questions }: QuestionsBreakdownModalProps) {
 
     const breakdown = useMemo(() => {
+        // First, build stats from existing questions
         const stats: Record<string, { name: string, count: number, subs: Record<string, { name: string, count: number }> }> = {}
 
         questions.forEach(q => {
@@ -43,12 +44,45 @@ export function QuestionsBreakdownModal({ isOpen, onClose, questions }: Question
             stats[specId].subs[subId].count++
         })
 
-        // Sort by count descending
+        // Now add ALL specialties from the hierarchy, even if they have 0 questions
+        if (COURSES && COURSES[0] && COURSES[0].specialties) {
+            COURSES[0].specialties.forEach(specialty => {
+                if (!stats[specialty.id]) {
+                    stats[specialty.id] = {
+                        name: specialty.name,
+                        count: 0,
+                        subs: {}
+                    }
+                }
+
+                // Add all subspecialties too
+                if (specialty.subspecialties) {
+                    specialty.subspecialties.forEach(sub => {
+                        if (!stats[specialty.id].subs[sub.id]) {
+                            stats[specialty.id].subs[sub.id] = {
+                                name: sub.name,
+                                count: 0
+                            }
+                        }
+                    })
+                }
+            })
+        }
+
+        // Sort: specialties with 0 questions at the end, then by count descending
         return Object.values(stats)
-            .sort((a, b) => b.count - a.count)
+            .sort((a, b) => {
+                if (a.count === 0 && b.count > 0) return 1
+                if (b.count === 0 && a.count > 0) return -1
+                return b.count - a.count
+            })
             .map(spec => ({
                 ...spec,
-                subs: Object.values(spec.subs).sort((a, b) => b.count - a.count)
+                subs: Object.values(spec.subs).sort((a, b) => {
+                    if (a.count === 0 && b.count > 0) return 1
+                    if (b.count === 0 && a.count > 0) return -1
+                    return b.count - a.count
+                })
             }))
     }, [questions])
 
@@ -95,42 +129,86 @@ export function QuestionsBreakdownModal({ isOpen, onClose, questions }: Question
                                     <p className="font-bold uppercase tracking-widest">Nenhuma questão encontrada</p>
                                 </div>
                             ) : (
-                                breakdown.map((spec, i) => (
-                                    <div key={i} className="bg-white border-2 border-slate-100 rounded-[24px] overflow-hidden hover:border-primary/20 transition-all group">
-                                        {/* Specialty Header */}
-                                        <div className="p-5 flex items-center justify-between bg-slate-50/50">
-                                            <div className="flex items-center gap-3">
-                                                <div className="p-2 bg-white rounded-lg border border-slate-100 text-slate-400 group-hover:text-primary transition-colors">
-                                                    <Stethoscope className="w-4 h-4" />
-                                                </div>
-                                                <span className="font-black uppercase tracking-tight text-[#1A1033] text-lg">
-                                                    {spec.name}
-                                                </span>
-                                            </div>
-                                            <div className="flex items-center gap-2">
-                                                <span className="text-2xl font-black italic text-primary">{spec.count}</span>
-                                                <span className="text-[10px] font-bold uppercase text-slate-400 tracking-widest">Questões</span>
-                                            </div>
-                                        </div>
+                                breakdown.map((spec, i) => {
+                                    const hasNoQuestions = spec.count === 0
 
-                                        {/* Subs List */}
-                                        <div className="p-2 bg-white">
-                                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
-                                                {spec.subs.map((sub, j) => (
-                                                    <div key={j} className="flex items-center justify-between p-3 rounded-xl bg-slate-50 border border-slate-100">
-                                                        <div className="flex items-center gap-2 min-w-0">
-                                                            <Microscope className="w-3 h-3 text-slate-400 shrink-0" />
-                                                            <span className="text-xs font-bold text-slate-600 truncate">{sub.name}</span>
-                                                        </div>
-                                                        <span className="text-xs font-black text-primary bg-primary/5 px-2 py-1 rounded-md">
-                                                            {sub.count}
-                                                        </span>
+                                    return (
+                                        <div
+                                            key={i}
+                                            className={`bg-white border-2 rounded-[24px] overflow-hidden transition-all group ${hasNoQuestions
+                                                    ? 'border-rose-200 bg-rose-50/30 hover:border-rose-400'
+                                                    : 'border-slate-100 hover:border-primary/20'
+                                                }`}
+                                        >
+                                            {/* Specialty Header */}
+                                            <div className={`p-5 flex items-center justify-between ${hasNoQuestions ? 'bg-rose-50/50' : 'bg-slate-50/50'
+                                                }`}>
+                                                <div className="flex items-center gap-3">
+                                                    <div className={`p-2 bg-white rounded-lg border ${hasNoQuestions
+                                                            ? 'border-rose-200 text-rose-500'
+                                                            : 'border-slate-100 text-slate-400 group-hover:text-primary'
+                                                        } transition-colors`}>
+                                                        {hasNoQuestions ? (
+                                                            <AlertCircle className="w-4 h-4" />
+                                                        ) : (
+                                                            <Stethoscope className="w-4 h-4" />
+                                                        )}
                                                     </div>
-                                                ))}
+                                                    <span className={`font-black uppercase tracking-tight text-lg ${hasNoQuestions ? 'text-rose-600' : 'text-[#1A1033]'
+                                                        }`}>
+                                                        {spec.name}
+                                                    </span>
+                                                    {hasNoQuestions && (
+                                                        <span className="px-2 py-0.5 bg-rose-500 text-white text-[9px] font-black uppercase rounded-full">
+                                                            SEM QUESTÕES
+                                                        </span>
+                                                    )}
+                                                </div>
+                                                <div className="flex items-center gap-2">
+                                                    <span className={`text-2xl font-black italic ${hasNoQuestions ? 'text-rose-500' : 'text-primary'
+                                                        }`}>
+                                                        {spec.count}
+                                                    </span>
+                                                    <span className="text-[10px] font-bold uppercase text-slate-400 tracking-widest">Questões</span>
+                                                </div>
+                                            </div>
+
+                                            {/* Subs List */}
+                                            <div className="p-2 bg-white">
+                                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
+                                                    {spec.subs.map((sub, j) => {
+                                                        const subHasNoQuestions = sub.count === 0
+
+                                                        return (
+                                                            <div
+                                                                key={j}
+                                                                className={`flex items-center justify-between p-3 rounded-xl border ${subHasNoQuestions
+                                                                        ? 'bg-rose-50 border-rose-200'
+                                                                        : 'bg-slate-50 border-slate-100'
+                                                                    }`}
+                                                            >
+                                                                <div className="flex items-center gap-2 min-w-0">
+                                                                    <Microscope className={`w-3 h-3 shrink-0 ${subHasNoQuestions ? 'text-rose-400' : 'text-slate-400'
+                                                                        }`} />
+                                                                    <span className={`text-xs font-bold truncate ${subHasNoQuestions ? 'text-rose-600' : 'text-slate-600'
+                                                                        }`}>
+                                                                        {sub.name}
+                                                                    </span>
+                                                                </div>
+                                                                <span className={`text-xs font-black px-2 py-1 rounded-md ${subHasNoQuestions
+                                                                        ? 'text-rose-600 bg-rose-100'
+                                                                        : 'text-primary bg-primary/5'
+                                                                    }`}>
+                                                                    {sub.count}
+                                                                </span>
+                                                            </div>
+                                                        )
+                                                    })}
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                ))
+                                    )
+                                })
                             )}
                         </div>
                     </div>
