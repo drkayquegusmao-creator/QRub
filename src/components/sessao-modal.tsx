@@ -102,7 +102,7 @@ export function SessaoModal({ isOpen, onClose, assunto_id, tipo, onComplete }: S
                         .select('questao_id')
                         .eq('user_id', user.id)
                         .eq('assunto_id', assunto.id)
-                        .in('status', ['ATIVA', 'EM_RECUPERACAO'])
+                        .in('status', ['ativo', 'em_revisao'])
                         .limit(20) // Ex: Max 20 pra sortear 10
 
                     if (!erros || erros.length === 0) {
@@ -113,7 +113,7 @@ export function SessaoModal({ isOpen, onClose, assunto_id, tipo, onComplete }: S
 
                     // Fetch das questões reais
                     const { data: qData } = await supabase
-                        .from('questions')
+                        .from('questao_base')
                         .select('*')
                         .in('id', erroIds)
 
@@ -129,7 +129,7 @@ export function SessaoModal({ isOpen, onClose, assunto_id, tipo, onComplete }: S
                     const usadasIds = new Set(usadas?.map(u => u.questao_id) || [])
 
                     const { data: qData, error: qError } = await supabase
-                        .from('questions')
+                        .from('questao_base')
                         .select('*')
                         .eq('specialty_id', assunto.specialty_id)
                         .limit(200)
@@ -244,11 +244,11 @@ export function SessaoModal({ isOpen, onClose, assunto_id, tipo, onComplete }: S
             // 1. Buscar respostas corretas (Gabarito)
             const qIds = todasRespostas.map(r => r.questao_id)
             const { data: qCorretas } = await supabase
-                .from('questions')
-                .select('id, correct_alternative, correct_option_id')
+                .from('questao_base')
+                .select('id, correct_option_id')
                 .in('id', qIds)
 
-            const gabarito = new Map(qCorretas?.map(q => [q.id, q.correct_alternative || q.correct_option_id]))
+            const gabarito = new Map(qCorretas?.map(q => [q.id, q.correct_option_id]))
 
             // 2. Buscar Erros Existentes (Para transição de status)
             const { data: errosExistentes } = await supabase

@@ -104,7 +104,7 @@ export function DashboardDiario() {
                     .from('caderno_erros')
                     .select('*')
                     .eq('user_id', user.id)
-                    .eq('status', 'ATIVA')
+                    .neq('status', 'resolvido')
 
                 // Helper de Detalhes do Assunto (Hierarquia)
                 const getDetalhesAssunto = (id: string) => {
@@ -245,6 +245,12 @@ export function DashboardDiario() {
                         specialty_id: errosAtivos[0].assunto_id,
                         questoes_disponiveis: errosAtivos[0].quantidade
                     }
+                }
+
+                // BLOQUEIO: Se houver muitos erros críticos, não sugere nivelamento novo
+                const errosCriticos = errosDb?.filter((e: any) => e.nivel_de_gravidade === 'critico').length || 0
+                if (errosCriticos > 3) {
+                    sugestao = null // Bloqueia novos temas até resolver o crítico
                 }
 
                 setDashboard({

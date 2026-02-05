@@ -93,7 +93,7 @@ export async function POST(request: Request) {
         const questoesIds = itens.map(item => item.questao_id)
         const { data: questoes, error: questoesError } = await supabase
             .from('questao_base')
-            .select('id, correct_option_id')
+            .select('id, correct_option_id, specialty_id, subspecialty_id, subject_id, explanation, metadata')
             .in('id', questoesIds)
 
         if (questoesError || !questoes) {
@@ -118,6 +118,7 @@ export async function POST(request: Request) {
 
             return {
                 id: item.id,
+                questao_id: item.questao_id,
                 resposta_usuario: resposta?.resposta || null,
                 esta_correta: estaCorreta,
                 tempo_resposta_segundos: resposta?.tempo_segundos || null
@@ -166,6 +167,38 @@ export async function POST(request: Request) {
                 { error: 'Failed to finalize session' },
                 { status: 500 }
             )
+        }
+
+        // 8.5. Lógica Especial: Resolução de Caderno de Erros
+        if (sessao.tipo === 'CADERNO_DE_ERROS') {
+            const percentual = (totalAcertos / itens.length) * 100
+
+            if (percentual >= 70) {
+                // Sucesso: Resolver erros deste assunto
+                await supabase
+                    .from('caderno_erros')
+                    .update({
+                        status: 'resolvido',
+                        updated_at: new Date().toISOString()
+                    })
+                    .eq('user_id', sessao.user_id)
+                    .eq('assunto_id', sessao.assunto_id)
+                    .eq('status', 'ativo')
+            } else {
+                // Falha: Manter ativo e agendar para 3 dias (reforço)
+                const dataReforco = new Date()
+                dataReforco.setDate(dataReforco.getDate() + 3)
+
+                await supabase
+                    .from('caderno_erros')
+                    .update({
+                        proxima_revisao: dataReforco.toISOString(),
+                        updated_at: new Date().toISOString()
+                    })
+                    .eq('user_id', sessao.user_id)
+                    .eq('assunto_id', sessao.assunto_id)
+                    .eq('status', 'ativo')
+            }
         }
 
         // 9. Atualizar ou criar progresso do assunto
@@ -219,10 +252,94 @@ export async function POST(request: Request) {
 
         if (usoError) {
             console.error('Error registering question usage:', usoError)
-            // Não retornar erro, apenas logar (não é crítico)
         }
 
-        // 11. Criar ou atualizar agenda de revisão
+        // 11. Processar Caderno de Erros
+        const errosParaLogar = []
+        for (let i = 0; i < itensAtualizados.length; i++) {
+            const item = itensAtualizados[i]
+            if (!item.esta_correta) {
+                const questaoData = questoes?.find(q => q.id === item.questao_id)
+                if (!questaoData) continue
+
+                // Lógica de Classificação Automática
+                let tipoDeErro: 'conhecimento' | 'interpretacao' | 'conduta' | 'distracao' = 'conhecimento'
+                let gravidade: 'leve' | 'moderado' | 'critico' = 'moderado'
+
+                if (questaoData.metadata?.perfil === 'Especialista') gravidade = 'critico'
+                if (item.tempo_resposta_segundos && item.tempo_resposta_segundos < 15) tipoDeErro = 'distracao'
+
+                // Heurística simples: se errou algo que tinha 'conduta' na explicação
+                if (questaoData.explanation?.toLowerCase().includes('conduta') ||
+                    questaoData.explanation?.toLowerCase().includes('manejo')) {
+                    tipoDeErro = 'conduta'
+                }
+
+                errosParaLogar.push({
+                    user_id: sessao.user_id,
+                    questao_id: item.questao_id,
+                    specialty_id: questaoData.specialty_id,
+                    subspecialty_id: questaoData.subspecialty_id,
+                    tema: questaoData.subject_id,
+                    assunto_id: sessao.assunto_id,
+                    tipo_de_erro: tipoDeErro,
+                    alternativa_marcada: item.resposta_usuario,
+                    alternativa_correta: questaoData.correct_option_id,
+                    justificativa_oficial: questaoData.explanation,
+                    nivel_de_gravidade: gravidade,
+                    status: 'ativo',
+                    data_ultimo_erro: new Date().toISOString()
+                })
+            }
+        }
+
+        if (errosParaLogar.length > 0) {
+            for (const erro of errosParaLogar) {
+                // Verificar se já existe erro
+                const { data: erroExistente } = await supabase
+                    .from('caderno_erros')
+                    .select('contador_de_repeticao, nivel_de_gravidade')
+                    .eq('user_id', erro.user_id)
+                    .eq('questao_id', erro.questao_id)
+                    .single()
+
+                const repeticao = (erroExistente?.contador_de_repeticao || 0) + 1
+                const gravidadeFinal = repeticao > 1 ? 'critico' : erro.nivel_de_gravidade
+
+                // Calcular próxima revisão do erro
+                const { data: dataRevisao } = await supabase
+                    .rpc('calcular_data_revisao_erro', {
+                        gravidade: gravidadeFinal,
+                        repeticao
+                    })
+
+                await supabase
+                    .from('caderno_erros')
+                    .upsert({
+                        ...erro,
+                        contador_de_repeticao: repeticao,
+                        nivel_de_gravidade: gravidadeFinal,
+                        proxima_revisao: dataRevisao,
+                        updated_at: new Date().toISOString()
+                    }, { onConflict: 'user_id,questao_id' })
+
+                // Integrar com a Agenda (Revisão de Erro)
+                if (dataRevisao) {
+                    const dataAgendaErro = new Date(dataRevisao).toISOString().split('T')[0]
+                    await supabase
+                        .from('agenda_revisoes')
+                        .upsert({
+                            user_id: erro.user_id,
+                            assunto_id: erro.assunto_id,
+                            data_programada: dataAgendaErro,
+                            status: 'PENDENTE',
+                            created_at: new Date().toISOString()
+                        }, { onConflict: 'user_id,assunto_id,data_programada' })
+                }
+            }
+        }
+
+        // 12. Criar ou atualizar agenda de revisão (Sessão normal)
         const dataAgenda = dataProximaRevisao.toISOString().split('T')[0] // YYYY-MM-DD
 
         const { error: agendaError } = await supabase

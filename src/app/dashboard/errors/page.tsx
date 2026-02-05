@@ -20,24 +20,27 @@ import { supabase } from '@/lib/supabase' // Import direto
 import { MEDICAL_HIERARCHY } from '@/lib/medical-specialties'
 
 // Definição de Tipos
-interface ErrorGroup {
+interface ErrorItem {
     id: string
-    nome: string
-    total: number
-    questoes: {
-        id: string // questao_id
-        erro_id: string
-        enunciado: string
-        status: 'ATIVO' | 'RECUPERACAO' | 'CONSOLIDADO'
-        revisoes: number
-        data: string
-        assunto?: string
-    }[]
+    questao_id: string
+    specialty_id: string
+    subspecialty_id?: string
+    tema: string
+    assunto_id: string
+    tipo_de_erro: 'conhecimento' | 'interpretacao' | 'conduta' | 'distracao'
+    status: 'ativo' | 'em_revisao' | 'resolvido'
+    nivel_de_gravidade: 'leve' | 'moderado' | 'crítico'
+    contador_de_repeticao: number
+    data_ultimo_erro: string
+    proxima_revisao: string
+    enunciado: string
+    assunto_nome?: string
 }
 
 interface ErrorSummary {
     total_erros: number
-    especialidades: ErrorGroup[]
+    criticos: number
+    erros: ErrorItem[]
 }
 
 export default function ErrorNotebookPage() {
@@ -58,69 +61,51 @@ export default function ErrorNotebookPage() {
         try {
             setLoading(true)
 
-            // Buscar erros
             const { data: erros, error } = await supabase
                 .from('caderno_erros')
                 .select(`
-                id,
-                questao_id,
-                specialty_id,
-                status,
-                numero_erros,
-                ultima_tentativa,
-                assuntos (nome),
-                questao_base (
-                   enunciado
-                )
-              `)
+                    id,
+                    questao_id,
+                    specialty_id,
+                    subspecialty_id,
+                    tema,
+                    assunto_id,
+                    tipo_de_erro,
+                    status,
+                    nivel_de_gravidade,
+                    contador_de_repeticao,
+                    data_ultimo_erro,
+                    proxima_revisao,
+                    assuntos (nome),
+                    questao_base (enunciado)
+                `)
                 .eq('user_id', user!.id)
-                .in('status', ['ATIVO', 'RECUPERACAO'])
-                .order('ultima_tentativa', { ascending: false })
+                .neq('status', 'resolvido')
+                .order('nivel_de_gravidade', { ascending: false }) // Críticos primeiro
 
-            if (error) {
-                console.error('Supabase error:', error)
-                throw error
-            }
+            if (error) throw error
 
-            // Agrupar por especialidade
-            const agrupado: Record<string, ErrorGroup> = {}
-
-            erros?.forEach((erro: any) => {
-                const specId = erro.specialty_id
-
-                if (!agrupado[specId]) {
-                    let specName = specId
-                    for (const area of MEDICAL_HIERARCHY) {
-                        const found = area.specialties.find((s: any) => s.id === specId)
-                        if (found) { specName = found.name; break; }
-                    }
-
-                    agrupado[specId] = {
-                        id: specId,
-                        nome: specName,
-                        total: 0,
-                        questoes: []
-                    }
-                }
-
-                const questaoBase = Array.isArray(erro.questao_base) ? erro.questao_base[0] : erro.questao_base
-                const assuntoNome = Array.isArray(erro.assuntos) ? erro.assuntos[0]?.nome : erro.assuntos?.nome
-
-                agrupado[specId].total++
-                agrupado[specId].questoes.push({
-                    id: erro.questao_id,
-                    erro_id: erro.id,
-                    enunciado: questaoBase?.enunciado || 'Enunciado indisponível',
-                    status: erro.status,
-                    revisoes: erro.numero_erros,
-                    data: erro.ultima_tentativa,
-                    assunto: assuntoNome
-                })
-            })
+            const mapeados: ErrorItem[] = erros?.map((e: any) => ({
+                id: e.id,
+                questao_id: e.questao_id,
+                specialty_id: e.specialty_id,
+                subspecialty_id: e.subspecialty_id,
+                tema: e.tema,
+                assunto_id: e.assunto_id,
+                tipo_de_erro: e.tipo_de_erro,
+                status: e.status,
+                nivel_de_gravidade: e.nivel_de_gravidade,
+                contador_de_repeticao: e.contador_de_repeticao,
+                data_ultimo_erro: e.data_ultimo_erro,
+                proxima_revisao: e.proxima_revisao,
+                enunciado: e.questao_base?.enunciado || 'Enunciado indisponível',
+                assunto_nome: e.assuntos?.nome
+            })) || []
 
             setSummary({
-                total_erros: erros?.length || 0,
-                especialidades: Object.values(agrupado)
+                total_erros: mapeados.length,
+                criticos: mapeados.filter(m => m.nivel_de_gravidade === 'crítico').length,
+                erros: mapeados
             })
 
         } catch (error) {
@@ -130,105 +115,47 @@ export default function ErrorNotebookPage() {
         }
     }
 
-    const startReviewSession = async (filter?: { specialty_id?: string, question_ids?: string[] }) => {
+    const startReviewSession = async (errorItem?: ErrorItem) => {
         if (processing) return
         setProcessing(true)
 
         try {
-            // Lógica Client-Side para criar Sessão
-            // 1. Definir quais questões usar
             let questoesIds: string[] = []
 
-            if (filter?.question_ids) {
-                questoesIds = filter.question_ids
-            } else if (filter?.specialty_id && summary) {
-                const group = summary.especialidades.find(s => s.id === filter.specialty_id)
-                if (group) questoesIds = group.questoes.map(q => q.id)
+            if (errorItem) {
+                // Modo: Resolver Erro Específico (Mini-bloco de 3-5 questões novas)
+                const { data: novasQuestoes } = await supabase
+                    .from('questao_base')
+                    .select('id')
+                    .eq('subject_id', errorItem.tema)
+                    .neq('id', errorItem.questao_id)
+                    .limit(5)
+
+                if (novasQuestoes && novasQuestoes.length > 0) {
+                    questoesIds = novasQuestoes.map(q => q.id)
+                } else {
+                    questoesIds = [errorItem.questao_id]
+                }
             } else if (summary) {
-                // Todas
-                summary.especialidades.forEach(g => {
-                    questoesIds.push(...g.questoes.map(q => q.id))
-                })
+                // Modo: Repassar Tudo
+                questoesIds = summary.erros.map(e => e.questao_id).slice(0, 10)
             }
 
-            // Limitar a 10 para sessão padrão, ou permitir mais? O SRS padrão é 10.
-            // Vamos limitar a 15 para caderno de erros para ser mais intenso?
-            // Vamos manter 10 por "sessão" para não cansar.
-            questoesIds = questoesIds.slice(0, 10)
-
             if (questoesIds.length === 0) {
-                alert('Nenhuma questão selecionada.')
+                alert('Nenhuma questão para revisar.')
                 setProcessing(false)
                 return
             }
 
-            // 2. Buscar detalhes completos das questões (necessário para o Store)
-            const { data: questoesDetalhadas, error: qError } = await supabase
+            const { data: questoesDetalhadas } = await supabase
                 .from('questao_base')
                 .select('*')
                 .in('id', questoesIds)
 
-            if (qError || !questoesDetalhadas) throw new Error('Falha ao carregar detalhes das questões')
+            if (!questoesDetalhadas) throw new Error('Falha ao carregar questões')
 
-            // 3. Criar Sessão no Banco (para travar o histórico)
-            // Assunto ID é necessário? Sim, FK.
-            // Se for mix, usar o primeiro.
-            const assuntoId = questoesDetalhadas[0]?.subject_id || null // subject_id é string ou uuid?
-            // Wait, na tabela questao_base, 'subject_id' refere a string ou ID?
-            // No schema antigo era string. No novo SRS é 'assunto_id' na sessao.
-            // Vamos tentar achar um assunto_id válido.
-            // Se não conseguirmos, podemos falhar na criação da sessão no banco.
-
-            // HACK: Para Caderno de Erros, vamos pular a criação da sessão no banco SE falhar o assunto_id.
-            // Mas precisamos do tracking para marcar como 'CONSOLIDADO'.
-            // Então vamos tentar buscar o assunto pelo specialty_id.
-
-            let finalAssuntoId = null
-            const { data: assuntoRef } = await supabase
-                .from('assuntos')
-                .select('id')
-                .eq('specialty_id', questoesDetalhadas[0].specialty_id)
-                .limit(1)
-                .single()
-
-            if (assuntoRef) finalAssuntoId = assuntoRef.id
-
-            if (finalAssuntoId) {
-                const { data: sessao, error: sError } = await supabase
-                    .from('sessoes')
-                    .insert({
-                        user_id: user?.id,
-                        assunto_id: finalAssuntoId,
-                        tipo: 'CADERNO_DE_ERROS',
-                        status: 'EM_ANDAMENTO',
-                        total_questoes: questoesDetalhadas.length,
-                        total_acertos: 0
-                    })
-                    .select()
-                    .single()
-
-                if (sessao) {
-                    const itens = questoesDetalhadas.map((q, i) => ({
-                        sessao_id: sessao.id,
-                        questao_id: q.id,
-                        ordem: i + 1
-                    }))
-                    await supabase.from('sessao_itens').insert(itens)
-                }
-            } else {
-                console.warn('Não foi possível criar sessão no banco (assunto_id não encontrado), mas seguindo modo offline.')
-            }
-
-            // 4. Injetar no Store e Navegar
-            const questoesMapeadas = questoesDetalhadas.map((q: any) => ({
-                ...q,
-                explanation: q.explanation // garantir campos
-            }))
-
-            setEphemeralQuestions(questoesMapeadas)
-
-            // Navegar para o quiz em modo especial
-            router.push(`/dashboard/quiz/error-review?mode=CADERNO_ERROS`)
+            setEphemeralQuestions(questoesDetalhadas)
+            router.push(`/dashboard/quiz/error-review?mode=CADERNO_ERROS&origin=${errorItem ? 'single' : 'all'}`)
 
         } catch (error) {
             console.error(error)
@@ -238,9 +165,9 @@ export default function ErrorNotebookPage() {
         }
     }
 
-    const filteredSpecialties = summary?.especialidades.filter(s =>
-        s.nome.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        s.questoes.some(q => q.enunciado.toLowerCase().includes(searchTerm.toLowerCase()))
+    const filteredErrors = summary?.erros.filter(e =>
+        e.enunciado.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        e.assunto_nome?.toLowerCase().includes(searchTerm.toLowerCase())
     ) || []
 
     if (loading) {
@@ -284,12 +211,12 @@ export default function ErrorNotebookPage() {
                         <div className="flex items-center gap-8 bg-white/5 p-6 rounded-2xl border border-white/10 backdrop-blur-sm">
                             <div className="text-center">
                                 <span className="block text-xs uppercase tracking-widest text-white/40 mb-1">Total de Erros</span>
-                                <span className="text-4xl font-black text-rose-500">{summary?.total_erros || 0}</span>
+                                <span className="text-4xl font-black text-white">{summary?.total_erros || 0}</span>
                             </div>
                             <div className="w-px h-12 bg-white/10" />
                             <div className="text-center">
-                                <span className="block text-xs uppercase tracking-widest text-white/40 mb-1">Especialidades</span>
-                                <span className="text-4xl font-black text-white">{summary?.especialidades.length || 0}</span>
+                                <span className="block text-xs uppercase tracking-widest text-white/40 mb-1">Críticos</span>
+                                <span className="text-4xl font-black text-rose-500">{summary?.criticos || 0}</span>
                             </div>
                         </div>
                     </div>
@@ -343,67 +270,50 @@ export default function ErrorNotebookPage() {
                         </button>
                     </div>
                 ) : (
-                    <div className="space-y-16">
-                        {filteredSpecialties.map((group) => (
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {filteredErrors.map((error) => (
                             <motion.div
-                                key={group.id}
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                className="space-y-6"
+                                key={error.id}
+                                layout
+                                initial={{ opacity: 0, scale: 0.95 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                className={`group bg-white rounded-[32px] p-8 border hover:border-primary/50 transition-all cursor-pointer relative overflow-hidden shadow-xl shadow-slate-200/50 flex flex-col ${error.nivel_de_gravidade === 'crítico' ? 'border-l-8 border-l-rose-500' : 'border-slate-100'}`}
+                                onClick={() => startReviewSession(error)}
                             >
-                                <div className="flex items-center justify-between">
-                                    <div className="flex items-center gap-4">
-                                        <div className="w-12 h-12 rounded-2xl bg-[#7C3AED] flex items-center justify-center text-white">
-                                            {/* Icon placeholder based on generic map */}
-                                            <BrainCircuit className="w-6 h-6" />
-                                        </div>
-                                        <div>
-                                            <h2 className="text-2xl font-black text-[#1A1033] uppercase italic">{group.nome}</h2>
-                                            <p className="text-xs uppercase tracking-widest font-bold text-slate-400">{group.total} questões para revisar</p>
-                                        </div>
+                                <div className="flex justify-between items-start mb-6">
+                                    <div className="flex flex-col gap-2">
+                                        <span className={`inline-flex px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest ${error.nivel_de_gravidade === 'crítico' ? 'bg-rose-100 text-rose-600' :
+                                            error.nivel_de_gravidade === 'moderado' ? 'bg-orange-100 text-orange-600' : 'bg-blue-100 text-blue-600'
+                                            }`}>
+                                            {error.nivel_de_gravidade}
+                                        </span>
+                                        <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+                                            Erro de {error.tipo_de_erro}
+                                        </span>
                                     </div>
-                                    <button
-                                        onClick={() => startReviewSession({ specialty_id: group.id })}
-                                        className="bg-slate-100 hover:bg-slate-200 text-slate-600 px-6 py-3 rounded-xl text-xs font-black uppercase tracking-widest transition-colors flex items-center gap-2"
-                                    >
-                                        Repassar Área <ArrowRight className="w-3 h-3" />
-                                    </button>
+                                    <div className="bg-slate-50 px-3 py-1 rounded-lg border border-slate-100 text-center">
+                                        <span className="block text-[8px] uppercase tracking-tighter text-slate-400 font-bold">Repetições</span>
+                                        <span className="text-sm font-black text-slate-700">{error.contador_de_repeticao}x</span>
+                                    </div>
                                 </div>
 
-                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                                    {group.questoes.map((erro) => (
-                                        <div key={erro.id} className={`group bg-white rounded-[32px] p-8 border hover:border-primary/50 transition-all cursor-pointer relative overflow-hidden shadow-lg shadow-slate-200/50 ${erro.status === 'ATIVO' ? 'border-l-4 border-l-rose-500' : 'border-slate-100'}`}
-                                            onClick={() => startReviewSession({ question_ids: [erro.id] })}
-                                        >
-                                            <div className="flex justify-between items-start mb-6">
-                                                <div className={`p-2 rounded-full ${erro.status === 'ATIVO' ? 'bg-rose-50 text-rose-500' : 'bg-orange-50 text-orange-500'}`}>
-                                                    <AlertCircle className="w-5 h-5" />
-                                                </div>
-                                                <div className="text-right">
-                                                    <span className="text-[10px] font-bold uppercase tracking-widest text-slate-300 block mb-1">Status</span>
-                                                    <div className="flex gap-1 justify-end">
-                                                        <div className={`w-2 h-2 rounded-full ${erro.status === 'ATIVO' ? 'bg-rose-500' : 'bg-slate-200'}`} />
-                                                        <div className={`w-2 h-2 rounded-full ${erro.status === 'RECUPERACAO' ? 'bg-orange-400' : 'bg-slate-200'}`} />
-                                                        <div className="w-2 h-2 rounded-full bg-slate-200" />
-                                                    </div>
-                                                </div>
-                                            </div>
+                                <div className="flex-1">
+                                    <p className="text-[10px] font-black uppercase tracking-widest text-[#7C3AED] mb-2">{error.assunto_nome || error.tema}</p>
+                                    <h3 className="text-slate-800 font-bold mb-6 line-clamp-4 leading-relaxed text-sm">
+                                        {error.enunciado}
+                                    </h3>
+                                </div>
 
-                                            <h3 className="text-slate-700 font-bold mb-6 line-clamp-3 leading-relaxed">
-                                                {erro.enunciado}
-                                            </h3>
-
-                                            <div className="flex items-center justify-between text-[10px] uppercase tracking-widest font-bold text-slate-400">
-                                                <div className="flex items-center gap-1">
-                                                    <Clock className="w-3 h-3" />
-                                                    {new Date(erro.data).toLocaleDateString('pt-BR')}
-                                                </div>
-                                                <div className="group-hover:translate-x-1 transition-transform text-primary flex items-center gap-1">
-                                                    Resolver <ChevronLeft className="w-3 h-3 rotate-180" />
-                                                </div>
-                                            </div>
+                                <div className="pt-6 border-t border-slate-100 mt-auto">
+                                    <div className="flex items-center justify-between mb-4">
+                                        <div className="flex items-center gap-1 text-[10px] text-slate-400 font-bold uppercase">
+                                            <Clock className="w-3 h-3" /> Revisar em {error.proxima_revisao ? new Date(error.proxima_revisao).toLocaleDateString('pt-BR') : 'Agendando...'}
                                         </div>
-                                    ))}
+                                    </div>
+
+                                    <button className="w-full py-4 rounded-xl bg-[#1A1033] text-white text-[10px] font-black uppercase tracking-[0.2em] group-hover:bg-primary transition-all flex items-center justify-center gap-2">
+                                        Resolver Agora <ArrowRight className="w-3 h-3" />
+                                    </button>
                                 </div>
                             </motion.div>
                         ))}
