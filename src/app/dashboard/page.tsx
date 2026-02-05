@@ -164,64 +164,8 @@ export default function StudentDashboard() {
     }
 
     const renderIntelligentAgenda = () => (
-        <section className="relative group perspective-1000 h-full">
-            <InfoBubble text="O Dr. QRub analisa seu desempenho e define a melhor estratégia de estudo para hoje." />
-            <div className="absolute -inset-4 bg-gradient-to-r from-primary/30 via-purple-600/20 to-indigo-600/30 rounded-[60px] blur-3xl opacity-50 group-hover:opacity-100 transition-all duration-1000 animate-pulse" />
-            <div className="relative bg-white/70 backdrop-blur-3xl border-2 border-primary/20 rounded-[50px] p-10 md:p-14 shadow-2xl overflow-hidden h-full flex flex-col">
-                <div className="absolute top-0 right-0 p-12 opacity-5 pointer-events-none">
-                    <BrainCircuit className="w-64 h-64 text-primary" />
-                </div>
-                <div className="flex-1 flex flex-col justify-center space-y-6 text-center md:text-left">
-                    <div>
-                        <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-black uppercase tracking-[0.2em] mb-6">
-                            <Zap className="w-4 h-4 fill-primary" />
-                            Sugestão do Dr. QRub
-                        </div>
-                        <div className="space-y-4">
-                            <h2 className="text-4xl md:text-7xl font-black italic uppercase tracking-tighter leading-[0.85] text-[#1A1033]">
-                                {intelligentAction.type === 'CARREGANDO' ? 'Carregando...' :
-                                    intelligentAction.type === 'TUDO_EM_DIA' ? 'Tudo em' :
-                                        intelligentAction.type === 'NIVELAMENTO' ? 'Sessão de' : 'Revisão'} <br />
-                                <span className="royal-gradient-text italic">
-                                    {intelligentAction.type === 'TUDO_EM_DIA' ? 'Dia' : intelligentActionName}
-                                </span>
-                            </h2>
-                            <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 mt-6">
-                                <span className={`px-4 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest ${intelligentAction.status === 'ATRASADO' ? 'bg-rose-500 text-white animate-pulse' :
-                                    intelligentAction.status === 'NÃO_NIVELADO' ? 'bg-amber-500 text-white' :
-                                        intelligentAction.status === 'CONCLUÍDO' ? 'bg-emerald-500 text-white' :
-                                            'bg-slate-500 text-white'
-                                    }`}>
-                                    {intelligentAction.status}
-                                </span>
-                                <span className="text-[#4B5563] font-bold text-sm uppercase tracking-wider">
-                                    {intelligentAction.type === 'CARREGANDO' ? 'Preparando seu plano de estudo...' :
-                                        intelligentAction.type === 'TUDO_EM_DIA' ? 'Você completou todas as metas por hoje!' :
-                                            intelligentAction.type === 'NIVELAMENTO' ? '10 questões para identificar seu nível' :
-                                                'Manual de manutenção (5-12 questões)'}
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="mt-10">
-                    <button
-                        onClick={startIntelligentSession}
-                        disabled={intelligentAction.type === 'CARREGANDO' || intelligentAction.type === 'TUDO_EM_DIA'}
-                        className={`group relative w-full ${intelligentAction.type === 'TUDO_EM_DIA' ? 'opacity-50 cursor-not-allowed grayscale' : ''}`}
-                    >
-                        <div className="absolute -inset-2 bg-primary rounded-[25px] blur-xl opacity-40 group-hover:opacity-70 transition-all" />
-                        <div className="relative royal-gradient text-white py-6 rounded-[22px] font-black uppercase text-sm md:text-base tracking-[0.2em] shadow-2xl flex items-center justify-center gap-4 hover:scale-[1.03] active:scale-95 transition-all leading-none">
-                            <span className="translate-y-[1px]">
-                                {intelligentAction.type === 'TUDO_EM_DIA' ? 'METAS CONCLUÍDAS' :
-                                    `INICIAR ${intelligentAction.type === 'NIVELAMENTO' ? 'NIVELAMENTO' : 'REVISÃO'}`}
-                            </span>
-                            {intelligentAction.type !== 'TUDO_EM_DIA' && <Play className="w-5 h-5 fill-current" />}
-                            {intelligentAction.type === 'TUDO_EM_DIA' && <CheckCircle2 className="w-5 h-5" />}
-                        </div>
-                    </button>
-                </div>
-            </div>
+        <section className="h-full">
+            <SRSDashboardWidget />
         </section>
     )
 
