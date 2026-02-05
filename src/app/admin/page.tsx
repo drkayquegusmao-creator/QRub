@@ -1543,9 +1543,15 @@ export default function AdminDashboard() {
                 throw new Error(`ESTRUTURA INCOMPLETA. Faltam arquivos: ${missing.join(', ')}.\n\nArquivos recebidos: ${Object.keys(fileContents).join(', ')}`)
             }
 
+
             // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
             // ETAPA 1 — VALIDAR ESPECIALIDADES
             // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+            // Normalizar campos (aceita 'name' ou 'nome')
+            especialidades.forEach((s: any) => {
+                if (!s.name && s.nome) s.name = s.nome
+            })
+
             const specIds = new Set()
             const specNames = new Set()
             especialidades.forEach((s: any) => {
@@ -1558,6 +1564,12 @@ export default function AdminDashboard() {
             // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
             // ETAPA 2 — VALIDAR SUBESPECIALIDADES
             // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+            // Normalizar campos
+            subespecialidades.forEach((sub: any) => {
+                if (!sub.name && sub.nome) sub.name = sub.nome
+                if (!sub.especialidade_id && sub.especialidadeId) sub.especialidade_id = sub.especialidadeId
+            })
+
             subespecialidades.forEach((sub: any) => {
                 if (!sub.especialidade_id || !specIds.has(sub.especialidade_id)) {
                     throw new Error(`ERRO ESTRUTURAL: Subespecialidade ${sub.name} vinculada a ID inexistente: ${sub.especialidade_id}`)
@@ -1568,6 +1580,12 @@ export default function AdminDashboard() {
             // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
             // ETAPA 3 — VALIDAR TEMAS
             // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+            // Normalizar campos
+            temas.forEach((t: any) => {
+                if (!t.name && t.nome) t.name = t.nome
+                if (!t.subespecialidade_id && t.subespecialidadeId) t.subespecialidade_id = t.subespecialidadeId
+            })
+
             temas.forEach((t: any) => {
                 if (!t.subespecialidade_id || !subIds.has(t.subespecialidade_id)) {
                     throw new Error(`ERRO ESTRUTURAL: Tema ${t.name} vinculado a subespecialidade inexistente: ${t.subespecialidade_id}`)
