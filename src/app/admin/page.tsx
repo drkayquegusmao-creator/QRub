@@ -5,7 +5,7 @@ import {
     Plus, Search, Edit2, Trash2, Users, Crown, Star,
     RefreshCw, Database, BarChart3, Upload, CheckCircle2, XCircle,
     AlertCircle, History, ExternalLink, Mail, Phone, BookOpen, GraduationCap, Sparkles, X, ShieldCheck, DollarSign, Settings, ArrowLeft,
-    Activity, Target, Zap, TrendingUp, ChevronLeft, ChevronRight, Flag, Hammer, Wrench, ShieldAlert
+    Activity, Target, Zap, TrendingUp, ChevronLeft, ChevronRight, Flag, Hammer, Wrench, ShieldAlert, Paperclip
 } from 'lucide-react'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
@@ -1184,68 +1184,7 @@ export default function AdminDashboard() {
                 "Preventiva": "preventiva-social"
             }
 
-            const convertedBatch: Question[] = questionsToSave.map((q: any) => {
-                // Determine ID
-                const id = q.id || `QRB-IMP-${Math.random().toString(36).substr(2, 6).toUpperCase()}`
-
-                // Determine specialty-sub-tema IDs
-                const rawSpec = q.especialidade || (typeof q.area === 'object' ? q.area.id : q.area)
-                const rawSub = q.subespecialidade || (typeof q.subarea === 'object' ? q.subarea.id : q.subarea)
-                const rawTema = q.tema || (typeof q.tema === 'object' ? q.tema.id : q.tema)
-
-                const specialty_id = SPECIALTY_MAP[rawSpec] || selectedSpecialty || rawSpec?.toLowerCase().replace(/\s+/g, '-') || 'clinica-medica'
-                const subspecialty_id = rawSub || selectedSubspecialty || 'geral'
-                const subject_id = rawTema || selectedSubject || 'geral'
-
-                // Handle Options (Array or Object)
-                let options = []
-                if (q.alternativas && typeof q.alternativas === 'object' && !Array.isArray(q.alternativas)) {
-                    // It's an object like { "A": "...", "B": "..." }
-                    options = Object.entries(q.alternativas).map(([key, text]) => ({
-                        id: key.toLowerCase(),
-                        text: text as string
-                    }))
-                } else if (Array.isArray(q.alternativas)) {
-                    // It's an array of strings or objects
-                    options = q.alternativas.map((opt: any, idx: number) => ({
-                        id: String.fromCharCode(97 + idx), // a, b, c...
-                        text: typeof opt === 'string' ? opt : (opt.texto || opt.text || '')
-                    }))
-                } else if (Array.isArray(q.options)) {
-                    options = q.options
-                }
-
-                // Handle Correct Option
-                const correct = (q.gabarito || q.correct_option_id || q.correct_answer || 'a').toLowerCase()
-
-                // Normalize alternative explanations
-                const altExps = q.alternative_explanations || q.justificativas_alternativas || q.por_que_nao_as_outras || {}
-                const normalizedExps = Object.fromEntries(
-                    Object.entries(altExps).map(([k, v]) => [k.toLowerCase(), v])
-                )
-
-                return {
-                    id,
-                    course_id: q.course_id || selectedCourse || 'medicina',
-                    specialty_id,
-                    subspecialty_id,
-                    subject_id,
-                    area_id: specialty_id,
-                    subarea_id: subspecialty_id,
-                    tema_id: subject_id,
-                    difficulty: q.difficulty || q.nivel || 'Média',
-                    enunciado: q.enunciado || q.question_text || '',
-                    comando: q.comando || '',
-                    options,
-                    correct_option_id: correct,
-                    explanation: q.explanation || q.explicacao_gabarito || q.justificativa_gabarito || '',
-                    alternative_explanations: normalizedExps,
-                    fonte: q.fonte || (q.origem ? 'ia' : 'importada'),
-                    status_validacao: q.status_validacao || 'PENDENTE',
-                    metadata: { ...q.metadata, import_date: new Date().toISOString() }
-                } as Question
-            })
-
+            const convertedBatch: Question[] = normalizeQuestions(questionsToSave)
             const { success, message } = await addQuestions(convertedBatch)
             if (success) {
                 setImportStatus({ type: 'success', msg: `✅ ${convertedBatch.length} questões processadas e salvas no banco!` })
@@ -1396,6 +1335,107 @@ export default function AdminDashboard() {
                         }
                     } catch (error) {
                         alert('Erro ao ler arquivo JSON.')
+                    }
+                }
+            }
+        }
+    }
+
+    const normalizeQuestions = (questionsToSave: any[]): Question[] => {
+        const SPECIALTY_MAP: Record<string, string> = {
+            "Ginecologia e Obstetrícia": "ginecologia-obstetricia",
+            "Clínica Médica": "clinica-medica",
+            "Pediatria": "pediatria",
+            "Cirurgia Geral": "cirurgia-geral",
+            "Medicina de Família e Comunidade": "medicina-familia-comunidade",
+            "Preventiva": "preventiva-social"
+        }
+
+        return questionsToSave.map((q: any) => {
+            const id = q.id || `QRB-IMP-${Math.random().toString(36).substr(2, 6).toUpperCase()}`
+            const rawSpec = q.especialidade || (typeof q.area === 'object' ? q.area.id : q.area)
+            const rawSub = q.subespecialidade || (typeof q.subarea === 'object' ? q.subarea.id : q.subarea)
+            const rawTema = q.tema || (typeof q.tema === 'object' ? q.tema.id : q.tema)
+
+            const specialty_id = SPECIALTY_MAP[rawSpec] || (rawSpec?.toLowerCase().replace(/\s+/g, '-')) || 'clinica-medica'
+            const subspecialty_id = rawSub || 'geral'
+            const subject_id = rawTema || 'geral'
+
+            let options = []
+            if (q.alternativas && typeof q.alternativas === 'object' && !Array.isArray(q.alternativas)) {
+                options = Object.entries(q.alternativas).map(([key, text]) => ({
+                    id: key.toLowerCase(),
+                    text: text as string
+                }))
+            } else if (Array.isArray(q.alternativas)) {
+                options = q.alternativas.map((opt: any, idx: number) => ({
+                    id: String.fromCharCode(97 + idx),
+                    text: typeof opt === 'string' ? opt : (opt.texto || opt.text || '')
+                }))
+            } else if (Array.isArray(q.options)) {
+                options = q.options
+            }
+
+            const correct = (q.gabarito || q.correct_option_id || q.correct_answer || 'a').toLowerCase()
+            const altExps = q.alternative_explanations || q.justificativas_alternativas || q.por_que_nao_as_outras || {}
+            const normalizedExps = Object.fromEntries(
+                Object.entries(altExps).map(([k, v]) => [k.toLowerCase(), v])
+            )
+
+            return {
+                id,
+                course_id: q.course_id || 'medicina',
+                specialty_id,
+                subspecialty_id,
+                subject_id,
+                area_id: specialty_id,
+                subarea_id: subspecialty_id,
+                tema_id: subject_id,
+                difficulty: q.difficulty || q.nivel || 'Média',
+                enunciado: q.enunciado || q.question_text || '',
+                comando: q.comando || '',
+                options,
+                correct_option_id: correct,
+                explanation: q.explanation || q.explicacao_gabarito || q.justificativa_gabarito || '',
+                alternative_explanations: normalizedExps,
+                fonte: q.fonte || (q.origem ? 'ia' : 'importada'),
+                status_validacao: q.status_validacao || 'PENDENTE',
+                metadata: { ...q.metadata, import_date: new Date().toISOString() }
+            } as Question
+        })
+    }
+
+    const handleAttachJson = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const fileReader = new FileReader()
+        if (e.target.files && e.target.files[0]) {
+            setLoadingManual(true)
+            fileReader.readAsText(e.target.files[0], "UTF-8")
+            fileReader.onload = async (e) => {
+                if (e.target?.result) {
+                    try {
+                        const rawJson = (e.target.result as string).trim()
+                        const cleanJson = rawJson.replace(/```json/g, '').replace(/```/g, '').trim()
+                        const parsed = JSON.parse(cleanJson)
+                        const questionsToSave = Array.isArray(parsed) ? parsed : (parsed.questions || [parsed])
+
+                        const convertedBatch = normalizeQuestions(questionsToSave)
+
+                        if (confirm(`✅ Encontramos ${convertedBatch.length} questões. Deseja organizar e anexar agora?`)) {
+                            const { success, message } = await addQuestions(convertedBatch)
+                            if (success) {
+                                setImportStatus({ type: 'success', msg: `✅ ${convertedBatch.length} questões anexadas e organizadas!` })
+                                loadQuestions()
+                            } else {
+                                alert(message)
+                            }
+                        }
+                    } catch (error: any) {
+                        console.error('Attach error:', error)
+                        setImportStatus({ type: 'error', msg: `❌ Erro no arquivo: ${error.message}` })
+                    } finally {
+                        setLoadingManual(false)
+                        // Reset input
+                        if (e.target) (e.target as any).value = ''
                     }
                 }
             }
@@ -1722,11 +1762,15 @@ export default function AdminDashboard() {
                                 </button>
                             </div>
 
-                            {/* Backup Controls */}
                             <div className="px-8 py-4 border-b border-border bg-muted/20 flex gap-4 items-center">
                                 <button onClick={handleDownloadBackup} className="text-xs font-black uppercase tracking-widest text-primary hover:underline flex items-center gap-2">
                                     <Database className="w-3 h-3" /> Fazer Backup (JSON)
                                 </button>
+                                <div className="h-4 w-px bg-border" />
+                                <label className="text-xs font-black uppercase tracking-widest text-primary hover:underline flex items-center gap-2 cursor-pointer">
+                                    <Paperclip className="w-3 h-3" /> Anexar JSON
+                                    <input type="file" accept=".json" onChange={handleAttachJson} className="hidden" />
+                                </label>
                                 <div className="h-4 w-px bg-border" />
                                 <label className="text-xs font-black uppercase tracking-widest text-emerald-500 hover:underline flex items-center gap-2 cursor-pointer">
                                     <Upload className="w-3 h-3" /> Restaurar Backup
