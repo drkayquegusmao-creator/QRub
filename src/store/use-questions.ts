@@ -40,7 +40,7 @@ export const useQuestions = create<QuestionsState>()(
                     const pageSize = 1000
 
                     while (hasMore && allQuestions.length < 20000) {
-                        let query = supabase.from('questions').select('*')
+                        let query = supabase.from('questao_base').select('*')
 
                         if (filters?.course_id) query = query.eq('course_id', filters.course_id)
 
@@ -99,7 +99,7 @@ export const useQuestions = create<QuestionsState>()(
                 if (!isSupabaseConfigured()) throw new Error('Supabase not configured')
 
                 const { data, error } = await supabase
-                    .from('questions')
+                    .from('questao_base')
                     .upsert([question])
                     .select()
 
@@ -127,7 +127,7 @@ export const useQuestions = create<QuestionsState>()(
                 if (!isSupabaseConfigured()) throw new Error('Supabase not configured')
 
                 const { data, error } = await supabase
-                    .from('questions')
+                    .from('questao_base')
                     .upsert(questions)
                     .select()
 
@@ -150,7 +150,7 @@ export const useQuestions = create<QuestionsState>()(
                 if (!isSupabaseConfigured()) throw new Error('Supabase not configured')
 
                 const { error } = await supabase
-                    .from('questions')
+                    .from('questao_base')
                     .delete()
                     .eq('id', id)
 
@@ -181,7 +181,7 @@ export const useQuestions = create<QuestionsState>()(
                 for (let i = 0; i < ids.length; i += CHUNK_SIZE) {
                     const chunk = ids.slice(i, i + CHUNK_SIZE)
                     const { error } = await supabase
-                        .from('questions')
+                        .from('questao_base')
                         .delete()
                         .in('id', chunk)
 
