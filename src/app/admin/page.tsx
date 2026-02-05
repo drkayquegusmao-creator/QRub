@@ -1403,1250 +1403,1252 @@ export default function AdminDashboard() {
                 metadata: { ...q.metadata, import_date: new Date().toISOString() }
             } as Question
         })
-        const normalizeQuestionsStrict = (questionsToSave: any[], catalogs: { especialidades: any[], subespecialidades: any[], temas: any[] }): Question[] => {
-            return questionsToSave.map((q: any) => {
-                const id = q.id || `QRB-IMP-${Math.random().toString(36).substr(2, 6).toUpperCase()}`
+    }
 
-                // 1. Localizar o Tema correspondente
-                // APENAS IDs definem relações.
-                let tema = catalogs.temas.find(t => t.id === q.tema_id)
+    const normalizeQuestionsStrict = (questionsToSave: any[], catalogs: { especialidades: any[], subespecialidades: any[], temas: any[] }): Question[] => {
+        return questionsToSave.map((q: any) => {
+            const id = q.id || `QRB-IMP-${Math.random().toString(36).substr(2, 6).toUpperCase()}`
 
-                // Fallback: Combinação exata de IDs (especialidade + subespecialidade + tema)
-                if (!tema && q.especialidade_id && q.subespecialidade_id && q.tema_id) {
-                    tema = catalogs.temas.find(t =>
-                        t.id === q.tema_id &&
-                        t.subespecialidade_id === q.subespecialidade_id
-                    )
-                }
+            // 1. Localizar o Tema correspondente
+            // APENAS IDs definem relações.
+            let tema = catalogs.temas.find(t => t.id === q.tema_id)
 
-                const status_classificacao = tema ? 'OK' : 'PENDENTE'
-
-                // Se encontrou tema, resolve a hierarquia absoluta
-                let area_id = ''
-                let subarea_id = ''
-                let tema_id = q.tema_id || ''
-
-                if (tema) {
-                    tema_id = tema.id
-                    subarea_id = tema.subespecialidade_id
-                    const sub = catalogs.subespecialidades.find(s => s.id === subarea_id)
-                    area_id = sub ? sub.especialidade_id : ''
-                }
-
-                // Normalizar alternativas
-                let options = []
-                if (q.alternativas && typeof q.alternativas === 'object' && !Array.isArray(q.alternativas)) {
-                    options = Object.entries(q.alternativas).map(([key, text]) => ({
-                        id: key.toLowerCase(),
-                        text: text as string
-                    }))
-                } else if (Array.isArray(q.alternativas)) {
-                    options = q.alternativas.map((opt: any, idx: number) => ({
-                        id: String.fromCharCode(97 + idx),
-                        text: typeof opt === 'string' ? opt : (opt.texto || opt.text || '')
-                    }))
-                } else if (Array.isArray(q.options)) {
-                    options = q.options
-                }
-
-                const correct = (q.gabarito || q.correct_option_id || q.correct_answer || 'a').toLowerCase()
-                const altExps = q.alternative_explanations || q.justificativas_alternativas || q.por_que_nao_as_outras || {}
-                const normalizedExps = Object.fromEntries(
-                    Object.entries(altExps).map(([k, v]) => [k.toLowerCase(), v])
+            // Fallback: Combinação exata de IDs (especialidade + subespecialidade + tema)
+            if (!tema && q.especialidade_id && q.subespecialidade_id && q.tema_id) {
+                tema = catalogs.temas.find(t =>
+                    t.id === q.tema_id &&
+                    t.subespecialidade_id === q.subespecialidade_id
                 )
-
-                // Criar objeto limpo (Removendo textos redundantes conforme Regra)
-                const cleanedMetadata = { ...q.metadata }
-                delete (cleanedMetadata as any).especialidade
-                delete (cleanedMetadata as any).subespecialidade
-                delete (cleanedMetadata as any).tema
-
-                return {
-                    id,
-                    course_id: q.course_id || 'medicina',
-                    area_id,
-                    subarea_id,
-                    tema_id,
-                    // Proteger legados mantendo os IDs encontrados
-                    specialty_id: area_id,
-                    subspecialty_id: subarea_id,
-                    subject_id: tema_id,
-                    difficulty: q.difficulty || q.nivel || 'Média',
-                    enunciado: q.enunciado || q.question_text || '',
-                    comando: q.comando || '',
-                    options,
-                    correct_option_id: correct,
-                    explanation: q.explanation || q.explicacao_gabarito || q.justificativa_gabarito || '',
-                    alternative_explanations: normalizedExps,
-                    fonte: q.fonte || (q.origem ? 'ia' : 'importada'),
-                    status_validacao: q.status_validacao || 'PENDENTE',
-                    status_classificacao, // Campo obrigatório conforme regra
-                    metadata: { ...cleanedMetadata, import_date: new Date().toISOString() }
-                } as any
-            })
-        }
-
-        const handleAttachJson = async (e: React.ChangeEvent<HTMLInputElement>) => {
-            const files = e.target.files
-            if (!files || files.length === 0) return
-
-            setLoadingManual(true)
-            setImportStatus({ type: 'success', msg: '⏳ Processadora Ativa: Validando Catálogos...' })
-
-            try {
-                const fileContents: Record<string, any> = {}
-                const readPromises = Array.from(files).map(file => {
-                    return new Promise((resolve, reject) => {
-                        const reader = new FileReader()
-                        reader.onload = (ev) => {
-                            try {
-                                const content = JSON.parse((ev.target?.result as string).replace(/```json/g, '').replace(/```/g, '').trim())
-                                fileContents[file.name.toLowerCase()] = content
-                                resolve(true)
-                            } catch (err) {
-                                reject(new Error(`Erro no arquivo ${file.name}: JSON inválido`))
-                            }
-                        }
-                        reader.readAsText(file)
-                    })
-                })
-
-                await Promise.all(readPromises)
-
-                // 2. Identificar arquivos obrigatórios (Master 4)
-                const especialidades = fileContents['especialidades.json']
-                const subespecialidades = fileContents['subespecialidades.json']
-                const temas = fileContents['temas.json']
-                const questoesRaw = fileContents['questoes.json']
-
-                if (!especialidades || !subespecialidades || !temas || !questoesRaw) {
-                    throw new Error('ESTRUTURA INCOMPLETA. Protocolo Master exige: especialidades.json, subespecialidades.json, temas.json e questoes.json.')
-                }
-
-                // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-                // ETAPA 1 — VALIDAR ESPECIALIDADES
-                // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-                const specIds = new Set()
-                const specNames = new Set()
-                especialidades.forEach((s: any) => {
-                    if (!s.id || !s.name) throw new Error(`ERRO ESTRUTURAL: Especialidade ${JSON.stringify(s)} inválida.`)
-                    if (specIds.has(s.id) || specNames.has(s.name)) throw new Error(`ERRO ESTRUTURAL: Duplicata na especialidade: ${s.name} (${s.id})`)
-                    specIds.add(s.id)
-                    specNames.add(s.name)
-                })
-
-                // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-                // ETAPA 2 — VALIDAR SUBESPECIALIDADES
-                // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-                subespecialidades.forEach((sub: any) => {
-                    if (!sub.especialidade_id || !specIds.has(sub.especialidade_id)) {
-                        throw new Error(`ERRO ESTRUTURAL: Subespecialidade ${sub.name} vinculada a ID inexistente: ${sub.especialidade_id}`)
-                    }
-                })
-                const subIds = new Set(subespecialidades.map((s: any) => s.id))
-
-                // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-                // ETAPA 3 — VALIDAR TEMAS
-                // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-                temas.forEach((t: any) => {
-                    if (!t.subespecialidade_id || !subIds.has(t.subespecialidade_id)) {
-                        throw new Error(`ERRO ESTRUTURAL: Tema ${t.name} vinculado a subespecialidade inexistente: ${t.subespecialidade_id}`)
-                    }
-                })
-                const catalogs = { especialidades, subespecialidades, temas }
-
-                // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-                // PROCESSAMENTO DAS QUESTÕES
-                // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-                const processed = normalizeQuestionsStrict(questoesRaw, catalogs)
-
-                const report = {
-                    total_questoes: processed.length,
-                    total_classificadas: processed.filter((q: any) => q.status_classificacao === 'OK').length,
-                    total_pendentes: processed.filter((q: any) => q.status_classificacao === 'PENDENTE').length,
-                    timestamp: new Date().toISOString()
-                }
-
-                const pendentes = processed
-                    .filter((q: any) => q.status_classificacao === 'PENDENTE')
-                    .map((q: any) => ({
-                        id: q.id,
-                        motivo: "Tema inexistente ou hierarquia violada no catálogo oficial."
-                    }))
-
-                // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-                // SAÍDA OBRIGATÓRIA (3 ARQUIVOS)
-                // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-                const download = (obj: any, filename: string) => {
-                    const blob = new Blob([JSON.stringify(obj, null, 2)], { type: 'application/json' })
-                    const url = URL.createObjectURL(blob)
-                    const a = document.createElement('a')
-                    a.href = url
-                    a.download = filename
-                    a.click()
-                }
-
-                if (confirm(`VALIDAÇÃO MASTER CONCLUÍDA:\n\n- Classificadas: ${report.total_classificadas}\n- Pendentes: ${report.total_pendentes}\n\nDeseja salvar no banco e baixar os 3 relatórios JSON?`)) {
-
-                    const toSave = processed.filter((q: any) => q.status_classificacao === 'OK')
-                    const { success, message } = await addQuestions(toSave)
-
-                    if (success) {
-                        download(processed, 'questoes_processadas.json')
-                        download(report, 'relatorio_importacao.json')
-                        download(pendentes, 'pendentes.json')
-
-                        setImportStatus({ type: 'success', msg: `✅ Importação Concluída: ${toSave.length} salvas.` })
-                        loadQuestions()
-                    } else {
-                        alert(`Falha no salvamento: ${message}`)
-                    }
-                }
-
-            } catch (error: any) {
-                console.error('Master Logic Error:', error)
-                setImportStatus({ type: 'error', msg: `❌ ${error.message}` })
-                alert(error.message)
-            } finally {
-                setLoadingManual(false)
-                if (e.target) e.target.value = ''
             }
+
+            const status_classificacao = tema ? 'OK' : 'PENDENTE'
+
+            // Se encontrou tema, resolve a hierarquia absoluta
+            let area_id = ''
+            let subarea_id = ''
+            let tema_id = q.tema_id || ''
+
+            if (tema) {
+                tema_id = tema.id
+                subarea_id = tema.subespecialidade_id
+                const sub = catalogs.subespecialidades.find(s => s.id === subarea_id)
+                area_id = sub ? sub.especialidade_id : ''
+            }
+
+            // Normalizar alternativas
+            let options = []
+            if (q.alternativas && typeof q.alternativas === 'object' && !Array.isArray(q.alternativas)) {
+                options = Object.entries(q.alternativas).map(([key, text]) => ({
+                    id: key.toLowerCase(),
+                    text: text as string
+                }))
+            } else if (Array.isArray(q.alternativas)) {
+                options = q.alternativas.map((opt: any, idx: number) => ({
+                    id: String.fromCharCode(97 + idx),
+                    text: typeof opt === 'string' ? opt : (opt.texto || opt.text || '')
+                }))
+            } else if (Array.isArray(q.options)) {
+                options = q.options
+            }
+
+            const correct = (q.gabarito || q.correct_option_id || q.correct_answer || 'a').toLowerCase()
+            const altExps = q.alternative_explanations || q.justificativas_alternativas || q.por_que_nao_as_outras || {}
+            const normalizedExps = Object.fromEntries(
+                Object.entries(altExps).map(([k, v]) => [k.toLowerCase(), v])
+            )
+
+            // Criar objeto limpo (Removendo textos redundantes conforme Regra)
+            const cleanedMetadata = { ...q.metadata }
+            delete (cleanedMetadata as any).especialidade
+            delete (cleanedMetadata as any).subespecialidade
+            delete (cleanedMetadata as any).tema
+
+            return {
+                id,
+                course_id: q.course_id || 'medicina',
+                area_id,
+                subarea_id,
+                tema_id,
+                // Proteger legados mantendo os IDs encontrados
+                specialty_id: area_id,
+                subspecialty_id: subarea_id,
+                subject_id: tema_id,
+                difficulty: q.difficulty || q.nivel || 'Média',
+                enunciado: q.enunciado || q.question_text || '',
+                comando: q.comando || '',
+                options,
+                correct_option_id: correct,
+                explanation: q.explanation || q.explicacao_gabarito || q.justificativa_gabarito || '',
+                alternative_explanations: normalizedExps,
+                fonte: q.fonte || (q.origem ? 'ia' : 'importada'),
+                status_validacao: q.status_validacao || 'PENDENTE',
+                status_classificacao, // Campo obrigatório conforme regra
+                metadata: { ...cleanedMetadata, import_date: new Date().toISOString() }
+            } as any
+        })
+    }
+
+    const handleAttachJson = async (e: React.ChangeEvent<HTMLInputElement>) => {
+        const files = e.target.files
+        if (!files || files.length === 0) return
+
+        setLoadingManual(true)
+        setImportStatus({ type: 'success', msg: '⏳ Processadora Ativa: Validando Catálogos...' })
+
+        try {
+            const fileContents: Record<string, any> = {}
+            const readPromises = Array.from(files).map(file => {
+                return new Promise((resolve, reject) => {
+                    const reader = new FileReader()
+                    reader.onload = (ev) => {
+                        try {
+                            const content = JSON.parse((ev.target?.result as string).replace(/```json/g, '').replace(/```/g, '').trim())
+                            fileContents[file.name.toLowerCase()] = content
+                            resolve(true)
+                        } catch (err) {
+                            reject(new Error(`Erro no arquivo ${file.name}: JSON inválido`))
+                        }
+                    }
+                    reader.readAsText(file)
+                })
+            })
+
+            await Promise.all(readPromises)
+
+            // 2. Identificar arquivos obrigatórios (Master 4)
+            const especialidades = fileContents['especialidades.json']
+            const subespecialidades = fileContents['subespecialidades.json']
+            const temas = fileContents['temas.json']
+            const questoesRaw = fileContents['questoes.json']
+
+            if (!especialidades || !subespecialidades || !temas || !questoesRaw) {
+                throw new Error('ESTRUTURA INCOMPLETA. Protocolo Master exige: especialidades.json, subespecialidades.json, temas.json e questoes.json.')
+            }
+
+            // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+            // ETAPA 1 — VALIDAR ESPECIALIDADES
+            // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+            const specIds = new Set()
+            const specNames = new Set()
+            especialidades.forEach((s: any) => {
+                if (!s.id || !s.name) throw new Error(`ERRO ESTRUTURAL: Especialidade ${JSON.stringify(s)} inválida.`)
+                if (specIds.has(s.id) || specNames.has(s.name)) throw new Error(`ERRO ESTRUTURAL: Duplicata na especialidade: ${s.name} (${s.id})`)
+                specIds.add(s.id)
+                specNames.add(s.name)
+            })
+
+            // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+            // ETAPA 2 — VALIDAR SUBESPECIALIDADES
+            // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+            subespecialidades.forEach((sub: any) => {
+                if (!sub.especialidade_id || !specIds.has(sub.especialidade_id)) {
+                    throw new Error(`ERRO ESTRUTURAL: Subespecialidade ${sub.name} vinculada a ID inexistente: ${sub.especialidade_id}`)
+                }
+            })
+            const subIds = new Set(subespecialidades.map((s: any) => s.id))
+
+            // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+            // ETAPA 3 — VALIDAR TEMAS
+            // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+            temas.forEach((t: any) => {
+                if (!t.subespecialidade_id || !subIds.has(t.subespecialidade_id)) {
+                    throw new Error(`ERRO ESTRUTURAL: Tema ${t.name} vinculado a subespecialidade inexistente: ${t.subespecialidade_id}`)
+                }
+            })
+            const catalogs = { especialidades, subespecialidades, temas }
+
+            // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+            // PROCESSAMENTO DAS QUESTÕES
+            // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+            const processed = normalizeQuestionsStrict(questoesRaw, catalogs)
+
+            const report = {
+                total_questoes: processed.length,
+                total_classificadas: processed.filter((q: any) => q.status_classificacao === 'OK').length,
+                total_pendentes: processed.filter((q: any) => q.status_classificacao === 'PENDENTE').length,
+                timestamp: new Date().toISOString()
+            }
+
+            const pendentes = processed
+                .filter((q: any) => q.status_classificacao === 'PENDENTE')
+                .map((q: any) => ({
+                    id: q.id,
+                    motivo: "Tema inexistente ou hierarquia violada no catálogo oficial."
+                }))
+
+            // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+            // SAÍDA OBRIGATÓRIA (3 ARQUIVOS)
+            // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+            const download = (obj: any, filename: string) => {
+                const blob = new Blob([JSON.stringify(obj, null, 2)], { type: 'application/json' })
+                const url = URL.createObjectURL(blob)
+                const a = document.createElement('a')
+                a.href = url
+                a.download = filename
+                a.click()
+            }
+
+            if (confirm(`VALIDAÇÃO MASTER CONCLUÍDA:\n\n- Classificadas: ${report.total_classificadas}\n- Pendentes: ${report.total_pendentes}\n\nDeseja salvar no banco e baixar os 3 relatórios JSON?`)) {
+
+                const toSave = processed.filter((q: any) => q.status_classificacao === 'OK')
+                const { success, message } = await addQuestions(toSave)
+
+                if (success) {
+                    download(processed, 'questoes_processadas.json')
+                    download(report, 'relatorio_importacao.json')
+                    download(pendentes, 'pendentes.json')
+
+                    setImportStatus({ type: 'success', msg: `✅ Importação Concluída: ${toSave.length} salvas.` })
+                    loadQuestions()
+                } else {
+                    alert(`Falha no salvamento: ${message}`)
+                }
+            }
+
+        } catch (error: any) {
+            console.error('Master Logic Error:', error)
+            setImportStatus({ type: 'error', msg: `❌ ${error.message}` })
+            alert(error.message)
+        } finally {
+            setLoadingManual(false)
+            if (e.target) e.target.value = ''
         }
+    }
 
-        if (user?.role !== 'MASTER') return null
+    if (user?.role !== 'MASTER') return null
 
-        return (
-            <div className="space-y-10 relative">
-                <AnimatePresence>
-                    {isEditModalOpen && (
-                        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-background/80 backdrop-blur-sm">
-                            <motion.div
-                                initial={{ opacity: 0, scale: 0.9 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                exit={{ opacity: 0, scale: 0.9 }}
-                                className="bg-card border border-border w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-[40px] shadow-2xl p-10 relative"
-                            >
-                                <button onClick={() => setIsEditModalOpen(false)} className="absolute top-8 right-8 p-2 hover:bg-muted rounded-full transition-all">
-                                    <X className="w-6 h-6" />
-                                </button>
+    return (
+        <div className="space-y-10 relative">
+            <AnimatePresence>
+                {isEditModalOpen && (
+                    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-background/80 backdrop-blur-sm">
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0, scale: 0.9 }}
+                            className="bg-card border border-border w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-[40px] shadow-2xl p-10 relative"
+                        >
+                            <button onClick={() => setIsEditModalOpen(false)} className="absolute top-8 right-8 p-2 hover:bg-muted rounded-full transition-all">
+                                <X className="w-6 h-6" />
+                            </button>
 
-                                <div className="flex items-center gap-4 mb-8">
-                                    <div className="bg-primary/10 p-3 rounded-2xl text-primary"><Edit2 className="w-6 h-6" /></div>
-                                    <div>
-                                        <h2 className="text-3xl font-black italic uppercase tracking-tighter">Editor de Questão Master</h2>
-                                        <p className="text-sm font-medium text-muted-foreground">Configure os enunciados, imagens e revisões do Dr. QRub.</p>
-                                    </div>
+                            <div className="flex items-center gap-4 mb-8">
+                                <div className="bg-primary/10 p-3 rounded-2xl text-primary"><Edit2 className="w-6 h-6" /></div>
+                                <div>
+                                    <h2 className="text-3xl font-black italic uppercase tracking-tighter">Editor de Questão Master</h2>
+                                    <p className="text-sm font-medium text-muted-foreground">Configure os enunciados, imagens e revisões do Dr. QRub.</p>
                                 </div>
+                            </div>
 
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                                    <div className="space-y-6">
-                                        <div className="space-y-1">
-                                            <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Enunciado da Questão</label>
-                                            <textarea
-                                                value={editingQuestion?.enunciado}
-                                                onChange={(e) => setEditingQuestion({ ...editingQuestion, enunciado: e.target.value })}
-                                                className="w-full h-32 bg-muted border border-border rounded-2xl p-4 font-bold text-sm focus:ring-2 focus:ring-primary/20 outline-none resize-none"
-                                                placeholder="Descreva o caso clínico..."
-                                            />
-                                        </div>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                <div className="space-y-6">
+                                    <div className="space-y-1">
+                                        <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Enunciado da Questão</label>
+                                        <textarea
+                                            value={editingQuestion?.enunciado}
+                                            onChange={(e) => setEditingQuestion({ ...editingQuestion, enunciado: e.target.value })}
+                                            className="w-full h-32 bg-muted border border-border rounded-2xl p-4 font-bold text-sm focus:ring-2 focus:ring-primary/20 outline-none resize-none"
+                                            placeholder="Descreva o caso clínico..."
+                                        />
+                                    </div>
 
-                                        <div className="space-y-1">
-                                            <div className="flex justify-between items-center px-1">
-                                                <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Comando da Pergunta</label>
-                                                <div className="flex gap-1">
-                                                    {(['PENDENTE', 'APROVADA', 'REPROVADA'] as const).map(s => (
-                                                        <button
-                                                            key={s}
-                                                            onClick={() => setEditingQuestion({ ...editingQuestion, status_validacao: s })}
-                                                            className={`px-2 py-0.5 rounded-full text-[8px] font-black uppercase transition-all ${editingQuestion?.status_validacao === s ? (s === 'APROVADA' ? 'bg-emerald-500 text-white' : s === 'REPROVADA' ? 'bg-red-500 text-white' : 'bg-primary text-white') : 'bg-muted text-muted-foreground'}`}
-                                                        >
-                                                            {s}
-                                                        </button>
-                                                    ))}
-                                                </div>
+                                    <div className="space-y-1">
+                                        <div className="flex justify-between items-center px-1">
+                                            <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Comando da Pergunta</label>
+                                            <div className="flex gap-1">
+                                                {(['PENDENTE', 'APROVADA', 'REPROVADA'] as const).map(s => (
+                                                    <button
+                                                        key={s}
+                                                        onClick={() => setEditingQuestion({ ...editingQuestion, status_validacao: s })}
+                                                        className={`px-2 py-0.5 rounded-full text-[8px] font-black uppercase transition-all ${editingQuestion?.status_validacao === s ? (s === 'APROVADA' ? 'bg-emerald-500 text-white' : s === 'REPROVADA' ? 'bg-red-500 text-white' : 'bg-primary text-white') : 'bg-muted text-muted-foreground'}`}
+                                                    >
+                                                        {s}
+                                                    </button>
+                                                ))}
                                             </div>
+                                        </div>
+                                        <input
+                                            type="text"
+                                            value={editingQuestion?.comando}
+                                            onChange={(e) => setEditingQuestion({ ...editingQuestion, comando: e.target.value })}
+                                            className="w-full bg-muted border border-border rounded-xl p-3 font-bold text-sm"
+                                            placeholder="Ex: Qual o diagnóstico mais provável?"
+                                        />
+                                    </div>
+
+                                    <div className="space-y-1">
+                                        <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">URL da Imagem (ECG, Tomografia, etc.)</label>
+                                        <div className="flex gap-2">
                                             <input
                                                 type="text"
-                                                value={editingQuestion?.comando}
-                                                onChange={(e) => setEditingQuestion({ ...editingQuestion, comando: e.target.value })}
-                                                className="w-full bg-muted border border-border rounded-xl p-3 font-bold text-sm"
-                                                placeholder="Ex: Qual o diagnóstico mais provável?"
+                                                value={editingQuestion?.image_url}
+                                                onChange={(e) => setEditingQuestion({ ...editingQuestion, image_url: e.target.value })}
+                                                className="flex-1 bg-muted border border-border rounded-xl p-3 font-bold text-sm"
+                                                placeholder="https://..."
                                             />
                                         </div>
+                                        {editingQuestion?.image_url && (
+                                            <div className="mt-2 relative group rounded-2xl overflow-hidden border border-border">
+                                                <img src={editingQuestion.image_url} className="w-full h-32 object-cover" alt="Preview" />
+                                                <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                                                    <span className="text-white text-[10px] font-black uppercase">Preview Ativo</span>
+                                                </div>
+                                            </div>
+                                        )}
+                                    </div>
 
+                                    <div className="grid grid-cols-1 gap-4">
                                         <div className="space-y-1">
-                                            <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">URL da Imagem (ECG, Tomografia, etc.)</label>
-                                            <div className="flex gap-2">
-                                                <input
-                                                    type="text"
-                                                    value={editingQuestion?.image_url}
-                                                    onChange={(e) => setEditingQuestion({ ...editingQuestion, image_url: e.target.value })}
-                                                    className="flex-1 bg-muted border border-border rounded-xl p-3 font-bold text-sm"
-                                                    placeholder="https://..."
-                                                />
-                                            </div>
-                                            {editingQuestion?.image_url && (
-                                                <div className="mt-2 relative group rounded-2xl overflow-hidden border border-border">
-                                                    <img src={editingQuestion.image_url} className="w-full h-32 object-cover" alt="Preview" />
-                                                    <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                                                        <span className="text-white text-[10px] font-black uppercase">Preview Ativo</span>
-                                                    </div>
-                                                </div>
-                                            )}
-                                        </div>
-
-                                        <div className="grid grid-cols-1 gap-4">
-                                            <div className="space-y-1">
-                                                <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Especialidade</label>
-                                                <select
-                                                    value={editingQuestion?.specialty_id}
-                                                    onChange={(e) => setEditingQuestion({ ...editingQuestion, specialty_id: e.target.value })}
-                                                    className="w-full bg-muted border border-border rounded-xl p-3 font-bold text-sm"
-                                                >
-                                                    {activeCourse?.specialties.map(s => <option key={s.id} value={s.id}>{s.name}</option>)}
-                                                </select>
-                                            </div>
-
-                                            <div className="grid grid-cols-2 gap-4">
-                                                <div className="space-y-1">
-                                                    <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Subespecialidade</label>
-                                                    <input
-                                                        type="text"
-                                                        list="subspecialties-list"
-                                                        value={editingQuestion?.subspecialty_id}
-                                                        onChange={(e) => setEditingQuestion({ ...editingQuestion, subspecialty_id: e.target.value })}
-                                                        className="w-full bg-muted border border-border rounded-xl p-3 font-bold text-sm"
-                                                        placeholder="Escolha ou digite nova..."
-                                                    />
-                                                    <datalist id="subspecialties-list">
-                                                        {activeCourse?.specialties.find((s: any) => s.id === editingQuestion?.specialty_id)?.subspecialties.map((sub: any) => (
-                                                            <option key={sub.id} value={sub.id}>{sub.name}</option>
-                                                        ))}
-                                                    </datalist>
-                                                </div>
-
-                                                <div className="space-y-1">
-                                                    <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Assunto</label>
-                                                    <input
-                                                        type="text"
-                                                        list="subjects-list"
-                                                        value={editingQuestion?.subject_id}
-                                                        onChange={(e) => setEditingQuestion({ ...editingQuestion, subject_id: e.target.value })}
-                                                        className="w-full bg-muted border border-border rounded-xl p-3 font-bold text-sm"
-                                                        placeholder="Escolha ou digite novo..."
-                                                    />
-                                                    <datalist id="subjects-list">
-                                                        {activeCourse?.specialties
-                                                            .find(s => s.id === editingQuestion?.specialty_id)
-                                                            ?.subspecialties.find(ss => ss.id === editingQuestion?.subspecialty_id)
-                                                            ?.subjects.map(subj => (
-                                                                <option key={subj.id} value={subj.id}>{subj.name}</option>
-                                                            ))}
-                                                    </datalist>
-                                                </div>
-                                            </div>
+                                            <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Especialidade</label>
+                                            <select
+                                                value={editingQuestion?.specialty_id}
+                                                onChange={(e) => setEditingQuestion({ ...editingQuestion, specialty_id: e.target.value })}
+                                                className="w-full bg-muted border border-border rounded-xl p-3 font-bold text-sm"
+                                            >
+                                                {activeCourse?.specialties.map(s => <option key={s.id} value={s.id}>{s.name}</option>)}
+                                            </select>
                                         </div>
 
                                         <div className="grid grid-cols-2 gap-4">
                                             <div className="space-y-1">
-                                                <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Link de Revisão</label>
+                                                <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Subespecialidade</label>
                                                 <input
                                                     type="text"
-                                                    value={editingQuestion?.revision_link}
-                                                    onChange={(e) => setEditingQuestion({ ...editingQuestion, revision_link: e.target.value })}
+                                                    list="subspecialties-list"
+                                                    value={editingQuestion?.subspecialty_id}
+                                                    onChange={(e) => setEditingQuestion({ ...editingQuestion, subspecialty_id: e.target.value })}
                                                     className="w-full bg-muted border border-border rounded-xl p-3 font-bold text-sm"
-                                                    placeholder="Link p/ Dr. QRub"
+                                                    placeholder="Escolha ou digite nova..."
                                                 />
+                                                <datalist id="subspecialties-list">
+                                                    {activeCourse?.specialties.find((s: any) => s.id === editingQuestion?.specialty_id)?.subspecialties.map((sub: any) => (
+                                                        <option key={sub.id} value={sub.id}>{sub.name}</option>
+                                                    ))}
+                                                </datalist>
                                             </div>
+
                                             <div className="space-y-1">
-                                                <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">ID Correto</label>
-                                                <select
-                                                    value={editingQuestion?.correct_option_id}
-                                                    onChange={(e) => setEditingQuestion({ ...editingQuestion, correct_option_id: e.target.value })}
+                                                <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Assunto</label>
+                                                <input
+                                                    type="text"
+                                                    list="subjects-list"
+                                                    value={editingQuestion?.subject_id}
+                                                    onChange={(e) => setEditingQuestion({ ...editingQuestion, subject_id: e.target.value })}
                                                     className="w-full bg-muted border border-border rounded-xl p-3 font-bold text-sm"
-                                                >
-                                                    {['a', 'b', 'c', 'd', 'e'].map(id => <option key={id} value={id}>{id.toUpperCase()}</option>)}
-                                                </select>
+                                                    placeholder="Escolha ou digite novo..."
+                                                />
+                                                <datalist id="subjects-list">
+                                                    {activeCourse?.specialties
+                                                        .find(s => s.id === editingQuestion?.specialty_id)
+                                                        ?.subspecialties.find(ss => ss.id === editingQuestion?.subspecialty_id)
+                                                        ?.subjects.map(subj => (
+                                                            <option key={subj.id} value={subj.id}>{subj.name}</option>
+                                                        ))}
+                                                </datalist>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div className="space-y-6">
-                                        <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Alternativas</label>
-                                        <div className="space-y-3">
-                                            {editingQuestion?.options?.map((opt, i) => (
-                                                <div key={opt.id} className="flex gap-3 items-center">
-                                                    <span className="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center text-[10px] font-black uppercase shrink-0">{opt.id}</span>
-                                                    <input
-                                                        type="text"
-                                                        value={opt.text}
-                                                        onChange={(e) => {
-                                                            const newOpts = [...(editingQuestion?.options || [])]
-                                                            newOpts[i].text = e.target.value
-                                                            setEditingQuestion({ ...editingQuestion, options: newOpts })
-                                                        }}
-                                                        className="flex-1 bg-muted border border-border rounded-xl p-3 font-bold text-sm"
-                                                        placeholder={`Texto da alternativa ${opt.id.toUpperCase()}...`}
-                                                    />
-                                                </div>
-                                            ))}
+                                    <div className="grid grid-cols-2 gap-4">
+                                        <div className="space-y-1">
+                                            <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Link de Revisão</label>
+                                            <input
+                                                type="text"
+                                                value={editingQuestion?.revision_link}
+                                                onChange={(e) => setEditingQuestion({ ...editingQuestion, revision_link: e.target.value })}
+                                                className="w-full bg-muted border border-border rounded-xl p-3 font-bold text-sm"
+                                                placeholder="Link p/ Dr. QRub"
+                                            />
+                                        </div>
+                                        <div className="space-y-1">
+                                            <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">ID Correto</label>
+                                            <select
+                                                value={editingQuestion?.correct_option_id}
+                                                onChange={(e) => setEditingQuestion({ ...editingQuestion, correct_option_id: e.target.value })}
+                                                className="w-full bg-muted border border-border rounded-xl p-3 font-bold text-sm"
+                                            >
+                                                {['a', 'b', 'c', 'd', 'e'].map(id => <option key={id} value={id}>{id.toUpperCase()}</option>)}
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
 
-                                {/* Nova Seção: Fundamentação Técnica */}
-                                <div className="mt-8 pt-8 border-t border-border space-y-8">
-                                    <div className="flex items-center gap-3">
-                                        <div className="bg-amber-400/10 p-2 rounded-xl text-amber-500"><Sparkles className="w-5 h-5" /></div>
-                                        <h3 className="text-xl font-black italic uppercase tracking-tighter">Fundamentação Técnica</h3>
-                                    </div>
-
-                                    <div className="space-y-2">
-                                        <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Explicação Principal (Resposta Correta)</label>
-                                        <textarea
-                                            value={editingQuestion?.explanation || ''}
-                                            onChange={(e) => setEditingQuestion({ ...editingQuestion, explanation: e.target.value })}
-                                            className="w-full h-32 bg-muted border border-border rounded-2xl p-4 font-bold text-sm focus:ring-2 focus:ring-primary/20 outline-none resize-none"
-                                            placeholder="Descreva a lógica clínica e a diretriz utilizada..."
-                                        />
-                                    </div>
-
-                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                        {['a', 'b', 'c', 'd', 'e'].map((id) => (
-                                            <div key={id} className="space-y-2">
-                                                <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground flex items-center gap-2">
-                                                    <span className="w-4 h-4 rounded bg-muted flex items-center justify-center text-[8px]">{id.toUpperCase()}</span>
-                                                    Erro da Alternativa
-                                                </label>
-                                                <textarea
-                                                    value={editingQuestion?.alternative_explanations?.[id] || ''}
+                                <div className="space-y-6">
+                                    <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Alternativas</label>
+                                    <div className="space-y-3">
+                                        {editingQuestion?.options?.map((opt, i) => (
+                                            <div key={opt.id} className="flex gap-3 items-center">
+                                                <span className="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center text-[10px] font-black uppercase shrink-0">{opt.id}</span>
+                                                <input
+                                                    type="text"
+                                                    value={opt.text}
                                                     onChange={(e) => {
-                                                        const currentExps = editingQuestion?.alternative_explanations || {}
-                                                        setEditingQuestion({
-                                                            ...editingQuestion,
-                                                            alternative_explanations: {
-                                                                ...currentExps,
-                                                                [id]: e.target.value
-                                                            }
-                                                        })
+                                                        const newOpts = [...(editingQuestion?.options || [])]
+                                                        newOpts[i].text = e.target.value
+                                                        setEditingQuestion({ ...editingQuestion, options: newOpts })
                                                     }}
-                                                    className="w-full h-24 bg-muted/50 border border-border rounded-xl p-3 font-medium text-xs focus:ring-2 focus:ring-primary/20 outline-none resize-none"
-                                                    placeholder={`Por que a alternativa ${id.toUpperCase()} está incorreta?`}
+                                                    className="flex-1 bg-muted border border-border rounded-xl p-3 font-bold text-sm"
+                                                    placeholder={`Texto da alternativa ${opt.id.toUpperCase()}...`}
                                                 />
                                             </div>
                                         ))}
                                     </div>
                                 </div>
-
-                                <div className="mt-10 pt-8 border-t border-border flex justify-end gap-4">
-                                    <button onClick={() => setIsEditModalOpen(false)} className="px-8 py-3 rounded-xl font-bold text-muted-foreground hover:bg-muted transition-all uppercase text-xs tracking-widest">Cancelar</button>
-                                    <button onClick={async () => {
-                                        if (editingQuestion) {
-                                            setLoadingManual(true)
-                                            try {
-                                                const result = await addQuestion(editingQuestion as Question)
-                                                if (result.success) {
-                                                    setImportStatus({ type: 'success', msg: '✅ Questão salva com sucesso no Supabase!' })
-                                                    setIsEditModalOpen(false)
-                                                } else {
-                                                    setImportStatus({ type: 'error', msg: `❌ Erro: ${result.message}` })
-                                                }
-                                            } catch (error) {
-                                                console.error('Save error:', error)
-                                            } finally {
-                                                setLoadingManual(false)
-                                            }
-                                        }
-                                    }} className="royal-gradient text-white px-10 py-3 rounded-xl font-black uppercase text-xs tracking-widest shadow-xl shadow-primary/20 hover:scale-105 transition-all disabled:opacity-50" disabled={loadingManual}>
-                                        {loadingManual ? 'Salvando...' : 'Salvar Questão'}
-                                    </button>
-                                </div>
-                            </motion.div>
-                        </div>
-                    )}
-                </AnimatePresence>
-
-                {/* Admin Header */}
-                <header className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
-                    <div className="space-y-1">
-                        <h1 className="text-4xl font-black italic uppercase tracking-tighter flex items-center gap-3">
-                            <ShieldCheck className="w-10 h-10 text-primary" />
-                            Master Control
-                        </h1>
-                        <p className="text-muted-foreground text-xs font-black uppercase tracking-[0.2em] opacity-60">
-                            Whitelist: {user?.email}
-                        </p>
-                    </div>
-
-                    <div className="flex flex-wrap gap-2 p-1.5 bg-muted rounded-2xl w-fit">
-                        <NavBtn active={view === 'analytics'} onClick={() => setView('analytics')} icon={<BarChart3 className="w-4 h-4" />} label="Stats" />
-                        <NavBtn active={view === 'questions'} onClick={() => setView('questions')} icon={<Database className="w-4 h-4" />} label="Banco" />
-                        <NavBtn active={view === 'validation'} onClick={() => setView('validation')} icon={<ShieldCheck className="w-4 h-4" />} label="Validação" />
-                        <NavBtn active={view === 'structural'} onClick={() => setView('structural')} icon={<Sparkles className="w-4 h-4" />} label="Gerador" />
-                        <NavBtn active={view === 'import'} onClick={() => setView('import')} icon={<Upload className="w-4 h-4" />} label="Import" />
-                        <NavBtn active={view === 'reports'} onClick={() => setView('reports')} icon={<AlertCircle className="w-4 h-4" />} label="Regulação" />
-                        <NavBtn active={view === 'users'} onClick={() => setView('users')} icon={<Users className="w-4 h-4" />} label="Alunos" />
-                        <NavBtn active={view === 'settings'} onClick={() => setView('settings')} icon={<Settings className="w-4 h-4" />} label="Ajustes" />
-                    </div>
-
-                    <div className="flex gap-3">
-                        <Link href="/admin/finance">
-                            <button className="flex items-center gap-2 px-6 py-3 rounded-xl text-xs font-black uppercase tracking-widest text-emerald-500 hover:bg-emerald-500/10 transition-all border border-emerald-500/20">
-                                <DollarSign className="w-4 h-4" />
-                                Financeiro
-                            </button>
-                        </Link>
-                    </div>
-                </header>
-
-                {/* View Content */}
-                <AnimatePresence mode="wait">
-                    {view === 'questions' && (
-                        <motion.div key="q" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} className="space-y-6">
-                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                                <StatCard
-                                    label="Total Questões"
-                                    value={questions.length}
-                                    color="text-primary"
-                                    icon={<Database className="w-4 h-4" />}
-                                    onClick={() => setIsBreakdownOpen(true)}
-                                />
-                                <StatCard label="Especialidades" value="12" color="text-blue-500" icon={<BookOpen className="w-4 h-4" />} />
-                                <StatCard label="Questões com Flag" value={questions.filter(q => q.status === 'flagged').length} color="text-orange-500" icon={<Flag className="w-4 h-4" />} />
-                                <StatCard label="Erros Reportados" value={reports.filter(r => r.status === 'pending').length} color="text-rose-500" icon={<AlertCircle className="w-4 h-4" />} />
-
                             </div>
 
-                            <div className="bg-card border border-border rounded-[32px] overflow-hidden soft-shadow">
-                                <div className="p-8 border-b border-border flex flex-col md:flex-row gap-4 justify-between items-center">
-                                    <div className="relative w-full md:w-96">
-                                        <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-                                        <input
-                                            type="text"
-                                            placeholder="Filtrar por enunciado ou ID..."
-                                            className="w-full bg-muted border border-border rounded-xl pl-12 pr-4 py-3 text-sm focus:ring-2 focus:ring-primary/20 outline-none"
-                                            onChange={(e) => setSearchTerm(e.target.value)}
-                                        />
-                                    </div>
-                                    <button onClick={() => handleOpenEditor()} className="bg-primary text-white px-6 py-3 rounded-xl font-black uppercase text-xs tracking-widest hover:scale-105 transition-all">
-                                        Nova Questão Manual
-                                    </button>
+                            {/* Nova Seção: Fundamentação Técnica */}
+                            <div className="mt-8 pt-8 border-t border-border space-y-8">
+                                <div className="flex items-center gap-3">
+                                    <div className="bg-amber-400/10 p-2 rounded-xl text-amber-500"><Sparkles className="w-5 h-5" /></div>
+                                    <h3 className="text-xl font-black italic uppercase tracking-tighter">Fundamentação Técnica</h3>
                                 </div>
 
-                                <div className="px-8 py-4 border-b border-border bg-muted/20 flex gap-4 items-center">
-                                    <button onClick={handleDownloadBackup} className="text-xs font-black uppercase tracking-widest text-primary hover:underline flex items-center gap-2">
-                                        <Database className="w-3 h-3" /> Fazer Backup (JSON)
-                                    </button>
-                                    <div className="h-4 w-px bg-border" />
-                                    <label className="text-xs font-black uppercase tracking-widest text-primary hover:underline flex items-center gap-2 cursor-pointer">
-                                        <Paperclip className="w-3 h-3" /> Anexar JSON (Master 4)
-                                        <input type="file" accept=".json" multiple onChange={handleAttachJson} className="hidden" />
-                                    </label>
-                                    <div className="h-4 w-px bg-border" />
-                                    <label className="text-xs font-black uppercase tracking-widest text-emerald-500 hover:underline flex items-center gap-2 cursor-pointer">
-                                        <Upload className="w-3 h-3" /> Restaurar Backup
-                                        <input type="file" accept=".json" onChange={handleRestoreBackup} className="hidden" />
-                                    </label>
-                                </div>
-                                {selectedQuestions.length > 0 && (
-                                    <div className="mx-8 mt-4 mb-4 bg-rose-500/10 border-2 border-rose-500/20 rounded-[24px] px-8 py-5 flex items-center justify-between animate-in slide-in-from-top-4 duration-300">
-                                        <div className="flex items-center gap-4">
-                                            <div className="w-10 h-10 rounded-full bg-rose-500 text-white flex items-center justify-center font-black">
-                                                {selectedQuestions.length}
-                                            </div>
-                                            <div>
-                                                <p className="font-black italic uppercase text-sm text-rose-500">Questões Selecionadas</p>
-                                                <p className="text-[10px] font-bold text-rose-500/60 uppercase tracking-widest leading-none">Ações em lote disponíveis</p>
-                                            </div>
-                                        </div>
-
-                                        <div className="flex items-center gap-3">
-                                            <button
-                                                onClick={() => setSelectedQuestions([])}
-                                                className="px-6 py-3 rounded-xl font-black uppercase text-[10px] tracking-widest text-muted-foreground hover:bg-muted transition-all"
-                                            >
-                                                Cancelar
-                                            </button>
-                                            <button
-                                                onClick={handleBulkDelete}
-                                                className="flex items-center gap-2 bg-rose-500 text-white px-8 py-4 rounded-2xl font-black text-xs uppercase tracking-[0.2em] shadow-xl shadow-rose-500/20 hover:scale-[1.03] active:scale-95 transition-all"
-                                            >
-                                                <Trash2 className="w-4 h-4" />
-                                                Deletar Todas
-                                            </button>
-                                        </div>
-                                    </div>
-                                )}
-                                <div className="overflow-x-auto">
-                                    <table className="w-full text-left">
-                                        <thead className="bg-muted/50 text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground">
-                                            <tr>
-                                                <th className="px-4 py-6 w-12">
-                                                    <input
-                                                        type="checkbox"
-                                                        checked={selectedQuestions.length === questions.length && questions.length > 0}
-                                                        onChange={handleToggleAll}
-                                                        className="w-4 h-4 rounded border-border"
-                                                    />
-                                                </th>
-                                                <th className="px-8 py-6">Questão / ID</th>
-                                                <th className="px-8 py-6">Especialidade / Assunto</th>
-                                                <th className="px-8 py-6 text-right">Ações</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody className="divide-y divide-border">
-                                            {paginatedQuestions.map(q => (
-                                                <tr key={q.id} className="hover:bg-muted/10 transition-colors group">
-                                                    <td className="px-4 py-6">
-                                                        <input
-                                                            type="checkbox"
-                                                            checked={selectedQuestions.includes(q.id)}
-                                                            onChange={() => handleToggleQuestion(q.id)}
-                                                            className="w-4 h-4 rounded border-border"
-                                                        />
-                                                    </td>
-                                                    <td className="px-8 py-6">
-                                                        <div className="font-bold line-clamp-1 max-w-md group-hover:text-primary transition-all">{q.enunciado}</div>
-                                                        <div className="text-[10px] font-mono text-muted-foreground italic uppercase flex items-center gap-2">
-                                                            {q.id}
-                                                            {q.image_url && <span className="text-[8px] bg-primary/20 text-primary px-1 rounded">IMAGE</span>}
-                                                            {q.status === 'flagged' && <span className="text-[8px] bg-rose-500/20 text-rose-500 px-1 rounded flex items-center gap-1 font-black"><AlertCircle className="w-2.5 h-2.5" /> FLAG</span>}
-                                                        </div>
-                                                    </td>
-                                                    <td className="px-8 py-6">
-                                                        <div className="flex gap-2">
-                                                            <span className="bg-primary/10 text-primary px-2 py-0.5 rounded-lg text-[10px] font-black uppercase">{q.specialty_id}</span>
-                                                            <span className="bg-muted text-muted-foreground px-2 py-0.5 rounded-lg text-[10px] font-black uppercase">{q.subject_id}</span>
-                                                        </div>
-                                                    </td>
-                                                    <td className="px-8 py-6 text-right">
-                                                        <div className="flex justify-end gap-2">
-                                                            <button onClick={() => handleOpenEditor(q)} className="p-2 hover:bg-primary/10 hover:text-primary rounded-lg transition-all"><Edit2 className="w-4 h-4" /></button>
-                                                            <button onClick={() => handleDeleteSingleQuestion(q.id)} className="p-2 hover:bg-destructive/10 hover:text-destructive rounded-lg transition-all"><Trash2 className="w-4 h-4" /></button>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            ))}
-                                        </tbody>
-                                    </table>
-                                </div>
-
-                                {/* Pagination Footer */}
-                                <div className="p-4 border-t border-border flex items-center justify-between">
-                                    <div className="text-xs font-medium text-muted-foreground">
-                                        Mostrando {(currentPage - 1) * itemsPerPage + 1} a {Math.min(currentPage * itemsPerPage, filteredQuestions.length)} de {filteredQuestions.length} questões
-                                    </div>
-                                    <div className="flex items-center gap-2">
-                                        <button
-                                            onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
-                                            disabled={currentPage === 1}
-                                            className="p-2 rounded-lg hover:bg-muted disabled:opacity-50 disabled:cursor-not-allowed transition-all"
-                                        >
-                                            <ChevronLeft className="w-4 h-4" />
-                                        </button>
-                                        <span className="text-xs font-black px-2">{currentPage} / {totalPages || 1}</span>
-                                        <button
-                                            onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
-                                            disabled={currentPage === totalPages || totalPages === 0}
-                                            className="p-2 rounded-lg hover:bg-muted disabled:opacity-50 disabled:cursor-not-allowed transition-all"
-                                        >
-                                            <ChevronRight className="w-4 h-4" />
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </motion.div>
-                    )}
-
-                    {view === 'users' && (
-                        <motion.div key="u" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} className="space-y-6">
-                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                                <StatCard
-                                    label="Alunos Totais"
-                                    value={realUsers.length}
-                                    sub="+12 hoje"
-                                    color="text-emerald-500"
-                                    icon={<Users className="w-4 h-4" />}
-                                    onClick={() => setUserFilter('all')}
-                                    active={userFilter === 'all'}
-                                />
-                                <StatCard
-                                    label="Plano Insano"
-                                    value={realUsers.filter((u: any) => u.plan_level === 'INSANO').length}
-                                    color="text-orange-500"
-                                    icon={<Crown className="w-4 h-4" />}
-                                    onClick={() => setUserFilter('insano')}
-                                    active={userFilter === 'insano'}
-                                />
-                                <StatCard
-                                    label="Plano Premium"
-                                    value={realUsers.filter((u: any) => u.plan_level === 'PREMIUM').length}
-                                    color="text-primary"
-                                    icon={<Star className="w-4 h-4" />}
-                                    onClick={() => setUserFilter('premium')}
-                                    active={userFilter === 'premium'}
-                                />
-                                <StatCard
-                                    label="Cadastro Incompleto"
-                                    value={realUsers.filter((u: any) => !u.institution || !u.graduation_year).length}
-                                    color="text-rose-500"
-                                    icon={<AlertCircle className="w-4 h-4" />}
-                                    onClick={() => setUserFilter('incomplete')}
-                                    active={userFilter === 'incomplete'}
-                                />
-                            </div>
-
-                            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-                                <div className="relative w-full md:w-96 flex items-center">
-                                    <Search className="absolute left-4 w-4 h-4 text-muted-foreground" />
-                                    <input
-                                        type="text"
-                                        placeholder="Procurar aluno por nome ou email..."
-                                        value={userSearch}
-                                        onChange={(e) => setUserSearch(e.target.value)}
-                                        className="w-full bg-card border border-border rounded-2xl py-3 pl-12 pr-4 text-xs font-medium focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                                <div className="space-y-2">
+                                    <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Explicação Principal (Resposta Correta)</label>
+                                    <textarea
+                                        value={editingQuestion?.explanation || ''}
+                                        onChange={(e) => setEditingQuestion({ ...editingQuestion, explanation: e.target.value })}
+                                        className="w-full h-32 bg-muted border border-border rounded-2xl p-4 font-bold text-sm focus:ring-2 focus:ring-primary/20 outline-none resize-none"
+                                        placeholder="Descreva a lógica clínica e a diretriz utilizada..."
                                     />
                                 </div>
-                                <div className="flex gap-2 w-full md:w-auto overflow-x-auto pb-1 md:pb-0">
-                                    {userFilter !== 'all' && (
-                                        <button
-                                            onClick={() => setUserFilter('all')}
-                                            className="px-4 py-3 bg-muted text-muted-foreground rounded-2xl text-[10px] font-black uppercase tracking-widest hover:bg-muted/80 border border-border flex items-center gap-2"
-                                        >
-                                            <X className="w-3 h-3" /> Limpar Filtro
-                                        </button>
-                                    )}
-                                    {selectedUserIds.length > 0 && (
-                                        <button
-                                            onClick={handleBulkUserDelete}
-                                            className="flex-1 md:flex-none flex items-center justify-center gap-2 bg-rose-500 text-white px-6 py-3 rounded-2xl font-black uppercase text-[10px] tracking-widest hover:scale-105 transition-all shadow-xl shadow-rose-500/20 whitespace-nowrap"
-                                        >
-                                            <Trash2 className="w-3 h-3" />
-                                            Excluir ({selectedUserIds.length})
-                                        </button>
-                                    )}
-                                    <button
-                                        onClick={handleExportUsers}
-                                        className="flex-1 md:flex-none flex items-center justify-center gap-2 bg-emerald-500 text-white px-6 py-3 rounded-2xl font-black uppercase text-[10px] tracking-widest hover:scale-105 transition-all shadow-xl shadow-emerald-500/20 whitespace-nowrap"
-                                    >
-                                        <Database className="w-3 h-3" />
-                                        Exportar XLs
-                                    </button>
-                                    <button
-                                        onClick={() => loadUsers()}
-                                        className="p-3 bg-muted/30 rounded-2xl hover:bg-muted/50 transition-all border border-border"
-                                        title="Atualizar Lista"
-                                    >
-                                        <RefreshCw className={`w-4 h-4 text-muted-foreground ${loading ? 'animate-spin' : ''}`} />
-                                    </button>
+
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    {['a', 'b', 'c', 'd', 'e'].map((id) => (
+                                        <div key={id} className="space-y-2">
+                                            <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground flex items-center gap-2">
+                                                <span className="w-4 h-4 rounded bg-muted flex items-center justify-center text-[8px]">{id.toUpperCase()}</span>
+                                                Erro da Alternativa
+                                            </label>
+                                            <textarea
+                                                value={editingQuestion?.alternative_explanations?.[id] || ''}
+                                                onChange={(e) => {
+                                                    const currentExps = editingQuestion?.alternative_explanations || {}
+                                                    setEditingQuestion({
+                                                        ...editingQuestion,
+                                                        alternative_explanations: {
+                                                            ...currentExps,
+                                                            [id]: e.target.value
+                                                        }
+                                                    })
+                                                }}
+                                                className="w-full h-24 bg-muted/50 border border-border rounded-xl p-3 font-medium text-xs focus:ring-2 focus:ring-primary/20 outline-none resize-none"
+                                                placeholder={`Por que a alternativa ${id.toUpperCase()} está incorreta?`}
+                                            />
+                                        </div>
+                                    ))}
                                 </div>
                             </div>
 
-                            <div className="bg-card border border-border rounded-[32px] overflow-hidden soft-shadow">
-                                <div className="overflow-x-auto">
-                                    <table className="w-full text-left">
-                                        <thead className="bg-muted/50 text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground">
-                                            <tr>
-                                                <th className="px-4 py-6 text-center">
+                            <div className="mt-10 pt-8 border-t border-border flex justify-end gap-4">
+                                <button onClick={() => setIsEditModalOpen(false)} className="px-8 py-3 rounded-xl font-bold text-muted-foreground hover:bg-muted transition-all uppercase text-xs tracking-widest">Cancelar</button>
+                                <button onClick={async () => {
+                                    if (editingQuestion) {
+                                        setLoadingManual(true)
+                                        try {
+                                            const result = await addQuestion(editingQuestion as Question)
+                                            if (result.success) {
+                                                setImportStatus({ type: 'success', msg: '✅ Questão salva com sucesso no Supabase!' })
+                                                setIsEditModalOpen(false)
+                                            } else {
+                                                setImportStatus({ type: 'error', msg: `❌ Erro: ${result.message}` })
+                                            }
+                                        } catch (error) {
+                                            console.error('Save error:', error)
+                                        } finally {
+                                            setLoadingManual(false)
+                                        }
+                                    }
+                                }} className="royal-gradient text-white px-10 py-3 rounded-xl font-black uppercase text-xs tracking-widest shadow-xl shadow-primary/20 hover:scale-105 transition-all disabled:opacity-50" disabled={loadingManual}>
+                                    {loadingManual ? 'Salvando...' : 'Salvar Questão'}
+                                </button>
+                            </div>
+                        </motion.div>
+                    </div>
+                )}
+            </AnimatePresence>
+
+            {/* Admin Header */}
+            <header className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+                <div className="space-y-1">
+                    <h1 className="text-4xl font-black italic uppercase tracking-tighter flex items-center gap-3">
+                        <ShieldCheck className="w-10 h-10 text-primary" />
+                        Master Control
+                    </h1>
+                    <p className="text-muted-foreground text-xs font-black uppercase tracking-[0.2em] opacity-60">
+                        Whitelist: {user?.email}
+                    </p>
+                </div>
+
+                <div className="flex flex-wrap gap-2 p-1.5 bg-muted rounded-2xl w-fit">
+                    <NavBtn active={view === 'analytics'} onClick={() => setView('analytics')} icon={<BarChart3 className="w-4 h-4" />} label="Stats" />
+                    <NavBtn active={view === 'questions'} onClick={() => setView('questions')} icon={<Database className="w-4 h-4" />} label="Banco" />
+                    <NavBtn active={view === 'validation'} onClick={() => setView('validation')} icon={<ShieldCheck className="w-4 h-4" />} label="Validação" />
+                    <NavBtn active={view === 'structural'} onClick={() => setView('structural')} icon={<Sparkles className="w-4 h-4" />} label="Gerador" />
+                    <NavBtn active={view === 'import'} onClick={() => setView('import')} icon={<Upload className="w-4 h-4" />} label="Import" />
+                    <NavBtn active={view === 'reports'} onClick={() => setView('reports')} icon={<AlertCircle className="w-4 h-4" />} label="Regulação" />
+                    <NavBtn active={view === 'users'} onClick={() => setView('users')} icon={<Users className="w-4 h-4" />} label="Alunos" />
+                    <NavBtn active={view === 'settings'} onClick={() => setView('settings')} icon={<Settings className="w-4 h-4" />} label="Ajustes" />
+                </div>
+
+                <div className="flex gap-3">
+                    <Link href="/admin/finance">
+                        <button className="flex items-center gap-2 px-6 py-3 rounded-xl text-xs font-black uppercase tracking-widest text-emerald-500 hover:bg-emerald-500/10 transition-all border border-emerald-500/20">
+                            <DollarSign className="w-4 h-4" />
+                            Financeiro
+                        </button>
+                    </Link>
+                </div>
+            </header>
+
+            {/* View Content */}
+            <AnimatePresence mode="wait">
+                {view === 'questions' && (
+                    <motion.div key="q" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} className="space-y-6">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                            <StatCard
+                                label="Total Questões"
+                                value={questions.length}
+                                color="text-primary"
+                                icon={<Database className="w-4 h-4" />}
+                                onClick={() => setIsBreakdownOpen(true)}
+                            />
+                            <StatCard label="Especialidades" value="12" color="text-blue-500" icon={<BookOpen className="w-4 h-4" />} />
+                            <StatCard label="Questões com Flag" value={questions.filter(q => q.status === 'flagged').length} color="text-orange-500" icon={<Flag className="w-4 h-4" />} />
+                            <StatCard label="Erros Reportados" value={reports.filter(r => r.status === 'pending').length} color="text-rose-500" icon={<AlertCircle className="w-4 h-4" />} />
+
+                        </div>
+
+                        <div className="bg-card border border-border rounded-[32px] overflow-hidden soft-shadow">
+                            <div className="p-8 border-b border-border flex flex-col md:flex-row gap-4 justify-between items-center">
+                                <div className="relative w-full md:w-96">
+                                    <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                                    <input
+                                        type="text"
+                                        placeholder="Filtrar por enunciado ou ID..."
+                                        className="w-full bg-muted border border-border rounded-xl pl-12 pr-4 py-3 text-sm focus:ring-2 focus:ring-primary/20 outline-none"
+                                        onChange={(e) => setSearchTerm(e.target.value)}
+                                    />
+                                </div>
+                                <button onClick={() => handleOpenEditor()} className="bg-primary text-white px-6 py-3 rounded-xl font-black uppercase text-xs tracking-widest hover:scale-105 transition-all">
+                                    Nova Questão Manual
+                                </button>
+                            </div>
+
+                            <div className="px-8 py-4 border-b border-border bg-muted/20 flex gap-4 items-center">
+                                <button onClick={handleDownloadBackup} className="text-xs font-black uppercase tracking-widest text-primary hover:underline flex items-center gap-2">
+                                    <Database className="w-3 h-3" /> Fazer Backup (JSON)
+                                </button>
+                                <div className="h-4 w-px bg-border" />
+                                <label className="text-xs font-black uppercase tracking-widest text-primary hover:underline flex items-center gap-2 cursor-pointer">
+                                    <Paperclip className="w-3 h-3" /> Anexar JSON (Master 4)
+                                    <input type="file" accept=".json" multiple onChange={handleAttachJson} className="hidden" />
+                                </label>
+                                <div className="h-4 w-px bg-border" />
+                                <label className="text-xs font-black uppercase tracking-widest text-emerald-500 hover:underline flex items-center gap-2 cursor-pointer">
+                                    <Upload className="w-3 h-3" /> Restaurar Backup
+                                    <input type="file" accept=".json" onChange={handleRestoreBackup} className="hidden" />
+                                </label>
+                            </div>
+                            {selectedQuestions.length > 0 && (
+                                <div className="mx-8 mt-4 mb-4 bg-rose-500/10 border-2 border-rose-500/20 rounded-[24px] px-8 py-5 flex items-center justify-between animate-in slide-in-from-top-4 duration-300">
+                                    <div className="flex items-center gap-4">
+                                        <div className="w-10 h-10 rounded-full bg-rose-500 text-white flex items-center justify-center font-black">
+                                            {selectedQuestions.length}
+                                        </div>
+                                        <div>
+                                            <p className="font-black italic uppercase text-sm text-rose-500">Questões Selecionadas</p>
+                                            <p className="text-[10px] font-bold text-rose-500/60 uppercase tracking-widest leading-none">Ações em lote disponíveis</p>
+                                        </div>
+                                    </div>
+
+                                    <div className="flex items-center gap-3">
+                                        <button
+                                            onClick={() => setSelectedQuestions([])}
+                                            className="px-6 py-3 rounded-xl font-black uppercase text-[10px] tracking-widest text-muted-foreground hover:bg-muted transition-all"
+                                        >
+                                            Cancelar
+                                        </button>
+                                        <button
+                                            onClick={handleBulkDelete}
+                                            className="flex items-center gap-2 bg-rose-500 text-white px-8 py-4 rounded-2xl font-black text-xs uppercase tracking-[0.2em] shadow-xl shadow-rose-500/20 hover:scale-[1.03] active:scale-95 transition-all"
+                                        >
+                                            <Trash2 className="w-4 h-4" />
+                                            Deletar Todas
+                                        </button>
+                                    </div>
+                                </div>
+                            )}
+                            <div className="overflow-x-auto">
+                                <table className="w-full text-left">
+                                    <thead className="bg-muted/50 text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground">
+                                        <tr>
+                                            <th className="px-4 py-6 w-12">
+                                                <input
+                                                    type="checkbox"
+                                                    checked={selectedQuestions.length === questions.length && questions.length > 0}
+                                                    onChange={handleToggleAll}
+                                                    className="w-4 h-4 rounded border-border"
+                                                />
+                                            </th>
+                                            <th className="px-8 py-6">Questão / ID</th>
+                                            <th className="px-8 py-6">Especialidade / Assunto</th>
+                                            <th className="px-8 py-6 text-right">Ações</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody className="divide-y divide-border">
+                                        {paginatedQuestions.map(q => (
+                                            <tr key={q.id} className="hover:bg-muted/10 transition-colors group">
+                                                <td className="px-4 py-6">
                                                     <input
                                                         type="checkbox"
-                                                        className="w-4 h-4 rounded border-border text-primary focus:ring-primary/20"
-                                                        checked={filteredUsers.length > 0 && selectedUserIds.length === filteredUsers.length}
-                                                        onChange={(e) => {
-                                                            if (e.target.checked) setSelectedUserIds(filteredUsers.map(u => u.id))
-                                                            else setSelectedUserIds([])
-                                                        }}
+                                                        checked={selectedQuestions.includes(q.id)}
+                                                        onChange={() => handleToggleQuestion(q.id)}
+                                                        className="w-4 h-4 rounded border-border"
                                                     />
-                                                </th>
-                                                <th className="px-4 py-6">Aluno</th>
-                                                <th className="px-8 py-6">Formação</th>
-                                                <th className="px-8 py-6">Plano</th>
-                                                <th className="px-8 py-6 text-right">Controle Master</th>
+                                                </td>
+                                                <td className="px-8 py-6">
+                                                    <div className="font-bold line-clamp-1 max-w-md group-hover:text-primary transition-all">{q.enunciado}</div>
+                                                    <div className="text-[10px] font-mono text-muted-foreground italic uppercase flex items-center gap-2">
+                                                        {q.id}
+                                                        {q.image_url && <span className="text-[8px] bg-primary/20 text-primary px-1 rounded">IMAGE</span>}
+                                                        {q.status === 'flagged' && <span className="text-[8px] bg-rose-500/20 text-rose-500 px-1 rounded flex items-center gap-1 font-black"><AlertCircle className="w-2.5 h-2.5" /> FLAG</span>}
+                                                    </div>
+                                                </td>
+                                                <td className="px-8 py-6">
+                                                    <div className="flex gap-2">
+                                                        <span className="bg-primary/10 text-primary px-2 py-0.5 rounded-lg text-[10px] font-black uppercase">{q.specialty_id}</span>
+                                                        <span className="bg-muted text-muted-foreground px-2 py-0.5 rounded-lg text-[10px] font-black uppercase">{q.subject_id}</span>
+                                                    </div>
+                                                </td>
+                                                <td className="px-8 py-6 text-right">
+                                                    <div className="flex justify-end gap-2">
+                                                        <button onClick={() => handleOpenEditor(q)} className="p-2 hover:bg-primary/10 hover:text-primary rounded-lg transition-all"><Edit2 className="w-4 h-4" /></button>
+                                                        <button onClick={() => handleDeleteSingleQuestion(q.id)} className="p-2 hover:bg-destructive/10 hover:text-destructive rounded-lg transition-all"><Trash2 className="w-4 h-4" /></button>
+                                                    </div>
+                                                </td>
                                             </tr>
-                                        </thead>
-                                        <tbody className="divide-y divide-border">
-                                            {loading ? (
-                                                <tr>
-                                                    <td colSpan={5} className="px-8 py-20 text-center">
-                                                        <div className="flex flex-col items-center gap-4">
-                                                            <RefreshCw className="w-8 h-8 text-primary animate-spin" />
-                                                            <p className="text-xs font-black uppercase tracking-widest text-muted-foreground">Carregando alunos...</p>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            ) : filteredUsers.length === 0 ? (
-                                                <tr>
-                                                    <td colSpan={5} className="px-8 py-20 text-center text-muted-foreground uppercase text-xs font-black tracking-widest">
-                                                        Nenhum aluno encontrado
-                                                    </td>
-                                                </tr>
-                                            ) : (
-                                                filteredUsers.map(u => (
-                                                    <tr key={u.id} className={`${selectedUserIds.includes(u.id) ? 'bg-primary/5' : ''} hover:bg-muted/10 transition-colors`}>
-                                                        <td className="px-4 py-6 text-center">
-                                                            <input
-                                                                type="checkbox"
-                                                                className="w-4 h-4 rounded border-border text-primary focus:ring-primary/20"
-                                                                checked={selectedUserIds.includes(u.id)}
-                                                                onChange={() => {
-                                                                    setSelectedUserIds(prev =>
-                                                                        prev.includes(u.id) ? prev.filter(id => id !== u.id) : [...prev, u.id]
-                                                                    )
-                                                                }}
-                                                            />
-                                                        </td>
-                                                        <td className="px-4 py-6">
-                                                            <div className="font-bold flex items-center gap-2">
-                                                                {u.name}
-                                                                <ExternalLink className="w-3 h-3 text-muted-foreground" />
-                                                            </div>
-                                                            <div className="text-[10px] text-muted-foreground uppercase flex items-center gap-1">
-                                                                <Mail className="w-3 h-3" /> {u.email}
-                                                            </div>
-                                                        </td>
-                                                        <td className="px-8 py-6">
-                                                            <div className="space-y-1">
-                                                                <div className="flex items-center gap-2 text-xs font-bold">
-                                                                    <BookOpen className="w-3 h-3 text-primary" /> {u.institution || 'N/A'}
-                                                                </div>
-                                                                <div className="flex items-center gap-4 text-[10px] text-muted-foreground uppercase font-black">
-                                                                    <span className="flex items-center gap-1"><GraduationCap className="w-3 h-3" /> {u.graduation_year || 'N/A'}</span>
-                                                                    <span className="flex items-center gap-1"><Phone className="w-3 h-3" /> {u.phone || 'N/A'}</span>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                        <td className="px-8 py-6">
-                                                            <PlanBadge plan={u.plan_level} />
-                                                        </td>
-                                                        <td className="px-8 py-6 text-right">
-                                                            <div className="flex justify-end gap-2 items-center">
-                                                                {/* ROLE TOGGLE */}
-                                                                <button
-                                                                    onClick={() => {
-                                                                        const newRole = u.role === 'MASTER' ? 'ALUNO' : 'MASTER';
-                                                                        if (confirm(`Deseja alterar o acesso de ${u.name} para ${newRole}?`)) {
-                                                                            updateUserRole(u.id, newRole);
-                                                                        }
-                                                                    }}
-                                                                    className={`px-3 py-1.5 rounded-lg text-[10px] font-black uppercase transition-all flex items-center gap-1 border ${u.role === 'MASTER' ? 'bg-purple-900/20 text-purple-400 border-purple-500/30' : 'bg-muted text-muted-foreground border-transparent hover:bg-muted/80'}`}
-                                                                    title={u.role === 'MASTER' ? 'Remover Acesso Master' : 'Tornar Master'}
-                                                                >
-                                                                    <ShieldCheck className="w-3 h-3" />
-                                                                    {u.role === 'MASTER' ? 'MASTER' : 'ALUNO'}
-                                                                </button>
+                                        ))}
+                                    </tbody>
+                                </table>
+                            </div>
 
-                                                                <div className="w-px h-4 bg-border mx-2" />
-
-                                                                {['FREE', 'PREMIUM', 'INSANO'].map(p => (
-                                                                    <button
-                                                                        key={p}
-                                                                        onClick={() => updateUserPlan(u.id, p as PlanLevel)}
-                                                                        className={`px-3 py-1.5 rounded-lg text-[10px] font-black uppercase transition-all ${u.plan_level === p ? 'bg-primary text-white' : 'bg-muted text-muted-foreground hover:bg-primary/20'}`}
-                                                                    >
-                                                                        {p}
-                                                                    </button>
-                                                                ))}
-                                                                <button
-                                                                    onClick={() => {
-                                                                        if (confirm('Deseja excluir este usuário?')) deleteUser(u.id)
-                                                                    }}
-                                                                    className="p-1.5 rounded-lg text-rose-500 hover:bg-rose-500/10 transition-all ml-2"
-                                                                    title="Excluir Usuário"
-                                                                >
-                                                                    <Trash2 className="w-4 h-4" />
-                                                                </button>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                ))
-                                            )}
-                                        </tbody>
-                                    </table>
+                            {/* Pagination Footer */}
+                            <div className="p-4 border-t border-border flex items-center justify-between">
+                                <div className="text-xs font-medium text-muted-foreground">
+                                    Mostrando {(currentPage - 1) * itemsPerPage + 1} a {Math.min(currentPage * itemsPerPage, filteredQuestions.length)} de {filteredQuestions.length} questões
+                                </div>
+                                <div className="flex items-center gap-2">
+                                    <button
+                                        onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
+                                        disabled={currentPage === 1}
+                                        className="p-2 rounded-lg hover:bg-muted disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+                                    >
+                                        <ChevronLeft className="w-4 h-4" />
+                                    </button>
+                                    <span className="text-xs font-black px-2">{currentPage} / {totalPages || 1}</span>
+                                    <button
+                                        onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
+                                        disabled={currentPage === totalPages || totalPages === 0}
+                                        className="p-2 rounded-lg hover:bg-muted disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+                                    >
+                                        <ChevronRight className="w-4 h-4" />
+                                    </button>
                                 </div>
                             </div>
-                        </motion.div>
-                    )}
+                        </div>
+                    </motion.div>
+                )}
 
-                    {view === 'reports' && (
-                        <motion.div key="r" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} className="space-y-6">
-                            <div className="bg-card border border-border rounded-[32px] overflow-hidden soft-shadow">
-                                <div className="p-8 border-b border-border bg-muted/20">
-                                    <h3 className="text-xl font-black italic uppercase tracking-tighter flex items-center gap-2 text-rose-500">
-                                        <AlertCircle className="w-5 h-5" /> Fila de Regulação Médica
-                                    </h3>
-                                    <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest opacity-60">Analise os erros reportados pelos alunos e corrija as questões.</p>
-                                </div>
-                                <div className="overflow-x-auto">
-                                    <table className="w-full text-left">
-                                        <thead className="bg-muted/50 text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground">
+                {view === 'users' && (
+                    <motion.div key="u" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} className="space-y-6">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                            <StatCard
+                                label="Alunos Totais"
+                                value={realUsers.length}
+                                sub="+12 hoje"
+                                color="text-emerald-500"
+                                icon={<Users className="w-4 h-4" />}
+                                onClick={() => setUserFilter('all')}
+                                active={userFilter === 'all'}
+                            />
+                            <StatCard
+                                label="Plano Insano"
+                                value={realUsers.filter((u: any) => u.plan_level === 'INSANO').length}
+                                color="text-orange-500"
+                                icon={<Crown className="w-4 h-4" />}
+                                onClick={() => setUserFilter('insano')}
+                                active={userFilter === 'insano'}
+                            />
+                            <StatCard
+                                label="Plano Premium"
+                                value={realUsers.filter((u: any) => u.plan_level === 'PREMIUM').length}
+                                color="text-primary"
+                                icon={<Star className="w-4 h-4" />}
+                                onClick={() => setUserFilter('premium')}
+                                active={userFilter === 'premium'}
+                            />
+                            <StatCard
+                                label="Cadastro Incompleto"
+                                value={realUsers.filter((u: any) => !u.institution || !u.graduation_year).length}
+                                color="text-rose-500"
+                                icon={<AlertCircle className="w-4 h-4" />}
+                                onClick={() => setUserFilter('incomplete')}
+                                active={userFilter === 'incomplete'}
+                            />
+                        </div>
+
+                        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                            <div className="relative w-full md:w-96 flex items-center">
+                                <Search className="absolute left-4 w-4 h-4 text-muted-foreground" />
+                                <input
+                                    type="text"
+                                    placeholder="Procurar aluno por nome ou email..."
+                                    value={userSearch}
+                                    onChange={(e) => setUserSearch(e.target.value)}
+                                    className="w-full bg-card border border-border rounded-2xl py-3 pl-12 pr-4 text-xs font-medium focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                                />
+                            </div>
+                            <div className="flex gap-2 w-full md:w-auto overflow-x-auto pb-1 md:pb-0">
+                                {userFilter !== 'all' && (
+                                    <button
+                                        onClick={() => setUserFilter('all')}
+                                        className="px-4 py-3 bg-muted text-muted-foreground rounded-2xl text-[10px] font-black uppercase tracking-widest hover:bg-muted/80 border border-border flex items-center gap-2"
+                                    >
+                                        <X className="w-3 h-3" /> Limpar Filtro
+                                    </button>
+                                )}
+                                {selectedUserIds.length > 0 && (
+                                    <button
+                                        onClick={handleBulkUserDelete}
+                                        className="flex-1 md:flex-none flex items-center justify-center gap-2 bg-rose-500 text-white px-6 py-3 rounded-2xl font-black uppercase text-[10px] tracking-widest hover:scale-105 transition-all shadow-xl shadow-rose-500/20 whitespace-nowrap"
+                                    >
+                                        <Trash2 className="w-3 h-3" />
+                                        Excluir ({selectedUserIds.length})
+                                    </button>
+                                )}
+                                <button
+                                    onClick={handleExportUsers}
+                                    className="flex-1 md:flex-none flex items-center justify-center gap-2 bg-emerald-500 text-white px-6 py-3 rounded-2xl font-black uppercase text-[10px] tracking-widest hover:scale-105 transition-all shadow-xl shadow-emerald-500/20 whitespace-nowrap"
+                                >
+                                    <Database className="w-3 h-3" />
+                                    Exportar XLs
+                                </button>
+                                <button
+                                    onClick={() => loadUsers()}
+                                    className="p-3 bg-muted/30 rounded-2xl hover:bg-muted/50 transition-all border border-border"
+                                    title="Atualizar Lista"
+                                >
+                                    <RefreshCw className={`w-4 h-4 text-muted-foreground ${loading ? 'animate-spin' : ''}`} />
+                                </button>
+                            </div>
+                        </div>
+
+                        <div className="bg-card border border-border rounded-[32px] overflow-hidden soft-shadow">
+                            <div className="overflow-x-auto">
+                                <table className="w-full text-left">
+                                    <thead className="bg-muted/50 text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground">
+                                        <tr>
+                                            <th className="px-4 py-6 text-center">
+                                                <input
+                                                    type="checkbox"
+                                                    className="w-4 h-4 rounded border-border text-primary focus:ring-primary/20"
+                                                    checked={filteredUsers.length > 0 && selectedUserIds.length === filteredUsers.length}
+                                                    onChange={(e) => {
+                                                        if (e.target.checked) setSelectedUserIds(filteredUsers.map(u => u.id))
+                                                        else setSelectedUserIds([])
+                                                    }}
+                                                />
+                                            </th>
+                                            <th className="px-4 py-6">Aluno</th>
+                                            <th className="px-8 py-6">Formação</th>
+                                            <th className="px-8 py-6">Plano</th>
+                                            <th className="px-8 py-6 text-right">Controle Master</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody className="divide-y divide-border">
+                                        {loading ? (
                                             <tr>
-                                                <th className="px-8 py-6">ID Questão</th>
-                                                <th className="px-8 py-6">Tipo</th>
-                                                <th className="px-8 py-6">Descrição</th>
-                                                <th className="px-8 py-6 text-right">Ações</th>
+                                                <td colSpan={5} className="px-8 py-20 text-center">
+                                                    <div className="flex flex-col items-center gap-4">
+                                                        <RefreshCw className="w-8 h-8 text-primary animate-spin" />
+                                                        <p className="text-xs font-black uppercase tracking-widest text-muted-foreground">Carregando alunos...</p>
+                                                    </div>
+                                                </td>
                                             </tr>
-                                        </thead>
-                                        <tbody className="divide-y divide-border">
-                                            {reports.map(r => (
-                                                <tr key={r.id} className="hover:bg-rose-500/5 transition-colors">
-                                                    <td className="px-8 py-6">
-                                                        <div className="font-mono text-[10px] font-black">{r.question_id}</div>
-                                                        <div className="text-[8px] text-muted-foreground">{new Date(r.created_at).toLocaleString()}</div>
+                                        ) : filteredUsers.length === 0 ? (
+                                            <tr>
+                                                <td colSpan={5} className="px-8 py-20 text-center text-muted-foreground uppercase text-xs font-black tracking-widest">
+                                                    Nenhum aluno encontrado
+                                                </td>
+                                            </tr>
+                                        ) : (
+                                            filteredUsers.map(u => (
+                                                <tr key={u.id} className={`${selectedUserIds.includes(u.id) ? 'bg-primary/5' : ''} hover:bg-muted/10 transition-colors`}>
+                                                    <td className="px-4 py-6 text-center">
+                                                        <input
+                                                            type="checkbox"
+                                                            className="w-4 h-4 rounded border-border text-primary focus:ring-primary/20"
+                                                            checked={selectedUserIds.includes(u.id)}
+                                                            onChange={() => {
+                                                                setSelectedUserIds(prev =>
+                                                                    prev.includes(u.id) ? prev.filter(id => id !== u.id) : [...prev, u.id]
+                                                                )
+                                                            }}
+                                                        />
+                                                    </td>
+                                                    <td className="px-4 py-6">
+                                                        <div className="font-bold flex items-center gap-2">
+                                                            {u.name}
+                                                            <ExternalLink className="w-3 h-3 text-muted-foreground" />
+                                                        </div>
+                                                        <div className="text-[10px] text-muted-foreground uppercase flex items-center gap-1">
+                                                            <Mail className="w-3 h-3" /> {u.email}
+                                                        </div>
                                                     </td>
                                                     <td className="px-8 py-6">
-                                                        <span className="bg-rose-500/10 text-rose-500 px-2 py-1 rounded text-[8px] font-black uppercase">{r.type}</span>
+                                                        <div className="space-y-1">
+                                                            <div className="flex items-center gap-2 text-xs font-bold">
+                                                                <BookOpen className="w-3 h-3 text-primary" /> {u.institution || 'N/A'}
+                                                            </div>
+                                                            <div className="flex items-center gap-4 text-[10px] text-muted-foreground uppercase font-black">
+                                                                <span className="flex items-center gap-1"><GraduationCap className="w-3 h-3" /> {u.graduation_year || 'N/A'}</span>
+                                                                <span className="flex items-center gap-1"><Phone className="w-3 h-3" /> {u.phone || 'N/A'}</span>
+                                                            </div>
+                                                        </div>
                                                     </td>
                                                     <td className="px-8 py-6">
-                                                        <div className="text-sm font-medium">{r.description}</div>
+                                                        <PlanBadge plan={u.plan_level} />
                                                     </td>
                                                     <td className="px-8 py-6 text-right">
-                                                        <div className="flex justify-end gap-2">
+                                                        <div className="flex justify-end gap-2 items-center">
+                                                            {/* ROLE TOGGLE */}
                                                             <button
-                                                                onClick={async () => {
-                                                                    const q = questions.find(qst => qst.id === r.question_id)
-                                                                    if (q) handleOpenEditor(q)
+                                                                onClick={() => {
+                                                                    const newRole = u.role === 'MASTER' ? 'ALUNO' : 'MASTER';
+                                                                    if (confirm(`Deseja alterar o acesso de ${u.name} para ${newRole}?`)) {
+                                                                        updateUserRole(u.id, newRole);
+                                                                    }
                                                                 }}
-                                                                className="px-3 py-1.5 rounded-lg bg-primary/10 text-primary text-[10px] font-black uppercase hover:bg-primary/20 transition-all"
+                                                                className={`px-3 py-1.5 rounded-lg text-[10px] font-black uppercase transition-all flex items-center gap-1 border ${u.role === 'MASTER' ? 'bg-purple-900/20 text-purple-400 border-purple-500/30' : 'bg-muted text-muted-foreground border-transparent hover:bg-muted/80'}`}
+                                                                title={u.role === 'MASTER' ? 'Remover Acesso Master' : 'Tornar Master'}
                                                             >
-                                                                Editar Questão
+                                                                <ShieldCheck className="w-3 h-3" />
+                                                                {u.role === 'MASTER' ? 'MASTER' : 'ALUNO'}
                                                             </button>
+
+                                                            <div className="w-px h-4 bg-border mx-2" />
+
+                                                            {['FREE', 'PREMIUM', 'INSANO'].map(p => (
+                                                                <button
+                                                                    key={p}
+                                                                    onClick={() => updateUserPlan(u.id, p as PlanLevel)}
+                                                                    className={`px-3 py-1.5 rounded-lg text-[10px] font-black uppercase transition-all ${u.plan_level === p ? 'bg-primary text-white' : 'bg-muted text-muted-foreground hover:bg-primary/20'}`}
+                                                                >
+                                                                    {p}
+                                                                </button>
+                                                            ))}
                                                             <button
-                                                                onClick={() => updateReportStatus(r.id, 'resolved')}
-                                                                className="px-3 py-1.5 rounded-lg bg-emerald-500/10 text-emerald-500 text-[10px] font-black uppercase hover:bg-emerald-500/20 transition-all"
+                                                                onClick={() => {
+                                                                    if (confirm('Deseja excluir este usuário?')) deleteUser(u.id)
+                                                                }}
+                                                                className="p-1.5 rounded-lg text-rose-500 hover:bg-rose-500/10 transition-all ml-2"
+                                                                title="Excluir Usuário"
                                                             >
-                                                                Resolvido
-                                                            </button>
-                                                            <button
-                                                                onClick={() => updateReportStatus(r.id, 'dismissed')}
-                                                                className="px-3 py-1.5 rounded-lg bg-muted text-muted-foreground text-[10px] font-black uppercase hover:bg-muted/80 transition-all"
-                                                            >
-                                                                Dispensar
+                                                                <Trash2 className="w-4 h-4" />
                                                             </button>
                                                         </div>
                                                     </td>
                                                 </tr>
-                                            ))}
-                                            {reports.length === 0 && (
-                                                <tr>
-                                                    <td colSpan={4} className="px-8 py-20 text-center">
-                                                        <CheckCircle2 className="w-10 h-10 text-emerald-500 mx-auto mb-4" />
-                                                        <p className="text-sm font-black uppercase tracking-widest text-muted-foreground">Tudo limpo! Sem pendências de regulação.</p>
-                                                    </td>
-                                                </tr>
-                                            )}
-                                        </tbody>
-                                    </table>
-                                </div>
+                                            ))
+                                        )}
+                                    </tbody>
+                                </table>
                             </div>
-                        </motion.div>
-                    )}
+                        </div>
+                    </motion.div>
+                )}
 
-                    {view === 'structural' && renderStructuralGenerator()}
-                    {view === 'validation' && renderValidationQueue()}
-                    {view === 'import' && renderImportSection()}
-                    {view === 'settings' && renderSettingsSection()}
-
-
-
-                    {view === 'analytics' && (
-                        <motion.div
-                            key="a"
-                            initial={{ opacity: 0, y: 10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -10 }}
-                            className="space-y-10"
-                        >
-                            {/* 🔝 SEÇÃO 1 – SAÚDE DA PLATAFORMA */}
-                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                                <StatCard
-                                    label="Usuários Totais"
-                                    value={realUsers.length.toLocaleString('pt-BR')}
-                                    sub={`+${realUsers.filter((u: any) => {
-                                        const date = new Date(u.created_at || '')
-                                        return date > new Date(Date.now() - 7 * 24 * 60 * 60 * 1000)
-                                    }).length} esta semana`}
-                                    color="text-primary"
-                                    icon={<Users className="w-5 h-5" />}
-                                />
-                                <StatCard
-                                    label="Ativos (7 Dias)"
-                                    value={active7d.toString()}
-                                    sub={`${stats.total > 0 ? Math.round((active7d / stats.total) * 100) : 0}% do total`}
-                                    color="text-emerald-500"
-                                    icon={<Activity className="w-5 h-5" />}
-                                />
-                                <StatCard
-                                    label="Questões no Banco"
-                                    value={questions.length.toLocaleString('pt-BR')}
-                                    sub={`${questions.filter((q: any) => q.status_validacao === 'PENDENTE').length} pendentes`}
-                                    color="text-blue-500"
-                                    icon={<Database className="w-5 h-5" />}
-                                />
-                                <StatCard
-                                    label="Acertos Global"
-                                    value={`${globalPerformance.accuracy}%`}
-                                    sub="Média de todos alunos"
-                                    color="text-orange-500"
-                                    icon={<Target className="w-5 h-5" />}
-                                />
+                {view === 'reports' && (
+                    <motion.div key="r" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} className="space-y-6">
+                        <div className="bg-card border border-border rounded-[32px] overflow-hidden soft-shadow">
+                            <div className="p-8 border-b border-border bg-muted/20">
+                                <h3 className="text-xl font-black italic uppercase tracking-tighter flex items-center gap-2 text-rose-500">
+                                    <AlertCircle className="w-5 h-5" /> Fila de Regulação Médica
+                                </h3>
+                                <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest opacity-60">Analise os erros reportados pelos alunos e corrija as questões.</p>
                             </div>
-
-                            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                                {/* 📊 SEÇÃO 2 – ENGAJAMENTO REAL */}
-                                <section className="lg:col-span-2 bg-card glass-card border border-border/50 rounded-[40px] p-8 space-y-8">
-                                    <div className="flex items-center justify-between">
-                                        <h4 className="text-xl font-black italic uppercase tracking-tighter">Engajamento de Guerra</h4>
-                                        <div className="bg-primary/10 border border-primary/20 rounded-2xl p-4 flex gap-3 items-center">
-                                            <Zap className="w-5 h-5 text-primary shrink-0" />
-                                            <p className="text-[10px] font-bold text-muted-foreground uppercase leading-relaxed">
-                                                Insight: <span className="text-primary">&quot;60% dos usuários saem antes da 3ª questão&quot;</span>
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div className="h-[300px] w-full">
-                                        <ResponsiveContainer width="100%" height="100%">
-                                            <BarChart data={[
-                                                { name: 'Seg', online: 400, real: 240 },
-                                                { name: 'Ter', online: 300, real: 139 },
-                                                { name: 'Qua', online: 200, real: 980 },
-                                                { name: 'Qui', online: 278, real: 390 },
-                                                { name: 'Sex', online: 189, real: 480 },
-                                                { name: 'Sab', online: 239, real: 380 },
-                                                { name: 'Dom', online: 349, real: 430 },
-                                            ]}>
-                                                <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{ fontSize: 10, fontWeight: 900 }} />
-                                                <YAxis hide />
-                                                <Tooltip contentStyle={{ backgroundColor: '#1A1033', border: 'none', borderRadius: '12px' }} />
-                                                <Bar dataKey="online" fill="rgba(109,40,217,0.2)" radius={[6, 6, 0, 0]} />
-                                                <Bar dataKey="real" fill="#6D28D9" radius={[6, 6, 0, 0]} />
-                                            </BarChart>
-                                        </ResponsiveContainer>
-                                    </div>
-                                    <div className="grid grid-cols-2 gap-6">
-                                        <div className="p-4 bg-muted/30 rounded-2xl">
-                                            <p className="text-[10px] font-black text-muted-foreground uppercase mb-1">Tempo Médio/Sessão</p>
-                                            <p className="text-2xl font-black italic">14m 32s</p>
-                                        </div>
-                                        <div className="p-4 bg-muted/30 rounded-2xl border border-rose-500/10">
-                                            <p className="text-[10px] font-black text-muted-foreground uppercase mb-1">Sessões Abandonadas</p>
-                                            <p className="text-2xl font-black italic text-rose-500">22%</p>
-                                        </div>
-                                    </div>
-                                </section>
-
-                                {/* 🧠 SEÇÃO 3 – USO DO GERADOR */}
-                                <section className="bg-card glass-card border border-border/50 rounded-[40px] p-8 space-y-6">
-                                    <h4 className="text-xl font-black italic uppercase tracking-tighter">Motor Dr. QRub</h4>
-                                    <div className="space-y-4">
-                                        <GenStat label="Geradas Hoje" value={questions.filter(q => {
-                                            const d = q.created_at ? new Date(q.created_at) : new Date();
-                                            return d.toDateString() === new Date().toDateString();
-                                        }).length.toString()} />
-                                        <GenStat label="Aguardando Validação" value={questions.filter((q: any) => q.status_validacao === 'PENDENTE').length.toString()} />
-                                        <GenStat label="Total Questões" value={questions.length.toString()} />
-                                        <GenStat label="Temas Cobertos" value={new Set(questions.map((q: any) => q.subject_id)).size.toString()} />
-                                        <div className="pt-6 mt-6 border-t border-border flex justify-between items-center">
-                                            <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Custo Indireto</p>
-                                            <span className="bg-emerald-500/10 text-emerald-500 px-3 py-1 rounded-full text-[9px] font-black">BAIXO</span>
-                                        </div>
-                                    </div>
-                                </section>
+                            <div className="overflow-x-auto">
+                                <table className="w-full text-left">
+                                    <thead className="bg-muted/50 text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground">
+                                        <tr>
+                                            <th className="px-8 py-6">ID Questão</th>
+                                            <th className="px-8 py-6">Tipo</th>
+                                            <th className="px-8 py-6">Descrição</th>
+                                            <th className="px-8 py-6 text-right">Ações</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody className="divide-y divide-border">
+                                        {reports.map(r => (
+                                            <tr key={r.id} className="hover:bg-rose-500/5 transition-colors">
+                                                <td className="px-8 py-6">
+                                                    <div className="font-mono text-[10px] font-black">{r.question_id}</div>
+                                                    <div className="text-[8px] text-muted-foreground">{new Date(r.created_at).toLocaleString()}</div>
+                                                </td>
+                                                <td className="px-8 py-6">
+                                                    <span className="bg-rose-500/10 text-rose-500 px-2 py-1 rounded text-[8px] font-black uppercase">{r.type}</span>
+                                                </td>
+                                                <td className="px-8 py-6">
+                                                    <div className="text-sm font-medium">{r.description}</div>
+                                                </td>
+                                                <td className="px-8 py-6 text-right">
+                                                    <div className="flex justify-end gap-2">
+                                                        <button
+                                                            onClick={async () => {
+                                                                const q = questions.find(qst => qst.id === r.question_id)
+                                                                if (q) handleOpenEditor(q)
+                                                            }}
+                                                            className="px-3 py-1.5 rounded-lg bg-primary/10 text-primary text-[10px] font-black uppercase hover:bg-primary/20 transition-all"
+                                                        >
+                                                            Editar Questão
+                                                        </button>
+                                                        <button
+                                                            onClick={() => updateReportStatus(r.id, 'resolved')}
+                                                            className="px-3 py-1.5 rounded-lg bg-emerald-500/10 text-emerald-500 text-[10px] font-black uppercase hover:bg-emerald-500/20 transition-all"
+                                                        >
+                                                            Resolvido
+                                                        </button>
+                                                        <button
+                                                            onClick={() => updateReportStatus(r.id, 'dismissed')}
+                                                            className="px-3 py-1.5 rounded-lg bg-muted text-muted-foreground text-[10px] font-black uppercase hover:bg-muted/80 transition-all"
+                                                        >
+                                                            Dispensar
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        ))}
+                                        {reports.length === 0 && (
+                                            <tr>
+                                                <td colSpan={4} className="px-8 py-20 text-center">
+                                                    <CheckCircle2 className="w-10 h-10 text-emerald-500 mx-auto mb-4" />
+                                                    <p className="text-sm font-black uppercase tracking-widest text-muted-foreground">Tudo limpo! Sem pendências de regulação.</p>
+                                                </td>
+                                            </tr>
+                                        )}
+                                    </tbody>
+                                </table>
                             </div>
+                        </div>
+                    </motion.div>
+                )}
 
-                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                                {/* 🚨 SEÇÃO 4 – ALERTAS DO SISTEMA */}
-                                <section className="bg-card glass-card border border-border/50 rounded-[40px] p-8 space-y-6">
-                                    <div className="flex items-center justify-between">
-                                        <h4 className="text-xl font-black italic uppercase tracking-tighter">Alertas Prioritários</h4>
-                                        <AlertCircle className="w-5 h-5 text-rose-500" />
-                                    </div>
-                                    <div className="space-y-4">
-                                        <AlertItem type="critical" msg="Erro de geração: Lote #492 falhou" time="Há 2m" />
-                                        <AlertItem type="warning" msg="Inconsistência de salvamento detected" time="Há 14m" />
-                                        <AlertItem type="info" msg="Tela branca evitada: Hydration Fix" time="Há 45m" />
-                                        <AlertItem type="warning" msg="14 usuários sem retorno (Free Trial)" time="Há 1h" />
-                                    </div>
-                                </section>
+                {view === 'structural' && renderStructuralGenerator()}
+                {view === 'validation' && renderValidationQueue()}
+                {view === 'import' && renderImportSection()}
+                {view === 'settings' && renderSettingsSection()}
 
-                                {/* 🧩 SEÇÃO 7 – CONTROLE OPERACIONAL */}
-                                <section className="bg-card glass-card border border-border/50 rounded-[40px] p-8 space-y-6">
-                                    <div className="flex items-center justify-between">
-                                        <h4 className="text-xl font-black italic uppercase tracking-tighter">Protocolo de Operação</h4>
-                                        <ShieldCheck className="w-5 h-5 text-primary opacity-40" />
-                                    </div>
-                                    <div className="grid grid-cols-2 gap-4">
-                                        <OpButton icon={<Sparkles className="w-4 h-4" />} label="Forçar Lote" desc="Geração Massiva" />
-                                        <OpButton icon={<RefreshCw className="w-4 h-4" />} label="Limpar Cache" desc="Redis / Vercel" />
-                                        <OpButton icon={<Database className="w-4 h-4" />} label="Métricas" desc="Reprocessar" />
-                                        <OpButton icon={<Settings className="w-4 h-4" />} label="Avançado" desc="Painel Raw" primary />
-                                    </div>
-                                </section>
-                            </div>
 
-                            {/* 👥 SEÇÃO 5 – USUÁRIOS SUMMARY */}
-                            <section className="bg-card glass-card border border-border/50 rounded-[40px] overflow-hidden">
-                                <div className="p-8 border-b border-border flex justify-between items-center">
-                                    <h4 className="text-xl font-black italic uppercase tracking-tighter">Demografia da Elite</h4>
-                                    <div className="flex gap-4">
-                                        <div className="text-right">
-                                            <p className="text-[10px] font-black text-muted-foreground uppercase leading-none">Inativos {'>'} 14 dias</p>
-                                            <p className="text-xl font-black italic text-rose-500">{stats.inactive} usuários</p>
-                                        </div>
+
+                {view === 'analytics' && (
+                    <motion.div
+                        key="a"
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        className="space-y-10"
+                    >
+                        {/* 🔝 SEÇÃO 1 – SAÚDE DA PLATAFORMA */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                            <StatCard
+                                label="Usuários Totais"
+                                value={realUsers.length.toLocaleString('pt-BR')}
+                                sub={`+${realUsers.filter((u: any) => {
+                                    const date = new Date(u.created_at || '')
+                                    return date > new Date(Date.now() - 7 * 24 * 60 * 60 * 1000)
+                                }).length} esta semana`}
+                                color="text-primary"
+                                icon={<Users className="w-5 h-5" />}
+                            />
+                            <StatCard
+                                label="Ativos (7 Dias)"
+                                value={active7d.toString()}
+                                sub={`${stats.total > 0 ? Math.round((active7d / stats.total) * 100) : 0}% do total`}
+                                color="text-emerald-500"
+                                icon={<Activity className="w-5 h-5" />}
+                            />
+                            <StatCard
+                                label="Questões no Banco"
+                                value={questions.length.toLocaleString('pt-BR')}
+                                sub={`${questions.filter((q: any) => q.status_validacao === 'PENDENTE').length} pendentes`}
+                                color="text-blue-500"
+                                icon={<Database className="w-5 h-5" />}
+                            />
+                            <StatCard
+                                label="Acertos Global"
+                                value={`${globalPerformance.accuracy}%`}
+                                sub="Média de todos alunos"
+                                color="text-orange-500"
+                                icon={<Target className="w-5 h-5" />}
+                            />
+                        </div>
+
+                        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                            {/* 📊 SEÇÃO 2 – ENGAJAMENTO REAL */}
+                            <section className="lg:col-span-2 bg-card glass-card border border-border/50 rounded-[40px] p-8 space-y-8">
+                                <div className="flex items-center justify-between">
+                                    <h4 className="text-xl font-black italic uppercase tracking-tighter">Engajamento de Guerra</h4>
+                                    <div className="bg-primary/10 border border-primary/20 rounded-2xl p-4 flex gap-3 items-center">
+                                        <Zap className="w-5 h-5 text-primary shrink-0" />
+                                        <p className="text-[10px] font-bold text-muted-foreground uppercase leading-relaxed">
+                                            Insight: <span className="text-primary">&quot;60% dos usuários saem antes da 3ª questão&quot;</span>
+                                        </p>
                                     </div>
                                 </div>
-                                <div className="grid grid-cols-1 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-border">
-                                    <UserQuickStat label="Total Cadastrados" value={stats.total.toLocaleString('pt-BR')} />
-                                    <UserQuickStat label="Premium" value={stats.premium.toLocaleString('pt-BR')} sub={`${stats.premiumPct}%`} />
-                                    <UserQuickStat label="Free" value={stats.free.toLocaleString('pt-BR')} sub={`${stats.freePct}%`} />
-                                    <UserQuickStat label="Admins" value={stats.admins.toString()} sub="Master/Ops" />
+                                <div className="h-[300px] w-full">
+                                    <ResponsiveContainer width="100%" height="100%">
+                                        <BarChart data={[
+                                            { name: 'Seg', online: 400, real: 240 },
+                                            { name: 'Ter', online: 300, real: 139 },
+                                            { name: 'Qua', online: 200, real: 980 },
+                                            { name: 'Qui', online: 278, real: 390 },
+                                            { name: 'Sex', online: 189, real: 480 },
+                                            { name: 'Sab', online: 239, real: 380 },
+                                            { name: 'Dom', online: 349, real: 430 },
+                                        ]}>
+                                            <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{ fontSize: 10, fontWeight: 900 }} />
+                                            <YAxis hide />
+                                            <Tooltip contentStyle={{ backgroundColor: '#1A1033', border: 'none', borderRadius: '12px' }} />
+                                            <Bar dataKey="online" fill="rgba(109,40,217,0.2)" radius={[6, 6, 0, 0]} />
+                                            <Bar dataKey="real" fill="#6D28D9" radius={[6, 6, 0, 0]} />
+                                        </BarChart>
+                                    </ResponsiveContainer>
+                                </div>
+                                <div className="grid grid-cols-2 gap-6">
+                                    <div className="p-4 bg-muted/30 rounded-2xl">
+                                        <p className="text-[10px] font-black text-muted-foreground uppercase mb-1">Tempo Médio/Sessão</p>
+                                        <p className="text-2xl font-black italic">14m 32s</p>
+                                    </div>
+                                    <div className="p-4 bg-muted/30 rounded-2xl border border-rose-500/10">
+                                        <p className="text-[10px] font-black text-muted-foreground uppercase mb-1">Sessões Abandonadas</p>
+                                        <p className="text-2xl font-black italic text-rose-500">22%</p>
+                                    </div>
                                 </div>
                             </section>
 
-                            {/* 📈 SEÇÃO 6 – PERFORMANCE EDUCACIONAL */}
-                            <div className="bg-card glass-card border border-border/50 rounded-[40px] p-10 space-y-8">
-                                <h4 className="text-xl font-black italic uppercase tracking-tight">Métricas Globais de Domínio</h4>
-                                <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-                                    <div className="space-y-6">
-                                        <p className="text-[10px] font-black uppercase text-muted-foreground tracking-widest">Áreas mais Erradas</p>
-                                        {globalPerformance.bySpecialty.length > 0 ? globalPerformance.bySpecialty.map((s, i) => (
-                                            <ThemeBar key={s.name} label={s.name} percent={s.errorRate} color={i === 0 ? "bg-rose-500" : i === 1 ? "bg-orange-500" : "bg-rose-400"} />
-                                        )) : (
-                                            <p className="text-xs text-muted-foreground italic">Sem dados suficientes...</p>
-                                        )}
+                            {/* 🧠 SEÇÃO 3 – USO DO GERADOR */}
+                            <section className="bg-card glass-card border border-border/50 rounded-[40px] p-8 space-y-6">
+                                <h4 className="text-xl font-black italic uppercase tracking-tighter">Motor Dr. QRub</h4>
+                                <div className="space-y-4">
+                                    <GenStat label="Geradas Hoje" value={questions.filter(q => {
+                                        const d = q.created_at ? new Date(q.created_at) : new Date();
+                                        return d.toDateString() === new Date().toDateString();
+                                    }).length.toString()} />
+                                    <GenStat label="Aguardando Validação" value={questions.filter((q: any) => q.status_validacao === 'PENDENTE').length.toString()} />
+                                    <GenStat label="Total Questões" value={questions.length.toString()} />
+                                    <GenStat label="Temas Cobertos" value={new Set(questions.map((q: any) => q.subject_id)).size.toString()} />
+                                    <div className="pt-6 mt-6 border-t border-border flex justify-between items-center">
+                                        <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Custo Indireto</p>
+                                        <span className="bg-emerald-500/10 text-emerald-500 px-3 py-1 rounded-full text-[9px] font-black">BAIXO</span>
                                     </div>
-                                    <div className="space-y-6">
-                                        <p className="text-[10px] font-black uppercase text-muted-foreground tracking-widest">Temas Críticos (Global)</p>
-                                        {globalPerformance.bySubject.length > 0 ? globalPerformance.bySubject.map((s, i) => (
-                                            <ThemeBar key={s.name} label={s.name} percent={s.errorRate} color="bg-primary" />
-                                        )) : (
-                                            <p className="text-xs text-muted-foreground italic">Sem dados suficientes...</p>
-                                        )}
-                                    </div>
-                                    <div className="flex flex-col items-center justify-center p-8 bg-muted/20 rounded-[35px] border border-white/5">
-                                        <p className="text-[10px] font-black uppercase text-muted-foreground mb-4">Média de Acertos Geral</p>
-                                        <h3 className="text-7xl font-black italic text-primary">{globalPerformance.accuracy}%</h3>
-                                        <p className="text-[9px] font-bold text-muted-foreground uppercase mt-4">Padrão de aprovação: 70%</p>
+                                </div>
+                            </section>
+                        </div>
+
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                            {/* 🚨 SEÇÃO 4 – ALERTAS DO SISTEMA */}
+                            <section className="bg-card glass-card border border-border/50 rounded-[40px] p-8 space-y-6">
+                                <div className="flex items-center justify-between">
+                                    <h4 className="text-xl font-black italic uppercase tracking-tighter">Alertas Prioritários</h4>
+                                    <AlertCircle className="w-5 h-5 text-rose-500" />
+                                </div>
+                                <div className="space-y-4">
+                                    <AlertItem type="critical" msg="Erro de geração: Lote #492 falhou" time="Há 2m" />
+                                    <AlertItem type="warning" msg="Inconsistência de salvamento detected" time="Há 14m" />
+                                    <AlertItem type="info" msg="Tela branca evitada: Hydration Fix" time="Há 45m" />
+                                    <AlertItem type="warning" msg="14 usuários sem retorno (Free Trial)" time="Há 1h" />
+                                </div>
+                            </section>
+
+                            {/* 🧩 SEÇÃO 7 – CONTROLE OPERACIONAL */}
+                            <section className="bg-card glass-card border border-border/50 rounded-[40px] p-8 space-y-6">
+                                <div className="flex items-center justify-between">
+                                    <h4 className="text-xl font-black italic uppercase tracking-tighter">Protocolo de Operação</h4>
+                                    <ShieldCheck className="w-5 h-5 text-primary opacity-40" />
+                                </div>
+                                <div className="grid grid-cols-2 gap-4">
+                                    <OpButton icon={<Sparkles className="w-4 h-4" />} label="Forçar Lote" desc="Geração Massiva" />
+                                    <OpButton icon={<RefreshCw className="w-4 h-4" />} label="Limpar Cache" desc="Redis / Vercel" />
+                                    <OpButton icon={<Database className="w-4 h-4" />} label="Métricas" desc="Reprocessar" />
+                                    <OpButton icon={<Settings className="w-4 h-4" />} label="Avançado" desc="Painel Raw" primary />
+                                </div>
+                            </section>
+                        </div>
+
+                        {/* 👥 SEÇÃO 5 – USUÁRIOS SUMMARY */}
+                        <section className="bg-card glass-card border border-border/50 rounded-[40px] overflow-hidden">
+                            <div className="p-8 border-b border-border flex justify-between items-center">
+                                <h4 className="text-xl font-black italic uppercase tracking-tighter">Demografia da Elite</h4>
+                                <div className="flex gap-4">
+                                    <div className="text-right">
+                                        <p className="text-[10px] font-black text-muted-foreground uppercase leading-none">Inativos {'>'} 14 dias</p>
+                                        <p className="text-xl font-black italic text-rose-500">{stats.inactive} usuários</p>
                                     </div>
                                 </div>
                             </div>
-                        </motion.div>
-                    )}
-                    {/* Import view removed */}
-                </AnimatePresence>
+                            <div className="grid grid-cols-1 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-border">
+                                <UserQuickStat label="Total Cadastrados" value={stats.total.toLocaleString('pt-BR')} />
+                                <UserQuickStat label="Premium" value={stats.premium.toLocaleString('pt-BR')} sub={`${stats.premiumPct}%`} />
+                                <UserQuickStat label="Free" value={stats.free.toLocaleString('pt-BR')} sub={`${stats.freePct}%`} />
+                                <UserQuickStat label="Admins" value={stats.admins.toString()} sub="Master/Ops" />
+                            </div>
+                        </section>
 
-                <QuestionPreviewModal
-                    isOpen={!!previewQuestion}
-                    onClose={() => setPreviewQuestion(null)}
-                    question={previewQuestion}
+                        {/* 📈 SEÇÃO 6 – PERFORMANCE EDUCACIONAL */}
+                        <div className="bg-card glass-card border border-border/50 rounded-[40px] p-10 space-y-8">
+                            <h4 className="text-xl font-black italic uppercase tracking-tight">Métricas Globais de Domínio</h4>
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+                                <div className="space-y-6">
+                                    <p className="text-[10px] font-black uppercase text-muted-foreground tracking-widest">Áreas mais Erradas</p>
+                                    {globalPerformance.bySpecialty.length > 0 ? globalPerformance.bySpecialty.map((s, i) => (
+                                        <ThemeBar key={s.name} label={s.name} percent={s.errorRate} color={i === 0 ? "bg-rose-500" : i === 1 ? "bg-orange-500" : "bg-rose-400"} />
+                                    )) : (
+                                        <p className="text-xs text-muted-foreground italic">Sem dados suficientes...</p>
+                                    )}
+                                </div>
+                                <div className="space-y-6">
+                                    <p className="text-[10px] font-black uppercase text-muted-foreground tracking-widest">Temas Críticos (Global)</p>
+                                    {globalPerformance.bySubject.length > 0 ? globalPerformance.bySubject.map((s, i) => (
+                                        <ThemeBar key={s.name} label={s.name} percent={s.errorRate} color="bg-primary" />
+                                    )) : (
+                                        <p className="text-xs text-muted-foreground italic">Sem dados suficientes...</p>
+                                    )}
+                                </div>
+                                <div className="flex flex-col items-center justify-center p-8 bg-muted/20 rounded-[35px] border border-white/5">
+                                    <p className="text-[10px] font-black uppercase text-muted-foreground mb-4">Média de Acertos Geral</p>
+                                    <h3 className="text-7xl font-black italic text-primary">{globalPerformance.accuracy}%</h3>
+                                    <p className="text-[9px] font-bold text-muted-foreground uppercase mt-4">Padrão de aprovação: 70%</p>
+                                </div>
+                            </div>
+                        </div>
+                    </motion.div>
+                )}
+                {/* Import view removed */}
+            </AnimatePresence>
+
+            <QuestionPreviewModal
+                isOpen={!!previewQuestion}
+                onClose={() => setPreviewQuestion(null)}
+                question={previewQuestion}
+            />
+
+            <QuestionsBreakdownModal
+                isOpen={isBreakdownOpen}
+                onClose={() => setIsBreakdownOpen(false)}
+                questions={questions}
+            />
+        </div>
+    )
+}
+
+function NavBtn({ active, onClick, icon, label }: { active: boolean, onClick: () => void, icon: React.ReactNode, label: string }) {
+    return (
+        <button
+            onClick={onClick}
+            className={`flex items-center gap-2 px-6 py-3 rounded-xl text-xs font-black uppercase tracking-widest transition-all ${active ? 'bg-primary text-white shadow-lg' : 'text-muted-foreground hover:bg-white/5'}`}
+        >
+            {icon}
+            {label}
+        </button>
+    )
+}
+
+function StatCard({ label, value, sub, color, icon, alert, onClick, active }: { label: string, value: string | number, sub?: string, color: string, icon?: React.ReactNode, alert?: boolean, onClick?: () => void, active?: boolean }) {
+    return (
+        <div
+            onClick={onClick}
+            className={`bg-card border ${alert ? 'border-rose-500/30 bg-rose-500/5' : active ? 'border-primary ring-2 ring-primary/20' : 'border-border'} rounded-[32px] p-8 soft-shadow group hover:border-primary/30 transition-all relative overflow-hidden ${onClick ? 'cursor-pointer hover:bg-muted/5' : ''}`}
+        >
+            {alert && <div className="absolute top-0 right-0 w-16 h-16 bg-rose-500/10 blur-2xl -translate-y-1/2 translate-x-1/2" />}
+            <div className="flex justify-between items-start mb-4">
+                <p className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground">{label}</p>
+                {icon && <div className={`${color} opacity-40`}>{icon}</div>}
+            </div>
+            <h3 className={`text-4xl font-black italic tracking-tighter ${color}`}>{value}</h3>
+            {sub && <p className="text-[10px] font-bold text-muted-foreground uppercase mt-2">{sub}</p>}
+        </div>
+    )
+}
+
+function GenStat({ label, value, color = "text-foreground" }: { label: string, value: string, color?: string }) {
+    return (
+        <div className="flex justify-between items-center p-4 bg-muted/20 rounded-2xl border border-white/5">
+            <span className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">{label}</span>
+            <span className={`text-sm font-black italic ${color}`}>{value}</span>
+        </div>
+    )
+}
+
+function AlertItem({ type, msg, time }: { type: 'critical' | 'warning' | 'info', msg: string, time: string }) {
+    const colors = {
+        critical: 'border-rose-500/20 bg-rose-500/5 text-rose-500',
+        warning: 'border-amber-500/20 bg-amber-500/5 text-amber-500',
+        info: 'border-blue-500/20 bg-blue-500/5 text-blue-500'
+    }
+    return (
+        <div className={`flex items-center justify-between p-4 rounded-2xl border ${colors[type]}`}>
+            <span className="text-[10px] font-black uppercase tracking-tight">{msg}</span>
+            <span className="text-[9px] font-bold opacity-60 uppercase whitespace-nowrap">{time}</span>
+        </div>
+    )
+}
+
+function OpButton({ icon, label, desc, primary }: { icon: React.ReactNode, label: string, desc: string, primary?: boolean }) {
+    return (
+        <button className={`p-4 rounded-[24px] border border-border flex flex-col gap-2 text-left transition-all hover:scale-[1.02] active:scale-95 group ${primary ? 'bg-primary text-white border-primary shadow-xl shadow-primary/20' : 'bg-muted/30 hover:bg-muted/50'}`}>
+            <div className={`${primary ? 'text-white' : 'text-primary'} mb-1`}>{icon}</div>
+            <div>
+                <p className="text-[10px] font-black uppercase tracking-tighter leading-none">{label}</p>
+                <p className={`text-[8px] font-bold uppercase opacity-60 group-hover:opacity-100 ${primary ? 'text-white' : 'text-muted-foreground'}`}>{desc}</p>
+            </div>
+        </button>
+    )
+}
+
+function UserQuickStat({ label, value, sub }: { label: string, value: string, sub?: string }) {
+    return (
+        <div className="p-8 text-center md:text-left">
+            <p className="text-[10px] font-black text-muted-foreground uppercase tracking-widest mb-2">{label}</p>
+            <div className="flex items-baseline gap-2 justify-center md:justify-start">
+                <h3 className="text-3xl font-black italic tracking-tighter">{value}</h3>
+                {sub && <span className="text-[10px] font-black text-primary uppercase">{sub}</span>}
+            </div>
+        </div>
+    )
+}
+
+function ThemeBar({ label, percent, color }: { label: string, percent: number, color: string }) {
+    return (
+        <div className="space-y-2">
+            <div className="flex justify-between text-xs font-bold uppercase tracking-widest">
+                <span>{label}</span>
+                <span>{percent}%</span>
+            </div>
+            <div className="h-3 bg-muted rounded-full overflow-hidden">
+                <motion.div
+                    initial={{ width: 0 }}
+                    animate={{ width: `${percent}%` }}
+                    transition={{ duration: 1 }}
+                    className={`h-full ${color}`}
                 />
-
-                <QuestionsBreakdownModal
-                    isOpen={isBreakdownOpen}
-                    onClose={() => setIsBreakdownOpen(false)}
-                    questions={questions}
-                />
             </div>
-        )
-    }
+        </div>
+    )
+}
 
-    function NavBtn({ active, onClick, icon, label }: { active: boolean, onClick: () => void, icon: React.ReactNode, label: string }) {
-        return (
-            <button
-                onClick={onClick}
-                className={`flex items-center gap-2 px-6 py-3 rounded-xl text-xs font-black uppercase tracking-widest transition-all ${active ? 'bg-primary text-white shadow-lg' : 'text-muted-foreground hover:bg-white/5'}`}
-            >
-                {icon}
-                {label}
-            </button>
-        )
-    }
-
-    function StatCard({ label, value, sub, color, icon, alert, onClick, active }: { label: string, value: string | number, sub?: string, color: string, icon?: React.ReactNode, alert?: boolean, onClick?: () => void, active?: boolean }) {
-        return (
-            <div
-                onClick={onClick}
-                className={`bg-card border ${alert ? 'border-rose-500/30 bg-rose-500/5' : active ? 'border-primary ring-2 ring-primary/20' : 'border-border'} rounded-[32px] p-8 soft-shadow group hover:border-primary/30 transition-all relative overflow-hidden ${onClick ? 'cursor-pointer hover:bg-muted/5' : ''}`}
-            >
-                {alert && <div className="absolute top-0 right-0 w-16 h-16 bg-rose-500/10 blur-2xl -translate-y-1/2 translate-x-1/2" />}
-                <div className="flex justify-between items-start mb-4">
-                    <p className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground">{label}</p>
-                    {icon && <div className={`${color} opacity-40`}>{icon}</div>}
-                </div>
-                <h3 className={`text-4xl font-black italic tracking-tighter ${color}`}>{value}</h3>
-                {sub && <p className="text-[10px] font-bold text-muted-foreground uppercase mt-2">{sub}</p>}
-            </div>
-        )
-    }
-
-    function GenStat({ label, value, color = "text-foreground" }: { label: string, value: string, color?: string }) {
-        return (
-            <div className="flex justify-between items-center p-4 bg-muted/20 rounded-2xl border border-white/5">
-                <span className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">{label}</span>
-                <span className={`text-sm font-black italic ${color}`}>{value}</span>
-            </div>
-        )
-    }
-
-    function AlertItem({ type, msg, time }: { type: 'critical' | 'warning' | 'info', msg: string, time: string }) {
-        const colors = {
-            critical: 'border-rose-500/20 bg-rose-500/5 text-rose-500',
-            warning: 'border-amber-500/20 bg-amber-500/5 text-amber-500',
-            info: 'border-blue-500/20 bg-blue-500/5 text-blue-500'
-        }
-        return (
-            <div className={`flex items-center justify-between p-4 rounded-2xl border ${colors[type]}`}>
-                <span className="text-[10px] font-black uppercase tracking-tight">{msg}</span>
-                <span className="text-[9px] font-bold opacity-60 uppercase whitespace-nowrap">{time}</span>
-            </div>
-        )
-    }
-
-    function OpButton({ icon, label, desc, primary }: { icon: React.ReactNode, label: string, desc: string, primary?: boolean }) {
-        return (
-            <button className={`p-4 rounded-[24px] border border-border flex flex-col gap-2 text-left transition-all hover:scale-[1.02] active:scale-95 group ${primary ? 'bg-primary text-white border-primary shadow-xl shadow-primary/20' : 'bg-muted/30 hover:bg-muted/50'}`}>
-                <div className={`${primary ? 'text-white' : 'text-primary'} mb-1`}>{icon}</div>
-                <div>
-                    <p className="text-[10px] font-black uppercase tracking-tighter leading-none">{label}</p>
-                    <p className={`text-[8px] font-bold uppercase opacity-60 group-hover:opacity-100 ${primary ? 'text-white' : 'text-muted-foreground'}`}>{desc}</p>
-                </div>
-            </button>
-        )
-    }
-
-    function UserQuickStat({ label, value, sub }: { label: string, value: string, sub?: string }) {
-        return (
-            <div className="p-8 text-center md:text-left">
-                <p className="text-[10px] font-black text-muted-foreground uppercase tracking-widest mb-2">{label}</p>
-                <div className="flex items-baseline gap-2 justify-center md:justify-start">
-                    <h3 className="text-3xl font-black italic tracking-tighter">{value}</h3>
-                    {sub && <span className="text-[10px] font-black text-primary uppercase">{sub}</span>}
-                </div>
-            </div>
-        )
-    }
-
-    function ThemeBar({ label, percent, color }: { label: string, percent: number, color: string }) {
-        return (
-            <div className="space-y-2">
-                <div className="flex justify-between text-xs font-bold uppercase tracking-widest">
-                    <span>{label}</span>
-                    <span>{percent}%</span>
-                </div>
-                <div className="h-3 bg-muted rounded-full overflow-hidden">
-                    <motion.div
-                        initial={{ width: 0 }}
-                        animate={{ width: `${percent}%` }}
-                        transition={{ duration: 1 }}
-                        className={`h-full ${color}`}
-                    />
-                </div>
-            </div>
-        )
-    }
-
-    function PlanBadge({ plan }: { plan: PlanLevel }) {
-        if (plan === 'INSANO') return <span className="inline-flex items-center gap-1 bg-orange-500/10 text-orange-500 px-3 py-1.5 rounded-full text-[10px] font-black uppercase"><Crown className="w-3 h-3" /> INSANO</span>
-        if (plan === 'PREMIUM') return <span className="inline-flex items-center gap-1 bg-primary/10 text-primary px-3 py-1.5 rounded-full text-[10px] font-black uppercase"><Star className="w-3 h-3" /> PREMIUM</span>
-        return <span className="inline-flex items-center gap-1 bg-muted text-muted-foreground px-3 py-1.5 rounded-full text-[10px] font-black uppercase">FREE</span>
-    }
+function PlanBadge({ plan }: { plan: PlanLevel }) {
+    if (plan === 'INSANO') return <span className="inline-flex items-center gap-1 bg-orange-500/10 text-orange-500 px-3 py-1.5 rounded-full text-[10px] font-black uppercase"><Crown className="w-3 h-3" /> INSANO</span>
+    if (plan === 'PREMIUM') return <span className="inline-flex items-center gap-1 bg-primary/10 text-primary px-3 py-1.5 rounded-full text-[10px] font-black uppercase"><Star className="w-3 h-3" /> PREMIUM</span>
+    return <span className="inline-flex items-center gap-1 bg-muted text-muted-foreground px-3 py-1.5 rounded-full text-[10px] font-black uppercase">FREE</span>
+}
 
