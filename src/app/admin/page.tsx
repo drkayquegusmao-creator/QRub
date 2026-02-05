@@ -1515,14 +1515,32 @@ export default function AdminDashboard() {
 
             await Promise.all(readPromises)
 
-            // 2. Identificar arquivos obrigatórios (Master 4)
-            const especialidades = fileContents['especialidades.json']
-            const subespecialidades = fileContents['subespecialidades.json']
-            const temas = fileContents['temas.json']
-            const questoesRaw = fileContents['questoes.json']
+            // 2. Identificar arquivos obrigatórios (Master 4) - Aceita nomes flexíveis
+            const findFile = (keywords: string[]) => {
+                const entry = Object.entries(fileContents).find(([name]) =>
+                    keywords.some(kw => name.toLowerCase().includes(kw.toLowerCase()))
+                )
+                return entry ? entry[1] : null
+            }
+
+            const especialidades = findFile(['especialidade']) && !findFile(['subespecialidade'])
+                ? findFile(['especialidade'])
+                : Object.entries(fileContents).find(([name]) =>
+                    name.toLowerCase().includes('especialidade') &&
+                    !name.toLowerCase().includes('subespecialidade')
+                )?.[1]
+
+            const subespecialidades = findFile(['subespecialidade', 'subarea'])
+            const temas = findFile(['tema', 'assunto'])
+            const questoesRaw = findFile(['quest', 'questao', 'questoes'])
 
             if (!especialidades || !subespecialidades || !temas || !questoesRaw) {
-                throw new Error('ESTRUTURA INCOMPLETA. Protocolo Master exige: especialidades.json, subespecialidades.json, temas.json e questoes.json.')
+                const missing = []
+                if (!especialidades) missing.push('Especialidades')
+                if (!subespecialidades) missing.push('Subespecialidades')
+                if (!temas) missing.push('Temas')
+                if (!questoesRaw) missing.push('Questões')
+                throw new Error(`ESTRUTURA INCOMPLETA. Faltam arquivos: ${missing.join(', ')}.\n\nArquivos recebidos: ${Object.keys(fileContents).join(', ')}`)
             }
 
             // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
