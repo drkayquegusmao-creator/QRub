@@ -539,7 +539,7 @@ export default function StudentDashboard() {
                         <Activity className="w-5 h-5" />
                     </div>
                     <div>
-                        <h1 className="text-sm font-black italic uppercase tracking-tighter text-[#1A1033] leading-none">DASHBOARD</h1>
+                        <h1 className="text-sm font-black italic uppercase tracking-tighter text-[#1A1033] leading-none">DASHBOARD (V2.1)</h1>
                         <p className="text-[9px] font-bold text-[#7C3AED] uppercase tracking-widest mt-0.5">Status em tempo real</p>
                     </div>
                 </div>

@@ -1,6 +1,4 @@
-"use client"
-
-import { DashboardDiario } from './dashboard-diario'
+import { DashboardDiario } from './dashboard-diario-v2'
 
 export function SRSDashboardWidget() {
     return (
