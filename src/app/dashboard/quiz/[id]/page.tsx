@@ -81,17 +81,26 @@ export default function QuizPage() {
 
 
     useEffect(() => {
+        if (mode === 'CADERNO_ERROS') {
+            if (allQuestions.length === 0) {
+                router.replace('/dashboard/errors')
+            }
+            return
+        }
+
         loadQuestions({
             course_id: courseId,
             specialty_id: specialtyId,
             subspecialty_id: subspecialtyId,
             subject_id: subjectId
         })
-    }, [courseId, specialtyId, subspecialtyId, subjectId])
+    }, [courseId, specialtyId, subspecialtyId, subjectId, mode, allQuestions.length])
 
 
     // Filtrar questões baseado nos parâmetros selecionados
     const filteredQuestions = useMemo(() => {
+        if (mode === 'CADERNO_ERROS') return allQuestions
+
         const filtered = filterQuestions(allQuestions, {
             course_id: courseId,
             specialty_id: specialtyId,
@@ -101,7 +110,7 @@ export default function QuizPage() {
 
         // QRUB MASTER: Somente questões APROVADAS chegam ao Aluno
         return filtered.filter(q => q.status_validacao === 'APROVADA')
-    }, [allQuestions, courseId, specialtyId, subspecialtyId, subjectId])
+    }, [allQuestions, courseId, specialtyId, subspecialtyId, subjectId, mode])
 
     // Anti-repetition logic: show unanswered questions first, then cycle
     // We compute this ONCE per filtered pool change, ignoring hasAnswered changes during session
@@ -519,7 +528,6 @@ export default function QuizPage() {
                                     setSelectedOptionId(null)
                                     setHasConfirmed(false)
                                     setIsAnswered(false)
-                                    setAiExplanation(null)
                                 }}
                                 className={`w-12 h-12 rounded-xl font-black text-sm transition-all hover:scale-110 ${bgColor}`}
                             >
@@ -572,7 +580,6 @@ export default function QuizPage() {
                                     setIsAnswered(false);
                                     setHasConfirmed(false);
                                     setSelectedOptionId(null);
-                                    setAiExplanation(null)
                                 } else {
                                     handleFinish()
                                 }

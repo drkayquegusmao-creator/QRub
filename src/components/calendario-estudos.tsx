@@ -13,6 +13,7 @@ import {
 } from 'lucide-react'
 import { useAuth } from '@/store/use-auth'
 import { SessaoModal } from './sessao-modal'
+import { supabase } from '@/lib/supabase'
 
 type Visao = 'DIA' | 'SEMANA' | 'MES'
 
@@ -73,29 +74,125 @@ export function CalendarioEstudos({ plano = 'FREE' }: CalendarioEstudosProps) {
     useEffect(() => {
         if (!user?.id) return
 
-        const fetchCalendario = async () => {
+        const fetchCalendarioLocal = async () => {
             try {
                 setLoading(true)
-                const dataRef = dataReferencia.toISOString().split('T')[0]
-                const response = await fetch(
-                    `/api/calendario?user_id=${user.id}&visao=${visao}&data_referencia=${dataRef}`
-                )
-                const data = await response.json()
+                const dataRefDate = new Date(dataReferencia)
+                const dataRef = dataRefDate.toISOString().split('T')[0]
 
-                if (data.success) {
-                    setCalendario(data)
-                } else {
-                    setError(data.error || 'Erro ao carregar calendário')
+                // Calcular intervalo de datas baseado na visão
+                let dataInicio: string
+                let dataFim: string
+
+                switch (visao) {
+                    case 'DIA':
+                        dataInicio = dataRef
+                        dataFim = dataRef
+                        break
+
+                    case 'SEMANA':
+                        // Início da semana (domingo)
+                        const diaSemana = dataRefDate.getDay()
+                        const inicioSemana = new Date(dataRefDate)
+                        inicioSemana.setDate(dataRefDate.getDate() - diaSemana)
+
+                        // Fim da semana (sábado)
+                        const fimSemana = new Date(inicioSemana)
+                        fimSemana.setDate(inicioSemana.getDate() + 6)
+
+                        dataInicio = inicioSemana.toISOString().split('T')[0]
+                        dataFim = fimSemana.toISOString().split('T')[0]
+                        break
+
+                    case 'MES':
+                        // Primeiro dia do mês
+                        const inicioMes = new Date(dataRefDate.getFullYear(), dataRefDate.getMonth(), 1)
+
+                        // Último dia do mês
+                        const fimMes = new Date(dataRefDate.getFullYear(), dataRefDate.getMonth() + 1, 0)
+
+                        dataInicio = inicioMes.toISOString().split('T')[0]
+                        dataFim = fimMes.toISOString().split('T')[0]
+                        break
                 }
-            } catch (err) {
-                console.error('Error fetching calendario:', err)
-                setError('Erro ao conectar com o servidor')
+
+                // Buscar revisões no client side
+                const { data: revisoes, error: revisoesError } = await supabase
+                    .from('agenda_revisoes')
+                    .select(`
+                        id,
+                        assunto_id,
+                        data_programada,
+                        status,
+                        assuntos (id, nome, specialty_id),
+                        assunto_progresso (nivel_atual, ultima_nota)
+                    `)
+                    .eq('user_id', user.id)
+                    .gte('data_programada', dataInicio)
+                    .lte('data_programada', dataFim)
+                    .order('data_programada', { ascending: true })
+
+                if (revisoesError) throw revisoesError
+
+                // Formatar dados
+                const revisoesFormatadas: RevisaoItem[] = (revisoes || []).map((r: any) => {
+                    const assunto = Array.isArray(r.assuntos) ? r.assuntos[0] : r.assuntos
+                    const progresso = Array.isArray(r.assunto_progresso) ? r.assunto_progresso[0] : r.assunto_progresso
+
+                    return {
+                        agenda_id: r.id,
+                        assunto_id: r.assunto_id,
+                        nome: assunto?.nome || 'Assunto desconhecido',
+                        specialty_id: assunto?.specialty_id || '',
+                        data_programada: r.data_programada,
+                        status: r.status,
+                        nivel_atual: progresso?.nivel_atual || 0,
+                        ultima_nota: progresso?.ultima_nota || 0
+                    }
+                })
+
+                // Agrupar por data (para facilitar renderização)
+                const porData: Record<string, RevisaoItem[]> = {}
+                revisoesFormatadas.forEach(r => {
+                    if (!porData[r.data_programada]) {
+                        porData[r.data_programada] = []
+                    }
+                    porData[r.data_programada].push(r)
+                })
+
+                // Calcular estatísticas
+                const totalRevisoes = revisoesFormatadas.length
+                const concluidas = revisoesFormatadas.filter(r => r.status === 'CONCLUIDA').length
+                const pendentes = revisoesFormatadas.filter(r => r.status === 'PENDENTE').length
+                const atrasadas = revisoesFormatadas.filter(r => r.status === 'ATRASADA').length
+
+                setCalendario({
+                    success: true,
+                    visao,
+                    data_referencia: dataRef,
+                    periodo: {
+                        inicio: dataInicio,
+                        fim: dataFim
+                    },
+                    revisoes: revisoesFormatadas,
+                    por_data: porData,
+                    estatisticas: {
+                        total: totalRevisoes,
+                        concluidas,
+                        pendentes,
+                        atrasadas
+                    }
+                })
+
+            } catch (err: any) {
+                console.error('Error fetching calendario local:', err)
+                setError('Erro ao carregar dados do calendário.')
             } finally {
                 setLoading(false)
             }
         }
 
-        fetchCalendario()
+        fetchCalendarioLocal()
     }, [user?.id, visao, dataReferencia])
 
     const handleMudarVisao = (novaVisao: Visao) => {
@@ -150,7 +247,7 @@ export function CalendarioEstudos({ plano = 'FREE' }: CalendarioEstudosProps) {
 
     const handleSessaoComplete = () => {
         // Recarregar calendário
-        setDataReferencia(new Date(dataReferencia))
+        setDataReferencia(new Date(dataReferencia)) // force effect trigger
     }
 
     if (loading) {
@@ -223,10 +320,10 @@ export function CalendarioEstudos({ plano = 'FREE' }: CalendarioEstudosProps) {
                                 onClick={() => handleMudarVisao(v)}
                                 disabled={!podeAcessarVisao(v)}
                                 className={`px-4 py-2 rounded-lg font-bold text-xs uppercase tracking-widest transition-all ${visao === v
-                                        ? 'bg-primary text-white shadow-lg'
-                                        : podeAcessarVisao(v)
-                                            ? 'text-muted-foreground hover:text-foreground'
-                                            : 'text-muted-foreground/50 cursor-not-allowed'
+                                    ? 'bg-primary text-white shadow-lg'
+                                    : podeAcessarVisao(v)
+                                        ? 'text-muted-foreground hover:text-foreground'
+                                        : 'text-muted-foreground/50 cursor-not-allowed'
                                     }`}
                             >
                                 {v}
@@ -356,10 +453,15 @@ function VisaoSemana({
     onIniciarRevisao: (assunto_id: string) => void
 }) {
     const inicio = new Date(calendario.periodo.inicio)
+    // O problema de datas em JS... a conversão precisa ser correta. 
+    // Como a data ISO já vem certa do estado, vamos parsear com replace
     const dias = Array.from({ length: 7 }, (_, i) => {
         const dia = new Date(inicio)
-        dia.setDate(inicio.getDate() + i)
-        return dia
+        dia.setDate(inicio.getDate() + i + 1) // Correção de fuso se necessário, mas new Date(string) é UTC. 
+        // Vamos usar dia simples.
+        const dt = new Date(inicio)
+        dt.setDate(inicio.getDate() + i)
+        return dt
     })
 
     return (
@@ -385,7 +487,7 @@ function VisaoSemana({
                                 {dia.toLocaleDateString('pt-BR', { weekday: 'short' })}
                             </p>
                             <p className={`text-lg font-black ${isHoje ? 'text-primary' : 'text-foreground'}`}>
-                                {dia.getDate()}
+                                {dia.getUTCDate()}
                             </p>
                         </div>
 
@@ -395,10 +497,10 @@ function VisaoSemana({
                                     key={r.agenda_id}
                                     onClick={() => onIniciarRevisao(r.assunto_id)}
                                     className={`w-full text-left px-2 py-1 rounded-lg text-xs font-bold truncate ${r.status === 'CONCLUIDA'
-                                            ? 'bg-green-500/10 text-green-500'
-                                            : r.status === 'ATRASADA'
-                                                ? 'bg-destructive/10 text-destructive'
-                                                : 'bg-primary/10 text-primary hover:bg-primary/20'
+                                        ? 'bg-green-500/10 text-green-500'
+                                        : r.status === 'ATRASADA'
+                                            ? 'bg-destructive/10 text-destructive'
+                                            : 'bg-primary/10 text-primary hover:bg-primary/20'
                                         }`}
                                 >
                                     {r.nome}
@@ -425,22 +527,28 @@ function VisaoMes({
     calendario: CalendarioData
     onIniciarRevisao: (assunto_id: string) => void
 }) {
-    const dataRef = new Date(calendario.data_referencia)
-    const primeiroDia = new Date(dataRef.getFullYear(), dataRef.getMonth(), 1)
-    const ultimoDia = new Date(dataRef.getFullYear(), dataRef.getMonth() + 1, 0)
+    const dataRefDate = new Date(calendario.data_referencia)
+    const primeiroDia = new Date(dataRefDate.getFullYear(), dataRefDate.getMonth(), 1)
+    const ultimoDia = new Date(dataRefDate.getFullYear(), dataRefDate.getMonth() + 1, 0)
 
     // Dias do mês
     const dias: Date[] = []
-    for (let d = new Date(primeiroDia); d <= ultimoDia; d.setDate(d.getDate() + 1)) {
-        dias.push(new Date(d))
+
+    // Loop simples para preencher dias
+    // Usar datas com timezone offset corrigido para evitar problemas
+    // Mas simplificando:
+    const temp = new Date(primeiroDia)
+    while (temp <= ultimoDia) {
+        dias.push(new Date(temp))
+        temp.setDate(temp.getDate() + 1)
     }
 
     // Preencher início (dias da semana anterior)
     const diaSemanaInicio = primeiroDia.getDay()
     for (let i = 0; i < diaSemanaInicio; i++) {
-        const dia = new Date(primeiroDia)
-        dia.setDate(primeiroDia.getDate() - (diaSemanaInicio - i))
-        dias.unshift(dia)
+        const d = new Date(dias[0])
+        d.setDate(d.getDate() - 1)
+        dias.unshift(d)
     }
 
     return (
@@ -452,7 +560,7 @@ function VisaoMes({
         >
             <div className="text-center">
                 <h3 className="text-2xl font-black italic uppercase tracking-tighter text-foreground">
-                    {dataRef.toLocaleDateString('pt-BR', { month: 'long', year: 'numeric' })}
+                    {dataRefDate.toLocaleDateString('pt-BR', { month: 'long', year: 'numeric' })}
                 </h3>
             </div>
 
@@ -471,16 +579,16 @@ function VisaoMes({
                     const dataStr = dia.toISOString().split('T')[0]
                     const revisoes = calendario.por_data[dataStr] || []
                     const isHoje = dataStr === new Date().toISOString().split('T')[0]
-                    const isOutroMes = dia.getMonth() !== dataRef.getMonth()
+                    const isOutroMes = dia.getMonth() !== dataRefDate.getMonth()
 
                     return (
                         <div
                             key={index}
                             className={`bg-card border rounded-xl p-2 min-h-[80px] ${isHoje
-                                    ? 'border-primary ring-2 ring-primary/20'
-                                    : isOutroMes
-                                        ? 'border-border/50 opacity-50'
-                                        : 'border-border'
+                                ? 'border-primary ring-2 ring-primary/20'
+                                : isOutroMes
+                                    ? 'border-border/50 opacity-50'
+                                    : 'border-border'
                                 }`}
                         >
                             <p className={`text-sm font-bold mb-1 ${isHoje ? 'text-primary' : 'text-foreground'}`}>
@@ -493,10 +601,10 @@ function VisaoMes({
                                         <div
                                             key={r.agenda_id}
                                             className={`w-2 h-2 rounded-full ${r.status === 'CONCLUIDA'
-                                                    ? 'bg-green-500'
-                                                    : r.status === 'ATRASADA'
-                                                        ? 'bg-destructive'
-                                                        : 'bg-primary'
+                                                ? 'bg-green-500'
+                                                : r.status === 'ATRASADA'
+                                                    ? 'bg-destructive'
+                                                    : 'bg-primary'
                                                 }`}
                                         />
                                     ))}

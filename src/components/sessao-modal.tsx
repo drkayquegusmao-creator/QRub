@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, ArrowRight, ArrowLeft, Clock, CheckCircle2, XCircle, Trophy } from 'lucide-react'
 import { useAuth } from '@/store/use-auth'
+import { supabase } from '@/lib/supabase'
 
 interface SessaoModalProps {
     isOpen: boolean
@@ -59,38 +60,87 @@ export function SessaoModal({ isOpen, onClose, assunto_id, tipo, onComplete }: S
     useEffect(() => {
         if (!isOpen || !user?.id) return
 
-        const criarSessao = async () => {
+        const criarSessaoLocal = async () => {
             try {
                 setLoading(true)
                 setError(null)
 
-                const response = await fetch('/api/sessao/criar', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        user_id: user.id,
-                        assunto_id,
-                        tipo
-                    })
-                })
+                // 1. Buscar detalhes do assunto
+                const { data: assunto } = await supabase
+                    .from('assuntos')
+                    .select('id, nome, specialty_id')
+                    .eq('id', assunto_id)
+                    .single()
 
-                const data = await response.json()
+                if (!assunto) throw new Error('Assunto não encontrado')
 
-                if (data.success) {
-                    setSessao(data)
-                    setTempoInicio(Date.now())
-                } else {
-                    setError(data.error || data.message || 'Erro ao criar sessão')
+                // 2. Buscar questoes (simplificado: random)
+                // Usar RPC 'get_random_questions' se existir, ou buscar N e shuffle no cliente
+                const { data: qData, error: qError } = await supabase
+                    .from('questao_base')
+                    .select('*')
+                    .eq('specialty_id', assunto.specialty_id) // Assumindo relação direta
+                    .eq('status_validacao', 'APROVADA')
+                    .limit(20) // Pegar um pool maior e slice
+
+                if (qError || !qData || qData.length < 5) {
+                    throw new Error('Questões insuficientes para este assunto.')
                 }
-            } catch (err) {
+
+                // Shuffle e slice 10
+                const shuffled = qData.sort(() => 0.5 - Math.random()).slice(0, 10)
+
+                // 3. Criar Sessão
+                const { data: novaSessao, error: sError } = await supabase
+                    .from('sessoes')
+                    .insert({
+                        user_id: user.id,
+                        assunto_id: assunto.id,
+                        tipo: tipo,
+                        status: 'EM_ANDAMENTO',
+                        total_questoes: shuffled.length,
+                        total_acertos: 0
+                    })
+                    .select()
+                    .single()
+
+                if (sError) throw sError
+
+                // 4. Criar Itens
+                const itens = shuffled.map((q, i) => ({
+                    sessao_id: novaSessao.id,
+                    questao_id: q.id,
+                    ordem: i + 1
+                }))
+
+                await supabase.from('sessao_itens').insert(itens)
+
+                // 5. Montar Objeto Sessao
+                setSessao({
+                    sessao_id: novaSessao.id,
+                    tipo: tipo,
+                    assunto: assunto,
+                    total_questoes: shuffled.length,
+                    questoes: shuffled.map((q, i) => ({
+                        questao_id: q.id,
+                        ordem: i + 1,
+                        enunciado: q.enunciado,
+                        case_study: q.case_study,
+                        options: q.options,
+                        image_url: q.image_url
+                    }))
+                })
+                setTempoInicio(Date.now())
+
+            } catch (err: any) {
                 console.error('Error creating session:', err)
-                setError('Erro ao conectar com o servidor')
+                setError(err.message || 'Erro ao conectar com o servidor')
             } finally {
                 setLoading(false)
             }
         }
 
-        criarSessao()
+        criarSessaoLocal()
     }, [isOpen, user?.id, assunto_id, tipo])
 
     const handleResponder = () => {
@@ -113,33 +163,139 @@ export function SessaoModal({ isOpen, onClose, assunto_id, tipo, onComplete }: S
             setQuestaoAtual(questaoAtual + 1)
             setTempoInicio(Date.now())
         } else {
-            finalizarSessao([...respostas, novaResposta])
+            finalizarSessaoLocal([...respostas, novaResposta])
         }
     }
 
-    const finalizarSessao = async (todasRespostas: Resposta[]) => {
-        if (!sessao) return
+    const finalizarSessaoLocal = async (todasRespostas: Resposta[]) => {
+        if (!sessao || !user?.id) return
 
         try {
             setFinalizando(true)
 
-            const response = await fetch('/api/sessao/finalizar', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    sessao_id: sessao.sessao_id,
-                    respostas: todasRespostas
-                })
+            // 1. Buscar respostas corretas
+            const qIds = todasRespostas.map(r => r.questao_id)
+            const { data: qCorretas } = await supabase
+                .from('questao_base')
+                .select('id, correct_option_id')
+                .in('id', qIds)
+
+            const gabarito = new Map(qCorretas?.map(q => [q.id, q.correct_option_id]))
+
+            // 2. Calcular acertos
+            let acertos = 0
+            const itensUpdate = []
+
+            // fetch itens IDs
+            const { data: itensDb } = await supabase
+                .from('sessao_itens')
+                .select('id, questao_id')
+                .eq('sessao_id', sessao.sessao_id)
+
+            const itensMap = new Map(itensDb?.map(i => [i.questao_id, i.id]))
+
+            for (const resp of todasRespostas) {
+                const correta = gabarito.get(resp.questao_id)
+                const isCorrect = correta === resp.resposta
+                if (isCorrect) acertos++
+
+                const itemId = itensMap.get(resp.questao_id)
+                if (itemId) {
+                    // Update Item (async loop is ok-ish here or Promise.all)
+                    await supabase.from('sessao_itens').update({
+                        resposta_usuario: resp.resposta,
+                        esta_correta: isCorrect,
+                        tempo_resposta_segundos: resp.tempo_segundos
+                    }).eq('id', itemId)
+
+                    // Update Usage Log
+                    await supabase.from('questao_uso_usuario').upsert({
+                        user_id: user.id,
+                        assunto_id: sessao.assunto.id,
+                        questao_id: resp.questao_id,
+                        foi_usada: true,
+                        foi_acertada: isCorrect,
+                        data_uso: new Date().toISOString(),
+                        sessao_id: sessao.sessao_id
+                    }, { onConflict: 'user_id,assunto_id,questao_id' })
+                }
+            }
+
+            // 3. Calcular Nota e SRS
+            const nota = acertos // 0-10 para 10 questões
+
+            // RPC para intervalo
+            const { data: intervaloCalc } = await supabase.rpc('calcular_intervalo_revisao', { nota })
+            const intervalo = intervaloCalc || 7
+
+            const dataProxima = new Date()
+            dataProxima.setDate(dataProxima.getDate() + intervalo)
+            const dataProximaStr = dataProxima.toISOString().split('T')[0]
+
+            // 4. Fechar Sessão
+            await supabase.from('sessoes').update({
+                status: 'FINALIZADA',
+                total_acertos: acertos,
+                nota: nota,
+                finalized_at: new Date().toISOString()
+            }).eq('id', sessao.sessao_id)
+
+            // 5. Atualizar Progresso Assunto
+            // Buscar anterior
+            const { data: progAnt } = await supabase
+                .from('assunto_progresso')
+                .select('total_questoes_respondidas, total_acertos')
+                .eq('user_id', user.id)
+                .eq('assunto_id', sessao.assunto.id)
+                .single()
+
+            const totalQ = (progAnt?.total_questoes_respondidas || 0) + sessao.total_questoes
+            const totalA = (progAnt?.total_acertos || 0) + acertos
+
+            await supabase.from('assunto_progresso').upsert({
+                user_id: user.id,
+                assunto_id: sessao.assunto.id,
+                estado: 'AGUARDANDO_REVISAO',
+                nivel_atual: nota, // Simplificação: nota atual vira nível
+                ultima_nota: nota,
+                total_questoes_respondidas: totalQ,
+                total_acertos: totalA,
+                data_ultima_sessao: new Date().toISOString(),
+                data_proxima_revisao: dataProxima.toISOString(),
+                intervalo_dias: intervalo,
+                updated_at: new Date().toISOString()
+            }, { onConflict: 'user_id,assunto_id' })
+
+            // 6. Atualizar Agenda
+            await supabase.from('agenda_revisoes').upsert({
+                user_id: user.id,
+                assunto_id: sessao.assunto.id,
+                data_programada: dataProximaStr,
+                status: 'PENDENTE',
+                created_at: new Date().toISOString()
+            }, { onConflict: 'user_id,assunto_id,data_programada' })
+
+            // Se tinha atrasada antiga, marcar como REALIZADA? 
+            // O sistema deve limpar atrasos ao criar nova agenda futura? 
+            // Idealmente sim, atualizamos status='REALIZADA' nas passadas.
+            await supabase.from('agenda_revisoes')
+                .update({ status: 'REALIZADA' })
+                .eq('user_id', user.id)
+                .eq('assunto_id', sessao.assunto.id)
+                .lt('data_programada', dataProximaStr)
+                .eq('status', 'ATRASADA')
+
+            setResultado({
+                success: true,
+                nota: nota,
+                acertos: acertos,
+                total: sessao.total_questoes,
+                nivel_atual: nota,
+                proxima_revisao: dataProximaStr,
+                intervalo_dias: intervalo
             })
 
-            const data = await response.json()
-
-            if (data.success) {
-                setResultado(data)
-            } else {
-                setError(data.error || 'Erro ao finalizar sessão')
-            }
-        } catch (err) {
+        } catch (err: any) {
             console.error('Error finalizing session:', err)
             setError('Erro ao finalizar sessão')
         } finally {
@@ -177,8 +333,8 @@ export function SessaoModal({ isOpen, onClose, assunto_id, tipo, onComplete }: S
                             <div>
                                 <div className="flex items-center gap-3 mb-2">
                                     <div className={`px-3 py-1 rounded-full ${tipo === 'NIVELAMENTO'
-                                            ? 'bg-orange-500/10 text-orange-500'
-                                            : 'bg-primary/10 text-primary'
+                                        ? 'bg-orange-500/10 text-orange-500'
+                                        : 'bg-primary/10 text-primary'
                                         }`}>
                                         <span className="text-xs font-black uppercase tracking-widest">
                                             {tipo}
@@ -210,8 +366,8 @@ export function SessaoModal({ isOpen, onClose, assunto_id, tipo, onComplete }: S
                                     initial={{ width: 0 }}
                                     animate={{ width: `${((questaoAtual + 1) / sessao.total_questoes) * 100}%` }}
                                     className={`h-full ${tipo === 'NIVELAMENTO'
-                                            ? 'bg-gradient-to-r from-orange-500 to-red-500'
-                                            : 'bg-primary'
+                                        ? 'bg-gradient-to-r from-orange-500 to-red-500'
+                                        : 'bg-primary'
                                         }`}
                                 />
                             </div>
@@ -338,14 +494,14 @@ function TelaQuestao({
                         key={option.id}
                         onClick={() => onSelecionarResposta(option.id)}
                         className={`w-full text-left p-4 rounded-2xl border-2 transition-all ${respostaSelecionada === option.id
-                                ? 'border-primary bg-primary/10 shadow-lg shadow-primary/20'
-                                : 'border-border hover:border-primary/50 bg-card'
+                            ? 'border-primary bg-primary/10 shadow-lg shadow-primary/20'
+                            : 'border-border hover:border-primary/50 bg-card'
                             }`}
                     >
                         <div className="flex items-start gap-3">
                             <div className={`w-8 h-8 rounded-full flex items-center justify-center font-black text-sm flex-shrink-0 ${respostaSelecionada === option.id
-                                    ? 'bg-primary text-white'
-                                    : 'bg-muted text-muted-foreground'
+                                ? 'bg-primary text-white'
+                                : 'bg-muted text-muted-foreground'
                                 }`}>
                                 {option.id.toUpperCase()}
                             </div>
@@ -362,8 +518,8 @@ function TelaQuestao({
                 onClick={onResponder}
                 disabled={!respostaSelecionada || finalizando}
                 className={`w-full flex items-center justify-center gap-2 py-4 rounded-2xl font-black uppercase text-sm tracking-widest transition-all ${respostaSelecionada && !finalizando
-                        ? 'bg-primary text-white hover:scale-[1.02] active:scale-95 shadow-lg shadow-primary/20'
-                        : 'bg-muted text-muted-foreground cursor-not-allowed'
+                    ? 'bg-primary text-white hover:scale-[1.02] active:scale-95 shadow-lg shadow-primary/20'
+                    : 'bg-muted text-muted-foreground cursor-not-allowed'
                     }`}
             >
                 {finalizando ? (

@@ -19,6 +19,7 @@ interface QuestionsState {
     addQuestions: (questions: Question[]) => Promise<{ success: boolean, message: string }>
     deleteQuestion: (id: string) => Promise<{ success: boolean, message: string }>
     deleteQuestions: (ids: string[]) => Promise<{ success: boolean, message: string }>
+    setEphemeralQuestions: (questions: Question[]) => void
 }
 
 export const useQuestions = create<QuestionsState>()(
@@ -202,6 +203,8 @@ export const useQuestions = create<QuestionsState>()(
                 console.error('Core delete error:', err)
                 return { success: false, message: err instanceof Error ? err.message : 'Erro ao remover questões' }
             }
-        }
+        },
+
+        setEphemeralQuestions: (qs) => set({ questions: qs, loading: false })
     })
 )

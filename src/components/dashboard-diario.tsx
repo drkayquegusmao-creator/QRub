@@ -59,26 +59,130 @@ export function DashboardDiario() {
     useEffect(() => {
         if (!user?.id) return
 
-        const fetchDashboard = async () => {
+        const fetchDashboardLocal = async () => {
             try {
                 setLoading(true)
-                const response = await fetch(`/api/dashboard/diario?user_id=${user.id}`)
-                const data = await response.json()
+                // Import dinâmico do createClient se não estiver disponível ou usar a instância global
+                // Como este é um componente "use client", podemos importar do @/lib/supabase
+                // Mas para garantir, vou usar imports no topo.
 
-                if (data.success) {
-                    setDashboard(data)
-                } else {
-                    setError(data.error || 'Erro ao carregar dashboard')
+                const { supabase } = await import('@/lib/supabase')
+                const hoje = new Date().toISOString().split('T')[0]
+
+                // 1. Buscar revisões ATRASADAS
+                const { data: atrasadas, error: errAtrasadas } = await supabase
+                    .from('agenda_revisoes')
+                    .select(`
+                        id,
+                        data_programada,
+                        assunto_id,
+                        assuntos (id, nome, specialty_id),
+                        assunto_progresso (nivel_atual, ultima_nota)
+                    `)
+                    .eq('user_id', user.id)
+                    .eq('status', 'ATRASADA')
+                    .order('data_programada', { ascending: true })
+
+                if (errAtrasadas) throw errAtrasadas
+
+                // 2. Buscar revisões DO DIA
+                const { data: doDia, error: errDoDia } = await supabase
+                    .from('agenda_revisoes')
+                    .select(`
+                        id,
+                        data_programada,
+                        assunto_id,
+                        assuntos (id, nome, specialty_id),
+                        assunto_progresso (nivel_atual, ultima_nota)
+                    `)
+                    .eq('user_id', user.id)
+                    .eq('data_programada', hoje)
+                    .eq('status', 'PENDENTE')
+                    .order('data_programada', { ascending: true })
+
+                if (errDoDia) throw errDoDia
+
+                // 3. Sugestão de Nivelamento
+                // Buscar assuntos já nivelados
+                const { data: progressos } = await supabase
+                    .from('assunto_progresso')
+                    .select('assunto_id')
+                    .eq('user_id', user.id)
+
+                const niveladosIds = new Set(progressos?.map(p => p.assunto_id) || [])
+
+                // Buscar um assunto não nivelado
+                // Precisamos buscar assuntos e filtrar no cliente ou fazer um 'not.in' se a lista for pequena
+                // Vamos tentar buscar 20 assuntos e achar o primeiro não nivelado
+                const { data: candidatos } = await supabase
+                    .from('assuntos')
+                    .select('*')
+                    .limit(50)
+
+                let sugestao = null
+                if (candidatos) {
+                    for (const cand of candidatos) {
+                        if (!niveladosIds.has(cand.id)) {
+                            // Verificar se tem questões
+                            const { count } = await supabase
+                                .from('questao_base')
+                                .select('*', { count: 'exact', head: true })
+                                .eq('specialty_id', cand.specialty_id)
+                                .eq('status_validacao', 'APROVADA')
+
+                            if (count && count >= 10) {
+                                sugestao = {
+                                    assunto_id: cand.id,
+                                    nome: cand.nome,
+                                    specialty_id: cand.specialty_id,
+                                    questoes_disponiveis: count
+                                }
+                                break
+                            }
+                        }
+                    }
                 }
+
+                // 4. Formatar
+                const formatRevisao = (r: any) => {
+                    const assunto = Array.isArray(r.assuntos) ? r.assuntos[0] : r.assuntos
+                    const progresso = Array.isArray(r.assunto_progresso) ? r.assunto_progresso[0] : r.assunto_progresso
+                    const dias = Math.floor((new Date().getTime() - new Date(r.data_programada).getTime()) / (1000 * 60 * 60 * 24))
+
+                    return {
+                        agenda_id: r.id,
+                        assunto_id: r.assunto_id,
+                        nome: assunto?.nome || 'Assunto desconhecido',
+                        specialty_id: assunto?.specialty_id,
+                        data_programada: r.data_programada,
+                        dias_atrasado: dias,
+                        nivel_atual: progresso?.nivel_atual || 0,
+                        ultima_nota: progresso?.ultima_nota || 0
+                    }
+                }
+
+                setDashboard({
+                    success: true,
+                    data_hoje: hoje,
+                    revisoes_atrasadas: (atrasadas || []).map(formatRevisao),
+                    revisoes_do_dia: (doDia || []).map(formatRevisao),
+                    sugestao_nivelamento: sugestao,
+                    resumo: {
+                        total_atrasadas: (atrasadas || []).length,
+                        total_do_dia: (doDia || []).length,
+                        tem_sugestao: !!sugestao
+                    }
+                })
+
             } catch (err) {
-                console.error('Error fetching dashboard:', err)
-                setError('Erro ao conectar com o servidor')
+                console.error('Error fetching dashboard local:', err)
+                setError('Erro ao carregar dados. Verifique sua conexão.')
             } finally {
                 setLoading(false)
             }
         }
 
-        fetchDashboard()
+        fetchDashboardLocal()
     }, [user?.id])
 
     const handleIniciarSessao = (assunto_id: string, tipo: 'NIVELAMENTO' | 'REVISAO') => {
@@ -88,16 +192,10 @@ export function DashboardDiario() {
     }
 
     const handleSessaoComplete = () => {
-        // Recarregar dashboard após completar sessão
-        if (user?.id) {
-            fetch(`/api/dashboard/diario?user_id=${user.id}`)
-                .then(res => res.json())
-                .then(data => {
-                    if (data.success) {
-                        setDashboard(data)
-                    }
-                })
-        }
+        // Recarregar dashboard (trigger reload changing key or refetching)
+        // Simplificação: reload page ou refetch manual. 
+        // Como o useEffect depende de user?.id, podemos forçar update ou recarregar página.
+        window.location.reload()
     }
 
     if (loading) {

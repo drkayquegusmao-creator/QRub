@@ -23,174 +23,185 @@ import { validateSessionCreation } from '@/lib/plan-validator'
 
 export async function POST(request: Request) {
     try {
-        const { user_id, assunto_id, tipo } = await request.json()
+        const body = await request.json()
+        const { user_id, tipo } = body
+        // 'assunto_id' pode vir ou ser inferido no caso de CADERNO_DE_ERROS
+        // 'questoes_ids' opcional para CADERNO_DE_ERROS
 
-        // Validação de entrada
-        if (!user_id || !assunto_id || !tipo) {
-            return NextResponse.json(
-                { error: 'Missing required fields: user_id, assunto_id, tipo' },
-                { status: 400 }
-            )
-        }
-
-        if (!['NIVELAMENTO', 'REVISAO'].includes(tipo)) {
-            return NextResponse.json(
-                { error: 'Invalid tipo. Must be NIVELAMENTO or REVISAO' },
-                { status: 400 }
-            )
+        if (!user_id || !tipo) {
+            return NextResponse.json({ error: 'Missing user_id or tipo' }, { status: 400 })
         }
 
         const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
         const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY
 
         if (!supabaseUrl || !supabaseServiceKey) {
-            return NextResponse.json(
-                { error: 'Supabase credentials not configured' },
-                { status: 500 }
-            )
+            return NextResponse.json({ error: 'Supabase credentials not configured' }, { status: 500 })
         }
 
         const supabase = createClient(supabaseUrl, supabaseServiceKey)
+        let questoesSelecionadas: any[] = []
+        let assuntoIdFinal = body.assunto_id
 
-        // 1. Validar assunto existe
-        const { data: assunto, error: assuntoError } = await supabase
-            .from('assuntos')
-            .select('*')
-            .eq('id', assunto_id)
-            .single()
+        // ------------------------------------------------------------------
+        // LÓGICA 1: CADERNO DE ERROS
+        // ------------------------------------------------------------------
+        if (tipo === 'CADERNO_DE_ERROS') {
+            let idsParaBuscar = body.questoes_ids
 
-        if (assuntoError || !assunto) {
-            return NextResponse.json(
-                { error: 'Assunto not found' },
-                { status: 404 }
-            )
-        }
+            // Se não forneceu IDs, buscar erros mais prioritários do usuário
+            if (!idsParaBuscar || idsParaBuscar.length === 0) {
+                // Buscar do caderno_erros
+                const { data: erros } = await supabase
+                    .from('caderno_erros')
+                    .select('questao_id')
+                    .eq('user_id', user_id)
+                    .in('status', ['ATIVO', 'RECUPERACAO'])
+                    .order('ultima_tentativa', { ascending: true }) // Mais antigos primeiro? Ou mais recentes? Prioridade: ATIVO
+                    .limit(10)
 
-        // 2. Buscar questões APROVADAS do assunto
-        const { data: todasQuestoes, error: questoesError } = await supabase
-            .from('questao_base')
-            .select('*')
-            .eq('specialty_id', assunto.specialty_id)
-            .eq('status_validacao', 'APROVADA')
-
-        if (questoesError) {
-            console.error('Error fetching questions:', questoesError)
-            return NextResponse.json(
-                { error: 'Failed to fetch questions' },
-                { status: 500 }
-            )
-        }
-
-        if (!todasQuestoes || todasQuestoes.length < 10) {
-            return NextResponse.json(
-                {
-                    error: 'Insufficient questions',
-                    message: `Este assunto possui apenas ${todasQuestoes?.length || 0} questões aprovadas. São necessárias pelo menos 10 questões para iniciar uma sessão.`,
-                    available: todasQuestoes?.length || 0,
-                    required: 10
-                },
-                { status: 400 }
-            )
-        }
-
-        // 3. Buscar questões já usadas pelo usuário neste assunto
-        const { data: questoesUsadas, error: usadasError } = await supabase
-            .from('questao_uso_usuario')
-            .select('questao_id')
-            .eq('user_id', user_id)
-            .eq('assunto_id', assunto_id)
-
-        if (usadasError) {
-            console.error('Error fetching used questions:', usadasError)
-            return NextResponse.json(
-                { error: 'Failed to fetch used questions' },
-                { status: 500 }
-            )
-        }
-
-        const questoesUsadasIds = new Set(questoesUsadas?.map(q => q.questao_id) || [])
-
-        // 4. Aplicar regra anti-repetição
-        let questoesDisponiveis = todasQuestoes.filter(q => !questoesUsadasIds.has(q.id))
-
-        // Se não houver 10 questões inéditas, completar com as mais antigas
-        if (questoesDisponiveis.length < 10) {
-            console.warn(`Only ${questoesDisponiveis.length} unused questions available. Completing with oldest used questions.`)
-
-            // Buscar questões usadas ordenadas por data de uso (mais antigas primeiro)
-            const { data: questoesAntigas } = await supabase
-                .from('questao_uso_usuario')
-                .select('questao_id, data_uso')
-                .eq('user_id', user_id)
-                .eq('assunto_id', assunto_id)
-                .order('data_uso', { ascending: true })
-                .limit(10 - questoesDisponiveis.length)
-
-            if (questoesAntigas) {
-                const idsAntigas = questoesAntigas.map(q => q.questao_id)
-                const questoesComplementares = todasQuestoes.filter(q => idsAntigas.includes(q.id))
-                questoesDisponiveis = [...questoesDisponiveis, ...questoesComplementares]
+                idsParaBuscar = erros?.map(e => e.questao_id) || []
             }
+
+            if (idsParaBuscar.length === 0) {
+                return NextResponse.json({
+                    error: 'Nenhum erro encontrado',
+                    message: 'Parabéns! Seu caderno de erros está vazio.'
+                }, { status: 400 })
+            }
+
+            // Buscar os detalhes das questões
+            const { data: questoes, error: qError } = await supabase
+                .from('questao_base')
+                .select('*')
+                .in('id', idsParaBuscar)
+
+            if (qError || !questoes) {
+                return NextResponse.json({ error: 'Falha ao buscar detalhes das questões' }, { status: 500 })
+            }
+
+            questoesSelecionadas = questoes
+
+            // Inferir assunto se não veio (pega do primeiro)
+            if (!assuntoIdFinal && questoesSelecionadas.length > 0) {
+                // Tentar buscar o assunto da primeira questão
+                // Mas a questao_base não tem link direto pra assuntos em alguns schemas, tem specialty_id, subject_id (string).
+                // Vamos tentar achar um 'assunto' real que bata com o subject_id da questão
+                const qSubjectId = questoesSelecionadas[0].subject_id
+
+                // Buscar um assunto com esse tema
+                const { data: assuntoRef } = await supabase
+                    .from('assuntos')
+                    .select('id')
+                    .eq('specialty_id', questoesSelecionadas[0].specialty_id)
+                    .limit(1)
+                    .single()
+
+                if (assuntoRef) {
+                    assuntoIdFinal = assuntoRef.id
+                } else {
+                    // Fallback perigoso se FK for estrita. Vamos criar um erro se não achar.
+                    return NextResponse.json({ error: 'Não foi possível vincular a um assunto válido.' }, { status: 400 })
+                }
+            }
+
+        }
+        // ------------------------------------------------------------------
+        // LÓGICA 2: NIVELAMENTO / REVISÃO (Padrão SRS)
+        // ------------------------------------------------------------------
+        else {
+            if (!assuntoIdFinal) return NextResponse.json({ error: 'assunto_id required for generic session' }, { status: 400 })
+
+            // 1. Validar assunto existe
+            const { data: assunto, error: assuntoError } = await supabase
+                .from('assuntos')
+                .select('*')
+                .eq('id', assuntoIdFinal)
+                .single()
+
+            if (assuntoError || !assunto) return NextResponse.json({ error: 'Assunto not found' }, { status: 404 })
+
+            // 2. Buscar questões APROVADAS
+            const { data: todasQuestoes } = await supabase
+                .from('questao_base')
+                .select('*')
+                .eq('specialty_id', assunto.specialty_id)
+                .eq('status_validacao', 'APROVADA')
+
+            if (!todasQuestoes || todasQuestoes.length < 10) {
+                return NextResponse.json({ error: 'Insufficient questions', available: todasQuestoes?.length || 0 }, { status: 400 })
+            }
+
+            // 3. Anti-repetição
+            const { data: questoesUsadas } = await supabase
+                .from('questao_uso_usuario')
+                .select('questao_id')
+                .eq('user_id', user_id)
+                .eq('assunto_id', assuntoIdFinal)
+
+            const questoesUsadasIds = new Set(questoesUsadas?.map(q => q.questao_id) || [])
+            let questoesDisponiveis = todasQuestoes.filter(q => !questoesUsadasIds.has(q.id))
+
+            // Fallback
+            if (questoesDisponiveis.length < 10) {
+                const { data: questoesAntigas } = await supabase
+                    .from('questao_uso_usuario')
+                    .select('questao_id, data_uso')
+                    .eq('user_id', user_id)
+                    .eq('assunto_id', assuntoIdFinal)
+                    .order('data_uso', { ascending: true })
+                    .limit(10 - questoesDisponiveis.length)
+
+                if (questoesAntigas) {
+                    const idsAntigas = questoesAntigas.map(q => q.questao_id)
+                    const questoesComplementares = todasQuestoes.filter(q => idsAntigas.includes(q.id))
+                    questoesDisponiveis = [...questoesDisponiveis, ...questoesComplementares]
+                }
+            }
+            questoesSelecionadas = questoesDisponiveis.slice(0, 10)
         }
 
-        // Garantir exatamente 10 questões
-        const questoesSelecionadas = questoesDisponiveis.slice(0, 10)
-
-        if (questoesSelecionadas.length < 10) {
-            return NextResponse.json(
-                {
-                    error: 'Cannot create session',
-                    message: 'Não foi possível selecionar 10 questões válidas para esta sessão.',
-                    available: questoesSelecionadas.length
-                },
-                { status: 400 }
-            )
+        // ------------------------------------------------------------------
+        // PASSO COMUM: CRIAR SESSÃO NO BANCO
+        // ------------------------------------------------------------------
+        if (questoesSelecionadas.length === 0) {
+            return NextResponse.json({ error: 'Nenhuma questão selecionada' }, { status: 400 })
         }
 
-        // 5. Criar sessão
+        // Criar sessão
         const { data: sessao, error: sessaoError } = await supabase
             .from('sessoes')
             .insert({
                 user_id,
-                assunto_id,
+                assunto_id: assuntoIdFinal,
                 tipo,
                 status: 'EM_ANDAMENTO',
-                total_questoes: 10,
+                total_questoes: questoesSelecionadas.length,
                 total_acertos: 0
             })
             .select()
             .single()
 
-        if (sessaoError || !sessao) {
+        if (sessaoError) {
             console.error('Error creating session:', sessaoError)
-            return NextResponse.json(
-                { error: 'Failed to create session' },
-                { status: 500 }
-            )
+            return NextResponse.json({ error: 'Failed to create session db record' }, { status: 500 })
         }
 
-        // 6. Criar itens da sessão
+        // Criar itens
         const itens = questoesSelecionadas.map((questao, index) => ({
             sessao_id: sessao.id,
             questao_id: questao.id,
             ordem: index + 1
         }))
 
-        const { error: itensError } = await supabase
-            .from('sessao_itens')
-            .insert(itens)
+        const { error: itensError } = await supabase.from('sessao_itens').insert(itens)
 
         if (itensError) {
-            console.error('Error creating session items:', itensError)
-            // Rollback: deletar sessão criada
             await supabase.from('sessoes').delete().eq('id', sessao.id)
-            return NextResponse.json(
-                { error: 'Failed to create session items' },
-                { status: 500 }
-            )
+            return NextResponse.json({ error: 'Failed to create session items' }, { status: 500 })
         }
 
-        // 7. Retornar payload para UI
+        // Retorno
         const questoesPayload = questoesSelecionadas.map((questao, index) => ({
             questao_id: questao.id,
             ordem: index + 1,
@@ -198,20 +209,19 @@ export async function POST(request: Request) {
             case_study: questao.case_study,
             options: questao.options,
             image_url: questao.image_url,
-            difficulty: questao.difficulty
+            difficulty: questao.difficulty,
+            explanation: questao.explanation, // Necessário para o feedback imediato
+            alternative_explanations: questao.alternative_explanations,
+            correct_option_id: questao.correct_option_id
         }))
 
         return NextResponse.json({
             success: true,
             sessao_id: sessao.id,
             tipo: sessao.tipo,
-            assunto: {
-                id: assunto.id,
-                nome: assunto.nome,
-                specialty_id: assunto.specialty_id
-            },
+            assunto_id: assuntoIdFinal,
             questoes: questoesPayload,
-            total_questoes: 10
+            total_questoes: questoesSelecionadas.length
         })
 
     } catch (error) {
