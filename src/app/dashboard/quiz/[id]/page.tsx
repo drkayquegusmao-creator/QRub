@@ -11,7 +11,7 @@ import { useAnsweredQuestions } from '@/store/use-answered-questions'
 import { useSRS } from '@/store/use-srs'
 import { RegistrationModal } from '@/components/registration-modal'
 import { PaywallModal } from '@/components/paywall-modal'
-import { filterQuestions } from '@/lib/data-mock'
+import { filterQuestions, COURSES } from '@/lib/data-mock'
 import { ReportModal } from '@/components/report-modal'
 import { AlertTriangle } from 'lucide-react'
 import { QuizSummaryModal } from '@/components/quiz-summary-modal'
@@ -32,7 +32,7 @@ export default function QuizPage() {
     const router = useRouter()
     const { user, visitorCount, incrementVisitorCount, dailyQuestionCount, incrementDailyCount, visitorId } = useAuth()
     const { add_response } = useQuiz()
-    const { process_answer } = useSRS()
+    const { process_answer, get_intelligent_action } = useSRS()
     const { questions: allQuestions, loadQuestions, loading: questionsLoading } = useQuestions()
     const { markAsAnswered, hasAnswered, getAnsweredCount, resetAnswered } = useAnsweredQuestions()
 
@@ -55,6 +55,29 @@ export default function QuizPage() {
     const [fontSize, setFontSize] = useState(18) // base font size in px
     const [imageScale, setImageScale] = useState(100) // percent
 
+    const nextAction = useMemo(() => {
+        if (!allQuestions || allQuestions.length === 0) return undefined
+        const action = get_intelligent_action(allQuestions)
+        if (!action.subject_id) return undefined
+
+        // Resolve name from COURSES (assuming COURSES[0] is the main one)
+        const specName = COURSES?.[0]?.specialties?.find(s => s.id === action.subject_id)?.name
+            || action.subject_id
+
+        return {
+            type: action.type,
+            subject_id: action.subject_id,
+            subject_name: specName
+        }
+    }, [allQuestions, get_intelligent_action])
+
+    const handleNextRecommendation = () => {
+        if (!nextAction?.subject_id) return
+        const count = nextAction.type === 'NIVELAMENTO' ? 10 : 12
+        router.push(`/dashboard/quiz/auto?mode=TREINO&specialtyId=${encodeURIComponent(nextAction.subject_id)}&count=${count}`)
+        setShowSummaryModal(false)
+    }
+
 
 
 
@@ -70,7 +93,7 @@ export default function QuizPage() {
 
     // Filtrar questões baseado nos parâmetros selecionados
     const filteredQuestions = useMemo(() => {
-        let filtered = filterQuestions(allQuestions, {
+        const filtered = filterQuestions(allQuestions, {
             course_id: courseId,
             specialty_id: specialtyId,
             subspecialty_id: subspecialtyId,
@@ -78,26 +101,28 @@ export default function QuizPage() {
         })
 
         // QRUB MASTER: Somente questões APROVADAS chegam ao Aluno
-        filtered = filtered.filter(q => q.status_validacao === 'APROVADA')
-
-        // Limitar à quantidade selecionada
-        return filtered.slice(0, maxQuestions)
-    }, [allQuestions, courseId, specialtyId, subspecialtyId, subjectId, maxQuestions])
+        return filtered.filter(q => q.status_validacao === 'APROVADA')
+    }, [allQuestions, courseId, specialtyId, subspecialtyId, subjectId])
 
     // Anti-repetition logic: show unanswered questions first, then cycle
+    // We compute this ONCE per filtered pool change, ignoring hasAnswered changes during session
     const availableQuestions = useMemo(() => {
         const userId = user?.id || visitorId
 
         const unanswered = filteredQuestions.filter(q => !hasAnswered(userId, q.id))
 
-        // If all questions answered, reset and start over
+        let finalPool = []
         if (unanswered.length === 0 && filteredQuestions.length > 0) {
-            resetAnswered(userId)
-            return filteredQuestions
+            // If all questions in this filter have been answered, show them all (reset cycle)
+            finalPool = filteredQuestions
+        } else {
+            // Show unanswered ones
+            finalPool = unanswered
         }
 
-        return unanswered.length > 0 ? unanswered : filteredQuestions
-    }, [filteredQuestions, user, visitorId, hasAnswered, resetAnswered])
+        // Apply maxQuestions limit HERE to ensure we get as many as requested
+        return finalPool.slice(0, maxQuestions)
+    }, [filteredQuestions, user?.id, visitorId, maxQuestions, hasAnswered])
 
     const handleFinish = () => {
         setShowSummaryModal(true)
@@ -115,23 +140,22 @@ export default function QuizPage() {
 
     // Timer for SIMULADO mode
     useEffect(() => {
-        if (mode === 'SIMULADO' && availableQuestions.length > 0) {
-            // Set time based on question count (e.g., 90 seconds per question)
-            const totalSeconds = availableQuestions.length * 90
+        const totalSeconds = availableQuestions.length * 90
+        if (timeLeft === 0) {
             setTimeLeft(totalSeconds)
-
-            const timer = setInterval(() => {
-                setTimeLeft((prev) => {
-                    if (prev <= 1) {
-                        clearInterval(timer)
-                        handleFinish()
-                        return 0
-                    }
-                    return prev - 1
-                })
-            }, 1000)
-            return () => clearInterval(timer)
         }
+
+        const timer = setInterval(() => {
+            setTimeLeft((prev) => {
+                if (prev <= 1) {
+                    clearInterval(timer)
+                    handleFinish()
+                    return 0
+                }
+                return prev - 1
+            })
+        }, 1000)
+        return () => clearInterval(timer)
     }, [mode, availableQuestions.length])
 
 
@@ -602,6 +626,8 @@ export default function QuizPage() {
                 isOpen={showSummaryModal}
                 onClose={() => setShowSummaryModal(false)}
                 stats={quizStats}
+                nextAction={nextAction}
+                onNextRecommendation={handleNextRecommendation}
             />
         </div>
     )

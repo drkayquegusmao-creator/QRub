@@ -1,7 +1,7 @@
 "use client"
 
 import { motion, AnimatePresence } from 'framer-motion'
-import { CheckCircle2, XCircle, TrendingUp, ArrowRight, Home, RefreshCw, Trophy } from 'lucide-react'
+import { CheckCircle2, XCircle, TrendingUp, ArrowRight, Home, RefreshCw, Trophy, BrainCircuit } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 
 interface QuizSummaryModalProps {
@@ -13,9 +13,15 @@ interface QuizSummaryModalProps {
         incorrect: number
         percentage: number
     }
+    nextAction?: {
+        type: string
+        subject_id: string | null
+        subject_name?: string
+    }
+    onNextRecommendation?: () => void
 }
 
-export function QuizSummaryModal({ isOpen, onClose, stats }: QuizSummaryModalProps) {
+export function QuizSummaryModal({ isOpen, onClose, stats, nextAction, onNextRecommendation }: QuizSummaryModalProps) {
     const router = useRouter()
 
     if (!isOpen) return null
@@ -100,6 +106,22 @@ export function QuizSummaryModal({ isOpen, onClose, stats }: QuizSummaryModalPro
                         </div>
 
                         <div className="pt-4 space-y-3">
+                            {nextAction && nextAction.subject_id && (
+                                <button
+                                    onClick={onNextRecommendation}
+                                    className="w-full bg-[#1A1033] text-white py-5 rounded-2xl font-black uppercase text-xs tracking-widest shadow-xl hover:scale-[1.02] active:scale-95 transition-all flex flex-col items-center justify-center gap-1 group relative overflow-hidden"
+                                >
+                                    <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-purple-500/20 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500" />
+                                    <div className="flex items-center gap-2 relative z-10">
+                                        <BrainCircuit className="w-4 h-4 text-primary" />
+                                        Entrar no Fluxo de Estudo
+                                    </div>
+                                    <div className="text-[8px] opacity-70 relative z-10">
+                                        PRÓXIMO: {nextAction.subject_name || nextAction.subject_id} ({nextAction.type})
+                                    </div>
+                                </button>
+                            )}
+
                             <button
                                 onClick={() => router.push('/dashboard/stats')}
                                 className="w-full royal-gradient text-white py-5 rounded-2xl font-black uppercase text-xs tracking-widest shadow-xl shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-3"
