@@ -45,8 +45,7 @@ export default function QuizPage() {
     const [isFocusMode, setIsFocusMode] = useState(false)
     const [showRegModal, setShowRegModal] = useState(false)
     const [showPaywall, setShowPaywall] = useState(false)
-    const [aiExplanation, setAiExplanation] = useState<string | null>(null)
-    const [isAiLoading, setIsAiLoading] = useState(false)
+
     const [isZoomOpen, setIsZoomOpen] = useState(false)
     const [showReportModal, setShowReportModal] = useState(false)
     const [showSummaryModal, setShowSummaryModal] = useState(false)
@@ -272,17 +271,7 @@ export default function QuizPage() {
     }
 
 
-    const handleAiExplain = () => {
-        if (!isInsano) {
-            setShowPaywall(true)
-            return
-        }
-        setIsAiLoading(true)
-        setTimeout(() => {
-            setAiExplanation(`Dr. QRub: Você escolheu a alternativa ${selectedOptionId?.toUpperCase()}. No entanto, para este caso de ${question.subject_id}, a conduta correta segue os protocolos do SUS de 2024, que priorizam a alternativa ${question.correct_option_id.toUpperCase()} devido ao fator de risco apresentado no enunciado.`)
-            setIsAiLoading(false)
-        }, 1500)
-    }
+
 
     const formatTime = (seconds: number) => {
         const mins = Math.floor(seconds / 60)
@@ -447,75 +436,60 @@ export default function QuizPage() {
                         const isCorrect = opt.id === question.correct_option_id
                         const isSelected = opt.id === selectedOptionId
                         const showFeedback = isAnswered && mode === 'TREINO'
+                        const explanation = question.alternative_explanations?.[opt.id]
 
                         let statusClasses = isFocusMode ? 'bg-white/5 border-white/10' : 'bg-card border-border hover:border-primary/50'
                         if (showFeedback) {
                             if (isCorrect) statusClasses = "bg-emerald-500/10 border-emerald-500 text-emerald-500 ring-2 ring-emerald-500/20"
                             else if (isSelected) statusClasses = "bg-rose-500/10 border-rose-500 text-rose-500"
+                            else statusClasses = "bg-card border-border opacity-70"
                         } else if (isSelected) statusClasses = isFocusMode ? "bg-primary text-white border-primary" : "bg-primary/10 border-primary text-primary"
 
                         return (
-                            <button
-                                key={opt.id}
-                                onClick={() => handleSelect(opt.id)}
-                                className={`w-full text-left p-5 rounded-2xl border-2 transition-all flex items-start gap-4 font-semibold group relative overflow-hidden ${statusClasses}`}
-                            >
-                                <span className={`w-8 h-8 rounded-lg flex items-center justify-center text-xs shrink-0 ${isSelected ? 'bg-primary text-white' : isFocusMode ? 'bg-white/10 text-white' : 'bg-muted text-muted-foreground group-hover:bg-primary/10 group-hover:text-primary'}`}>
-                                    {opt.id.toUpperCase()}
-                                </span>
-                                <span className="flex-1">{opt.text}</span>
-                            </button>
+                            <div key={opt.id} className="space-y-2">
+                                <button
+                                    onClick={() => handleSelect(opt.id)}
+                                    disabled={showFeedback}
+                                    className={`w-full text-left p-5 rounded-2xl border-2 transition-all flex items-start gap-4 font-semibold group relative overflow-hidden ${statusClasses} ${showFeedback ? 'cursor-default' : ''}`}
+                                >
+                                    <span className={`w-8 h-8 rounded-lg flex items-center justify-center text-xs shrink-0 ${isSelected ? 'bg-primary text-white' : isFocusMode ? 'bg-white/10 text-white' : 'bg-muted text-muted-foreground group-hover:bg-primary/10 group-hover:text-primary'} ${showFeedback && isCorrect ? '!bg-emerald-500 !text-white' : ''} ${showFeedback && isSelected && !isCorrect ? '!bg-rose-500 !text-white' : ''}`}>
+                                        {opt.id.toUpperCase()}
+                                    </span>
+                                    <span className="flex-1">{opt.text}</span>
+                                    {showFeedback && isCorrect && <CheckCircle2 className="w-6 h-6 text-emerald-500 shrink-0" />}
+                                    {showFeedback && isSelected && !isCorrect && <XCircle className="w-6 h-6 text-rose-500 shrink-0" />}
+                                </button>
+
+                                {showFeedback && explanation && (
+                                    <motion.div
+                                        initial={{ opacity: 0, height: 0 }}
+                                        animate={{ opacity: 1, height: 'auto' }}
+                                        className={`ml-4 pl-4 border-l-2 text-sm leading-relaxed py-2 ${isCorrect ? 'border-emerald-500/30 text-emerald-700' : 'border-slate-200 text-slate-600'}`}
+                                    >
+                                        <span className="font-bold uppercase text-[10px] tracking-widest opacity-70 block mb-1">
+                                            {isCorrect ? 'Por que está correta:' : 'Por que está incorreta:'}
+                                        </span>
+                                        {explanation}
+                                    </motion.div>
+                                )}
+                            </div>
                         )
                     })}
                 </div>
 
                 {isAnswered && mode === 'TREINO' && (
                     <div className="mt-8 space-y-4">
-                        <div className="bg-primary/5 border border-primary/20 rounded-[32px] p-6 md:p-10">
+                        <div className="bg-primary/5 border border-primary/20 rounded-[32px] p-6 md:p-10 animate-in fade-in slide-in-from-bottom-4 duration-500">
                             <div className="flex items-center justify-between mb-6">
                                 <div className="flex items-center gap-2 text-primary font-black uppercase text-xs tracking-widest">
-                                    <Sparkles className="w-4 h-4" /> Comentários do Especialista
+                                    <Sparkles className="w-4 h-4" /> Comentários Gerais do Especialista
                                 </div>
-                                {!aiExplanation && (
-                                    <button onClick={handleAiExplain} className="flex items-center gap-2 bg-primary text-white px-4 py-2.5 rounded-xl text-[10px] font-black uppercase hover:scale-105 transition-all shadow-lg shadow-primary/20">
-                                        <BrainCircuit className="w-3.5 h-3.5" /> Mentor Dr. QRub
-                                    </button>
-                                )}
                             </div>
                             <div className="space-y-4">
                                 <p className="text-[#1A1033] leading-relaxed font-bold text-xl">{question.explanation}</p>
-                                {question.alternative_explanations?.[selectedOptionId!] && (
-                                    <div className="p-4 bg-rose-500/5 border-l-4 border-rose-500 rounded-r-xl">
-                                        <p className="text-sm font-medium text-rose-700">{question.alternative_explanations[selectedOptionId!]}</p>
-                                    </div>
-                                )}
                             </div>
-                            {question.references && <p className="mt-4 text-[10px] font-bold uppercase tracking-widest text-muted-foreground/60">Referência: {question.references}</p>}
+                            {question.references && <p className="mt-6 text-[10px] font-bold uppercase tracking-widest text-muted-foreground/60 border-t border-primary/10 pt-4">Referência: {question.references}</p>}
                         </div>
-
-                        <AnimatePresence>
-                            {(isAiLoading || aiExplanation) && (
-                                <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="bg-orange-500/5 border border-orange-500/20 rounded-[32px] p-6 md:p-10 space-y-6">
-                                    <div className="flex items-center gap-2 text-orange-500 font-black uppercase text-xs tracking-widest">
-                                        <BrainCircuit className="w-4 h-4" /> Dr. QRub Mentor
-                                    </div>
-                                    {isAiLoading ? (
-                                        <div className="flex items-center gap-3"><div className="w-3 h-3 bg-orange-500 rounded-full animate-bounce" /> <span className="font-bold">O Dr. QRub está avaliando sua conduta...</span></div>
-                                    ) : (
-                                        <div className="space-y-6">
-                                            <p className="text-muted-foreground leading-relaxed text-lg">{aiExplanation}</p>
-                                            {question.revision_link && (
-                                                <div className="pt-4 border-t border-orange-500/10">
-                                                    <a href={question.revision_link} target="_blank" className="inline-flex items-center gap-2 bg-orange-500 text-white px-6 py-3 rounded-2xl text-xs font-black uppercase tracking-widest hover:scale-[1.02] transition-all">
-                                                        Revisão Rápida: {question.subject_id} <ChevronLeft className="w-4 h-4 rotate-180" />
-                                                    </a>
-                                                </div>
-                                            )}
-                                        </div>
-                                    )}
-                                </motion.div>
-                            )}
-                        </AnimatePresence>
                     </div>
                 )}
             </div>
