@@ -3,8 +3,12 @@ import { create } from 'zustand'
 import { supabase, isSupabaseConfigured } from '@/lib/supabase'
 import { Question, Guideline } from '@/lib/data-mock'
 
+
 interface QuestionsState {
     questions: Question[]
+    totalCount: number
+    currentPage: number
+    pageSize: number
     guidelines: Guideline[]
     loading: boolean
     error: string | null
@@ -12,7 +16,9 @@ interface QuestionsState {
         course_id?: string,
         specialty_id?: string | string[],
         subspecialty_id?: string,
-        subject_id?: string
+        subject_id?: string,
+        page?: number,
+        pageSize?: number
     }) => Promise<void>
     loadGuidelines: () => Promise<void>
     addQuestion: (question: Question | Partial<Question>) => Promise<{ success: boolean, message: string }>
@@ -25,6 +31,9 @@ interface QuestionsState {
 export const useQuestions = create<QuestionsState>()(
     (set) => ({
         questions: [],
+        totalCount: 0,
+        currentPage: 1,
+        pageSize: 100,
         guidelines: [],
         loading: false,
         error: null,
@@ -34,46 +43,59 @@ export const useQuestions = create<QuestionsState>()(
 
             try {
                 if (isSupabaseConfigured()) {
-                    let allQuestions: Question[] = []
-                    let hasMore = true
-                    let page = 0
-                    const pageSize = 1000
+                    const page = filters?.page || 1
+                    const pageSize = filters?.pageSize || 100
 
-                    while (hasMore && allQuestions.length < 20000) {
-                        let query = supabase.from('questao_base').select('*')
+                    // 1. Primeiro, obter o count total (sem carregar os dados)
+                    let countQuery = supabase.from('questao_base').select('*', { count: 'exact', head: true })
 
-                        if (filters?.course_id) query = query.eq('course_id', filters.course_id)
-
-                        if (filters?.specialty_id) {
-                            if (Array.isArray(filters.specialty_id)) {
-                                query = query.in('specialty_id', filters.specialty_id)
-                            } else {
-                                query = query.eq('specialty_id', filters.specialty_id)
-                            }
-                        }
-
-                        if (filters?.subspecialty_id) query = query.eq('subspecialty_id', filters.subspecialty_id)
-                        if (filters?.subject_id) query = query.eq('subject_id', filters.subject_id)
-
-                        const { data, error } = await query
-                            .order('created_at', { ascending: false })
-                            .range(page * pageSize, (page + 1) * pageSize - 1)
-
-                        if (error) throw error
-
-                        if (data) {
-                            allQuestions = [...allQuestions, ...data]
-                            if (data.length < pageSize) {
-                                hasMore = false
-                            } else {
-                                page++
-                            }
+                    if (filters?.course_id) countQuery = countQuery.eq('course_id', filters.course_id)
+                    if (filters?.specialty_id) {
+                        if (Array.isArray(filters.specialty_id)) {
+                            countQuery = countQuery.in('specialty_id', filters.specialty_id)
                         } else {
-                            hasMore = false
+                            countQuery = countQuery.eq('specialty_id', filters.specialty_id)
                         }
                     }
+                    if (filters?.subspecialty_id) countQuery = countQuery.eq('subspecialty_id', filters.subspecialty_id)
+                    if (filters?.subject_id) countQuery = countQuery.eq('subject_id', filters.subject_id)
 
-                    set({ questions: allQuestions, loading: false })
+                    const { count, error: countError } = await countQuery
+
+                    if (countError) throw countError
+
+                    // 2. Depois, carregar apenas a página atual
+                    let dataQuery = supabase.from('questao_base').select('*')
+
+                    if (filters?.course_id) dataQuery = dataQuery.eq('course_id', filters.course_id)
+                    if (filters?.specialty_id) {
+                        if (Array.isArray(filters.specialty_id)) {
+                            dataQuery = dataQuery.in('specialty_id', filters.specialty_id)
+                        } else {
+                            dataQuery = dataQuery.eq('specialty_id', filters.specialty_id)
+                        }
+                    }
+                    if (filters?.subspecialty_id) dataQuery = dataQuery.eq('subspecialty_id', filters.subspecialty_id)
+                    if (filters?.subject_id) dataQuery = dataQuery.eq('subject_id', filters.subject_id)
+
+                    const startIndex = (page - 1) * pageSize
+                    const endIndex = startIndex + pageSize - 1
+
+                    const { data, error } = await dataQuery
+                        .order('created_at', { ascending: false })
+                        .range(startIndex, endIndex)
+
+                    if (error) throw error
+
+                    console.log(`✅ Carregadas ${data?.length || 0} questões (página ${page}) de ${count} total`)
+
+                    set({
+                        questions: data || [],
+                        totalCount: count || 0,
+                        currentPage: page,
+                        pageSize: pageSize,
+                        loading: false
+                    })
                 }
             } catch (err: unknown) {
                 set({ error: err instanceof Error ? err.message : String(err), loading: false })
@@ -108,12 +130,14 @@ export const useQuestions = create<QuestionsState>()(
                 set((state) => {
                     const exists = state.questions.findIndex(q => q.id === data[0].id)
                     let newQuestions = [...state.questions]
+                    let newTotalCount = state.totalCount
                     if (exists >= 0) {
                         newQuestions[exists] = data[0]
                     } else {
                         newQuestions = [data[0], ...newQuestions]
+                        newTotalCount++
                     }
-                    return { questions: newQuestions }
+                    return { questions: newQuestions, totalCount: newTotalCount }
                 })
 
                 return { success: true, message: 'Questão salva com sucesso!' }
@@ -136,7 +160,8 @@ export const useQuestions = create<QuestionsState>()(
                 set((state) => {
                     const incomingIds = new Set((data || []).map(q => q.id))
                     const filteredOld = state.questions.filter(q => !incomingIds.has(q.id))
-                    return { questions: [...(data || []), ...filteredOld] }
+                    const newCount = filteredOld.length + (data || []).length
+                    return { questions: [...(data || []), ...filteredOld], totalCount: newCount }
                 })
 
                 return { success: true, message: `${questions.length} questões processadas com sucesso!` }
@@ -146,61 +171,77 @@ export const useQuestions = create<QuestionsState>()(
         },
 
         deleteQuestion: async (id) => {
+            console.log(`🗑️ Store: Iniciando deleção da questão: ${id}`)
             try {
                 if (!isSupabaseConfigured()) throw new Error('Supabase not configured')
 
-                const { error } = await supabase
+                const { error, count } = await supabase
                     .from('questao_base')
-                    .delete()
+                    .delete({ count: 'exact' })
                     .eq('id', id)
 
                 if (error) {
+                    console.error(`❌ Erro Supabase ao deletar ${id}:`, error)
                     if (error.code === '23503') {
                         throw new Error('Esta questão possui respostas de usuários e não pode ser excluída para manter a integridade dos dados.')
                     }
                     throw error
                 }
 
-                set((state) => ({
-                    questions: state.questions.filter(q => q.id !== id)
-                }))
+                console.log(`✅ Store: Deleção concluída no banco para ${id}`)
+
+                set((state) => {
+                    const newQuestions = state.questions.filter(q => q.id !== id)
+                    const wasRemoved = newQuestions.length < state.questions.length
+                    return {
+                        questions: newQuestions,
+                        totalCount: wasRemoved ? Math.max(0, state.totalCount - 1) : state.totalCount
+                    }
+                })
 
                 return { success: true, message: 'Questão removida com sucesso!' }
             } catch (err: unknown) {
+                console.error(`💥 Store: Exceção ao deletar ${id}:`, err)
                 return { success: false, message: err instanceof Error ? err.message : 'Erro ao remover questão' }
             }
         },
 
         deleteQuestions: async (ids: string[]) => {
+            console.log(`🗑️ Store: Iniciando deleção em massa de ${ids.length} questões...`)
             try {
                 if (!isSupabaseConfigured()) throw new Error('Supabase not configured')
                 if (ids.length === 0) return { success: true, message: 'Nenhuma questão para remover.' }
 
-                // Batch into chunks of 50 to avoid URL length limits in the Supabase API
                 const CHUNK_SIZE = 50
                 for (let i = 0; i < ids.length; i += CHUNK_SIZE) {
                     const chunk = ids.slice(i, i + CHUNK_SIZE)
+                    console.log(`🗑️ Store: Deletando fragmento ${i / CHUNK_SIZE + 1} de ${Math.ceil(ids.length / CHUNK_SIZE)}...`)
                     const { error } = await supabase
                         .from('questao_base')
                         .delete()
                         .in('id', chunk)
 
-                    if (error) {
-                        console.error(`Error deleting chunk ${i / CHUNK_SIZE}:`, error)
-                        if (error.code === '23503') {
-                            throw new Error('Algumas questões possuem vínculos e não puderam ser excluídas.')
-                        }
-                        throw error
-                    }
+                    if (error) throw error
                 }
 
-                set((state) => ({
-                    questions: state.questions.filter(q => !ids.includes(q.id))
-                }))
+                console.log(`✅ Store: Deleção em massa concluída para ${ids.length} questões.`)
+
+                set((state) => {
+                    const remainingQuestions = state.questions.filter(q => !ids.includes(q.id))
+                    const removedInPageCount = state.questions.length - remainingQuestions.length
+
+                    // Note: This logic assumes all 'ids' were present in the total database.
+                    // If some IDs were already deleted or didn't exist, totalCount decrease might slightly drift.
+                    // But usually, IDs come from the current state/selection.
+                    return {
+                        questions: remainingQuestions,
+                        totalCount: Math.max(0, state.totalCount - ids.length)
+                    }
+                })
 
                 return { success: true, message: `${ids.length} questões removidas com sucesso!` }
             } catch (err: unknown) {
-                console.error('Core delete error:', err)
+                console.error('💥 Store: Erro na deleção em massa:', err)
                 return { success: false, message: err instanceof Error ? err.message : 'Erro ao remover questões' }
             }
         },

@@ -35,7 +35,7 @@ export default function AdminDashboard() {
     const { user, isAuthenticated } = useAuth()
     const router = useRouter()
     const searchParams = useSearchParams()
-    const { questions, deleteQuestion, deleteQuestions, addQuestion, addQuestions, loadQuestions, loading } = useQuestionsStore()
+    const { questions, totalCount, currentPage: storePage, deleteQuestion, deleteQuestions, addQuestion, addQuestions, loadQuestions, loading } = useQuestionsStore()
     const { users: realUsers, loadUsers, updateUserPlan, updateUserRole, deleteUser, deleteUsers } = useUserDb()
     const [selectedUserIds, setSelectedUserIds] = useState<string[]>([])
 
@@ -76,6 +76,9 @@ export default function AdminDashboard() {
     const [loadingManual, setLoadingManual] = useState(false)
     const [userFilter, setUserFilter] = useState<'all' | 'insano' | 'premium' | 'incomplete'>('all')
     const [userSearch, setUserSearch] = useState('')
+    const [languageSuggestions, setLanguageSuggestions] = useState<any[]>([])
+    const [isReviewModalOpen, setIsReviewModalOpen] = useState(false)
+    const [isStepReviewing, setIsStepReviewing] = useState(false)
 
     const dynamicHierarchy = useMemo(() => {
         const base = JSON.parse(JSON.stringify(MEDICAL_HIERARCHY[0].specialties))
@@ -156,7 +159,7 @@ export default function AdminDashboard() {
         const result = await addQuestion(newQuestion)
         if (result.success) {
             setImportStatus({ type: 'success', msg: `✅ Gerado: ${areaObj.name} > ${subareaObj!.name} > ${temaObj!.name}` })
-            loadQuestions()
+            reloadCurrentPage()
         } else {
             setImportStatus({ type: 'error', msg: `❌ Erro ao salvar: ${result.message}` })
         }
@@ -257,7 +260,7 @@ export default function AdminDashboard() {
 
             if (totalCreated > 0) {
                 setImportStatus({ type: 'success', msg: `🚀 IA Gerou ${totalCreated} questões com sucesso!` })
-                loadQuestions()
+                reloadCurrentPage()
             }
         } catch (error: any) {
             setImportStatus({ type: 'error', msg: `❌ Erro IA: ${error.message}` })
@@ -384,7 +387,7 @@ export default function AdminDashboard() {
             }
 
             setImportStatus({ type: 'success', msg: `🚀 IA Gerou ${totalCreated} questões em lote com sucesso!` })
-            loadQuestions()
+            reloadCurrentPage()
         } catch (error: any) {
             setImportStatus({ type: 'error', msg: `❌ Erro Lote IA: ${error.message}` })
         } finally {
@@ -690,7 +693,7 @@ export default function AdminDashboard() {
                                             <button
                                                 onClick={async () => {
                                                     const res = await addQuestion({ ...q, status_validacao: 'APROVADA' })
-                                                    if (res.success) loadQuestions()
+                                                    if (res.success) reloadCurrentPage()
                                                 }}
                                                 className="p-3 bg-emerald-500/10 text-emerald-500 rounded-xl hover:bg-emerald-500 hover:text-white transition-all border border-emerald-500/20"
                                                 title="Aprovar"
@@ -702,7 +705,7 @@ export default function AdminDashboard() {
                                             <button
                                                 onClick={async () => {
                                                     const res = await addQuestion({ ...q, status_validacao: 'REPROVADA' })
-                                                    if (res.success) loadQuestions()
+                                                    if (res.success) reloadCurrentPage()
                                                 }}
                                                 className="p-3 bg-rose-500/10 text-rose-500 rounded-xl hover:bg-rose-500 hover:text-white transition-all border border-rose-500/20"
                                                 title="Reprovar"
@@ -900,14 +903,24 @@ export default function AdminDashboard() {
                             />
                         </div>
 
-                        <button
-                            onClick={handleManualImportSave}
-                            disabled={loadingManual || !jsonInput.trim()}
-                            className="w-full bg-[#1A1033] text-white py-6 rounded-2xl font-black uppercase text-sm tracking-[0.2em] shadow-xl hover:scale-[1.02] active:scale-95 transition-all disabled:opacity-50 flex items-center justify-center gap-4"
-                        >
-                            {loadingManual ? <RefreshCw className="w-5 h-5 animate-spin" /> : <Upload className="w-6 h-6" />}
-                            PROCESSAR E SALVAR LOTE
-                        </button>
+                        <div className="flex gap-4">
+                            <button
+                                onClick={handleReviewLanguage}
+                                disabled={isStepReviewing || !jsonInput.trim()}
+                                className="flex-1 bg-primary/10 text-primary py-6 rounded-2xl font-black uppercase text-sm tracking-[0.2em] border border-primary/20 hover:bg-primary/20 transition-all disabled:opacity-50 flex items-center justify-center gap-4"
+                            >
+                                {isStepReviewing ? <RefreshCw className="w-5 h-5 animate-spin" /> : <Sparkles className="w-6 h-6" />}
+                                REVISAR E CORRIGIR (IA)
+                            </button>
+                            <button
+                                onClick={handleManualImportSave}
+                                disabled={loadingManual || !jsonInput.trim()}
+                                className="flex-1 bg-[#1A1033] text-white py-6 rounded-2xl font-black uppercase text-sm tracking-[0.2em] shadow-xl hover:scale-[1.02] active:scale-95 transition-all disabled:opacity-50 flex items-center justify-center gap-4"
+                            >
+                                {loadingManual ? <RefreshCw className="w-5 h-5 animate-spin" /> : <Upload className="w-6 h-6" />}
+                                PROCESSAR E SALVAR LOTE
+                            </button>
+                        </div>
 
                         <div className="mt-8 pt-8 border-t border-border space-y-4">
                             <div className="flex items-center justify-between">
@@ -977,8 +990,21 @@ export default function AdminDashboard() {
                 {importStatus && (
                     <div className={`p-6 rounded-3xl border ${importStatus.type === 'success' ? 'bg-emerald-500/10 border-emerald-500/20 text-emerald-600' : 'bg-rose-500/10 border-rose-500/20 text-rose-600'} flex items-center gap-4 animate-in zoom-in-95`}>
                         {importStatus.type === 'success' ? <CheckCircle2 className="w-6 h-6" /> : <AlertCircle className="w-6 h-6" />}
-                        <p className="font-black uppercase text-[10px] tracking-widest flex-1">{importStatus.msg}</p>
-                        <button onClick={() => setImportStatus(null)} className="p-2 hover:bg-black/5 rounded-xl"><X className="w-4 h-4" /></button>
+                        <div className="flex-1 flex items-center justify-between gap-4">
+                            <p className="font-black uppercase text-[10px] tracking-widest">{importStatus.msg}</p>
+                            {languageSuggestions.length > 0 && importStatus.type === 'success' && (
+                                <button
+                                    onClick={() => setIsReviewModalOpen(true)}
+                                    className="px-4 py-2 bg-emerald-500/20 hover:bg-emerald-500/30 rounded-xl text-[8px] font-black uppercase tracking-widest transition-all"
+                                >
+                                    Ver Detalhes das Alterações
+                                </button>
+                            )}
+                        </div>
+                        <button onClick={() => {
+                            setImportStatus(null)
+                            setLanguageSuggestions([])
+                        }} className="p-2 hover:bg-black/5 rounded-xl"><X className="w-4 h-4" /></button>
                     </div>
                 )}
             </div>
@@ -1081,10 +1107,11 @@ export default function AdminDashboard() {
 
     // Pagination State
     const [currentPage, setCurrentPage] = useState(1)
-    const itemsPerPage = 50
+    const itemsPerPage = 100
 
-    // Filtered questions
+    // Filtered questions (apenas filtro de busca local, paginação vem do backend)
     const filteredQuestions = useMemo(() => {
+        if (!searchTerm) return questions
         return questions.filter(q => q.enunciado.toLowerCase().includes(searchTerm.toLowerCase()))
     }, [questions, searchTerm])
 
@@ -1097,21 +1124,32 @@ export default function AdminDashboard() {
         return counts
     }, [questions])
 
-    // Pagination Logic
-    const totalPages = Math.ceil(filteredQuestions.length / itemsPerPage)
-    const paginatedQuestions = filteredQuestions.slice(
-        (currentPage - 1) * itemsPerPage,
-        currentPage * itemsPerPage
-    )
+    // Pagination Logic - usa totalCount do store
+    const totalPages = Math.ceil(totalCount / itemsPerPage)
+    const paginatedQuestions = filteredQuestions // Já vem paginado do backend
+
+    // Carregar nova página quando currentPage mudar
+    useEffect(() => {
+        console.log(`🔄 Carregando página ${currentPage}...`)
+        loadQuestions({ page: currentPage, pageSize: itemsPerPage })
+    }, [currentPage])
 
     // Reset page when search changes
     useEffect(() => {
-        setCurrentPage(1)
+        if (currentPage !== 1) {
+            setCurrentPage(1)
+        } else {
+            loadQuestions({ page: 1, pageSize: itemsPerPage })
+        }
     }, [searchTerm])
 
-    // Load questions from IndexedDB on mount
+    // Helper function to reload current page
+    const reloadCurrentPage = () => {
+        loadQuestions({ page: currentPage, pageSize: itemsPerPage })
+    }
+
+    // Load reports on mount
     useEffect(() => {
-        loadQuestions()
         loadReports()
     }, [])
 
@@ -1162,6 +1200,138 @@ export default function AdminDashboard() {
     const activeSubspecialty = activeSpecialty?.subspecialties.find(sub => sub.id === selectedSubspecialty)
 
 
+    const handleReviewLanguage = async () => {
+        if (!jsonInput.trim()) {
+            alert('Cole o JSON gerado antes de revisar.')
+            return
+        }
+
+        setIsStepReviewing(true)
+        setImportStatus({ type: 'success', msg: '🔍 Dr. QRub está revisando o texto e aplicando correções automáticas...' })
+
+        try {
+            const rawJson = jsonInput.trim()
+            const cleanJson = rawJson.replace(/```json/g, '').replace(/```/g, '').trim()
+            const parsed = JSON.parse(cleanJson)
+            let questionsToReview = Array.isArray(parsed) ? [...parsed] : [...(parsed.questions || [parsed])]
+
+            const response = await fetch('/api/ai/review-questions', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    apiKey: openaiApiKey,
+                    questions: questionsToReview
+                })
+            })
+
+            const data = await response.json()
+            if (data.error) throw new Error(data.error)
+
+            if (data.suggestions && data.suggestions.length > 0) {
+                // AUTO-APPLY ALL SUGGESTIONS
+                data.suggestions.forEach((suggestion: any) => {
+                    const q = questionsToReview[suggestion.questionIndex]
+                    if (!q) return
+
+                    if (suggestion.field.includes('justificativas_alternativas')) {
+                        const fieldParts = suggestion.field.split('.')
+                        if (fieldParts.length > 1) {
+                            const altKey = fieldParts[1]
+                            if (!q.justificativas_alternativas) q.justificativas_alternativas = {}
+                            q.justificativas_alternativas[altKey] = suggestion.suggested
+                        }
+                    } else {
+                        q[suggestion.field] = suggestion.suggested
+                    }
+                })
+
+                // Update the JSON input with corrected content
+                setJsonInput(JSON.stringify(questionsToReview, null, 2))
+                setLanguageSuggestions(data.suggestions)
+
+                setImportStatus({
+                    type: 'success',
+                    msg: `✨ Dr. QRub aplicou ${data.suggestions.length} correções automáticas! O JSON foi atualizado.`
+                })
+
+                // Still allow user to open modal to see what was changed if they wish
+                // But don't force it open anymore
+            } else {
+                setImportStatus({ type: 'success', msg: '✅ Nenhuma correção necessária! O texto está perfeito.' })
+            }
+        } catch (error: any) {
+            console.error('Review error:', error)
+            setImportStatus({ type: 'error', msg: `❌ Erro na revisão: ${error.message}` })
+        } finally {
+            setIsStepReviewing(false)
+        }
+    }
+
+    const applySuggestion = (suggestion: any) => {
+        try {
+            const rawJson = jsonInput.trim()
+            const cleanJson = rawJson.replace(/```json/g, '').replace(/```/g, '').trim()
+            const parsed = JSON.parse(cleanJson)
+            let questions = Array.isArray(parsed) ? [...parsed] : [...(parsed.questions || [parsed])]
+
+            const q = questions[suggestion.questionIndex]
+            if (!q) return
+
+            if (suggestion.field.includes('justificativas_alternativas')) {
+                // Handle nested justificativas_alternativas
+                const fieldParts = suggestion.field.split('.')
+                if (fieldParts.length > 1) {
+                    const altKey = fieldParts[1]
+                    if (!q.justificativas_alternativas) q.justificativas_alternativas = {}
+                    q.justificativas_alternativas[altKey] = suggestion.suggested
+                }
+            } else {
+                q[suggestion.field] = suggestion.suggested
+            }
+
+            setJsonInput(JSON.stringify(questions, null, 2))
+            setLanguageSuggestions(prev => prev.filter(s => s !== suggestion))
+
+            if (languageSuggestions.length <= 1) {
+                setIsReviewModalOpen(false)
+            }
+        } catch (error) {
+            console.error('Error applying suggestion:', error)
+        }
+    }
+
+    const applyAllSuggestions = () => {
+        try {
+            const rawJson = jsonInput.trim()
+            const cleanJson = rawJson.replace(/```json/g, '').replace(/```/g, '').trim()
+            const parsed = JSON.parse(cleanJson)
+            let questions = Array.isArray(parsed) ? [...parsed] : [...(parsed.questions || [parsed])]
+
+            languageSuggestions.forEach(suggestion => {
+                const q = questions[suggestion.questionIndex]
+                if (!q) return
+
+                if (suggestion.field.includes('justificativas_alternativas')) {
+                    const fieldParts = suggestion.field.split('.')
+                    if (fieldParts.length > 1) {
+                        const altKey = fieldParts[1]
+                        if (!q.justificativas_alternativas) q.justificativas_alternativas = {}
+                        q.justificativas_alternativas[altKey] = suggestion.suggested
+                    }
+                } else {
+                    q[suggestion.field] = suggestion.suggested
+                }
+            })
+
+            setJsonInput(JSON.stringify(questions, null, 2))
+            setLanguageSuggestions([])
+            setIsReviewModalOpen(false)
+            setImportStatus({ type: 'success', msg: '✅ Todas as sugestões foram aplicadas!' })
+        } catch (error) {
+            console.error('Error applying all suggestions:', error)
+        }
+    }
+
     const handleManualImportSave = async () => {
         if (!jsonInput.trim()) {
             alert('Cole o JSON gerado antes de salvar.')
@@ -1189,7 +1359,7 @@ export default function AdminDashboard() {
             if (success) {
                 setImportStatus({ type: 'success', msg: `✅ ${convertedBatch.length} questões processadas e salvas no banco!` })
                 setJsonInput('')
-                loadQuestions()
+                reloadCurrentPage()
             } else {
                 throw new Error(message)
             }
@@ -1246,7 +1416,7 @@ export default function AdminDashboard() {
             if (res.success) {
                 setImportStatus({ type: 'success', msg: `✅ ${selectedQuestions.length} questões confirmadas!` })
                 setSelectedQuestions([])
-                loadQuestions()
+                reloadCurrentPage()
             }
             setLoadingManual(false)
         }
@@ -1263,7 +1433,7 @@ export default function AdminDashboard() {
             if (res.success) {
                 setImportStatus({ type: 'success', msg: `❌ ${selectedQuestions.length} questões arquivadas.` })
                 setSelectedQuestions([])
-                loadQuestions()
+                reloadCurrentPage()
             }
             setLoadingManual(false)
         }
@@ -1273,33 +1443,46 @@ export default function AdminDashboard() {
         if (selectedQuestions.length === 0) return
         if (confirm(`⚠️ ATENÇÃO: Tem certeza que deseja DELETAR PERMANENTEMENTE ${selectedQuestions.length} questões?`)) {
             try {
+                console.log(`🗑️ Cliente: Iniciando deleção em massa:`, selectedQuestions)
                 const res = await deleteQuestions(selectedQuestions)
+                console.log('🗑️ Cliente: Resultado da deleção em massa:', res)
+
                 if (res.success) {
                     setSelectedQuestions([])
-                    await loadQuestions()
+                    setImportStatus({ type: 'success', msg: `✅ ${selectedQuestions.length} questões removidas.` })
+                    setTimeout(() => {
+                        reloadCurrentPage()
+                    }, 800)
                     alert(`✅ ${res.message}`)
                 } else {
                     alert(`❌ Erro: ${res.message}`)
                 }
             } catch (error: any) {
-                console.error('Error deleting questions:', error)
+                console.error('🗑️ Cliente: Erro crítico na deleção em massa:', error)
                 alert(`❌ Erro crítico: ${error.message || 'Falha desconhecida'}`)
             }
         }
     }
 
     const handleDeleteSingleQuestion = async (id: string) => {
-        if (confirm('🗑️ Deseja excluir esta questão do banco de dados?')) {
+        console.log(`🗑️ Cliente: Iniciando deleção da questão: ${id}`)
+        if (window.confirm('🗑️ Deseja excluir esta questão do banco de dados?')) {
             try {
                 const res = await deleteQuestion(id)
+                console.log('🗑️ Cliente: Resultado da deleção:', res)
+
                 if (res.success) {
-                    await loadQuestions()
+                    setImportStatus({ type: 'success', msg: `✅ Questão ${id} removida com sucesso!` })
+                    // Aguardar um pouco para o banco sincronizar antes de recarregar
+                    setTimeout(() => {
+                        reloadCurrentPage()
+                    }, 500)
                 } else {
-                    alert(`❌ Não foi possível excluir: ${res.message}`)
+                    alert(`❌ Erro ao deletar: ${res.message}`)
                 }
             } catch (error: any) {
-                console.error('Error deleting question:', error)
-                alert(`❌ Erro ao deletar: ${error.message}`)
+                console.error('🗑️ Cliente: Erro crítico ao deletar:', error)
+                alert(`❌ Erro crítico: ${error.message}`)
             }
         }
     }
@@ -1635,7 +1818,7 @@ export default function AdminDashboard() {
                     download(pendentes, 'pendentes.json')
 
                     setImportStatus({ type: 'success', msg: `✅ Importação Concluída: ${toSave.length} salvas.` })
-                    loadQuestions()
+                    reloadCurrentPage()
                 } else {
                     alert(`Falha no salvamento: ${message}`)
                 }
@@ -1681,7 +1864,7 @@ export default function AdminDashboard() {
                                     <div className="space-y-1">
                                         <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Enunciado da Questão</label>
                                         <textarea
-                                            value={editingQuestion?.enunciado}
+                                            value={editingQuestion?.enunciado || ''}
                                             onChange={(e) => setEditingQuestion({ ...editingQuestion, enunciado: e.target.value })}
                                             className="w-full h-32 bg-muted border border-border rounded-2xl p-4 font-bold text-sm focus:ring-2 focus:ring-primary/20 outline-none resize-none"
                                             placeholder="Descreva o caso clínico..."
@@ -1705,7 +1888,7 @@ export default function AdminDashboard() {
                                         </div>
                                         <input
                                             type="text"
-                                            value={editingQuestion?.comando}
+                                            value={editingQuestion?.comando || ''}
                                             onChange={(e) => setEditingQuestion({ ...editingQuestion, comando: e.target.value })}
                                             className="w-full bg-muted border border-border rounded-xl p-3 font-bold text-sm"
                                             placeholder="Ex: Qual o diagnóstico mais provável?"
@@ -1717,7 +1900,7 @@ export default function AdminDashboard() {
                                         <div className="flex gap-2">
                                             <input
                                                 type="text"
-                                                value={editingQuestion?.image_url}
+                                                value={editingQuestion?.image_url || ''}
                                                 onChange={(e) => setEditingQuestion({ ...editingQuestion, image_url: e.target.value })}
                                                 className="flex-1 bg-muted border border-border rounded-xl p-3 font-bold text-sm"
                                                 placeholder="https://..."
@@ -1737,7 +1920,7 @@ export default function AdminDashboard() {
                                         <div className="space-y-1">
                                             <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Especialidade</label>
                                             <select
-                                                value={editingQuestion?.specialty_id}
+                                                value={editingQuestion?.specialty_id || ''}
                                                 onChange={(e) => setEditingQuestion({ ...editingQuestion, specialty_id: e.target.value })}
                                                 className="w-full bg-muted border border-border rounded-xl p-3 font-bold text-sm"
                                             >
@@ -1751,7 +1934,7 @@ export default function AdminDashboard() {
                                                 <input
                                                     type="text"
                                                     list="subspecialties-list"
-                                                    value={editingQuestion?.subspecialty_id}
+                                                    value={editingQuestion?.subspecialty_id || ''}
                                                     onChange={(e) => setEditingQuestion({ ...editingQuestion, subspecialty_id: e.target.value })}
                                                     className="w-full bg-muted border border-border rounded-xl p-3 font-bold text-sm"
                                                     placeholder="Escolha ou digite nova..."
@@ -1768,7 +1951,7 @@ export default function AdminDashboard() {
                                                 <input
                                                     type="text"
                                                     list="subjects-list"
-                                                    value={editingQuestion?.subject_id}
+                                                    value={editingQuestion?.subject_id || ''}
                                                     onChange={(e) => setEditingQuestion({ ...editingQuestion, subject_id: e.target.value })}
                                                     className="w-full bg-muted border border-border rounded-xl p-3 font-bold text-sm"
                                                     placeholder="Escolha ou digite novo..."
@@ -1790,7 +1973,7 @@ export default function AdminDashboard() {
                                             <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Link de Revisão</label>
                                             <input
                                                 type="text"
-                                                value={editingQuestion?.revision_link}
+                                                value={editingQuestion?.revision_link || ''}
                                                 onChange={(e) => setEditingQuestion({ ...editingQuestion, revision_link: e.target.value })}
                                                 className="w-full bg-muted border border-border rounded-xl p-3 font-bold text-sm"
                                                 placeholder="Link p/ Dr. QRub"
@@ -1799,7 +1982,7 @@ export default function AdminDashboard() {
                                         <div className="space-y-1">
                                             <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">ID Correto</label>
                                             <select
-                                                value={editingQuestion?.correct_option_id}
+                                                value={editingQuestion?.correct_option_id || ''}
                                                 onChange={(e) => setEditingQuestion({ ...editingQuestion, correct_option_id: e.target.value })}
                                                 className="w-full bg-muted border border-border rounded-xl p-3 font-bold text-sm"
                                             >
@@ -1944,7 +2127,7 @@ export default function AdminDashboard() {
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                             <StatCard
                                 label="Total Questões"
-                                value={questions.length}
+                                value={totalCount}
                                 color="text-primary"
                                 icon={<Database className="w-4 h-4" />}
                                 onClick={() => setIsBreakdownOpen(true)}
@@ -2072,7 +2255,7 @@ export default function AdminDashboard() {
                             {/* Pagination Footer */}
                             <div className="p-4 border-t border-border flex items-center justify-between">
                                 <div className="text-xs font-medium text-muted-foreground">
-                                    Mostrando {(currentPage - 1) * itemsPerPage + 1} a {Math.min(currentPage * itemsPerPage, filteredQuestions.length)} de {filteredQuestions.length} questões
+                                    Mostrando {(currentPage - 1) * itemsPerPage + 1} a {Math.min(currentPage * itemsPerPage, totalCount)} de {totalCount} questões
                                 </div>
                                 <div className="flex items-center gap-2">
                                     <button
@@ -2577,6 +2760,77 @@ export default function AdminDashboard() {
                 onClose={() => setPreviewQuestion(null)}
                 question={previewQuestion}
             />
+
+            <AnimatePresence>
+                {isReviewModalOpen && (
+                    <div className="fixed inset-0 z-[110] flex items-center justify-center p-4 bg-black/60 backdrop-blur-md">
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                            animate={{ opacity: 1, scale: 1, y: 0 }}
+                            exit={{ opacity: 0, scale: 0.95, y: 20 }}
+                            className="bg-card border border-border w-full max-w-5xl max-h-[85vh] overflow-hidden rounded-[40px] shadow-2xl flex flex-col"
+                        >
+                            <div className="p-10 border-b border-border flex justify-between items-center bg-muted/20">
+                                <div className="flex items-center gap-6">
+                                    <div className="bg-primary/20 p-4 rounded-3xl text-primary animate-pulse">
+                                        <Sparkles className="w-8 h-8" />
+                                    </div>
+                                    <div>
+                                        <h2 className="text-3xl font-black italic uppercase tracking-tighter">Sugestões do Dr. QRub</h2>
+                                        <p className="text-sm font-medium text-muted-foreground uppercase tracking-widest">Revisão ortográfica, gramatical e de clareza técnica.</p>
+                                    </div>
+                                </div>
+                                <div className="flex gap-4">
+                                    <button
+                                        onClick={applyAllSuggestions}
+                                        className="bg-emerald-500 text-white px-8 py-3 rounded-2xl font-black uppercase text-xs tracking-widest hover:scale-105 transition-all shadow-lg shadow-emerald-500/20"
+                                    >
+                                        Aceitar Todas ({languageSuggestions.length})
+                                    </button>
+                                    <button
+                                        onClick={() => setIsReviewModalOpen(false)}
+                                        className="p-3 hover:bg-muted rounded-full transition-all"
+                                    >
+                                        <X className="w-6 h-6" />
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div className="flex-1 overflow-y-auto p-10 space-y-8">
+                                {languageSuggestions.map((suggestion, index) => (
+                                    <div key={index} className="bg-muted/30 border border-border rounded-3xl overflow-hidden hover:border-primary/30 transition-all group">
+                                        <div className="p-4 bg-primary/5 border-b border-border flex justify-between items-center">
+                                            <div className="flex items-center gap-3">
+                                                <span className="text-[10px] font-black uppercase tracking-widest bg-primary text-white px-3 py-1 rounded-full">Questão #{suggestion.questionIndex + 1}</span>
+                                                <span className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">{suggestion.field.toUpperCase()}</span>
+                                            </div>
+                                            <span className="text-[10px] font-bold text-primary italic uppercase">{suggestion.reason}</span>
+                                        </div>
+                                        <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-border">
+                                            <div className="p-6 space-y-3">
+                                                <p className="text-[10px] font-black uppercase text-muted-foreground tracking-widest">Original</p>
+                                                <div className="text-sm font-medium opacity-60 line-through decoration-rose-500/50">{suggestion.original}</div>
+                                            </div>
+                                            <div className="p-6 space-y-3 bg-emerald-500/5">
+                                                <div className="flex justify-between items-center">
+                                                    <p className="text-[10px] font-black uppercase text-emerald-600 tracking-widest">Sugestão</p>
+                                                    <button
+                                                        onClick={() => applySuggestion(suggestion)}
+                                                        className="text-[10px] bg-emerald-500 text-white px-3 py-1 rounded-lg hover:scale-110 transition-all shadow-md font-black"
+                                                    >
+                                                        Aplicar Esta
+                                                    </button>
+                                                </div>
+                                                <div className="text-sm font-bold text-emerald-900 leading-relaxed">{suggestion.suggested}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </motion.div>
+                    </div>
+                )}
+            </AnimatePresence>
 
             <QuestionsBreakdownModal
                 isOpen={isBreakdownOpen}
