@@ -48,6 +48,7 @@ import { PlansModal } from '@/components/plans-modal'
 import { TrainModal } from '@/components/train-modal'
 import { WelcomeTutorial } from '@/components/welcome-tutorial'
 import { SRSDashboardWidget } from '@/components/srs-dashboard-widget'
+import { RankEliteModule } from '@/components/rank-elite'
 import {
     AreaChart,
     Area,
@@ -78,6 +79,7 @@ export default function StudentDashboard() {
     const [showPaywall, setShowPaywall] = useState(false)
     const [showPlansModal, setShowPlansModal] = useState(false)
     const [showTrainModal, setShowTrainModal] = useState(false)
+    const [showRankElite, setShowRankElite] = useState(false)
     const [trainModalInitialSpecialty, setTrainModalInitialSpecialty] = useState<string | undefined>(undefined)
 
     // Load responses and SRS progress on mount
@@ -249,9 +251,16 @@ export default function StudentDashboard() {
                     { label: 'Treino Livre', icon: <Play />, href: '/dashboard/setup', color: 'bg-primary/10 text-primary hover:bg-primary' },
                     { label: 'Métricas', icon: <BarChart3 />, href: '/dashboard/stats', color: 'bg-blue-500/10 text-blue-500 hover:bg-blue-500' },
                     { label: 'Caderno de Erros', icon: <AlertCircle />, href: '/dashboard/errors', color: 'bg-rose-500/10 text-rose-500 hover:bg-rose-500' },
-                    { label: 'Rank Elite', icon: <Crown />, href: '#', color: 'bg-slate-100 text-slate-400 opacity-40 cursor-not-allowed', disabled: true }
-                ].map((item, i) => (
-                    item.disabled ? (
+                    { label: 'Rank Elite', icon: <Crown />, onClick: () => setShowRankElite(true), color: 'bg-amber-500/10 text-amber-500 hover:bg-amber-500' }
+                ].map((item: any, i) => (
+                    item.onClick ? (
+                        <button key={i} onClick={item.onClick} className="bg-white border-2 border-slate-100 hover:border-amber-500/30 p-8 rounded-[40px] transition-all hover:-translate-y-2 flex flex-col items-center text-center gap-4 group">
+                            <div className={`p-4 rounded-2xl transition-all group-hover:text-white ${item.color.split(' ').slice(0, 2).join(' ')} group-hover:${item.color.split(' ').slice(2).join(' ')}`}>
+                                {item.icon}
+                            </div>
+                            <p className="font-black italic uppercase text-xs tracking-tighter text-[#1A1033]">{item.label}</p>
+                        </button>
+                    ) : item.disabled ? (
                         <div key={i} className="bg-white border-2 border-slate-100 p-8 rounded-[40px] opacity-40 cursor-not-allowed flex flex-col items-center text-center gap-4">
                             <div className="p-4 bg-slate-100 rounded-2xl">{item.icon}</div>
                             <p className="font-black italic uppercase text-xs tracking-tighter text-[#1A1033]">{item.label}</p>
@@ -562,6 +571,11 @@ export default function StudentDashboard() {
                     )}
                 </div>
             </div>
+            <AnimatePresence>
+                {showRankElite && (
+                    <RankEliteModule onClose={() => setShowRankElite(false)} />
+                )}
+            </AnimatePresence>
         </div >
     )
 }

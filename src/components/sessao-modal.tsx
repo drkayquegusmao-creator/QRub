@@ -56,6 +56,7 @@ export function SessaoModal({ isOpen, onClose, assunto_id, tipo, onComplete }: S
 
     const [finalizando, setFinalizando] = useState(false)
     const [resultado, setResultado] = useState<any>(null)
+    const [fontSize, setFontSize] = useState(18) // base font size in px
 
     // Criar sessão ao abrir modal
     useEffect(() => {
@@ -460,15 +461,15 @@ export function SessaoModal({ isOpen, onClose, assunto_id, tipo, onComplete }: S
 
     return (
         <AnimatePresence>
-            <div className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-background/95 backdrop-blur-sm overflow-y-auto">
+            <div className="fixed inset-0 z-[200] flex justify-center p-2 sm:p-4 bg-background/95 backdrop-blur-sm overflow-y-auto h-[100dvh]">
                 <motion.div
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.95 }}
-                    className="relative w-full max-w-4xl bg-card border border-border rounded-[40px] shadow-2xl overflow-hidden"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 20 }}
+                    className="relative w-full max-w-4xl bg-card border border-border sm:rounded-[40px] rounded-3xl shadow-2xl my-auto pb-safe"
                 >
                     {/* Header */}
-                    <div className="bg-gradient-to-r from-slate-50 to-transparent p-6 border-b border-border">
+                    <div className="bg-gradient-to-r from-slate-50 to-transparent p-4 sm:p-6 border-b border-border">
                         <div className="flex items-center justify-between">
                             <div>
                                 <div className="flex items-center gap-3 mb-2">
@@ -493,12 +494,33 @@ export function SessaoModal({ isOpen, onClose, assunto_id, tipo, onComplete }: S
                                 </h2>
                             </div>
 
-                            <button
-                                onClick={handleFechar}
-                                className="p-2 hover:bg-muted rounded-full transition-colors"
-                            >
-                                <X className="w-6 h-6" />
-                            </button>
+                            <div className="flex items-center gap-3">
+                                {/* Controles de Acessibilidade */}
+                                <div className="hidden sm:flex items-center gap-2 bg-muted/30 p-1.5 rounded-xl border border-border mr-2">
+                                    <button
+                                        onClick={() => setFontSize(prev => Math.max(14, prev - 2))}
+                                        className="p-2 hover:bg-white rounded-lg transition-all"
+                                        title="Diminuir Fonte"
+                                    >
+                                        <span className="text-xs font-bold font-serif">A-</span>
+                                    </button>
+                                    <div className="w-px h-4 bg-border" />
+                                    <button
+                                        onClick={() => setFontSize(prev => Math.min(32, prev + 2))}
+                                        className="p-2 hover:bg-white rounded-lg transition-all"
+                                        title="Aumentar Fonte"
+                                    >
+                                        <span className="text-sm font-bold font-serif">A+</span>
+                                    </button>
+                                </div>
+
+                                <button
+                                    onClick={handleFechar}
+                                    className="p-2 hover:bg-muted rounded-full transition-colors"
+                                >
+                                    <X className="w-6 h-6" />
+                                </button>
+                            </div>
                         </div>
 
                         {/* Progress Bar */}
@@ -519,7 +541,7 @@ export function SessaoModal({ isOpen, onClose, assunto_id, tipo, onComplete }: S
                     </div>
 
                     {/* Content */}
-                    <div className="p-8 md:p-12 min-h-[500px] flex flex-col justify-center">
+                    <div className="p-4 sm:p-8 md:p-12 pb-12 sm:pb-16 min-h-[300px] sm:min-h-[500px] flex flex-col">
                         {loading && (
                             <div className="flex items-center justify-center py-20">
                                 <motion.div
@@ -549,15 +571,59 @@ export function SessaoModal({ isOpen, onClose, assunto_id, tipo, onComplete }: S
                         )}
 
                         {sessao && !resultado && !error && (
-                            <TelaQuestao
-                                questao={sessao.questoes[questaoAtual]}
-                                respostaSelecionada={respostaSelecionada}
-                                onSelecionarResposta={setRespostaSelecionada}
-                                onResponder={handleResponder}
-                                onAbort={handleFechar}
-                                finalizando={finalizando}
-                                isUltima={questaoAtual === sessao.questoes.length - 1}
-                            />
+                            <>
+                                <TelaQuestao
+                                    questao={sessao.questoes[questaoAtual]}
+                                    respostaSelecionada={respostaSelecionada}
+                                    onSelecionarResposta={setRespostaSelecionada}
+                                    onResponder={handleResponder}
+                                    onAbort={handleFechar}
+                                    finalizando={finalizando}
+                                    isUltima={questaoAtual === sessao.questoes.length - 1}
+                                    fontSize={fontSize}
+                                />
+
+                                {/* Navegação Visual com Quadradinhos */}
+                                <div className="mt-12 pt-8 border-t border-border">
+                                    <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground mb-4">Progresso da Sessão</p>
+                                    <div className="flex flex-wrap gap-2">
+                                        {sessao.questoes.map((_, idx) => {
+                                            const isCurrentQuestion = idx === questaoAtual
+                                            const isAnswered = idx < respostas.length
+                                            const isLocked = idx > respostas.length
+
+                                            let bgColor = 'bg-muted text-muted-foreground' // Default/Locked
+                                            if (isAnswered) {
+                                                bgColor = 'bg-primary text-white' // No feedback imediato na sessão modal, apenas progresso
+                                            } else if (isCurrentQuestion) {
+                                                bgColor = 'bg-primary text-white ring-2 ring-primary/50'
+                                            } else if (isLocked) {
+                                                bgColor = 'bg-slate-100 text-slate-300 cursor-not-allowed opacity-50'
+                                            }
+
+                                            return (
+                                                <button
+                                                    key={idx}
+                                                    disabled={isLocked}
+                                                    onClick={() => {
+                                                        if (!isLocked) {
+                                                            setQuestaoAtual(idx)
+                                                            if (idx < respostas.length) {
+                                                                setRespostaSelecionada(respostas[idx].resposta)
+                                                            } else {
+                                                                setRespostaSelecionada(null)
+                                                            }
+                                                        }
+                                                    }}
+                                                    className={`w-10 h-10 rounded-xl font-black text-sm transition-all ${isLocked ? '' : 'hover:scale-110'} ${bgColor}`}
+                                                >
+                                                    {idx + 1}
+                                                </button>
+                                            )
+                                        })}
+                                    </div>
+                                </div>
+                            </>
                         )}
                     </div>
                 </motion.div>
@@ -573,7 +639,8 @@ function TelaQuestao({
     onResponder,
     onAbort,
     finalizando,
-    isUltima
+    isUltima,
+    fontSize
 }: {
     questao: Questao
     respostaSelecionada: string | null
@@ -582,6 +649,7 @@ function TelaQuestao({
     onAbort: () => void
     finalizando: boolean
     isUltima: boolean
+    fontSize: number
 }) {
     return (
         <motion.div
@@ -589,11 +657,14 @@ function TelaQuestao({
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -20 }}
-            className="space-y-8 max-w-3xl mx-auto w-full"
+            className="space-y-6 sm:space-y-8 max-w-3xl mx-auto w-full"
         >
             {/* Enunciado */}
             <div className="prose prose-lg max-w-none">
-                <p className="text-[#1A1033] font-medium leading-relaxed whitespace-pre-wrap text-lg">
+                <p
+                    className="text-[#1A1033] font-black italic uppercase leading-tight tracking-tighter"
+                    style={{ fontSize: `${fontSize * 1.3}px` }}
+                >
                     {questao.enunciado}
                 </p>
             </div>
@@ -615,10 +686,12 @@ function TelaQuestao({
                             }`}>
                             {option.id.toUpperCase()}
                         </div>
-                        <p className={`text-base font-medium flex-1 pt-2 ${respostaSelecionada === option.id
+                        <p className={`font-bold flex-1 pt-1 ${respostaSelecionada === option.id
                             ? 'text-primary'
                             : 'text-slate-600'
-                            }`}>
+                            }`}
+                            style={{ fontSize: `${fontSize * 0.9}px` }}
+                        >
                             {option.text}
                         </p>
                     </button>

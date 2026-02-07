@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect, useMemo } from 'react'
+import { useState, useEffect, useMemo, useRef } from 'react'
 import {
     Plus, Search, Edit2, Trash2, Users, Crown, Star,
     RefreshCw, Database, BarChart3, Upload, CheckCircle2, XCircle,
@@ -79,6 +79,15 @@ export default function AdminDashboard() {
     const [languageSuggestions, setLanguageSuggestions] = useState<any[]>([])
     const [isReviewModalOpen, setIsReviewModalOpen] = useState(false)
     const [isStepReviewing, setIsStepReviewing] = useState(false)
+    const [jsonError, setJsonError] = useState<{ line: number, message: string } | null>(null)
+    const textareaRef = useRef<HTMLTextAreaElement>(null)
+    const overlayRef = useRef<HTMLDivElement>(null)
+
+    const handleJsonScroll = () => {
+        if (textareaRef.current && overlayRef.current) {
+            overlayRef.current.scrollTop = textareaRef.current.scrollTop
+        }
+    }
 
     const dynamicHierarchy = useMemo(() => {
         const base = JSON.parse(JSON.stringify(MEDICAL_HIERARCHY[0].specialties))
@@ -894,13 +903,53 @@ export default function AdminDashboard() {
                         </div>
 
                         <div className="space-y-4">
-                            <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground ml-2">JSON das Questões</label>
-                            <textarea
-                                value={jsonInput}
-                                onChange={(e) => setJsonInput(e.target.value)}
-                                className="w-full h-80 bg-muted/30 border-2 border-dashed border-border rounded-[32px] p-8 font-mono text-xs focus:ring-2 focus:ring-primary/20 outline-none transition-all resize-none"
-                                placeholder='[ { "id": "...", "area": { ... }, "subarea": { ... }, "tema": { ... }, "enunciado": "...", ... } ]'
-                            />
+                            <div className="flex items-center justify-between ml-2">
+                                <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">JSON das Questões</label>
+                                {jsonError && (
+                                    <div className="flex items-center gap-2 text-[10px] font-bold text-rose-500 uppercase animate-pulse">
+                                        <AlertCircle className="w-3 h-3" />
+                                        Erro na Linha {jsonError.line}: {jsonError.message}
+                                    </div>
+                                )}
+                            </div>
+                            <div className="relative group bg-[#0F0A1E] rounded-[32px] overflow-hidden border-2 border-border/50 focus-within:border-primary/50 transition-all">
+                                {/* Line numbers gutter */}
+                                <div className="absolute left-0 top-0 bottom-0 w-12 bg-black/20 border-r border-white/5 flex flex-col py-8 items-end pr-3 text-[9px] font-mono text-muted-foreground/50 select-none pointer-events-none z-20">
+                                    {jsonInput.split('\n').map((_, i) => (
+                                        <div key={i} className={`h-[1.35em] flex items-center ${jsonError?.line === i + 1 ? 'text-rose-500 font-bold' : ''}`}>
+                                            {i + 1}
+                                        </div>
+                                    ))}
+                                </div>
+
+                                <textarea
+                                    ref={textareaRef}
+                                    value={jsonInput}
+                                    onScroll={handleJsonScroll}
+                                    onChange={(e) => {
+                                        setJsonInput(e.target.value)
+                                        if (jsonError) setJsonError(null)
+                                    }}
+                                    className={`w-full h-[550px] bg-transparent pl-16 pr-8 py-8 font-mono text-[11px] leading-[1.35em] text-white focus:ring-0 outline-none transition-all resize-none relative z-10 custom-scrollbar overflow-auto placeholder:text-muted-foreground/20`}
+                                    placeholder='[ { "id": "...", "enunciado": "...", ... } ]'
+                                    spellCheck={false}
+                                />
+
+                                {/* Highlighter Overlay */}
+                                <div
+                                    ref={overlayRef}
+                                    className="absolute inset-0 pl-16 pr-8 py-8 font-mono text-[11px] leading-[1.35em] pointer-events-none whitespace-pre select-none text-transparent overflow-hidden"
+                                >
+                                    {jsonInput.split('\n').map((line, i) => (
+                                        <div
+                                            key={i}
+                                            className={`${jsonError?.line === i + 1 ? 'bg-rose-500/20 ring-1 ring-rose-500/50 relative after:content-["←_ERRO_AQUI"] after:absolute after:right-0 after:text-rose-400 after:text-[9px] after:font-black after:bg-rose-950/80 after:px-2 after:py-0.5 after:rounded after:border after:border-rose-500/30' : ''} h-[1.35em] flex items-center`}
+                                        >
+                                            {line || ' '}
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
                         </div>
 
                         <div className="flex gap-4">
@@ -1259,8 +1308,20 @@ export default function AdminDashboard() {
             } else {
                 setImportStatus({ type: 'success', msg: '✅ Nenhuma correção necessária! O texto está perfeito.' })
             }
+            setJsonError(null)
         } catch (error: any) {
             console.error('Review error:', error)
+
+            // Tentar extrair linha do erro
+            const posMatch = error.message.match(/position (\d+)/) || error.message.match(/at (\d+)/)
+            if (posMatch) {
+                const pos = parseInt(posMatch[1])
+                const line = jsonInput.substring(0, pos).split('\n').length
+                setJsonError({ line, message: error.message })
+            } else {
+                setJsonError({ line: 1, message: error.message })
+            }
+
             setImportStatus({ type: 'error', msg: `❌ Erro na revisão: ${error.message}` })
         } finally {
             setIsStepReviewing(false)
@@ -1364,8 +1425,19 @@ export default function AdminDashboard() {
                 throw new Error(message)
             }
         } catch (error: any) {
-            console.error('Import error:', error)
-            setImportStatus({ type: 'error', msg: `❌ Erro no JSON: ${error.message}` })
+            console.error('Save error:', error)
+
+            // Tentar extrair linha do erro
+            const posMatch = error.message.match(/at position (\d+)/)
+            if (posMatch) {
+                const pos = parseInt(posMatch[1])
+                const line = jsonInput.substring(0, pos).split('\n').length
+                setJsonError({ line, message: error.message })
+            } else {
+                setJsonError({ line: 1, message: error.message })
+            }
+
+            setImportStatus({ type: 'error', msg: `❌ Erro: ${error.message}` })
         } finally {
             setLoadingManual(false)
         }
@@ -2598,7 +2670,7 @@ export default function AdminDashboard() {
                             />
                             <StatCard
                                 label="Questões no Banco"
-                                value={questions.length.toLocaleString('pt-BR')}
+                                value={totalCount.toLocaleString('pt-BR')}
                                 sub={`${questions.filter((q: any) => q.status_validacao === 'PENDENTE').length} pendentes`}
                                 color="text-blue-500"
                                 icon={<Database className="w-5 h-5" />}
@@ -2664,7 +2736,7 @@ export default function AdminDashboard() {
                                         return d.toDateString() === new Date().toDateString();
                                     }).length.toString()} />
                                     <GenStat label="Aguardando Validação" value={questions.filter((q: any) => q.status_validacao === 'PENDENTE').length.toString()} />
-                                    <GenStat label="Total Questões" value={questions.length.toString()} />
+                                    <GenStat label="Total Questões" value={totalCount.toString()} />
                                     <GenStat label="Temas Cobertos" value={new Set(questions.map((q: any) => q.subject_id)).size.toString()} />
                                     <div className="pt-6 mt-6 border-t border-border flex justify-between items-center">
                                         <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Custo Indireto</p>

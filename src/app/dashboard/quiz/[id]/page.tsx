@@ -289,7 +289,7 @@ export default function QuizPage() {
     }
 
     return (
-        <div className={`min-h-screen flex flex-col transition-all duration-500 ${isFocusMode ? 'bg-[#0a0a0a] text-white p-8 md:p-20' : 'bg-background'}`}>
+        <div className={`min-h-screen flex flex-col px-4 transition-all duration-500 ${isFocusMode ? 'bg-[#0a0a0a] text-white p-6 md:p-20' : 'bg-background py-8'}`}>
             <RegistrationModal isOpen={showRegModal} onClose={() => setShowRegModal(false)} />
             <PaywallModal
                 isOpen={showPaywall}
@@ -513,23 +513,41 @@ export default function QuizPage() {
                         const isCorrect = questionState?.correct
                         const isAnswered = questionState !== undefined
 
-                        let bgColor = 'bg-muted text-muted-foreground'
+                        // User can only click if question is already answered OR it's the next one to be answered
+                        // We use the count of answered questions to determine the max reached index
+                        const maxAnsweredIdx = Object.keys(answeredQuestions).length
+                        const isLocked = idx > maxAnsweredIdx
+
+                        let bgColor = 'bg-muted text-muted-foreground' // Locked/Default
                         if (isAnswered) {
                             bgColor = isCorrect ? 'bg-emerald-500 text-white' : 'bg-rose-500 text-white'
                         } else if (isCurrentQuestion) {
                             bgColor = 'bg-primary text-white ring-2 ring-primary/50'
+                        } else if (isLocked) {
+                            bgColor = 'bg-slate-100 text-slate-300 cursor-not-allowed opacity-50'
                         }
 
                         return (
                             <button
                                 key={idx}
+                                disabled={isLocked}
                                 onClick={() => {
-                                    setCurrentIdx(idx)
-                                    setSelectedOptionId(null)
-                                    setHasConfirmed(false)
-                                    setIsAnswered(false)
+                                    if (!isLocked) {
+                                        setCurrentIdx(idx)
+                                        // Reset state for newly selected question if it's not answered yet
+                                        if (!answeredQuestions[idx]) {
+                                            setSelectedOptionId(null)
+                                            setHasConfirmed(false)
+                                            setIsAnswered(false)
+                                        } else {
+                                            // Show the result if it was already answered
+                                            setSelectedOptionId(answeredQuestions[idx].selectedId)
+                                            setHasConfirmed(true)
+                                            setIsAnswered(true)
+                                        }
+                                    }
                                 }}
-                                className={`w-12 h-12 rounded-xl font-black text-sm transition-all hover:scale-110 ${bgColor}`}
+                                className={`w-12 h-12 rounded-xl font-black text-sm transition-all ${isLocked ? '' : 'hover:scale-110'} ${bgColor}`}
                             >
                                 {idx + 1}
                             </button>
