@@ -30,6 +30,7 @@ import { MEDICAL_LIBRARY } from '@/lib/generators/medical-library'
 import { MEDICAL_HIERARCHY } from '@/lib/medical-specialties'
 import { QuestionPreviewModal } from '@/components/question-preview-modal'
 import { QuestionsBreakdownModal } from '@/components/questions-breakdown-modal'
+import { UserAnalysisModal } from '@/components/user-analysis-modal'
 
 export default function AdminDashboard() {
     const { user, isAuthenticated } = useAuth()
@@ -52,6 +53,7 @@ export default function AdminDashboard() {
     const [validationFilter, setValidationFilter] = useState<'PENDENTE' | 'APROVADA' | 'REPROVADA'>('PENDENTE')
     const [previewQuestion, setPreviewQuestion] = useState<Question | null>(null)
     const [isBreakdownOpen, setIsBreakdownOpen] = useState(false)
+    const [analysisUserId, setAnalysisUserId] = useState<string | null>(null)
 
     const setView = (newView: string) => {
         setViewInternal(newView as any)
@@ -2489,9 +2491,12 @@ export default function AdminDashboard() {
                                                         />
                                                     </td>
                                                     <td className="px-4 py-6">
-                                                        <div className="font-bold flex items-center gap-2">
+                                                        <div
+                                                            className="font-bold flex items-center gap-2 cursor-pointer hover:text-primary transition-colors group"
+                                                            onClick={() => setAnalysisUserId(u.id)}
+                                                        >
                                                             {u.name}
-                                                            <ExternalLink className="w-3 h-3 text-muted-foreground" />
+                                                            <ExternalLink className="w-3 h-3 text-muted-foreground group-hover:text-primary" />
                                                         </div>
                                                         <div className="text-[10px] text-muted-foreground uppercase flex items-center gap-1">
                                                             <Mail className="w-3 h-3" /> {u.email}
@@ -2908,6 +2913,12 @@ export default function AdminDashboard() {
                 isOpen={isBreakdownOpen}
                 onClose={() => setIsBreakdownOpen(false)}
                 questions={questions}
+            />
+
+            <UserAnalysisModal
+                isOpen={!!analysisUserId}
+                onClose={() => setAnalysisUserId(null)}
+                userId={analysisUserId}
             />
         </div>
     )
