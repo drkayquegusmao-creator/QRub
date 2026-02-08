@@ -67,7 +67,7 @@ import { useState, useMemo, useEffect } from 'react'
 export default function StudentDashboard() {
     const router = useRouter()
     const { user } = useAuth()
-    const { get_intelligent_action, get_pending_tasks, get_critical_points, load_progress } = useSRS()
+    const { get_intelligent_action, get_pending_tasks, get_critical_points, load_progress, taxonomy } = useSRS()
     const { blueprints, loadBlueprints } = useBlueprints()
     const { responses, get_accuracy_by_specialty, get_weekly_accuracy, load_responses } = useQuiz()
     const { questions, loadQuestions } = useQuestions()
@@ -75,6 +75,15 @@ export default function StudentDashboard() {
     const intelligentAction = useMemo(() => get_intelligent_action(questions), [get_intelligent_action, questions])
     const pendingTasks = useMemo(() => get_pending_tasks(), [get_pending_tasks])
     const criticalPoints = useMemo(() => get_critical_points(), [get_critical_points])
+
+    // Use dynamic taxonomy if available, else static
+    const courses = useMemo(() => {
+        if (taxonomy && taxonomy.length > 0) return taxonomy
+        return COURSES
+    }, [taxonomy])
+
+    // Safety accessor
+    const getSpecialties = () => courses[0]?.specialties || []
 
     const [showPaywall, setShowPaywall] = useState(false)
     const [showPlansModal, setShowPlansModal] = useState(false)
@@ -192,7 +201,7 @@ export default function StudentDashboard() {
                                 <div className={`w-3 h-3 rounded-full ${task.stage === 'LEVELING' ? 'bg-amber-500' : 'bg-rose-500'}`} />
                                 <div>
                                     <p className="font-black text-sm uppercase italic leading-tight">
-                                        {COURSES[0].specialties.find(s => s.id === task.subject_id)?.name || task.subject_id}
+                                        {getSpecialties().find(s => s.id === task.subject_id)?.name || task.subject_id}
                                     </p>
                                     <p className="text-[9px] font-bold text-slate-400 uppercase tracking-widest">{task.stage === 'LEVELING' ? 'Nivelamento Pendente' : 'Revisão Atrasada'}</p>
                                 </div>
@@ -226,7 +235,7 @@ export default function StudentDashboard() {
                 <div className="relative z-10 space-y-4">
                     {criticalPoints.length > 0 ? criticalPoints.map((point, i) => (
                         <div key={i} className="bg-white/5 border border-white/10 p-5 rounded-3xl space-y-2">
-                            <p className="font-bold text-base leading-snug">Sua precisão em <span className="text-primary-foreground font-black italic">{COURSES[0].specialties.find(s => s.id === point.subject_id)?.name || point.subject_id}</span> caiu abaixo de 50%.</p>
+                            <p className="font-bold text-base leading-snug">Sua precisão em <span className="text-primary-foreground font-black italic">{getSpecialties().find(s => s.id === point.subject_id)?.name || point.subject_id}</span> caiu abaixo de 50%.</p>
                             <Link href={`/dashboard/quiz/auto?mode=TREINO&specialtyId=${encodeURIComponent(point.subject_id)}&count=15`} className="flex items-center gap-2 pt-2 text-[10px] font-black text-white/50 hover:text-white transition-colors cursor-pointer uppercase tracking-widest group/link">
                                 Resolver Erros Críticos <ArrowRight className="w-3 h-3 group-hover/link:translate-x-1 transition-transform" />
                             </Link>
@@ -376,7 +385,7 @@ export default function StudentDashboard() {
     }
 
     const renderPerformanceByArea = () => {
-        const performanceData = COURSES[0].specialties.map(s => ({
+        const performanceData = getSpecialties().map(s => ({
             name: s.name,
             val: get_accuracy_by_specialty(s.id)
         })).sort((a, b) => b.val - a.val).slice(0, 5)

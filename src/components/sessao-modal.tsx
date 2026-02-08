@@ -69,28 +69,57 @@ export function SessaoModal({ isOpen, onClose, assunto_id, tipo, onComplete }: S
 
                 // 1. Buscar detalhes do assunto
                 let assunto = null
-                // Tenta achar em specialty level (padrão atual do dashboard)
-                const spec = MEDICAL_HIERARCHY[0].specialties.find((s: any) => s.id === assunto_id)
-                if (spec) {
-                    assunto = { id: spec.id, nome: spec.name, specialty_id: spec.id }
-                } else {
-                    // Deep search
-                    MEDICAL_HIERARCHY[0].specialties.forEach(s => {
-                        if (s.subspecialties) {
-                            s.subspecialties.forEach(sub => {
-                                if (sub.id === assunto_id) assunto = { id: sub.id, nome: sub.name, specialty_id: s.id }
+
+                // Helper to search in a hierarchy tree
+                const findSubject = (nodes: any[]) => {
+                    for (const node of nodes) {
+                        if (node.id === assunto_id) return { id: node.id, nome: node.name, specialty_id: node.id } // If it's a specialty itself
+
+                        if (node.subspecialties) {
+                            for (const sub of node.subspecialties) {
+                                if (sub.id === assunto_id) return { id: sub.id, nome: sub.name, specialty_id: node.id }
                                 if (sub.subjects) {
-                                    sub.subjects.forEach(subj => {
-                                        if (subj.id === assunto_id) assunto = { id: subj.id, nome: subj.name, specialty_id: s.id }
-                                    })
+                                    for (const subj of sub.subjects) {
+                                        if (subj.id === assunto_id) return { id: subj.id, nome: subj.name, specialty_id: node.id }
+                                    }
                                 }
-                            })
+                            }
+                        } else if (node.subjects) { // In case structure varies or flat list
+                            for (const subj of node.subjects) {
+                                if (subj.id === assunto_id) return { id: subj.id, nome: subj.name, specialty_id: node.id }
+                            }
                         }
-                    })
+                    }
+                    return null
+                }
+
+                // Try Dynamic Taxonomy first
+                try {
+                    const { useSRS } = await import('@/store/use-srs')
+                    const { taxonomy } = useSRS.getState()
+                    if (taxonomy && taxonomy.length > 0 && taxonomy[0].specialties) {
+                        assunto = findSubject(taxonomy[0].specialties)
+                    }
+                } catch (e) { console.warn('SRS Taxonomy not available', e) }
+
+                // Fallback to Static
+                if (!assunto) {
+                    const { MEDICAL_HIERARCHY } = await import('@/lib/medical-specialties')
+                    assunto = findSubject(MEDICAL_HIERARCHY[0].specialties)
                 }
 
                 if (!assunto) {
-                    assunto = { id: assunto_id, nome: 'Assunto Desconhecido', specialty_id: assunto_id }
+                    // Final fallback: fetch from taxonomia table directly if not found in tree
+                    const { data: taxNode } = await supabase.from('taxonomia').select('id, name, parent_id, level').eq('slug', assunto_id).single()
+                    if (taxNode) {
+                        // We need specialty_id. recursive fetch? 
+                        // Simplification: use current id or parent if available. 
+                        // Check parent to find specialty root. 
+                        // For now assume if not in tree, we just use what we have.
+                        assunto = { id: taxNode.slug || assunto_id, nome: taxNode.name, specialty_id: assunto_id }
+                    } else {
+                        assunto = { id: assunto_id, nome: 'Assunto Desconhecido', specialty_id: assunto_id }
+                    }
                 }
 
                 // 2. Buscar questoes COMPATÍVEIS e ANTI-REPETIÇÃO

@@ -5,7 +5,7 @@ import {
     Plus, Search, Edit2, Trash2, Users, Crown, Star,
     RefreshCw, Database, BarChart3, Upload, CheckCircle2, XCircle,
     AlertCircle, History, ExternalLink, Mail, Phone, BookOpen, GraduationCap, Sparkles, X, ShieldCheck, DollarSign, Settings, ArrowLeft,
-    Activity, Target, Zap, TrendingUp, ChevronLeft, ChevronRight, Flag, Hammer, Wrench, ShieldAlert, Paperclip
+    Activity, Target, Zap, TrendingUp, ChevronLeft, ChevronRight, Flag, Hammer, Wrench, ShieldAlert, Paperclip, Network
 } from 'lucide-react'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
@@ -31,6 +31,7 @@ import { MEDICAL_HIERARCHY } from '@/lib/medical-specialties'
 import { QuestionPreviewModal } from '@/components/question-preview-modal'
 import { QuestionsBreakdownModal } from '@/components/questions-breakdown-modal'
 import { UserAnalysisModal } from '@/components/user-analysis-modal'
+import TaxonomyEditor from '@/components/admin-taxonomy-editor'
 
 export default function AdminDashboard() {
     const { user, isAuthenticated } = useAuth()
@@ -43,7 +44,7 @@ export default function AdminDashboard() {
     const { reports, loadReports, updateReportStatus, loading: reportsLoading } = useModeration()
     const { responses, load_all_responses: loadAllResponses } = useQuiz()
     // QRUB MASTER - Structural State
-    const [view, setViewInternal] = useState<'questions' | 'users' | 'analytics' | 'reports' | 'import' | 'structural' | 'validation' | 'settings'>('analytics')
+    const [view, setViewInternal] = useState<'questions' | 'users' | 'analytics' | 'reports' | 'import' | 'structural' | 'validation' | 'settings' | 'taxonomy'>('analytics')
     const { isMaintenanceMode, maintenanceMessage, setMaintenanceMode, openaiApiKey, setOpenaiApiKey } = useSystem()
     const [generationMode, setGenerationMode] = useState<'structural' | 'ai'>('structural')
     const [generationQuantity, setGenerationQuantity] = useState(1)
@@ -64,7 +65,7 @@ export default function AdminDashboard() {
 
     useEffect(() => {
         const tab = searchParams.get('tab')
-        if (tab && ['questions', 'users', 'analytics', 'reports', 'import', 'structural', 'validation', 'settings'].includes(tab)) {
+        if (tab && ['questions', 'users', 'analytics', 'reports', 'import', 'structural', 'validation', 'settings', 'taxonomy'].includes(tab)) {
             setViewInternal(tab as any)
         } else if (!tab) {
             setViewInternal('analytics')
@@ -2193,6 +2194,7 @@ export default function AdminDashboard() {
                     <NavBtn active={view === 'structural'} onClick={() => setView('structural')} icon={<Sparkles className="w-4 h-4" />} label="Gerador" />
                     <NavBtn active={view === 'import'} onClick={() => setView('import')} icon={<Upload className="w-4 h-4" />} label="Import" />
                     <NavBtn active={view === 'reports'} onClick={() => setView('reports')} icon={<AlertCircle className="w-4 h-4" />} label="Regulação" />
+                    <NavBtn active={view === 'taxonomy'} onClick={() => setView('taxonomy')} icon={<Network className="w-4 h-4" />} label="Taxonomia" />
                     <NavBtn active={view === 'users'} onClick={() => setView('users')} icon={<Users className="w-4 h-4" />} label="Alunos" />
                     <NavBtn active={view === 'settings'} onClick={() => setView('settings')} icon={<Settings className="w-4 h-4" />} label="Ajustes" />
                 </div>
@@ -2656,6 +2658,11 @@ export default function AdminDashboard() {
                 {view === 'validation' && renderValidationQueue()}
                 {view === 'import' && renderImportSection()}
                 {view === 'settings' && renderSettingsSection()}
+                {view === 'taxonomy' && (
+                    <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="h-[calc(100vh-200px)] overflow-hidden rounded-3xl border border-slate-200 shadow-sm">
+                        <TaxonomyEditor />
+                    </motion.div>
+                )}
 
 
 

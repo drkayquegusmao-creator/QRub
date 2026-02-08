@@ -2,6 +2,7 @@ import { create } from 'zustand'
 import { persist, createJSONStorage } from 'zustand/middleware'
 import { UserResponse } from '@/lib/data-mock'
 import { addDays, isBefore, parseISO, startOfDay, differenceInDays } from 'date-fns'
+import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
 
 type SRSStage = 'NEUTRAL' | 'LEVELING' | 'ACTIVE'
 type SRSLevel = 'FRACO' | 'REGULAR' | 'BOM' | 'FORTE' | 'NOT_LEVELED'
@@ -47,6 +48,11 @@ interface SRSState {
 
     // Supabase Sync
     load_progress: (user_id: string) => Promise<void>
+
+    // Dynamic Taxonomy
+    taxonomy: any[]
+    init_taxonomy: () => Promise<void>
+
     save_progress: (user_id: string, subject_id: string) => Promise<void>
 
     // Getters for UI
@@ -76,6 +82,63 @@ export const useSRS = create<SRSState>()(
         (set, get) => ({
             subjects: {},
             loading: false,
+            taxonomy: [],
+
+            init_taxonomy: async () => {
+                const { taxonomy } = get()
+                if (taxonomy.length > 0) return
+
+                try {
+                    const supabase = createClientComponentClient()
+                    const { data, error } = await supabase
+                        .from('taxonomia')
+                        .select('id, slug, name, parent_id, level, metadata')
+                        .eq('active', true)
+
+                    if (error || !data) return
+
+                    // Transform flat list to hierarchy matching MEDICAL_HIERARCHY structure
+                    const buildHierarchy = (items: any[]) => {
+                        const nodeMap = new Map()
+                        const roots: any[] = []
+
+                        // Create nodes
+                        items.forEach(item => {
+                            const node = {
+                                id: item.slug, // Map slug to id for app compatibility
+                                name: item.name,
+                                uuid: item.id,
+                                category: item.metadata?.category, // Only for specialties
+                                specialties: item.level === 'course' ? [] : undefined,
+                                subspecialties: item.level === 'specialty' ? [] : undefined,
+                                subjects: item.level === 'subspecialty' ? [] : undefined
+                            }
+                            nodeMap.set(item.id, node)
+                        })
+
+                        // Link parents
+                        items.forEach(item => {
+                            const node = nodeMap.get(item.id)
+                            if (item.parent_id && nodeMap.has(item.parent_id)) {
+                                const parent = nodeMap.get(item.parent_id)
+                                if (item.level === 'specialty') parent.specialties.push(node)
+                                else if (item.level === 'subspecialty') parent.subspecialties.push(node)
+                                else if (item.level === 'subject') parent.subjects.push(node)
+                            } else if (item.level === 'course') {
+                                roots.push(node)
+                            }
+                        })
+
+                        return roots
+                    }
+
+                    const hierarchy = buildHierarchy(data)
+                    set({ taxonomy: hierarchy })
+                } catch (err) {
+                    console.error('Failed to load dynamic taxonomy for SRS:', err)
+                }
+            },
+
 
             process_answer: async (user_id, response, subject_id) => {
                 // The leveling logic is invisible but mandatory
@@ -172,6 +235,9 @@ export const useSRS = create<SRSState>()(
                     }
 
                     set({ loading: true })
+
+                    // Initialize taxonomy if not loaded
+                    await get().init_taxonomy()
 
                     const { data, error } = await supabase
                         .from('subject_progress')
@@ -322,8 +388,16 @@ export const useSRS = create<SRSState>()(
                 }
 
                 // 4. Priority: Start New Leveling (Maintenance/Progression)
-                const { MEDICAL_HIERARCHY } = require('@/lib/medical-specialties')
-                const allSpecialties = MEDICAL_HIERARCHY[0].specialties
+                // Use dynamic taxonomy if available, fallback to static
+                let allSpecialties = []
+                const { taxonomy } = get()
+
+                if (taxonomy.length > 0 && taxonomy[0].specialties) {
+                    allSpecialties = taxonomy[0].specialties
+                } else {
+                    const { MEDICAL_HIERARCHY } = require('@/lib/medical-specialties')
+                    allSpecialties = MEDICAL_HIERARCHY[0].specialties
+                }
 
                 // Find specialties the user hasn't started yet and THAT HAVE QUESTIONS APROVADAS
                 const untrackedWithQuestions = allSpecialties.filter((spec: any) => {
@@ -391,9 +465,15 @@ export const useSRS = create<SRSState>()(
 
                 // 3. If empty, suggest new subjects from hierarchy
                 if (combined.length === 0) {
-                    const { MEDICAL_HIERARCHY } = require('@/lib/medical-specialties')
-                    // Flatten hierarchy to get all subject names (specialties in this case)
-                    const allSpecialties = MEDICAL_HIERARCHY[0].specialties
+                    let allSpecialties = []
+                    const { taxonomy } = get()
+
+                    if (taxonomy.length > 0 && taxonomy[0].specialties) {
+                        allSpecialties = taxonomy[0].specialties
+                    } else {
+                        const { MEDICAL_HIERARCHY } = require('@/lib/medical-specialties')
+                        allSpecialties = MEDICAL_HIERARCHY[0].specialties
+                    }
                     const untracked = allSpecialties.filter((spec: any) => !subjects[spec.id])
 
                     if (untracked.length > 0) {

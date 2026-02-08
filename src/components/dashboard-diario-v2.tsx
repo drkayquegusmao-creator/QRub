@@ -80,7 +80,17 @@ export function DashboardDiario() {
             try {
                 setLoading(true)
                 const { supabase } = await import('@/lib/supabase')
-                const { MEDICAL_HIERARCHY } = require('@/lib/medical-specialties')
+                const { fetchTaxonomyHierarchy } = await import('@/lib/taxonomy-service')
+                let hierarchyData: any[] = []
+                try {
+                    hierarchyData = await fetchTaxonomyHierarchy()
+                } catch (e) { console.error('Error fetching taxonomy', e) }
+
+                if (!hierarchyData || hierarchyData.length === 0) {
+                    const { MEDICAL_HIERARCHY: staticHier } = require('@/lib/medical-specialties')
+                    hierarchyData = staticHier
+                }
+
                 const today = new Date()
                 today.setHours(0, 0, 0, 0)
                 const todayStr = today.toISOString().split('T')[0]
@@ -106,27 +116,37 @@ export function DashboardDiario() {
                     .eq('user_id', user.id)
                     .neq('status', 'resolvido')
 
-                // Helper de Detalhes do Assunto (Hierarquia)
+                // Helper de Detalhes do Assunto (Hierarquia) - Generic for both structures usually
                 const getDetalhesAssunto = (id: string) => {
-                    const topSpec = MEDICAL_HIERARCHY[0].specialties.find((s: any) => s.id === id)
-                    if (topSpec) return { especialidade: topSpec.name, assunto: topSpec.name }
+                    // Try to find in top level (Specialties for static, Course for dynamic usually but mapped)
+                    // My service returns array of Courses [ { specialties: [...] } ] usually or flattened?
+                    // Service returns roots. If level='course', it has specialties.
 
-                    let result = { especialidade: '', assunto: id }
+                    // Flatten logic
+                    let found: { especialidade: string, assunto: string } | null = null
 
-                    MEDICAL_HIERARCHY[0].specialties.forEach((spec: any) => {
-                        spec.subspecialties?.forEach((sub: any) => {
-                            if (sub.id === id) {
-                                result = { especialidade: spec.name, assunto: sub.name }
+                    const search = (nodes: any[], currentSpec: string | null) => {
+                        if (found) return
+                        for (const node of nodes) {
+                            const isSpec = node.specialties || node.subspecialties // Heuristic
+                            let specName = currentSpec
+                            if (!specName && (node.specialties || node.subspecialties)) specName = node.name
+
+                            if (node.id === id) {
+                                found = { especialidade: specName || node.name, assunto: node.name }
+                                return
                             }
-                            sub.subjects?.forEach((subj: any) => {
-                                if (subj.id === id) {
-                                    result = { especialidade: spec.name, assunto: subj.name }
-                                }
-                            })
-                        })
-                    })
-                    if (!result.especialidade) return { especialidade: 'Geral', assunto: id }
-                    return result
+
+                            if (node.specialties) search(node.specialties, specName)
+                            if (node.subspecialties) search(node.subspecialties, specName || node.name) // If it's specialty, pass name
+                            if (node.subjects) search(node.subjects, specName)
+                        }
+                    }
+
+                    search(hierarchyData, null)
+
+                    if (found) return found
+                    return { especialidade: 'Geral', assunto: id }
                 }
 
                 if (!errErros && errosDb) {
@@ -215,7 +235,13 @@ export function DashboardDiario() {
                 })
 
                 let sugestao = null
-                const levelCandidates = MEDICAL_HIERARCHY[0].specialties
+                let levelCandidates: any[] = []
+                if (hierarchyData.length > 0 && hierarchyData[0].specialties) {
+                    levelCandidates = hierarchyData[0].specialties
+                } else {
+                    // Fallback/Direct roots
+                    levelCandidates = hierarchyData
+                }
                 const niveladosIds = new Set(progressos?.map(p => p.assunto_id) || [])
 
                 for (const cand of levelCandidates) {
