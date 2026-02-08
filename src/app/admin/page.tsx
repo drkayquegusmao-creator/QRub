@@ -36,7 +36,7 @@ export default function AdminDashboard() {
     const { user, isAuthenticated } = useAuth()
     const router = useRouter()
     const searchParams = useSearchParams()
-    const { questions, totalCount, currentPage: storePage, deleteQuestion, deleteQuestions, addQuestion, addQuestions, loadQuestions, loading } = useQuestionsStore()
+    const { questions, totalCount, currentPage: storePage, deleteQuestion, deleteQuestions, addQuestion, addQuestions, loadQuestions, fetchAllQuestions, loading } = useQuestionsStore()
     const { users: realUsers, loadUsers, updateUserPlan, updateUserRole, deleteUser, deleteUsers } = useUserDb()
     const [selectedUserIds, setSelectedUserIds] = useState<string[]>([])
 
@@ -1162,9 +1162,8 @@ export default function AdminDashboard() {
 
     // Filtered questions (apenas filtro de busca local, paginação vem do backend)
     const filteredQuestions = useMemo(() => {
-        if (!searchTerm) return questions
-        return questions.filter(q => q.enunciado.toLowerCase().includes(searchTerm.toLowerCase()))
-    }, [questions, searchTerm])
+        return questions
+    }, [questions])
 
     // Question counts by specialty
     const countsBySpecialty = useMemo(() => {
@@ -1182,7 +1181,7 @@ export default function AdminDashboard() {
     // Carregar nova página quando currentPage mudar
     useEffect(() => {
         console.log(`🔄 Carregando página ${currentPage}...`)
-        loadQuestions({ page: currentPage, pageSize: itemsPerPage })
+        loadQuestions({ page: currentPage, pageSize: itemsPerPage, searchTerm })
     }, [currentPage])
 
     // Reset page when search changes
@@ -1190,7 +1189,7 @@ export default function AdminDashboard() {
         if (currentPage !== 1) {
             setCurrentPage(1)
         } else {
-            loadQuestions({ page: 1, pageSize: itemsPerPage })
+            loadQuestions({ page: 1, pageSize: itemsPerPage, searchTerm })
         }
     }, [searchTerm])
 
@@ -1564,14 +1563,28 @@ export default function AdminDashboard() {
 
 
 
-    const handleDownloadBackup = () => {
-        const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(questions, null, 2))
-        const downloadAnchorNode = document.createElement('a')
-        downloadAnchorNode.setAttribute("href", dataStr)
-        downloadAnchorNode.setAttribute("download", `BACKUP_QRUB_QUESTOES_${new Date().toISOString().split('T')[0]}.json`)
-        document.body.appendChild(downloadAnchorNode)
-        downloadAnchorNode.click()
-        downloadAnchorNode.remove()
+    const handleDownloadBackup = async () => {
+        try {
+            console.log('📥 Iniciando download de backup completo...')
+            const allQuestions = await fetchAllQuestions()
+
+            if (!allQuestions || allQuestions.length === 0) {
+                alert('⚠️ Nenhuma questão encontrada ou erro ao carregar o banco.')
+                return
+            }
+
+            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(allQuestions, null, 2))
+            const downloadAnchorNode = document.createElement('a')
+            downloadAnchorNode.setAttribute("href", dataStr)
+            downloadAnchorNode.setAttribute("download", `BACKUP_QRUB_QUESTOES_${allQuestions.length}_${new Date().toISOString().split('T')[0]}.json`)
+            document.body.appendChild(downloadAnchorNode)
+            downloadAnchorNode.click()
+            downloadAnchorNode.remove()
+            console.log(`✅ Backup de ${allQuestions.length} questões concluído.`)
+        } catch (error) {
+            console.error('❌ Erro no backup:', error)
+            alert('Erro ao gerar arquivo de backup.')
+        }
     }
 
     const handleRestoreBackup = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -2909,11 +2922,13 @@ export default function AdminDashboard() {
                 )}
             </AnimatePresence>
 
-            <QuestionsBreakdownModal
-                isOpen={isBreakdownOpen}
-                onClose={() => setIsBreakdownOpen(false)}
-                questions={questions}
-            />
+            {isBreakdownOpen && (
+                <QuestionsBreakdownFetcher
+                    isOpen={isBreakdownOpen}
+                    onClose={() => setIsBreakdownOpen(false)}
+                    fetchAll={fetchAllQuestions}
+                />
+            )}
 
             <UserAnalysisModal
                 isOpen={!!analysisUserId}
@@ -3024,4 +3039,38 @@ function PlanBadge({ plan }: { plan: PlanLevel }) {
     if (plan === 'PREMIUM') return <span className="inline-flex items-center gap-1 bg-primary/10 text-primary px-3 py-1.5 rounded-full text-[10px] font-black uppercase"><Star className="w-3 h-3" /> PREMIUM</span>
     return <span className="inline-flex items-center gap-1 bg-muted text-muted-foreground px-3 py-1.5 rounded-full text-[10px] font-black uppercase">FREE</span>
 }
+
+function QuestionsBreakdownFetcher({ isOpen, onClose, fetchAll }: { isOpen: boolean, onClose: () => void, fetchAll: () => Promise<Question[]> }) {
+    const [allQs, setAllQs] = useState<Question[]>([])
+    const [loading, setLoading] = useState(true)
+
+    useEffect(() => {
+        if (isOpen) {
+            fetchAll().then(qs => {
+                setAllQs(qs)
+                setLoading(false)
+            })
+        }
+    }, [isOpen, fetchAll])
+
+    if (loading) {
+        return (
+            <div className="fixed inset-0 z-[11001] flex items-center justify-center bg-background/80 backdrop-blur-sm">
+                <div className="flex flex-col items-center gap-4">
+                    <RefreshCw className="w-8 h-8 text-primary animate-spin" />
+                    <p className="text-xs font-black uppercase tracking-widest text-muted-foreground">Processando Raio-X do Banco...</p>
+                </div>
+            </div>
+        )
+    }
+
+    return (
+        <QuestionsBreakdownModal
+            isOpen={isOpen}
+            onClose={onClose}
+            questions={allQs}
+        />
+    )
+}
+
 

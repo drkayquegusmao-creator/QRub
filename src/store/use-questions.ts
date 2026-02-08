@@ -17,6 +17,7 @@ interface QuestionsState {
         specialty_id?: string | string[],
         subspecialty_id?: string,
         subject_id?: string,
+        searchTerm?: string,
         page?: number,
         pageSize?: number
     }) => Promise<void>
@@ -25,6 +26,7 @@ interface QuestionsState {
     addQuestions: (questions: Question[]) => Promise<{ success: boolean, message: string }>
     deleteQuestion: (id: string) => Promise<{ success: boolean, message: string }>
     deleteQuestions: (ids: string[]) => Promise<{ success: boolean, message: string }>
+    fetchAllQuestions: () => Promise<Question[]>
     setEphemeralQuestions: (questions: Question[]) => void
 }
 
@@ -59,6 +61,7 @@ export const useQuestions = create<QuestionsState>()(
                     }
                     if (filters?.subspecialty_id) countQuery = countQuery.eq('subspecialty_id', filters.subspecialty_id)
                     if (filters?.subject_id) countQuery = countQuery.eq('subject_id', filters.subject_id)
+                    if (filters?.searchTerm) countQuery = countQuery.ilike('enunciado', `%${filters.searchTerm}%`)
 
                     const { count, error: countError } = await countQuery
 
@@ -77,6 +80,7 @@ export const useQuestions = create<QuestionsState>()(
                     }
                     if (filters?.subspecialty_id) dataQuery = dataQuery.eq('subspecialty_id', filters.subspecialty_id)
                     if (filters?.subject_id) dataQuery = dataQuery.eq('subject_id', filters.subject_id)
+                    if (filters?.searchTerm) dataQuery = dataQuery.ilike('enunciado', `%${filters.searchTerm}%`)
 
                     const startIndex = (page - 1) * pageSize
                     const endIndex = startIndex + pageSize - 1
@@ -243,6 +247,40 @@ export const useQuestions = create<QuestionsState>()(
             } catch (err: unknown) {
                 console.error('💥 Store: Erro na deleção em massa:', err)
                 return { success: false, message: err instanceof Error ? err.message : 'Erro ao remover questões' }
+            }
+        },
+
+        fetchAllQuestions: async () => {
+            if (!isSupabaseConfigured()) return []
+            console.log('📦 Buscando todas as questões para backup...')
+
+            let allData: Question[] = []
+            let from = 0
+            const step = 1000
+            let hasMore = true
+
+            try {
+                while (hasMore) {
+                    const { data, error } = await supabase
+                        .from('questao_base')
+                        .select('*')
+                        .range(from, from + step - 1)
+                        .order('created_at', { ascending: false })
+
+                    if (error) throw error
+                    if (!data || data.length === 0) {
+                        hasMore = false
+                    } else {
+                        allData = [...allData, ...data]
+                        from += step
+                        if (data.length < step) hasMore = false
+                    }
+                }
+                console.log(`✅ ${allData.length} questões carregadas com sucesso.`)
+                return allData
+            } catch (error) {
+                console.error('❌ Erro ao buscar todas as questões:', error)
+                return []
             }
         },
 
