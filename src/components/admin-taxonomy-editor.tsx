@@ -1,7 +1,7 @@
 
 "use client"
 import React, { useState, useEffect } from 'react'
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
+import { createClient } from '@supabase/supabase-js'
 import { ChevronRight, ChevronDown, Folder, File, AlertTriangle, ArrowRight, Save, RotateCcw, Box, Plus, Trash2, Merge } from 'lucide-react'
 import { toast } from 'react-hot-toast'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -91,7 +91,10 @@ const TreeNode = ({
 }
 
 export default function TaxonomyEditor() {
-    const supabase = createClientComponentClient()
+    const supabase = createClient(
+        process.env.NEXT_PUBLIC_SUPABASE_URL!,
+        process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+    )
     const [tree, setTree] = useState<TaxNode[]>([])
     const [loading, setLoading] = useState(true)
     const [selectedNode, setSelectedNode] = useState<TaxNode | null>(null)
@@ -234,7 +237,7 @@ export default function TaxonomyEditor() {
                 .from(table)
                 .update({ [column]: mergeTarget.slug })
                 .eq(column, selectedNode.slug)
-                .select('*', { count: 'exact', head: true }) // Count affected rows logic if possible, supabase update doesn't always return count directly in simple client
+                .select()
 
             if (updateError) {
                 console.error('Update Error:', updateError)

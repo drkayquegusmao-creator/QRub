@@ -116,7 +116,7 @@ export function SessaoModal({ isOpen, onClose, assunto_id, tipo, onComplete }: S
                         // Simplification: use current id or parent if available. 
                         // Check parent to find specialty root. 
                         // For now assume if not in tree, we just use what we have.
-                        assunto = { id: taxNode.slug || assunto_id, nome: taxNode.name, specialty_id: assunto_id }
+                        assunto = { id: taxNode.id || assunto_id, nome: taxNode.name, specialty_id: assunto_id }
                     } else {
                         assunto = { id: assunto_id, nome: 'Assunto Desconhecido', specialty_id: assunto_id }
                     }

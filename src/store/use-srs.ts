@@ -2,7 +2,7 @@ import { create } from 'zustand'
 import { persist, createJSONStorage } from 'zustand/middleware'
 import { UserResponse } from '@/lib/data-mock'
 import { addDays, isBefore, parseISO, startOfDay, differenceInDays } from 'date-fns'
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
+import { createClient } from '@supabase/supabase-js'
 
 type SRSStage = 'NEUTRAL' | 'LEVELING' | 'ACTIVE'
 type SRSLevel = 'FRACO' | 'REGULAR' | 'BOM' | 'FORTE' | 'NOT_LEVELED'
@@ -89,7 +89,10 @@ export const useSRS = create<SRSState>()(
                 if (taxonomy.length > 0) return
 
                 try {
-                    const supabase = createClientComponentClient()
+                    const supabase = createClient(
+                        process.env.NEXT_PUBLIC_SUPABASE_URL!,
+                        process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+                    )
                     const { data, error } = await supabase
                         .from('taxonomia')
                         .select('id, slug, name, parent_id, level, metadata')

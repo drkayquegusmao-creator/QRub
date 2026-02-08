@@ -201,7 +201,7 @@ export default function StudentDashboard() {
                                 <div className={`w-3 h-3 rounded-full ${task.stage === 'LEVELING' ? 'bg-amber-500' : 'bg-rose-500'}`} />
                                 <div>
                                     <p className="font-black text-sm uppercase italic leading-tight">
-                                        {getSpecialties().find(s => s.id === task.subject_id)?.name || task.subject_id}
+                                        {getSpecialties().find((s: { id: string; name: string }) => s.id === task.subject_id)?.name || task.subject_id}
                                     </p>
                                     <p className="text-[9px] font-bold text-slate-400 uppercase tracking-widest">{task.stage === 'LEVELING' ? 'Nivelamento Pendente' : 'Revisão Atrasada'}</p>
                                 </div>
@@ -235,7 +235,7 @@ export default function StudentDashboard() {
                 <div className="relative z-10 space-y-4">
                     {criticalPoints.length > 0 ? criticalPoints.map((point, i) => (
                         <div key={i} className="bg-white/5 border border-white/10 p-5 rounded-3xl space-y-2">
-                            <p className="font-bold text-base leading-snug">Sua precisão em <span className="text-primary-foreground font-black italic">{getSpecialties().find(s => s.id === point.subject_id)?.name || point.subject_id}</span> caiu abaixo de 50%.</p>
+                            <p className="font-bold text-base leading-snug">Sua precisão em <span className="text-primary-foreground font-black italic">{getSpecialties().find((s: { id: string; name: string }) => s.id === point.subject_id)?.name || point.subject_id}</span> caiu abaixo de 50%.</p>
                             <Link href={`/dashboard/quiz/auto?mode=TREINO&specialtyId=${encodeURIComponent(point.subject_id)}&count=15`} className="flex items-center gap-2 pt-2 text-[10px] font-black text-white/50 hover:text-white transition-colors cursor-pointer uppercase tracking-widest group/link">
                                 Resolver Erros Críticos <ArrowRight className="w-3 h-3 group-hover/link:translate-x-1 transition-transform" />
                             </Link>
@@ -385,10 +385,10 @@ export default function StudentDashboard() {
     }
 
     const renderPerformanceByArea = () => {
-        const performanceData = getSpecialties().map(s => ({
+        const performanceData = getSpecialties().map((s: { id: string; name: string }) => ({
             name: s.name,
             val: get_accuracy_by_specialty(s.id)
-        })).sort((a, b) => b.val - a.val).slice(0, 5)
+        })).sort((a: { name: string; val: number }, b: { name: string; val: number }) => b.val - a.val).slice(0, 5)
 
         return (
             <div className="bg-white border-2 border-slate-100 rounded-[50px] p-10 md:p-14 soft-shadow h-full flex flex-col relative">
@@ -404,7 +404,7 @@ export default function StudentDashboard() {
                 </div>
 
                 <div className="flex-1 space-y-6">
-                    {performanceData.map((item, i) => (
+                    {performanceData.map((item: { name: string; val: number }, i: number) => (
                         <div key={i} className="space-y-2">
                             <div className="flex justify-between items-end">
                                 <span className="text-[10px] font-black uppercase text-slate-500 tracking-wider truncate max-w-[150px]">{item.name}</span>

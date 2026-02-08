@@ -1,5 +1,5 @@
 
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
+import { createClient } from '@supabase/supabase-js'
 
 export interface HierarchyNode {
     id: string
@@ -11,7 +11,10 @@ export interface HierarchyNode {
 }
 
 export const fetchTaxonomyHierarchy = async (): Promise<HierarchyNode[]> => {
-    const supabase = createClientComponentClient()
+    const supabase = createClient(
+        process.env.NEXT_PUBLIC_SUPABASE_URL!,
+        process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+    )
 
     // Fetch all active taxonomy nodes
     const { data: nodes, error } = await supabase

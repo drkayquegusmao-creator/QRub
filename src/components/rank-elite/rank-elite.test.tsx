@@ -72,9 +72,9 @@ describe('RankEliteModule', () => {
         jest.clearAllMocks();
 
         // Setup Default Mock returns
-        (useAuth as jest.Mock).mockReturnValue({ user: mockUser });
+        (useAuth as unknown as jest.Mock).mockReturnValue({ user: mockUser });
 
-        (useRankElite as jest.Mock).mockReturnValue({
+        (useRankElite as unknown as jest.Mock).mockReturnValue({
             init: mockInit,
             activeSeason: { id: 'season-1', name: 'Season 1: Genesis' },
             profile: mockProfile,
@@ -159,8 +159,8 @@ describe('RankEliteModule', () => {
     });
 
     test('shows Admin button for admin user', () => {
-        (useRankElite as jest.Mock).mockReturnValue({
-            ...useRankElite(), // Use current mock return
+        (useRankElite as unknown as jest.Mock).mockReturnValue({
+            ...(useRankElite as unknown as jest.Mock)(), // Use current mock return
             isAdmin: true      // Override
         });
 
