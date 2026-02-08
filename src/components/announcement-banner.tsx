@@ -78,8 +78,8 @@ export function AnnouncementBanner() {
                 exit={{ height: 0, opacity: 0 }}
                 className="bg-zinc-900 border-b border-white/5 w-full shrink-0 fixed top-0 left-0 z-[10000]"
             >
-                <div className="max-w-7xl mx-auto px-4 md:px-6 h-10 flex items-center justify-between gap-4">
-                    <div className="flex items-center gap-3 overflow-hidden flex-1">
+                <div className="max-w-7xl mx-auto px-4 md:px-6 min-h-[40px] py-1.5 flex items-center justify-between gap-4">
+                    <div className="flex items-center gap-2.5 flex-1 min-w-0">
                         <Megaphone className="w-3.5 h-3.5 text-[#39FF14] shrink-0" />
 
                         {isEditing ? (
@@ -109,13 +109,13 @@ export function AnnouncementBanner() {
                                 </button>
                             </div>
                         ) : (
-                            <p className="text-[11px] font-black uppercase tracking-widest text-white/70 truncate">
+                            <p className="text-[9px] md:text-[11px] font-black uppercase tracking-widest text-white/70 leading-tight">
                                 {announcement.content}
                             </p>
                         )}
                     </div>
 
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-1.5 shrink-0">
                         {isAdmin && !isEditing && (
                             <button
                                 onClick={() => setIsEditing(true)}
