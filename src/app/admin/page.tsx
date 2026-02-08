@@ -5,7 +5,7 @@ import {
     Plus, Search, Edit2, Trash2, Users, Crown, Star,
     RefreshCw, Database, BarChart3, Upload, CheckCircle2, XCircle,
     AlertCircle, History, ExternalLink, Mail, Phone, BookOpen, GraduationCap, Sparkles, X, ShieldCheck, DollarSign, Settings, ArrowLeft,
-    Activity, Target, Zap, TrendingUp, ChevronLeft, ChevronRight, Flag, Hammer, Wrench, ShieldAlert, Paperclip, Network
+    Activity, Target, Zap, TrendingUp, ChevronLeft, ChevronRight, Flag, Hammer, Wrench, ShieldAlert, Paperclip, Network, Eye
 } from 'lucide-react'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
@@ -2601,32 +2601,79 @@ export default function AdminDashboard() {
                                     </thead>
                                     <tbody className="divide-y divide-border">
                                         {reports.map(r => (
-                                            <tr key={r.id} className="hover:bg-rose-500/5 transition-colors">
-                                                <td className="px-8 py-6">
-                                                    <div className="font-mono text-[10px] font-black">{r.question_id}</div>
+                                            <tr key={r.id} className="hover:bg-rose-500/5 transition-colors group">
+                                                <td
+                                                    className="px-8 py-6 cursor-pointer hover:bg-rose-500/10 transition-all rounded-l-xl"
+                                                    onClick={async () => {
+                                                        const q = questions.find(qst => qst.id === r.question_id)
+                                                        if (q) setPreviewQuestion(q)
+                                                        else {
+                                                            toast.error('Questão não encontrada no cache. Recarregando...')
+                                                            await fetchQuestions()
+                                                        }
+                                                    }}
+                                                >
+                                                    <div className="font-mono text-[10px] font-black flex items-center gap-2 group-hover:text-primary transition-colors">
+                                                        {r.question_id}
+                                                        <ExternalLink className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-all" />
+                                                    </div>
                                                     <div className="text-[8px] text-muted-foreground">{new Date(r.created_at).toLocaleString()}</div>
                                                 </td>
                                                 <td className="px-8 py-6">
                                                     <span className="bg-rose-500/10 text-rose-500 px-2 py-1 rounded text-[8px] font-black uppercase">{r.type}</span>
                                                 </td>
-                                                <td className="px-8 py-6">
-                                                    <div className="text-sm font-medium">{r.description}</div>
+                                                <td
+                                                    className="px-8 py-6 cursor-pointer hover:bg-rose-500/10 transition-all"
+                                                    onClick={async () => {
+                                                        const q = questions.find(qst => qst.id === r.question_id)
+                                                        if (q) setPreviewQuestion(q)
+                                                        else {
+                                                            toast.error('Questão não encontrada no cache. Recarregando...')
+                                                            await fetchQuestions()
+                                                        }
+                                                    }}
+                                                >
+                                                    <div className="text-sm font-medium group-hover:text-primary transition-colors flex items-center gap-2">
+                                                        {r.description}
+                                                        <Eye className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-all" />
+                                                    </div>
                                                 </td>
-                                                <td className="px-8 py-6 text-right">
+                                                <td className="px-8 py-6 text-right rounded-r-xl">
                                                     <div className="flex justify-end gap-2">
                                                         <button
                                                             onClick={async () => {
                                                                 const q = questions.find(qst => qst.id === r.question_id)
                                                                 if (q) handleOpenEditor(q)
+                                                                else {
+                                                                    toast.error('Questão não encontrada')
+                                                                    await fetchQuestions()
+                                                                }
                                                             }}
-                                                            className="px-3 py-1.5 rounded-lg bg-primary/10 text-primary text-[10px] font-black uppercase hover:bg-primary/20 transition-all"
+                                                            className="px-3 py-1.5 rounded-lg bg-primary/10 text-primary text-[10px] font-black uppercase hover:bg-primary/20 transition-all flex items-center gap-1.5"
                                                         >
-                                                            Editar Questão
+                                                            <Edit2 className="w-3 h-3" />
+                                                            Editar
                                                         </button>
                                                         <button
-                                                            onClick={() => updateReportStatus(r.id, 'resolved')}
-                                                            className="px-3 py-1.5 rounded-lg bg-emerald-500/10 text-emerald-500 text-[10px] font-black uppercase hover:bg-emerald-500/20 transition-all"
+                                                            onClick={async () => {
+                                                                if (confirm(`⚠️ EXCLUSÃO PERMANENTE\n\nDeseja excluir a questão ${r.question_id}?\n\nEsta ação NÃO pode ser desfeita.`)) {
+                                                                    await handleDeleteSingleQuestion(r.question_id)
+                                                                    // Also mark report as dismissed
+                                                                    await updateReportStatus(r.id, 'dismissed')
+                                                                    toast.success('Questão excluída e reporte dispensado')
+                                                                }
+                                                            }}
+                                                            className="px-3 py-1.5 rounded-lg bg-rose-500/10 text-rose-500 text-[10px] font-black uppercase hover:bg-rose-500/20 transition-all flex items-center gap-1.5"
                                                         >
+                                                            <Trash2 className="w-3 h-3" />
+                                                            Excluir
+                                                        </button>
+                                                        <div className="w-px h-8 bg-border mx-1" />
+                                                        <button
+                                                            onClick={() => updateReportStatus(r.id, 'resolved')}
+                                                            className="px-3 py-1.5 rounded-lg bg-emerald-500/10 text-emerald-500 text-[10px] font-black uppercase hover:bg-emerald-500/20 transition-all flex items-center gap-1.5"
+                                                        >
+                                                            <CheckCircle2 className="w-3 h-3" />
                                                             Resolvido
                                                         </button>
                                                         <button
