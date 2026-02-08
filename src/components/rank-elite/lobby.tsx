@@ -37,9 +37,9 @@ export function Lobby({
 }: LobbyProps) {
     const { user } = useAuth()
 
-    if (isLoading) {
+    if (isLoading || leagues.length === 0) {
         return (
-            <div className="flex-1 flex flex-col items-center justify-center space-y-4">
+            <div className="flex-1 h-full flex flex-col items-center justify-center space-y-4 min-h-[400px]">
                 <div className="w-12 h-12 border-4 border-[#39FF14]/20 border-t-[#39FF14] rounded-full animate-spin" />
                 <p className="text-[#39FF14] font-black uppercase tracking-widest text-xs">Sincronizando Dados...</p>
             </div>

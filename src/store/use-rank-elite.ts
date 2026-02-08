@@ -129,9 +129,17 @@ export const useRankElite = create<RankEliteState>((set, get) => ({
                         current_league_id: bronzeLeague.id,
                     })
                     .select()
-                    .single();
-                if (createProfileErr) throw createProfileErr;
-                profile = newProfile;
+                    .maybeSingle();
+
+                if (createProfileErr && createProfileErr.code === '23505') {
+                    const { data: refetched } = await supabase
+                        .from('rank_profiles')
+                        .select('*')
+                        .eq('user_id', userId)
+                        .single();
+                    profile = refetched;
+                } else if (createProfileErr) throw createProfileErr;
+                else profile = newProfile;
             } else if (profileErr) throw profileErr;
 
             // 4. Get or Create XP Profile
@@ -146,9 +154,17 @@ export const useRankElite = create<RankEliteState>((set, get) => ({
                     .from('rank_xp_profiles')
                     .insert({ user_id: userId })
                     .select()
-                    .single();
-                if (createXPErr) throw createXPErr;
-                xpProfile = newXP;
+                    .maybeSingle();
+
+                if (createXPErr && createXPErr.code === '23505') {
+                    const { data: refetched } = await supabase
+                        .from('rank_xp_profiles')
+                        .select('*')
+                        .eq('user_id', userId)
+                        .single();
+                    xpProfile = refetched;
+                } else if (createXPErr) throw createXPErr;
+                else xpProfile = newXP;
             } else if (xpErr) throw xpErr;
 
             // 5. Get Missions (current week)

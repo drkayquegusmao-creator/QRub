@@ -64,7 +64,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
         )}>
             {/* Minimal Top Navigation */}
             {!hideNav && (
-                <header className="fixed top-0 z-40 w-full bg-background/50 backdrop-blur-xl border-b border-white/5">
+                <header className="fixed top-0 z-40 w-full bg-background/50 backdrop-blur-xl border-b border-white/5 [[data-banner-active=true]_&]:translate-y-10 transition-transform duration-200">
                     <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
                         <div className="flex items-center gap-4">
                             <Link href="/dashboard" className="flex items-center gap-3 group transition-all">
@@ -159,7 +159,9 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
             {/* Content Area with Top Padding for Fixed Header */}
             <main className={cn(
                 "max-w-7xl mx-auto px-6 pb-12 md:pb-24 transition-all",
-                hideNav ? "pt-6" : "pt-24"
+                hideNav
+                    ? "pt-6 [[data-banner-active=true]_&]:pt-16"
+                    : "pt-24 [[data-banner-active=true]_&]:pt-[136px]"
             )}>
                 {children}
             </main>

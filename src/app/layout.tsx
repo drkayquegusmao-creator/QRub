@@ -6,6 +6,7 @@ import { AuthProvider } from "@/components/auth-provider";
 import { MaintenanceGuardian } from "@/components/maintenance-guardian";
 import { SupportChatWidget } from "@/components/support-chat-widget";
 import { MaintenanceOverlay } from "@/components/maintenance-overlay";
+import { AnnouncementBanner } from "@/components/announcement-banner";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -56,7 +57,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" suppressHydrationWarning>
-      <body className={`${inter.variable} font-sans antialiased`} suppressHydrationWarning>
+      <body className={`${inter.variable} font-sans antialiased flex flex-col min-h-screen`} suppressHydrationWarning>
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
@@ -65,8 +66,11 @@ export default function RootLayout({
         >
           <AuthProvider>
             <MaintenanceGuardian>
-              <MaintenanceOverlay />
-              {children}
+              <AnnouncementBanner />
+              <div className="flex-1 flex flex-col relative">
+                <MaintenanceOverlay />
+                {children}
+              </div>
             </MaintenanceGuardian>
           </AuthProvider>
         </ThemeProvider>

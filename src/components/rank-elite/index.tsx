@@ -10,6 +10,7 @@ import { ArenaMatch } from './arena-match'
 import { MatchResult } from './match-result'
 import { AdminDashboard } from './admin-dashboard'
 import { RewardsView } from './rewards-view'
+import { AnnouncementBanner } from '@/components/announcement-banner'
 
 export type RankView = 'LOBBY' | 'MATCH' | 'RESULT' | 'REWARDS' | 'ADMIN';
 
@@ -20,7 +21,8 @@ interface RankEliteModuleProps {
 export function RankEliteModule({ onClose }: RankEliteModuleProps) {
     const { user } = useAuth()
     const {
-        init, activeSeason, profile, xpProfile, leagues, missions, rewards, isAdmin, isLoading, error, equipReward
+        init, activeSeason, profile, xpProfile, leagues, missions, rewards, isAdmin, isLoading, error, equipReward,
+        startMatch, claimMission
     } = useRankElite()
     const [view, setView] = useState<RankView>('LOBBY')
     const [currentMatchId, setCurrentMatchId] = useState<string | null>(null)
@@ -63,10 +65,10 @@ export function RankEliteModule({ onClose }: RankEliteModuleProps) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[9999] bg-[#050505] text-white flex flex-col font-sans h-[100dvh]"
+            className="fixed inset-0 z-[9999] bg-[#050505] text-white flex flex-col font-sans h-[100dvh] [[data-banner-active=true]_&]:pt-10 transition-all"
         >
             {/* Header / HUD Superior */}
-            <div className="border-b border-white/5 bg-black/50 backdrop-blur-xl px-4 md:px-6 py-4 flex items-center justify-between shrink-0 z-50">
+            <div className="border-b border-white/5 bg-black/50 backdrop-blur-xl px-4 md:px-6 py-4 flex items-center justify-between shrink-0 z-50 [[data-banner-active=true]_&]:border-t [[data-banner-active=true]_&]:border-t-white/5 transition-all">
                 <div className="flex items-center gap-4">
                     <button
                         onClick={() => setView('LOBBY')}
@@ -86,6 +88,7 @@ export function RankEliteModule({ onClose }: RankEliteModuleProps) {
                     {view === 'LOBBY' ? (
                         <button
                             onClick={onClose}
+                            aria-label="Fechar"
                             className="p-2 hover:bg-white/10 rounded-xl transition-all group"
                         >
                             <X className="w-6 h-6 text-slate-400 group-hover:text-white" />
@@ -115,9 +118,7 @@ export function RankEliteModule({ onClose }: RankEliteModuleProps) {
                             rewards={rewards}
                             isAdmin={isAdmin}
                             isLoading={isLoading}
-                            onStartMatch={async (mode: MatchMode) => {
-                                // @ts-ignore
-                                const { startMatch } = useRankElite.getState()
+                            onStartMatch={async (mode) => {
                                 const matchId = await startMatch(user?.id || '', mode)
                                 if (matchId) {
                                     setCurrentMatchId(matchId)
@@ -126,10 +127,7 @@ export function RankEliteModule({ onClose }: RankEliteModuleProps) {
                             }}
                             onOpenAdmin={() => setView('ADMIN')}
                             onOpenRewards={() => setView('REWARDS')}
-                            onClaimMission={async (id) => {
-                                // @ts-ignore
-                                await useRankElite.getState().claimMission(id)
-                            }}
+                            onClaimMission={claimMission}
                         />
                     )}
 
