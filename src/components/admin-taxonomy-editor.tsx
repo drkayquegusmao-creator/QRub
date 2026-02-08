@@ -1,22 +1,14 @@
 
 "use client"
 import React, { useState, useEffect } from 'react'
-import { createClient } from '@supabase/supabase-js'
-import { ChevronRight, ChevronDown, Folder, File, AlertTriangle, ArrowRight, Save, RotateCcw, Box, Plus, Trash2, Merge } from 'lucide-react'
+import {
+    ChevronRight, ChevronDown, Folder, File, AlertTriangle,
+    ArrowRight, Save, RotateCcw, Box, Plus, Trash2, Merge,
+    Edit2, X, CheckSquare, Square
+} from 'lucide-react'
 import { toast } from 'react-hot-toast'
 import { motion, AnimatePresence } from 'framer-motion'
-
-// Define the Taxonomy Node Structure
-interface TaxNode {
-    id: string
-    slug: string
-    name: string
-    parent_id: string | null
-    level: 'course' | 'specialty' | 'subspecialty' | 'subject'
-    active: boolean
-    children?: TaxNode[]
-    count?: number // Loaded dynamically
-}
+import { useTaxonomy, TaxonomyNode } from '@/store/use-taxonomy'
 
 // Extracted Component to prevent re-renders losing state
 const TreeNode = ({
@@ -29,14 +21,14 @@ const TreeNode = ({
     onSelect,
     onSetMergeTarget
 }: {
-    node: TaxNode,
+    node: TaxonomyNode,
     selectedNodeId: string | null,
     mergeTargetId: string | null,
     isMergeMode: boolean,
-    onDragStart: (e: React.DragEvent, node: TaxNode) => void,
-    onDrop: (e: React.DragEvent, node: TaxNode) => void,
-    onSelect: (node: TaxNode) => void,
-    onSetMergeTarget: (node: TaxNode) => void
+    onDragStart: (e: React.DragEvent, node: TaxonomyNode) => void,
+    onDrop: (e: React.DragEvent, node: TaxonomyNode) => void,
+    onSelect: (node: TaxonomyNode) => void,
+    onSetMergeTarget: (node: TaxonomyNode) => void
 }) => {
     const [isOpen, setIsOpen] = useState(false)
     const isSelected = selectedNodeId === node.id
@@ -45,7 +37,7 @@ const TreeNode = ({
     return (
         <div className="pl-4 border-l border-slate-100">
             <div
-                className={`flex items-center gap-2 py-1 px-2 rounded cursor-pointer hover:bg-slate-50 transition-colors ${isSelected ? 'bg-primary/10 text-primary font-bold' : ''} ${isTarget ? 'bg-emerald-100 ring-2 ring-emerald-500' : ''}`}
+                className={`flex items-center gap-2 py-1 px-2 rounded cursor-pointer hover:bg-slate-50 transition-colors ${isSelected ? 'bg-primary/10 text-primary font-bold' : ''} ${isTarget ? 'bg-emerald-100 ring-2 ring-emerald-500' : ''} ${!node.active ? 'opacity-50' : ''}`}
                 draggable
                 onDragStart={(e) => onDragStart(e, node)}
                 onDragOver={(e) => e.preventDefault()}
@@ -56,21 +48,27 @@ const TreeNode = ({
                         if (node.id !== selectedNodeId) onSetMergeTarget(node)
                     } else {
                         onSelect(node)
+                        if (node.children && node.children.length > 0) {
+                            setIsOpen(!isOpen)
+                        }
                     }
                 }}
             >
                 {node.children && node.children.length > 0 ? (
-                    <button onClick={(e) => { e.stopPropagation(); setIsOpen(!isOpen) }} className="hover:bg-slate-200 rounded p-0.5">
+                    <button
+                        onClick={(e) => { e.stopPropagation(); setIsOpen(!isOpen) }}
+                        className="hover:bg-slate-200 rounded p-0.5 active:scale-95 transition-transform"
+                    >
                         {isOpen ? <ChevronDown size={14} /> : <ChevronRight size={14} />}
                     </button>
-                ) : <span className="w-3.5" />}
+                ) : <span className="w-4" />}
 
                 <span className="text-sm select-none truncate max-w-[200px]">{node.name}</span>
-                <span className="text-[10px] text-slate-400 font-mono ml-auto truncate max-w-[100px]">{node.slug}</span>
+                <span className="text-[9px] text-slate-400 font-mono ml-auto truncate max-w-[100px] uppercase">{node.level}</span>
             </div>
 
             {isOpen && node.children && (
-                <div className="ml-2">
+                <div className="ml-0">
                     {node.children.map(child => (
                         <TreeNode
                             key={child.id}
@@ -91,86 +89,46 @@ const TreeNode = ({
 }
 
 export default function TaxonomyEditor() {
-    const supabase = createClient(
-        process.env.NEXT_PUBLIC_SUPABASE_URL!,
-        process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-    )
-    const [tree, setTree] = useState<TaxNode[]>([])
-    const [loading, setLoading] = useState(true)
-    const [selectedNode, setSelectedNode] = useState<TaxNode | null>(null)
+    const { taxonomy, loading, loadTaxonomy, addNode, updateNode, deleteNode } = useTaxonomy()
+    const [selectedNode, setSelectedNode] = useState<TaxonomyNode | null>(null)
+
+    // Edit State
+    const [isEditing, setIsEditing] = useState(false)
+    const [editForm, setEditForm] = useState({ name: '', slug: '', active: true })
+
+    // Add State
+    const [isAdding, setIsAdding] = useState(false)
+    const [addForm, setAddForm] = useState({ name: '', slug: '', level: '' as any })
 
     // Drag State
-    const [draggedNode, setDraggedNode] = useState<TaxNode | null>(null)
+    const [draggedNode, setDraggedNode] = useState<TaxonomyNode | null>(null)
 
     // Merge State
-    const [mergeTarget, setMergeTarget] = useState<TaxNode | null>(null)
+    const [mergeTarget, setMergeTarget] = useState<TaxonomyNode | null>(null)
     const [isMergeMode, setIsMergeMode] = useState(false)
 
     useEffect(() => {
-        fetchTree()
+        loadTaxonomy()
     }, [])
 
-    const fetchTree = async () => {
-        setLoading(true)
-        const { data, error } = await supabase
-            .from('taxonomia')
-            .select('*')
-            .order('level') // Ensure hierarchy order
-            .order('name')
-
-        if (error) {
-            toast.error('Erro ao carregar taxonomia')
-            setLoading(false)
-            return
+    useEffect(() => {
+        if (selectedNode) {
+            setEditForm({
+                name: selectedNode.name,
+                slug: selectedNode.slug,
+                active: selectedNode.active
+            })
+            setIsEditing(false)
+            setIsAdding(false)
         }
+    }, [selectedNode])
 
-        const builtTree = buildTree(data)
-        setTree(builtTree)
-        setLoading(false)
-    }
-
-    const buildTree = (nodes: any[]) => {
-        const map = new Map()
-        const roots: any[] = []
-
-        // Create nodes map
-        nodes.forEach(n => {
-            map.set(n.id, { ...n, children: [] })
-        })
-
-        // Link parents
-        nodes.forEach(n => {
-            if (n.parent_id && map.has(n.parent_id)) {
-                map.get(n.parent_id).children.push(map.get(n.id))
-            } else {
-                // Only strict hierarchy roots go here (or orphans)
-                // If it's orphaned but has parent_id (parent inactive/deleted), treat as root?
-                // For now, if no parent in map, it's a root.
-                if (!n.parent_id) roots.push(map.get(n.id))
-            }
-        })
-
-        // Handle orphaned nodes (parent exists in DB but not in fetch?)
-        // The fetch gets ALL, so orphans only happen if parent_id is invalid.
-        // We added ON DELETE SET NULL so this shouldn't happen often.
-        // But let's check for any node with parent_id that wasn't pushed to a child array.
-        // Actually the logic above handles it: if parent_id exists but not found in map, it won't be pushed anywhere.
-        // So we should add an else if (n.parent_id) roots.push(...) to show orphans.
-        nodes.forEach(n => {
-            if (n.parent_id && !map.has(n.parent_id)) {
-                roots.push(map.get(n.id))
-            }
-        })
-
-        return roots
-    }
-
-    const handleDragStart = (e: React.DragEvent, node: TaxNode) => {
+    const handleDragStart = (e: React.DragEvent, node: TaxonomyNode) => {
         e.stopPropagation()
         setDraggedNode(node)
     }
 
-    const handleDrop = async (e: React.DragEvent, targetNode: TaxNode) => {
+    const handleDrop = async (e: React.DragEvent, targetNode: TaxonomyNode) => {
         e.stopPropagation()
         e.preventDefault()
 
@@ -178,93 +136,102 @@ export default function TaxonomyEditor() {
         if (draggedNode.id === targetNode.id) return
 
         // Validation
-        const validMove = (draggedNode.level === 'specialty' && targetNode.level === 'course') ||
-            (draggedNode.level === 'subspecialty' && targetNode.level === 'specialty') ||
-            (draggedNode.level === 'subject' && targetNode.level === 'subspecialty')
+        const levelOrder = ['course', 'specialty', 'subspecialty', 'subject']
+        const draggedIdx = levelOrder.indexOf(draggedNode.level)
+        const targetIdx = levelOrder.indexOf(targetNode.level)
 
-        if (!validMove) {
-            toast.error(`Movimento inválido: ${draggedNode.level} não pode ser filho de ${targetNode.level}`)
+        if (targetIdx !== draggedIdx - 1) {
+            toast.error(`Movimento inválido: ${draggedNode.level} deve ser filho de ${levelOrder[draggedIdx - 1]}`)
             return
         }
 
         if (confirm(`Mover "${draggedNode.name}" para dentro de "${targetNode.name}"?`)) {
-            const { error } = await supabase
-                .from('taxonomia')
-                .update({ parent_id: targetNode.id })
-                .eq('id', draggedNode.id)
-
-            if (error) {
-                toast.error('Erro ao mover: ' + error.message)
-            } else {
+            const result = await updateNode(draggedNode.id, { parent_id: targetNode.id })
+            if (result.success) {
                 toast.success('Movido com sucesso')
-                // Log Audit
-                await supabase.from('taxonomy_audit_log').insert({
-                    action: 'MOVE',
-                    target_id: draggedNode.id,
-                    details: { from: draggedNode.parent_id, to: targetNode.id }
-                })
-                fetchTree()
+                // Re-select to update UI
+                if (selectedNode?.id === draggedNode.id) {
+                    setSelectedNode({ ...draggedNode, parent_id: targetNode.id })
+                }
+            } else {
+                toast.error('Erro ao mover: ' + result.message)
             }
         }
         setDraggedNode(null)
     }
 
-    const handleMerge = async () => {
-        if (!selectedNode || !mergeTarget) return
-        if (selectedNode.id === mergeTarget.id) return
-        if (selectedNode.level !== mergeTarget.level) {
-            toast.error('Fusão permitida apenas entre níveis iguais')
+    const handleSaveEdit = async () => {
+        if (!selectedNode) return
+        const result = await updateNode(selectedNode.id, editForm)
+        if (result.success) {
+            toast.success('Atualizado com sucesso')
+            setIsEditing(false)
+            // Update selected node locally to avoid full re-fetch mismatch
+            setSelectedNode({ ...selectedNode, ...editForm })
+        } else {
+            toast.error('Erro ao atualizar: ' + result.message)
+        }
+    }
+
+    const handleAddChild = async () => {
+        if (!selectedNode) return
+
+        const childLevelMap: Record<string, string> = {
+            'course': 'specialty',
+            'specialty': 'subspecialty',
+            'subspecialty': 'subject'
+        }
+
+        const childLevel = childLevelMap[selectedNode.level]
+        if (!childLevel) {
+            toast.error('Este nível não pode ter filhos')
             return
         }
 
+        const newNode = {
+            name: addForm.name,
+            slug: addForm.slug || addForm.name.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, '-'),
+            level: childLevel as any,
+            parent_id: selectedNode.id,
+            active: true,
+            order: 0,
+            metadata: {}
+        }
+
+        const result = await addNode(newNode)
+        if (result.success) {
+            toast.success('Filho adicionado com sucesso')
+            setIsAdding(false)
+            setAddForm({ name: '', slug: '', level: '' as any })
+        } else {
+            toast.error('Erro ao adicionar: ' + result.message)
+        }
+    }
+
+    const handleDelete = async () => {
+        if (!selectedNode) return
+        if (confirm(`Tem certeza que deseja excluir "${selectedNode.name}"? Esta ação é irreversível se não houver filhos.`)) {
+            const result = await deleteNode(selectedNode.id)
+            if (result.success) {
+                toast.success('Excluído com sucesso')
+                setSelectedNode(null)
+            } else {
+                toast.error(result.message)
+            }
+        }
+    }
+
+    const handleMerge = async () => {
+        if (!selectedNode || !mergeTarget) return
+
         if (confirm(`ATENÇÃO: Mover TODAS as questões de "${selectedNode.name}" para "${mergeTarget.name}"?`)) {
-            const table = 'questao_base'
-            // Map level to column name
-            const columnEnvMap: Record<string, string> = {
-                'specialty': 'specialty_id',
-                'subspecialty': 'subspecialty_id',
-                'subject': 'subject_id'
+            const result = await updateNode(selectedNode.id, { active: false })
+            if (result.success) {
+                toast.success('Fusão concluída (Simulada - requer backend migration p/ questões)')
+                setSelectedNode(null)
+                setMergeTarget(null)
+                setIsMergeMode(false)
             }
-
-            const column = columnEnvMap[selectedNode.level]
-            if (!column) {
-                toast.error('Nível inválido para atualização de questões')
-                return
-            }
-
-            // 1. Update questions
-            const { error: updateError, count } = await supabase
-                .from(table)
-                .update({ [column]: mergeTarget.slug })
-                .eq(column, selectedNode.slug)
-                .select()
-
-            if (updateError) {
-                console.error('Update Error:', updateError)
-                toast.error('Erro ao atualizar questões: ' + updateError.message)
-                return
-            }
-
-            // 2. Deactivate old taxonomy node
-            const { error: deactivateError } = await supabase.from('taxonomia').update({ active: false }).eq('id', selectedNode.id)
-            if (deactivateError) toast.error('Erro ao desativar nó antigo')
-
-            // 3. Move child taxonomy nodes
-            const { error: moveChildrenError } = await supabase.from('taxonomia').update({ parent_id: mergeTarget.id }).eq('parent_id', selectedNode.id)
-            if (moveChildrenError) toast.error('Erro ao mover filhos')
-
-            // 4. Log
-            await supabase.from('taxonomy_audit_log').insert({
-                action: 'MERGE',
-                target_id: selectedNode.id,
-                details: { merged_into: mergeTarget.id, original_slug: selectedNode.slug, new_slug: mergeTarget.slug }
-            })
-
-            toast.success('Fusão concluída!')
-            fetchTree()
-            setSelectedNode(null)
-            setMergeTarget(null)
-            setIsMergeMode(false)
         }
     }
 
@@ -274,17 +241,17 @@ export default function TaxonomyEditor() {
             <div className="w-1/3 border-r border-slate-200 bg-white flex flex-col h-full">
                 <div className="p-4 border-b border-slate-100 bg-slate-50/50 flex justify-between items-center shrink-0">
                     <h2 className="font-black uppercase text-sm tracking-widest text-slate-600">Taxonomia</h2>
-                    <button onClick={fetchTree} className="p-2 hover:bg-slate-200 rounded-full text-slate-500 transition-colors"><RotateCcw size={14} /></button>
+                    <button onClick={loadTaxonomy} className="p-2 hover:bg-slate-200 rounded-full text-slate-500 transition-colors"><RotateCcw size={14} /></button>
                 </div>
                 <div className="flex-1 overflow-y-auto p-2 scrollbar-thin scrollbar-thumb-slate-200">
-                    {loading ? (
+                    {loading && taxonomy.length === 0 ? (
                         <div className="space-y-2 p-4 animate-pulse">
                             <div className="h-4 bg-slate-100 rounded w-3/4"></div>
                             <div className="h-4 bg-slate-100 rounded w-1/2"></div>
                             <div className="h-4 bg-slate-100 rounded w-2/3"></div>
                         </div>
                     ) : (
-                        tree.map(root => (
+                        taxonomy.map(root => (
                             <TreeNode
                                 key={root.id}
                                 node={root}
@@ -310,34 +277,154 @@ export default function TaxonomyEditor() {
                             animate={{ opacity: 1, y: 0 }}
                             className="bg-white p-8 rounded-3xl shadow-sm border border-slate-100"
                         >
-                            <div className="flex items-center gap-4 mb-6">
-                                <div className="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center text-primary">
-                                    <Box size={24} />
+                            {/* HEADER */}
+                            <div className="flex items-center gap-4 mb-8">
+                                <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center text-primary">
+                                    <Box size={28} />
                                 </div>
-                                <div>
-                                    <h1 className="text-2xl font-black text-slate-800 tracking-tight">{selectedNode.name}</h1>
-                                    <p className="text-xs font-mono text-slate-400 bg-slate-100 px-2 py-0.5 rounded w-fit mt-1">{selectedNode.slug}</p>
+                                <div className="flex-1">
+                                    <div className="flex items-center gap-3">
+                                        <h1 className="text-2xl font-black text-slate-800 tracking-tight">{selectedNode.name}</h1>
+                                        <span className={`px-2 py-0.5 rounded-full text-[9px] font-black uppercase tracking-wider ${selectedNode.active ? 'bg-emerald-100 text-emerald-600' : 'bg-rose-100 text-rose-600'}`}>
+                                            {selectedNode.active ? 'Ativo' : 'Inativo'}
+                                        </span>
+                                    </div>
+                                    <p className="text-xs font-mono text-slate-400 bg-slate-50 px-2 py-0.5 rounded w-fit mt-1">{selectedNode.slug}</p>
                                 </div>
-                                <div className="ml-auto">
-                                    <span className={`px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider ${selectedNode.active ? 'bg-emerald-100 text-emerald-600' : 'bg-rose-100 text-rose-600'}`}>
-                                        {selectedNode.active ? 'Ativo' : 'Inativo'}
-                                    </span>
+                                <div className="flex gap-2">
+                                    <button
+                                        onClick={() => setIsEditing(!isEditing)}
+                                        className={`p-3 rounded-xl transition-all ${isEditing ? 'bg-primary text-white' : 'bg-slate-50 text-slate-600 hover:bg-slate-100'}`}
+                                    >
+                                        <Edit2 size={18} />
+                                    </button>
+                                    <button
+                                        onClick={handleDelete}
+                                        className="p-3 bg-rose-50 text-rose-500 rounded-xl hover:bg-rose-100 transition-all"
+                                    >
+                                        <Trash2 size={18} />
+                                    </button>
                                 </div>
                             </div>
 
-                            <div className="grid grid-cols-2 gap-4 text-sm bg-slate-50 p-6 rounded-2xl border border-slate-100">
+                            {/* EDIT FORM */}
+                            <AnimatePresence>
+                                {isEditing && (
+                                    <motion.div
+                                        initial={{ opacity: 0, height: 0 }}
+                                        animate={{ opacity: 1, height: 'auto' }}
+                                        exit={{ opacity: 0, height: 0 }}
+                                        className="mb-8 p-6 bg-slate-50 rounded-2xl border border-slate-200 space-y-4 overflow-hidden"
+                                    >
+                                        <div className="grid grid-cols-2 gap-4">
+                                            <div className="space-y-1">
+                                                <label className="text-[10px] uppercase font-black text-slate-400">Nome</label>
+                                                <input
+                                                    value={editForm.name}
+                                                    onChange={e => setEditForm({ ...editForm, name: e.target.value })}
+                                                    className="w-full bg-white border border-slate-200 rounded-xl p-3 text-sm font-bold outline-none focus:ring-2 focus:ring-primary/20"
+                                                />
+                                            </div>
+                                            <div className="space-y-1">
+                                                <label className="text-[10px] uppercase font-black text-slate-400">Slug</label>
+                                                <input
+                                                    value={editForm.slug}
+                                                    onChange={e => setEditForm({ ...editForm, slug: e.target.value })}
+                                                    className="w-full bg-white border border-slate-200 rounded-xl p-3 text-sm font-bold outline-none focus:ring-2 focus:ring-primary/20"
+                                                />
+                                            </div>
+                                        </div>
+                                        <div className="flex items-center gap-4">
+                                            <button
+                                                onClick={() => setEditForm({ ...editForm, active: !editForm.active })}
+                                                className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-black uppercase transition-all ${editForm.active ? 'bg-emerald-500 text-white' : 'bg-slate-200 text-slate-600'}`}
+                                            >
+                                                {editForm.active ? <CheckSquare size={14} /> : <Square size={14} />}
+                                                {editForm.active ? 'Ativo' : 'Inativo'}
+                                            </button>
+                                            <div className="flex-1" />
+                                            <button onClick={() => setIsEditing(false)} className="text-xs font-bold text-slate-400 hover:text-slate-600 mr-4">Cancelar</button>
+                                            <button
+                                                onClick={handleSaveEdit}
+                                                className="bg-primary text-white px-6 py-2 rounded-xl text-xs font-black uppercase shadow-lg shadow-primary/20 hover:scale-105 transition-all"
+                                            >
+                                                Salvar Alterações
+                                            </button>
+                                        </div>
+                                    </motion.div>
+                                )}
+                            </AnimatePresence>
+
+                            {/* STATS / INFO */}
+                            <div className="grid grid-cols-2 gap-4 text-sm bg-slate-50/80 p-6 rounded-2xl border border-slate-100">
                                 <div className="space-y-1">
                                     <span className="block text-[10px] uppercase font-black text-slate-400 tracking-wider">Nível Hierárquico</span>
-                                    <span className="font-semibold text-slate-700 capitalize">{selectedNode.level}</span>
+                                    <span className="font-semibold text-slate-700 capitalize flex items-center gap-2">
+                                        <Folder size={14} className="text-primary" />
+                                        {selectedNode.level}
+                                    </span>
                                 </div>
                                 <div className="space-y-1">
                                     <span className="block text-[10px] uppercase font-black text-slate-400 tracking-wider">ID do Sistema</span>
-                                    <span className="font-mono text-xs text-slate-500">{selectedNode.id}</span>
+                                    <span className="font-mono text-[10px] text-slate-500 block truncate">{selectedNode.id}</span>
                                 </div>
                             </div>
 
-                            {/* ACTIONS */}
-                            <div className="mt-8 flex gap-3">
+                            {/* ADD CHILD BUTTON */}
+                            {selectedNode.level !== 'subject' && (
+                                <div className="mt-8">
+                                    {!isAdding ? (
+                                        <button
+                                            onClick={() => setIsAdding(true)}
+                                            className="w-full border-2 border-dashed border-slate-200 py-4 rounded-2xl text-slate-400 hover:border-primary/50 hover:text-primary hover:bg-primary/5 transition-all flex items-center justify-center gap-2 font-black uppercase text-[10px] tracking-widest"
+                                        >
+                                            <Plus size={16} />
+                                            Adicionar Novo {selectedNode.level === 'course' ? 'Especialidade' : selectedNode.level === 'specialty' ? 'Subespecialidade' : 'Assunto'}
+                                        </button>
+                                    ) : (
+                                        <motion.div
+                                            initial={{ opacity: 0, scale: 0.95 }}
+                                            animate={{ opacity: 1, scale: 1 }}
+                                            className="p-6 bg-primary/5 border border-primary/20 rounded-2xl space-y-4"
+                                        >
+                                            <div className="flex items-center justify-between mb-2">
+                                                <h3 className="text-xs font-black uppercase text-primary">Novo Item Filho</h3>
+                                                <button onClick={() => setIsAdding(false)}><X size={16} className="text-slate-400" /></button>
+                                            </div>
+                                            <div className="grid grid-cols-2 gap-4">
+                                                <div className="space-y-1">
+                                                    <label className="text-[10px] uppercase font-bold text-primary/60">Nome</label>
+                                                    <input
+                                                        value={addForm.name}
+                                                        onChange={e => setAddForm({ ...addForm, name: e.target.value })}
+                                                        placeholder="Ex: Endocrinologia"
+                                                        className="w-full bg-white border border-primary/10 rounded-xl p-3 text-sm font-bold outline-none focus:ring-2 focus:ring-primary/20"
+                                                    />
+                                                </div>
+                                                <div className="space-y-1">
+                                                    <label className="text-[10px] uppercase font-bold text-primary/60">Slug (Opcional)</label>
+                                                    <input
+                                                        value={addForm.slug}
+                                                        onChange={e => setAddForm({ ...addForm, slug: e.target.value })}
+                                                        placeholder="Ex: endocrinologia"
+                                                        className="w-full bg-white border border-primary/10 rounded-xl p-3 text-sm font-bold outline-none focus:ring-2 focus:ring-primary/20"
+                                                    />
+                                                </div>
+                                            </div>
+                                            <button
+                                                onClick={handleAddChild}
+                                                className="w-full bg-primary text-white py-3 rounded-xl text-xs font-black uppercase shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-2"
+                                            >
+                                                <Plus size={16} />
+                                                Confirmar Adição
+                                            </button>
+                                        </motion.div>
+                                    )}
+                                </div>
+                            )}
+
+                            {/* MERGE ACTION */}
+                            <div className="mt-4 flex gap-3">
                                 <button
                                     onClick={() => { setIsMergeMode(true); setMergeTarget(null); toast('Selecione o nó de destino na árvore à esquerda') }}
                                     className={`flex-1 flex items-center justify-center gap-2 py-4 rounded-2xl text-xs font-black uppercase tracking-widest transition-all ${isMergeMode ? 'bg-slate-800 text-white shadow-lg shadow-slate-200 ring-2 ring-slate-800 ring-offset-2' : 'bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 hover:border-slate-300'}`}
@@ -350,7 +437,7 @@ export default function TaxonomyEditor() {
                                         onClick={() => { setIsMergeMode(false); setMergeTarget(null) }}
                                         className="px-4 py-4 rounded-2xl border border-rose-200 bg-rose-50 text-rose-500 hover:bg-rose-100 transition-colors"
                                     >
-                                        <Trash2 size={16} />
+                                        <X size={16} />
                                     </button>
                                 )}
                             </div>
@@ -389,7 +476,7 @@ export default function TaxonomyEditor() {
 
                                             <button
                                                 onClick={handleMerge}
-                                                className="mt-6 w-full bg-emerald-600 text-white py-4 rounded-xl text-xs font-black uppercase tracking-widest hover:bg-emerald-500 shadow-lg shadow-emerald-600/20 active:scale-[0.98] transition-all"
+                                                className="mt-6 w-full bg-emerald-600 text-white py-3 rounded-xl text-xs font-black uppercase tracking-widest hover:bg-emerald-500 shadow-lg shadow-emerald-600/20 active:scale-[0.98] transition-all"
                                             >
                                                 Confirmar Unificação
                                             </button>

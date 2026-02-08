@@ -4,6 +4,7 @@ import { useState, useMemo, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, ChevronRight, BookOpen, Stethoscope, Microscope, Search, Check, Play, LayoutGrid, Settings2, Filter, AlertCircle, CheckSquare, Square } from 'lucide-react'
 import { useRouter } from 'next/navigation'
+import { useTaxonomy } from '@/store/use-taxonomy'
 import { COURSES, Course, Specialty, Subspecialty } from '@/lib/data-mock'
 
 interface TrainModalProps {
@@ -28,9 +29,12 @@ export function TrainModal({ isOpen, onClose, initialMode, initialSpecialtyId }:
 
     const [searchQuery, setSearchQuery] = useState('')
 
+    const { taxonomy, loadTaxonomy } = useTaxonomy()
+
     // Reset state when opening
     useEffect(() => {
         if (isOpen) {
+            loadTaxonomy()
             if (initialSpecialtyId) {
                 setMode('CONFIG')
                 setSelectedSpecialtyId(initialSpecialtyId)
@@ -44,21 +48,26 @@ export function TrainModal({ isOpen, onClose, initialMode, initialSpecialtyId }:
         }
     }, [isOpen, initialMode, initialSpecialtyId])
 
+    const dynamicSpecialties = useMemo(() => {
+        const course = taxonomy.find(t => t.active && (t.level === 'course' || t.slug === 'medicina'))
+        return course?.children?.filter(s => s.active) || []
+    }, [taxonomy])
+
     const selectedSpecialty = useMemo(() => {
-        if (!selectedSpecialtyId || !COURSES?.[0]?.specialties) return null
-        return COURSES[0].specialties.find(s => s.id === selectedSpecialtyId)
-    }, [selectedSpecialtyId])
+        if (!selectedSpecialtyId || dynamicSpecialties.length === 0) return null
+        return dynamicSpecialties.find(s => s.id === selectedSpecialtyId)
+    }, [selectedSpecialtyId, dynamicSpecialties])
 
     const availableSubspecialties = useMemo(() => {
-        return selectedSpecialty?.subspecialties || []
+        return selectedSpecialty?.children || []
     }, [selectedSpecialty])
 
     const availableSubjects = useMemo(() => {
         let subjects: { id: string, name: string }[] = []
         if (selectedSubId) {
-            subjects = availableSubspecialties.find(s => s.id === selectedSubId)?.subjects || []
+            subjects = availableSubspecialties.find(s => s.id === selectedSubId)?.children || []
         } else {
-            subjects = availableSubspecialties.flatMap(s => s.subjects)
+            subjects = availableSubspecialties.flatMap(s => s.children || [])
         }
 
         // Remove duplicates by name to prevent multiple "Geral" options
@@ -91,24 +100,21 @@ export function TrainModal({ isOpen, onClose, initialMode, initialSpecialtyId }:
     // LIST RENDERER (For standard menu selections)
     const filteredItems = useMemo(() => {
         const query = searchQuery.toLowerCase()
-        if (!COURSES || COURSES.length === 0) return []
+        if (dynamicSpecialties.length === 0) return []
 
-        if (mode === 'COURSE') return COURSES.filter(c => c.name.toLowerCase().includes(query))
-        if (mode === 'SPECIALTY') return COURSES.flatMap(c => c.specialties).filter(s => s.name.toLowerCase().includes(query))
-        if (mode === 'SUBSPECIALTY') return COURSES.flatMap(c => c.specialties.flatMap(s => s.subspecialties)).filter(sub => sub.name.toLowerCase().includes(query))
+        if (mode === 'SPECIALTY') return dynamicSpecialties.filter(s => s.name.toLowerCase().includes(query))
+        if (mode === 'SUBSPECIALTY') return dynamicSpecialties.flatMap(s => (s.children || [])).filter(sub => sub.name.toLowerCase().includes(query))
         if (mode === 'SUBJECT') {
-            const allSubjects = []
-            for (const course of COURSES) {
-                for (const spec of course.specialties) {
-                    for (const sub of spec.subspecialties) {
-                        for (const subject of sub.subjects) {
-                            if (subject.name.toLowerCase().includes(query)) {
-                                allSubjects.push({
-                                    ...subject,
-                                    context: `${spec.name} > ${sub.name}`,
-                                    fullData: { course, spec, sub, subject }
-                                })
-                            }
+            const allSubjects: any[] = []
+            for (const spec of dynamicSpecialties) {
+                for (const sub of (spec.children || [])) {
+                    for (const subject of (sub.children || [])) {
+                        if (subject.name.toLowerCase().includes(query)) {
+                            allSubjects.push({
+                                ...subject,
+                                context: `${spec.name} > ${sub.name}`,
+                                fullData: { spec, sub, subject }
+                            })
                         }
                     }
                 }
@@ -116,15 +122,15 @@ export function TrainModal({ isOpen, onClose, initialMode, initialSpecialtyId }:
             return allSubjects
         }
         return []
-    }, [mode, searchQuery])
+    }, [mode, searchQuery, dynamicSpecialties])
 
     const renderMenu = () => {
-        const specialties = COURSES?.[0]?.specialties || []
+        const specialties = dynamicSpecialties
         const query = searchQuery.toLowerCase()
 
         const filteredSpecialties = specialties.filter(spec =>
             spec.name.toLowerCase().includes(query) ||
-            (spec.category && spec.category.toLowerCase().includes(query))
+            (spec.metadata?.category && String(spec.metadata.category).toLowerCase().includes(query))
         )
 
         const toggleSpecialty = (specId: string) => {
@@ -182,7 +188,7 @@ export function TrainModal({ isOpen, onClose, initialMode, initialSpecialtyId }:
                                         </div>
                                         <div className="space-y-1">
                                             <h4 className={`font-black italic uppercase text-xs tracking-tight transition-colors ${isSelected ? 'text-emerald-700' : 'text-[#1A1033] group-hover:text-primary'}`}>{spec.name}</h4>
-                                            <p className="text-[9px] font-bold text-slate-400 uppercase tracking-widest">{spec.category || 'Especialidades Básicas'}</p>
+                                            <p className="text-[9px] font-bold text-slate-400 uppercase tracking-widest">{spec.metadata?.category || 'Especialidades Básicas'}</p>
                                         </div>
                                     </div>
                                     {!isSelected && (
@@ -247,10 +253,9 @@ export function TrainModal({ isOpen, onClose, initialMode, initialSpecialtyId }:
                     <button
                         key={i}
                         onClick={() => {
-                            if (mode === 'COURSE') handleStart(`courseId=${encodeURIComponent(item.id)}`)
                             if (mode === 'SPECIALTY') { setSelectedSpecialtyId(item.id); setMode('CONFIG'); }
                             if (mode === 'SUBSPECIALTY') handleStart(`subspecialtyId=${encodeURIComponent(item.id)}`)
-                            if (mode === 'SUBJECT') handleStart(`courseId=${encodeURIComponent(item.fullData.course.id)}&specialtyId=${encodeURIComponent(item.fullData.spec.id)}&subspecialtyId=${encodeURIComponent(item.fullData.sub.id)}&subjectId=${encodeURIComponent(item.id)}`)
+                            if (mode === 'SUBJECT') handleStart(`specialtyId=${encodeURIComponent(item.fullData.spec.id)}&subspecialtyId=${encodeURIComponent(item.fullData.sub.id)}&subjectId=${encodeURIComponent(item.id)}`)
                         }}
                         className="w-full text-left p-4 rounded-xl border border-slate-100 bg-white hover:border-primary/30 hover:bg-slate-50 transition-all flex items-center justify-between group"
                     >
@@ -419,12 +424,12 @@ export function TrainModal({ isOpen, onClose, initialMode, initialSpecialtyId }:
     )
 
     const renderConfigMulti = () => {
-        const specialties = COURSES?.[0]?.specialties || []
+        const specialties = dynamicSpecialties
         const query = searchQuery.toLowerCase()
 
         const filteredSpecialties = specialties.filter(spec =>
             spec.name.toLowerCase().includes(query) ||
-            (spec.category && spec.category.toLowerCase().includes(query))
+            (spec.metadata?.category && String(spec.metadata.category).toLowerCase().includes(query))
         )
 
         const toggleSpecialty = (specId: string) => {

@@ -16,6 +16,7 @@ import { useUserDb } from '@/store/use-user-db'
 import { useModeration } from '@/store/use-moderation'
 import { useQuiz } from '@/store/use-quiz'
 import { useRouter } from 'next/navigation'
+import { toast } from 'react-hot-toast'
 // Removed AI Prompt imports
 
 import { motion, AnimatePresence } from 'framer-motion'
@@ -24,7 +25,6 @@ import {
 } from 'recharts'
 import * as XLSX from 'xlsx'
 import { useSystem } from '@/store/use-system'
-// Redundant imports removed
 import { generateStructuralQuestion } from '@/lib/generators/structural-engine'
 import { MEDICAL_LIBRARY } from '@/lib/generators/medical-library'
 import { MEDICAL_HIERARCHY } from '@/lib/medical-specialties'
@@ -32,6 +32,7 @@ import { QuestionPreviewModal } from '@/components/question-preview-modal'
 import { QuestionsBreakdownModal } from '@/components/questions-breakdown-modal'
 import { UserAnalysisModal } from '@/components/user-analysis-modal'
 import TaxonomyEditor from '@/components/admin-taxonomy-editor'
+import { useTaxonomy } from '@/store/use-taxonomy'
 
 export default function AdminDashboard() {
     const { user, isAuthenticated } = useAuth()
@@ -43,6 +44,8 @@ export default function AdminDashboard() {
 
     const { reports, loadReports, updateReportStatus, loading: reportsLoading } = useModeration()
     const { responses, load_all_responses: loadAllResponses } = useQuiz()
+    const { taxonomy, loadTaxonomy, loading: taxonomyLoading } = useTaxonomy()
+
     // QRUB MASTER - Structural State
     const [view, setViewInternal] = useState<'questions' | 'users' | 'analytics' | 'reports' | 'import' | 'structural' | 'validation' | 'settings' | 'taxonomy'>('analytics')
     const { isMaintenanceMode, maintenanceMessage, setMaintenanceMode, openaiApiKey, setOpenaiApiKey } = useSystem()
@@ -62,6 +65,13 @@ export default function AdminDashboard() {
         params.set('tab', newView)
         router.push(`/admin?${params.toString()}`, { scroll: false })
     }
+
+    useEffect(() => {
+        loadUsers()
+        loadReports()
+        loadQuestions()
+        loadTaxonomy()
+    }, [])
 
     useEffect(() => {
         const tab = searchParams.get('tab')
@@ -93,38 +103,32 @@ export default function AdminDashboard() {
     }
 
     const dynamicHierarchy = useMemo(() => {
-        const base = JSON.parse(JSON.stringify(MEDICAL_HIERARCHY[0].specialties))
-
-        questions.forEach(q => {
-            // Some questions might have text fields instead of IDs depending on source
-            const specName = q.metadata?.especialidade || q.specialty_id
-            const subName = q.metadata?.subespecialidade || q.subspecialty_id
-            const themeName = q.metadata?.tema || q.subject_id
-
-            if (!specName) return
-
-            let spec = base.find((s: any) => s.id === q.area_id || s.name === specName)
-            if (!spec) {
-                spec = { id: q.area_id || specName.toLowerCase().replace(/\s+/g, '-'), name: specName, subspecialties: [] }
-                base.push(spec)
+        // Use database taxonomy as primary source
+        if (taxonomy && taxonomy.length > 0) {
+            const course = taxonomy.find(t => t.level === 'course' || t.slug === 'medicina')
+            if (course && course.children) {
+                // Return specialties for a course
+                return course.children.map(s => ({
+                    id: s.slug,
+                    uuid: s.id,
+                    name: s.name,
+                    subspecialties: (s.children || []).map(ss => ({
+                        id: ss.slug,
+                        uuid: ss.id,
+                        name: ss.name,
+                        subjects: (ss.children || []).map(subj => ({
+                            id: subj.slug,
+                            uuid: subj.id,
+                            name: subj.name
+                        }))
+                    }))
+                }))
             }
+        }
 
-            if (spec && subName && subName !== 'Geral') {
-                let sub = spec.subspecialties.find((s: any) => s.id === q.subarea_id || s.name === subName)
-                if (!sub) {
-                    sub = { id: q.subarea_id || subName.toLowerCase().replace(/\s+/g, '-'), name: subName, subjects: [] }
-                    spec.subspecialties.push(sub)
-                }
-
-                if (sub && themeName && themeName !== 'Geral') {
-                    if (!sub.subjects.find((t: any) => t.id === q.tema_id || t.name === themeName)) {
-                        sub.subjects.push({ id: q.tema_id || themeName.toLowerCase().replace(/\s+/g, '-'), name: themeName })
-                    }
-                }
-            }
-        })
-        return base
-    }, [questions])
+        // Fallback to static if DB is empty (should not happen after setup)
+        return MEDICAL_HIERARCHY[0].specialties
+    }, [taxonomy])
 
     // QRUB MASTER - Logic
     // QRUB MASTER - Logic
@@ -134,7 +138,7 @@ export default function AdminDashboard() {
             return
         }
 
-        const areaObj = MEDICAL_HIERARCHY[0].specialties.find(s => s.id === structuralArea)
+        const areaObj = dynamicHierarchy.find((s: any) => s.id === structuralArea)
         if (!areaObj) return
 
         // 1. Resolve Subarea (Auto-pick or Generic)
@@ -871,7 +875,7 @@ export default function AdminDashboard() {
                                     className="w-full h-14 bg-muted/50 border border-border rounded-2xl px-5 font-bold focus:ring-2 focus:ring-primary/20 outline-none transition-all cursor-pointer"
                                 >
                                     <option value="">Detectar Automático</option>
-                                    {MEDICAL_HIERARCHY[0].specialties.map(s => <option key={s.id} value={s.id}>{s.name}</option>)}
+                                    {dynamicHierarchy.map((s: any) => <option key={s.id} value={s.id}>{s.name}</option>)}
                                 </select>
                             </div>
 
@@ -1246,9 +1250,11 @@ export default function AdminDashboard() {
     const [selectedDifficulty, setSelectedDifficulty] = useState<'Fácil' | 'Médio' | 'Difícil' | 'RANDOM'>('RANDOM')
     const [selectedBatchSize, setSelectedBatchSize] = useState(500)
 
-    const activeCourse = MEDICAL_HIERARCHY[0]
-    const activeSpecialty = activeCourse?.specialties.find(s => s.id === selectedSpecialty)
-    const activeSubspecialty = activeSpecialty?.subspecialties.find(sub => sub.id === selectedSubspecialty)
+    const activeCourse = useMemo(() => ({
+        specialties: dynamicHierarchy
+    }), [dynamicHierarchy])
+    const activeSpecialty = activeCourse?.specialties.find((s: any) => s.id === selectedSpecialty)
+    const activeSubspecialty = activeSpecialty?.subspecialties.find((sub: any) => sub.id === selectedSubspecialty)
 
 
     const handleReviewLanguage = async () => {
@@ -2609,7 +2615,7 @@ export default function AdminDashboard() {
                                                         if (q) setPreviewQuestion(q)
                                                         else {
                                                             toast.error('Questão não encontrada no cache. Recarregando...')
-                                                            await fetchQuestions()
+                                                            await loadQuestions()
                                                         }
                                                     }}
                                                 >
@@ -2629,7 +2635,7 @@ export default function AdminDashboard() {
                                                         if (q) setPreviewQuestion(q)
                                                         else {
                                                             toast.error('Questão não encontrada no cache. Recarregando...')
-                                                            await fetchQuestions()
+                                                            await loadQuestions()
                                                         }
                                                     }}
                                                 >
@@ -2646,7 +2652,7 @@ export default function AdminDashboard() {
                                                                 if (q) handleOpenEditor(q)
                                                                 else {
                                                                     toast.error('Questão não encontrada')
-                                                                    await fetchQuestions()
+                                                                    await loadQuestions()
                                                                 }
                                                             }}
                                                             className="px-3 py-1.5 rounded-lg bg-primary/10 text-primary text-[10px] font-black uppercase hover:bg-primary/20 transition-all flex items-center gap-1.5"
