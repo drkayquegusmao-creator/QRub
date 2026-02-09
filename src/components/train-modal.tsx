@@ -592,7 +592,7 @@ export function TrainModal({ isOpen, onClose, initialMode, initialSpecialtyId }:
                         </div>
                         <button onClick={onClose} className="p-2 rounded-full hover:bg-slate-100 text-slate-400"><X className="w-6 h-6" /></button>
                     </div>
-                    <div className="p-8 pt-6 overflow-hidden">
+                    <div className="p-8 pt-6 overflow-y-auto flex-1">
                         {mode === 'MENU' ? renderMenu() :
                             mode === 'CONFIG' ? renderConfig() :
                                 mode === 'CONFIG_ALL' ? renderConfigAll() :
