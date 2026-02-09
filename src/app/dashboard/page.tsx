@@ -288,7 +288,7 @@ export default function StudentDashboard() {
     )
 
     const renderReadinessIndex = () => (
-        <div className="bg-white border-2 border-slate-100 rounded-[50px] p-10 md:p-14 soft-shadow relative overflow-hidden">
+        <div className="bg-white border-2 border-slate-100 rounded-[50px] p-10 md:p-14 soft-shadow relative">
             <InfoBubble text="Índice que mede sua preparação geral baseado em volume e precisão." />
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-10">
                 <div className="space-y-6 flex-1 text-center md:text-left">
@@ -304,7 +304,7 @@ export default function StudentDashboard() {
                     </p>
                 </div>
 
-                <div className="flex flex-col items-center gap-6 shrink-0">
+                <div className="flex flex-col items-center gap-6 shrink-0 px-4">
                     <div className="relative w-48 h-48 md:w-60 md:h-60 flex items-center justify-center">
                         {/* Glow Effect Background */}
                         <div className={`absolute inset-4 rounded-full blur-2xl opacity-20 ${readiness > 80 ? 'bg-emerald-500' : readiness > 50 ? 'bg-amber-500' : 'bg-rose-500'}`} />
