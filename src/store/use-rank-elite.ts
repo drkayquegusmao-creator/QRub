@@ -315,7 +315,6 @@ export const useRankElite = create<RankEliteState>((set, get) => ({
             if (!profile || !xpProfile) return;
 
             const newPoints = profile.season_points + stats.points;
-            const newPoints = profile.season_points + stats.points;
             const newXP = xpProfile.xp_total + stats.xp;
 
             // Updated Advanced Metrics
@@ -351,9 +350,6 @@ export const useRankElite = create<RankEliteState>((set, get) => ({
 
             // Update DB
             const { error: profUpdateErr } = await supabase.from('rank_profiles').update({
-                season_points: newPoints,
-                lifetime_points: profile.lifetime_points + stats.points,
-                current_league_id: newLeagueId,
                 season_points: newPoints,
                 lifetime_points: profile.lifetime_points + stats.points,
                 current_league_id: newLeagueId,
@@ -398,9 +394,6 @@ export const useRankElite = create<RankEliteState>((set, get) => ({
 
             // Refresh Local State (UI update)
             set({
-                profile: { ...profile, season_points: newPoints, current_league_id: newLeagueId },
-                xpProfile: { ...xpProfile, xp_total: newXP, level_current: Math.floor(newXP / 500) + 1 },
-                missions: updatedMissions,
                 profile: {
                     ...profile,
                     season_points: newPoints,
@@ -413,7 +406,8 @@ export const useRankElite = create<RankEliteState>((set, get) => ({
                     perfect_matches_count: perfectMatches,
                     arena_wins: arenaWins
                 },
-                xpProfile: { ...xpProfile, xp_total: newXP, level_current: Math.floor(newXP / 500) + 1 }
+                xpProfile: { ...xpProfile, xp_total: newXP, level_current: Math.floor(newXP / 500) + 1 },
+                missions: updatedMissions
             });
 
             // 5. UNLOCK REWARDS CHECK (The Golden Rule: Play -> Unlock)
