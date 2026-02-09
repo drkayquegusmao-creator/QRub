@@ -270,11 +270,6 @@ export const useRankElite = create<RankEliteState>((set, get) => ({
         points: number;
         xp: number;
         duration: number;
-        correct: number;
-        wrong: number;
-        points: number;
-        xp: number;
-        duration: number;
         incorrectQuestionIds: number[];
         finalStreak?: number;
         fastCorrect?: number;
