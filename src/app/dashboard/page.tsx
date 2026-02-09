@@ -288,7 +288,7 @@ export default function StudentDashboard() {
     )
 
     const renderReadinessIndex = () => (
-        <div className="bg-white border-2 border-slate-100 rounded-[50px] p-10 md:p-14 soft-shadow relative">
+        <div className="bg-white border-2 border-slate-100 rounded-[50px] p-10 md:p-14 soft-shadow relative overflow-hidden">
             <InfoBubble text="Índice que mede sua preparação geral baseado em volume e precisão." />
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-10">
                 <div className="space-y-6 flex-1 text-center md:text-left">
@@ -304,7 +304,7 @@ export default function StudentDashboard() {
                     </p>
                 </div>
 
-                <div className="flex flex-col items-center gap-6">
+                <div className="flex flex-col items-center gap-6 shrink-0">
                     <div className="relative w-48 h-48 md:w-60 md:h-60 flex items-center justify-center">
                         {/* Glow Effect Background */}
                         <div className={`absolute inset-4 rounded-full blur-2xl opacity-20 ${readiness > 80 ? 'bg-emerald-500' : readiness > 50 ? 'bg-amber-500' : 'bg-rose-500'}`} />
@@ -329,7 +329,7 @@ export default function StudentDashboard() {
                         </svg>
 
                         <div className="absolute inset-0 flex flex-col items-center justify-center text-center z-20">
-                            <span className="text-6xl md:text-7xl font-black italic text-[#1A1033] tracking-[ -0.05em] leading-none mb-2">
+                            <span className="text-6xl md:text-7xl font-black italic text-[#1A1033] tracking-[-0.05em] leading-none mb-2">
                                 {readiness}<span className="text-2xl md:text-3xl ml-0.5">%</span>
                             </span>
                             <div className={`px-4 py-1 rounded-full text-[10px] font-bold uppercase tracking-[0.2em] bg-white border shadow-sm ${readinessColor}`}>
