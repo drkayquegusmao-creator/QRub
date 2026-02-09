@@ -491,7 +491,7 @@ export function TrainModal({ isOpen, onClose, initialMode, initialSpecialtyId }:
                 </div>
 
                 {/* Specialty Selection Grid */}
-                <div className="max-h-[250px] overflow-y-auto pr-2 custom-scrollbar">
+                <div className="max-h-[180px] overflow-y-auto pr-2 custom-scrollbar">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                         {filteredSpecialties.map((spec) => {
                             const isSelected = selectedSpecialtyIds.includes(spec.id)
