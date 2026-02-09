@@ -1,8 +1,9 @@
 "use client"
 
 import { motion, AnimatePresence } from 'framer-motion'
-import { X, User, Mail, Phone, BookOpen, Calendar, Target, Crown, Zap, Shield, LogOut, CreditCard } from 'lucide-react'
+import { X, User, Mail, Phone, BookOpen, Calendar, Target, Crown, Zap, Shield, LogOut, CreditCard, MapPin } from 'lucide-react'
 import { useAuth } from '@/store/use-auth'
+import { useRankElite } from '@/store/use-rank-elite'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import Image from 'next/image'
@@ -14,6 +15,7 @@ interface UserProfileModalProps {
 
 export function UserProfileModal({ isOpen, onClose }: UserProfileModalProps) {
     const { user, logout } = useAuth()
+    const { profile } = useRankElite()
     const router = useRouter()
     const [showUpgradeModal, setShowUpgradeModal] = useState(false)
 
@@ -132,6 +134,20 @@ export function UserProfileModal({ isOpen, onClose }: UserProfileModalProps) {
 
                                 {user.specialty_of_interest && (
                                     <InfoRow icon={<Target className="w-4 h-4" />} label="Especialidade" value={user.specialty_of_interest} />
+                                )}
+
+                                {user.address && (
+                                    <InfoRow icon={<MapPin className="w-4 h-4" />} label="Endereço" value={user.address} />
+                                )}
+
+                                {profile && (
+                                    <div className="mt-2 bg-gradient-to-r from-primary/10 to-primary/5 p-4 rounded-2xl flex items-center justify-between border border-primary/10">
+                                        <span className="text-xs font-black uppercase tracking-widest text-primary flex items-center gap-2">
+                                            <Target className="w-4 h-4" />
+                                            Total Respondidas
+                                        </span>
+                                        <span className="text-2xl font-black text-[#1A1033]">{profile.total_questions_answered || 0}</span>
+                                    </div>
                                 )}
                             </div>
 

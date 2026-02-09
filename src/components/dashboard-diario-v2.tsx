@@ -15,6 +15,7 @@ import {
     CalendarDays
 } from 'lucide-react'
 import { useAuth } from '@/store/use-auth'
+import { useQuestions } from '@/store/use-questions'
 import { SessaoModal } from './sessao-modal'
 import { CalendarView } from './calendar-view'
 
@@ -62,6 +63,7 @@ interface ErroItem {
 
 export function DashboardDiario() {
     const { user } = useAuth()
+    const { questions } = useQuestions()
     const [dashboard, setDashboard] = useState<DashboardData | null>(null)
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState<string | null>(null)
@@ -245,7 +247,13 @@ export function DashboardDiario() {
                 const niveladosIds = new Set(progressos?.map(p => p.assunto_id) || [])
 
                 for (const cand of levelCandidates) {
-                    if (!niveladosIds.has(cand.id)) {
+                    const hasNivelamento = niveladosIds.has(cand.id)
+                    const hasApprovedQuestions = questions.some((q: any) =>
+                        (q.subject_id === cand.id || q.subspecialty_id === cand.id || q.specialty_id === cand.id) &&
+                        q.status_validacao === 'APROVADA'
+                    )
+
+                    if (!hasNivelamento && hasApprovedQuestions) {
                         sugestao = {
                             assunto_id: cand.id,
                             nome: cand.name,
@@ -257,19 +265,40 @@ export function DashboardDiario() {
                 }
 
                 if (!sugestao && atrasadas.length > 0) {
-                    const alvo = [...atrasadas].sort((a, b) => (b.dias_atrasado || 0) - (a.dias_atrasado || 0))[0]
-                    sugestao = {
-                        assunto_id: alvo.assunto_id,
-                        nome: alvo.nome,
-                        specialty_id: alvo.specialty_id,
-                        questoes_disponiveis: 10
+                    // Filter atrasadas that have questions
+                    const atrasadasComQuestoes = atrasadas.filter(a =>
+                        questions.some((q: any) =>
+                            (q.subject_id === a.assunto_id || q.subspecialty_id === a.assunto_id || q.specialty_id === a.assunto_id) &&
+                            q.status_validacao === 'APROVADA'
+                        )
+                    )
+
+                    if (atrasadasComQuestoes.length > 0) {
+                        const alvo = [...atrasadasComQuestoes].sort((a, b) => (b.dias_atrasado || 0) - (a.dias_atrasado || 0))[0]
+                        sugestao = {
+                            assunto_id: alvo.assunto_id,
+                            nome: alvo.nome,
+                            specialty_id: alvo.specialty_id,
+                            questoes_disponiveis: 10
+                        }
                     }
-                } else if (!sugestao && errosAtivos.length > 0) {
-                    sugestao = {
-                        assunto_id: errosAtivos[0].assunto_id,
-                        nome: errosAtivos[0].nome,
-                        specialty_id: errosAtivos[0].assunto_id,
-                        questoes_disponiveis: errosAtivos[0].quantidade
+                }
+
+                if (!sugestao && errosAtivos.length > 0) {
+                    const errosComQuestoes = errosAtivos.filter(e =>
+                        questions.some((q: any) =>
+                            (q.subject_id === e.assunto_id || q.subspecialty_id === e.assunto_id || q.specialty_id === e.assunto_id) &&
+                            q.status_validacao === 'APROVADA'
+                        )
+                    )
+
+                    if (errosComQuestoes.length > 0) {
+                        sugestao = {
+                            assunto_id: errosComQuestoes[0].assunto_id,
+                            nome: errosComQuestoes[0].nome,
+                            specialty_id: errosComQuestoes[0].assunto_id,
+                            questoes_disponiveis: errosComQuestoes[0].quantidade
+                        }
                     }
                 }
 
@@ -304,7 +333,7 @@ export function DashboardDiario() {
         }
 
         fetchDashboardLocal()
-    }, [user?.id])
+    }, [user?.id, questions.length])
 
     const handleIniciarSessao = (assunto_id: string, tipo: 'NIVELAMENTO' | 'REVISAO' | 'CADERNO_ERROS') => {
         setSessaoAssuntoId(assunto_id)

@@ -9,11 +9,15 @@ import {
     CheckCircle2,
     Clock,
     AlertTriangle,
-    Lock
+    Lock,
+    RefreshCcw,
+    Flag
 } from 'lucide-react'
 import { useAuth } from '@/store/use-auth'
+import { useSRS } from '@/store/use-srs'
 import { SessaoModal } from './sessao-modal'
-import { supabase } from '@/lib/supabase'
+import { supabase, isSupabaseConfigured } from '@/lib/supabase'
+import { useErrors } from '@/store/use-errors'
 
 type Visao = 'DIA' | 'SEMANA' | 'MES'
 
@@ -57,6 +61,8 @@ export function CalendarioEstudos({ plano = 'FREE' }: CalendarioEstudosProps) {
     const [calendario, setCalendario] = useState<CalendarioData | null>(null)
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState<string | null>(null)
+    const { folgas, load_folgas } = useSRS()
+    const [localFolgas, setLocalFolgas] = useState<string[]>([]) // For optimistic updates if needed, but let's use store
 
     // Estado do modal de sessão
     const [sessaoAberta, setSessaoAberta] = useState(false)
@@ -73,6 +79,10 @@ export function CalendarioEstudos({ plano = 'FREE' }: CalendarioEstudosProps) {
 
     useEffect(() => {
         if (!user?.id) return
+
+        const fetchFolgas = async () => {
+            if (user?.id) await load_folgas(user.id)
+        }
 
         const fetchCalendarioLocal = async () => {
             try {
@@ -192,8 +202,27 @@ export function CalendarioEstudos({ plano = 'FREE' }: CalendarioEstudosProps) {
             }
         }
 
+        fetchFolgas()
         fetchCalendarioLocal()
     }, [user?.id, visao, dataReferencia])
+
+    const toggleFolga = async (dateStr: string) => {
+        if (!user?.id || !isSupabaseConfigured()) return
+
+        const isFolga = folgas.includes(dateStr)
+        if (isFolga) {
+            await supabase
+                .from('user_folgas')
+                .delete()
+                .eq('user_id', user.id)
+                .eq('data', dateStr)
+        } else {
+            await supabase
+                .from('user_folgas')
+                .insert({ user_id: user.id, data: dateStr })
+        }
+        await load_folgas(user.id)
+    }
 
     const handleMudarVisao = (novaVisao: Visao) => {
         if (!podeAcessarVisao(novaVisao)) {
@@ -365,6 +394,8 @@ export function CalendarioEstudos({ plano = 'FREE' }: CalendarioEstudosProps) {
                                 key="dia"
                                 calendario={calendario}
                                 onIniciarRevisao={handleIniciarRevisao}
+                                folgas={folgas}
+                                onToggleFolga={toggleFolga}
                             />
                         )}
                         {visao === 'SEMANA' && (
@@ -372,6 +403,8 @@ export function CalendarioEstudos({ plano = 'FREE' }: CalendarioEstudosProps) {
                                 key="semana"
                                 calendario={calendario}
                                 onIniciarRevisao={handleIniciarRevisao}
+                                folgas={folgas}
+                                onToggleFolga={toggleFolga}
                             />
                         )}
                         {visao === 'MES' && (
@@ -379,6 +412,8 @@ export function CalendarioEstudos({ plano = 'FREE' }: CalendarioEstudosProps) {
                                 key="mes"
                                 calendario={calendario}
                                 onIniciarRevisao={handleIniciarRevisao}
+                                folgas={folgas}
+                                onToggleFolga={toggleFolga}
                             />
                         )}
                     </AnimatePresence>
@@ -400,13 +435,19 @@ export function CalendarioEstudos({ plano = 'FREE' }: CalendarioEstudosProps) {
 // Visão DIA - Lista de tarefas
 function VisaoDia({
     calendario,
-    onIniciarRevisao
+    onIniciarRevisao,
+    folgas,
+    onToggleFolga
 }: {
     calendario: CalendarioData
     onIniciarRevisao: (assunto_id: string) => void
+    folgas: string[]
+    onToggleFolga: (date: string) => void
 }) {
     const data = new Date(calendario.data_referencia)
-    const revisoesDoDia = calendario.por_data[calendario.data_referencia] || []
+    const dateStr = calendario.data_referencia
+    const isFolga = folgas.includes(dateStr)
+    const revisoesDoDia = isFolga ? [] : (calendario.por_data[dateStr] || [])
 
     return (
         <motion.div
@@ -415,13 +456,34 @@ function VisaoDia({
             exit={{ opacity: 0, y: -20 }}
             className="space-y-4"
         >
-            <div className="text-center py-4">
+            <div className="flex flex-col items-center justify-center py-4 gap-2">
                 <h3 className="text-2xl font-black italic uppercase tracking-tighter text-foreground">
                     {data.toLocaleDateString('pt-BR', { weekday: 'long', day: 'numeric', month: 'long' })}
                 </h3>
+                <button
+                    onClick={() => onToggleFolga(dateStr)}
+                    className={`px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest transition-all gap-1.5 flex items-center border ${isFolga
+                        ? 'bg-rose-500 text-white border-rose-500 shadow-lg shadow-rose-500/20'
+                        : 'bg-slate-100 text-slate-500 border-slate-200 hover:bg-slate-200'
+                        }`}
+                >
+                    <Clock className={`w-3.5 h-3.5 ${isFolga ? 'hidden' : ''}`} />
+                    <RefreshCcw className={`w-3.5 h-3.5 animate-spin ${isFolga ? '' : 'hidden'}`} />
+                    {isFolga ? 'Dia de Folga (Ativado)' : 'Marcar como Folga'}
+                </button>
             </div>
 
-            {revisoesDoDia.length === 0 ? (
+            {isFolga ? (
+                <div className="bg-rose-50 border-2 border-rose-100 rounded-[40px] p-16 text-center">
+                    <div className="w-20 h-20 bg-rose-500 text-white rounded-full flex items-center justify-center mx-auto mb-8 shadow-xl shadow-rose-500/20">
+                        <CalendarIcon className="w-10 h-10" />
+                    </div>
+                    <h2 className="text-3xl font-black italic text-rose-500 uppercase tracking-tighter mb-4">DIA DE DESCANSO</h2>
+                    <p className="text-rose-400 font-bold max-w-sm mx-auto uppercase text-xs tracking-[0.2em] leading-relaxed">
+                        Recarregue suas energias. <br />Não há revisões programadas para hoje.
+                    </p>
+                </div>
+            ) : revisoesDoDia.length === 0 ? (
                 <div className="bg-card border border-border rounded-3xl p-12 text-center">
                     <CalendarIcon className="w-16 h-16 text-muted-foreground mx-auto mb-4 opacity-50" />
                     <p className="text-muted-foreground font-medium">
@@ -447,10 +509,14 @@ function VisaoDia({
 // Visão SEMANA - Grid de 7 dias
 function VisaoSemana({
     calendario,
-    onIniciarRevisao
+    onIniciarRevisao,
+    folgas,
+    onToggleFolga
 }: {
     calendario: CalendarioData
     onIniciarRevisao: (assunto_id: string) => void
+    folgas: string[]
+    onToggleFolga: (date: string) => void
 }) {
     const inicio = new Date(calendario.periodo.inicio)
     // O problema de datas em JS... a conversão precisa ser correta. 
@@ -476,42 +542,55 @@ function VisaoSemana({
                 const revisoes = calendario.por_data[dataStr] || []
                 const isHoje = dataStr === new Date().toISOString().split('T')[0]
 
+                const isFolga = folgas.includes(dataStr)
+
                 return (
                     <div
                         key={dataStr}
-                        className={`bg-card border rounded-2xl p-3 min-h-[120px] ${isHoje ? 'border-primary ring-2 ring-primary/20' : 'border-border'
+                        onClick={() => onToggleFolga(dataStr)}
+                        className={`bg-card border rounded-2xl p-3 min-h-[120px] cursor-pointer transition-all hover:border-primary/50 relative group ${isFolga ? 'bg-rose-50 border-rose-100 opacity-80' : isHoje ? 'border-primary ring-2 ring-primary/20' : 'border-border'
                             }`}
                     >
+                        {isFolga && (
+                            <div className="absolute inset-0 flex items-center justify-center opacity-10 pointer-events-none">
+                                <CalendarIcon className="w-12 h-12 text-rose-500" />
+                            </div>
+                        )}
                         <div className="text-center mb-2">
                             <p className="text-xs font-bold text-muted-foreground uppercase">
                                 {dia.toLocaleDateString('pt-BR', { weekday: 'short' })}
                             </p>
-                            <p className={`text-lg font-black ${isHoje ? 'text-primary' : 'text-foreground'}`}>
+                            <p className={`text-lg font-black ${isFolga ? 'text-rose-500' : isHoje ? 'text-primary' : 'text-foreground'}`}>
                                 {dia.getUTCDate()}
                             </p>
                         </div>
 
-                        <div className="space-y-1">
-                            {revisoes.slice(0, 3).map((r) => (
-                                <button
-                                    key={r.agenda_id}
-                                    onClick={() => onIniciarRevisao(r.assunto_id)}
-                                    className={`w-full text-left px-2 py-1 rounded-lg text-xs font-bold truncate ${r.status === 'CONCLUIDA'
-                                        ? 'bg-green-500/10 text-green-500'
-                                        : r.status === 'ATRASADA'
-                                            ? 'bg-destructive/10 text-destructive'
-                                            : 'bg-primary/10 text-primary hover:bg-primary/20'
-                                        }`}
-                                >
-                                    {r.nome}
-                                </button>
-                            ))}
-                            {revisoes.length > 3 && (
-                                <p className="text-xs text-muted-foreground text-center">
-                                    +{revisoes.length - 3} mais
-                                </p>
-                            )}
-                        </div>
+                        {!isFolga && (
+                            <div className="space-y-1">
+                                {revisoes.slice(0, 3).map((r) => (
+                                    <button
+                                        key={r.agenda_id}
+                                        onClick={() => onIniciarRevisao(r.assunto_id)}
+                                        className={`w-full text-left px-2 py-1 rounded-lg text-xs font-bold truncate ${r.status === 'CONCLUIDA'
+                                            ? 'bg-green-500/10 text-green-500'
+                                            : r.status === 'ATRASADA'
+                                                ? 'bg-destructive/10 text-destructive'
+                                                : 'bg-primary/10 text-primary hover:bg-primary/20'
+                                            }`}
+                                    >
+                                        {r.nome}
+                                    </button>
+                                ))}
+                                {revisoes.length > 3 && (
+                                    <p className="text-xs text-muted-foreground text-center">
+                                        +{revisoes.length - 3} mais
+                                    </p>
+                                )}
+                            </div>
+                        )}
+                        {isFolga && (
+                            <p className="text-[10px] font-black text-rose-400 text-center uppercase tracking-tighter mt-4">FOLGA</p>
+                        )}
                     </div>
                 )
             })}
@@ -522,10 +601,14 @@ function VisaoSemana({
 // Visão MÊS - Grid mensal
 function VisaoMes({
     calendario,
-    onIniciarRevisao
+    onIniciarRevisao,
+    folgas,
+    onToggleFolga
 }: {
     calendario: CalendarioData
     onIniciarRevisao: (assunto_id: string) => void
+    folgas: string[]
+    onToggleFolga: (date: string) => void
 }) {
     const dataRefDate = new Date(calendario.data_referencia)
     const primeiroDia = new Date(dataRefDate.getFullYear(), dataRefDate.getMonth(), 1)
@@ -581,21 +664,23 @@ function VisaoMes({
                     const isHoje = dataStr === new Date().toISOString().split('T')[0]
                     const isOutroMes = dia.getMonth() !== dataRefDate.getMonth()
 
+                    const isFolga = folgas.includes(dataStr)
+
                     return (
                         <div
                             key={index}
-                            className={`bg-card border rounded-xl p-2 min-h-[80px] ${isHoje
-                                ? 'border-primary ring-2 ring-primary/20'
-                                : isOutroMes
-                                    ? 'border-border/50 opacity-50'
-                                    : 'border-border'
+                            onClick={() => onToggleFolga(dataStr)}
+                            className={`bg-card border rounded-xl p-2 min-h-[80px] cursor-pointer transition-all hover:bg-slate-50 relative ${isFolga ? 'bg-rose-50/50 border-rose-100' :
+                                isHoje ? 'border-primary ring-2 ring-primary/20' :
+                                    isOutroMes ? 'border-border/50 opacity-50' : 'border-border'
                                 }`}
                         >
-                            <p className={`text-sm font-bold mb-1 ${isHoje ? 'text-primary' : 'text-foreground'}`}>
+                            {isFolga && <div className="absolute top-1 right-1 w-1.5 h-1.5 bg-rose-500 rounded-full" />}
+                            <p className={`text-sm font-bold mb-1 ${isFolga ? 'text-rose-500' : isHoje ? 'text-primary' : 'text-foreground'}`}>
                                 {dia.getDate()}
                             </p>
 
-                            {revisoes.length > 0 && (
+                            {!isFolga && revisoes.length > 0 && (
                                 <div className="flex items-center gap-1">
                                     {revisoes.slice(0, 3).map((r) => (
                                         <div

@@ -9,6 +9,7 @@ import { useAuth, DAILY_QUESTION_LIMIT_FREE } from '@/store/use-auth'
 import { useQuiz } from '@/store/use-quiz'
 import { useAnsweredQuestions } from '@/store/use-answered-questions'
 import { useSRS } from '@/store/use-srs'
+import { useErrors } from '@/store/use-errors'
 import { RegistrationModal } from '@/components/registration-modal'
 import { PaywallModal } from '@/components/paywall-modal'
 import { filterQuestions, COURSES } from '@/lib/data-mock'
@@ -35,6 +36,7 @@ export default function QuizPage() {
     const { process_answer, get_intelligent_action } = useSRS()
     const { questions: allQuestions, loadQuestions, loading: questionsLoading } = useQuestions()
     const { markAsAnswered, hasAnswered, getAnsweredCount, resetAnswered } = useAnsweredQuestions()
+    const { addToNotebook, loadErrors, isInNotebook } = useErrors()
 
     const [currentIdx, setCurrentIdx] = useState(0)
     const [selectedOptionId, setSelectedOptionId] = useState<string | null>(null)
@@ -271,6 +273,11 @@ export default function QuizPage() {
             }
             process_answer(user?.id || null, responseObj, question.subject_id)
 
+            // Auto-add to Error Notebook if incorrect
+            if (!isCorrect && user) {
+                addToNotebook(user.id, question, { markedOption: selectedOptionId })
+            }
+
             if (!user) {
                 incrementVisitorCount()
             } else if (isFree) {
@@ -367,6 +374,22 @@ export default function QuizPage() {
                         >
                             <AlertTriangle className="w-3.5 h-3.5" />
                             Reportar Erro
+                        </button>
+
+                        <button
+                            onClick={() => {
+                                if (user) {
+                                    addToNotebook(user.id, question, { isManual: true })
+                                }
+                            }}
+                            disabled={isInNotebook(question.id)}
+                            className={`px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest transition-all flex items-center gap-1.5 border ${isInNotebook(question.id)
+                                ? 'bg-amber-500/20 border-amber-500/30 text-amber-500 cursor-default shadow-lg shadow-amber-500/10'
+                                : 'bg-slate-500/10 hover:bg-slate-500/20 text-slate-500 border-slate-500/20 hover:scale-105 active:scale-95'
+                                }`}
+                        >
+                            <Flag className={`w-3.5 h-3.5 ${isInNotebook(question.id) ? 'fill-current' : ''}`} />
+                            {isInNotebook(question.id) ? 'No caderno de erros' : 'Adicionar ao caderno de erros'}
                         </button>
                     </div>
 

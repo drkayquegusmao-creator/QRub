@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Timer, ArrowRight, ShieldAlert, CheckCircle2, ChevronRight, XCircle } from 'lucide-react'
 import { supabase } from '@/lib/supabase'
 import { useRankElite } from '@/store/use-rank-elite'
+import { HighlightableText } from '@/components/highlightable-text'
 
 interface ArenaMatchProps {
     matchId: string;
@@ -13,7 +14,7 @@ interface ArenaMatchProps {
 }
 
 export function ArenaMatch({ matchId, onFinish, onAbort }: ArenaMatchProps) {
-    const { finishMatch } = useRankElite()
+    const { finishMatch, profile } = useRankElite()
     const [questions, setQuestions] = useState<any[]>([])
     const [currentIdx, setCurrentIdx] = useState(0)
     const [selectedOption, setSelectedOption] = useState<string | null>(null)
@@ -21,34 +22,72 @@ export function ArenaMatch({ matchId, onFinish, onAbort }: ArenaMatchProps) {
     const [startTime] = useState(Date.now())
     const [isLoading, setIsLoading] = useState(true)
 
-    // Simulando busca de questões (em produção, isso seria filtrado por liga/dificuldade)
+    // New Metrics State
+    const [currentStreak, setCurrentStreak] = useState(0)
+    const [fastCorrectCount, setFastCorrectCount] = useState(0)
+    const [questionStartTime, setQuestionStartTime] = useState(Date.now())
+
+    // Buscar questões únicas para o usuário via RPC
     useEffect(() => {
         async function fetchMatchQuestions() {
+            if (!profile?.user_id) return
+
             setIsLoading(true)
             try {
-                // Pegar questões aprovadas aleatórias
-                const { data, error } = await supabase
-                    .from('questao_base')
-                    .select('*')
-                    .eq('status_validacao', 'APROVADA')
-                    .limit(10); // Ajustar conforme o modo no futuro
+                const { data, error } = await supabase.rpc('get_user_rank_questions', {
+                    p_user_id: profile.user_id,
+                    p_limit: 10
+                })
 
                 if (error) throw error
                 setQuestions(data || [])
             } catch (err) {
                 console.error('Match Fetch Error:', err)
+                // Fallback
+                const { data: fallbackData } = await supabase
+                    .from('questao_base')
+                    .select('*')
+                    .eq('status_validacao', 'APROVADA')
+                    .limit(10)
+                if (fallbackData && (!questions || questions.length === 0)) {
+                    setQuestions(fallbackData)
+                }
             } finally {
                 setIsLoading(false)
             }
         }
         fetchMatchQuestions()
-    }, [matchId])
+    }, [matchId, profile?.user_id])
+
+    // Reset question timer on new question
+    useEffect(() => {
+        setQuestionStartTime(Date.now())
+    }, [currentIdx])
 
     const handleNext = async () => {
         if (!selectedOption) return
 
         const newResponses = { ...responses, [currentIdx]: selectedOption }
         setResponses(newResponses)
+
+        // Calculate Metrics for this question
+        const isCorrect = selectedOption === questions[currentIdx].correct_option_id
+        const responseTime = (Date.now() - questionStartTime) / 1000
+
+        let newStreak = currentStreak
+        let newFastCount = fastCorrectCount
+
+        if (isCorrect) {
+            newStreak += 1
+            if (responseTime < 5) { // 5 seconds threshold for "Fast"
+                newFastCount += 1
+            }
+        } else {
+            newStreak = 0
+        }
+
+        setCurrentStreak(newStreak)
+        setFastCorrectCount(newFastCount)
         setSelectedOption(null)
 
         if (currentIdx < questions.length - 1) {
@@ -129,9 +168,12 @@ export function ArenaMatch({ matchId, onFinish, onAbort }: ArenaMatchProps) {
                     animate={{ opacity: 1, x: 0 }}
                     className="space-y-8"
                 >
-                    <p className="text-2xl md:text-3xl font-black italic uppercase leading-tight tracking-tighter">
-                        {question?.enunciado}
-                    </p>
+                    <HighlightableText
+                        text={question?.enunciado}
+                        field="enunciado"
+                        questionId={question?.id}
+                        className="text-2xl md:text-3xl font-black italic uppercase leading-tight tracking-tighter"
+                    />
 
                     {/* Alternativas */}
                     <div className="space-y-4">
@@ -149,9 +191,13 @@ export function ArenaMatch({ matchId, onFinish, onAbort }: ArenaMatchProps) {
                                     }`}>
                                     {opt.id.toUpperCase()}
                                 </div>
-                                <p className={`text-lg font-bold flex-1 pt-1 ${selectedOption === opt.id ? 'text-white' : 'text-slate-400 group-hover:text-white'}`}>
-                                    {opt.text}
-                                </p>
+                                <div className={`text-lg font-bold flex-1 pt-1 ${selectedOption === opt.id ? 'text-white' : 'text-slate-400 group-hover:text-white'}`}>
+                                    <HighlightableText
+                                        text={opt.text}
+                                        field={`option_${opt.id}`}
+                                        questionId={question?.id}
+                                    />
+                                </div>
                             </button>
                         ))}
                     </div>
@@ -179,7 +225,7 @@ export function ArenaMatch({ matchId, onFinish, onAbort }: ArenaMatchProps) {
                     {currentIdx === questions.length - 1 ? 'FINALIZAR MATCH' : 'PRÓXIMA QUESTÃO'}
                     <ChevronRight className="w-5 h-5" />
                 </button>
-            </div>
-        </div>
+            </div >
+        </div >
     )
 }

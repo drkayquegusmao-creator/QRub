@@ -41,13 +41,15 @@ interface SRSState {
 
     // Core Engine Logic
     get_intelligent_action: (questions?: any[]) => {
-        type: 'NIVELAMENTO' | 'REVISÃO' | 'REFORÇO' | 'MANUTENÇÃO' | 'TUDO_EM_DIA' | 'CARREGANDO',
+        type: 'NIVELAMENTO' | 'REVISÃO' | 'REFORÇO' | 'MANUTENÇÃO' | 'TUDO_EM_DIA' | 'CARREGANDO' | 'DESCANSANDO',
         subject_id: string | null,
-        status: 'ALERTA' | 'ATRASADO' | 'MANUTENÇÃO' | 'NÃO_NIVELADO' | 'NORMAL' | 'AGUARDE' | 'CONCLUÍDO'
+        status: 'ALERTA' | 'ATRASADO' | 'MANUTENÇÃO' | 'NÃO_NIVELADO' | 'NORMAL' | 'AGUARDE' | 'CONCLUÍDO' | 'FOLGA'
     }
 
     // Supabase Sync
     load_progress: (user_id: string) => Promise<void>
+    load_folgas: (user_id: string) => Promise<void>
+    folgas: string[]
 
     // Dynamic Taxonomy
     taxonomy: any[]
@@ -56,8 +58,8 @@ interface SRSState {
     save_progress: (user_id: string, subject_id: string) => Promise<void>
 
     // Getters for UI
-    get_daily_agenda: () => SubjectSRS[]
-    get_pending_tasks: () => SubjectSRS[]
+    get_daily_agenda: (questions?: any[]) => SubjectSRS[]
+    get_pending_tasks: (questions?: any[]) => SubjectSRS[]
     get_critical_points: () => { type: 'QUEDA_PERFORMANCE' | 'ERRO_CRÍTICO', subject_id: string }[]
     get_subject_status: (subject_id: string) => SubjectSRS | undefined
 }
@@ -83,6 +85,7 @@ export const useSRS = create<SRSState>()(
             subjects: {},
             loading: false,
             taxonomy: [],
+            folgas: [],
 
             init_taxonomy: async () => {
                 const { taxonomy } = get()
@@ -242,6 +245,9 @@ export const useSRS = create<SRSState>()(
                     // Initialize taxonomy if not loaded
                     await get().init_taxonomy()
 
+                    // Load folgas
+                    await get().load_folgas(user_id)
+
                     const { data, error } = await supabase
                         .from('subject_progress')
                         .select('*')
@@ -323,9 +329,39 @@ export const useSRS = create<SRSState>()(
                 }
             },
 
+            load_folgas: async (user_id) => {
+                const { supabase, isSupabaseConfigured } = require('@/lib/supabase')
+                if (!isSupabaseConfigured()) return
+
+                try {
+                    const { data, error } = await supabase
+                        .from('user_folgas')
+                        .select('data')
+                        .eq('user_id', user_id)
+
+                    if (error) throw error
+                    if (data) {
+                        set({ folgas: data.map((f: any) => f.data) })
+                    }
+                } catch (err) {
+                    console.warn('Error loading folgas:', err)
+                }
+            },
+
             get_intelligent_action: (manualQuestions?: any[]) => {
-                const { subjects } = get()
+                const { subjects, folgas } = get()
                 const today = startOfDay(new Date())
+                const todayStr = new Date().toISOString().split('T')[0]
+
+                // Check if today is a folga
+                if (folgas.includes(todayStr)) {
+                    return {
+                        type: 'DESCANSANDO',
+                        subject_id: null,
+                        status: 'FOLGA'
+                    }
+                }
+
                 const all_subs = Object.values(subjects)
 
                 // Source of truth for questions (prefer manual passed for reactivity)
@@ -352,7 +388,10 @@ export const useSRS = create<SRSState>()(
                     s.stage === 'ACTIVE' &&
                     s.next_review_date &&
                     isBefore(parseISO(s.next_review_date), today) &&
-                    questions!.some((q: any) => q.specialty_id === s.subject_id && q.status_validacao === 'APROVADA')
+                    questions!.some((q: any) =>
+                        (q.subject_id === s.subject_id || q.subspecialty_id === s.subject_id || q.specialty_id === s.subject_id) &&
+                        q.status_validacao === 'APROVADA'
+                    )
                 )
                 if (overdue) {
                     return {
@@ -367,7 +406,10 @@ export const useSRS = create<SRSState>()(
                     s.stage === 'ACTIVE' &&
                     s.next_review_date &&
                     differenceInDays(parseISO(s.next_review_date), today) === 0 &&
-                    questions!.some((q: any) => q.specialty_id === s.subject_id && q.status_validacao === 'APROVADA')
+                    questions!.some((q: any) =>
+                        (q.subject_id === s.subject_id || q.subspecialty_id === s.subject_id || q.specialty_id === s.subject_id) &&
+                        q.status_validacao === 'APROVADA'
+                    )
                 )
                 if (today_review) {
                     return {
@@ -380,7 +422,10 @@ export const useSRS = create<SRSState>()(
                 // 3. Priority: In-progress Leveling (only if questions still exist)
                 const incomplete_leveling = all_subs.find(s =>
                     s.stage === 'LEVELING' &&
-                    questions!.some((q: any) => q.specialty_id === s.subject_id && q.status_validacao === 'APROVADA')
+                    questions!.some((q: any) =>
+                        (q.subject_id === s.subject_id || q.subspecialty_id === s.subject_id || q.specialty_id === s.subject_id) &&
+                        q.status_validacao === 'APROVADA'
+                    )
                 )
                 if (incomplete_leveling) {
                     return {
@@ -405,7 +450,10 @@ export const useSRS = create<SRSState>()(
                 // Find specialties the user hasn't started yet and THAT HAVE QUESTIONS APROVADAS
                 const untrackedWithQuestions = allSpecialties.filter((spec: any) => {
                     const isUntracked = !subjects[spec.id]
-                    const hasQuestions = questions!.some((q: any) => q.specialty_id === spec.id && q.status_validacao === 'APROVADA')
+                    const hasQuestions = questions!.some((q: any) =>
+                        (q.subject_id === spec.id || q.subspecialty_id === spec.id || q.specialty_id === spec.id) &&
+                        q.status_validacao === 'APROVADA'
+                    )
                     return isUntracked && hasQuestions
                 })
 
@@ -427,10 +475,30 @@ export const useSRS = create<SRSState>()(
                 }
             },
 
-            get_pending_tasks: () => {
+            get_pending_tasks: (manualQuestions?: any[]) => {
                 const { subjects } = get()
                 const today = startOfDay(new Date())
+
+                // Source of truth for questions
+                let questions = manualQuestions
+                if (!questions) {
+                    try {
+                        const { useQuestions } = require('@/store/use-questions')
+                        questions = useQuestions.getState().questions || []
+                    } catch (err) {
+                        questions = []
+                    }
+                }
+
                 return Object.values(subjects).filter(s => {
+                    // Check availability first
+                    const hasQuestions = questions?.some((q: any) =>
+                        (q.subject_id === s.subject_id || q.subspecialty_id === s.subject_id || q.specialty_id === s.subject_id) &&
+                        q.status_validacao === 'APROVADA'
+                    )
+
+                    if (!hasQuestions) return false
+
                     if (s.stage === 'LEVELING') return true
                     if (s.stage === 'ACTIVE' && s.next_review_date && isBefore(parseISO(s.next_review_date), today)) return true
                     return false
@@ -450,23 +518,44 @@ export const useSRS = create<SRSState>()(
                 return points
             },
 
-            get_daily_agenda: () => {
+            get_daily_agenda: (manualQuestions?: any[]) => {
                 const { subjects } = get()
                 const today = new Date()
+
+                // Source of truth for questions
+                let questions = manualQuestions
+                if (!questions) {
+                    try {
+                        const { useQuestions } = require('@/store/use-questions')
+                        questions = useQuestions.getState().questions || []
+                    } catch (err) {
+                        questions = []
+                    }
+                }
 
                 // 1. Get Due Reviews
                 const dueReviews = Object.values(subjects).filter(s =>
                     s.stage === 'ACTIVE' &&
                     s.next_review_date &&
-                    isBefore(parseISO(s.next_review_date), addDays(today, 1))
+                    isBefore(parseISO(s.next_review_date), addDays(today, 1)) &&
+                    questions!.some((q: any) =>
+                        (q.subject_id === s.subject_id || q.subspecialty_id === s.subject_id || q.specialty_id === s.subject_id) &&
+                        q.status_validacao === 'APROVADA'
+                    )
                 )
 
                 // 2. Get Ongoing Leveling
-                const ongoingLeveling = Object.values(subjects).filter(s => s.stage === 'LEVELING')
+                const ongoingLeveling = Object.values(subjects).filter(s =>
+                    s.stage === 'LEVELING' &&
+                    questions!.some((q: any) =>
+                        (q.subject_id === s.subject_id || q.subspecialty_id === s.subject_id || q.specialty_id === s.subject_id) &&
+                        q.status_validacao === 'APROVADA'
+                    )
+                )
 
                 const combined = [...dueReviews, ...ongoingLeveling]
 
-                // 3. If empty, suggest new subjects from hierarchy
+                // 3. If empty, suggest new subjects from hierarchy THAT HAVE QUESTIONS
                 if (combined.length === 0) {
                     let allSpecialties = []
                     const { taxonomy } = get()
@@ -477,7 +566,13 @@ export const useSRS = create<SRSState>()(
                         const { MEDICAL_HIERARCHY } = require('@/lib/medical-specialties')
                         allSpecialties = MEDICAL_HIERARCHY[0].specialties
                     }
-                    const untracked = allSpecialties.filter((spec: any) => !subjects[spec.id])
+                    const untracked = allSpecialties.filter((spec: any) =>
+                        !subjects[spec.id] &&
+                        questions!.some((q: any) =>
+                            (q.subject_id === spec.id || q.subspecialty_id === spec.id || q.specialty_id === spec.id) &&
+                            q.status_validacao === 'APROVADA'
+                        )
+                    )
 
                     if (untracked.length > 0) {
                         // Suggest first 3 untracked subjects as PENDING

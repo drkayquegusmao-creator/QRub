@@ -24,6 +24,15 @@ export interface RankProfile {
     abandon_rate: number;
     accuracy_rate: number;
     rank_elite_admin: boolean;
+    // New Metrics
+    total_questions_answered: number;
+    total_questions_correct: number;
+    current_correct_streak: number;
+    max_correct_streak: number;
+    perfect_matches_count: number;
+    fast_correct_count: number;
+    arena_wins: number;
+    daily_challenges_completed: number;
 }
 
 export interface XPProfile {
@@ -58,7 +67,8 @@ interface RankEliteState {
     profile: RankProfile | null;
     xpProfile: XPProfile | null;
     missions: Mission[];
-    rewards: Reward[];
+    rewards: Reward[]; // Unlocked User Rewards
+    allRewards: Reward[]; // All System Rewards
     isLoading: boolean;
     error: string | null;
     isAdmin: boolean;
@@ -85,6 +95,7 @@ export const useRankElite = create<RankEliteState>((set, get) => ({
     xpProfile: null,
     missions: [],
     rewards: [],
+    allRewards: [],
     isLoading: false,
     error: null,
     isAdmin: false,
@@ -203,6 +214,9 @@ export const useRankElite = create<RankEliteState>((set, get) => ({
                 is_equipped: ur.is_equipped
             }));
 
+            // 7. Get ALL Rewards (for unlock checking)
+            const { data: allRewardsData } = await supabase.from('rank_rewards').select('*');
+
             // Check Admin Status
             const isAdminGlobal = ['MASTER', 'ADMIN_MASTER', 'ADMIN_GLOBAL'].includes(userRole || '');
             const isAdminElite = profile?.rank_elite_admin || isAdminGlobal;
@@ -212,6 +226,7 @@ export const useRankElite = create<RankEliteState>((set, get) => ({
                 xpProfile,
                 missions: formattedMissions,
                 rewards: formattedRewards,
+                allRewards: allRewardsData || [],
                 isAdmin: isAdminElite
             });
 
@@ -255,7 +270,14 @@ export const useRankElite = create<RankEliteState>((set, get) => ({
         points: number;
         xp: number;
         duration: number;
+        correct: number;
+        wrong: number;
+        points: number;
+        xp: number;
+        duration: number;
         incorrectQuestionIds: number[];
+        finalStreak?: number;
+        fastCorrect?: number;
     }) => {
         try {
             // 1. Update Match record
@@ -298,7 +320,34 @@ export const useRankElite = create<RankEliteState>((set, get) => ({
             if (!profile || !xpProfile) return;
 
             const newPoints = profile.season_points + stats.points;
+            const newPoints = profile.season_points + stats.points;
             const newXP = xpProfile.xp_total + stats.xp;
+
+            // Updated Advanced Metrics
+            const totalAnswered = (profile.total_questions_answered || 0) + (stats.correct + stats.wrong);
+            const totalCorrect = (profile.total_questions_correct || 0) + stats.correct;
+
+            // Streak Logic
+            let currentStreak = profile.current_correct_streak || 0;
+            if (stats.finalStreak !== undefined) {
+                currentStreak = stats.finalStreak; // Use the precise streak from the client
+            } else {
+                // Fallback if client doesn't send finalStreak (should not happen with updated component)
+                if (stats.wrong === 0) currentStreak += stats.correct;
+                else currentStreak = 0; // Pessimistic fallback
+            }
+
+            const maxStreak = Math.max((profile.max_correct_streak || 0), currentStreak);
+            const fastCorrect = (profile.fast_correct_count || 0) + (stats.fastCorrect || 0);
+
+            // "Arena Win" = Perfect Match? Or good score? Let's say > 80% accuracy or Perfect
+            const isPerfect = stats.wrong === 0 && stats.correct > 0;
+            const perfectMatches = (profile.perfect_matches_count || 0) + (isPerfect ? 1 : 0);
+
+            // Arena Wins (using > 70% accuracy as a "Win" for now, or just participation as MVP)
+            // Request said "Vitorias na Arena". Let's assume > 70% score is a "Win"
+            const isWin = (stats.correct / (stats.correct + stats.wrong)) >= 0.7;
+            const arenaWins = (profile.arena_wins || 0) + (isWin ? 1 : 0);
 
             // Re-calculate League if necessary
             let newLeagueId = profile.current_league_id;
@@ -310,7 +359,18 @@ export const useRankElite = create<RankEliteState>((set, get) => ({
                 season_points: newPoints,
                 lifetime_points: profile.lifetime_points + stats.points,
                 current_league_id: newLeagueId,
-                last_play_at: new Date().toISOString()
+                season_points: newPoints,
+                lifetime_points: profile.lifetime_points + stats.points,
+                current_league_id: newLeagueId,
+                last_play_at: new Date().toISOString(),
+                // New Metrics
+                total_questions_answered: totalAnswered,
+                total_questions_correct: totalCorrect,
+                current_correct_streak: currentStreak,
+                max_correct_streak: maxStreak,
+                fast_correct_count: fastCorrect,
+                perfect_matches_count: perfectMatches,
+                arena_wins: arenaWins
             }).eq('user_id', profile.user_id);
 
             const { error: xpUpdateErr } = await supabase.from('rank_xp_profiles').update({
@@ -345,8 +405,82 @@ export const useRankElite = create<RankEliteState>((set, get) => ({
             set({
                 profile: { ...profile, season_points: newPoints, current_league_id: newLeagueId },
                 xpProfile: { ...xpProfile, xp_total: newXP, level_current: Math.floor(newXP / 500) + 1 },
-                missions: updatedMissions
+                missions: updatedMissions,
+                profile: {
+                    ...profile,
+                    season_points: newPoints,
+                    current_league_id: newLeagueId,
+                    total_questions_answered: totalAnswered,
+                    total_questions_correct: totalCorrect,
+                    current_correct_streak: currentStreak,
+                    max_correct_streak: maxStreak,
+                    fast_correct_count: fastCorrect,
+                    perfect_matches_count: perfectMatches,
+                    arena_wins: arenaWins
+                },
+                xpProfile: { ...xpProfile, xp_total: newXP, level_current: Math.floor(newXP / 500) + 1 }
             });
+
+            // 5. UNLOCK REWARDS CHECK (The Golden Rule: Play -> Unlock)
+            // We check ALL system rewards that the user does NOT have yet
+            const { allRewards, rewards: userRewards } = get();
+            const ownedRewardIds = new Set(userRewards.map(r => r.id));
+
+            const rewardsToUnlock = allRewards.filter(r =>
+                !ownedRewardIds.has(r.id) && r.unlock_condition && Object.keys(r.unlock_condition).length > 0
+            );
+
+            // Updated Stats Object for checking
+            const currentStats = {
+                level: Math.floor(newXP / 500) + 1,
+                total_answered: totalAnswered,
+                total_correct: totalCorrect,
+                max_streak: maxStreak,
+                current_streak: currentStreak,
+                arena_wins: arenaWins,
+                fast_correct: fastCorrect,
+                perfect_matches: perfectMatches
+            };
+
+            const newUnlocks: any[] = [];
+
+            for (const reward of rewardsToUnlock) {
+                const cond = reward.unlock_condition;
+                let unlocked = false;
+
+                // LOGIC: Check conditions
+                if (cond.type === 'LEVEL' && currentStats.level >= (cond.value || 0)) unlocked = true;
+                if (cond.type === 'TOTAL_ANSWERED' && currentStats.total_answered >= (cond.value || 0)) unlocked = true;
+                if (cond.type === 'TOTAL_CORRECT' && currentStats.total_correct >= (cond.value || 0)) unlocked = true;
+                if (cond.type === 'STREAK' && currentStats.max_streak >= (cond.value || 0)) unlocked = true;
+                if (cond.type === 'ARENA_WINS' && currentStats.arena_wins >= (cond.value || 0)) unlocked = true;
+                if (cond.type === 'FAST_CORRECT' && currentStats.fast_correct >= (cond.value || 0)) unlocked = true;
+                if (cond.type === 'PERFECT_MATCH' && currentStats.perfect_matches >= (cond.value || 0)) unlocked = true;
+
+                if (unlocked) {
+                    newUnlocks.push({
+                        user_id: profile.user_id,
+                        reward_id: reward.id,
+                        is_equipped: false
+                    });
+                }
+            }
+
+            if (newUnlocks.length > 0) {
+                const { error: unlockErr } = await supabase.from('rank_user_rewards').insert(newUnlocks);
+                if (!unlockErr) {
+                    // Update local state adding new rewards
+                    const newRewardsList = [
+                        ...get().rewards,
+                        ...newUnlocks.map(u => {
+                            const r = allRewards.find(ar => ar.id === u.reward_id);
+                            return { ...r, is_equipped: false };
+                        })
+                    ];
+                    set({ rewards: newRewardsList as any });
+                    // Could trigger a toast here: "Você desbloqueou X recompensas!"
+                }
+            }
 
         } catch (err) {
             console.error('Finish Match Error:', err);

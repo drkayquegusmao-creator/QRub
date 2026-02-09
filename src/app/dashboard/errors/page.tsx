@@ -16,31 +16,14 @@ import {
 } from 'lucide-react'
 import { useAuth } from '@/store/use-auth'
 import { useQuestions } from '@/store/use-questions'
-import { supabase } from '@/lib/supabase' // Import direto
+import { useErrors } from '@/store/use-errors'
+import { supabase } from '@/lib/supabase'
 import { MEDICAL_HIERARCHY } from '@/lib/medical-specialties'
 
-// Definição de Tipos
-interface ErrorItem {
-    id: string
-    questao_id: string
-    specialty_id: string
-    subspecialty_id?: string
-    tema: string
-    assunto_id: string
-    tipo_de_erro: 'conhecimento' | 'interpretacao' | 'conduta' | 'distracao'
-    status: 'ativo' | 'em_revisao' | 'resolvido'
-    nivel_de_gravidade: 'leve' | 'moderado' | 'crítico'
-    contador_de_repeticao: number
-    data_ultimo_erro: string
-    proxima_revisao: string
-    enunciado: string
-    assunto_nome?: string
-}
-
+// Interface for summaries
 interface ErrorSummary {
     total_erros: number
     criticos: number
-    erros: ErrorItem[]
 }
 
 export default function ErrorNotebookPage() {
@@ -48,74 +31,16 @@ export default function ErrorNotebookPage() {
     const { user } = useAuth()
     const { setEphemeralQuestions } = useQuestions()
 
-    const [loading, setLoading] = useState(true)
-    const [summary, setSummary] = useState<ErrorSummary | null>(null)
-    const [searchTerm, setSearchTerm] = useState('')
     const [processing, setProcessing] = useState(false)
+    const { errors, loading, loadErrors } = useErrors()
+    const [searchTerm, setSearchTerm] = useState('')
 
     useEffect(() => {
-        if (user) fetchErrors()
+        if (user) loadErrors(user.id)
     }, [user])
 
-    const fetchErrors = async () => {
-        try {
-            setLoading(true)
 
-            const { data: erros, error } = await supabase
-                .from('caderno_erros')
-                .select(`
-                    id,
-                    questao_id,
-                    specialty_id,
-                    subspecialty_id,
-                    tema,
-                    assunto_id,
-                    tipo_de_erro,
-                    status,
-                    nivel_de_gravidade,
-                    contador_de_repeticao,
-                    data_ultimo_erro,
-                    proxima_revisao,
-                    assuntos (nome),
-                    questao_base (enunciado)
-                `)
-                .eq('user_id', user!.id)
-                .neq('status', 'resolvido')
-                .order('nivel_de_gravidade', { ascending: false }) // Críticos primeiro
-
-            if (error) throw error
-
-            const mapeados: ErrorItem[] = erros?.map((e: any) => ({
-                id: e.id,
-                questao_id: e.questao_id,
-                specialty_id: e.specialty_id,
-                subspecialty_id: e.subspecialty_id,
-                tema: e.tema,
-                assunto_id: e.assunto_id,
-                tipo_de_erro: e.tipo_de_erro,
-                status: e.status,
-                nivel_de_gravidade: e.nivel_de_gravidade,
-                contador_de_repeticao: e.contador_de_repeticao,
-                data_ultimo_erro: e.data_ultimo_erro,
-                proxima_revisao: e.proxima_revisao,
-                enunciado: e.questao_base?.enunciado || 'Enunciado indisponível',
-                assunto_nome: e.assuntos?.nome
-            })) || []
-
-            setSummary({
-                total_erros: mapeados.length,
-                criticos: mapeados.filter(m => m.nivel_de_gravidade === 'crítico').length,
-                erros: mapeados
-            })
-
-        } catch (error) {
-            console.error('Failed to fetch errors', error)
-        } finally {
-            setLoading(false)
-        }
-    }
-
-    const startReviewSession = async (errorItem?: ErrorItem) => {
+    const startReviewSession = async (errorItem?: any) => {
         if (processing) return
         setProcessing(true)
 
@@ -123,11 +48,11 @@ export default function ErrorNotebookPage() {
             let questoesIds: string[] = []
 
             if (errorItem) {
-                // Modo: Resolver Erro Específico (Mini-bloco de 3-5 questões novas)
+                // Modo: Resolver Erro Específico (Mini-bloco de 5 questões do mesmo tema)
                 const { data: novasQuestoes } = await supabase
                     .from('questao_base')
                     .select('id')
-                    .eq('subject_id', errorItem.tema)
+                    .eq('subject_id', errorItem.assunto_id)
                     .neq('id', errorItem.questao_id)
                     .limit(5)
 
@@ -136,9 +61,9 @@ export default function ErrorNotebookPage() {
                 } else {
                     questoesIds = [errorItem.questao_id]
                 }
-            } else if (summary) {
+            } else if (errors.length > 0) {
                 // Modo: Repassar Tudo
-                questoesIds = summary.erros.map(e => e.questao_id).slice(0, 10)
+                questoesIds = errors.map(e => e.questao_id).slice(0, 10)
             }
 
             if (questoesIds.length === 0) {
@@ -165,10 +90,15 @@ export default function ErrorNotebookPage() {
         }
     }
 
-    const filteredErrors = summary?.erros.filter(e =>
-        e.enunciado.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        e.assunto_nome?.toLowerCase().includes(searchTerm.toLowerCase())
+    const filteredErrors = errors.filter(e =>
+        (e.enunciado || '').toLowerCase().includes(searchTerm.toLowerCase()) ||
+        (e.assunto_nome?.toLowerCase().includes(searchTerm.toLowerCase()))
     ) || []
+
+    const summary = {
+        total_erros: errors.length,
+        criticos: errors.filter(e => e.nivel_de_gravidade === 'crítico').length
+    }
 
     if (loading) {
         return (

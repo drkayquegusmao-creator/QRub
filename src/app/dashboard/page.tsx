@@ -73,7 +73,7 @@ export default function StudentDashboard() {
     const { questions, loadQuestions } = useQuestions()
     const { widgets, isEditMode, toggleEditMode, setWidgetVisibility, setWidgetWidth, reorderWidgets, resetLayout } = useDashboard()
     const intelligentAction = useMemo(() => get_intelligent_action(questions), [get_intelligent_action, questions])
-    const pendingTasks = useMemo(() => get_pending_tasks(), [get_pending_tasks])
+    const pendingTasks = useMemo(() => get_pending_tasks(questions), [get_pending_tasks, questions])
     const criticalPoints = useMemo(() => get_critical_points(), [get_critical_points])
 
     // Use dynamic taxonomy if available, else static

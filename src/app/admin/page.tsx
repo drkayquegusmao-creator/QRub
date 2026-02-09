@@ -583,7 +583,7 @@ export default function AdminDashboard() {
     }
 
     const renderValidationQueue = () => {
-        const filteredQuestions = questions.filter(q => q.status_validacao === validationFilter)
+        const filteredQuestions = questions
 
         return (
             <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
@@ -597,10 +597,14 @@ export default function AdminDashboard() {
                         {(['PENDENTE', 'APROVADA', 'REPROVADA'] as const).map(f => (
                             <button
                                 key={f}
-                                onClick={() => { setValidationFilter(f); setSelectedQuestions([]) }}
+                                onClick={() => {
+                                    setValidationFilter(f);
+                                    setSelectedQuestions([]);
+                                    setCurrentPage(1); // Reset to first page when filter changes
+                                }}
                                 className={`px-6 py-2.5 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all ${validationFilter === f ? 'bg-white text-primary shadow-sm' : 'text-muted-foreground hover:bg-white/50'}`}
                             >
-                                {f} ({questions.filter(q => q.status_validacao === f).length})
+                                {f}
                             </button>
                         ))}
                     </div>
@@ -1186,21 +1190,33 @@ export default function AdminDashboard() {
     // Carregar nova página quando currentPage mudar
     useEffect(() => {
         console.log(`🔄 Carregando página ${currentPage}...`)
-        loadQuestions({ page: currentPage, pageSize: itemsPerPage, searchTerm })
-    }, [currentPage])
+        const filters: any = { page: currentPage, pageSize: itemsPerPage, searchTerm }
+        if (view === 'validation') {
+            filters.status_validacao = validationFilter
+        }
+        loadQuestions(filters)
+    }, [currentPage, view, validationFilter]) // Adicionado view e validationFilter como dependências
 
     // Reset page when search changes
     useEffect(() => {
         if (currentPage !== 1) {
             setCurrentPage(1)
         } else {
-            loadQuestions({ page: 1, pageSize: itemsPerPage, searchTerm })
+            const filters: any = { page: 1, pageSize: itemsPerPage, searchTerm }
+            if (view === 'validation') {
+                filters.status_validacao = validationFilter
+            }
+            loadQuestions(filters)
         }
     }, [searchTerm])
 
     // Helper function to reload current page
     const reloadCurrentPage = () => {
-        loadQuestions({ page: currentPage, pageSize: itemsPerPage })
+        const filters: any = { page: currentPage, pageSize: itemsPerPage, searchTerm }
+        if (view === 'validation') {
+            filters.status_validacao = validationFilter
+        }
+        loadQuestions(filters)
     }
 
     // Load reports on mount

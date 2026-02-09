@@ -17,6 +17,7 @@ interface QuestionsState {
         specialty_id?: string | string[],
         subspecialty_id?: string,
         subject_id?: string,
+        status_validacao?: 'PENDENTE' | 'APROVADA' | 'REPROVADA',
         searchTerm?: string,
         page?: number,
         pageSize?: number
@@ -61,6 +62,7 @@ export const useQuestions = create<QuestionsState>()(
                     }
                     if (filters?.subspecialty_id) countQuery = countQuery.eq('subspecialty_id', filters.subspecialty_id)
                     if (filters?.subject_id) countQuery = countQuery.eq('subject_id', filters.subject_id)
+                    if (filters?.status_validacao) countQuery = countQuery.eq('status_validacao', filters.status_validacao)
                     if (filters?.searchTerm) countQuery = countQuery.ilike('enunciado', `%${filters.searchTerm}%`)
 
                     const { count, error: countError } = await countQuery
@@ -80,6 +82,7 @@ export const useQuestions = create<QuestionsState>()(
                     }
                     if (filters?.subspecialty_id) dataQuery = dataQuery.eq('subspecialty_id', filters.subspecialty_id)
                     if (filters?.subject_id) dataQuery = dataQuery.eq('subject_id', filters.subject_id)
+                    if (filters?.status_validacao) dataQuery = dataQuery.eq('status_validacao', filters.status_validacao)
                     if (filters?.searchTerm) dataQuery = dataQuery.ilike('enunciado', `%${filters.searchTerm}%`)
 
                     const startIndex = (page - 1) * pageSize

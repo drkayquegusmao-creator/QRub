@@ -1,0 +1,178 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - generic [ref=e4]:
+      - img [ref=e5]
+      - paragraph [ref=e8]: Algumas funções estão desabilitadas, estamos trabalhando para melhor atender. Perdão pelo transtorno !
+    - button [ref=e10]:
+      - img [ref=e11]
+  - generic [ref=e15]:
+    - navigation [ref=e16]:
+      - generic [ref=e17]:
+        - img "QRub Premium Logo" [ref=e19]
+        - generic [ref=e20]: QRub
+      - generic [ref=e21]:
+        - generic [ref=e22]:
+          - link "Recursos" [ref=e23] [cursor=pointer]:
+            - /url: "#recursos"
+          - link "Sobre" [ref=e24] [cursor=pointer]:
+            - /url: "#sobre"
+        - link "Entrar" [ref=e25] [cursor=pointer]:
+          - /url: /auth
+    - main [ref=e26]:
+      - generic [ref=e27]:
+        - generic [ref=e28]:
+          - img [ref=e29]
+          - text: Nova Geração de Estudos
+        - heading "Sua Aprovação Começa Aqui." [level=1] [ref=e32]:
+          - text: Sua Aprovação
+          - text: Começa Aqui.
+        - paragraph [ref=e33]: A plataforma SaaS definitiva para estudantes de alta performance. Questões filtradas, simulados inteligentes e uma interface focada no que importa.
+        - button "Começar Agora" [ref=e35]:
+          - text: Começar Agora
+          - img [ref=e36]
+      - generic [ref=e38]:
+        - generic:
+          - img "QRub 3D Core" [ref=e49]
+          - generic:
+            - img "QRub Guardian"
+    - generic [ref=e52]:
+      - generic [ref=e53]:
+        - generic [ref=e54]:
+          - img [ref=e55]
+          - text: Potencial Infinito
+        - heading "Recursos que Aceleram Tudo." [level=2] [ref=e57]:
+          - text: Recursos que
+          - text: Aceleram Tudo.
+        - paragraph [ref=e58]: Não é apenas um banco de questões. É um ecossistema projetado para quem não tem tempo a perder e busca a elite da formação técnica.
+      - generic [ref=e59]:
+        - generic [ref=e60]:
+          - img [ref=e62]
+          - generic [ref=e65]:
+            - heading "Agenda do Dr. QRub" [level=4] [ref=e66]
+            - paragraph [ref=e67]: Um plano de estudos que se adapta aos seus erros em tempo real.
+        - generic [ref=e68]:
+          - img [ref=e70]
+          - generic [ref=e72]:
+            - heading "Padrão Revalida" [level=4] [ref=e73]
+            - paragraph [ref=e74]: Questões e casos clínicos densos, focados no padrão das maiores bancas.
+        - generic [ref=e75]:
+          - img [ref=e77]
+          - generic [ref=e80]:
+            - heading "Multi-Plataforma" [level=4] [ref=e81]
+            - paragraph [ref=e82]: Estude de qualquer lugar, com sincronização Master instantânea.
+        - generic [ref=e83]:
+          - img [ref=e85]
+          - generic [ref=e89]:
+            - heading "Heatmap Elite" [level=4] [ref=e90]
+            - paragraph [ref=e91]: Gráficos de calor e métricas de precisão por subespecialidade.
+    - generic [ref=e93]:
+      - generic [ref=e94]:
+        - generic [ref=e95]:
+          - generic [ref=e96]:
+            - generic [ref=e97]:
+              - img [ref=e98]
+              - text: Ecossistema QRub
+            - heading "DOMINANDO A FRONTEIRA TÉCNICA." [level=2] [ref=e101]:
+              - text: DOMINANDO A
+              - text: FRONTEIRA TÉCNICA.
+            - paragraph [ref=e102]: Não somos apenas um banco de questões. Somos a força bruta tecnológica que você precisa para aniquilar as barreiras do REVALIDA, INEP e ENAMED.
+          - generic [ref=e103]:
+            - generic [ref=e104]:
+              - generic [ref=e105]:
+                - img [ref=e107]
+                - heading "Neural Engine" [level=4] [ref=e109]
+              - paragraph [ref=e110]: Algoritmos de IA que identificam falhas cognitivas antes mesmo de você percebê-las.
+            - generic [ref=e111]:
+              - generic [ref=e112]:
+                - img [ref=e114]
+                - heading "Elite Standard" [level=4] [ref=e116]
+              - paragraph [ref=e117]: Conteúdo denso e revisado para garantir que nada escape à sua preparação.
+          - generic [ref=e118]:
+            - img [ref=e121]
+            - paragraph [ref=e124]: "\"O QRub transforma a incerteza em autoridade. Onde houver um exame, nós seremos a sua vantagem competitiva.\""
+            - link "EXPLORAR JORNADA ELITE" [ref=e125] [cursor=pointer]:
+              - /url: /about
+              - text: EXPLORAR JORNADA ELITE
+              - img [ref=e127]
+        - img "QRub 3D Institutional" [ref=e133]
+      - generic [ref=e134]:
+        - generic [ref=e135]:
+          - paragraph [ref=e136]: 50k+
+          - paragraph [ref=e137]: Questões Ativas
+        - generic [ref=e138]:
+          - paragraph [ref=e139]: 10k+
+          - paragraph [ref=e140]: Estudantes Elite
+        - generic [ref=e141]:
+          - paragraph [ref=e142]: 99%
+          - paragraph [ref=e143]: Precisão Neural
+        - generic [ref=e144]:
+          - paragraph [ref=e145]: 24/7
+          - paragraph [ref=e146]: Suporte Master
+    - contentinfo [ref=e147]:
+      - generic [ref=e148]:
+        - generic [ref=e149]:
+          - generic [ref=e150]:
+            - img "QRub Premium Logo" [ref=e152]
+            - generic [ref=e153]: QRub
+          - paragraph [ref=e154]: A força tecnológica definitiva para sua aprovação. Inteligência artificial aplicada à medicina de alta performance.
+          - generic [ref=e155]:
+            - link [ref=e156] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e157]
+            - link [ref=e160] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e161]
+            - link [ref=e163] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e164]
+            - link [ref=e168] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e169]
+        - generic [ref=e171]:
+          - heading "Plataforma" [level=4] [ref=e172]
+          - list [ref=e173]:
+            - listitem [ref=e174]:
+              - link "Setup Neural" [ref=e175] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e176]:
+              - link "Banco de Dados" [ref=e177] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e178]:
+              - link "Simulados Elite" [ref=e179] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e180]:
+              - link "Sobre a EdTech" [ref=e181] [cursor=pointer]:
+                - /url: /about
+        - generic [ref=e182]:
+          - heading "Suporte" [level=4] [ref=e183]
+          - list [ref=e184]:
+            - listitem [ref=e185]:
+              - link "Central Master" [ref=e186] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e187]:
+              - link "Comunidade" [ref=e188] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e189]:
+              - link "Contatos Técnicos" [ref=e190] [cursor=pointer]:
+                - /url: "#"
+        - generic [ref=e191]:
+          - heading "Novidades" [level=4] [ref=e192]
+          - paragraph [ref=e193]: Inscreva-se para insights exclusivos.
+          - generic [ref=e194]:
+            - textbox "seu@email.com" [ref=e195]
+            - button [ref=e196]:
+              - img [ref=e197]
+      - generic [ref=e199]:
+        - paragraph [ref=e200]: © 2026 QRub Advanced Systems. Brazil.
+        - generic [ref=e201]:
+          - link "Privacidade" [ref=e202] [cursor=pointer]:
+            - /url: "#"
+          - link "Termos Gerais" [ref=e203] [cursor=pointer]:
+            - /url: "#"
+  - button "Open Next.js Dev Tools" [ref=e209] [cursor=pointer]:
+    - img [ref=e210]
+  - alert [ref=e213]
+```

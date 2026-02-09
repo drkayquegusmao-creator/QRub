@@ -110,13 +110,23 @@ export function SessaoModal({ isOpen, onClose, assunto_id, tipo, onComplete }: S
 
                 if (!assunto) {
                     // Final fallback: fetch from taxonomia table directly if not found in tree
-                    const { data: taxNode } = await supabase.from('taxonomia').select('id, name, parent_id, level').eq('slug', assunto_id).single()
+                    const isUUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(assunto_id)
+                    let taxNode = null
+
+                    if (isUUID) {
+                        const { data } = await supabase.from('taxonomia').select('id, name, parent_id, level').eq('id', assunto_id).single()
+                        taxNode = data
+                    } else {
+                        const { data } = await supabase.from('taxonomia').select('id, name, parent_id, level').eq('slug', assunto_id).single()
+                        taxNode = data
+                    }
+
                     if (taxNode) {
                         // We need specialty_id. recursive fetch? 
                         // Simplification: use current id or parent if available. 
                         // Check parent to find specialty root. 
                         // For now assume if not in tree, we just use what we have.
-                        assunto = { id: taxNode.id || assunto_id, nome: taxNode.name, specialty_id: assunto_id }
+                        assunto = { id: taxNode.id, nome: taxNode.name, specialty_id: taxNode.id }
                     } else {
                         assunto = { id: assunto_id, nome: 'Assunto Desconhecido', specialty_id: assunto_id }
                     }
@@ -161,19 +171,29 @@ export function SessaoModal({ isOpen, onClose, assunto_id, tipo, onComplete }: S
                     const { data: qData, error: qError } = await supabase
                         .from('questao_base')
                         .select('*')
-                        .eq('specialty_id', assunto.specialty_id)
+                        .or(`subject_id.eq."${assunto.id}",subspecialty_id.eq."${assunto.id}",specialty_id.eq."${assunto.id}",specialty_id.eq."${assunto.specialty_id}"`)
+                        .eq('status_validacao', 'APROVADA')
                         .limit(200)
 
                     if (qError) throw qError
-                    if (!qData || qData.length === 0) {
-                        throw new Error('Nenhuma questão encontrada para este assunto.')
+
+                    // Prioritize specific matches (subject > subspecialty > specialty)
+                    const specificPool = qData?.filter(q =>
+                        q.subject_id === assunto.id ||
+                        q.subspecialty_id === assunto.id ||
+                        q.specialty_id === assunto.id
+                    ) || []
+
+                    const finalData = specificPool.length > 0 ? specificPool : (qData || [])
+
+                    if (finalData.length === 0) {
+                        throw new Error('Nenhuma questão aprovada encontrada para este assunto.')
                     }
 
-                    pool = qData.filter(q => !usadasIds.has(q.id))
+                    pool = finalData.filter(q => !usadasIds.has(q.id))
 
-                    if (pool.length < 10) {
-                        // Se faltar inéditas, pega as mais antigas (fallback simples)
-                        const usadasDisponiveis = qData.filter(q => usadasIds.has(q.id))
+                    if (pool.length < 5) { // Reduzi limiar para permitir sessões menores em temas novos
+                        const usadasDisponiveis = finalData.filter(q => usadasIds.has(q.id))
                         pool = [...pool, ...usadasDisponiveis]
                     }
                 }
