@@ -141,15 +141,15 @@ export function SessaoModal({ isOpen, onClose, assunto_id, tipo, onComplete }: S
                     'reumatologia', 'oncologia-clinica'
                 ]
 
-                let targetIds: string[] = [assunto.id]
+                let targetIds: string[] = [assunto.specialty_id]
 
                 // Se o assunto é uma subespecialidade mapeada como especialidade
-                if (REAL_SPECIALTIES_MAPPED_AS_SUBS.includes(assunto.id)) {
-                    targetIds = [assunto.id]
+                if (REAL_SPECIALTIES_MAPPED_AS_SUBS.includes(assunto.specialty_id)) {
+                    targetIds = [assunto.specialty_id]
                 }
 
-                // Se o assunto é Clínica Médica, expandir
-                if (assunto.id === 'clinica-medica') {
+                // Se o assunto é Clínica Médica, expandir (slug é 'clinica-medica')
+                if (assunto.specialty_id === 'clinica-medica' || assunto.id === 'clinica-medica') {
                     targetIds.push(...REAL_SPECIALTIES_MAPPED_AS_SUBS)
                 }
 
@@ -192,12 +192,13 @@ export function SessaoModal({ isOpen, onClose, assunto_id, tipo, onComplete }: S
                     if (targetIds.length > 1) {
                         // Multi-specialty case (e.g. Clinica Medica expansion)
                         query = query.in('specialty_id', targetIds)
-                    } else if (REAL_SPECIALTIES_MAPPED_AS_SUBS.includes(assunto.id)) {
+                    } else if (REAL_SPECIALTIES_MAPPED_AS_SUBS.includes(assunto.specialty_id)) {
                         // Direct Specialty Case (e.g Pneumologia)
-                        query = query.eq('specialty_id', assunto.id)
+                        query = query.eq('specialty_id', assunto.specialty_id)
                     } else {
                         // Standard fallback
-                        query = query.or(`subject_id.eq."${assunto.id}",subspecialty_id.eq."${assunto.id}",specialty_id.eq."${assunto.id}"`)
+                        const slug = assunto.specialty_id
+                        query = query.or(`subject_id.eq."${slug}",subspecialty_id.eq."${slug}",specialty_id.eq."${slug}"`)
                     }
 
                     const { data: qData, error: qError } = await query.limit(200)
