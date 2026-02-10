@@ -5,7 +5,7 @@ import {
     Plus, Search, Edit2, Trash2, Users, Crown, Star,
     RefreshCw, Database, BarChart3, Upload, CheckCircle2, XCircle,
     AlertCircle, History, ExternalLink, Mail, Phone, BookOpen, GraduationCap, Sparkles, X, ShieldCheck, DollarSign, Settings, ArrowLeft,
-    Activity, Target, Zap, TrendingUp, ChevronLeft, ChevronRight, Flag, Hammer, Wrench, ShieldAlert, Paperclip, Network, Eye
+    Activity, Target, Zap, Clock, TrendingUp, ChevronLeft, ChevronRight, Flag, Hammer, Wrench, ShieldAlert, Paperclip, Network, Eye
 } from 'lucide-react'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
@@ -15,6 +15,7 @@ import { useAuth, PlanLevel, UserRole } from '@/store/use-auth'
 import { useUserDb } from '@/store/use-user-db'
 import { useModeration } from '@/store/use-moderation'
 import { useQuiz } from '@/store/use-quiz'
+import { useSupport } from '@/store/use-support'
 import { useRouter } from 'next/navigation'
 import { toast } from 'react-hot-toast'
 // Removed AI Prompt imports
@@ -45,6 +46,7 @@ export default function AdminDashboard() {
     const { reports, loadReports, updateReportStatus, loading: reportsLoading } = useModeration()
     const { responses, load_all_responses: loadAllResponses } = useQuiz()
     const { taxonomy, loadTaxonomy, loading: taxonomyLoading } = useTaxonomy()
+    const { createTicket, sendMessage, tickets, fetchTickets } = useSupport()
 
     // QRUB MASTER - Structural State
     const [view, setViewInternal] = useState<'questions' | 'users' | 'analytics' | 'reports' | 'import' | 'structural' | 'validation' | 'settings' | 'taxonomy'>('analytics')
@@ -58,6 +60,7 @@ export default function AdminDashboard() {
     const [previewQuestion, setPreviewQuestion] = useState<Question | null>(null)
     const [isBreakdownOpen, setIsBreakdownOpen] = useState(false)
     const [analysisUserId, setAnalysisUserId] = useState<string | null>(null)
+    const [currentReportId, setCurrentReportId] = useState<string | null>(null)
 
     const setView = (newView: string) => {
         setViewInternal(newView as any)
@@ -71,6 +74,7 @@ export default function AdminDashboard() {
         loadReports()
         loadQuestions()
         loadTaxonomy()
+        fetchTickets()
     }, [])
 
     useEffect(() => {
@@ -87,7 +91,7 @@ export default function AdminDashboard() {
     const [importStatus, setImportStatus] = useState<{ type: 'success' | 'error', msg: string } | null>(null)
     const [selectedQuestions, setSelectedQuestions] = useState<string[]>([])
     const [loadingManual, setLoadingManual] = useState(false)
-    const [userFilter, setUserFilter] = useState<'all' | 'insano' | 'premium' | 'incomplete'>('all')
+    const [userFilter, setUserFilter] = useState<'all' | 'insano' | 'premium' | 'incomplete' | 'active-today'>('all')
     const [userSearch, setUserSearch] = useState('')
     const [languageSuggestions, setLanguageSuggestions] = useState<any[]>([])
     const [isReviewModalOpen, setIsReviewModalOpen] = useState(false)
@@ -291,7 +295,13 @@ export default function AdminDashboard() {
                 userFilter === 'insano' ? u.plan_level === 'INSANO' :
                     userFilter === 'premium' ? u.plan_level === 'PREMIUM' :
                         userFilter === 'incomplete' ? (!u.institution || !u.graduation_year) :
-                            true;
+                            userFilter === 'active-today' ? (() => {
+                                const now = new Date()
+                                const last = u.updated_at ? new Date(u.updated_at) : (u.last_sign_in_at ? new Date(u.last_sign_in_at) : null)
+                                if (!last) return false
+                                return (now.getTime() - last.getTime()) < (24 * 60 * 60 * 1000)
+                            })() :
+                                true;
 
             const matchesSearch =
                 u.name.toLowerCase().includes(userSearch.toLowerCase()) ||
@@ -1235,7 +1245,8 @@ export default function AdminDashboard() {
     const [isEditModalOpen, setIsEditModalOpen] = useState(false)
     const [editingQuestion, setEditingQuestion] = useState<Partial<Question> | null>(null)
 
-    const handleOpenEditor = (q?: Question) => {
+    const handleOpenEditor = (q?: Question, reportId?: string) => {
+        setCurrentReportId(reportId || null)
         setEditingQuestion(q || {
             id: `QRUB-${Math.random().toString(36).substr(2, 5).toUpperCase()}`,
             enunciado: '',
@@ -1485,6 +1496,55 @@ export default function AdminDashboard() {
 
     const handlePlanChange = async (userId: string, newPlan: PlanLevel) => {
         await updateUserPlan(userId, newPlan)
+    }
+
+    const handleReportResolve = async (report: any) => {
+        try {
+            let q = questions.find(qst => qst.id === report.question_id)
+            if (!q) {
+                // Try fetching from store/DB
+                const { fetchQuestionById } = useQuestionsStore.getState()
+                q = await fetchQuestionById(report.question_id) as Question
+            }
+
+            // 1. Update status
+            const { success } = await updateReportStatus(report.id, 'resolved')
+            if (!success) throw new Error("Erro ao atualizar reporte")
+
+            // 2. Send Support Message to User (Only if user exists in DB)
+            if (report.user_id) {
+                const reporter = realUsers.find(u => u.id === report.user_id)
+
+                if (reporter) {
+                    const specLabel = q ? (names.specs[q.specialty_id] || q.specialty_id) : 'N/A'
+                    const subLabel = q ? (names.subs[q.subspecialty_id] || q.subspecialty_id) : 'N/A'
+
+                    const message = `Olá! 👋
+Passando para avisar que o seu ajuste solicitado na questão [**${report.question_id}**] - (${specLabel} > ${subLabel}) foi analisado e **RESOLVIDO** pela nossa equipe reguladora.
+
+Obrigado por nos ajudar a melhorar o QRub! 🚀`
+
+                    // Find existing open ticket or create new
+                    const activeTicket = tickets.filter(t => t.user_id === report.user_id).find(t => t.status !== 'closed')
+                    if (activeTicket) {
+                        await sendMessage(activeTicket.id, message, true)
+                    } else {
+                        const ticketId = await createTicket(`Ajuste de Questão: ${report.question_id}`, "Iniciando atendimento de regulação...", report.user_id)
+                        if (ticketId) await sendMessage(ticketId, message, true)
+                    }
+                    toast.success("Reporte resolvido e usuário notificado!")
+                } else {
+                    console.warn(`Report user ${report.user_id} not found in users table. Skipping message.`)
+                    toast.success("Reporte resolvido! (Usuário não encontrado para notificação)")
+                }
+            } else {
+                toast.success("Reporte resolvido!")
+            }
+
+            loadReports() // Refresh list
+        } catch (err: any) {
+            toast.error(err.message || "Erro ao resolver reporte")
+        }
     }
 
     const handleToggleQuestion = (id: string) => {
@@ -2178,7 +2238,17 @@ export default function AdminDashboard() {
                                             const result = await addQuestion(editingQuestion as Question)
                                             if (result.success) {
                                                 setImportStatus({ type: 'success', msg: '✅ Questão salva com sucesso no Supabase!' })
+
+                                                // If we were editing from a report, resolve it
+                                                if (currentReportId) {
+                                                    const report = reports.find(r => r.id === currentReportId)
+                                                    if (report) {
+                                                        await handleReportResolve(report)
+                                                    }
+                                                }
+
                                                 setIsEditModalOpen(false)
+                                                setCurrentReportId(null)
                                             } else {
                                                 setImportStatus({ type: 'error', msg: `❌ Erro: ${result.message}` })
                                             }
@@ -2419,12 +2489,17 @@ export default function AdminDashboard() {
                                 active={userFilter === 'premium'}
                             />
                             <StatCard
-                                label="Cadastro Incompleto"
-                                value={realUsers.filter((u: any) => !u.institution || !u.graduation_year).length}
-                                color="text-rose-500"
-                                icon={<AlertCircle className="w-4 h-4" />}
-                                onClick={() => setUserFilter('incomplete')}
-                                active={userFilter === 'incomplete'}
+                                label="Acessou Hoje"
+                                value={realUsers.filter((u: any) => {
+                                    const now = new Date()
+                                    const last = u.updated_at ? new Date(u.updated_at) : (u.last_sign_in_at ? new Date(u.last_sign_in_at) : null)
+                                    if (!last) return false
+                                    return (now.getTime() - last.getTime()) < (24 * 60 * 60 * 1000)
+                                }).length}
+                                color="text-indigo-500"
+                                icon={<Zap className="w-4 h-4" />}
+                                onClick={() => setUserFilter('active-today')}
+                                active={userFilter === 'active-today'}
                             />
                         </div>
 
@@ -2493,6 +2568,7 @@ export default function AdminDashboard() {
                                             <th className="px-4 py-6">Aluno</th>
                                             <th className="px-8 py-6">Formação</th>
                                             <th className="px-8 py-6">Plano</th>
+                                            <th className="px-8 py-6">Atividade</th>
                                             <th className="px-8 py-6 text-right">Controle Master</th>
                                         </tr>
                                     </thead>
@@ -2552,6 +2628,23 @@ export default function AdminDashboard() {
                                                     </td>
                                                     <td className="px-8 py-6">
                                                         <PlanBadge plan={u.plan_level} />
+                                                    </td>
+                                                    <td className="px-8 py-6">
+                                                        <div className="flex flex-col gap-1">
+                                                            <div className="flex items-center gap-1.5 text-[10px] font-bold text-muted-foreground uppercase tracking-widest">
+                                                                <Target className="w-3 h-3 text-emerald-500" />
+                                                                {responses.filter(r => r.user_id === u.id).length} Qs
+                                                            </div>
+                                                            <div className="flex items-center gap-1.5 text-[10px] font-bold text-muted-foreground uppercase tracking-widest">
+                                                                <Clock className="w-3 h-3 text-primary" />
+                                                                {(() => {
+                                                                    const userResp = responses.filter(r => r.user_id === u.id)
+                                                                    // Estimativa: 30s por questão respondida
+                                                                    const min = Math.round((userResp.length * 30) / 60)
+                                                                    return `${min} min`
+                                                                })()}
+                                                            </div>
+                                                        </div>
                                                     </td>
                                                     <td className="px-8 py-6 text-right">
                                                         <div className="flex justify-end gap-2 items-center">
@@ -2664,11 +2757,15 @@ export default function AdminDashboard() {
                                                     <div className="flex justify-end gap-2">
                                                         <button
                                                             onClick={async () => {
-                                                                const q = questions.find(qst => qst.id === r.question_id)
-                                                                if (q) handleOpenEditor(q)
+                                                                let q = questions.find(qst => qst.id === r.question_id)
+                                                                if (!q) {
+                                                                    const { fetchQuestionById } = useQuestionsStore.getState()
+                                                                    q = await fetchQuestionById(r.question_id) as Question
+                                                                }
+
+                                                                if (q) handleOpenEditor(q, r.id)
                                                                 else {
-                                                                    toast.error('Questão não encontrada')
-                                                                    await loadQuestions()
+                                                                    toast.error('Questão não encontrada no banco de dados.')
                                                                 }
                                                             }}
                                                             className="px-3 py-1.5 rounded-lg bg-primary/10 text-primary text-[10px] font-black uppercase hover:bg-primary/20 transition-all flex items-center gap-1.5"
@@ -2680,9 +2777,10 @@ export default function AdminDashboard() {
                                                             onClick={async () => {
                                                                 if (confirm(`⚠️ EXCLUSÃO PERMANENTE\n\nDeseja excluir a questão ${r.question_id}?\n\nEsta ação NÃO pode ser desfeita.`)) {
                                                                     await handleDeleteSingleQuestion(r.question_id)
-                                                                    // Also mark report as dismissed
+                                                                    // Also mark report as resolved automatically
                                                                     await updateReportStatus(r.id, 'dismissed')
-                                                                    toast.success('Questão excluída e reporte dispensado')
+                                                                    toast.success('Questão excluída e reporte arquivado')
+                                                                    loadReports()
                                                                 }
                                                             }}
                                                             className="px-3 py-1.5 rounded-lg bg-rose-500/10 text-rose-500 text-[10px] font-black uppercase hover:bg-rose-500/20 transition-all flex items-center gap-1.5"
@@ -2692,7 +2790,7 @@ export default function AdminDashboard() {
                                                         </button>
                                                         <div className="w-px h-8 bg-border mx-1" />
                                                         <button
-                                                            onClick={() => updateReportStatus(r.id, 'resolved')}
+                                                            onClick={() => handleReportResolve(r)}
                                                             className="px-3 py-1.5 rounded-lg bg-emerald-500/10 text-emerald-500 text-[10px] font-black uppercase hover:bg-emerald-500/20 transition-all flex items-center gap-1.5"
                                                         >
                                                             <CheckCircle2 className="w-3 h-3" />

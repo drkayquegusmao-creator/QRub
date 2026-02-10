@@ -51,22 +51,22 @@ export const MEDICAL_HIERARCHY = [
             // ESPECIALIDADES CLÍNICAS
             { id: 'alergia-imunologia', name: 'Alergia e Imunologia', category: 'Especialidades Clínicas', subspecialties: [] },
             { id: 'angiologia', name: 'Angiologia', category: 'Especialidades Clínicas', subspecialties: [] },
-            { id: 'cardiologia-clinica', name: 'Cardiologia', category: 'Especialidades Clínicas', subspecialties: [] },
+            { id: 'cardiologia', name: 'Cardiologia', category: 'Especialidades Clínicas', subspecialties: [] },
             { id: 'dermatologia', name: 'Dermatologia', category: 'Especialidades Clínicas', subspecialties: [] },
-            { id: 'endocrinologia-metabologia', name: 'Endocrinologia e Metabologia', category: 'Especialidades Clínicas', subspecialties: [] },
-            { id: 'gastroenterologia-clinica', name: 'Gastroenterologia', category: 'Especialidades Clínicas', subspecialties: [] },
-            { id: 'geriatria-clinica', name: 'Geriatria', category: 'Especialidades Clínicas', subspecialties: [] },
-            { id: 'hematologia-hemoterapia', name: 'Hematologia e Hemoterapia', category: 'Especialidades Clínicas', subspecialties: [] },
-            { id: 'infectologia-clinica', name: 'Infectologia', category: 'Especialidades Clínicas', subspecialties: [] },
-            { id: 'nefrologia-clinica', name: 'Nefrologia', category: 'Especialidades Clínicas', subspecialties: [] },
+            { id: 'endocrinologia', name: 'Endocrinologia e Metabologia', category: 'Especialidades Clínicas', subspecialties: [] },
+            { id: 'gastroenterologia', name: 'Gastroenterologia', category: 'Especialidades Clínicas', subspecialties: [] },
+            { id: 'geriatria', name: 'Geriatria', category: 'Especialidades Clínicas', subspecialties: [] },
+            { id: 'hematologia', name: 'Hematologia e Hemoterapia', category: 'Especialidades Clínicas', subspecialties: [] },
+            { id: 'infectologia', name: 'Infectologia', category: 'Especialidades Clínicas', subspecialties: [] },
+            { id: 'nefrologia', name: 'Nefrologia', category: 'Especialidades Clínicas', subspecialties: [] },
             {
                 id: 'neurologia', name: 'Neurologia', category: 'Especialidades Clínicas', subspecialties: [
                     { id: 'neurologia-pediatrica', name: 'Neurologia Pediátrica', subjects: [{ id: 'geral', name: 'Geral' }] },
                     { id: 'neurofisiologia-clinica', name: 'Neurofisiologia Clínica', subjects: [{ id: 'geral', name: 'Geral' }] }
                 ]
             },
-            { id: 'oncologia-clinica-espec', name: 'Oncologia Clínica', category: 'Especialidades Clínicas', subspecialties: [] },
-            { id: 'pneumologia-clinica', name: 'Pneumologia', category: 'Especialidades Clínicas', subspecialties: [] },
+            { id: 'oncologia-clinica', name: 'Oncologia Clínica', category: 'Especialidades Clínicas', subspecialties: [] },
+            { id: 'pneumologia', name: 'Pneumologia', category: 'Especialidades Clínicas', subspecialties: [] },
             {
                 id: 'psiquiatria', name: 'Psiquiatria', category: 'Especialidades Clínicas', subspecialties: [
                     { id: 'psiquiatria-infancia-adolescencia', name: 'Psiquiatria da Infância e Adolescência', subjects: [{ id: 'geral', name: 'Geral' }] },
@@ -75,7 +75,7 @@ export const MEDICAL_HIERARCHY = [
                     { id: 'psiquiatria-forense', name: 'Psiquiatria Forense', subjects: [{ id: 'geral', name: 'Geral' }] }
                 ]
             },
-            { id: 'reumatologia-clinica', name: 'Reumatologia', category: 'Especialidades Clínicas', subspecialties: [] },
+            { id: 'reumatologia', name: 'Reumatologia', category: 'Especialidades Clínicas', subspecialties: [] },
             { id: 'medicina-trabalho', name: 'Medicina do Trabalho', category: 'Especialidades Clínicas', subspecialties: [] },
             { id: 'medicina-esportiva', name: 'Medicina Esportiva', category: 'Especialidades Clínicas', subspecialties: [] },
             { id: 'medicina-fisica-reabilitacao', name: 'Medicina Física e Reabilitação', category: 'Especialidades Clínicas', subspecialties: [] },

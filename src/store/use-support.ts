@@ -33,7 +33,7 @@ interface SupportState {
     // Actions
     fetchTickets: () => Promise<void>
     fetchMessages: (ticketId: string) => Promise<void>
-    createTicket: (subject: string, initialMessage: string) => Promise<string | null>
+    createTicket: (subject: string, initialMessage: string, targetUserId?: string) => Promise<string | null>
     sendMessage: (ticketId: string, text: string, isAdmin?: boolean) => Promise<void>
     updateTicketStatus: (ticketId: string, status: SupportTicket['status']) => Promise<void>
 
@@ -81,17 +81,19 @@ export const useSupport = create<SupportState>((set, get) => ({
         }
     },
 
-    createTicket: async (subject, initialMessage) => {
-        const { data: { user } } = await supabase.auth.getUser()
-        if (!user) {
-            console.error('Cannot create ticket: No user logged in')
+    createTicket: async (subject, initialMessage, targetUserId) => {
+        const { data: { user: authUser } } = await supabase.auth.getUser()
+        const effectiveUserId = targetUserId || authUser?.id
+
+        if (!effectiveUserId) {
+            console.error('Cannot create ticket: No user ID available')
             return null
         }
 
         const { data: ticket, error: ticketError } = await supabase
             .from('support_tickets')
             .insert({
-                user_id: user.id,
+                user_id: effectiveUserId,
                 subject,
                 status: 'open',
                 priority: 'medium'
@@ -104,11 +106,12 @@ export const useSupport = create<SupportState>((set, get) => ({
             return null
         }
 
+        // Se for admin criando para outro, o sender_id é o admin
         const { error: msgError } = await supabase.from('support_messages').insert({
             ticket_id: ticket.id,
-            sender_id: user.id,
+            sender_id: authUser?.id || effectiveUserId, // Fallback safe
             text: initialMessage,
-            is_admin: false
+            is_admin: !!targetUserId // Se tem targetUserId, é provável que um Admin esteja criando
         })
 
         if (msgError) {

@@ -258,7 +258,7 @@ export function SessaoModal({ isOpen, onClose, assunto_id, tipo, onComplete }: S
         criarSessaoLocal()
     }, [isOpen, user?.id, assunto_id, tipo])
 
-    const handleResponder = () => {
+    const handleResponder = async () => {
         if (!respostaSelecionada || !sessao) return
 
         const tempoDecorrido = Math.floor((Date.now() - tempoInicio) / 1000)
@@ -269,6 +269,24 @@ export function SessaoModal({ isOpen, onClose, assunto_id, tipo, onComplete }: S
             resposta: respostaSelecionada,
             tempo_segundos: tempoDecorrido
         }
+
+        // 🟢 REAL-TIME SYNC (For Admin Insights)
+        try {
+            // Heartbeat user activity
+            if (user?.id) {
+                supabase.from('users').update({ updated_at: new Date().toISOString() }).eq('id', user.id).then()
+            }
+
+            // Save item response
+            supabase.from('sessao_itens')
+                .update({
+                    resposta_usuario: respostaSelecionada,
+                    tempo_resposta_segundos: tempoDecorrido
+                })
+                .eq('sessao_id', sessao.sessao_id)
+                .eq('questao_id', questao.questao_id)
+                .then()
+        } catch (e) { /* silent fail for real-time */ }
 
         setRespostas([...respostas, novaResposta])
         setRespostaSelecionada(null)

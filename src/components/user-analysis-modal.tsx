@@ -136,7 +136,7 @@ export function UserAnalysisModal({ isOpen, onClose, userId }: UserAnalysisModal
 
             const { data: sessaoItens, error: siError } = await supabase
                 .from('sessao_itens')
-                .select('tempo_resposta_segundos, created_at')
+                .select('tempo_resposta_segundos, created_at, esta_correta, resposta_usuario')
                 .eq('user_id', userId)
 
             // --- CALCULATIONS ---
@@ -146,8 +146,11 @@ export function UserAnalysisModal({ isOpen, onClose, userId }: UserAnalysisModal
             const userSessions = sessoes || []
             const items = sessaoItens || []
 
-            // Activity Logic
-            const activityDates = new Set(history.map(h => new Date(h.data_uso).toDateString()))
+            const activityDates = new Set([
+                ...history.map(h => new Date(h.data_uso).toDateString()),
+                ...userSessions.map(s => new Date(s.created_at).toDateString()),
+                ...userMatches.map(m => new Date(m.created_at).toDateString())
+            ])
             const last7Days = Array.from({ length: 7 }, (_, i) => {
                 const d = new Date()
                 d.setDate(d.getDate() - i)
@@ -162,17 +165,38 @@ export function UserAnalysisModal({ isOpen, onClose, userId }: UserAnalysisModal
             const activeDays7 = last7Days.filter(d => activityDates.has(d)).length
             const activeDays30 = last30Days.filter(d => activityDates.has(d)).length
 
-            const lastUseDate = history.length > 0 ? new Date(history[0].data_uso) : null
-            const daysSinceLastUse = lastUseDate ? Math.floor((now.getTime() - lastUseDate.getTime()) / (1000 * 60 * 60 * 24)) : 999
+            const lastActivityDate = [
+                ...history.map(h => new Date(h.data_uso)),
+                ...userSessions.map(s => new Date(s.created_at)),
+                userData.updated_at ? new Date(userData.updated_at) : null,
+                userData.last_sign_in_at ? new Date(userData.last_sign_in_at) : null
+            ].filter(d => d !== null).sort((a: any, b: any) => b - a)[0]
+
+            const daysSinceLastUse = lastActivityDate ? Math.floor((now.getTime() - lastActivityDate.getTime()) / (1000 * 60 * 60 * 24)) : 999
+
+            // "Hoje" if last activity < 24h OR same calendar day
+            const isToday = lastActivityDate ? (
+                lastActivityDate.toDateString() === now.toDateString() ||
+                (now.getTime() - lastActivityDate.getTime()) < (12 * 60 * 60 * 1000) // 12h buffer
+            ) : false
+
+            const isOnlineNow = userSessions.some(s => s.status === 'EM_ANDAMENTO') || isToday
 
             let status: any = 'ATIVO'
             if (daysSinceLastUse > 30) status = 'ABANDONO'
             else if (daysSinceLastUse > 14) status = 'INATIVO'
             else if (daysSinceLastUse > 7) status = 'EM RISCO'
 
-            // Question Stats
-            const totalAnswered = history.length + userMatches.reduce((acc, m) => acc + (m.answered_questions || 0), 0)
-            const correctCount = history.filter(h => h.foi_acertada).length + userMatches.reduce((acc, m) => acc + (m.correct_count || 0), 0)
+            // Question Stats (History + Matches + LIVE Session Items)
+            const answeredItems = items.filter(i => i.resposta_usuario !== null)
+            const totalAnswered = history.length +
+                userMatches.reduce((acc, m) => acc + (m.answered_questions || 0), 0) +
+                answeredItems.length
+
+            const correctCount = history.filter(h => h.foi_acertada).length +
+                userMatches.reduce((acc, m) => acc + (m.correct_count || 0), 0) +
+                answeredItems.filter(i => i.esta_correta).length
+
             const incorrectCount = totalAnswered - correctCount
 
             // Performance per group (Mapped via Taxonomy)
@@ -224,13 +248,35 @@ export function UserAnalysisModal({ isOpen, onClose, userId }: UserAnalysisModal
 
             // --- Real Timing Calculations ---
             let totalSeconds = 0
+
+            // 1. From Matches
             userMatches.forEach(m => totalSeconds += (m.duration_seconds || 0))
+
+            // 2. From Sessions (Finished and Active)
             userSessions.forEach(s => {
                 if (s.finalized_at && s.created_at) {
                     const duration = (new Date(s.finalized_at).getTime() - new Date(s.created_at).getTime()) / 1000
                     totalSeconds += Math.max(0, duration)
+                } else if (s.status === 'EM_ANDAMENTO') {
+                    const duration = (now.getTime() - new Date(s.created_at).getTime()) / 1000
+                    totalSeconds += Math.max(0, duration)
                 }
             })
+
+            // 3. From Individual Items (to be double sure about answering time)
+            // Note: We only add these if they aren't already covered by session durations to avoid double counting
+            // However, usually sessao_itens tempo_resposta_segundos is the most "granular" measure.
+            // Let's take the MAX between session duration and sum of item times for each session to be safe.
+            const sessionItemTimes: Record<string, number> = {}
+            items.forEach(item => {
+                const sid = (item as any).sessao_id || 'no-session'
+                sessionItemTimes[sid] = (sessionItemTimes[sid] || 0) + (item.tempo_resposta_segundos || 0)
+            })
+
+            // If we have items without session mapping, add them directly
+            if (sessionItemTimes['no-session']) {
+                totalSeconds += sessionItemTimes['no-session']
+            }
 
             const totalScreenTimeMinutes = Math.round(totalSeconds / 60)
             const avgSessionMinutes = userSessions.length + userMatches.length > 0
@@ -284,9 +330,9 @@ export function UserAnalysisModal({ isOpen, onClose, userId }: UserAnalysisModal
                     graduation_year: userData.graduation_year || 'N/A',
                     plan_level: userData.plan_level,
                     created_at: userData.created_at,
-                    last_sign_in: userData.last_sign_in_at,
+                    last_sign_in: lastActivityDate?.toISOString() || null,
                     streak: userData.streak || 0,
-                    status
+                    status: isOnlineNow ? 'ATIVO' : status
                 },
                 activity: {
                     activeDaysLast7: activeDays7,
@@ -294,7 +340,7 @@ export function UserAnalysisModal({ isOpen, onClose, userId }: UserAnalysisModal
                     totalSessions: userMatches.length + userSessions.length,
                     consecutiveDays: userData.streak || 0,
                     maxStreak: userData.streak || 0,
-                    lastLoginToday: daysSinceLastUse === 0
+                    lastLoginToday: isOnlineNow || daysSinceLastUse === 0
                 },
                 questions: {
                     totalGenerated: totalAnswered + 10, // Mocked pending

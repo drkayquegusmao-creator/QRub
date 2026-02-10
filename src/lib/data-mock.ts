@@ -182,20 +182,51 @@ export function filterQuestions(
         subject_id?: string
     }
 ): Question[] {
+    // SPECIALTY MAPPING LOGIC (Must match use-questions.ts)
+    const REAL_SPECIALTIES_MAPPED_AS_SUBS = [
+        'cardiologia', 'endocrinologia', 'gastroenterologia', 'geriatria',
+        'hematologia', 'infectologia', 'nefrologia', 'pneumologia',
+        'reumatologia', 'oncologia-clinica'
+    ]
+
+    let targetSpecialtyIds: string[] = []
+    if (filters.specialty_id) {
+        if (Array.isArray(filters.specialty_id)) {
+            targetSpecialtyIds = [...filters.specialty_id]
+        } else {
+            targetSpecialtyIds = [filters.specialty_id]
+        }
+    }
+
+    let targetSubspecialtyId = filters.subspecialty_id
+
+    // 1. Se a subespecialidade selecionada for na verdade uma especialidade real no banco
+    if (targetSubspecialtyId && REAL_SPECIALTIES_MAPPED_AS_SUBS.includes(targetSubspecialtyId)) {
+        // Tratar como especialidade principal
+        targetSpecialtyIds = [targetSubspecialtyId]
+        targetSubspecialtyId = undefined
+    }
+
+    // 2. Expansão de "Clínica Médica"
+    if (targetSpecialtyIds.includes('clinica-medica')) {
+        targetSpecialtyIds.push(...REAL_SPECIALTIES_MAPPED_AS_SUBS)
+    }
+
+    // Remover duplicatas
+    const allowedSpecialtyIds = new Set(targetSpecialtyIds)
+
     return questions.filter(q => {
         if (filters.course_id && q.course_id !== filters.course_id) {
             return false
         }
 
-        if (filters.specialty_id) {
-            if (Array.isArray(filters.specialty_id)) {
-                if (!filters.specialty_id.includes(q.specialty_id)) return false
-            } else if (q.specialty_id !== filters.specialty_id) {
-                return false
-            }
+        // Check against expanded specialty list
+        if (allowedSpecialtyIds.size > 0) {
+            if (!allowedSpecialtyIds.has(q.specialty_id)) return false
         }
 
-        if (filters.subspecialty_id && q.subspecialty_id !== filters.subspecialty_id) {
+        // Check against mapped subspecialty
+        if (targetSubspecialtyId && q.subspecialty_id !== targetSubspecialtyId) {
             return false
         }
 

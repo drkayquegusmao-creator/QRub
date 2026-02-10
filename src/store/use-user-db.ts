@@ -14,6 +14,8 @@ export interface RegisteredUser {
     phone?: string
     institution?: string
     graduation_year?: string
+    updated_at?: string
+    last_sign_in_at?: string
 }
 
 interface UserDbState {
