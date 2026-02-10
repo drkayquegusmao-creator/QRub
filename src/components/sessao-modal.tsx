@@ -232,7 +232,15 @@ export function SessaoModal({ isOpen, onClose, assunto_id, tipo, onComplete }: S
 
                 // E. Selecionar 10 (ou todas se < 10)
                 const targetCount = Math.min(10, pool.length)
-                const shuffled = pool.sort(() => 0.5 - Math.random()).slice(0, targetCount)
+
+                // SHUFFLE: Randomize order to ensure unique sessions every time
+                // Fisher-Yates shuffle is better, but simple sort works for small pools.
+                // We shuffle the ENTIRE pool first, then take the first N.
+                const shuffled = pool
+                    .map(value => ({ value, sort: Math.random() }))
+                    .sort((a, b) => a.sort - b.sort)
+                    .map(({ value }) => value)
+                    .slice(0, targetCount)
 
                 // 3. Criar Sessão
                 const { data: novaSessao, error: sError } = await supabase
