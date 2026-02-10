@@ -91,9 +91,21 @@ export function TrainModal({ isOpen, onClose, initialMode, initialSpecialtyId }:
 
     const handleConfigStart = () => {
         const parts = []
-        if (selectedSpecialtyId) parts.push(`specialtyId=${encodeURIComponent(selectedSpecialtyId)}`)
-        if (selectedSubId) parts.push(`subspecialtyId=${encodeURIComponent(selectedSubId)}`)
-        if (selectedSubjectId) parts.push(`subjectId=${encodeURIComponent(selectedSubjectId)}`)
+
+        // QRUB MASTER FIX: Prioritize SLUG over ID because questions use legacy slugs
+        const spec = dynamicSpecialties.find(s => s.id === selectedSpecialtyId)
+        const sub = availableSubspecialties.find(s => s.id === selectedSubId)
+        const subj = availableSubjects.find(s => s.id === selectedSubjectId)
+
+        // Use slug if available, otherwise fallback to ID (for new taxonomy items)
+        const specVal = spec?.slug || selectedSpecialtyId
+        const subVal = sub?.slug || selectedSubId
+        const subjVal = subj?.slug || selectedSubjectId
+
+        if (selectedSpecialtyId) parts.push(`specialtyId=${encodeURIComponent(specVal || '')}`)
+        if (selectedSubId) parts.push(`subspecialtyId=${encodeURIComponent(subVal || '')}`)
+        if (selectedSubjectId) parts.push(`subjectId=${encodeURIComponent(subjVal || '')}`)
+
         handleStart(parts.join('&'))
     }
 

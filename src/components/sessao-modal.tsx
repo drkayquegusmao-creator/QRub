@@ -116,15 +116,16 @@ export function SessaoModal({ isOpen, onClose, assunto_id, tipo, onComplete }: S
                     let taxNode = null
 
                     if (isUUID) {
-                        const { data } = await supabase.from('taxonomia').select('id, name, parent_id, level').eq('id', assunto_id).single()
+                        const { data } = await supabase.from('taxonomia').select('id, name, slug, parent_id, level').eq('id', assunto_id).single()
                         taxNode = data
                     } else {
-                        const { data } = await supabase.from('taxonomia').select('id, name, parent_id, level').eq('slug', assunto_id).single()
+                        const { data } = await supabase.from('taxonomia').select('id, name, slug, parent_id, level').eq('slug', assunto_id).single()
                         taxNode = data
                     }
 
                     if (taxNode) {
-                        assunto = { id: taxNode.id, nome: taxNode.name, specialty_id: taxNode.id }
+                        // Use SLUG for specialty_id as questions use slugs
+                        assunto = { id: taxNode.id, nome: taxNode.name, specialty_id: taxNode.slug || taxNode.id }
                     } else {
                         assunto = { id: assunto_id, nome: 'Assunto Desconhecido', specialty_id: assunto_id }
                     }
