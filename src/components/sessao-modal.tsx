@@ -133,14 +133,33 @@ export function SessaoModal({ isOpen, onClose, assunto_id, tipo, onComplete }: S
                 // 2. Buscar questoes COMPATÍVEIS e ANTI-REPETIÇÃO
                 let pool: any[] = []
 
+                // SPECIALTY MAPPING LOGIC (Must match use-questions.ts)
+                const REAL_SPECIALTIES_MAPPED_AS_SUBS = [
+                    'cardiologia', 'endocrinologia', 'gastroenterologia', 'geriatria',
+                    'hematologia', 'infectologia', 'nefrologia', 'pneumologia',
+                    'reumatologia', 'oncologia-clinica'
+                ]
+
+                let targetIds: string[] = [assunto.id]
+
+                // Se o assunto é uma subespecialidade mapeada como especialidade
+                if (REAL_SPECIALTIES_MAPPED_AS_SUBS.includes(assunto.id)) {
+                    targetIds = [assunto.id]
+                }
+
+                // Se o assunto é Clínica Médica, expandir
+                if (assunto.id === 'clinica-medica') {
+                    targetIds.push(...REAL_SPECIALTIES_MAPPED_AS_SUBS)
+                }
+
                 if (tipo === 'CADERNO_ERROS') {
                     // Buscar apenas questões com status ATIVA ou EM_RECUPERACAO no caderno
                     const { data: erros } = await supabase
                         .from('caderno_erros')
                         .select('questao_id')
                         .eq('user_id', user.id)
-                        .eq('assunto_id', assunto.id)
-                        .in('status', ['ativo', 'em_revisao']) // Updated status check
+                        .in('assunto_id', targetIds) // Use expanded list
+                        .in('status', ['ativo', 'em_revisao'])
                         .limit(20)
 
                     if (!erros || erros.length === 0) {
@@ -151,7 +170,7 @@ export function SessaoModal({ isOpen, onClose, assunto_id, tipo, onComplete }: S
 
                     // Fetch das questões reais
                     const { data: qData } = await supabase
-                        .from('questao_base') // ou 'questions' se for a tabela unificada
+                        .from('questao_base')
                         .select('*')
                         .in('id', erroIds)
 
@@ -162,16 +181,25 @@ export function SessaoModal({ isOpen, onClose, assunto_id, tipo, onComplete }: S
                         .from('questao_uso_usuario')
                         .select('questao_id')
                         .eq('user_id', user.id)
-                        .eq('assunto_id', assunto.id)
+                        .in('assunto_id', targetIds)
 
                     const usadasIds = new Set(usadas?.map(u => u.questao_id) || [])
 
-                    const { data: qData, error: qError } = await supabase
-                        .from('questao_base')
-                        .select('*')
-                        .or(`subject_id.eq."${assunto.id}",subspecialty_id.eq."${assunto.id}",specialty_id.eq."${assunto.id}",specialty_id.eq."${assunto.specialty_id}"`)
-                        .eq('status_validacao', 'APROVADA')
-                        .limit(200)
+                    // Build dynamic query
+                    let query = supabase.from('questao_base').select('*').eq('status_validacao', 'APROVADA')
+
+                    if (targetIds.length > 1) {
+                        // Multi-specialty case (e.g. Clinica Medica expansion)
+                        query = query.in('specialty_id', targetIds)
+                    } else if (REAL_SPECIALTIES_MAPPED_AS_SUBS.includes(assunto.id)) {
+                        // Direct Specialty Case (e.g Pneumologia)
+                        query = query.eq('specialty_id', assunto.id)
+                    } else {
+                        // Standard fallback
+                        query = query.or(`subject_id.eq."${assunto.id}",subspecialty_id.eq."${assunto.id}",specialty_id.eq."${assunto.id}"`)
+                    }
+
+                    const { data: qData, error: qError } = await query.limit(200)
 
                     if (qError) throw qError
 
