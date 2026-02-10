@@ -14,26 +14,43 @@ export function SupportChatWidget() {
     const [isSending, setIsSending] = useState(false)
     const messagesEndRef = useRef<HTMLDivElement>(null)
 
-    // Find active ticket for this user
+    // Find ALL tickets for this user
+    const userTickets = tickets.filter(t => t.user_id === user?.id)
+
+    // Find active ticket (last updated open one) - tickets are already sorted by last_message_at DESC from store
     const activeTicket = tickets.find(t => t.user_id === user?.id && t.status !== 'closed')
-    const chatMessages = activeTicket ? (messages[activeTicket.id] || []) : []
+
+    // Combine all messages from all tickets
+    const chatMessages = userTickets
+        .flatMap(t => messages[t.id] || [])
+        .sort((a, b) => new Date(a.created_at).getTime() - new Date(b.created_at).getTime())
 
     useEffect(() => {
         if (user) fetchTickets()
     }, [user])
 
+    // Fetch messages for ALL user tickets and subscribe to them
     useEffect(() => {
-        if (activeTicket) {
-            fetchMessages(activeTicket.id)
-            const unsubscribe = subscribeToMessages(activeTicket.id)
-            return () => unsubscribe()
+        const unsubs: (() => void)[] = []
+
+        userTickets.forEach(ticket => {
+            if (!messages[ticket.id]) {
+                fetchMessages(ticket.id)
+            }
+            // Subscribe to new messages for this ticket
+            const unsub = subscribeToMessages(ticket.id)
+            unsubs.push(unsub)
+        })
+
+        return () => {
+            unsubs.forEach(u => u())
         }
-    }, [activeTicket?.id])
+    }, [userTickets.length, userTickets.map(t => t.id).join(',')])
 
     // Auto-scroll
     useEffect(() => {
         messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
-    }, [chatMessages])
+    }, [chatMessages.length, isOpen])
 
     const handleSendMessage = async () => {
         if (!inputValue.trim() || !user) return

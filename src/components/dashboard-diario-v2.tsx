@@ -1,3 +1,4 @@
+
 "use client"
 
 import { useEffect, useState } from 'react'
@@ -18,6 +19,7 @@ import { useAuth } from '@/store/use-auth'
 import { useQuestions } from '@/store/use-questions'
 import { SessaoModal } from './sessao-modal'
 import { CalendarView } from './calendar-view'
+import srsRules from '@/lib/srs-rules.json'
 
 interface DashboardData {
     success: boolean
@@ -45,6 +47,7 @@ interface RevisaoItem {
     dias_atrasado?: number
     nivel_atual: number
     ultima_nota: number
+    estado_cognitivo?: string
 }
 
 interface SugestaoNivelamento {
@@ -103,7 +106,7 @@ export function DashboardDiario() {
                     .select('*')
                     .eq('user_id', user.id)
 
-                // 2. Buscar Agenda de Revisões (TODAS as pendentes para calendario)
+                // 2. Buscar Agenda de Revisões
                 const { data: agenda } = await supabase
                     .from('agenda_revisoes')
                     .select('*')
@@ -116,21 +119,15 @@ export function DashboardDiario() {
                     .from('caderno_erros')
                     .select('*')
                     .eq('user_id', user.id)
-                    .neq('status', 'resolvido')
+                    .in('status', ['ativo', 'em_revisao'])
 
-                // Helper de Detalhes do Assunto (Hierarquia) - Generic for both structures usually
+                // Helper de Detalhes do Assunto
                 const getDetalhesAssunto = (id: string) => {
-                    // Try to find in top level (Specialties for static, Course for dynamic usually but mapped)
-                    // My service returns array of Courses [ { specialties: [...] } ] usually or flattened?
-                    // Service returns roots. If level='course', it has specialties.
-
-                    // Flatten logic
                     let found: { especialidade: string, assunto: string } | null = null
 
                     const search = (nodes: any[], currentSpec: string | null) => {
                         if (found) return
                         for (const node of nodes) {
-                            const isSpec = node.specialties || node.subspecialties // Heuristic
                             let specName = currentSpec
                             if (!specName && (node.specialties || node.subspecialties)) specName = node.name
 
@@ -140,7 +137,7 @@ export function DashboardDiario() {
                             }
 
                             if (node.specialties) search(node.specialties, specName)
-                            if (node.subspecialties) search(node.subspecialties, specName || node.name) // If it's specialty, pass name
+                            if (node.subspecialties) search(node.subspecialties, specName || node.name)
                             if (node.subjects) search(node.subjects, specName)
                         }
                     }
@@ -180,6 +177,14 @@ export function DashboardDiario() {
                         dataLocal.setHours(0, 0, 0, 0)
 
                         const progressoRelacionado = progressos?.find(p => p.assunto_id === item.assunto_id)
+
+                        // REGRA: Se NÃO_NIVELADO, remove da agenda de revisão (fallback de segurança)
+                        // AVISO: Isso impede que REVISÕES apareçam se o estado estiver 'NAO_NIVELADO', 
+                        // forçando o usuário a passar pelo card de nivelamento (sugestão)
+                        if (!progressoRelacionado || progressoRelacionado.estado_cognitivo === 'NAO_NIVELADO') {
+                            return;
+                        }
+
                         const info = getDetalhesAssunto(item.assunto_id)
 
                         const revisaoItem = {
@@ -190,8 +195,9 @@ export function DashboardDiario() {
                             specialty_id: item.assunto_id,
                             data_programada: item.data_programada,
                             dias_atrasado: 0,
-                            nivel_atual: progressoRelacionado ? progressoRelacionado.nivel_atual : 0,
-                            ultima_nota: progressoRelacionado ? progressoRelacionado.ultima_nota : 0
+                            nivel_atual: progressoRelacionado?.nivel_atual || 0,
+                            ultima_nota: progressoRelacionado?.ultima_nota || 0,
+                            estado_cognitivo: progressoRelacionado?.estado_cognitivo
                         }
 
                         let calendarStatus = 'PENDENTE'
@@ -218,7 +224,14 @@ export function DashboardDiario() {
                     })
                 }
 
+                // Processar Erros (Apenas se já nivelado)
                 errosAtivos.forEach(erro => {
+                    const prog = progressos?.find(p => p.assunto_id === erro.assunto_id)
+                    // Pela Regra 1: Bloqueio Total se NAO_NIVELADO. Erros não podem ser recuperados sem nivelamento.
+                    if (!prog || prog.estado_cognitivo === 'NAO_NIVELADO') return;
+
+                    if (erro.quantidade < 10) return;
+
                     const hasReviewToday = eventosCalendario.some(e => e.assunto === erro.nome && e.data === todayStr)
                     if (!hasReviewToday) {
                         eventosCalendario.push({
@@ -236,76 +249,41 @@ export function DashboardDiario() {
                     }
                 })
 
+                // Lógica de Sugestão de Nivelamento (Prioritária)
                 let sugestao = null
                 let levelCandidates: any[] = []
+
+                // Fallback simplest: usage of injected hierarchy or default
                 if (hierarchyData.length > 0 && hierarchyData[0].specialties) {
-                    levelCandidates = hierarchyData[0].specialties
+                    levelCandidates = hierarchyData[0].specialties // Start high level
                 } else {
-                    // Fallback/Direct roots
                     levelCandidates = hierarchyData
                 }
-                const niveladosIds = new Set(progressos?.map(p => p.assunto_id) || [])
+
+                // Busca assuntos Explicitamente NÃO NIVELADOS ou sem registro
+                const niveladosMap = new Map(progressos?.map(p => [p.assunto_id, p]))
 
                 for (const cand of levelCandidates) {
-                    const hasNivelamento = niveladosIds.has(cand.id)
-                    const hasApprovedQuestions = questions.some((q: any) =>
-                        (q.subject_id === cand.id || q.subspecialty_id === cand.id || q.specialty_id === cand.id) &&
-                        q.status_validacao === 'APROVADA'
-                    )
+                    const prog = niveladosMap.get(cand.id)
+                    const isNaoNivelado = !prog || prog.estado_cognitivo === 'NAO_NIVELADO'
 
-                    if (!hasNivelamento && hasApprovedQuestions) {
-                        sugestao = {
-                            assunto_id: cand.id,
-                            nome: cand.name,
-                            specialty_id: cand.id,
-                            questoes_disponiveis: 10
-                        }
-                        break
-                    }
-                }
-
-                if (!sugestao && atrasadas.length > 0) {
-                    // Filter atrasadas that have questions
-                    const atrasadasComQuestoes = atrasadas.filter(a =>
-                        questions.some((q: any) =>
-                            (q.subject_id === a.assunto_id || q.subspecialty_id === a.assunto_id || q.specialty_id === a.assunto_id) &&
+                    if (isNaoNivelado) {
+                        // Check availability
+                        const hasApprovedQuestions = questions.some((q: any) =>
+                            (q.subject_id === cand.id || q.subspecialty_id === cand.id || q.specialty_id === cand.id) &&
                             q.status_validacao === 'APROVADA'
                         )
-                    )
 
-                    if (atrasadasComQuestoes.length > 0) {
-                        const alvo = [...atrasadasComQuestoes].sort((a, b) => (b.dias_atrasado || 0) - (a.dias_atrasado || 0))[0]
-                        sugestao = {
-                            assunto_id: alvo.assunto_id,
-                            nome: alvo.nome,
-                            specialty_id: alvo.specialty_id,
-                            questoes_disponiveis: 10
+                        if (hasApprovedQuestions) {
+                            sugestao = {
+                                assunto_id: cand.id,
+                                nome: cand.name,
+                                specialty_id: cand.id,
+                                questoes_disponiveis: 10
+                            }
+                            break // Encontrou um candidato válido para nivelamento
                         }
                     }
-                }
-
-                if (!sugestao && errosAtivos.length > 0) {
-                    const errosComQuestoes = errosAtivos.filter(e =>
-                        questions.some((q: any) =>
-                            (q.subject_id === e.assunto_id || q.subspecialty_id === e.assunto_id || q.specialty_id === e.assunto_id) &&
-                            q.status_validacao === 'APROVADA'
-                        )
-                    )
-
-                    if (errosComQuestoes.length > 0) {
-                        sugestao = {
-                            assunto_id: errosComQuestoes[0].assunto_id,
-                            nome: errosComQuestoes[0].nome,
-                            specialty_id: errosComQuestoes[0].assunto_id,
-                            questoes_disponiveis: errosComQuestoes[0].quantidade
-                        }
-                    }
-                }
-
-                // BLOQUEIO: Se houver muitos erros críticos, não sugere nivelamento novo
-                const errosCriticos = errosDb?.filter((e: any) => e.nivel_de_gravidade === 'critico').length || 0
-                if (errosCriticos > 3) {
-                    sugestao = null // Bloqueia novos temas até resolver o crítico
                 }
 
                 setDashboard({
@@ -319,7 +297,7 @@ export function DashboardDiario() {
                     resumo: {
                         total_atrasadas: atrasadas.length,
                         total_do_dia: doDia.length,
-                        total_erros: errosAtivos.reduce((acc, curr) => acc + curr.quantidade, 0),
+                        total_erros: errosAtivos.filter(e => e.quantidade >= 10).reduce((acc, curr) => acc + curr.quantidade, 0),
                         tem_sugestao: !!sugestao
                     }
                 })
@@ -406,7 +384,6 @@ export function DashboardDiario() {
                         >
                             <LayoutGrid className="w-4 h-4" />
                             Agenda Ativa
-                            {/* Badger de Pendências */}
                             {(resumo.total_atrasadas + resumo.total_erros) > 0 && (
                                 <span className="flex items-center justify-center w-5 h-5 bg-destructive text-white text-[10px] rounded-full">
                                     {resumo.total_atrasadas + resumo.total_erros}
@@ -451,8 +428,18 @@ export function DashboardDiario() {
                                 </div>
                             )}
 
-                            {/* 1. Caderno de Erros (PRIORIDADE MÁXIMA) */}
-                            {erros_ativos.map((erro, index) => (
+                            {/* 0. NIVELAMENTO (PRIORIDADE ABSOLUTA DA REGRA 2) */}
+                            {sugestao_nivelamento && (
+                                <div className="pt-2">
+                                    <CardNivelamento
+                                        sugestao={sugestao_nivelamento}
+                                        onIniciar={() => handleIniciarSessao(sugestao_nivelamento.assunto_id, 'NIVELAMENTO')}
+                                    />
+                                </div>
+                            )}
+
+                            {/* 1. Caderno de Erros (Só aparece se já nivelado) */}
+                            {erros_ativos.filter(e => e.quantidade >= 10).map((erro, index) => (
                                 <motion.div
                                     key={'erro-' + erro.assunto_id}
                                     initial={{ opacity: 0, y: 20 }}
@@ -520,16 +507,6 @@ export function DashboardDiario() {
                                             onIniciar={() => handleIniciarSessao(revisao.assunto_id, 'REVISAO')}
                                         />
                                     ))}
-                                </div>
-                            )}
-
-                            {/* 4. Sugestão de Nivelamento */}
-                            {sugestao_nivelamento && (
-                                <div className="pt-2">
-                                    <CardNivelamento
-                                        sugestao={sugestao_nivelamento}
-                                        onIniciar={() => handleIniciarSessao(sugestao_nivelamento.assunto_id, 'NIVELAMENTO')}
-                                    />
                                 </div>
                             )}
                         </motion.div>
@@ -624,6 +601,7 @@ function CardNivelamento({
     sugestao: SugestaoNivelamento
     onIniciar: () => void
 }) {
+    // Implementa LAYOUT e COPYWRITING RIGOROSO do PROMPT 2
     return (
         <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
@@ -637,16 +615,20 @@ function CardNivelamento({
 
             <div className="flex-1 flex flex-col justify-center items-center text-center space-y-6 max-w-lg relative z-10 w-full">
                 <div>
+                    {/* Badge: AVALIAÇÃO INICIAL */}
                     <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-500/10 text-orange-500 text-[10px] font-black uppercase tracking-[0.2em] mb-6">
                         <Sparkles className="w-3 h-3" />
-                        NOVO TEMA SUGERIDO
+                        AVALIAÇÃO INICIAL
                     </div>
+                    {/* Título: Nivelar conhecimento */}
                     <h3 className="text-4xl md:text-5xl font-black italic uppercase tracking-tighter text-[#1A1033] leading-[0.9] mb-4">
                         Nivelar <br />
-                        <span className="text-orange-500 bg-clip-text text-transparent bg-gradient-to-r from-orange-500 to-amber-500">{sugestao.nome.split(' ')[0]}</span>
+                        <span className="text-orange-500 bg-clip-text text-transparent bg-gradient-to-r from-orange-500 to-amber-500">conhecimento</span>
                     </h3>
+                    <p className="text-xl font-bold text-[#1A1033] mb-2">{sugestao.nome}</p>
+                    {/* Descrição: Este assunto ainda não foi avaliado... */}
                     <p className="text-slate-500 font-medium text-base leading-relaxed max-w-sm mx-auto">
-                        Identificamos que você ainda não tem nível em {sugestao.nome}. Complete 10 questões para definir seu rank inicial.
+                        {srsRules.cards.NIVELAMENTO.descricao || "Este assunto ainda não foi avaliado. Antes de revisar, precisamos entender seu nível atual."}
                     </p>
                 </div>
             </div>
@@ -657,8 +639,9 @@ function CardNivelamento({
                     className="relative group/btn z-30 w-full"
                 >
                     <div className="absolute -inset-1 bg-orange-500/30 rounded-2xl blur-lg opacity-0 group-hover/btn:opacity-100 transition-opacity" />
+                    {/* Botão: INICIAR NIVELAMENTO */}
                     <div className="relative bg-[#1A1033] text-white py-6 rounded-2xl font-black uppercase text-sm tracking-[0.2em] shadow-2xl flex items-center justify-center gap-4 hover:scale-[1.02] active:scale-95 transition-all">
-                        Iniciar Nivelamento
+                        {srsRules.cards.NIVELAMENTO.cta || "INICIAR NIVELAMENTO"}
                         <ArrowRight className="w-5 h-5" />
                     </div>
                 </button>

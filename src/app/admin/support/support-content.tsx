@@ -40,7 +40,7 @@ export default function SupportInbox() {
 
     const filteredTickets = tickets.filter(t =>
         t.subject.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        t.user?.name.toLowerCase().includes(searchTerm.toLowerCase())
+        (t.user?.name || '').toLowerCase().includes(searchTerm.toLowerCase())
     )
 
     const handleSendReply = async () => {

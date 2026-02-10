@@ -49,7 +49,7 @@ interface AnalyticsData {
         averageTimePerQuestion: number
         correctCount: number
         incorrectCount: number
-        specialtyPerformance: { name: string; correct: number; total: number }[]
+        specialtyPerformance: { id: string; name: string; correct: number; total: number; accuracy: number }[]
         mostAvoidedSpecialties: string[]
         mostAccessedSpecialties: string[]
     }
@@ -70,7 +70,7 @@ interface AnalyticsData {
         precision: string
         retention: string
     }
-    chartData: { d: string; v: number }[]
+    chartData: { d: string; v: number; count: number }[]
     peakHour: string
     avgSessionTime: string
     totalScreenTime: string
@@ -93,6 +93,17 @@ export function UserAnalysisModal({ isOpen, onClose, userId }: UserAnalysisModal
         if (!userId || !isSupabaseConfigured()) return
         setLoading(true)
         try {
+            // 0. Fetch Taxonomy for Mapping (UUID -> Name)
+            // We fetch name and parent name to construct full labels if needed
+            const { data: taxonomyNodes } = await supabase
+                .from('taxonomia')
+                .select('id, name')
+
+            const taxonomyMap = new Map<string, string>()
+            taxonomyNodes?.forEach((node: any) => {
+                taxonomyMap.set(node.id, node.name)
+            })
+
             // 1. Fetch Basic Info
             const { data: userData, error: userError } = await supabase
                 .from('users')
@@ -164,21 +175,26 @@ export function UserAnalysisModal({ isOpen, onClose, userId }: UserAnalysisModal
             const correctCount = history.filter(h => h.foi_acertada).length + userMatches.reduce((acc, m) => acc + (m.correct_count || 0), 0)
             const incorrectCount = totalAnswered - correctCount
 
-            // Performance per group (using session as specialty proxy for simplicity in this draft)
-            // Ideally we'd join with Specialty table, but we'll use a simplified grouped approach
+            // Performance per group (Mapped via Taxonomy)
             const specMap: Record<string, { correct: number; total: number }> = {}
             history.forEach(h => {
-                const key = h.assunto_id || 'Geral'
+                const key = h.assunto_id // UUID
+                if (!key) return
                 if (!specMap[key]) specMap[key] = { correct: 0, total: 0 }
                 specMap[key].total++
                 if (h.foi_acertada) specMap[key].correct++
             })
 
-            const specialtyPerformance = Object.entries(specMap).map(([name, stats]) => ({
-                name,
-                correct: stats.correct,
-                total: stats.total
-            })).sort((a, b) => b.total - a.total).slice(0, 5)
+            const specialtyPerformance = Object.entries(specMap).map(([id, stats]) => {
+                const name = taxonomyMap.get(id) || 'Geral'
+                return {
+                    id,
+                    name,
+                    correct: stats.correct,
+                    total: stats.total,
+                    accuracy: Math.round((stats.correct / stats.total) * 100)
+                }
+            }).sort((a, b) => b.total - a.total).slice(0, 5) // Top 5 by Volume
 
             // Behavior & Score
             let score = 0
@@ -215,27 +231,32 @@ export function UserAnalysisModal({ isOpen, onClose, userId }: UserAnalysisModal
                     totalSeconds += Math.max(0, duration)
                 }
             })
-            // Add individual item times missing from finalized sessions (fallthrough only)
-            items.forEach(i => {
-                if (!i.tempo_resposta_segundos) return
-                // Check if this item is part of a session already counted
-                // (Simplified: if we have session duration, we skip individual items to avoid double count)
-                // But for sessions in progress, items are the only source.
-                // For simplicity here, we use items only if they are significantly many
-            })
 
             const totalScreenTimeMinutes = Math.round(totalSeconds / 60)
             const avgSessionMinutes = userSessions.length + userMatches.length > 0
                 ? Math.round(totalScreenTimeMinutes / (userSessions.length + userMatches.length))
                 : 0
 
-            // Chart Data Generation (Last 7 Days)
+            // Chart Data Generation (Last 7 Days) - PRECISION BASED
             const chartData = last7Days.map(dateStr => {
-                const count = history.filter(h => new Date(h.data_uso).toDateString() === dateStr).length +
-                    userMatches.filter(m => new Date(m.created_at).toDateString() === dateStr)
-                        .reduce((acc, m) => acc + (m.answered_questions || 0), 0)
-                const label = dateStr.split(' ').slice(1, 3).join('/') // e.g. "Feb 08" -> "08/Feb"
-                return { d: label, v: count }
+                const dayHistory = history.filter(h => new Date(h.data_uso).toDateString() === dateStr)
+                // Filter matches by date
+                const dayMatches = userMatches.filter(m => new Date(m.created_at).toDateString() === dateStr)
+
+                const dayCorrect = dayHistory.filter(h => h.foi_acertada).length +
+                    dayMatches.reduce((acc, m) => acc + (m.correct_count || 0), 0)
+
+                const dayTotal = dayHistory.length +
+                    dayMatches.reduce((acc, m) => acc + (m.answered_questions || 0), 0)
+
+                const precision = dayTotal > 0 ? Math.round((dayCorrect / dayTotal) * 100) : 0
+
+                // Format label: "Segunda", "Terça" or just DD/MM
+                // Screenshot uses "Quarta", "Quinta". Let's use Weekday name.
+                const weekday = new Date(dateStr).toLocaleDateString('pt-BR', { weekday: 'long' })
+                const label = weekday.charAt(0).toUpperCase() + weekday.slice(1).split('-')[0] // "Segunda"
+
+                return { d: label, v: precision, count: dayTotal } // v is precision now (0-100)
             }).reverse()
 
             // Peak Hour
@@ -388,18 +409,33 @@ export function UserAnalysisModal({ isOpen, onClose, userId }: UserAnalysisModal
 
                             <section className="p-6 rounded-[32px] bg-gradient-to-br from-white/[0.03] to-transparent border border-white/10 shadow-xl relative overflow-hidden group">
                                 <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                                    <Brain className="w-12 h-12" />
+                                    <Crown className="w-12 h-12" />
                                 </div>
-                                <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-white/30 mb-4">Perfil Comportamental</h3>
+                                <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-white/30 mb-4">TOTAL PROGRESS</h3>
                                 <div className="space-y-4">
-                                    <div className="flex items-center gap-3">
-                                        <ProfileRank level={data.behavioralProfile.level} />
-                                        <div>
-                                            <p className="text-xl font-black italic uppercase tracking-tighter text-white leading-none">{data.behavioralProfile.level}</p>
-                                            <p className="text-[10px] font-bold text-primary uppercase tracking-widest mt-1">Score IA: {data.behavioralProfile.score}/100</p>
+                                    <div className="flex flex-col gap-1">
+                                        <h1 className="text-3xl font-black italic uppercase tracking-tighter text-white leading-none">ÍNDICE DE<br />PRONTIDÃO<br /><span className="text-[#8b5cf6]">ELITE</span></h1>
+                                    </div>
+
+                                    <div className="relative pt-4">
+                                        <div className="flex items-center justify-between mb-2">
+                                            <span className="text-4xl font-black italic text-white">{data.behavioralProfile.score}%</span>
+                                            <span className={`px-2 py-1 rounded text-[8px] font-black uppercase tracking-widest ${data.behavioralProfile.score < 40 ? 'bg-rose-500/10 text-rose-500 border border-rose-500/20' : 'bg-emerald-500/10 text-emerald-500 border border-emerald-500/20'}`}>
+                                                {data.behavioralProfile.score < 40 ? 'CRÍTICO' : 'ESTÁVEL'}
+                                            </span>
+                                        </div>
+                                        <div className="h-2 bg-white/5 rounded-full overflow-hidden">
+                                            <motion.div
+                                                initial={{ width: 0 }}
+                                                animate={{ width: `${data.behavioralProfile.score}%` }}
+                                                className="h-full royal-gradient rounded-full"
+                                            />
                                         </div>
                                     </div>
-                                    <p className="text-xs font-medium text-white/60 leading-relaxed italic">"{data.behavioralProfile.interpretation}"</p>
+
+                                    <p className="text-xs font-medium text-white/60 leading-relaxed italic border-t border-white/5 pt-4">
+                                        "{data.behavioralProfile.interpretation}"
+                                    </p>
                                 </div>
                             </section>
 
@@ -449,7 +485,8 @@ export function UserAnalysisModal({ isOpen, onClose, userId }: UserAnalysisModal
                                         <motion.div key="geral" initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 10 }} className="space-y-8">
                                             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                                                 <div className="space-y-4">
-                                                    <h4 className="text-xs font-black uppercase tracking-[0.2em] text-white/30">Fluxo de Estudo (Questões / Dia)</h4>
+                                                    <h4 className="text-3xl font-black italic uppercase tracking-tighter text-foreground text-white">EVOLUÇÃO GLOBAL</h4>
+                                                    <p className="text-[10px] font-black uppercase tracking-[0.2em] text-white/30">PRECISÃO MÉDIA NOS ÚLTIMOS 7 DIAS</p>
                                                     <div className="h-64 bg-white/[0.02] border border-white/10 rounded-[32px] p-6">
                                                         <ResponsiveContainer width="100%" height="100%">
                                                             <AreaChart data={data.chartData}>
@@ -460,7 +497,12 @@ export function UserAnalysisModal({ isOpen, onClose, userId }: UserAnalysisModal
                                                                     </linearGradient>
                                                                 </defs>
                                                                 <XAxis dataKey="d" fontSize={10} axisLine={false} tickLine={false} tick={{ fill: 'rgba(255,255,255,0.3)' }} />
-                                                                <Tooltip contentStyle={{ backgroundColor: '#0a0a0a', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '12px' }} />
+                                                                <YAxis domain={[0, 100]} fontSize={10} axisLine={false} tickLine={false} tick={{ fill: 'rgba(255,255,255,0.3)' }} />
+                                                                <Tooltip
+                                                                    formatter={(value: any) => [`${value}%`, 'Precisão']}
+                                                                    labelStyle={{ color: '#fff' }}
+                                                                    contentStyle={{ backgroundColor: '#0a0a0a', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '12px' }}
+                                                                />
                                                                 <Area type="monotone" dataKey="v" stroke="#8b5cf6" strokeWidth={3} fillOpacity={1} fill="url(#colorValue)" />
                                                             </AreaChart>
                                                         </ResponsiveContainer>
@@ -508,18 +550,19 @@ export function UserAnalysisModal({ isOpen, onClose, userId }: UserAnalysisModal
                                                 </div>
 
                                                 <div className="space-y-4">
-                                                    <h4 className="text-xs font-black uppercase tracking-[0.2em] text-white/30">Top Especialidades (Volume)</h4>
-                                                    <div className="bg-white/[0.02] border border-white/10 rounded-[32px] p-6 space-y-4">
+                                                    <h4 className="text-3xl font-black italic uppercase tracking-tighter text-white">PERFORMANCE POR ÁREA</h4>
+                                                    <p className="text-[10px] font-black uppercase tracking-[0.2em] text-white/30">TOP 5 ESPECIALIDADES</p>
+                                                    <div className="bg-white/[0.02] border border-white/10 rounded-[32px] p-6 space-y-6">
                                                         {data.questions.specialtyPerformance.map((spec, i) => (
-                                                            <div key={i} className="space-y-1.5">
-                                                                <div className="flex justify-between text-[10px] font-black uppercase">
-                                                                    <span className="text-white/60 truncate max-w-[150px]">{spec.name}</span>
-                                                                    <span className="text-primary">{Math.round((spec.correct / spec.total) * 100)}% Acerto ({spec.total} q)</span>
+                                                            <div key={i} className="space-y-2">
+                                                                <div className="flex justify-between items-end border-b border-white/5 pb-2">
+                                                                    <span className="text-[10px] font-black uppercase tracking-widest text-white/60 truncate max-w-[200px]">{spec.name}</span>
+                                                                    <span className="text-xl font-black italic text-primary">{spec.accuracy}%</span>
                                                                 </div>
                                                                 <div className="h-1.5 bg-white/5 rounded-full overflow-hidden">
                                                                     <motion.div
                                                                         initial={{ width: 0 }}
-                                                                        animate={{ width: `${(spec.correct / spec.total) * 100}%` }}
+                                                                        animate={{ width: `${spec.accuracy}%` }}
                                                                         className="h-full bg-emerald-500 rounded-full"
                                                                     />
                                                                 </div>

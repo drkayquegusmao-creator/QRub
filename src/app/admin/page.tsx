@@ -1286,7 +1286,7 @@ export default function AdminDashboard() {
             const rawJson = jsonInput.trim()
             const cleanJson = rawJson.replace(/```json/g, '').replace(/```/g, '').trim()
             const parsed = JSON.parse(cleanJson)
-            let questionsToReview = Array.isArray(parsed) ? [...parsed] : [...(parsed.questions || [parsed])]
+            const questionsToReview = Array.isArray(parsed) ? [...parsed] : [...(parsed.questions || [parsed])]
 
             const response = await fetch('/api/ai/review-questions', {
                 method: 'POST',
@@ -1357,7 +1357,7 @@ export default function AdminDashboard() {
             const rawJson = jsonInput.trim()
             const cleanJson = rawJson.replace(/```json/g, '').replace(/```/g, '').trim()
             const parsed = JSON.parse(cleanJson)
-            let questions = Array.isArray(parsed) ? [...parsed] : [...(parsed.questions || [parsed])]
+            const questions = Array.isArray(parsed) ? [...parsed] : [...(parsed.questions || [parsed])]
 
             const q = questions[suggestion.questionIndex]
             if (!q) return
@@ -1390,7 +1390,7 @@ export default function AdminDashboard() {
             const rawJson = jsonInput.trim()
             const cleanJson = rawJson.replace(/```json/g, '').replace(/```/g, '').trim()
             const parsed = JSON.parse(cleanJson)
-            let questions = Array.isArray(parsed) ? [...parsed] : [...(parsed.questions || [parsed])]
+            const questions = Array.isArray(parsed) ? [...parsed] : [...(parsed.questions || [parsed])]
 
             languageSuggestions.forEach(suggestion => {
                 const q = questions[suggestion.questionIndex]

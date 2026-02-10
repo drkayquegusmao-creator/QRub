@@ -1,11 +1,13 @@
+
 "use client"
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { X, ArrowRight, XCircle, Trophy, CheckCircle2 } from 'lucide-react'
+import { X, ArrowRight, XCircle, Trophy, CheckCircle2, Calendar } from 'lucide-react'
 import { useAuth } from '@/store/use-auth'
 import { supabase } from '@/lib/supabase'
 import { MEDICAL_HIERARCHY } from '@/lib/medical-specialties'
+import srsRules from '@/lib/srs-rules.json'
 
 interface SessaoModalProps {
     isOpen: boolean
@@ -122,10 +124,6 @@ export function SessaoModal({ isOpen, onClose, assunto_id, tipo, onComplete }: S
                     }
 
                     if (taxNode) {
-                        // We need specialty_id. recursive fetch? 
-                        // Simplification: use current id or parent if available. 
-                        // Check parent to find specialty root. 
-                        // For now assume if not in tree, we just use what we have.
                         assunto = { id: taxNode.id, nome: taxNode.name, specialty_id: taxNode.id }
                     } else {
                         assunto = { id: assunto_id, nome: 'Assunto Desconhecido', specialty_id: assunto_id }
@@ -142,8 +140,8 @@ export function SessaoModal({ isOpen, onClose, assunto_id, tipo, onComplete }: S
                         .select('questao_id')
                         .eq('user_id', user.id)
                         .eq('assunto_id', assunto.id)
-                        .in('status', ['ativo', 'em_revisao'])
-                        .limit(20) // Ex: Max 20 pra sortear 10
+                        .in('status', ['ativo', 'em_revisao']) // Updated status check
+                        .limit(20)
 
                     if (!erros || erros.length === 0) {
                         throw new Error('Não há erros ativos para este assunto. Ótimo trabalho!')
@@ -153,7 +151,7 @@ export function SessaoModal({ isOpen, onClose, assunto_id, tipo, onComplete }: S
 
                     // Fetch das questões reais
                     const { data: qData } = await supabase
-                        .from('questao_base')
+                        .from('questao_base') // ou 'questions' se for a tabela unificada
                         .select('*')
                         .in('id', erroIds)
 
@@ -192,13 +190,13 @@ export function SessaoModal({ isOpen, onClose, assunto_id, tipo, onComplete }: S
 
                     pool = finalData.filter(q => !usadasIds.has(q.id))
 
-                    if (pool.length < 5) { // Reduzi limiar para permitir sessões menores em temas novos
+                    if (pool.length < 5) {
                         const usadasDisponiveis = finalData.filter(q => usadasIds.has(q.id))
                         pool = [...pool, ...usadasDisponiveis]
                     }
                 }
 
-                if (pool.length < 1) { // Flexível pra caderno de erros que pode ter poucas
+                if (pool.length < 1) {
                     throw new Error(`Questões insuficientes para iniciar a sessão (${pool.length}).`)
                 }
 
@@ -225,7 +223,7 @@ export function SessaoModal({ isOpen, onClose, assunto_id, tipo, onComplete }: S
                 // 4. Criar Itens
                 const itens = shuffled.map((q, i) => ({
                     sessao_id: novaSessao.id,
-                    user_id: user.id, // Coluna obrigatória adicionada
+                    user_id: user.id,
                     questao_id: q.id,
                     ordem: i + 1
                 }))
@@ -242,8 +240,7 @@ export function SessaoModal({ isOpen, onClose, assunto_id, tipo, onComplete }: S
                     questoes: shuffled.map((q, i) => ({
                         questao_id: q.id,
                         ordem: i + 1,
-                        enunciado: q.statement || q.enunciado || 'Enunciado indisponível',
-                        // Adapter para suportar diferentes schemas de options
+                        enunciado: q.enunciado || q.statement || 'Enunciado indisponível',
                         options: Array.isArray(q.alternatives) ? q.alternatives : (q.options || []),
                         image_url: q.image_url
                     }))
@@ -303,7 +300,7 @@ export function SessaoModal({ isOpen, onClose, assunto_id, tipo, onComplete }: S
             // 2. Buscar Erros Existentes (Para transição de status)
             const { data: errosExistentes } = await supabase
                 .from('caderno_erros')
-                .select('questao_id, status, contador_erros')
+                .select('questao_id, status, contador_de_repeticao')
                 .eq('user_id', user.id)
                 .in('questao_id', qIds)
 
@@ -323,7 +320,6 @@ export function SessaoModal({ isOpen, onClose, assunto_id, tipo, onComplete }: S
 
             for (const resp of todasRespostas) {
                 const correta = gabarito.get(resp.questao_id)
-                // Comparação robusta (string vs string)
                 const isCorrect = String(correta) === String(resp.resposta)
 
                 if (isCorrect) acertos++
@@ -338,8 +334,7 @@ export function SessaoModal({ isOpen, onClose, assunto_id, tipo, onComplete }: S
                     }).eq('id', itemId)
                 }
 
-                // B. Atualizar Uso (Anti-Repetição) - Só se não for Caderno de Erros (pois ali já foi usada)
-                // Mas, vamos logar sempre pra garantir histórico.
+                // B. Atualizar Uso (Anti-Repetição)
                 await supabase.from('questao_uso_usuario').upsert({
                     user_id: user.id,
                     assunto_id: sessao.assunto.id,
@@ -354,29 +349,25 @@ export function SessaoModal({ isOpen, onClose, assunto_id, tipo, onComplete }: S
                 const erroAntigo = errosMap.get(resp.questao_id)
 
                 if (!isCorrect) {
-                    // ERROU: Criar ou Atualizar como ATIVA
                     updatesCaderno.push({
                         user_id: user.id,
                         questao_id: resp.questao_id,
                         assunto_id: sessao.assunto.id,
-                        status: 'ATIVA',
-                        contador_erros: (erroAntigo?.contador_erros || 0) + 1,
+                        status: 'ativo',
+                        contador_de_repeticao: (erroAntigo?.contador_de_repeticao || 0) + 1,
                         ultima_interacao: new Date().toISOString()
                     })
                 } else if (isCorrect && erroAntigo) {
-                    // ACERTOU e já existia erro: Evoluir Status
                     let novoStatus = erroAntigo.status
-                    if (erroAntigo.status === 'ATIVA') novoStatus = 'EM_RECUPERACAO'
-                    else if (erroAntigo.status === 'EM_RECUPERACAO') novoStatus = 'CONSOLIDADA'
-
-                    // Se já era CONSOLIDADA, mantém (ou remove se quiser limpar, mas melhor manter histórico)
+                    if (erroAntigo.status === 'ativo') novoStatus = 'em_revisao'
+                    else if (erroAntigo.status === 'em_revisao') novoStatus = 'resolvido'
 
                     updatesCaderno.push({
                         user_id: user.id,
                         questao_id: resp.questao_id,
                         assunto_id: sessao.assunto.id,
                         status: novoStatus,
-                        contador_erros: erroAntigo.contador_erros, // Mantém contagem
+                        contador_de_repeticao: erroAntigo.contador_de_repeticao,
                         ultima_interacao: new Date().toISOString()
                     })
                 }
@@ -388,30 +379,58 @@ export function SessaoModal({ isOpen, onClose, assunto_id, tipo, onComplete }: S
             }
 
             // 4. Verificar Estado Geral do Assunto (Pós-Sessão)
-            // Contar quantos erros ATIVOS restam neste assunto para definir penalidade
             const { count: countErrosAtivos } = await supabase
                 .from('caderno_erros')
                 .select('*', { count: 'exact', head: true })
                 .eq('user_id', user.id)
                 .eq('assunto_id', sessao.assunto.id)
-                .eq('status', 'ATIVA')
+                .eq('status', 'ativo')
 
             const temErrosAtivos = (countErrosAtivos || 0) > 0
 
-            // 5. Cálculo SRS com Penalidade de Erro
+            // 5. LÓGICA DE NIVELAMENTO E REGULADOR SRS
+            const percentual = Math.round((acertos / sessao.total_questoes) * 100)
             const nota = Math.round((acertos / sessao.total_questoes) * 10)
 
-            // Tabela Base
-            let intervalo = 3
-            if (nota >= 4 && nota <= 5) intervalo = 7
-            else if (nota >= 6 && nota <= 7) intervalo = 14
-            else if (nota >= 8 && nota <= 9) intervalo = 30
-            else if (nota === 10) intervalo = 45
-            else if (nota <= 3) intervalo = 3
+            let estadoCognitivo = 'NAO_NIVELADO'
+            let intervalo = 3 // Default
+            let dataNivelamento = null
 
-            // PENALIDADE: Se houver erros ativos, intervalo não pode passar de 7 dias
+            // REGRA 3: Nivelamento
+            if (sessao.tipo === 'NIVELAMENTO') {
+                if (percentual <= 39) estadoCognitivo = 'NIVEL_BAIXO'
+                else if (percentual <= 69) estadoCognitivo = 'NIVEL_INTERMEDIARIO'
+                else if (percentual <= 89) estadoCognitivo = 'NIVEL_ALTO'
+                else estadoCognitivo = 'DOMINADO'
+
+                dataNivelamento = new Date().toISOString()
+
+                // REGRA 4: Intervalos Iniciais via JSON
+                // @ts-ignore
+                intervalo = srsRules.srs_parametros.intervalos_iniciais[estadoCognitivo] || 4
+            } else {
+                // REVISÃO: Mantém estado, apenas agenga próxima
+                // SRS Base Padrão via JSON
+                if (nota <= 3) intervalo = srsRules.srs_parametros.intervalos_revisao.nota_0_3
+                else if (nota <= 5) intervalo = srsRules.srs_parametros.intervalos_revisao.nota_4_5
+                else if (nota <= 7) intervalo = srsRules.srs_parametros.intervalos_revisao.nota_6_7
+                else if (nota <= 9) intervalo = srsRules.srs_parametros.intervalos_revisao.nota_8_9
+                else if (nota === 10) intervalo = srsRules.srs_parametros.intervalos_revisao.nota_10
+
+                const { data: currentProg } = await supabase
+                    .from('assunto_progresso')
+                    .select('estado_cognitivo, data_nivelamento')
+                    .eq('user_id', user.id)
+                    .eq('assunto_id', sessao.assunto.id)
+                    .single()
+
+                estadoCognitivo = currentProg?.estado_cognitivo || 'NIVEL_INTERMEDIARIO'
+                dataNivelamento = currentProg?.data_nivelamento
+            }
+
+            // PENALIDADE: Se houver erros ativos
             if (temErrosAtivos) {
-                intervalo = Math.min(intervalo, 7)
+                intervalo = Math.min(intervalo, srsRules.srs_parametros.penalidades.erro_ativo_teto)
             }
 
             const dataProxima = new Date()
@@ -426,7 +445,7 @@ export function SessaoModal({ isOpen, onClose, assunto_id, tipo, onComplete }: S
                 finalized_at: new Date().toISOString()
             }).eq('id', sessao.sessao_id)
 
-            // 7. Atualizar Progresso Assunto
+            // 7. Atualizar Progresso
             const { data: progAnt } = await supabase
                 .from('assunto_progresso')
                 .select('total_questoes_respondidas, total_acertos')
@@ -437,37 +456,44 @@ export function SessaoModal({ isOpen, onClose, assunto_id, tipo, onComplete }: S
             const totalQ = (progAnt?.total_questoes_respondidas || 0) + sessao.total_questoes
             const totalA = (progAnt?.total_acertos || 0) + acertos
 
-            const novoEstado = temErrosAtivos ? 'EM_RECUPERACAO' : 'AGUARDANDO_REVISAO'
-
-            await supabase.from('assunto_progresso').upsert({
+            const updateData: any = {
                 user_id: user.id,
                 assunto_id: sessao.assunto.id,
-                estado: novoEstado,
-                nivel_atual: nota,
+                estado_cognitivo: estadoCognitivo,
+                percentual_acerto: percentual, // Armazena último percentual da sessão
                 ultima_nota: nota,
                 total_questoes_respondidas: totalQ,
                 total_acertos: totalA,
                 data_ultima_sessao: new Date().toISOString(),
                 data_proxima_revisao: dataProxima.toISOString(),
                 intervalo_dias: intervalo,
-                updated_at: new Date().toISOString()
-            }, { onConflict: 'user_id,assunto_id' })
+                updated_at: new Date().toISOString(),
+                ultima_interacao: new Date().toISOString()
+            }
 
-            // 8. Atualizar Agenda de Revisões
+            if (dataNivelamento) {
+                updateData.data_nivelamento = dataNivelamento
+            }
+
+            await supabase.from('assunto_progresso').upsert(updateData, { onConflict: 'user_id,assunto_id' })
+
+            // 8. Atualizar Agenda
             await supabase.from('agenda_revisoes')
                 .delete()
                 .eq('user_id', user.id)
                 .eq('assunto_id', sessao.assunto.id)
                 .eq('status', 'PENDENTE')
 
-            await supabase.from('agenda_revisoes').insert({
-                user_id: user.id,
-                assunto_id: sessao.assunto.id,
-                data_programada: dataProximaStr,
-                status: 'PENDENTE'
-            })
+            // Agenda próxima revisão se NÃO for NAO_NIVELADO (redundância)
+            if (estadoCognitivo !== 'NAO_NIVELADO') {
+                await supabase.from('agenda_revisoes').insert({
+                    user_id: user.id,
+                    assunto_id: sessao.assunto.id,
+                    data_programada: dataProximaStr,
+                    status: 'PENDENTE'
+                })
+            }
 
-            // Marcar anteriores como REALIZADA
             await supabase.from('agenda_revisoes')
                 .update({ status: 'REALIZADA' })
                 .eq('user_id', user.id)
@@ -477,12 +503,14 @@ export function SessaoModal({ isOpen, onClose, assunto_id, tipo, onComplete }: S
             setResultado({
                 success: true,
                 nota: nota,
+                percentual: percentual,
                 acertos: acertos,
                 total: sessao.total_questoes,
                 nivel_atual: nota,
                 proxima_revisao: dataProximaStr,
                 intervalo_dias: intervalo,
-                erros_ativos: countErrosAtivos || 0
+                erros_ativos: countErrosAtivos || 0,
+                estado_cognitivo: estadoCognitivo
             })
 
         } catch (err: any) {
@@ -544,7 +572,6 @@ export function SessaoModal({ isOpen, onClose, assunto_id, tipo, onComplete }: S
                             </div>
 
                             <div className="flex items-center gap-3">
-                                {/* Controles de Acessibilidade */}
                                 <div className="hidden sm:flex items-center gap-2 bg-muted/30 p-1.5 rounded-xl border border-border mr-2">
                                     <button
                                         onClick={() => setFontSize(prev => Math.max(14, prev - 2))}
@@ -632,7 +659,6 @@ export function SessaoModal({ isOpen, onClose, assunto_id, tipo, onComplete }: S
                                     fontSize={fontSize}
                                 />
 
-                                {/* Navegação Visual com Quadradinhos */}
                                 <div className="mt-12 pt-8 border-t border-border">
                                     <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground mb-4">Progresso da Sessão</p>
                                     <div className="flex flex-wrap gap-2">
@@ -641,9 +667,9 @@ export function SessaoModal({ isOpen, onClose, assunto_id, tipo, onComplete }: S
                                             const isAnswered = idx < respostas.length
                                             const isLocked = idx > respostas.length
 
-                                            let bgColor = 'bg-muted text-muted-foreground' // Default/Locked
+                                            let bgColor = 'bg-muted text-muted-foreground'
                                             if (isAnswered) {
-                                                bgColor = 'bg-primary text-white' // No feedback imediato na sessão modal, apenas progresso
+                                                bgColor = 'bg-primary text-white'
                                             } else if (isCurrentQuestion) {
                                                 bgColor = 'bg-primary text-white ring-2 ring-primary/50'
                                             } else if (isLocked) {
@@ -708,7 +734,6 @@ function TelaQuestao({
             exit={{ opacity: 0, x: -20 }}
             className="space-y-6 sm:space-y-8 max-w-3xl mx-auto w-full"
         >
-            {/* Enunciado */}
             <div className="prose prose-lg max-w-none">
                 <p
                     className="text-[#1A1033] font-black italic uppercase leading-tight tracking-tighter"
@@ -716,9 +741,12 @@ function TelaQuestao({
                 >
                     {questao.enunciado}
                 </p>
+                {/* Fallback para imagem se houver */}
+                {questao.image_url && (
+                    <img src={questao.image_url} alt="Imagem da questão" className="rounded-xl mt-4 max-h-[300px] object-contain" />
+                )}
             </div>
 
-            {/* Alternativas */}
             <div className="space-y-4">
                 {questao.options.map((option) => (
                     <button
@@ -747,7 +775,6 @@ function TelaQuestao({
                 ))}
             </div>
 
-            {/* Botão Responder */}
             <div className="pt-4">
                 <button
                     onClick={onResponder}
@@ -795,93 +822,78 @@ function TelaResultado({
     tipo: string
     onFechar: () => void
 }) {
-    // Calculo simples de msg
-    const isRecuperacao = tipo === 'CADERNO_ERROS'
+    const isLeveling = tipo === 'NIVELAMENTO'
+
+    // Mensagem baseada no Estado Cognitivo (Se houver)
+    let titulo = "Resultado da Sessão"
+    let subtitulo = "Veja como foi seu desempenho."
+
+    if (isLeveling && resultado.estado_cognitivo) {
+        if (resultado.estado_cognitivo === 'DOMINADO') {
+            titulo = "Domínio Total!"
+            subtitulo = "Você demonstrou excelente conhecimento."
+        } else if (resultado.estado_cognitivo === 'NIVEL_ALTO') {
+            titulo = "Alto Desempenho"
+            subtitulo = "Você tem uma base sólida neste assunto."
+        } else if (resultado.estado_cognitivo === 'NIVEL_INTERMEDIARIO') {
+            titulo = "Nível Intermediário"
+            subtitulo = "Bom começo, mas precisa de revisão."
+        } else {
+            titulo = "Nível Básico"
+            subtitulo = "Identificamos lacunas importantes. Faremos revisões curtas."
+        }
+    }
 
     return (
         <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
+            initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="text-center py-8 space-y-8 max-w-lg mx-auto"
+            className="flex flex-col items-center text-center space-y-8 py-8"
         >
-            {/* Ícone */}
-            <motion.div
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-                className="relative inline-block"
-            >
-                <div className={`absolute inset-0 blur-2xl rounded-full ${isRecuperacao ? 'bg-yellow-500/20' : 'bg-emerald-500/20'}`} />
-                {isRecuperacao ? (
-                    <CheckCircle2 className="w-32 h-32 text-yellow-500 relative z-10" />
-                ) : (
-                    <Trophy className="w-32 h-32 text-yellow-500 relative z-10" />
-                )}
-            </motion.div>
+            <div className="w-24 h-24 bg-green-50 rounded-full flex items-center justify-center mb-4">
+                <Trophy className="w-12 h-12 text-green-500" />
+            </div>
 
-            {/* Título */}
             <div>
-                <h3 className="text-3xl font-black italic uppercase tracking-tighter text-[#1A1033] mb-2">
-                    {isRecuperacao ? 'Recuperação Concluída!' : tipo === 'NIVELAMENTO' ? 'Nivelamento Concluído!' : 'Revisão Concluída!'}
+                <h3 className="text-3xl font-black uppercase italic tracking-tighter text-[#1A1033] mb-2">
+                    {titulo}
                 </h3>
-                <p className="text-slate-500 font-medium text-lg">
-                    {isRecuperacao
-                        ? 'Você deu um passo importante para fechar suas lacunas.'
-                        : 'Parabéns! Você estourou a boca do balão.'
-                    }
+                <p className="text-slate-500 font-medium max-w-sm mx-auto">
+                    {subtitulo}
                 </p>
             </div>
 
-            {/* Nota */}
-            <div className="bg-white border-2 border-slate-100 rounded-[40px] p-10 soft-shadow">
-                <div className="flex flex-col items-center">
-                    <span className="text-xs font-black uppercase tracking-widest text-slate-400 mb-2">Sua Nota</span>
-                    <div className="text-7xl font-black tracking-tighter text-[#1A1033] mb-2">
-                        {resultado.nota.toFixed(1)}
-                    </div>
-                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 text-emerald-500 font-bold text-sm">
-                        <CheckCircle2 className="w-4 h-4" />
-                        {resultado.acertos} ACERTOS
-                    </div>
+            <div className="grid grid-cols-2 gap-4 w-full max-w-md">
+                <div className="bg-slate-50 p-6 rounded-2xl flex flex-col items-center">
+                    <span className="text-4xl font-black text-[#1A1033]">{resultado.acertos}</span>
+                    <span className="text-[10px] uppercase font-bold tracking-widest text-slate-400 mt-1">Acertos</span>
+                </div>
+                <div className="bg-slate-50 p-6 rounded-2xl flex flex-col items-center">
+                    <span className="text-4xl font-black text-[#1A1033]">{resultado.percentual || Math.round((resultado.acertos / resultado.total) * 100)}%</span>
+                    <span className="text-[10px] uppercase font-bold tracking-widest text-slate-400 mt-1">Precisão</span>
                 </div>
             </div>
 
-            {/* Informações */}
-            <div className="grid grid-cols-2 gap-4">
-                <div className="bg-slate-50 border border-slate-100 rounded-3xl p-6">
-                    <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">
-                        Situação Atual
-                    </p>
-                    {resultado.erros_ativos > 0 ? (
-                        <p className="text-xl font-black text-yellow-500 flex items-center justify-center gap-1">
-                            {resultado.erros_ativos} <span className="text-xs">ERROS ATIVOS</span>
-                        </p>
-                    ) : (
-                        <p className="text-3xl font-black text-emerald-500">LIMPO</p>
-                    )}
+            {resultado.proxima_revisao && (
+                <div className="bg-blue-50/50 border border-blue-100 p-4 rounded-xl flex items-center gap-3">
+                    <Calendar className="w-5 h-5 text-blue-500" />
+                    <span className="text-sm font-bold text-blue-700">
+                        Próxima revisão agendada para: {new Date(resultado.proxima_revisao).toLocaleDateString('pt-BR')}
+                    </span>
                 </div>
-                <div className="bg-slate-50 border border-slate-100 rounded-3xl p-6">
-                    <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">
-                        Próxima Revisão
-                    </p>
-                    <div className="flex items-baseline gap-1 justify-center">
-                        <p className="text-3xl font-black text-primary">
-                            {resultado.intervalo_dias}
-                        </p>
-                        <span className="text-xs font-bold text-slate-400 uppercase">DIAS</span>
-                    </div>
-                    <p className="text-xs text-slate-400 mt-1 font-medium">
-                        {new Date(resultado.proxima_revisao).toLocaleDateString('pt-BR')}
-                    </p>
-                </div>
-            </div>
+            )}
 
-            {/* Botão Fechar */}
+            {resultado.estado_cognitivo && (
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 text-slate-600 text-xs font-black uppercase tracking-widest">
+                    <span>Nível: {resultado.estado_cognitivo.replace('NIVEL_', '').replace('_', ' ')}</span>
+                </div>
+            )}
+
             <button
                 onClick={onFechar}
-                className="w-full py-5 rounded-2xl bg-[#1A1033] text-white font-black uppercase text-sm tracking-[0.2em] hover:scale-[1.02] active:scale-95 transition-all shadow-xl shadow-primary/20"
+                className="w-full max-w-md bg-[#1A1033] text-white py-4 rounded-2xl font-black uppercase text-sm tracking-[0.2em] shadow-xl hover:scale-[1.02] active:scale-95 transition-all"
             >
-                Voltar ao Dashboard
+                Concluir
             </button>
         </motion.div>
     )

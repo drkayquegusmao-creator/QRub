@@ -1,0 +1,96 @@
+{
+    "estados_cognitivos": [
+        "NAO_NIVELADO",
+        "NIVEL_BAIXO",
+        "NIVEL_INTERMEDIARIO",
+        "NIVEL_ALTO",
+        "DOMINADO"
+    ],
+    "regras": [
+        {
+            "nome": "bloqueio_revisao",
+            "condicao": "estado_cognitivo == 'NAO_NIVELADO'",
+            "acao": "BLOQUEAR_REVISAO",
+            "proibicoes": [
+                "revisao_espacada",
+                "recuperacao",
+                "alerta_instabilidade",
+                "prioridade_maxima",
+                "contagem_erro"
+            ]
+        },
+        {
+            "nome": "obrigacao_nivelamento",
+            "condicao": "estado_cognitivo == 'NAO_NIVELADO'",
+            "acao": "FORCAR_NIVELAMENTO"
+        },
+        {
+            "nome": "entrada_revisao",
+            "condicao": "estado_cognitivo != 'NAO_NIVELADO'",
+            "acao": "PERMITIR_REVISAO"
+        },
+        {
+            "nome": "classificacao_nivel",
+            "tabela": {
+                "0-39": "NIVEL_BAIXO",
+                "40-69": "NIVEL_INTERMEDIARIO",
+                "70-89": "NIVEL_ALTO",
+                "90-100": "DOMINADO"
+            }
+        }
+    ],
+    "srs_parametros": {
+        "intervalos_iniciais": {
+            "NIVEL_BAIXO": 1,
+            "NIVEL_INTERMEDIARIO": 4,
+            "NIVEL_ALTO": 7,
+            "DOMINADO": 14
+        },
+        "penalidades": {
+            "erro_ativo_teto": 7
+        },
+        "intervalos_revisao": {
+            "nota_0_3": 3,
+            "nota_4_5": 7,
+            "nota_6_7": 14,
+            "nota_8_9": 30,
+            "nota_10": 45
+        }
+    },
+    "cards": {
+        "NIVELAMENTO": {
+            "id": "CARD_NIVELAMENTO",
+            "badge": "AVALIAÇÃO INICIAL",
+            "titulo": "Nivelar conhecimento",
+            "descricao": "Este assunto ainda não foi avaliado. Antes de revisar, precisamos entender seu nível atual.",
+            "cta": "INICIAR NIVELAMENTO",
+            "tipo_sessao": "NIVELAMENTO"
+        },
+        "REVISAO": {
+            "id": "CARD_REVISAO",
+            "badge": "REVISÃO ESPAÇADA",
+            "titulo": "Revisão Programada",
+            "descricao": "Mantenha o conhecimento ativo.",
+            "cta": "REVISAR AGORA",
+            "tipo_sessao": "REVISAO"
+        }
+    },
+    "fallbacks": [
+        {
+            "cenario": "estado_inexistente",
+            "resolucao": "NAO_NIVELADO"
+        },
+        {
+            "cenario": "assunto_id_invalido",
+            "resolucao": "NAO_NIVELADO"
+        },
+        {
+            "cenario": "percentual_nulo",
+            "resolucao": "NAO_NIVELADO"
+        }
+    ],
+    "frases_padrao": {
+        "nao_nivelado": "Antes de revisar, precisamos entender seu ponto de partida.",
+        "erro_dados": "Dados insuficientes, assumindo necessidade de nivelamento."
+    }
+}
