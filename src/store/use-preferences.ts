@@ -27,13 +27,16 @@ export const usePreferences = create<PreferencesState>()(
                         .eq('user_id', userId)
                         .single()
 
-                    if (error && error.code !== 'PGRST116') throw error // PGRST116 is "no rows found"
+                    if (error) {
+                        // Silent fail for missing table (PGRST205) or missing row (PGRST116)
+                        return
+                    }
 
                     if (data) {
                         set({ questionsFont: data.questions_font as QuestionFont })
                     }
                 } catch (err) {
-                    console.error('Error loading preferences:', err)
+                    // Fail silently to avoid breaking the UI
                 } finally {
                     set({ loading: false })
                 }

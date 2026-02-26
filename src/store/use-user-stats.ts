@@ -67,30 +67,34 @@ export const useUserStats = create<UserStatsState>()(
                         .eq('user_id', userId)
                         .single()
 
-                    if (error && error.code === 'PGRST116') {
-                        // Not found, create initial stats
-                        const initialStats = {
-                            user_id: userId,
-                            total_questoes: 0,
-                            total_acertos: 0,
-                            media_geral: 0,
-                            nivel_usuario: 'Iniciante',
-                            ultima_frase_exibida: 'Resolva sua primeira questão para ativar suas estatísticas.'
-                        }
-                        const { data: newData, error: insertError } = await supabase
-                            .from('user_stats')
-                            .insert(initialStats)
-                            .select()
-                            .single()
+                    if (error) {
+                        if (error.code === 'PGRST116') {
+                            // Not found, create initial stats
+                            const initialStats = {
+                                user_id: userId,
+                                total_questoes: 0,
+                                total_acertos: 0,
+                                media_geral: 0,
+                                nivel_usuario: 'Iniciante',
+                                ultima_frase_exibida: 'Resolva sua primeira questão para ativar suas estatísticas.'
+                            }
+                            const { data: newData, error: insertError } = await supabase
+                                .from('user_stats')
+                                .insert(initialStats)
+                                .select()
+                                .single()
 
-                        if (!insertError && newData) {
-                            set({ stats: newData })
+                            if (!insertError && newData) {
+                                set({ stats: newData })
+                            }
                         }
+                        // Other errors (like table not found) fail silently
+                        return
                     } else if (data) {
                         set({ stats: data })
                     }
                 } catch (err) {
-                    console.error('Error loading stats:', err)
+                    // Fail silently
                 } finally {
                     set({ loading: false })
                 }
@@ -139,7 +143,7 @@ export const useUserStats = create<UserStatsState>()(
                                 updated_at: new Date().toISOString()
                             })
                     } catch (err) {
-                        console.error('Error updating stats in Supabase:', err)
+                        // Silent error
                     }
                 }
             }
