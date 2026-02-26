@@ -602,20 +602,22 @@ export default function QuizPage() {
                 </motion.button>
 
                 <AnimatePresence mode="wait">
-                    {!hasConfirmed && selectedOptionId && (
+                    {!hasConfirmed ? (
                         <motion.button
                             key="confirm"
                             initial={{ opacity: 0, y: 20, scale: 0.9 }}
                             animate={{ opacity: 1, y: 0, scale: 1 }}
                             exit={{ opacity: 0, y: 20, scale: 0.9 }}
                             onClick={handleConfirm}
-                            className="royal-gradient text-white px-8 py-4 md:px-10 md:py-5 rounded-2xl font-black uppercase text-xs tracking-widest hover:scale-[1.02] active:scale-95 transition-all shadow-xl shadow-primary/30 flex items-center gap-3"
+                            disabled={!selectedOptionId}
+                            className={`px-8 py-4 md:px-10 md:py-5 rounded-2xl font-black uppercase text-xs tracking-widest transition-all flex items-center gap-3 shadow-xl ${selectedOptionId
+                                    ? 'royal-gradient text-white hover:scale-[1.02] active:scale-95 shadow-primary/30'
+                                    : 'bg-slate-200 text-slate-400 cursor-not-allowed border border-slate-300'
+                                }`}
                         >
                             Confirmar Resposta <CheckCircle2 className="w-5 h-5" />
                         </motion.button>
-                    )}
-
-                    {hasConfirmed && (
+                    ) : (
                         <motion.button
                             key="next"
                             initial={{ opacity: 0, y: 20, scale: 0.9 }}
