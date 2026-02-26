@@ -1,68 +1,38 @@
 "use client"
 
+import { useRouter } from 'next/navigation'
 import { useAuth } from '@/store/use-auth'
+import { useSRS } from '@/store/use-srs'
 import { useQuiz } from '@/store/use-quiz'
 import { useQuestions } from '@/store/use-questions'
-import { motion, AnimatePresence } from 'framer-motion'
+import { useDashboard, WidgetId } from '@/store/use-dashboard'
+import { useBlueprints } from '@/store/use-blueprints'
 import {
     Zap,
     Target,
-    Flame,
-    Clock,
     BarChart3,
     TrendingUp,
-    Activity,
-    ChevronUp,
-    ChevronDown,
-    ArrowRight,
+    Clock,
     AlertCircle,
+    ArrowRight,
     Play,
     CheckCircle2,
     Sparkles,
-    BrainCircuit,
     Crown,
-    Settings2,
-    Eye,
-    EyeOff,
-    Check,
-    RotateCcw,
-    GripVertical,
-    BookOpen,
-    Microscope,
-    Search,
-
-    LayoutGrid,
-    Bell,
-    FileText,
-    Calendar,
-    ExternalLink
+    Activity
 } from 'lucide-react'
-import Link from 'next/link'
-import { useRouter } from 'next/navigation'
-import { useSRS } from '@/store/use-srs'
-import { useBlueprints } from '@/store/use-blueprints'
-import { useDashboard, WidgetId } from '@/store/use-dashboard'
-import { SectionHeader, Divider } from '@/components/dashboard-ui'
-import { PaywallModal } from '@/components/paywall-modal'
-import { PlansModal } from '@/components/plans-modal'
-import { TrainModal } from '@/components/train-modal'
-import { WelcomeTutorial } from '@/components/welcome-tutorial'
-import { SRSDashboardWidget } from '@/components/srs-dashboard-widget'
-import { RankEliteModule } from '@/components/rank-elite'
-import {
-    AreaChart,
-    Area,
-    XAxis,
-    YAxis,
-    CartesianGrid,
-    Tooltip,
-    ResponsiveContainer,
-    BarChart,
-    Bar,
-    Cell
-} from 'recharts'
-import { COURSES } from '@/lib/data-mock'
+import { motion, AnimatePresence } from 'framer-motion'
 import { useState, useMemo, useEffect } from 'react'
+import Link from 'next/link'
+import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
+import { SRSDashboardWidget } from '@/components/srs-dashboard-widget'
+import { PlansModal } from '@/components/plans-modal'
+import { PaywallModal } from '@/components/paywall-modal'
+import { TrainModal } from '@/components/train-modal'
+import { SectionHeader } from '@/components/dashboard-ui'
+import { WelcomeTutorial } from '@/components/welcome-tutorial'
+import { COURSES } from '@/lib/data-mock'
+import { UserStatsCard } from '@/components/user-stats-card'
 
 export default function StudentDashboard() {
     const router = useRouter()
@@ -95,7 +65,6 @@ export default function StudentDashboard() {
     useEffect(() => {
         if (user?.id) {
             load_responses(user.id)
-            load_responses(user.id)
             load_progress(user.id)
         }
         loadBlueprints()
@@ -114,19 +83,19 @@ export default function StudentDashboard() {
 
     const isFree = user?.plan_level === 'FREE'
 
+    const today = new Date()
+    const formattedDate = today.toLocaleDateString('pt-BR', {
+        weekday: 'long',
+        day: 'numeric',
+        month: 'long'
+    })
+
     const startIntelligentSession = () => {
         const action = get_intelligent_action(questions)
         if (!action.subject_id) return
         const count = action.type === 'NIVELAMENTO' ? 10 : Math.floor(Math.random() * (12 - 5 + 1)) + 5
         router.push(`/dashboard/quiz/auto?mode=TREINO&specialtyId=${encodeURIComponent(action.subject_id)}&count=${count}`)
     }
-
-    const intelligentActionName = useMemo(() => {
-        if (!intelligentAction.subject_id) return ''
-        const { MEDICAL_HIERARCHY } = require('@/lib/medical-specialties')
-        const spec = MEDICAL_HIERARCHY[0].specialties.find((s: any) => s.id === intelligentAction.subject_id)
-        return spec ? spec.name : intelligentAction.subject_id
-    }, [intelligentAction.subject_id])
 
     // --- WIDGET RENDERERS ---
 
@@ -182,7 +151,6 @@ export default function StudentDashboard() {
 
     const renderPendingCritical = () => (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Card de Pendentes */}
             <div className="p-10 rounded-[45px] bg-purple-50/50 border border-purple-100 space-y-8 flex flex-col h-full text-[#1A1033] relative">
                 <InfoBubble text="Tarefas acumuladas que precisam da sua atenção imediata." />
                 <div className="flex items-center justify-between">
@@ -217,7 +185,6 @@ export default function StudentDashboard() {
                 </div>
             </div>
 
-            {/* Card de Pontos de Atenção */}
             <div className="p-10 rounded-[45px] bg-[#1A1033] text-white space-y-8 relative overflow-hidden group/alert">
                 <InfoBubble text="Áreas onde seu desempenho está abaixo do esperado e requer reforço." />
                 <div className="absolute top-0 right-0 p-8 opacity-10 group-hover/alert:scale-110 transition-transform duration-700">
@@ -269,11 +236,6 @@ export default function StudentDashboard() {
                             </div>
                             <p className="font-black italic uppercase text-xs tracking-tighter text-[#1A1033]">{item.label}</p>
                         </button>
-                    ) : item.disabled ? (
-                        <div key={i} className="bg-white border-2 border-slate-100 p-8 rounded-[40px] opacity-40 cursor-not-allowed flex flex-col items-center text-center gap-4">
-                            <div className="p-4 bg-slate-100 rounded-2xl">{item.icon}</div>
-                            <p className="font-black italic uppercase text-xs tracking-tighter text-[#1A1033]">{item.label}</p>
-                        </div>
                     ) : (
                         <Link key={i} href={item.href} className="bg-white border-2 border-slate-100 hover:border-primary/30 p-8 rounded-[40px] transition-all hover:-translate-y-2 flex flex-col items-center text-center gap-4 group">
                             <div className={`p-4 rounded-2xl transition-all group-hover:text-white ${item.color.split(' ').slice(0, 2).join(' ')} group-hover:${item.color.split(' ').slice(2).join(' ')}`}>
@@ -306,28 +268,16 @@ export default function StudentDashboard() {
 
                 <div className="flex flex-col items-center gap-6 shrink-0 px-4">
                     <div className="relative w-48 h-48 md:w-60 md:h-60 flex items-center justify-center">
-                        {/* Glow Effect Background */}
                         <div className={`absolute inset-4 rounded-full blur-2xl opacity-20 ${readiness > 80 ? 'bg-emerald-500' : readiness > 50 ? 'bg-amber-500' : 'bg-rose-500'}`} />
-
                         <svg className="w-full h-full transform -rotate-90 relative z-10" viewBox="0 0 100 100">
-                            {/* Background Circle */}
-                            <circle
-                                cx="50" cy="50" r="42"
-                                fill="none" stroke="currentColor" strokeWidth="4"
-                                className="text-slate-100"
-                            />
-                            {/* Progress Circle */}
+                            <circle cx="50" cy="50" r="42" fill="none" stroke="currentColor" strokeWidth="4" className="text-slate-100" />
                             <motion.circle
-                                cx="50" cy="50" r="42"
-                                fill="none" stroke="currentColor" strokeWidth="6"
-                                strokeDasharray="0 263.89"
-                                strokeLinecap="round"
-                                className={readinessColor}
+                                cx="50" cy="50" r="42" fill="none" stroke="currentColor" strokeWidth="6"
+                                strokeDasharray="0 263.89" strokeLinecap="round" className={readinessColor}
                                 animate={{ strokeDasharray: `${(readiness * 263.89) / 100} 263.89` }}
                                 transition={{ duration: 2, ease: "easeOut" }}
                             />
                         </svg>
-
                         <div className="absolute inset-0 flex flex-col items-center justify-center text-center z-20">
                             <span className="text-6xl md:text-7xl font-black italic text-[#1A1033] tracking-[-0.05em] leading-none mb-2">
                                 {readiness}<span className="text-2xl md:text-3xl ml-0.5">%</span>
@@ -341,12 +291,9 @@ export default function StudentDashboard() {
             </div>
         </div>
     )
-    const renderEvolutionStats = () => {
-        const evolutionData = get_weekly_accuracy().map(d => ({
-            name: d.day,
-            val: d.accuracy
-        }))
 
+    const renderEvolutionStats = () => {
+        const evolutionData = get_weekly_accuracy().map(d => ({ name: d.day, val: d.accuracy }))
         return (
             <div className="bg-white border-2 border-slate-100 rounded-[50px] p-10 md:p-14 soft-shadow h-full flex flex-col relative">
                 <InfoBubble text="Gráfico da sua precisão média dia a dia na última semana." />
@@ -359,7 +306,6 @@ export default function StudentDashboard() {
                         <TrendingUp className="w-6 h-6" />
                     </div>
                 </div>
-
                 <div className="flex-1 w-full min-h-[250px]">
                     <ResponsiveContainer width="100%" height="100%">
                         <AreaChart data={evolutionData}>
@@ -372,10 +318,7 @@ export default function StudentDashboard() {
                             <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="rgba(0,0,0,0.05)" />
                             <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{ fontSize: 10, fontWeight: 700, fill: '#94A3B8' }} />
                             <YAxis axisLine={false} tickLine={false} tick={{ fontSize: 10, fontWeight: 700, fill: '#94A3B8' }} domain={[0, 100]} />
-                            <Tooltip
-                                contentStyle={{ backgroundColor: '#1A1033', border: 'none', borderRadius: '15px', color: '#fff' }}
-                                itemStyle={{ fontSize: '12px', fontWeight: 900, color: '#A78BFA' }}
-                            />
+                            <Tooltip contentStyle={{ backgroundColor: '#1A1033', border: 'none', borderRadius: '15px', color: '#fff' }} />
                             <Area type="monotone" dataKey="val" stroke="#8B5CF6" strokeWidth={4} fillOpacity={1} fill="url(#colorEvo)" />
                         </AreaChart>
                     </ResponsiveContainer>
@@ -388,7 +331,7 @@ export default function StudentDashboard() {
         const performanceData = getSpecialties().map((s: { id: string; name: string }) => ({
             name: s.name,
             val: get_accuracy_by_specialty(s.id)
-        })).sort((a: { name: string; val: number }, b: { name: string; val: number }) => b.val - a.val).slice(0, 5)
+        })).sort((a: any, b: any) => b.val - a.val).slice(0, 5)
 
         return (
             <div className="bg-white border-2 border-slate-100 rounded-[50px] p-10 md:p-14 soft-shadow h-full flex flex-col relative">
@@ -402,21 +345,15 @@ export default function StudentDashboard() {
                         <BarChart3 className="w-6 h-6" />
                     </div>
                 </div>
-
                 <div className="flex-1 space-y-6">
-                    {performanceData.map((item: { name: string; val: number }, i: number) => (
+                    {performanceData.map((item: any, i: number) => (
                         <div key={i} className="space-y-2">
                             <div className="flex justify-between items-end">
                                 <span className="text-[10px] font-black uppercase text-slate-500 tracking-wider truncate max-w-[150px]">{item.name}</span>
                                 <span className="text-xs font-black italic text-primary">{item.val}%</span>
                             </div>
                             <div className="h-2 bg-slate-100 rounded-full overflow-hidden">
-                                <motion.div
-                                    initial={{ width: 0 }}
-                                    animate={{ width: `${item.val}%` }}
-                                    transition={{ duration: 1, delay: i * 0.1 }}
-                                    className="h-full bg-primary rounded-full"
-                                />
+                                <motion.div initial={{ width: 0 }} animate={{ width: `${item.val}%` }} transition={{ duration: 1, delay: i * 0.1 }} className="h-full bg-primary" />
                             </div>
                         </div>
                     ))}
@@ -425,46 +362,22 @@ export default function StudentDashboard() {
         )
     }
 
-    const renderFastPractice = () => {
-        return (
-            <div className="bg-white border-2 border-slate-100 rounded-[50px] p-10 md:p-14 soft-shadow h-full flex flex-col items-center relative overflow-hidden group hover:border-primary/30 transition-all">
-                <InfoBubble text="Comece um treino rápido escolhendo a especialidade desejada no momento." />
-                <div className="absolute inset-0 bg-gradient-to-br from-slate-50 to-white -z-10" />
-                <div className="absolute top-0 right-0 p-10 opacity-5 group-hover:scale-110 transition-transform duration-700">
-                    <Target className="w-40 h-40 text-[#1A1033]" />
-                </div>
-
-                <div className="flex-1 flex flex-col justify-center items-center text-center space-y-6 max-w-md relative z-10">
-                    <div>
-                        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-[10px] font-black uppercase tracking-[0.2em] mb-6">
-                            <Zap className="w-3 h-3" />
-                            Acesso Rápido
-                        </div>
-                        <h3 className="text-3xl md:text-5xl font-black italic uppercase tracking-tighter text-[#1A1033] leading-[0.9] mb-4">
-                            Treinar <br />
-                            <span className="royal-gradient-text">Por Área</span>
-                        </h3>
-                        <p className="text-slate-500 font-medium text-sm leading-relaxed">
-                            Acesse todo o banco de questões organizado por especialidades médicas. Escolha sua área e comece agora.
-                        </p>
-                    </div>
-                </div>
-
-                <div className="mt-10 w-full">
-                    <button
-                        onClick={() => { setTrainModalInitialSpecialty(undefined); setShowTrainModal(true) }}
-                        className="relative group/btn z-30 w-full"
-                    >
-                        <div className="absolute -inset-1 bg-primary/30 rounded-2xl blur-lg opacity-0 group-hover/btn:opacity-100 transition-opacity" />
-                        <div className="relative bg-[#1A1033] text-white py-6 rounded-2xl font-black uppercase text-sm tracking-[0.2em] shadow-2xl flex items-center justify-center gap-4 hover:scale-[1.02] active:scale-95 transition-all">
-                            Iniciar Agora
-                            <Play className="w-5 h-5 fill-current" />
-                        </div>
-                    </button>
-                </div>
+    const renderFastPractice = () => (
+        <div className="bg-white border-2 border-slate-100 rounded-[50px] p-10 md:p-14 soft-shadow h-full flex flex-col items-center relative group hover:border-primary/30 transition-all overflow-hidden">
+            <InfoBubble text="Comece um treino rápido escolhendo a especialidade desejada no momento." />
+            <div className="absolute top-0 right-0 p-10 opacity-5 group-hover:scale-110 transition-transform duration-700">
+                <Target className="w-40 h-40 text-[#1A1033]" />
             </div>
-        )
-    }
+            <div className="flex-1 flex flex-col justify-center items-center text-center space-y-6 max-w-md relative z-10">
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-[10px] font-black uppercase tracking-[0.2em] mb-6">
+                    <Zap className="w-3 h-3" /> Acesso Rápido
+                </div>
+                <h3 className="text-3xl md:text-5xl font-black italic uppercase tracking-tighter text-[#1A1033] leading-[0.9] mb-4">Treinar <br /> <span className="royal-gradient-text">Por Área</span></h3>
+                <p className="text-slate-500 font-medium text-sm leading-relaxed">Acesse todo o banco de questões organizado por especialidades médicas.</p>
+            </div>
+            <button onClick={() => setShowTrainModal(true)} className="w-full bg-[#1A1033] text-white py-6 rounded-2xl font-black uppercase text-sm tracking-[0.2em] mt-10 hover:scale-[1.02] active:scale-95 transition-all relative z-10">Iniciar Agora</button>
+        </div>
+    )
 
 
     const WIDGET_MAP: Record<WidgetId, () => React.ReactNode> = {
@@ -482,7 +395,26 @@ export default function StudentDashboard() {
         <div className="space-y-8 pb-32 max-w-7xl mx-auto px-4 md:px-0">
             <WelcomeTutorial />
 
+            {/* Premium Dashboard Header */}
+            <div className="pt-4 pb-2">
+                <motion.h1
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    className="text-4xl md:text-6xl font-black italic uppercase tracking-tighter text-[#1A1033] leading-none"
+                >
+                    Sua Central de <span className="text-primary italic">Estudos</span>
+                </motion.h1>
+                <motion.p
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.1 }}
+                    className="text-slate-500 font-bold mt-2 first-letter:uppercase"
+                >
+                    {formattedDate}
+                </motion.p>
+            </div>
 
+            <UserStatsCard />
 
             <PlansModal isOpen={showPlansModal} onClose={() => setShowPlansModal(false)} />
             <PaywallModal isOpen={showPaywall} onClose={() => setShowPaywall(false)} reason="feature" requiredPlan="INSANO" />
@@ -492,99 +424,19 @@ export default function StudentDashboard() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
                 <AnimatePresence mode="popLayout">
-                    {widgets.filter(w => w.id !== 'UPGRADE_BANNER').map((widget, index) => {
+                    {widgets.filter(w => w.id !== 'UPGRADE_BANNER').map((widget) => {
                         const content = WIDGET_MAP[widget.id]()
                         if (!content && !isEditMode) return null
                         if (!widget.visible && !isEditMode) return null
-
                         const isFullWidth = widget.width === 'full'
-
                         return (
-                            <motion.div
-                                layout
-                                key={widget.id}
-                                initial={{ opacity: 0, scale: 0.9 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                exit={{ opacity: 0, scale: 0.9 }}
-                                className={`relative group/widget transition-all ${isFullWidth ? 'md:col-span-2' : 'md:col-span-1'} ${isEditMode ? 'ring-2 ring-primary/20 ring-dashed p-4 rounded-[60px] bg-slate-50/50' : ''} ${!widget.visible ? 'opacity-40 grayscale blur-[1px]' : ''}`}
-                            >
-                                {/* CONTROLES DE EDIÇÃO */}
-                                {isEditMode && (
-                                    <div className="absolute top-0 right-10 -translate-y-1/2 flex items-center gap-2 z-20">
-                                        <div className="flex bg-white border border-primary/20 rounded-2xl p-1.5 shadow-xl items-center gap-1">
-                                            <div className="px-2 text-slate-300">
-                                                <GripVertical className="w-4 h-4" />
-                                            </div>
-                                            <div className="w-px h-4 bg-slate-100 mx-1" />
-                                            <button onClick={() => setWidgetVisibility(widget.id, !widget.visible)} className={`p-2 rounded-xl transition-all ${widget.visible ? 'text-primary bg-primary/10' : 'text-slate-400 hover:text-primary'}`} title={widget.visible ? 'Ocultar' : 'Mostrar'}>
-                                                {widget.visible ? <Eye className="w-4 h-4" /> : <EyeOff className="w-4 h-4" />}
-                                            </button>
-                                            <div className="w-px bg-slate-100 mx-1" />
-                                            <button onClick={() => setWidgetWidth(widget.id, isFullWidth ? 'half' : 'full')} className="p-2 text-slate-400 hover:text-primary rounded-xl transition-all" title={isFullWidth ? 'Minimizar' : 'Maximizar'}>
-                                                {isFullWidth ? <ArrowRight className="w-4 h-4 rotate-45" /> : <ArrowRight className="w-4 h-4" />}
-                                            </button>
-                                            <div className="w-px bg-slate-100 mx-1" />
-                                            <button onClick={() => reorderWidgets(index, Math.max(0, index - 1))} className="p-2 text-slate-400 hover:text-primary rounded-xl transition-all disabled:opacity-30" disabled={index === 0}>
-                                                <ChevronUp className="w-4 h-4" />
-                                            </button>
-                                            <button onClick={() => reorderWidgets(index, Math.min(widgets.length - 1, index + 1))} className="p-2 text-slate-400 hover:text-primary rounded-xl transition-all disabled:opacity-30" disabled={index === widgets.length - 1}>
-                                                <ChevronDown className="w-4 h-4" />
-                                            </button>
-                                        </div>
-                                        <div className="bg-primary text-white text-[8px] font-black uppercase px-3 py-1.5 rounded-full shadow-lg">
-                                            {widget.title}
-                                        </div>
-                                    </div>
-                                )}
-
-                                <div className={!widget.visible && isEditMode ? 'pointer-events-none' : 'h-full'}>
-                                    {content || (isEditMode && (
-                                        <div className="flex flex-col items-center justify-center p-12 border-2 border-dashed border-slate-200 rounded-[50px] bg-slate-50/50 text-slate-400 gap-3">
-                                            <Sparkles className="w-8 h-8 opacity-20" />
-                                            <p className="font-black italic uppercase text-[10px] tracking-widest">Widget "{widget.title}" não disponível</p>
-                                        </div>
-                                    ))}
-                                </div>
+                            <motion.div key={widget.id} layout className={isFullWidth ? 'md:col-span-2' : ''}>
+                                {content}
                             </motion.div>
                         )
                     })}
                 </AnimatePresence>
             </div>
-            {/* TOOLBAR DA DASHBOARD FIXA NO RODAPÉ DO SITE (NÃO DA TELA) */}
-            <div className="relative mt-12 mb-8 mx-auto w-[95%] max-w-5xl bg-[#F5F3FF] border border-white/60 p-2.5 rounded-full shadow-sm flex items-center justify-between transition-all">
-                <div className="flex items-center gap-4 pl-2">
-                    <div className="w-10 h-10 rounded-full bg-[#EBE5FF] flex items-center justify-center text-[#7C3AED] shadow-inner">
-                        <Activity className="w-5 h-5" />
-                    </div>
-                    <div>
-                        <h1 className="text-sm font-black italic uppercase tracking-tighter text-[#1A1033] leading-none">DASHBOARD (V2.1)</h1>
-                        <p className="text-[9px] font-bold text-[#7C3AED] uppercase tracking-widest mt-0.5">Status em tempo real</p>
-                    </div>
-                </div>
-
-                <div className="flex items-center gap-2 pr-1">
-                    {isEditMode ? (
-                        <div className="flex items-center gap-2">
-                            <button onClick={resetLayout} className="hidden md:flex items-center gap-2 px-4 py-2 text-[10px] font-black uppercase tracking-widest text-slate-400 hover:text-primary transition-colors">
-                                <RotateCcw className="w-3 h-3" /> Resetar
-                            </button>
-                            <button onClick={toggleEditMode} className="bg-emerald-500 text-white px-6 py-2.5 rounded-full font-black uppercase text-[10px] tracking-widest flex items-center gap-2 shadow-lg shadow-emerald-500/20 hover:scale-105 active:scale-95 transition-all">
-                                <Check className="w-3 h-3" /> <span className="hidden sm:inline">Finalizar</span>
-                            </button>
-                        </div>
-                    ) : (
-                        <button onClick={toggleEditMode} className="bg-white text-[#1A1033] px-6 py-2.5 rounded-full font-black uppercase text-[10px] tracking-widest hover:bg-white hover:shadow-xl hover:-translate-y-0.5 transition-all flex items-center gap-2 shadow-sm border border-slate-100 group">
-                            <Settings2 className="w-3 h-3 text-slate-400 group-hover:text-primary transition-colors" />
-                            Personalizar
-                        </button>
-                    )}
-                </div>
-            </div>
-            <AnimatePresence>
-                {showRankElite && (
-                    <RankEliteModule onClose={() => setShowRankElite(false)} />
-                )}
-            </AnimatePresence>
-        </div >
+        </div>
     )
 }

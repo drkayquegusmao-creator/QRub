@@ -4,6 +4,7 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, ArrowRight, XCircle, Trophy, CheckCircle2, Calendar } from 'lucide-react'
+import { QuestionText } from '@/components/question-typography'
 import { useAuth } from '@/store/use-auth'
 import { supabase } from '@/lib/supabase'
 import { MEDICAL_HIERARCHY } from '@/lib/medical-specialties'
@@ -21,7 +22,7 @@ interface Questao {
     questao_id: string
     ordem: number
     enunciado: string
-    case_study?: any
+    comando?: string
     options: Array<{ id: string; text: string }>
     image_url?: string
     difficulty?: string
@@ -279,6 +280,7 @@ export function SessaoModal({ isOpen, onClose, assunto_id, tipo, onComplete }: S
                         questao_id: q.id,
                         ordem: i + 1,
                         enunciado: q.enunciado || q.statement || 'Enunciado indisponível',
+                        comando: q.comando || null,
                         options: Array.isArray(q.alternatives) ? q.alternatives : (q.options || []),
                         image_url: q.image_url
                     }))
@@ -791,12 +793,21 @@ function TelaQuestao({
             className="space-y-6 sm:space-y-8 max-w-3xl mx-auto w-full"
         >
             <div className="prose prose-lg max-w-none">
-                <p
+                <QuestionText
                     className="text-[#1A1033] font-black italic uppercase leading-tight tracking-tighter"
                     style={{ fontSize: `${fontSize * 1.3}px` }}
                 >
                     {questao.enunciado}
-                </p>
+                </QuestionText>
+
+                {questao.comando && (
+                    <QuestionText
+                        className="mt-4 text-[#1A1033] font-bold"
+                        style={{ fontSize: `${fontSize * 1.1}px` }}
+                    >
+                        {questao.comando}
+                    </QuestionText>
+                )}
                 {/* Fallback para imagem se houver */}
                 {questao.image_url && (
                     <img src={questao.image_url} alt="Imagem da questão" className="rounded-xl mt-4 max-h-[300px] object-contain" />
@@ -819,14 +830,15 @@ function TelaQuestao({
                             }`}>
                             {option.id.toUpperCase()}
                         </div>
-                        <p className={`font-bold flex-1 pt-1 ${respostaSelecionada === option.id
-                            ? 'text-primary'
-                            : 'text-slate-600'
-                            }`}
+                        <QuestionText
+                            className={`font-bold flex-1 pt-1 ${respostaSelecionada === option.id
+                                ? 'text-primary'
+                                : 'text-slate-600'
+                                }`}
                             style={{ fontSize: `${fontSize * 0.9}px` }}
                         >
                             {option.text}
-                        </p>
+                        </QuestionText>
                     </button>
                 ))}
             </div>

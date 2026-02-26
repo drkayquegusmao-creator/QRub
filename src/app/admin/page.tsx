@@ -1532,13 +1532,16 @@ Obrigado por nos ajudar a melhorar o QRub! 🚀`
                         const ticketId = await createTicket(`Ajuste de Questão: ${report.question_id}`, "Iniciando atendimento de regulação...", report.user_id)
                         if (ticketId) await sendMessage(ticketId, message, true)
                     }
-                    toast.success("Reporte resolvido e usuário notificado!")
+                    toast.success("Problema resolvido! Agradecemos a contribuição do aluno.", {
+                        duration: 5000,
+                        icon: '🚀'
+                    })
                 } else {
                     console.warn(`Report user ${report.user_id} not found in users table. Skipping message.`)
-                    toast.success("Reporte resolvido! (Usuário não encontrado para notificação)")
+                    toast.success("Problema resolvido conforme relatado!")
                 }
             } else {
-                toast.success("Reporte resolvido!")
+                toast.success("Problema resolvido!")
             }
 
             loadReports() // Refresh list
@@ -2715,7 +2718,7 @@ Obrigado por nos ajudar a melhorar o QRub! 🚀`
                                         </tr>
                                     </thead>
                                     <tbody className="divide-y divide-border">
-                                        {reports.map(r => (
+                                        {reports.filter(r => r.status === 'pending').map(r => (
                                             <tr key={r.id} className="hover:bg-rose-500/5 transition-colors group">
                                                 <td
                                                     className="px-8 py-6 cursor-pointer hover:bg-rose-500/10 transition-all rounded-l-xl"
@@ -2806,7 +2809,7 @@ Obrigado por nos ajudar a melhorar o QRub! 🚀`
                                                 </td>
                                             </tr>
                                         ))}
-                                        {reports.length === 0 && (
+                                        {reports.filter(r => r.status === 'pending').length === 0 && (
                                             <tr>
                                                 <td colSpan={4} className="px-8 py-20 text-center">
                                                     <CheckCircle2 className="w-10 h-10 text-emerald-500 mx-auto mb-4" />

@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, Check, FileText, Activity, AlertCircle } from 'lucide-react'
 import { Question } from '@/lib/data-mock'
+import { QuestionText } from '@/components/question-typography'
 
 interface QuestionPreviewModalProps {
     isOpen: boolean
@@ -49,9 +50,14 @@ export function QuestionPreviewModal({ isOpen, onClose, question }: QuestionPrev
                                     <FileText className="w-3.5 h-3.5" /> Enunciado
                                 </label>
                                 <div className="p-6 bg-muted/30 border border-border rounded-2xl">
-                                    <p className="font-medium text-lg text-[#1A1033] leading-relaxed">
+                                    <QuestionText className="font-medium text-lg text-[#1A1033] leading-relaxed">
                                         {question.enunciado}
-                                    </p>
+                                    </QuestionText>
+                                    {(question as any).comando && (
+                                        <QuestionText className="mt-4 font-bold text-[#1A1033]">
+                                            {(question as any).comando}
+                                        </QuestionText>
+                                    )}
                                 </div>
                             </div>
 
@@ -68,7 +74,7 @@ export function QuestionPreviewModal({ isOpen, onClose, question }: QuestionPrev
                                                 <div className={`w-6 h-6 rounded-lg shrink-0 flex items-center justify-center text-[10px] font-black uppercase ${isCorrect ? 'bg-emerald-500 text-white' : 'bg-muted text-muted-foreground'}`}>
                                                     {opt.id}
                                                 </div>
-                                                <span className={`text-sm font-medium ${isCorrect ? 'text-emerald-800' : 'text-foreground'}`}>{opt.text}</span>
+                                                <QuestionText className={`text-sm font-medium ${isCorrect ? 'text-emerald-800' : 'text-foreground'}`}>{opt.text}</QuestionText>
                                                 {isCorrect && <Check className="w-4 h-4 text-emerald-500 ml-auto" />}
                                             </div>
                                         )
@@ -82,9 +88,9 @@ export function QuestionPreviewModal({ isOpen, onClose, question }: QuestionPrev
                                     <AlertCircle className="w-3.5 h-3.5" /> Comentário do Especialista
                                 </label>
                                 <div className="p-6 bg-primary/5 border border-primary/20 rounded-2xl">
-                                    <p className="font-medium text-primary/80 leading-relaxed">
+                                    <QuestionText className="font-medium text-primary/80 leading-relaxed">
                                         {question.explanation}
-                                    </p>
+                                    </QuestionText>
                                 </div>
                             </div>
 

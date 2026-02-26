@@ -5,12 +5,14 @@ import { useRouter, usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { BottomTabs } from '@/components/bottom-tabs'
 import { UserProfileModal } from '@/components/user-profile-modal'
+import { SettingsModal } from '@/components/settings-modal'
 import { SupportChatWidget } from '@/components/support-chat-widget'
-import { Hexagon, LogOut, Moon, Sun, Shield, User, Share2 } from 'lucide-react'
+import { Hexagon, LogOut, Moon, Sun, Shield, User, Share2, Settings } from 'lucide-react'
 import { useTheme } from 'next-themes'
 import Link from 'next/link'
 import { clsx, type ClassValue } from 'clsx'
 import { twMerge } from 'tailwind-merge'
+import { usePreferences } from '@/store/use-preferences'
 
 function cn(...inputs: ClassValue[]) {
     return twMerge(clsx(inputs))
@@ -23,13 +25,20 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
     // ... rest of the code
     const { theme, setTheme } = useTheme()
     const [showProfileModal, setShowProfileModal] = useState(false)
+    const [showSettingsModal, setShowSettingsModal] = useState(false)
     const [isLoaded, setIsLoaded] = useState(false)
+    const { loadPreferences } = usePreferences()
 
     useEffect(() => {
         // Pequeno delay para garantir que o Zustand carregou o localStorage
-        const timer = setTimeout(() => setIsLoaded(true), 100)
+        const timer = setTimeout(() => {
+            setIsLoaded(true)
+            if (user?.id) {
+                loadPreferences(user.id)
+            }
+        }, 100)
         return () => clearTimeout(timer)
-    }, [])
+    }, [user?.id])
 
     useEffect(() => {
         if (isLoaded) {
@@ -113,6 +122,13 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                                 {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
                             </button>
 
+                            <button
+                                onClick={() => setShowSettingsModal(true)}
+                                className="p-3 rounded-2xl bg-muted/50 text-muted-foreground hover:text-primary transition-all hover:bg-primary/5"
+                            >
+                                <Settings className="w-5 h-5" />
+                            </button>
+
                             {/* Mobile Logout (Visible on small screens) */}
                             <button
                                 onClick={() => { logout(); router.push('/') }}
@@ -171,6 +187,10 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
             <UserProfileModal
                 isOpen={showProfileModal}
                 onClose={() => setShowProfileModal(false)}
+            />
+            <SettingsModal
+                isOpen={showSettingsModal}
+                onClose={() => setShowSettingsModal(false)}
             />
             {pathname === '/dashboard' && <SupportChatWidget />}
         </div>

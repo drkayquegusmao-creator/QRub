@@ -1,11 +1,11 @@
 "use client"
 
 import { motion, AnimatePresence } from 'framer-motion'
-import { X, User, Mail, Phone, BookOpen, Calendar, Target, Crown, Zap, Shield, LogOut, CreditCard, MapPin } from 'lucide-react'
+import { X, User, Mail, Phone, BookOpen, Calendar, Target, Crown, Zap, Shield, LogOut, CreditCard, MapPin, Sparkles, Settings, Check } from 'lucide-react'
 import { useAuth } from '@/store/use-auth'
 import { useRankElite } from '@/store/use-rank-elite'
 import { useRouter } from 'next/navigation'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Image from 'next/image'
 
 interface UserProfileModalProps {
@@ -14,10 +14,33 @@ interface UserProfileModalProps {
 }
 
 export function UserProfileModal({ isOpen, onClose }: UserProfileModalProps) {
-    const { user, logout } = useAuth()
+    const { user, logout, completeProfile } = useAuth()
     const { profile } = useRankElite()
     const router = useRouter()
     const [showUpgradeModal, setShowUpgradeModal] = useState(false)
+    const [isEditing, setIsEditing] = useState(false)
+    const [formData, setFormData] = useState({
+        name: '',
+        phone: '',
+        institution: '',
+        graduation_year: '',
+        specialty_of_interest: '',
+        address: '',
+    })
+
+    // Sync formData when user loads or edit mode opens
+    useEffect(() => {
+        if (user) {
+            setFormData({
+                name: user.name || '',
+                phone: user.phone || '',
+                institution: user.institution || '',
+                graduation_year: user.graduation_year || '',
+                specialty_of_interest: user.specialty_of_interest || '',
+                address: user.address || '',
+            })
+        }
+    }, [user, isEditing])
 
     if (!user) return null
 
@@ -25,6 +48,11 @@ export function UserProfileModal({ isOpen, onClose }: UserProfileModalProps) {
         logout()
         onClose()
         router.push('/')
+    }
+
+    const handleSave = async () => {
+        await completeProfile(formData)
+        setIsEditing(false)
     }
 
     const getPlanIcon = () => {
@@ -87,10 +115,54 @@ export function UserProfileModal({ isOpen, onClose }: UserProfileModalProps) {
                                 <div className="w-20 h-20 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center mb-4 ring-4 ring-white/30">
                                     <User className="w-10 h-10 text-white" />
                                 </div>
-                                <h2 className="text-2xl font-black uppercase italic tracking-tighter mb-1">
-                                    {user.name}
-                                </h2>
-                                <p className="text-sm opacity-90 font-medium">{user.email}</p>
+
+                                {isEditing ? (
+                                    <div className="flex flex-col items-center animate-in fade-in zoom-in duration-300">
+                                        <input
+                                            type="text"
+                                            value={formData.name}
+                                            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                                            className="bg-white/10 border-2 border-white/30 rounded-2xl px-6 py-3 text-2xl font-black uppercase italic tracking-tighter text-center text-white placeholder:text-white/40 focus:bg-white/20 outline-none transition-all w-full max-w-sm mb-2"
+                                            placeholder="Seu Nome"
+                                            autoFocus
+                                        />
+                                        <div className="flex items-center gap-2 mb-2">
+                                            <div className="px-4 py-1.5 rounded-full bg-white text-primary text-[10px] font-black uppercase tracking-widest flex items-center gap-2 shadow-lg">
+                                                <Sparkles className="w-3.5 h-3.5" />
+                                                Modo Edição
+                                            </div>
+                                            <button
+                                                onClick={handleSave}
+                                                className="p-2 rounded-full bg-emerald-500 text-white shadow-lg hover:scale-110 active:scale-90 transition-all"
+                                                title="Salvar Alterações"
+                                            >
+                                                <Check className="w-4 h-4" />
+                                            </button>
+                                            <button
+                                                onClick={() => setIsEditing(false)}
+                                                className="p-2 rounded-full bg-white/20 hover:bg-white/40 text-white backdrop-blur-sm transition-all shadow-lg"
+                                                title="Cancelar"
+                                            >
+                                                <X className="w-4 h-4" />
+                                            </button>
+                                        </div>
+                                    </div>
+                                ) : (
+                                    <button
+                                        onClick={() => setIsEditing(true)}
+                                        className="group flex flex-col items-center hover:scale-105 transition-all outline-none"
+                                        title="Clique para editar seu perfil"
+                                    >
+                                        <h2 className="text-3xl font-black uppercase italic tracking-tighter mb-1 border-b-2 border-transparent group-hover:border-white/50 transition-all text-white drop-shadow-md">
+                                            {user.name}
+                                        </h2>
+                                        <div className="px-3 py-1 rounded-full bg-black/20 text-white/70 group-hover:bg-white group-hover:text-primary backdrop-blur-sm text-[9px] font-black uppercase tracking-widest transition-all">
+                                            Clique para editar perfil
+                                        </div>
+                                    </button>
+                                )}
+
+                                <p className="text-sm opacity-90 font-medium mt-2">{user.email}</p>
 
                                 {/* Plan Badge */}
                                 <div className="mt-4 px-6 py-2 rounded-full bg-white/20 backdrop-blur-md flex items-center gap-2">
@@ -113,107 +185,178 @@ export function UserProfileModal({ isOpen, onClose }: UserProfileModalProps) {
                         </div>
 
                         {/* Content */}
-                        <div className="p-8 space-y-6">
-                            {/* Informações Pessoais */}
-                            <div className="space-y-3">
-                                <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground">
-                                    Informações Pessoais
-                                </h3>
+                        <div className="p-8 space-y-6 max-h-[60vh] overflow-y-auto custom-scrollbar">
+                            {isEditing ? (
+                                <div className="space-y-4">
+                                    <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-primary">
+                                        Modo de Edição
+                                    </h3>
+                                    <EditField
+                                        label="Nome Completo"
+                                        value={formData.name}
+                                        onChange={(v) => setFormData({ ...formData, name: v })}
+                                    />
+                                    <EditField
+                                        label="WhatsApp"
+                                        value={formData.phone}
+                                        onChange={(v) => setFormData({ ...formData, phone: v })}
+                                    />
+                                    <EditField
+                                        label="Instituição"
+                                        value={formData.institution}
+                                        onChange={(v) => setFormData({ ...formData, institution: v })}
+                                    />
+                                    <EditField
+                                        label="Ano de Formação"
+                                        value={formData.graduation_year}
+                                        onChange={(v) => setFormData({ ...formData, graduation_year: v })}
+                                    />
+                                    <EditField
+                                        label="Especialidade de Interesse"
+                                        value={formData.specialty_of_interest}
+                                        onChange={(v) => setFormData({ ...formData, specialty_of_interest: v })}
+                                    />
+                                    <EditField
+                                        label="Endereço"
+                                        value={formData.address}
+                                        onChange={(v) => setFormData({ ...formData, address: v })}
+                                    />
 
-                                {user.phone && (
-                                    <InfoRow icon={<Phone className="w-4 h-4" />} label="WhatsApp" value={user.phone} />
-                                )}
-
-                                {user.institution && (
-                                    <InfoRow icon={<BookOpen className="w-4 h-4" />} label="Instituição" value={user.institution} />
-                                )}
-
-                                {user.graduation_year && (
-                                    <InfoRow icon={<Calendar className="w-4 h-4" />} label="Ano de Formação" value={user.graduation_year} />
-                                )}
-
-                                {user.specialty_of_interest && (
-                                    <InfoRow icon={<Target className="w-4 h-4" />} label="Especialidade" value={user.specialty_of_interest} />
-                                )}
-
-                                {user.address && (
-                                    <InfoRow icon={<MapPin className="w-4 h-4" />} label="Endereço" value={user.address} />
-                                )}
-
-                                {profile && (
-                                    <div className="mt-2 bg-gradient-to-r from-primary/10 to-primary/5 p-4 rounded-2xl flex items-center justify-between border border-primary/10">
-                                        <span className="text-xs font-black uppercase tracking-widest text-primary flex items-center gap-2">
-                                            <Target className="w-4 h-4" />
-                                            Total Respondidas
-                                        </span>
-                                        <span className="text-2xl font-black text-[#1A1033]">{profile.total_questions_answered || 0}</span>
+                                    <div className="pt-4 flex gap-3">
+                                        <button
+                                            onClick={() => setIsEditing(false)}
+                                            className="flex-1 px-6 py-4 rounded-2xl font-black uppercase text-xs tracking-widest bg-muted text-muted-foreground hover:bg-muted/80 transition-all"
+                                        >
+                                            Cancelar
+                                        </button>
+                                        <button
+                                            onClick={handleSave}
+                                            className="flex-1 px-6 py-4 rounded-2xl font-black uppercase text-xs tracking-widest royal-gradient text-white shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all"
+                                        >
+                                            Salvar Alterações
+                                        </button>
                                     </div>
-                                )}
-                            </div>
-
-                            {/* Plano e Benefícios */}
-                            <div className="space-y-3">
-                                <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground">
-                                    Plano e Benefícios
-                                </h3>
-
-                                <div className="bg-muted rounded-2xl p-4 space-y-2">
-                                    <div className="flex items-center justify-between">
-                                        <span className="text-sm font-bold">Plano Atual</span>
-                                        <span className={`px-3 py-1 rounded-full text-xs font-black uppercase ${getPlanBadge()}`}>
-                                            {user.plan_level}
-                                        </span>
-                                    </div>
-
-                                    {user.plan_level === 'FREE' && (
-                                        <div className="pt-2 border-t border-border">
-                                            <p className="text-xs text-muted-foreground mb-3">
-                                                Faça upgrade para ter acesso ilimitado a todas as questões!
-                                            </p>
-                                            <button
-                                                onClick={() => setShowUpgradeModal(true)}
-                                                className="w-full royal-gradient text-white py-3 rounded-xl font-black text-xs uppercase tracking-widest hover:scale-[1.02] transition-all flex items-center justify-center gap-2"
-                                            >
-                                                <CreditCard className="w-4 h-4" />
-                                                Fazer Upgrade
-                                            </button>
-                                        </div>
-                                    )}
-
-                                    {(user.plan_level === 'PREMIUM' || user.plan_level === 'INSANO') && (
-                                        <div className="pt-2 border-t border-border">
-                                            <ul className="space-y-1.5 text-xs">
-                                                <li className="flex items-center gap-2">
-                                                    <div className="w-1.5 h-1.5 rounded-full bg-green-500" />
-                                                    <span>Questões ilimitadas</span>
-                                                </li>
-                                                <li className="flex items-center gap-2">
-                                                    <div className="w-1.5 h-1.5 rounded-full bg-green-500" />
-                                                    <span>Estatísticas avançadas</span>
-                                                </li>
-                                                <li className="flex items-center gap-2">
-                                                    <div className="w-1.5 h-1.5 rounded-full bg-green-500" />
-                                                    <span>Prioridade no suporte</span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    )}
                                 </div>
-                            </div>
+                            ) : (
+                                <>
+                                    {/* Informações Pessoais */}
+                                    <div className="space-y-3">
+                                        <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground">
+                                            Informações Pessoais
+                                        </h3>
 
-                            {/* Logout Button */}
-                            <button
-                                onClick={handleLogout}
-                                className="w-full bg-destructive/10 text-destructive py-4 rounded-2xl font-black text-sm uppercase tracking-widest hover:bg-destructive hover:text-white transition-all flex items-center justify-center gap-3"
-                            >
-                                <LogOut className="w-5 h-5" />
-                                Sair da Conta
-                            </button>
+                                        {user.phone && (
+                                            <InfoRow icon={<Phone className="w-4 h-4" />} label="WhatsApp" value={user.phone} />
+                                        )}
+
+                                        {user.institution && (
+                                            <InfoRow icon={<BookOpen className="w-4 h-4" />} label="Instituição" value={user.institution} />
+                                        )}
+
+                                        {user.graduation_year && (
+                                            <InfoRow icon={<Calendar className="w-4 h-4" />} label="Ano de Formação" value={user.graduation_year} />
+                                        )}
+
+                                        {user.specialty_of_interest && (
+                                            <InfoRow icon={<Target className="w-4 h-4" />} label="Especialidade" value={user.specialty_of_interest} />
+                                        )}
+
+                                        {user.address && (
+                                            <InfoRow icon={<MapPin className="w-4 h-4" />} label="Endereço" value={user.address} />
+                                        )}
+
+                                        {profile && (
+                                            <div className="mt-2 bg-gradient-to-r from-primary/10 to-primary/5 p-4 rounded-2xl flex items-center justify-between border border-primary/10">
+                                                <span className="text-xs font-black uppercase tracking-widest text-primary flex items-center gap-2">
+                                                    <Target className="w-4 h-4" />
+                                                    Total Respondidas
+                                                </span>
+                                                <span className="text-2xl font-black text-[#1A1033]">{profile.total_questions_answered || 0}</span>
+                                            </div>
+                                        )}
+                                    </div>
+
+                                    {/* Plano e Benefícios */}
+                                    <div className="space-y-3">
+                                        <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground">
+                                            Plano e Benefícios
+                                        </h3>
+
+                                        <div className="bg-muted rounded-2xl p-4 space-y-2">
+                                            <div className="flex items-center justify-between">
+                                                <span className="text-sm font-bold">Plano Atual</span>
+                                                <span className={`px-3 py-1 rounded-full text-xs font-black uppercase ${getPlanBadge()}`}>
+                                                    {user.plan_level}
+                                                </span>
+                                            </div>
+
+                                            {user.plan_level === 'FREE' && (
+                                                <div className="pt-2 border-t border-border">
+                                                    <p className="text-xs text-muted-foreground mb-3">
+                                                        Faça upgrade para ter acesso ilimitado a todas as questões!
+                                                    </p>
+                                                    <button
+                                                        onClick={() => setShowUpgradeModal(true)}
+                                                        className="w-full royal-gradient text-white py-3 rounded-xl font-black text-xs uppercase tracking-widest hover:scale-[1.02] transition-all flex items-center justify-center gap-2"
+                                                    >
+                                                        <CreditCard className="w-4 h-4" />
+                                                        Fazer Upgrade
+                                                    </button>
+                                                </div>
+                                            )}
+
+                                            {(user.plan_level === 'PREMIUM' || user.plan_level === 'INSANO') && (
+                                                <div className="pt-2 border-t border-border">
+                                                    <ul className="space-y-1.5 text-xs">
+                                                        <li className="flex items-center gap-2">
+                                                            <div className="w-1.5 h-1.5 rounded-full bg-green-500" />
+                                                            <span>Questões ilimitadas</span>
+                                                        </li>
+                                                        <li className="flex items-center gap-2">
+                                                            <div className="w-1.5 h-1.5 rounded-full bg-green-500" />
+                                                            <span>Estatísticas avançadas</span>
+                                                        </li>
+                                                        <li className="flex items-center gap-2">
+                                                            <div className="w-1.5 h-1.5 rounded-full bg-green-500" />
+                                                            <span>Prioridade no suporte</span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            )}
+                                        </div>
+                                    </div>
+
+                                    {/* Logout Button */}
+                                    <button
+                                        onClick={handleLogout}
+                                        className="w-full bg-destructive/10 text-destructive py-4 rounded-2xl font-black text-sm uppercase tracking-widest hover:bg-destructive hover:text-white transition-all flex items-center justify-center gap-3"
+                                    >
+                                        <LogOut className="w-5 h-5" />
+                                        Sair da Conta
+                                    </button>
+                                </>
+                            )}
                         </div>
                     </motion.div>
                 </div>
             )}
         </AnimatePresence>
+    )
+}
+
+function EditField({ label, value, onChange }: { label: string, value: string, onChange: (v: string) => void }) {
+    return (
+        <div className="space-y-1">
+            <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground ml-1">
+                {label}
+            </label>
+            <input
+                type="text"
+                value={value}
+                onChange={(e) => onChange(e.target.value)}
+                className="w-full bg-muted border border-border rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-primary/20 transition-all font-bold text-sm"
+            />
+        </div>
     )
 }
 

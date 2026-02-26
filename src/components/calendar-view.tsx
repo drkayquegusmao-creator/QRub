@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Calendar as CalendarIcon, ChevronLeft, ChevronRight, X, Sparkles, Clock, Zap } from 'lucide-react'
+import { Calendar as CalendarIcon, ChevronLeft, ChevronRight, X, Sparkles, Clock, Zap, Info } from 'lucide-react'
 
 interface Evento {
     id: string
@@ -24,6 +24,7 @@ interface CalendarViewProps {
 export function CalendarView({ eventos, onSelectDate, onEventClick, onClose }: CalendarViewProps) {
     const [currentDate, setCurrentDate] = useState(new Date())
     const [selectedDate, setSelectedDate] = useState<string | null>(null)
+    const [showInfo, setShowInfo] = useState(false)
 
     const daysInMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0).getDate()
     const firstDayOfMonth = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1).getDay() // 0 = Sun
@@ -88,16 +89,28 @@ export function CalendarView({ eventos, onSelectDate, onEventClick, onClose }: C
                         </h3>
                     </div>
 
-                    <div className="flex items-center justify-between gap-2 bg-slate-50 p-1 rounded-2xl border border-slate-100">
-                        <button onClick={prevMonth} className="p-3 hover:bg-white hover:shadow-sm rounded-xl transition-all text-slate-400 hover:text-primary">
-                            <ChevronLeft className="w-5 h-5" />
+                    <div className="flex items-center gap-2">
+                        {/* Info Button */}
+                        <button
+                            onClick={() => setShowInfo(!showInfo)}
+                            className="p-2.5 hover:bg-primary/10 rounded-xl transition-all text-primary/60 hover:text-primary"
+                            aria-label="Informações sobre o calendário"
+                        >
+                            <Info className="w-5 h-5" />
                         </button>
-                        <span className="w-32 text-center text-sm font-bold text-[#1A1033] uppercase tracking-wide">
-                            {currentDate.toLocaleDateString('pt-BR', { month: 'long', year: 'numeric' })}
-                        </span>
-                        <button onClick={nextMonth} className="p-3 hover:bg-white hover:shadow-sm rounded-xl transition-all text-slate-400 hover:text-primary">
-                            <ChevronRight className="w-5 h-5" />
-                        </button>
+
+                        {/* Month Navigation */}
+                        <div className="flex items-center justify-between gap-2 bg-slate-50 p-1 rounded-2xl border border-slate-100">
+                            <button onClick={prevMonth} className="p-3 hover:bg-white hover:shadow-sm rounded-xl transition-all text-slate-400 hover:text-primary">
+                                <ChevronLeft className="w-5 h-5" />
+                            </button>
+                            <span className="w-32 text-center text-sm font-bold text-[#1A1033] uppercase tracking-wide">
+                                {currentDate.toLocaleDateString('pt-BR', { month: 'long', year: 'numeric' })}
+                            </span>
+                            <button onClick={nextMonth} className="p-3 hover:bg-white hover:shadow-sm rounded-xl transition-all text-slate-400 hover:text-primary">
+                                <ChevronRight className="w-5 h-5" />
+                            </button>
+                        </div>
                     </div>
                 </div>
 
@@ -173,6 +186,79 @@ export function CalendarView({ eventos, onSelectDate, onEventClick, onClose }: C
                         <span className="text-[10px] font-bold text-slate-400 uppercase">Revisão</span>
                     </div>
                 </div>
+
+                {/* INFO MODAL */}
+                <AnimatePresence>
+                    {showInfo && (
+                        <div className="absolute inset-0 z-40 flex items-center justify-center p-4 rounded-[40px] overflow-hidden">
+                            {/* Backdrop */}
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                                onClick={() => setShowInfo(false)}
+                                className="absolute inset-0 bg-slate-900/40 backdrop-blur-sm"
+                            />
+
+                            {/* Info Card */}
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.9, y: 10 }}
+                                animate={{ opacity: 1, scale: 1, y: 0 }}
+                                exit={{ opacity: 0, scale: 0.9, y: 10 }}
+                                className="relative bg-white rounded-[32px] border border-slate-100 shadow-2xl p-8 w-full max-w-md mx-auto z-10"
+                            >
+                                <button
+                                    onClick={() => setShowInfo(false)}
+                                    className="absolute top-4 right-4 p-2 hover:bg-slate-100 rounded-full transition-colors"
+                                >
+                                    <X className="w-5 h-5 text-slate-400" />
+                                </button>
+
+                                <div className="flex items-center gap-3 mb-4">
+                                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                                        <CalendarIcon className="w-5 h-5 text-primary" />
+                                    </div>
+                                    <h4 className="text-xl font-black italic uppercase tracking-tighter text-[#1A1033]">
+                                        Calendário
+                                    </h4>
+                                </div>
+
+                                <div className="space-y-4 text-sm text-slate-600 leading-relaxed">
+                                    <p className="font-medium">
+                                        <strong className="text-[#1A1033] font-bold">Para que serve:</strong> O calendário organiza visualmente todas as suas revisões programadas e sessões de recuperação ao longo do mês.
+                                    </p>
+
+                                    <p className="font-medium">
+                                        <strong className="text-[#1A1033] font-bold">Como funciona:</strong>
+                                    </p>
+
+                                    <ul className="space-y-2 ml-4">
+                                        <li className="flex items-start gap-2">
+                                            <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
+                                            <span>Clique em qualquer dia para ver os eventos programados</span>
+                                        </li>
+                                        <li className="flex items-start gap-2">
+                                            <div className="w-1.5 h-1.5 rounded-full bg-destructive mt-2 flex-shrink-0" />
+                                            <span>Pontos vermelhos indicam revisões atrasadas</span>
+                                        </li>
+                                        <li className="flex items-start gap-2">
+                                            <div className="w-1.5 h-1.5 rounded-full bg-yellow-500 mt-2 flex-shrink-0" />
+                                            <span>Pontos amarelos indicam sessões de recuperação</span>
+                                        </li>
+                                        <li className="flex items-start gap-2">
+                                            <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
+                                            <span>Pontos roxos indicam revisões programadas</span>
+                                        </li>
+                                    </ul>
+
+                                    <p className="text-xs text-slate-400 italic pt-2 border-t border-slate-100">
+                                        Dica: Use as setas para navegar entre os meses e planejar seus estudos com antecedência.
+                                    </p>
+                                </div>
+                            </motion.div>
+                        </div>
+                    )}
+                </AnimatePresence>
             </div>
 
             {/* POPUP MODAL for Selected Date */}

@@ -5,6 +5,7 @@ import { subDays, format, isSameDay } from 'date-fns'
 import { supabase, isSupabaseConfigured } from '@/lib/supabase'
 import { ptBR } from 'date-fns/locale'
 import { safeParseDate } from '@/lib/date-utils'
+import { useUserStats } from './use-user-stats'
 
 interface ErrorItem {
     question_id: string
@@ -57,6 +58,11 @@ export const useQuiz = create<QuizState>()(
             },
 
             add_response: async (response) => {
+                // Update persistent user stats
+                if (response.user_id) {
+                    useUserStats.getState().updateStats(response.user_id, response.is_correct)
+                }
+
                 // Supabase Sync
                 if (isSupabaseConfigured()) {
                     try {
