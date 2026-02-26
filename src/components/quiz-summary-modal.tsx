@@ -41,19 +41,19 @@ export function QuizSummaryModal({ isOpen, onClose, stats, nextAction, onNextRec
                     initial={{ opacity: 0, scale: 0.9, y: 20 }}
                     animate={{ opacity: 1, scale: 1, y: 0 }}
                     exit={{ opacity: 0, scale: 0.9, y: 20 }}
-                    className="relative w-full max-w-lg bg-card border border-border rounded-[40px] p-8 md:p-12 shadow-2xl overflow-hidden"
+                    className="relative w-full max-w-md md:max-w-lg max-h-[90vh] overflow-y-auto bg-card border border-border rounded-3xl md:rounded-[40px] p-6 md:p-10 shadow-2xl custom-scrollbar"
                 >
                     {/* Background Glow */}
                     <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 blur-[60px] rounded-full -translate-y-1/2 translate-x-1/2" />
                     <div className="absolute bottom-0 left-0 w-32 h-32 bg-primary/10 blur-[60px] rounded-full translate-y-1/2 -translate-x-1/2" />
 
-                    <div className="text-center space-y-8 relative z-10">
-                        <div className="w-20 h-20 bg-primary/10 rounded-3xl flex items-center justify-center mx-auto mb-6">
-                            <Trophy className="w-10 h-10 text-primary" />
+                    <div className="text-center space-y-6 relative z-10">
+                        <div className="w-16 h-16 md:w-20 md:h-20 bg-primary/10 rounded-3xl flex items-center justify-center mx-auto mb-4 md:mb-6">
+                            <Trophy className="w-8 h-8 md:w-10 md:h-10 text-primary" />
                         </div>
 
-                        <div className="space-y-2">
-                            <h2 className="text-3xl md:text-4xl font-black italic uppercase tracking-tighter">Sessão Concluída!</h2>
+                        <div className="space-y-1 md:space-y-2">
+                            <h2 className="text-2xl md:text-4xl font-black italic uppercase tracking-tighter">Sessão Concluída!</h2>
                             <p className="text-muted-foreground font-bold uppercase text-[10px] tracking-[0.2em]">Desempenho Geral</p>
                         </div>
 
