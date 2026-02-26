@@ -184,7 +184,7 @@ export function QuestionComments({ questionId }: QuestionCommentsProps) {
             setReplyingTo(null)
             fetchComments()
         } catch (err: any) {
-            alert('Não foi possível salvar na base de dados (Tabelas ausentes ou RLS bloquendo).')
+            alert(`Não foi possível salvar: ${err.message || JSON.stringify(err)}`)
             console.error(err)
         } finally {
             setIsSubmitting(false)
