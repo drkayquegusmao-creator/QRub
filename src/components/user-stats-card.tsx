@@ -58,22 +58,32 @@ export function UserStatsCard() {
                 {/* Main Metric */}
                 <div className="flex items-center gap-4">
                     <div className="relative">
-                        <div className="absolute inset-0 bg-orange-500/20 blur-xl rounded-full scale-150 animate-pulse" />
-                        <span className="text-4xl md:text-5xl relative z-10">🔥</span>
+                        <div className={`absolute inset-0 blur-xl rounded-full scale-150 animate-pulse ${stats.tone === 'elite' ? 'bg-orange-500/20' :
+                                stats.tone === 'medio' ? 'bg-primary/20' :
+                                    stats.tone === 'provocacao' ? 'bg-rose-500/20' :
+                                        stats.tone === 'suporte' ? 'bg-blue-500/20' :
+                                            stats.tone === 'disciplina' ? 'bg-amber-500/20' : 'bg-primary/20'
+                            }`} />
+                        <span className="text-4xl md:text-5xl relative z-10">
+                            {stats.tone === 'elite' ? '👑' :
+                                stats.tone === 'provocacao' ? '🎯' :
+                                    stats.tone === 'suporte' ? '🛡️' :
+                                        stats.tone === 'disciplina' ? '⚡' : '🔥'}
+                        </span>
                     </div>
                     <h2 className="text-3xl md:text-4xl font-black italic uppercase tracking-tighter text-[#1A1033]">
-                        {stats.total_questoes} <span className="text-neutral-500 font-bold not-italic normal-case text-2xl ml-1 tracking-tight">questões resolvidas</span>
+                        {stats.headline || `${stats.total_questoes} questões resolvidas`}
                     </h2>
                 </div>
 
                 {/* Grid Metrics */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <div className="bg-slate-50/50 rounded-3xl p-5 border border-slate-100 flex items-center gap-4">
-                        <div className="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-500">
+                        <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
                             <BarChart3 className="w-5 h-5" />
                         </div>
                         <div>
-                            <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest leading-none mb-1">Média Geral</p>
+                            <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest leading-none mb-1">Média de Acertos</p>
                             <p className="text-lg font-black italic text-[#1A1033] uppercase">{stats.media_geral}%</p>
                         </div>
                     </div>

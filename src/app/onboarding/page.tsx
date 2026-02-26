@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { User, Phone, BookOpen, Calendar, Save, Sparkles, Target, MapPin, Search, ChevronDown, Check } from 'lucide-react'
+import { User, Phone, BookOpen, Calendar, Save, Sparkles, Target, MapPin, Search, ChevronDown, Check, ArrowLeft, LogOut } from 'lucide-react'
 import { useAuth } from '@/store/use-auth'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
@@ -44,7 +44,7 @@ const BRAZIL_DDD_TO_STATE: Record<string, string> = {
 }
 
 export default function OnboardingPage() {
-    const { user, completeProfile, isAuthenticated } = useAuth()
+    const { user, completeProfile, isAuthenticated, logout } = useAuth()
     const router = useRouter()
     const [isHydrated, setIsHydrated] = useState(false)
     const [loading, setLoading] = useState(false)
@@ -307,6 +307,18 @@ export default function OnboardingPage() {
                                 CONCLUIR CADASTRO
                             </>
                         )}
+                    </button>
+
+                    <button
+                        type="button"
+                        onClick={async () => {
+                            await logout()
+                            router.push('/')
+                        }}
+                        className="w-full h-12 flex items-center justify-center gap-2 text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground hover:text-primary transition-all border border-dashed border-border/50 rounded-2xl hover:bg-primary/5 hover:border-primary/50"
+                    >
+                        <ArrowLeft className="w-4 h-4" />
+                        Voltar ao Início
                     </button>
 
                     <p className="text-center text-[10px] text-muted-foreground uppercase font-black tracking-widest opacity-60">

@@ -1,10 +1,11 @@
-
 "use client"
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, ArrowRight, XCircle, Trophy, CheckCircle2, Calendar } from 'lucide-react'
-import { QuestionText } from '@/components/question-typography'
+import { QuestionText } from './question-typography'
+import { QuestionComments } from '@/components/question-comments'
+
 import { useAuth } from '@/store/use-auth'
 import { supabase } from '@/lib/supabase'
 import { MEDICAL_HIERARCHY } from '@/lib/medical-specialties'
@@ -843,7 +844,11 @@ function TelaQuestao({
                 ))}
             </div>
 
-            <div className="pt-4">
+            <div className="pt-8">
+                <QuestionComments questionId={questao.questao_id} />
+            </div>
+
+            <div className="pt-8">
                 <button
                     onClick={onResponder}
                     disabled={!respostaSelecionada || finalizando}

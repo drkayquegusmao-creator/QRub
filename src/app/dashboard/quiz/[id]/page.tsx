@@ -16,6 +16,7 @@ import { filterQuestions, COURSES } from '@/lib/data-mock'
 import { ReportModal } from '@/components/report-modal'
 import { AlertTriangle } from 'lucide-react'
 import { QuizSummaryModal } from '@/components/quiz-summary-modal'
+import { QuestionComments } from '@/components/question-comments'
 
 
 export default function QuizPage() {
@@ -524,6 +525,11 @@ export default function QuizPage() {
                         </div>
                     </div>
                 )}
+
+                {/* Comentários da Questão */}
+                <div className="max-w-5xl mx-auto w-full">
+                    <QuestionComments questionId={question.id} />
+                </div>
             </div>
 
             {/* Navegação Visual com Quadradinhos*/}
@@ -651,6 +657,6 @@ export default function QuizPage() {
                 nextAction={nextAction}
                 onNextRecommendation={handleNextRecommendation}
             />
-        </div>
+        </div >
     )
 }

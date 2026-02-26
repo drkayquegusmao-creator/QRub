@@ -19,7 +19,8 @@ import {
     CheckCircle2,
     Sparkles,
     Crown,
-    Activity
+    Activity,
+    Info
 } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState, useMemo, useEffect } from 'react'
@@ -42,9 +43,32 @@ export default function StudentDashboard() {
     const { responses, get_accuracy_by_specialty, get_weekly_accuracy, load_responses } = useQuiz()
     const { questions, loadQuestions } = useQuestions()
     const { widgets, isEditMode, toggleEditMode, setWidgetVisibility, setWidgetWidth, reorderWidgets, resetLayout } = useDashboard()
-    const intelligentAction = useMemo(() => get_intelligent_action(questions), [get_intelligent_action, questions])
-    const pendingTasks = useMemo(() => get_pending_tasks(questions), [get_pending_tasks, questions])
-    const criticalPoints = useMemo(() => get_critical_points(), [get_critical_points])
+    const intelligentAction = useMemo(() => {
+        try {
+            return get_intelligent_action(questions)
+        } catch (e) {
+            console.error("Error getting intelligent action:", e)
+            return { subject_id: null, type: 'NIVELAMENTO' }
+        }
+    }, [get_intelligent_action, questions])
+
+    const pendingTasks = useMemo(() => {
+        try {
+            return get_pending_tasks(questions)
+        } catch (e) {
+            console.error("Error getting pending tasks:", e)
+            return []
+        }
+    }, [get_pending_tasks, questions])
+
+    const criticalPoints = useMemo(() => {
+        try {
+            return get_critical_points()
+        } catch (e) {
+            console.error("Error getting critical points:", e)
+            return []
+        }
+    }, [get_critical_points])
 
     // Use dynamic taxonomy if available, else static
     const courses = useMemo(() => {
@@ -380,7 +404,7 @@ export default function StudentDashboard() {
     )
 
 
-    const WIDGET_MAP: Record<WidgetId, () => React.ReactNode> = {
+    const WIDGET_MAP: Record<string, () => React.ReactNode> = {
         'UPGRADE_BANNER': renderUpgradeBanner,
         'INTELLIGENT_AGENDA': renderIntelligentAgenda,
         'PENDING_CRITICAL': renderPendingCritical,
@@ -425,15 +449,47 @@ export default function StudentDashboard() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
                 <AnimatePresence mode="popLayout">
                     {widgets.filter(w => w.id !== 'UPGRADE_BANNER').map((widget) => {
-                        const content = WIDGET_MAP[widget.id]()
-                        if (!content && !isEditMode) return null
-                        if (!widget.visible && !isEditMode) return null
-                        const isFullWidth = widget.width === 'full'
-                        return (
-                            <motion.div key={widget.id} layout className={isFullWidth ? 'md:col-span-2' : ''}>
-                                {content}
-                            </motion.div>
-                        )
+                        const renderer = WIDGET_MAP[widget.id]
+                        if (!renderer) return null
+
+                        const isPendingCritical = widget.id === 'PENDING_CRITICAL'
+                        const isMaster = user?.role === 'MASTER'
+
+                        // Hide entirely for non-master if it's the pending critical widget
+                        if (isPendingCritical && !isMaster) return null
+
+                        try {
+                            let content = renderer()
+                            if (!content && !isEditMode) return null
+                            if (!widget.visible && !isEditMode) return null
+
+                            // For Master, make it translucent and add a warning
+                            if (isPendingCritical && isMaster) {
+                                content = (
+                                    <div className="relative group/unstable">
+                                        <div className="absolute inset-0 z-50 flex items-center justify-center p-8 bg-background/5 rounded-[45px] backdrop-blur-[2px]">
+                                            <div className="bg-amber-500 text-white px-6 py-3 rounded-2xl font-black text-[10px] uppercase tracking-widest shadow-2xl border border-white/20 flex items-center gap-2 animate-bounce">
+                                                <Info className="w-4 h-4" />
+                                                Precisa ser ajustado esta função
+                                            </div>
+                                        </div>
+                                        <div className="opacity-20 grayscale pointer-events-none transition-all">
+                                            {content}
+                                        </div>
+                                    </div>
+                                )
+                            }
+
+                            const isFullWidth = widget.width === 'full'
+                            return (
+                                <motion.div key={widget.id} layout className={isFullWidth ? 'md:col-span-2' : ''}>
+                                    {content}
+                                </motion.div>
+                            )
+                        } catch (err) {
+                            console.error(`Error rendering widget ${widget.id}:`, err)
+                            return null
+                        }
                     })}
                 </AnimatePresence>
             </div>

@@ -1,6 +1,8 @@
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 import { supabase, isSupabaseConfigured } from '@/lib/supabase'
+import { generatePerformanceContent, PerformanceInput } from '@/lib/generators/performance-generator'
+import { isSameDay } from 'date-fns'
 
 export interface UserStats {
     total_questoes: number
@@ -8,6 +10,9 @@ export interface UserStats {
     media_geral: number
     nivel_usuario: string
     ultima_frase_exibida: string | null
+    headline?: string
+    media?: string
+    tone?: string
 }
 
 interface UserStatsState {
@@ -91,7 +96,51 @@ export const useUserStats = create<UserStatsState>()(
                         // Other errors (like table not found) fail silently
                         return
                     } else if (data) {
-                        set({ stats: data })
+                        // Calculate or re-calculate extra metrics on load
+                        const quizState = (await import('./use-quiz')).useQuiz.getState()
+                        const todayResponses = quizState.responses.filter(r => isSameDay(new Date(r.timestamp), new Date()))
+
+                        // Streaks from history
+                        let streakCorrect = 0
+                        let streakWrong = 0
+                        const lastResponses = [...quizState.responses].reverse()
+
+                        // Find current streak
+                        if (lastResponses.length > 0) {
+                            const lastWasCorrect = lastResponses[0].is_correct
+                            if (lastWasCorrect) {
+                                for (const r of lastResponses) {
+                                    if (r.is_correct) streakCorrect++
+                                    else break
+                                }
+                            } else {
+                                for (const r of lastResponses) {
+                                    if (!r.is_correct) streakWrong++
+                                    else break
+                                }
+                            }
+                        }
+
+                        const genInput: PerformanceInput = {
+                            total_answered: data.total_questoes,
+                            accuracy_percent: data.media_geral,
+                            today_answered: todayResponses.length,
+                            streak_correct: streakCorrect,
+                            streak_wrong: streakWrong,
+                            last_10_messages: data.ultima_frase_exibida ? [data.ultima_frase_exibida] : []
+                        }
+
+                        const genOutput = generatePerformanceContent(genInput)
+
+                        set({
+                            stats: {
+                                ...data,
+                                ultima_frase_exibida: genOutput.frase,
+                                headline: genOutput.headline,
+                                media: genOutput.media,
+                                tone: genOutput.tone
+                            }
+                        })
                     }
                 } catch (err) {
                     // Fail silently
@@ -101,37 +150,71 @@ export const useUserStats = create<UserStatsState>()(
             },
 
             updateStats: async (userId, isCorrect) => {
-                const currentStats = get().stats || {
+                const state = get()
+                const currentStats = state.stats || {
                     total_questoes: 0,
                     total_acertos: 0,
                     media_geral: 0,
                     nivel_usuario: 'Iniciante',
-                    ultima_frase_exibida: null
+                    ultima_frase_exibida: null,
+                    headline: '',
+                    media: '',
+                    tone: 'medio'
                 }
 
                 const newTotal = currentStats.total_questoes + 1
                 const newAcertos = isCorrect ? currentStats.total_acertos + 1 : currentStats.total_acertos
                 const newMedia = Math.round((newAcertos / newTotal) * 100)
-                const newLevel = get().calculateLevel(newTotal)
+                const newLevel = state.calculateLevel(newTotal)
 
-                let newPhrase = currentStats.ultima_frase_exibida
-                const marcos = [10, 25, 50, 100, 250, 500, 1000]
-                if (marcos.includes(newTotal)) {
-                    newPhrase = get().getDynamicPhrase(newTotal)
-                } else if (!newPhrase || newPhrase.includes('Resolva')) {
-                    newPhrase = "A jornada começou."
+                // Get additional context for the generator
+                // We need to access useQuiz state here or pass it
+                const quizState = (await import('./use-quiz')).useQuiz.getState()
+                const todayResponses = quizState.responses.filter(r => isSameDay(new Date(r.timestamp), new Date()))
+                const todayAnswered = todayResponses.length + 1 // +1 for the current one
+
+                // Calculate Streaks
+                let streakCorrect = isCorrect ? 1 : 0
+                let streakWrong = isCorrect ? 0 : 1
+
+                // Look back at previous responses in quizState
+                const lastResponses = [...quizState.responses].reverse()
+                if (isCorrect) {
+                    for (const r of lastResponses) {
+                        if (r.is_correct) streakCorrect++
+                        else break
+                    }
+                } else {
+                    for (const r of lastResponses) {
+                        if (!r.is_correct) streakWrong++
+                        else break
+                    }
                 }
 
-                const updatedStats = {
+                const genInput: PerformanceInput = {
+                    total_answered: newTotal,
+                    accuracy_percent: newMedia,
+                    today_answered: todayAnswered,
+                    streak_correct: streakCorrect,
+                    streak_wrong: streakWrong,
+                    last_10_messages: currentStats.ultima_frase_exibida ? [currentStats.ultima_frase_exibida] : []
+                }
+
+                const genOutput = generatePerformanceContent(genInput)
+
+                const updatedStats: UserStats = {
                     total_questoes: newTotal,
                     total_acertos: newAcertos,
                     media_geral: newMedia,
                     nivel_usuario: newLevel,
-                    ultima_frase_exibida: newPhrase
+                    ultima_frase_exibida: genOutput.frase,
+                    headline: genOutput.headline,
+                    media: genOutput.media,
+                    tone: genOutput.tone
                 }
 
                 // Optimistic update
-                set({ stats: updatedStats as any })
+                set({ stats: updatedStats })
 
                 if (isSupabaseConfigured()) {
                     try {
