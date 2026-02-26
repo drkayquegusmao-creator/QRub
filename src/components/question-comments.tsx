@@ -176,42 +176,7 @@ export function QuestionComments({ questionId }: QuestionCommentsProps) {
             })
 
             if (insertErr) {
-                if (insertErr.code === 'PGRST205' || insertErr.message.includes('relation')) {
-                    // MOCK Behavior se nao tiver tabela
-                    const mockNewC: Comment = {
-                        id: Math.random().toString(),
-                        question_id: questionId,
-                        user_id: user.id,
-                        content: newComment.trim(),
-                        parent_id: replyingTo,
-                        likes_count: 0,
-                        is_pinned: false,
-                        created_at: new Date().toISOString(),
-                        updated_at: null,
-                        is_deleted: false,
-                        user: { name: user.name || 'Você', role: user.role || 'ALUNO' },
-                        my_comment: true,
-                        replies: []
-                    }
-                    if (replyingTo) {
-                        setComments(curr => {
-                            const addReply = (list: Comment[]): Comment[] => list.map(c => {
-                                if (c.id === replyingTo) {
-                                    return { ...c, replies: [...(c.replies || []), mockNewC] }
-                                }
-                                if (c.replies) return { ...c, replies: addReply(c.replies) }
-                                return c
-                            })
-                            return addReply(curr)
-                        })
-                    } else {
-                        setComments(curr => [mockNewC, ...curr])
-                    }
-                    setNewComment('')
-                    setReplyingTo(null)
-                    setIsSubmitting(false)
-                    return
-                }
+                console.error("Insert Error: ", insertErr)
                 throw insertErr
             }
 
@@ -219,7 +184,7 @@ export function QuestionComments({ questionId }: QuestionCommentsProps) {
             setReplyingTo(null)
             fetchComments()
         } catch (err: any) {
-            alert('Não foi possível enviar o comentário. Verifique as tabelas do Supabase.')
+            alert('Não foi possível salvar na base de dados (Tabelas ausentes ou RLS bloquendo).')
             console.error(err)
         } finally {
             setIsSubmitting(false)
