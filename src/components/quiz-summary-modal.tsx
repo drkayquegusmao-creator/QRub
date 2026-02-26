@@ -47,100 +47,102 @@ export function QuizSummaryModal({ isOpen, onClose, stats, nextAction, onNextRec
                     <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 blur-[60px] rounded-full -translate-y-1/2 translate-x-1/2" />
                     <div className="absolute bottom-0 left-0 w-32 h-32 bg-primary/10 blur-[60px] rounded-full translate-y-1/2 -translate-x-1/2" />
 
-                    <div className="text-center space-y-6 relative z-10">
-                        <div className="w-16 h-16 md:w-20 md:h-20 bg-primary/10 rounded-3xl flex items-center justify-center mx-auto mb-4 md:mb-6">
-                            <Trophy className="w-8 h-8 md:w-10 md:h-10 text-primary" />
+                    <div className="text-center space-y-4 md:space-y-6 relative z-10">
+                        {/* Trophy */}
+                        <div className="w-12 h-12 md:w-16 md:h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-2">
+                            <Trophy className="w-6 h-6 md:w-8 md:h-8 text-primary" />
                         </div>
 
-                        <div className="space-y-1 md:space-y-2">
-                            <h2 className="text-2xl md:text-4xl font-black italic uppercase tracking-tighter">Sessão Concluída!</h2>
-                            <p className="text-muted-foreground font-bold uppercase text-[10px] tracking-[0.2em]">Desempenho Geral</p>
+                        {/* Text */}
+                        <div className="space-y-1">
+                            <h2 className="text-xl md:text-3xl font-black italic uppercase tracking-tighter leading-tight">Sessão Concluída!</h2>
+                            <p className="text-muted-foreground font-bold uppercase text-[9px] tracking-[0.2em] leading-tight">Desempenho Geral</p>
                         </div>
 
                         {/* Stats Grid */}
-                        <div className="grid grid-cols-2 gap-4">
-                            <div className="bg-muted/50 p-6 rounded-[32px] border border-border/50">
-                                <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground mb-1">Acertos</p>
+                        <div className="grid grid-cols-2 gap-3">
+                            <div className="bg-muted/50 p-4 md:p-6 rounded-[24px] border border-border/50">
+                                <p className="text-[9px] font-black uppercase tracking-widest text-muted-foreground mb-1">Acertos</p>
                                 <div className="flex items-center justify-center gap-2 text-emerald-500">
-                                    <CheckCircle2 className="w-5 h-5" />
-                                    <span className="text-3xl font-black italic">{stats.correct}</span>
+                                    <CheckCircle2 className="w-4 h-4" />
+                                    <span className="text-2xl md:text-3xl font-black italic leading-none">{stats.correct}</span>
                                 </div>
                             </div>
-                            <div className="bg-muted/50 p-6 rounded-[32px] border border-border/50">
-                                <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground mb-1">Erros</p>
+                            <div className="bg-muted/50 p-4 md:p-6 rounded-[24px] border border-border/50">
+                                <p className="text-[9px] font-black uppercase tracking-widest text-muted-foreground mb-1">Erros</p>
                                 <div className="flex items-center justify-center gap-2 text-rose-500">
-                                    <XCircle className="w-5 h-5" />
-                                    <span className="text-3xl font-black italic">{stats.incorrect}</span>
+                                    <XCircle className="w-4 h-4" />
+                                    <span className="text-2xl md:text-3xl font-black italic leading-none">{stats.incorrect}</span>
                                 </div>
                             </div>
                         </div>
 
                         {/* Score Circle */}
-                        <div className="relative w-32 h-32 mx-auto">
+                        <div className="relative w-24 h-24 md:w-28 md:h-28 mx-auto -my-1">
                             <svg className="w-full h-full transform -rotate-90">
                                 <circle
-                                    cx="64"
-                                    cy="64"
-                                    r="58"
+                                    cx="50%"
+                                    cy="50%"
+                                    r="45%"
                                     stroke="currentColor"
-                                    strokeWidth="10"
+                                    strokeWidth="8"
                                     fill="transparent"
                                     className="text-border"
                                 />
                                 <circle
-                                    cx="64"
-                                    cy="64"
-                                    r="58"
+                                    cx="50%"
+                                    cy="50%"
+                                    r="45%"
                                     stroke="currentColor"
-                                    strokeWidth="10"
+                                    strokeWidth="8"
                                     fill="transparent"
-                                    strokeDasharray={364.4}
-                                    strokeDashoffset={364.4 - (364.4 * stats.percentage) / 100}
+                                    strokeDasharray={283}
+                                    strokeDashoffset={283 - (283 * stats.percentage) / 100}
                                     className="text-primary transition-all duration-1000 ease-out"
                                 />
                             </svg>
                             <div className="absolute inset-0 flex flex-col items-center justify-center">
-                                <span className="text-2xl font-black italic">{Math.round(stats.percentage)}%</span>
-                                <span className="text-[8px] font-black uppercase tracking-widest text-muted-foreground">Precisão</span>
+                                <span className="text-xl md:text-2xl font-black italic leading-none">{Math.round(stats.percentage)}%</span>
+                                <span className="text-[8px] md:text-[9px] font-black uppercase tracking-widest text-muted-foreground mt-1">Precisão</span>
                             </div>
                         </div>
 
-                        <div className="pt-4 space-y-3">
+                        <div className="pt-2 space-y-2 md:space-y-3">
                             {nextAction && nextAction.subject_id && (
                                 <button
                                     onClick={onNextRecommendation}
-                                    className="w-full bg-[#1A1033] text-white py-5 rounded-2xl font-black uppercase text-xs tracking-widest shadow-xl hover:scale-[1.02] active:scale-95 transition-all flex flex-col items-center justify-center gap-1 group relative overflow-hidden"
+                                    className="w-full bg-[#1A1033] text-white py-3 md:py-4 rounded-xl font-black uppercase text-[10px] md:text-xs tracking-widest shadow-xl hover:scale-[1.02] active:scale-95 transition-all flex flex-col items-center justify-center gap-1 group relative overflow-hidden"
                                 >
                                     <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-purple-500/20 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500" />
                                     <div className="flex items-center gap-2 relative z-10">
-                                        <BrainCircuit className="w-4 h-4 text-primary" />
-                                        Entrar no Fluxo de Estudo
+                                        <BrainCircuit className="w-3.5 h-3.5 md:w-4 md:h-4 text-primary" />
+                                        Entrar no Fluxo
                                     </div>
-                                    <div className="text-[8px] opacity-70 relative z-10">
-                                        PRÓXIMO: {nextAction.subject_name || nextAction.subject_id} ({nextAction.type})
+                                    <div className="text-[8px] opacity-70 relative z-10 line-clamp-1 break-all px-2">
+                                        {nextAction.subject_name || nextAction.subject_id}
                                     </div>
                                 </button>
                             )}
 
                             <button
                                 onClick={() => router.push('/dashboard/stats')}
-                                className="w-full royal-gradient text-white py-5 rounded-2xl font-black uppercase text-xs tracking-widest shadow-xl shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-3"
+                                className="w-full royal-gradient text-white py-3 md:py-4 rounded-xl font-black uppercase text-[10px] md:text-xs tracking-widest shadow-xl shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-2"
                             >
-                                Ver Estatísticas Detalhadas <TrendingUp className="w-4 h-4" />
+                                Estatísticas Detalhadas <TrendingUp className="w-3.5 h-3.5 md:w-4 md:h-4" />
                             </button>
 
-                            <div className="grid grid-cols-2 gap-3">
+                            <div className="grid grid-cols-2 gap-2">
                                 <button
                                     onClick={() => window.location.reload()}
-                                    className="bg-card border border-border hover:bg-muted py-4 rounded-2xl font-black uppercase text-[10px] tracking-widest transition-all flex items-center justify-center gap-2"
+                                    className="bg-card border border-border hover:bg-muted py-3 rounded-xl font-black uppercase text-[9px] md:text-[10px] tracking-widest transition-all flex items-center justify-center gap-2 flex-col md:flex-row"
                                 >
-                                    <RefreshCw className="w-3.5 h-3.5" /> Refazer
+                                    <RefreshCw className="w-3.5 h-3.5" /> <span className="hidden leading-tight iPhoneSE:inline">Refazer</span>
                                 </button>
                                 <button
                                     onClick={() => router.push('/dashboard')}
-                                    className="bg-card border border-border hover:bg-muted py-4 rounded-2xl font-black uppercase text-[10px] tracking-widest transition-all flex items-center justify-center gap-2"
+                                    className="bg-card border border-border hover:bg-muted py-3 rounded-xl font-black uppercase text-[9px] md:text-[10px] tracking-widest transition-all flex items-center justify-center gap-2 flex-col md:flex-row"
                                 >
-                                    <Home className="w-3.5 h-3.5" /> Dashboard
+                                    <Home className="w-3.5 h-3.5" /> <span className="hidden leading-tight iPhoneSE:inline">Dashboard</span>
                                 </button>
                             </div>
                         </div>
