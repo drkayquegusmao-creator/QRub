@@ -145,7 +145,7 @@ export interface QuestionReport {
     id: string
     user_id: string
     question_id: string
-    type: 'ENUNCIADO' | 'GABARITO' | 'EXPLICAÇÃO' | 'OUTRO'
+    type: 'ENUNCIADO' | 'GABARITO' | 'EXPLICAÇÃO' | 'SUGESTÃO' | 'DÚVIDA' | 'OUTRO'
     description: string
     status: 'pending' | 'resolved' | 'dismissed'
     created_at: string

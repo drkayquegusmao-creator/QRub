@@ -5,7 +5,7 @@ import {
     Plus, Search, Edit2, Trash2, Users, Crown, Star,
     RefreshCw, Database, BarChart3, Upload, CheckCircle2, XCircle,
     AlertCircle, History, ExternalLink, Mail, Phone, BookOpen, GraduationCap, Sparkles, X, ShieldCheck, DollarSign, Settings, ArrowLeft,
-    Activity, Target, Zap, Clock, TrendingUp, ChevronLeft, ChevronRight, Flag, Hammer, Wrench, ShieldAlert, Paperclip, Network, Eye
+    Activity, Target, Zap, Clock, TrendingUp, ChevronLeft, ChevronRight, Flag, Hammer, Wrench, ShieldAlert, Paperclip, Network, Eye, MessageSquare
 } from 'lucide-react'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
@@ -2719,10 +2719,11 @@ Obrigado por nos ajudar a melhorar o QRub! 🚀`
                                     </thead>
                                     <tbody className="divide-y divide-border">
                                         {reports.filter(r => r.status === 'pending').map(r => (
-                                            <tr key={r.id} className="hover:bg-rose-500/5 transition-colors group">
+                                            <tr key={r.id} className={`hover:bg-muted/10 transition-colors group ${r.question_id === 'FEEDBACK_GERAL' ? 'bg-primary/5' : ''}`}>
                                                 <td
-                                                    className="px-8 py-6 cursor-pointer hover:bg-rose-500/10 transition-all rounded-l-xl"
+                                                    className="px-8 py-6 cursor-pointer hover:bg-muted/5 transition-all rounded-l-xl"
                                                     onClick={async () => {
+                                                        if (r.question_id === 'FEEDBACK_GERAL') return
                                                         const q = questions.find(qst => qst.id === r.question_id)
                                                         if (q) setPreviewQuestion(q)
                                                         else {
@@ -2732,17 +2733,29 @@ Obrigado por nos ajudar a melhorar o QRub! 🚀`
                                                     }}
                                                 >
                                                     <div className="font-mono text-[10px] font-black flex items-center gap-2 group-hover:text-primary transition-colors">
-                                                        {r.question_id}
-                                                        <ExternalLink className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-all" />
+                                                        {r.question_id === 'FEEDBACK_GERAL' ? (
+                                                            <span className="text-primary flex items-center gap-1"><MessageSquare className="w-3 h-3" /> FEEDBACK GERAL</span>
+                                                        ) : (
+                                                            <>
+                                                                {r.question_id}
+                                                                <ExternalLink className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-all" />
+                                                            </>
+                                                        )}
                                                     </div>
                                                     <div className="text-[8px] text-muted-foreground">{new Date(r.created_at).toLocaleString()}</div>
                                                 </td>
                                                 <td className="px-8 py-6">
-                                                    <span className="bg-rose-500/10 text-rose-500 px-2 py-1 rounded text-[8px] font-black uppercase">{r.type}</span>
+                                                    <span className={`px-2 py-1 rounded text-[8px] font-black uppercase ${r.type === 'SUGESTÃO' ? 'bg-emerald-500/10 text-emerald-500' :
+                                                        r.type === 'DÚVIDA' ? 'bg-amber-500/10 text-amber-500' :
+                                                            'bg-rose-500/10 text-rose-500'
+                                                        }`}>
+                                                        {r.type}
+                                                    </span>
                                                 </td>
                                                 <td
-                                                    className="px-8 py-6 cursor-pointer hover:bg-rose-500/10 transition-all"
+                                                    className="px-8 py-6 cursor-pointer hover:bg-muted/5 transition-all"
                                                     onClick={async () => {
+                                                        if (r.question_id === 'FEEDBACK_GERAL') return
                                                         const q = questions.find(qst => qst.id === r.question_id)
                                                         if (q) setPreviewQuestion(q)
                                                         else {
@@ -2753,51 +2766,54 @@ Obrigado por nos ajudar a melhorar o QRub! 🚀`
                                                 >
                                                     <div className="text-sm font-medium group-hover:text-primary transition-colors flex items-center gap-2">
                                                         {r.description}
-                                                        <Eye className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-all" />
+                                                        {r.question_id !== 'FEEDBACK_GERAL' && <Eye className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-all" />}
                                                     </div>
                                                 </td>
                                                 <td className="px-8 py-6 text-right rounded-r-xl">
                                                     <div className="flex justify-end gap-2">
-                                                        <button
-                                                            onClick={async () => {
-                                                                let q = questions.find(qst => qst.id === r.question_id)
-                                                                if (!q) {
-                                                                    const { fetchQuestionById } = useQuestionsStore.getState()
-                                                                    q = await fetchQuestionById(r.question_id) as Question
-                                                                }
+                                                        {r.question_id !== 'FEEDBACK_GERAL' && (
+                                                            <>
+                                                                <button
+                                                                    onClick={async () => {
+                                                                        let q = questions.find(qst => qst.id === r.question_id)
+                                                                        if (!q) {
+                                                                            const { fetchQuestionById } = useQuestionsStore.getState()
+                                                                            q = await fetchQuestionById(r.question_id) as Question
+                                                                        }
 
-                                                                if (q) handleOpenEditor(q, r.id)
-                                                                else {
-                                                                    toast.error('Questão não encontrada no banco de dados.')
-                                                                }
-                                                            }}
-                                                            className="px-3 py-1.5 rounded-lg bg-primary/10 text-primary text-[10px] font-black uppercase hover:bg-primary/20 transition-all flex items-center gap-1.5"
-                                                        >
-                                                            <Edit2 className="w-3 h-3" />
-                                                            Editar
-                                                        </button>
-                                                        <button
-                                                            onClick={async () => {
-                                                                if (confirm(`⚠️ EXCLUSÃO PERMANENTE\n\nDeseja excluir a questão ${r.question_id}?\n\nEsta ação NÃO pode ser desfeita.`)) {
-                                                                    await handleDeleteSingleQuestion(r.question_id)
-                                                                    // Also mark report as resolved automatically
-                                                                    await updateReportStatus(r.id, 'dismissed')
-                                                                    toast.success('Questão excluída e reporte arquivado')
-                                                                    loadReports()
-                                                                }
-                                                            }}
-                                                            className="px-3 py-1.5 rounded-lg bg-rose-500/10 text-rose-500 text-[10px] font-black uppercase hover:bg-rose-500/20 transition-all flex items-center gap-1.5"
-                                                        >
-                                                            <Trash2 className="w-3 h-3" />
-                                                            Excluir
-                                                        </button>
-                                                        <div className="w-px h-8 bg-border mx-1" />
+                                                                        if (q) handleOpenEditor(q, r.id)
+                                                                        else {
+                                                                            toast.error('Questão não encontrada no banco de dados.')
+                                                                        }
+                                                                    }}
+                                                                    className="px-3 py-1.5 rounded-lg bg-primary/10 text-primary text-[10px] font-black uppercase hover:bg-primary/20 transition-all flex items-center gap-1.5"
+                                                                >
+                                                                    <Edit2 className="w-3 h-3" />
+                                                                    Editar
+                                                                </button>
+                                                                <button
+                                                                    onClick={async () => {
+                                                                        if (confirm(`⚠️ EXCLUSÃO PERMANENTE\n\nDeseja excluir a questão ${r.question_id}?\n\nEsta ação NÃO pode ser desfeita.`)) {
+                                                                            await handleDeleteSingleQuestion(r.question_id)
+                                                                            await updateReportStatus(r.id, 'dismissed')
+                                                                            toast.success('Questão excluída e reporte arquivado')
+                                                                            loadReports()
+                                                                        }
+                                                                    }}
+                                                                    className="px-3 py-1.5 rounded-lg bg-rose-500/10 text-rose-500 text-[10px] font-black uppercase hover:bg-rose-500/20 transition-all flex items-center gap-1.5"
+                                                                >
+                                                                    <Trash2 className="w-3 h-3" />
+                                                                    Excluir
+                                                                </button>
+                                                                <div className="w-px h-8 bg-border mx-1" />
+                                                            </>
+                                                        )}
                                                         <button
                                                             onClick={() => handleReportResolve(r)}
                                                             className="px-3 py-1.5 rounded-lg bg-emerald-500/10 text-emerald-500 text-[10px] font-black uppercase hover:bg-emerald-500/20 transition-all flex items-center gap-1.5"
                                                         >
                                                             <CheckCircle2 className="w-3 h-3" />
-                                                            Resolvido
+                                                            {r.question_id === 'FEEDBACK_GERAL' ? 'Concluir' : 'Resolvido'}
                                                         </button>
                                                         <button
                                                             onClick={() => updateReportStatus(r.id, 'dismissed')}

@@ -9,13 +9,15 @@ import { useAuth } from '@/store/use-auth'
 interface ReportModalProps {
     isOpen: boolean
     onClose: () => void
-    questionId: string
+    questionId?: string // Tornar opcional para sugestões gerais
 }
+
+type ReportType = 'ENUNCIADO' | 'GABARITO' | 'EXPLICAÇÃO' | 'SUGESTÃO' | 'DÚVIDA' | 'OUTRO'
 
 export function ReportModal({ isOpen, onClose, questionId }: ReportModalProps) {
     const { user } = useAuth()
     const { createReport } = useModeration()
-    const [type, setType] = useState<'ENUNCIADO' | 'GABARITO' | 'EXPLICAÇÃO' | 'OUTRO'>('GABARITO')
+    const [type, setType] = useState<ReportType>(questionId ? 'GABARITO' : 'SUGESTÃO')
     const [description, setDescription] = useState('')
     const [loading, setLoading] = useState(false)
     const [success, setSuccess] = useState(false)
@@ -27,7 +29,7 @@ export function ReportModal({ isOpen, onClose, questionId }: ReportModalProps) {
         setLoading(true)
         const result = await createReport({
             user_id: user.id,
-            question_id: questionId,
+            question_id: questionId || 'FEEDBACK_GERAL',
             type,
             description
         })
@@ -38,10 +40,24 @@ export function ReportModal({ isOpen, onClose, questionId }: ReportModalProps) {
                 onClose()
                 setSuccess(false)
                 setDescription('')
-            }, 2000)
+            }, 2500)
         }
         setLoading(false)
     }
+
+    const types: { id: ReportType, label: string }[] = questionId
+        ? [
+            { id: 'ENUNCIADO', label: 'Erro Enunciado' },
+            { id: 'GABARITO', label: 'Erro Gabarito' },
+            { id: 'EXPLICAÇÃO', label: 'Explicação' },
+            { id: 'DÚVIDA', label: 'Tive Dúvida' },
+            { id: 'OUTRO', label: 'Outro' }
+        ]
+        : [
+            { id: 'SUGESTÃO', label: 'Sugestão' },
+            { id: 'DÚVIDA', label: 'Dúvida' },
+            { id: 'OUTRO', label: 'Melhoria' }
+        ]
 
     return (
         <AnimatePresence>
@@ -56,8 +72,8 @@ export function ReportModal({ isOpen, onClose, questionId }: ReportModalProps) {
                         {success ? (
                             <div className="text-center space-y-4 py-8">
                                 <CheckCircle2 className="w-16 h-16 text-emerald-500 mx-auto" />
-                                <h3 className="text-2xl font-black uppercase italic tracking-tighter">Reporte Enviado!</h3>
-                                <p className="text-muted-foreground font-medium">Obrigado por nos ajudar a manter a qualidade do QRub. Nossa equipe reguladora irá analisar esta questão.</p>
+                                <h3 className="text-2xl font-black uppercase italic tracking-tighter">Enviado ao Master!</h3>
+                                <p className="text-muted-foreground font-medium">Obrigado por nos ajudar a manter a qualidade do QRub. O Agente Master irá analisar esta solicitação.</p>
                             </div>
                         ) : (
                             <>
@@ -66,39 +82,43 @@ export function ReportModal({ isOpen, onClose, questionId }: ReportModalProps) {
                                 </button>
 
                                 <div className="flex items-center gap-4 mb-8">
-                                    <div className="bg-rose-500/10 p-3 rounded-2xl text-rose-500">
+                                    <div className={`p-3 rounded-2xl ${questionId ? 'bg-rose-500/10 text-rose-500' : 'bg-primary/10 text-primary'}`}>
                                         <AlertTriangle className="w-6 h-6" />
                                     </div>
                                     <div>
-                                        <h2 className="text-2xl font-black italic uppercase tracking-tighter">Reportar Problema</h2>
-                                        <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest opacity-60">Ajude o Agente Regulador QRub</p>
+                                        <h2 className="text-2xl font-black italic uppercase tracking-tighter">
+                                            {questionId ? 'Reportar Problema' : 'Ideias e Sugestões'}
+                                        </h2>
+                                        <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest opacity-60">Dr. QRub Master Control</p>
                                     </div>
                                 </div>
 
                                 <form onSubmit={handleSubmit} className="space-y-6">
                                     <div className="grid grid-cols-2 gap-2">
-                                        {(['ENUNCIADO', 'GABARITO', 'EXPLICAÇÃO', 'OUTRO'] as const).map(t => (
+                                        {types.map(t => (
                                             <button
-                                                key={t}
+                                                key={t.id}
                                                 type="button"
-                                                onClick={() => setType(t)}
-                                                className={`py-3 rounded-xl text-[10px] font-black uppercase tracking-widest border transition-all ${type === t
-                                                        ? 'bg-rose-500 text-white border-rose-500 shadow-lg shadow-rose-500/20'
-                                                        : 'bg-muted border-border text-muted-foreground hover:border-rose-500/50'
+                                                onClick={() => setType(t.id)}
+                                                className={`py-3 rounded-xl text-[10px] font-black uppercase tracking-widest border transition-all ${type === t.id
+                                                    ? 'bg-rose-500 text-white border-rose-500 shadow-lg shadow-rose-500/20'
+                                                    : 'bg-muted border-border text-muted-foreground hover:border-rose-500/50'
                                                     }`}
                                             >
-                                                {t}
+                                                {t.label}
                                             </button>
                                         ))}
                                     </div>
 
                                     <div className="space-y-2">
-                                        <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground ml-1">Descrição do Problema</label>
+                                        <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground ml-1">
+                                            {questionId ? 'O que há de errado?' : 'Descreva sua sugestão abaixo:'}
+                                        </label>
                                         <textarea
                                             required
                                             value={description}
                                             onChange={(e) => setDescription(e.target.value)}
-                                            placeholder="Descreva o que está errado com a questão..."
+                                            placeholder={questionId ? "Descreva o erro..." : "No que podemos melhorar? Mande sua ideia..."}
                                             className="w-full h-32 bg-muted border border-border rounded-2xl p-4 font-medium text-sm focus:ring-2 focus:ring-rose-500/20 outline-none resize-none"
                                         />
                                     </div>
@@ -113,7 +133,7 @@ export function ReportModal({ isOpen, onClose, questionId }: ReportModalProps) {
                                         ) : (
                                             <>
                                                 <Send className="w-4 h-4" />
-                                                ENVIAR AO AGENTE REGULADOR
+                                                ENVIAR AO MASTER
                                             </>
                                         )}
                                     </button>

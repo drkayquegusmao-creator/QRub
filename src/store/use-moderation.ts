@@ -36,18 +36,24 @@ export const useModeration = create<ModerationState>((set) => ({
             if (isSupabaseConfigured()) {
                 const { error } = await supabase
                     .from('question_reports')
-                    .insert(reportData)
+                    .insert({
+                        ...reportData,
+                        status: 'pending'
+                    })
 
                 if (error) throw error
 
                 // Flag the question as 'flagged' if a report is created
-                await supabase
-                    .from('questions')
-                    .update({ status: 'flagged' })
-                    .eq('id', reportData.question_id)
+                if (reportData.question_id) {
+                    await supabase
+                        .from('questao_base')
+                        .update({ status: 'flagged' })
+                        .eq('id', reportData.question_id)
+                }
             }
-            return { success: true, message: 'Reporte enviado com sucesso! Nossa equipe reguladora irá analisar.' }
+            return { success: true, message: 'Recebemos seu reporte! Nossa equipe reguladora irá analisar com prioridade.' }
         } catch (err: unknown) {
+            console.error('Error creating report:', err)
             return { success: false, message: err instanceof Error ? err.message : 'Erro ao enviar reporte' }
         }
     },
@@ -55,6 +61,12 @@ export const useModeration = create<ModerationState>((set) => ({
     updateReportStatus: async (id, status) => {
         try {
             if (isSupabaseConfigured()) {
+                const { data: report } = await supabase
+                    .from('question_reports')
+                    .select('question_id')
+                    .eq('id', id)
+                    .single()
+
                 const { error } = await supabase
                     .from('question_reports')
                     .update({ status })
@@ -62,14 +74,21 @@ export const useModeration = create<ModerationState>((set) => ({
 
                 if (error) throw error
 
-                // If resolved or dismissed, we might want to unflag the question or archive it
-                // For now just update local state
+                // If resolved or dismissed, unflag the question
+                if (status !== 'pending' && report?.question_id) {
+                    await supabase
+                        .from('questao_base')
+                        .update({ status: 'active' }) // Revert to active or original state
+                        .eq('id', report.question_id)
+                }
+
                 set(state => ({
                     reports: state.reports.map(r => r.id === id ? { ...r, status } : r)
                 }))
             }
-            return { success: true, message: 'Status atualizado!' }
+            return { success: true, message: 'Status atualizado com sucesso!' }
         } catch (err: unknown) {
+            console.error('Error updating report status:', err)
             return { success: false, message: err instanceof Error ? err.message : String(err) }
         }
     }

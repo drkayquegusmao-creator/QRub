@@ -34,6 +34,8 @@ import { SectionHeader } from '@/components/dashboard-ui'
 import { WelcomeTutorial } from '@/components/welcome-tutorial'
 import { COURSES } from '@/lib/data-mock'
 import { UserStatsCard } from '@/components/user-stats-card'
+import { ReportModal } from '@/components/report-modal'
+import { MessageSquare, Send } from 'lucide-react'
 
 export default function StudentDashboard() {
     const router = useRouter()
@@ -83,6 +85,7 @@ export default function StudentDashboard() {
     const [showPlansModal, setShowPlansModal] = useState(false)
     const [showTrainModal, setShowTrainModal] = useState(false)
     const [showRankElite, setShowRankElite] = useState(false)
+    const [showFeedbackModal, setShowFeedbackModal] = useState(false)
     const [trainModalInitialSpecialty, setTrainModalInitialSpecialty] = useState<string | undefined>(undefined)
 
     // Load responses and SRS progress on mount
@@ -269,6 +272,25 @@ export default function StudentDashboard() {
                         </Link>
                     )
                 ))}
+
+                {/* Feedback CTA */}
+                <button
+                    onClick={() => setShowFeedbackModal(true)}
+                    className="md:col-span-2 lg:col-span-4 bg-primary/5 border-2 border-dashed border-primary/20 p-8 rounded-[45px] hover:bg-primary/10 transition-all group relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-6"
+                >
+                    <div className="flex items-center gap-6 text-center md:text-left">
+                        <div className="p-4 bg-primary/10 rounded-3xl text-primary group-hover:scale-110 transition-transform">
+                            <MessageSquare className="w-8 h-8" />
+                        </div>
+                        <div>
+                            <h4 className="text-xl font-black italic uppercase tracking-tighter text-primary">Sugestões & Melhorias</h4>
+                            <p className="text-xs font-bold text-slate-500 uppercase tracking-widest leading-relaxed">Viu algo que pode ser melhorado? Ajude a construir o QRub.</p>
+                        </div>
+                    </div>
+                    <div className="flex items-center gap-3 bg-primary text-white px-8 py-4 rounded-2xl font-black text-xs uppercase tracking-[0.2em] shadow-xl shadow-primary/20">
+                        <Send className="w-4 h-4" /> Enviar ao Master
+                    </div>
+                </button>
             </div>
         </section>
     )
@@ -443,6 +465,7 @@ export default function StudentDashboard() {
             <PlansModal isOpen={showPlansModal} onClose={() => setShowPlansModal(false)} />
             <PaywallModal isOpen={showPaywall} onClose={() => setShowPaywall(false)} reason="feature" requiredPlan="INSANO" />
             <TrainModal isOpen={showTrainModal} onClose={() => setShowTrainModal(false)} initialSpecialtyId={trainModalInitialSpecialty} />
+            <ReportModal isOpen={showFeedbackModal} onClose={() => setShowFeedbackModal(false)} />
 
             {renderUpgradeBanner()}
 
