@@ -1,0 +1,28 @@
+[
+  {
+    "id": "QRB-0951",
+    "enunciado": "Um recém-nascido de 1 semana, cuja mãe foi infectada pelo vírus Zika no primeiro trimestre de gestação, apresenta microcefalia, calcificações intracranianas e artrogripose. A ultrassonografia transfontanelar revela alterações cerebrais compatíveis com infecção congênita.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Microcefalia grave."
+      },
+      {
+        "id": "b",
+        "text": "Calcificações intracranianas."
+      },
+      {
+        "id": "c",
+        "text": "Artrogripose."
+      },
+      {
+        "id": "d",
+        "text": "Surdez neurossensorial."
+      },
+      {
+        "id": "e",
+        "text": "Catarata congênita."
+      }
+    ]
+  }
+]
