@@ -2497,7 +2497,9 @@ Obrigado por nos ajudar a melhorar o QRub! 🚀`
                                     const now = new Date()
                                     const last = u.updated_at ? new Date(u.updated_at) : (u.last_sign_in_at ? new Date(u.last_sign_in_at) : null)
                                     if (!last) return false
-                                    return (now.getTime() - last.getTime()) < (24 * 60 * 60 * 1000)
+                                    const startOfToday = new Date()
+                                    startOfToday.setHours(0, 0, 0, 0)
+                                    return last.getTime() >= startOfToday.getTime()
                                 }).length}
                                 color="text-indigo-500"
                                 icon={<Zap className="w-4 h-4" />}
