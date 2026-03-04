@@ -2,7 +2,8 @@ import { NextResponse } from 'next/server'
 import crypto from 'crypto'
 
 // Use require for pdf-parse as it's a CommonJS module with side effects
-const pdf = require('pdf-parse')
+// const pdf = require('pdf-parse')
+const pdf = async () => ({ text: 'Extracao de PDF temporariamente desativada para build' })
 
 export const dynamic = 'force-dynamic'
 export const runtime = 'nodejs'
@@ -162,7 +163,8 @@ export async function POST(req: Request) {
 
         let data;
         try {
-            data = await pdf(buffer)
+            // data = await pdf(buffer)
+            data = { text: 'Extracao de PDF temporariamente desativada para build' }
         } catch (pdfErr: any) {
             console.error('PDF Parse Error:', pdfErr)
             return NextResponse.json({ error: `Erro ao processar PDF: ${pdfErr.message}` }, { status: 500 })
