@@ -343,7 +343,7 @@ export default function StudentDashboard() {
                 {/* Feedback CTA */}
                 <button
                     onClick={() => setShowFeedbackModal(true)}
-                    className="md:col-span-2 lg:col-span-4 bg-primary/5 border-2 border-dashed border-primary/20 p-8 rounded-[45px] hover:bg-primary/10 transition-all group relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-6"
+                    className="col-span-2 lg:col-span-4 bg-primary/5 border-2 border-dashed border-primary/20 p-8 rounded-[45px] hover:bg-primary/10 transition-all group relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-6"
                 >
                     <div className="flex items-center gap-6 text-center md:text-left">
                         <div className="p-4 bg-primary/10 rounded-3xl text-primary group-hover:scale-110 transition-transform">
@@ -354,7 +354,7 @@ export default function StudentDashboard() {
                             <p className="text-xs font-bold text-slate-500 uppercase tracking-widest leading-relaxed">Viu algo que pode ser melhorado? Ajude a construir o QRub.</p>
                         </div>
                     </div>
-                    <div className="flex items-center gap-3 bg-primary text-white px-8 py-4 rounded-2xl font-black text-xs uppercase tracking-[0.2em] shadow-xl shadow-primary/20">
+                    <div className="flex items-center gap-3 bg-primary text-white px-8 py-4 rounded-2xl font-black text-xs uppercase tracking-[0.2em] shadow-xl shadow-primary/20 w-full md:w-auto justify-center">
                         <Send className="w-4 h-4" /> Enviar ao Master
                     </div>
                 </button>
@@ -677,44 +677,43 @@ function WidgetGrid({
                     const renderer = WIDGET_MAP[widget.id]
                     if (!renderer) return null
 
-                    // Visibility Logic
-                    const isHidden = !widget.visible || widget.status === 'disabled'
-                    if (isHidden && !isMaster) return null
-                    if (!widget.visible && isMaster && !isEditMode) return null
-
+                    const isDisabled = widget.status === 'disabled'
                     const isMaintenance = widget.status === 'maintenance'
-                    const isWipWidget = WIP_WIDGETS.includes(widget.id)
                     const isFullWidth = widget.width === 'full'
                     const isDraggable = isEditMode && isMaster
                     const isDragTarget = dragOver === idx
+
+                    // Disabled: hide from regular users entirely
+                    // In edit mode, master can still see it (greyed out)
+                    if (isDisabled && !isMaster) return null
+                    if (isDisabled && isMaster && !isEditMode) return null
 
                     let content: React.ReactNode
                     try {
                         content = renderer()
                         if (!content && !isEditMode) return null
 
-                        // Combined Guard Overlay (WIP or Maintenance)
-                        const showOverlay = (isWipWidget || isMaintenance) && !isMaster
-
-                        if (showOverlay) {
-                            content = (
-                                <div className="relative h-full">
-                                    <div className="absolute inset-0 z-50 flex flex-col items-center justify-center p-8 bg-white/50 rounded-[40px] md:rounded-[50px] backdrop-blur-[10px]">
-                                        <div className="w-16 h-16 bg-white rounded-3xl shadow-xl flex items-center justify-center mb-5 text-primary border border-slate-100" style={{ animation: 'float 3s ease-in-out infinite' }}>
-                                            {isMaintenance ? <Wrench className="w-8 h-8 opacity-60" /> : <Sparkles className="w-8 h-8" />}
+                        // Maintenance: show placeholder to regular users (widget is still visible)
+                        if (isMaintenance && !isMaster) {
+                            return (
+                                <motion.div
+                                    key={widget.id}
+                                    layout
+                                    className={`relative group ${isFullWidth ? 'md:col-span-2' : ''}`}
+                                >
+                                    <div className="flex flex-col items-center justify-center p-8 bg-slate-50 border-2 border-dashed border-amber-200 rounded-[40px] md:rounded-[50px] h-[300px]">
+                                        <div className="w-16 h-16 bg-amber-50 rounded-3xl shadow-md flex items-center justify-center mb-5 text-amber-500 border border-amber-200">
+                                            <Wrench className="w-8 h-8" />
                                         </div>
-                                        <div className={`px-6 py-3 rounded-2xl font-black text-xs uppercase tracking-widest shadow-2xl flex items-center gap-2 ${isMaintenance ? 'bg-amber-500 text-white' : 'bg-[#1A1033] text-white'}`}>
-                                            {isMaintenance ? <Clock className="w-4 h-4" /> : <Clock className="w-4 h-4 text-amber-400" />}
-                                            {isMaintenance ? 'Em Manutenção' : 'Em Breve Disponível'}
+                                        <div className="px-6 py-3 rounded-2xl font-black text-xs uppercase tracking-widest flex items-center gap-2 bg-amber-500 text-white shadow-lg shadow-amber-500/20">
+                                            <Clock className="w-4 h-4" />
+                                            Em Manutenção
                                         </div>
-                                        <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-4 bg-white/80 px-4 py-1.5 rounded-full border border-slate-200">
-                                            {isMaintenance ? 'Ajustes técnicos em andamento' : 'Nova experiência em desenvolvimento'}
+                                        <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-4">
+                                            Ajustes técnicos em andamento
                                         </p>
                                     </div>
-                                    <div className="opacity-10 grayscale pointer-events-none h-full">
-                                        {content}
-                                    </div>
-                                </div>
+                                </motion.div>
                             )
                         }
                     } catch {
@@ -727,7 +726,8 @@ function WidgetGrid({
                             layout
                             className={`relative group ${isFullWidth ? 'md:col-span-2' : ''}
                                 ${isDragTarget ? 'ring-2 ring-primary/40 ring-offset-2 rounded-[50px] scale-[0.98]' : ''}
-                                ${widget.status === 'disabled' && isMaster && isEditMode ? 'opacity-40 grayscale border-2 border-dashed border-slate-300' : ''}
+                                ${isDisabled && isMaster && isEditMode ? 'opacity-40 grayscale border-2 border-dashed border-slate-300 rounded-[50px]' : ''}
+                                ${isMaintenance && isMaster && isEditMode ? 'ring-2 ring-amber-400/40 ring-offset-2 rounded-[50px]' : ''}
                                 transition-transform`}
                             draggable={isDraggable}
                             onDragStart={() => { dragIndex.current = idx }}

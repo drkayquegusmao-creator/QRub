@@ -67,7 +67,7 @@ export const useDashboard = create<DashboardState>()(
 
             setWidgetStatus: (id, status) => {
                 set((state) => ({
-                    widgets: state.widgets.map(w => w.id === id ? { ...w, status } : w)
+                    widgets: state.widgets.map(w => w.id === id ? { ...w, status, visible: status !== 'disabled' } : w)
                 }))
                 // Trigger sync if master? (Handled in component usually)
             },
@@ -107,7 +107,12 @@ export const useDashboard = create<DashboardState>()(
                         .single()
 
                     if (data && data.value && (data.value as any).widgets) {
-                        set({ widgets: (data.value as any).widgets })
+                        // Normalize: visible must reflect status (active/maintenance = visible, disabled = hidden)
+                        const normalized = (data.value as any).widgets.map((w: WidgetConfig) => ({
+                            ...w,
+                            visible: w.status !== 'disabled'
+                        }))
+                        set({ widgets: normalized })
                     }
                 } catch (err) {
                     console.error('Error loading dashboard from Supabase:', err)
