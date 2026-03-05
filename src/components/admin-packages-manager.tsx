@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState, useEffect, useMemo } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import {
     Plus, Search, Edit2, Trash2, Package, Building2,
     Network, CheckCircle2, Clock, ChevronRight, X,
@@ -113,12 +113,13 @@ export default function AdminPackagesManager() {
     }
 
     const taxonomyOptions = useMemo(() => {
-        const options: { id: string; path: string }[] = []
+        const options: { id: string; path: string; level: string }[] = []
         function traverse(node: TaxonomyNode, currentPath: string) {
             const newPath = currentPath ? `${currentPath} > ${node.name}` : node.name
-            if (node.level === 'subject') {
-                options.push({ id: node.id, path: newPath })
-            }
+
+            // Adicionamos todos os níveis para permitir geração ampla (Geral) ou específica (Assunto)
+            options.push({ id: node.id, path: newPath, level: node.level })
+
             if (node.children) {
                 node.children.forEach(child => traverse(child, newPath))
             }
@@ -129,7 +130,10 @@ export default function AdminPackagesManager() {
 
     useEffect(() => {
         const bankName = banks.find(b => b.id === createForm.bank_id)?.name || 'Banca'
-        const taxonomyLabel = taxonomyOptions.find(t => t.path === createForm.taxonomy_path)?.path.split(' > ').pop() || 'Assunto'
+        const selectedTax = taxonomyOptions.find(t => t.path === createForm.taxonomy_path)
+        const taxonomyLabel = selectedTax
+            ? (selectedTax.level !== 'subject' ? `${selectedTax.path.split(' > ').pop()?.toUpperCase()} GERAL` : selectedTax.path.split(' > ').pop()?.toUpperCase())
+            : 'ASSUNTO'
         const diffLabel = createForm.difficulty === 'media' ? 'Média' : createForm.difficulty === 'facil' ? 'Fácil' : 'Difícil'
         const countLabel = isNaN(createForm.requested_count) ? '0' : createForm.requested_count
         setCreateForm(prev => ({
@@ -1082,7 +1086,11 @@ export default function AdminPackagesManager() {
                                                 className="w-full h-16 bg-slate-50 border border-slate-200 rounded-3xl pl-16 pr-6 outline-none focus:bg-white focus:ring-8 focus:ring-blue-600/5 focus:border-blue-600 appearance-none font-bold text-slate-900 transition-all text-sm"
                                             >
                                                 <option value="">SELECIONE O CONCURSO/ÁREA</option>
-                                                {taxonomyOptions.map(t => <option key={t.id} value={t.path}>{t.path.toUpperCase()}</option>)}
+                                                {taxonomyOptions.map(t => (
+                                                    <option key={t.id} value={t.path}>
+                                                        {t.path.toUpperCase()} {t.level !== 'subject' ? '— GERAL' : ''}
+                                                    </option>
+                                                ))}
                                             </select>
                                         </div>
                                     </div>

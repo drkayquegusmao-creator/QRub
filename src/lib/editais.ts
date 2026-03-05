@@ -216,6 +216,18 @@ export async function archiveEdital(id: string) {
     return updateEdital(id, { status: 'arquivado' })
 }
 
+export async function deleteEdital(id: string) {
+    try {
+        const { error } = await supabase.from('editais').delete().eq('id', id)
+        if (error) throw error
+        await logAdminAction('DELETE_EDITAL', 'editais', id, {})
+        return { error: null }
+    } catch (err) {
+        console.error('[editais] deleteEdital erro:', err)
+        return { error: err }
+    }
+}
+
 // ─── EVENTOS ───────────────────────────────────────────────────────────────
 
 export async function upsertEventos(editalId: string, eventos: Partial<EditalEvento>[]) {

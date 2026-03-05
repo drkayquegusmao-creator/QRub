@@ -17,24 +17,32 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 }
 
 function AdminLayoutContent({ children }: { children: React.ReactNode }) {
-    const { user, isAuthenticated, logout } = useAuth()
+    const { user, isAuthenticated, refreshUserProfile } = useAuth()
     const router = useRouter()
     const pathname = usePathname()
     const searchParams = useSearchParams()
     const [isHydrated, setIsHydrated] = useState(false)
+
+    // Master verification similar to dashboard/page.tsx
+    const isMaster = user?.role === 'MASTER' || (user?.email && require('@/lib/auth-constants').isMasterEmail(user.email))
 
     useEffect(() => {
         setIsHydrated(true)
     }, [])
 
     useEffect(() => {
-        if (isHydrated && (!isAuthenticated || user?.role !== 'MASTER')) {
-            router.push('/')
+        if (isHydrated) {
+            if (!isAuthenticated || !isMaster) {
+                router.push('/')
+            } else if (user?.email && require('@/lib/auth-constants').isMasterEmail(user.email) && user.role !== 'MASTER') {
+                // If it's a master email but role is not master, force refresh
+                refreshUserProfile()
+            }
         }
-    }, [isHydrated, isAuthenticated, user, router])
+    }, [isHydrated, isAuthenticated, user, isMaster, router, refreshUserProfile])
 
     if (!isHydrated) return null
-    if (!isAuthenticated || user?.role !== 'MASTER') return null
+    if (!isAuthenticated || !isMaster) return null
 
     // Determine if a link is active. 
     // Exact match for root '/admin', partial match for sub-routes

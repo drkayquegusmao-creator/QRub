@@ -232,7 +232,12 @@ export function QuizSetupFilters() {
                         value={selectedCourse?.name}
                         options={COURSES}
                         icon={<Sparkles className="w-4 h-4" />}
-                        onSelect={(id) => setSelectedCourse(COURSES.find(c => c.id === id) || null)}
+                        onSelect={(id) => {
+                            setSelectedCourse(COURSES.find(c => c.id === id) || null)
+                            setSelectedSpecialty(null)
+                            setSelectedSubspecialty(null)
+                            setSelectedSubject(null)
+                        }}
                     />
 
                     <FilterCard
@@ -240,7 +245,11 @@ export function QuizSetupFilters() {
                         value={selectedSpecialty?.name}
                         options={selectedCourse?.specialties || []}
                         disabled={!selectedCourse}
-                        onSelect={(id) => setSelectedSpecialty(selectedCourse?.specialties.find(s => s.id === id) || null)}
+                        onSelect={(id) => {
+                            setSelectedSpecialty(selectedCourse?.specialties.find(s => s.id === id) || null)
+                            setSelectedSubspecialty(null)
+                            setSelectedSubject(null)
+                        }}
                     />
 
                     <FilterCard
@@ -249,7 +258,11 @@ export function QuizSetupFilters() {
                         options={selectedSpecialty?.subspecialties || []}
                         disabled={!selectedSpecialty}
                         isLocked={isFree}
-                        onSelect={(id) => checkLock() || setSelectedSubspecialty(selectedSpecialty?.subspecialties.find(s => s.id === id) || null)}
+                        onSelect={(id) => {
+                            if (checkLock()) return
+                            setSelectedSubspecialty(selectedSpecialty?.subspecialties.find(s => s.id === id) || null)
+                            setSelectedSubject(null)
+                        }}
                     />
 
                     <FilterCard
@@ -258,7 +271,10 @@ export function QuizSetupFilters() {
                         options={selectedSubspecialty?.subjects || []}
                         disabled={!selectedSubspecialty}
                         isLocked={isFree}
-                        onSelect={(id) => checkLock() || setSelectedSubject(selectedSubspecialty?.subjects.find(s => s.id === id) || null)}
+                        onSelect={(id) => {
+                            if (checkLock()) return
+                            setSelectedSubject(selectedSubspecialty?.subjects.find(s => s.id === id) || null)
+                        }}
                     />
                 </div>
             </section>

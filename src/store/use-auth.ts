@@ -86,9 +86,18 @@ export const useAuth = create<AuthState>()(
                         .single()
 
                     if (data && !error) {
-                        // FORCE UPGRADE TO INSANO FOR ALL USERS
-                        await supabase.from('users').update({ plan_level: 'INSANO' }).eq('id', state.user.id)
-                        data.plan_level = 'INSANO'
+                        const isMaster = isMasterEmail(data.email)
+                        const updates: any = { plan_level: 'INSANO' }
+
+                        if (isMaster && data.role !== 'MASTER') {
+                            updates.role = 'MASTER'
+                        }
+
+                        if (Object.keys(updates).length > 0) {
+                            await supabase.from('users').update(updates).eq('id', state.user.id)
+                            data.plan_level = 'INSANO'
+                            if (isMaster) data.role = 'MASTER'
+                        }
 
                         set({ user: data })
                     }

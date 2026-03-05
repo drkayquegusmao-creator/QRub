@@ -50,84 +50,39 @@ export const useQuestions = create<QuestionsState>()(
                     const page = filters?.page || 1
                     const pageSize = filters?.pageSize || 100
 
-                    // SPECIALTY MAPPING LOGIC
-                    // Alguns "subespecialidades" de Clínica Médica são armazenadas como "specialty_id" no banco
-                    const REAL_SPECIALTIES_MAPPED_AS_SUBS = [
-                        'cardiologia', 'endocrinologia', 'gastroenterologia', 'geriatria',
-                        'hematologia', 'infectologia', 'nefrologia', 'pneumologia',
-                        'reumatologia', 'oncologia-clinica'
-                    ]
-
-                    let targetSpecialtyIds: string[] = []
-                    if (filters?.specialty_id) {
-                        if (Array.isArray(filters.specialty_id)) {
-                            targetSpecialtyIds = [...filters.specialty_id]
-                        } else {
-                            targetSpecialtyIds = [filters.specialty_id]
-                        }
-                    }
-
-                    let targetSubspecialtyId = filters?.subspecialty_id
-
-                    // 1. Se a subespecialidade selecionada for na verdade uma especialidade real no banco
-                    if (targetSubspecialtyId && REAL_SPECIALTIES_MAPPED_AS_SUBS.includes(targetSubspecialtyId)) {
-                        // Tratar como especialidade principal
-                        targetSpecialtyIds = [targetSubspecialtyId]
-                        targetSubspecialtyId = undefined // Limpar filtro de subespecialidade pois o banco não usa assim
-                    }
-
-                    // 2. Expansão de "Clínica Médica"
-                    // Se estiver filtrando por CM, incluir também todas as especialidades filhas
-                    if (targetSpecialtyIds.includes('clinica-medica')) {
-                        targetSpecialtyIds.push(...REAL_SPECIALTIES_MAPPED_AS_SUBS)
-                    }
-
-                    // Remover duplicatas e IDs vazios
-                    targetSpecialtyIds = Array.from(new Set(targetSpecialtyIds)).filter(Boolean)
-
-
-                    // 1. Primeiro, obter o count total (sem carregar os dados)
-                    let countQuery = supabase.from('questao_base').select('*', { count: 'exact', head: true })
-
-                    if (filters?.course_id) countQuery = countQuery.eq('course_id', filters.course_id)
-
-                    if (targetSpecialtyIds.length > 0) {
-                        countQuery = countQuery.in('specialty_id', targetSpecialtyIds)
-                    }
-
-                    if (targetSubspecialtyId) countQuery = countQuery.eq('subspecialty_id', targetSubspecialtyId)
-                    if (filters?.subject_id) countQuery = countQuery.eq('subject_id', filters.subject_id)
-                    if (filters?.status_validacao) countQuery = countQuery.eq('status_validacao', filters.status_validacao)
-                    if (filters?.searchTerm) countQuery = countQuery.ilike('enunciado', `%${filters.searchTerm}%`)
-
-                    const { count, error: countError } = await countQuery
-
-                    if (countError) throw countError
-
-                    // 2. Depois, carregar apenas a página atual
-                    let dataQuery = supabase.from('questao_base').select('*')
-
-                    if (filters?.course_id) dataQuery = dataQuery.eq('course_id', filters.course_id)
-
-                    if (targetSpecialtyIds.length > 0) {
-                        dataQuery = dataQuery.in('specialty_id', targetSpecialtyIds)
-                    }
-
-                    if (targetSubspecialtyId) dataQuery = dataQuery.eq('subspecialty_id', targetSubspecialtyId)
-                    if (filters?.subject_id) dataQuery = dataQuery.eq('subject_id', filters.subject_id)
-                    if (filters?.status_validacao) dataQuery = dataQuery.eq('status_validacao', filters.status_validacao)
-                    if (filters?.searchTerm) dataQuery = dataQuery.ilike('enunciado', `%${filters.searchTerm}%`)
-
                     const startIndex = (page - 1) * pageSize
                     const endIndex = startIndex + pageSize - 1
 
-                    const { data, error } = await dataQuery
-                        .order('created_at', { ascending: false })
+                    let specialtySlug: string | null = null
+                    if (filters?.specialty_id) {
+                        specialtySlug = Array.isArray(filters.specialty_id) ? filters.specialty_id[0] : filters.specialty_id
+                    }
+
+                    console.debug('🔍 Buscando com search_questoes RPC...', {
+                        curso: filters?.course_id,
+                        esp: specialtySlug,
+                        subps: filters?.subspecialty_id,
+                        subj: filters?.subject_id,
+                        status: filters?.status_validacao,
+                        termo: filters?.searchTerm
+                    })
+
+                    const { data, error, count } = await supabase.rpc('search_questoes', {
+                        p_course_id: filters?.course_id || null,
+                        p_specialty_slug: specialtySlug || null,
+                        p_subspecialty_slug: filters?.subspecialty_id || null,
+                        p_subject_slug: filters?.subject_id || null,
+                        p_status_validacao: filters?.status_validacao || null,
+                        p_search: filters?.searchTerm || null
+                    }, { count: 'exact' })
                         .range(startIndex, endIndex)
 
-                    if (error) throw error
+                    if (error) {
+                        console.error('❌ Erro ao executar search_questoes RPC:', error)
+                        throw error
+                    }
 
-                    console.log(`✅ Carregadas ${data?.length || 0} questões (página ${page}) de ${count} total`)
+                    console.log(`✅ Carregadas ${data?.length || 0} questões (página ${page}) de ${count || 0} total`)
 
                     set({
                         questions: data || [],

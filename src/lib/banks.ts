@@ -42,7 +42,7 @@ export interface QuestionPackage {
     taxonomy_path?: string
     difficulty: 'facil' | 'media' | 'dificil' | 'mista'
     requested_count: number
-    status: 'draft' | 'reviewing' | 'approved' | 'archived'
+    status: 'draft' | 'reviewing' | 'approved' | 'published' | 'archived'
     generation_prompt_snapshot?: string
     notes?: string
     created_at?: string
@@ -567,7 +567,7 @@ export async function publishPackage(packageId: string): Promise<{ published: nu
         }
     }
 
-    await updatePackage(packageId, { status: 'approved' })
+    await updatePackage(packageId, { status: 'published' })
     await logAdminAction('PUBLISH_PACKAGE', 'question_packages', packageId, { published, errors })
     return { published, errors }
 }
@@ -795,20 +795,65 @@ export async function resolveTaxonomyPath(path: string): Promise<{
     const parts = path.split(' > ').map(p => p.trim())
     const result: any = {}
 
+    // Dicionário de sinônimos médicos para melhorar a resolução de taxonomia
+    const MEDICAL_SYNONYMS: Record<string, string[]> = {
+        'cardiologia': ['cardio', 'coracao', 'sistema cardiovascular'],
+        'pneumologia': ['pneumo', 'pulmao', 'respiratorio', 'dpoc', 'tep', 'tromboembolismo pulmonar'],
+        'nefrologia': ['nefro', 'rim', 'renal', 'disturbios hidroeletroliticos'],
+        'gastroenterologia': ['gastro', 'digestivo', 'estomago', 'intestino'],
+        'endocrinologia': ['endocrino', 'diabetes', 'tireoide', 'hormonal'],
+        'infectologia': ['infecto', 'doencas infectocontagiosas', 'virus', 'bacterias', 'sepse'],
+        'hematologia': ['hemato', 'sangue', 'anemia', 'leucemia'],
+        'reumatologia': ['reumato', 'articulacoes', 'autoimune'],
+        'geriatria': ['idoso', 'terceira idade'],
+        'urologia': ['uro', 'sistema urinario', 'litiase renal', 'infeccao urinaria'],
+        'obstetricia': ['go', 'obstetrico', 'gravidez', 'parto'],
+        'pediatria': ['peds', 'crianca', 'infantil'],
+        'psiquiatria': ['psiq', 'mental', 'saude mental', 'depressao', 'ansiedade']
+    }
+
     let lastId: string | null = null
 
     for (let i = 0; i < parts.length; i++) {
-        const name = parts[i]
+        const originalName = parts[i]
         const level = i === 0 ? 'course' : i === 1 ? 'specialty' : i === 2 ? 'subspecialty' : 'subject'
 
-        let query = supabase.from('taxonomia').select('id, slug, name').eq('name', name).eq('level', level)
+        // Tentar busca exata primeiro
+        let query = supabase.from('taxonomia').select('id, slug, name').eq('name', originalName).eq('level', level)
         if (lastId) query = query.eq('parent_id', lastId)
 
-        const { data } = await query.maybeSingle()
+        let { data } = await query.maybeSingle()
+
+        // Se não encontrar, tentar busca por sinônimos ou ilike
+        if (!data) {
+            // Tentar encontrar uma especialidade que possua o termo original como sinônimo
+            const foundTerm = Object.entries(MEDICAL_SYNONYMS).find(([key, synonyms]) =>
+                synonyms.some(s => originalName.toLowerCase().includes(s)) || key === originalName.toLowerCase()
+            )
+
+            if (foundTerm) {
+                const searchName = foundTerm[0]
+                let synQuery = supabase.from('taxonomia').select('id, slug, name').ilike('name', `%${searchName}%`).eq('level', level)
+                if (lastId) synQuery = synQuery.eq('parent_id', lastId)
+                const { data: synData } = await synQuery.maybeSingle()
+                data = synData
+            }
+        }
+
+        // Última tentativa: busca partial pelo nome original
+        if (!data) {
+            let partialQuery = supabase.from('taxonomia').select('id, slug, name').ilike('name', `%${originalName}%`).eq('level', level)
+            if (lastId) partialQuery = partialQuery.eq('parent_id', lastId)
+            const { data: partialData } = await partialQuery.maybeSingle()
+            data = partialData
+        }
+
         if (data) {
             lastId = data.id
             result[level] = { id: data.id, slug: data.slug, name: data.name }
         } else {
+            // Se falhou num nível intermediário, tentamos continuar para o próximo se for assunto (as vezes pulam sub)
+            if (level === 'subspecialty') continue
             break
         }
     }

@@ -140,10 +140,20 @@ export function TrainModal({ isOpen, onClose, initialMode, initialSpecialtyId }:
         const specialties = dynamicSpecialties
         const query = searchQuery.toLowerCase()
 
-        const filteredSpecialties = specialties.filter(spec =>
-            spec.name.toLowerCase().includes(query) ||
-            (spec.metadata?.category && String(spec.metadata.category).toLowerCase().includes(query))
-        )
+        const filteredSpecialties = specialties.filter(spec => {
+            const specMatch = spec.name.toLowerCase().includes(query) ||
+                (spec.metadata?.category && String(spec.metadata.category).toLowerCase().includes(query))
+
+            if (specMatch) return true
+
+            // Deep search in children (subspecialties and subjects)
+            const hasMatchingChild = spec.children?.some(sub =>
+                sub.name.toLowerCase().includes(query) ||
+                sub.children?.some(subj => subj.name.toLowerCase().includes(query))
+            )
+
+            return hasMatchingChild
+        })
 
         const toggleSpecialty = (specId: string) => {
             setSelectedSpecialtyIds(prev =>

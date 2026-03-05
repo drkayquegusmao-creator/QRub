@@ -6,6 +6,7 @@ import {
     getEditais,
     publishEdital,
     archiveEdital,
+    deleteEdital,
     type Edital,
     formatDate_BR,
     formatCurrency,
@@ -44,6 +45,7 @@ function EditalRow({
     onEdit,
     onPublish,
     onArchive,
+    onDelete,
     onImport,
     onView,
     onFilters,
@@ -52,6 +54,7 @@ function EditalRow({
     onEdit: () => void
     onPublish: () => void
     onArchive: () => void
+    onDelete: () => void
     onImport: () => void
     onView: () => void
     onFilters: () => void
@@ -94,6 +97,7 @@ function EditalRow({
                     {edital.status === 'publicado' && (
                         <ActionBtn icon="📦" title="Arquivar" onClick={onArchive} color="yellow" />
                     )}
+                    <ActionBtn icon="🗑️" title="Deletar" onClick={onDelete} color="red" />
                 </div>
             </td>
         </tr>
@@ -107,6 +111,7 @@ function ActionBtn({ icon, title, onClick, color }: { icon: string; title: strin
         yellow: 'bg-amber-50 text-amber-600 border-amber-100 hover:bg-amber-600 hover:text-white',
         purple: 'bg-purple-50 text-purple-600 border-purple-100 hover:bg-purple-600 hover:text-white',
         gray: 'bg-slate-100 text-slate-600 border-slate-200 hover:bg-slate-600 hover:text-white',
+        red: 'bg-red-50 text-red-600 border-red-100 hover:bg-red-600 hover:text-white',
     }
 
     return (
@@ -160,6 +165,12 @@ export default function AdminEditaisPage() {
     async function handleArchive(id: string) {
         if (!confirm('Arquivar este edital? Ele ficará oculto para alunos.')) return
         await archiveEdital(id)
+        loadEditais()
+    }
+
+    async function handleDelete(id: string) {
+        if (!confirm('ATENÇÃO: Deletar este edital? Esta ação não pode ser desfeita.')) return
+        await deleteEdital(id)
         loadEditais()
     }
 
@@ -287,6 +298,7 @@ export default function AdminEditaisPage() {
                                         onEdit={() => { setEditingEdital(edital); setShowForm(true) }}
                                         onPublish={() => handlePublish(edital.id)}
                                         onArchive={() => handleArchive(edital.id)}
+                                        onDelete={() => handleDelete(edital.id)}
                                         onImport={() => setImportingEditalId(edital.id)}
                                         onView={() => router.push(`/dashboard/editais/${edital.slug || edital.id}`)}
                                         onFilters={() => setFiltersEdital(edital)}

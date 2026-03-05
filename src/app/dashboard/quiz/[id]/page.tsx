@@ -186,7 +186,7 @@ export default function QuizPage() {
         )
     }
 
-    if (!question) {
+    if (!question && !questionsLoading) {
         return (
             <div className="min-h-screen flex items-center justify-center bg-background p-6">
                 <div className="w-full max-w-md bg-card border border-border rounded-[40px] p-10 text-center space-y-6 animate-in fade-in zoom-in duration-500">
@@ -195,17 +195,17 @@ export default function QuizPage() {
                     </div>
                     <div className="space-y-2">
                         <h3 className="text-2xl font-black italic uppercase tracking-tighter">Ops! Sem questões.</h3>
-                        <p className="text-muted-foreground font-medium text-sm">Não encontramos questões disponíveis para o tópico selecionado no momento.</p>
+                        <p className="text-muted-foreground font-medium text-sm">Não encontramos questões disponíveis para os filtros selecionados (talvez você já tenha respondido todas as disponíveis para a seleção).</p>
                     </div>
                     <button
                         onClick={() => router.push('/dashboard')}
-                        className="w-full royal-gradient text-white py-4 rounded-2xl font-black uppercase text-xs tracking-widest shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all"
+                        className="w-full bg-primary text-white py-4 rounded-2xl font-black uppercase text-xs tracking-widest shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all"
                     >
-                        Voltar ao Dashboard
+                        Limpar Filtros e Voltar
                     </button>
                     {user?.role === 'MASTER' && (
                         <p className="text-[10px] text-muted-foreground uppercase font-black tracking-widest">
-                            Dica: Use o Painel Admin para gerar questões de demonstração.
+                            Dica: Acesse Menu &gt; Pacotes e Deploy para associar questões.
                         </p>
                     )}
                 </div>
@@ -611,8 +611,8 @@ export default function QuizPage() {
                             onClick={handleConfirm}
                             disabled={!selectedOptionId}
                             className={`px-8 py-4 md:px-10 md:py-5 rounded-2xl font-black uppercase text-xs tracking-widest transition-all flex items-center gap-3 shadow-xl ${selectedOptionId
-                                    ? 'royal-gradient text-white hover:scale-[1.02] active:scale-95 shadow-primary/30'
-                                    : 'bg-slate-200 text-slate-400 cursor-not-allowed border border-slate-300'
+                                ? 'royal-gradient text-white hover:scale-[1.02] active:scale-95 shadow-primary/30'
+                                : 'bg-slate-200 text-slate-400 cursor-not-allowed border border-slate-300'
                                 }`}
                         >
                             Confirmar Resposta <CheckCircle2 className="w-5 h-5" />

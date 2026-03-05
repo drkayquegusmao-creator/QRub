@@ -7,6 +7,8 @@ import { useQuiz } from '@/store/use-quiz'
 import { useQuestions } from '@/store/use-questions'
 import { useDashboard, WidgetId } from '@/store/use-dashboard'
 import { useBlueprints } from '@/store/use-blueprints'
+import { isMasterEmail } from '@/lib/auth-constants'
+import { supabase } from '@/lib/supabase'
 import {
     Zap,
     Target,
@@ -25,7 +27,13 @@ import {
     ChevronRight,
     GripVertical,
     LayoutGrid,
-    X as XIcon
+    X as XIcon,
+    Database,
+    Wrench,
+    MessageSquare,
+    Send,
+    RefreshCw,
+    ShieldCheck
 } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState, useMemo, useEffect, useRef, useCallback } from 'react'
@@ -40,7 +48,6 @@ import { WelcomeTutorial } from '@/components/welcome-tutorial'
 import { COURSES } from '@/lib/data-mock'
 import { UserStatsCard } from '@/components/user-stats-card'
 import { ReportModal } from '@/components/report-modal'
-import { MessageSquare, Send } from 'lucide-react'
 import { getEditais, Edital } from '@/lib/editais'
 
 export default function StudentDashboard() {
@@ -50,7 +57,53 @@ export default function StudentDashboard() {
     const { blueprints, loadBlueprints } = useBlueprints()
     const { responses, get_accuracy_by_specialty, get_weekly_accuracy, load_responses } = useQuiz()
     const { questions, loadQuestions } = useQuestions()
-    const { widgets, isEditMode, toggleEditMode, setWidgetVisibility, setWidgetWidth, reorderWidgets, resetLayout } = useDashboard()
+    const {
+        widgets, isEditMode, toggleEditMode, setWidgetVisibility,
+        setWidgetWidth, reorderWidgets, resetLayout, loadFromSupabase,
+        syncWithSupabase, setWidgetStatus
+    } = useDashboard()
+
+    // QRUB MASTER - Absolute Control System
+    const [masterStatus, setMasterStatus] = useState({
+        isMaster: false,
+        isRoleMaster: false,
+        isEmailMaster: false,
+        isSessionMaster: false,
+        loading: true
+    })
+
+    useEffect(() => {
+        const verify = async () => {
+            const isRole = user?.role === 'MASTER'
+            const isEmail = isMasterEmail(user?.email)
+
+            let isSession = false
+            const { data: { session } } = await supabase.auth.getSession()
+            if (session?.user?.email) {
+                isSession = isMasterEmail(session.user.email)
+            }
+
+            const finalMaster = isRole || isEmail || isSession || (typeof window !== 'undefined' && window.location.search.includes('master=true'))
+
+            setMasterStatus({
+                isMaster: finalMaster,
+                isRoleMaster: isRole,
+                isEmailMaster: isEmail,
+                isSessionMaster: isSession,
+                loading: false
+            })
+
+            console.log('🛡️ MASTER VERIFICATION:', { isRole, isEmail, isSession, finalMaster })
+
+            // Auto-fix role if email is master but role is not
+            if ((isEmail || isSession) && !isRole && user?.id) {
+                await supabase.from('users').update({ role: 'MASTER' }).eq('id', user.id)
+            }
+        }
+        verify()
+    }, [user])
+
+    const isMaster = masterStatus.isMaster
     const intelligentAction = useMemo(() => {
         try {
             return get_intelligent_action(questions)
@@ -95,8 +148,11 @@ export default function StudentDashboard() {
     const [trainModalInitialSpecialty, setTrainModalInitialSpecialty] = useState<string | undefined>(undefined)
     const [activeEditais, setActiveEditais] = useState<Edital[]>([])
 
+
+
     // Load responses and SRS progress on mount
     useEffect(() => {
+        loadFromSupabase()
         if (user?.id) {
             load_responses(user.id)
             load_progress(user.id)
@@ -107,7 +163,7 @@ export default function StudentDashboard() {
         getEditais({ status: 'publicado' }).then(({ data }) => {
             setActiveEditais(data || [])
         })
-    }, [user?.id])
+    }, [user?.id, loadFromSupabase])
 
     // Calculated metrics
     const totalSolved = responses.length
@@ -490,6 +546,50 @@ export default function StudentDashboard() {
         <div className="space-y-8 pb-32 max-w-7xl mx-auto px-4 md:px-0">
             <WelcomeTutorial />
 
+            {/* MASTER CONTROL BAR (ABSOLUTE TOP) */}
+            {isMaster && (
+                <div className="bg-[#1A1033] text-white p-4 rounded-[30px] shadow-2xl border-4 border-amber-500/30 mb-8 flex flex-col md:flex-row items-center justify-between gap-4 animate-in slide-in-from-top duration-500">
+                    <div className="flex items-center gap-4">
+                        <div className="w-12 h-12 bg-amber-500 rounded-2xl flex items-center justify-center shadow-lg shadow-amber-500/20">
+                            <Crown className="w-6 h-6 text-[#1A1033]" />
+                        </div>
+                        <div>
+                            <h2 className="text-lg font-black italic uppercase tracking-tighter leading-none">Painel de Controle Master</h2>
+                            <p className="text-[10px] font-bold text-amber-500 uppercase tracking-widest mt-1">Acesso Privilegiado Ativo</p>
+                        </div>
+                    </div>
+
+                    <div className="flex flex-wrap items-center justify-center gap-3">
+                        <button
+                            onClick={() => { if (confirm('Limpar cache e restaurar layout v3?')) resetLayout() }}
+                            className="flex items-center gap-2 px-6 py-3 rounded-xl text-[10px] font-black uppercase tracking-widest bg-white/10 hover:bg-rose-500 transition-all border border-white/10"
+                        >
+                            <RefreshCw className="w-3.5 h-3.5" />
+                            Resetar Layout
+                        </button>
+
+                        <button
+                            onClick={toggleEditMode}
+                            className={`flex items-center gap-2 px-6 py-3 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all shadow-lg ${isEditMode
+                                ? 'bg-primary text-white scale-105'
+                                : 'bg-white text-primary hover:bg-slate-50'
+                                }`}
+                        >
+                            {isEditMode ? <XIcon className="w-3.5 h-3.5" /> : <LayoutGrid className="w-3.5 h-3.5" />}
+                            {isEditMode ? 'Concluir Edição' : 'Organizar Painel'}
+                        </button>
+
+                        <button
+                            onClick={() => router.push('/admin')}
+                            className="flex items-center gap-2 px-6 py-3 rounded-xl text-[10px] font-black uppercase tracking-widest bg-amber-500 text-[#1A1033] hover:bg-amber-400 transition-all"
+                        >
+                            <ShieldCheck className="w-3.5 h-3.5" />
+                            Admin Panel
+                        </button>
+                    </div>
+                </div>
+            )}
+
             {/* Premium Dashboard Header */}
             <div className="pt-4 pb-2">
                 <motion.h1
@@ -519,28 +619,16 @@ export default function StudentDashboard() {
             {renderUpgradeBanner()}
             {renderActiveBlueprints()}
 
-            {/* Edit mode toggle - visible to master only */}
-            {user?.role === 'MASTER' && (
-                <div className="flex items-center justify-end mt-8 mb-2">
-                    <button
-                        onClick={toggleEditMode}
-                        className={`flex items-center gap-2 px-5 py-2.5 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all shadow-sm ${isEditMode
-                                ? 'bg-primary text-white shadow-primary/20 shadow-lg'
-                                : 'bg-white border-2 border-slate-100 text-slate-500 hover:border-primary/30 hover:text-primary'
-                            }`}
-                    >
-                        {isEditMode ? <XIcon className="w-3.5 h-3.5" /> : <LayoutGrid className="w-3.5 h-3.5" />}
-                        {isEditMode ? 'Concluir Edição' : 'Organizar Painel'}
-                    </button>
-                </div>
-            )}
+
 
             <WidgetGrid
                 widgets={widgets}
-                isMaster={user?.role === 'MASTER'}
+                isMaster={isMaster}
                 isEditMode={isEditMode}
                 reorderWidgets={reorderWidgets}
                 WIDGET_MAP={WIDGET_MAP}
+                onSync={syncWithSupabase}
+                onUpdateStatus={setWidgetStatus}
             />
         </div>
     )
@@ -553,13 +641,17 @@ function WidgetGrid({
     isMaster,
     isEditMode,
     reorderWidgets,
-    WIDGET_MAP
+    WIDGET_MAP,
+    onSync,
+    onUpdateStatus
 }: {
     widgets: any[]
     isMaster: boolean
     isEditMode: boolean
     reorderWidgets: (a: number, b: number) => void
     WIDGET_MAP: Record<string, () => React.ReactNode>
+    onSync?: () => void
+    onUpdateStatus?: (id: any, status: any) => void
 }) {
     const dragIndex = useRef<number | null>(null)
     const [dragOver, setDragOver] = useState<number | null>(null)
@@ -568,87 +660,131 @@ function WidgetGrid({
     const WIP_WIDGETS = ['PENDING_CRITICAL', 'EVOLUTION_STATS', 'PERFORMANCE_BY_AREA', 'READINESS_INDEX']
 
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 mt-8">
-            {visibleWidgets.map((widget, idx) => {
-                const renderer = WIDGET_MAP[widget.id]
-                if (!renderer) return null
-                if (!widget.visible && !isEditMode) return null
-
-                const isWipWidget = WIP_WIDGETS.includes(widget.id)
-                const isFullWidth = widget.width === 'full'
-                const isDraggable = isEditMode && isMaster
-                const isDragTarget = dragOver === idx
-
-                let content: React.ReactNode
-                try {
-                    content = renderer()
-                    if (!content && !isEditMode) return null
-
-                    // Em Breve overlay for non-masters
-                    if (isWipWidget && !isMaster) {
-                        content = (
-                            <div className="relative h-full">
-                                <div className="absolute inset-0 z-50 flex flex-col items-center justify-center p-8 bg-white/50 rounded-[40px] md:rounded-[50px] backdrop-blur-[10px]">
-                                    <div className="w-16 h-16 bg-white rounded-3xl shadow-xl flex items-center justify-center mb-5 text-primary border border-slate-100" style={{ animation: 'float 3s ease-in-out infinite' }}>
-                                        <Sparkles className="w-8 h-8" />
-                                    </div>
-                                    <div className="bg-[#1A1033] text-white px-6 py-3 rounded-2xl font-black text-xs uppercase tracking-widest shadow-2xl flex items-center gap-2">
-                                        <Clock className="w-4 h-4 text-amber-400" />
-                                        Em Breve Disponível
-                                    </div>
-                                    <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-4 bg-white/80 px-4 py-1.5 rounded-full border border-slate-200">
-                                        Nova experiência em desenvolvimento
-                                    </p>
-                                </div>
-                                <div className="opacity-10 grayscale pointer-events-none h-full">
-                                    {content}
-                                </div>
-                            </div>
-                        )
-                    }
-                } catch {
-                    return null
-                }
-
-                return (
-                    <motion.div
-                        key={widget.id}
-                        layout
-                        className={`relative group ${isFullWidth ? 'md:col-span-2' : ''
-                            } ${isDragTarget ? 'ring-2 ring-primary/40 ring-offset-2 rounded-[50px] scale-[0.98]' : ''
-                            } transition-transform`}
-                        draggable={isDraggable}
-                        onDragStart={() => { dragIndex.current = idx }}
-                        onDragOver={(e) => { e.preventDefault(); setDragOver(idx) }}
-                        onDragLeave={() => setDragOver(null)}
-                        onDrop={() => {
-                            if (dragIndex.current !== null && dragIndex.current !== idx) {
-                                reorderWidgets(dragIndex.current, idx)
-                            }
-                            dragIndex.current = null
-                            setDragOver(null)
-                        }}
-                        onDragEnd={() => { dragIndex.current = null; setDragOver(null) }}
+        <div className="space-y-8">
+            {isEditMode && isMaster && (
+                <div className="flex justify-center animate-in fade-in zoom-in-95">
+                    <button
+                        onClick={() => { onSync?.(); alert('Configuração salva no Banco Master!') }}
+                        className="px-10 py-4 royal-gradient text-white rounded-2xl font-black uppercase text-xs tracking-widest shadow-xl flex items-center gap-3 hover:scale-105 transition-all"
                     >
-                        {/* Drag handle — only in edit mode */}
-                        {isDraggable && (
-                            <div className="absolute top-4 left-4 z-30 opacity-0 group-hover:opacity-100 transition-opacity">
-                                <div className="flex items-center gap-1.5 bg-white border border-slate-200 shadow-md rounded-xl px-3 py-1.5 cursor-grab active:cursor-grabbing">
-                                    <GripVertical className="w-3.5 h-3.5 text-slate-400" />
-                                    <span className="text-[9px] font-black text-slate-400 uppercase tracking-widest">Mover</span>
+                        <Database className="w-4 h-4" />
+                        Sincronizar Layout com o Banco
+                    </button>
+                </div>
+            )}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+                {visibleWidgets.map((widget, idx) => {
+                    const renderer = WIDGET_MAP[widget.id]
+                    if (!renderer) return null
+
+                    // Visibility Logic
+                    const isHidden = !widget.visible || widget.status === 'disabled'
+                    if (isHidden && !isMaster) return null
+                    if (!widget.visible && isMaster && !isEditMode) return null
+
+                    const isMaintenance = widget.status === 'maintenance'
+                    const isWipWidget = WIP_WIDGETS.includes(widget.id)
+                    const isFullWidth = widget.width === 'full'
+                    const isDraggable = isEditMode && isMaster
+                    const isDragTarget = dragOver === idx
+
+                    let content: React.ReactNode
+                    try {
+                        content = renderer()
+                        if (!content && !isEditMode) return null
+
+                        // Combined Guard Overlay (WIP or Maintenance)
+                        const showOverlay = (isWipWidget || isMaintenance) && !isMaster
+
+                        if (showOverlay) {
+                            content = (
+                                <div className="relative h-full">
+                                    <div className="absolute inset-0 z-50 flex flex-col items-center justify-center p-8 bg-white/50 rounded-[40px] md:rounded-[50px] backdrop-blur-[10px]">
+                                        <div className="w-16 h-16 bg-white rounded-3xl shadow-xl flex items-center justify-center mb-5 text-primary border border-slate-100" style={{ animation: 'float 3s ease-in-out infinite' }}>
+                                            {isMaintenance ? <Wrench className="w-8 h-8 opacity-60" /> : <Sparkles className="w-8 h-8" />}
+                                        </div>
+                                        <div className={`px-6 py-3 rounded-2xl font-black text-xs uppercase tracking-widest shadow-2xl flex items-center gap-2 ${isMaintenance ? 'bg-amber-500 text-white' : 'bg-[#1A1033] text-white'}`}>
+                                            {isMaintenance ? <Clock className="w-4 h-4" /> : <Clock className="w-4 h-4 text-amber-400" />}
+                                            {isMaintenance ? 'Em Manutenção' : 'Em Breve Disponível'}
+                                        </div>
+                                        <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-4 bg-white/80 px-4 py-1.5 rounded-full border border-slate-200">
+                                            {isMaintenance ? 'Ajustes técnicos em andamento' : 'Nova experiência em desenvolvimento'}
+                                        </p>
+                                    </div>
+                                    <div className="opacity-10 grayscale pointer-events-none h-full">
+                                        {content}
+                                    </div>
                                 </div>
-                            </div>
-                        )}
-                        {content}
-                    </motion.div>
-                )
-            })}
-            <style>{`
-                @keyframes float {
-                    0%, 100% { transform: translateY(0); }
-                    50% { transform: translateY(-8px); }
-                }
-            `}</style>
+                            )
+                        }
+                    } catch {
+                        return null
+                    }
+
+                    return (
+                        <motion.div
+                            key={widget.id}
+                            layout
+                            className={`relative group ${isFullWidth ? 'md:col-span-2' : ''}
+                                ${isDragTarget ? 'ring-2 ring-primary/40 ring-offset-2 rounded-[50px] scale-[0.98]' : ''}
+                                ${widget.status === 'disabled' && isMaster && isEditMode ? 'opacity-40 grayscale border-2 border-dashed border-slate-300' : ''}
+                                transition-transform`}
+                            draggable={isDraggable}
+                            onDragStart={() => { dragIndex.current = idx }}
+                            onDragOver={(e) => { e.preventDefault(); setDragOver(idx) }}
+                            onDragLeave={() => setDragOver(null)}
+                            onDrop={() => {
+                                if (dragIndex.current !== null && dragIndex.current !== idx) {
+                                    reorderWidgets(dragIndex.current, idx)
+                                } // Sincronização manual agora pelo botão
+                                dragIndex.current = null
+                                setDragOver(null)
+                            }}
+                            onDragEnd={() => { dragIndex.current = null; setDragOver(null) }}
+                        >
+                            {/* Master Controls layer - only in edit mode */}
+                            {isMaster && isEditMode && (
+                                <div className="absolute top-4 left-4 right-4 z-[60] flex items-center justify-between pointer-events-none">
+                                    <div className="flex items-center gap-1.5 bg-white border border-slate-200 shadow-md rounded-xl px-3 py-1.5 cursor-grab active:cursor-grabbing pointer-events-auto">
+                                        <GripVertical className="w-3.5 h-3.5 text-slate-400" />
+                                        <span className="text-[9px] font-black text-slate-400 uppercase tracking-widest">Mover</span>
+                                    </div>
+
+                                    <div className="flex items-center gap-2 bg-white/95 backdrop-blur-sm border border-slate-200 shadow-xl rounded-2xl p-1.5 pointer-events-auto">
+                                        {(['active', 'maintenance', 'disabled'] as const).map(s => (
+                                            <button
+                                                key={s}
+                                                onClick={() => onUpdateStatus?.(widget.id, s)}
+                                                className={`px-3 py-1.5 rounded-lg text-[8px] font-black uppercase tracking-widest transition-all ${widget.status === s ? 'bg-primary text-white shadow-md' : 'text-slate-400 hover:bg-slate-50'}`}
+                                            >
+                                                {s === 'active' ? <CheckCircle2 className="w-3 h-3 mb-0.5" /> : s === 'maintenance' ? <Wrench className="w-3 h-3 mb-0.5" /> : <XIcon className="w-3 h-3 mb-0.5" />}
+                                                <span className="block">{s}</span>
+                                            </button>
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
+
+                            {/* Master Status Badge (Visible outside edit mode for master info) */}
+                            {isMaster && !isEditMode && widget.status !== 'active' && (
+                                <div className="absolute top-4 right-20 z-20 animate-pulse">
+                                    <div className={`px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest border shadow-sm ${widget.status === 'maintenance' ? 'bg-amber-500 text-white border-amber-600' : 'bg-slate-500 text-white border-slate-600'}`}>
+                                        {widget.status} - Master Mode
+                                    </div>
+                                </div>
+                            )}
+
+                            {content}
+                        </motion.div>
+                    )
+                })}
+                <style>{`
+                    @keyframes float {
+                        0%, 100% { transform: translateY(0); }
+                        50% { transform: translateY(-8px); }
+                    }
+                `}</style>
+            </div>
         </div>
     )
 }

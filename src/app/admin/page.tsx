@@ -28,6 +28,7 @@ import * as XLSX from 'xlsx'
 import { useSystem } from '@/store/use-system'
 import { generateStructuralQuestion } from '@/lib/generators/structural-engine'
 import { MEDICAL_LIBRARY } from '@/lib/generators/medical-library'
+import AdminPackagesManager from '@/components/admin-packages-manager'
 import { MEDICAL_HIERARCHY } from '@/lib/medical-specialties'
 import { QuestionPreviewModal } from '@/components/question-preview-modal'
 import { QuestionsBreakdownModal } from '@/components/questions-breakdown-modal'
@@ -49,7 +50,7 @@ export default function AdminDashboard() {
     const { createTicket, sendMessage, tickets, fetchTickets } = useSupport()
 
     // QRUB MASTER - Structural State
-    const [view, setViewInternal] = useState<'questions' | 'users' | 'analytics' | 'reports' | 'import' | 'structural' | 'validation' | 'settings' | 'taxonomy'>('analytics')
+    const [view, setViewInternal] = useState<'questions' | 'users' | 'analytics' | 'reports' | 'import' | 'structural' | 'validation' | 'settings' | 'taxonomy' | 'packages'>('analytics')
     const { isMaintenanceMode, maintenanceMessage, setMaintenanceMode, openaiApiKey, setOpenaiApiKey } = useSystem()
     const [generationMode, setGenerationMode] = useState<'structural' | 'ai'>('structural')
     const [generationQuantity, setGenerationQuantity] = useState(1)
@@ -60,7 +61,7 @@ export default function AdminDashboard() {
     const [previewQuestion, setPreviewQuestion] = useState<Question | null>(null)
     useEffect(() => {
         const tab = searchParams.get('tab')
-        if (tab && ['analytics', 'questions', 'users', 'reports', 'import', 'structural', 'validation', 'settings', 'taxonomy'].includes(tab)) {
+        if (tab && ['analytics', 'questions', 'users', 'reports', 'import', 'structural', 'validation', 'settings', 'taxonomy', 'packages'].includes(tab)) {
             setViewInternal(tab as any)
         }
     }, [searchParams])
@@ -85,7 +86,7 @@ export default function AdminDashboard() {
 
     useEffect(() => {
         const tab = searchParams.get('tab')
-        if (tab && ['questions', 'users', 'analytics', 'reports', 'import', 'structural', 'validation', 'settings', 'taxonomy'].includes(tab)) {
+        if (tab && ['questions', 'users', 'analytics', 'reports', 'import', 'structural', 'validation', 'settings', 'taxonomy', 'packages'].includes(tab)) {
             setViewInternal(tab as any)
         } else if (!tab) {
             setViewInternal('analytics')
@@ -2328,6 +2329,7 @@ Obrigado por nos ajudar a melhorar o QRub! 🚀`
                         <NavBtn active={view === 'questions'} onClick={() => setView('questions')} icon={<Database className="w-4 h-4" />} label="Banco" />
                         <NavBtn active={view === 'validation'} onClick={() => setView('validation')} icon={<ShieldCheck className="w-4 h-4" />} label="Validação" />
                         <NavBtn active={view === 'structural'} onClick={() => setView('structural')} icon={<Sparkles className="w-4 h-4" />} label="Gerador IA" />
+                        <NavBtn active={view === 'packages'} onClick={() => setView('packages')} icon={<Package className="w-4 h-4" />} label="Pacotes" />
                         <div className="w-px h-4 bg-slate-200 mx-1" />
                         <NavBtn active={view === 'import'} onClick={() => setView('import')} icon={<Upload className="w-4 h-4" />} label="Importador" />
                         <NavBtn active={view === 'reports'} onClick={() => setView('reports')} icon={<AlertCircle className="w-4 h-4" />} label="Regulação" />
@@ -2341,6 +2343,11 @@ Obrigado por nos ajudar a melhorar o QRub! 🚀`
 
             {/* View Content */}
             <AnimatePresence mode="wait">
+                {view === 'packages' && (
+                    <motion.div key="pkg" initial={{ opacity: 0, scale: 0.98 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.98 }} className="space-y-6">
+                        <AdminPackagesManager />
+                    </motion.div>
+                )}
                 {view === 'questions' && (
                     <motion.div key="q" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} className="space-y-6">
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -2758,7 +2765,7 @@ Obrigado por nos ajudar a melhorar o QRub! 🚀`
                                         {reports.filter(r => r.status === 'pending').map(r => (
                                             <tr key={r.id} className={`hover:bg-muted/10 transition-colors group ${r.question_id === 'FEEDBACK_GERAL' ? 'bg-primary/5' : ''}`}>
                                                 <td
-                                                    className="px-8 py-6 cursor-pointer hover:bg-muted/5 transition-all rounded-l-xl"
+                                                    className="px-8 py-6 cursor-pointer hover:bg-muted/5 transition-all rounded-l-xl whitespace-nowrap"
                                                     onClick={async () => {
                                                         if (r.question_id === 'FEEDBACK_GERAL') return
                                                         const q = questions.find(qst => qst.id === r.question_id)
@@ -2781,7 +2788,7 @@ Obrigado por nos ajudar a melhorar o QRub! 🚀`
                                                     </div>
                                                     <div className="text-[8px] text-muted-foreground">{new Date(r.created_at).toLocaleString()}</div>
                                                 </td>
-                                                <td className="px-8 py-6">
+                                                <td className="px-8 py-6 whitespace-nowrap">
                                                     <span className={`px-2 py-1 rounded text-[8px] font-black uppercase ${r.type === 'SUGESTÃO' ? 'bg-emerald-500/10 text-emerald-500' :
                                                         r.type === 'DÚVIDA' ? 'bg-amber-500/10 text-amber-500' :
                                                             'bg-rose-500/10 text-rose-500'
@@ -2806,7 +2813,7 @@ Obrigado por nos ajudar a melhorar o QRub! 🚀`
                                                         {r.question_id !== 'FEEDBACK_GERAL' && <Eye className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-all" />}
                                                     </div>
                                                 </td>
-                                                <td className="px-8 py-6 text-right rounded-r-xl">
+                                                <td className="px-8 py-6 text-right rounded-r-xl whitespace-nowrap">
                                                     <div className="flex justify-end gap-2">
                                                         {r.question_id !== 'FEEDBACK_GERAL' && (
                                                             <>

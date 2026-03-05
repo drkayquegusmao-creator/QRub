@@ -793,9 +793,9 @@ function TelaQuestao({
             exit={{ opacity: 0, x: -20 }}
             className="space-y-6 sm:space-y-8 max-w-3xl mx-auto w-full"
         >
-            <div className="prose prose-lg max-w-none">
+            <div className="prose prose-lg max-w-none dark:prose-invert">
                 <QuestionText
-                    className="text-[#1A1033] font-black italic uppercase leading-tight tracking-tighter"
+                    className="text-[#1A1033] dark:text-white font-black italic uppercase leading-tight tracking-tighter"
                     style={{ fontSize: `${fontSize * 1.3}px` }}
                 >
                     {questao.enunciado}
@@ -803,7 +803,7 @@ function TelaQuestao({
 
                 {questao.comando && (
                     <QuestionText
-                        className="mt-4 text-[#1A1033] font-bold"
+                        className="mt-4 text-[#1A1033] dark:text-white font-bold"
                         style={{ fontSize: `${fontSize * 1.1}px` }}
                     >
                         {questao.comando}
@@ -821,20 +821,20 @@ function TelaQuestao({
                         key={option.id}
                         onClick={() => onSelecionarResposta(option.id)}
                         className={`w-full text-left p-6 rounded-2xl border-2 transition-all flex items-start gap-4 group ${respostaSelecionada === option.id
-                            ? 'border-primary bg-primary/5 shadow-xl shadow-primary/10'
-                            : 'border-slate-100 hover:border-primary/30 bg-white hover:bg-slate-50'
+                            ? 'border-primary bg-primary/5 dark:bg-primary/20 shadow-xl shadow-primary/10'
+                            : 'border-slate-100 dark:border-white/10 hover:border-primary/30 dark:hover:border-primary/50 bg-white dark:bg-white/5 hover:bg-slate-50 dark:hover:bg-white/10'
                             }`}
                     >
                         <div className={`w-10 h-10 rounded-xl flex items-center justify-center font-black text-sm flex-shrink-0 transition-colors ${respostaSelecionada === option.id
                             ? 'bg-primary text-white'
-                            : 'bg-slate-100 text-slate-400 group-hover:bg-primary/10 group-hover:text-primary'
+                            : 'bg-slate-100 dark:bg-white/10 text-slate-400 dark:text-white/40 group-hover:bg-primary/10 group-hover:text-primary dark:group-hover:text-primary'
                             }`}>
                             {option.id.toUpperCase()}
                         </div>
                         <QuestionText
                             className={`font-bold flex-1 pt-1 ${respostaSelecionada === option.id
                                 ? 'text-primary'
-                                : 'text-slate-600'
+                                : 'text-slate-600 dark:text-slate-300'
                                 }`}
                             style={{ fontSize: `${fontSize * 0.9}px` }}
                         >
@@ -853,8 +853,8 @@ function TelaQuestao({
                     onClick={onResponder}
                     disabled={!respostaSelecionada || finalizando}
                     className={`w-full flex items-center justify-center gap-3 py-5 rounded-2xl font-black uppercase text-sm tracking-[0.2em] transition-all ${respostaSelecionada && !finalizando
-                        ? 'bg-[#1A1033] text-white hover:scale-[1.02] active:scale-95 shadow-xl shadow-primary/20'
-                        : 'bg-slate-100 text-slate-300 cursor-not-allowed'
+                        ? 'bg-[#1A1033] dark:bg-primary text-white hover:scale-[1.02] active:scale-95 shadow-xl shadow-primary/20 bg-primary/20'
+                        : 'bg-slate-100 dark:bg-white/5 text-slate-300 dark:text-white/20 cursor-not-allowed'
                         }`}
                 >
                     {finalizando ? (
@@ -876,7 +876,7 @@ function TelaQuestao({
 
                 <button
                     onClick={onAbort}
-                    className="w-full mt-4 flex items-center justify-center gap-2 py-3 text-slate-400 hover:text-slate-600 font-bold uppercase text-xs tracking-[0.2em] transition-all"
+                    className="w-full mt-4 flex items-center justify-center gap-2 py-3 text-slate-400 dark:text-white/30 hover:text-slate-600 dark:hover:text-white/60 font-bold uppercase text-xs tracking-[0.2em] transition-all"
                 >
                     <XCircle className="w-4 h-4" />
                     Interromper e Voltar

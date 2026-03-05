@@ -255,20 +255,55 @@ function resolveTaxonomyFromPath(path: string, taxonomyNodes: any[]) {
             n.level === level &&
             (n.name.toLowerCase() === name.toLowerCase() || n.slug.toLowerCase() === name.toLowerCase())
         )
-        return node ? node.slug : slugify(name)
+        if (node) return node.slug
+
+        // Fuzzy match: if name contains abbreviation like (TEP)
+        const abbreviationMatch = name.match(/\(([^)]+)\)/)
+        if (abbreviationMatch) {
+            const abbr = abbreviationMatch[1].toLowerCase()
+            const fuzzyNode = taxonomyNodes.find(n =>
+                n.level === level &&
+                (n.slug.toLowerCase().includes(abbr) || n.name.toLowerCase().includes(abbr))
+            )
+            if (fuzzyNode) return fuzzyNode.slug
+        }
+
+        // Special Mapping for Clínica Médica specialties that are slugs
+        if (name.toLowerCase() === 'pneumologia') return 'pneumologia'
+        if (name.toLowerCase() === 'cardiologia') return 'cardiologia'
+        if (name.toLowerCase() === 'endocrinologia') return 'endocrinologia'
+
+        return slugify(name)
     }
 
-    const specialty_slug = parts[1] ? findNodeSlug(parts[1], 'specialty') : null
-    const subspecialty_slug = parts[2] ? findNodeSlug(parts[2], 'subspecialty') : null
-    const subject_slug = parts[3] ? findNodeSlug(parts[3], 'subject') : subspecialty_slug
+    const specialty_name = parts[1] || null
+    const subspecialty_name = parts[2] || null
+    const subject_name = parts[3] || null
+
+    const specialty_slug = specialty_name ? findNodeSlug(specialty_name, 'specialty') : null
+    const subspecialty_slug = subspecialty_name ? findNodeSlug(subspecialty_name, 'subspecialty') : null
+
+    // Explicit TEP handling to prevent generic names in subject_id
+    let subject_slug = subject_name ? findNodeSlug(subject_name, 'subject') : subspecialty_slug
+    if (subject_name?.includes('TEP')) {
+        subject_slug = 'CM-PNEUMO-TEP'
+    }
+
+    // Standardize IDs for Clínica Médica sub-areas that are stored as specialties in the DB
+    let final_spec = specialty_slug
+    const MAPPED_SUBS = ['pneumologia', 'cardiologia', 'endocrinologia', 'gastroenterologia', 'nefrologia', 'hematologia', 'infectologia', 'neurologia', 'reumatologia']
+
+    if (subspecialty_slug && MAPPED_SUBS.includes(subspecialty_slug)) {
+        final_spec = subspecialty_slug
+    }
 
     return {
         course_id: 'medicina',
-        specialty_id: specialty_slug,
-        subspecialty_id: subspecialty_slug,
+        specialty_id: final_spec,
+        subspecialty_id: subspecialty_slug || final_spec,
         subject_id: subject_slug,
-        area_id: specialty_slug,
-        subarea_id: subspecialty_slug,
+        area_id: final_spec,
+        subarea_id: subspecialty_slug || final_spec,
         tema_id: subject_slug
     }
 }
