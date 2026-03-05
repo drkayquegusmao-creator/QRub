@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server'
 import { createClient } from '@supabase/supabase-js'
-import { cookies } from 'next/headers'
 
 export async function POST(
     request: Request,
@@ -9,53 +8,52 @@ export async function POST(
     try {
         const { packageId } = await params
 
-        // 1) Auth via anon client (reads session cookie)
-        const cookieStore = await cookies()
-        const cookieHeader = cookieStore.getAll()
-            .map(c => `${c.name}=${c.value}`)
-            .join('; ')
+        // 1) Auth via Bearer token from Authorization header
+        const authHeader = request.headers.get('Authorization') || ''
+        const token = authHeader.replace('Bearer ', '').trim()
 
-        const supabaseAnon = createClient(
-            process.env.NEXT_PUBLIC_SUPABASE_URL!,
-            process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-            {
-                global: {
-                    headers: { Cookie: cookieHeader }
-                }
-            }
-        )
-
-        const { data: { user }, error: authErr } = await supabaseAnon.auth.getUser()
-        if (authErr || !user) {
+        if (!token) {
             return NextResponse.json({ error: 'Nao autenticado' }, { status: 401 })
         }
 
-        // 2) Admin client (bypasses RLS)
+        // 2) Admin client (bypasses RLS) — used for all DB operations
         const supabaseAdmin = createClient(
             process.env.NEXT_PUBLIC_SUPABASE_URL!,
             process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
         )
 
-        // 3) Verify admin role
-        const { data: profile } = await supabaseAdmin
-            .from('profiles')
+        // Verify token by calling getUser with the access token
+        const supabaseWithToken = createClient(
+            process.env.NEXT_PUBLIC_SUPABASE_URL!,
+            process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+            { global: { headers: { Authorization: `Bearer ${token}` } } }
+        )
+        const { data: { user }, error: authErr } = await supabaseWithToken.auth.getUser()
+        if (authErr || !user) {
+            return NextResponse.json({ error: 'Nao autenticado' }, { status: 401 })
+        }
+
+        // 3) Verify admin role — use supabaseWithToken to ensure we can read our own record if SERVICE_ROLE is missing
+        const { data: profile } = await supabaseWithToken
+            .from('users')
             .select('role')
             .eq('id', user.id)
             .single()
 
-        if (!profile || !['MASTER', 'ADMIN', 'ADMIN_MASTER'].includes(profile.role)) {
+        if (!profile || !['MASTER', 'ADMIN', 'ADMIN_MASTER', 'master', 'admin'].includes(profile.role)) {
             return NextResponse.json({ error: 'Acesso restrito a administradores' }, { status: 403 })
         }
 
+
         // 4) Load package
-        const { data: pkg, error: pkgErr } = await supabaseAdmin
+        const { data: pkg, error: pkgErr } = await supabaseWithToken
             .from('question_packages')
             .select('*')
             .eq('id', packageId)
             .single()
 
         if (pkgErr || !pkg) {
-            return NextResponse.json({ error: 'Pacote nao encontrado' }, { status: 404 })
+            return NextResponse.json({ error: 'Pacote nao encontrado', dbError: pkgErr?.message }, { status: 404 })
         }
 
         if (pkg.status === 'archived') {
@@ -66,20 +64,20 @@ export async function POST(
         if ((pkg as any).publishing_at) {
             return NextResponse.json({ error: 'Publicacao ja em andamento. Aguarde.' }, { status: 423 })
         }
-        await supabaseAdmin
+        await supabaseWithToken
             .from('question_packages')
             .update({ publishing_at: new Date().toISOString() })
             .eq('id', packageId)
 
         // 6) Load all package questions
-        const { data: pkgQuestions } = await supabaseAdmin
+        const { data: pkgQuestions } = await supabaseWithToken
             .from('package_questions')
             .select('*')
             .eq('package_id', packageId)
             .order('order_index')
 
         if (!pkgQuestions || pkgQuestions.length === 0) {
-            await unlockPackage(supabaseAdmin, packageId)
+            await unlockPackage(supabaseWithToken, packageId)
             return NextResponse.json({ error: 'Nenhuma questao no pacote' }, { status: 400 })
         }
 
@@ -95,7 +93,7 @@ export async function POST(
         }
 
         if (validationErrors.length > 0) {
-            await unlockPackage(supabaseAdmin, packageId)
+            await unlockPackage(supabaseWithToken, packageId)
             return NextResponse.json({
                 error: 'Validacao falhou. Reprocesse o pacote antes de publicar.',
                 details: validationErrors
@@ -103,8 +101,15 @@ export async function POST(
         }
 
         // 8) Resolve taxonomy + bank name
-        const bankName = await getBankName(supabaseAdmin, pkg.bank_id)
-        const txFields = resolveTaxonomyFromPath(pkg.taxonomy_path || '')
+        const bankName = await getBankName(supabaseWithToken, pkg.bank_id)
+
+        // Fetch taxonomy nodes for precise mapping
+        const { data: taxNodes } = await supabaseWithToken
+            .from('taxonomia')
+            .select('slug, name, level')
+            .eq('active', true)
+
+        const txFields = resolveTaxonomyFromPath(pkg.taxonomy_path || '', taxNodes || [])
 
         // 9) Upsert each question into questao_base
         let publishedCount = 0
@@ -113,26 +118,34 @@ export async function POST(
         for (let i = 0; i < pkgQuestions.length; i++) {
             const pq = pkgQuestions[i]
             try {
+                // Parse & normalize: support both English and Portuguese field names
                 const qj = typeof pq.question_json === 'string'
                     ? JSON.parse(pq.question_json)
                     : pq.question_json
 
+                const enunciado = qj.enunciado || qj.stem || qj.pergunta || ''
+                const answer = String(qj.answer || qj.gabarito || qj.resposta || qj.correct_answer || '').toLowerCase().trim()
+                const rationale = qj.rationale || qj.justificativa_gabarito || qj.justificativa_geral || qj.justificativa || qj.explanation || ''
+                const optionRationales = qj.option_rationales || qj.justificativas_alternativas || null
+                const rawOpts = qj.options || qj.alternativas || qj.alternatives || {}
+
                 // questao_base uses array [{id, text}] format for options
                 const optionsArray = ['a', 'b', 'c', 'd', 'e']
-                    .filter(k => qj.options?.[k])
-                    .map(k => ({ id: k, text: qj.options[k] }))
+                    .filter(k => rawOpts[k])
+                    .map(k => ({ id: k, text: rawOpts[k] }))
+
 
                 const questionId = pq.question_id || generateShortId()
 
-                const { error: upsertErr } = await supabaseAdmin
+                const { error: upsertErr } = await supabaseWithToken
                     .from('questao_base')
                     .upsert({
                         id: questionId,
-                        enunciado: qj.enunciado,
+                        enunciado: enunciado,
                         options: optionsArray,
-                        correct_option_id: qj.answer,
-                        explanation: qj.rationale,
-                        alternative_explanations: qj.option_rationales || null,
+                        correct_option_id: answer,
+                        explanation: rationale,
+                        alternative_explanations: optionRationales,
                         difficulty: qj.difficulty || pkg.difficulty || 'media',
                         hash: pq.hash_logico,
                         status: 'active',
@@ -155,7 +168,7 @@ export async function POST(
                 }
 
                 // Mark question as approved in the package
-                await supabaseAdmin
+                await supabaseWithToken
                     .from('package_questions')
                     .update({ status: 'approved', question_id: questionId })
                     .eq('id', pq.id)
@@ -167,7 +180,7 @@ export async function POST(
         }
 
         // 10) Update package status to approved
-        await supabaseAdmin
+        await supabaseWithToken
             .from('question_packages')
             .update({
                 status: 'approved',
@@ -178,7 +191,7 @@ export async function POST(
 
         // 11) Log (optional — table may not exist)
         try {
-            await supabaseAdmin.from('package_logs').insert({
+            await supabaseWithToken.from('package_logs').insert({
                 package_id: packageId,
                 action: publishedCount > 0 ? 'published' : 'publish_failed',
                 user_id: user.id,
@@ -208,16 +221,19 @@ export async function POST(
 
 function validateQuestionJson(qj: any, index: number): string[] {
     const errs: string[] = []
-    if (!qj?.enunciado || String(qj.enunciado).length < 10)
+    // Support both English and Portuguese field names
+    const enunciado = qj?.enunciado || qj?.stem || qj?.pergunta || ''
+    if (!enunciado || String(enunciado).length < 10)
         errs.push(`Q${index}: enunciado ausente ou muito curto`)
-    const opts = qj?.options || {}
+    const opts = qj?.options || qj?.alternativas || qj?.alternatives || {}
     const keys = Object.keys(opts).filter(k => ['a', 'b', 'c', 'd', 'e'].includes(k) && opts[k])
     if (keys.length < 4)
         errs.push(`Q${index}: apenas ${keys.length} alternativas (minimo 4)`)
-    const ans = String(qj?.answer || '').toLowerCase().trim()
+    const ans = String(qj?.answer || qj?.gabarito || qj?.resposta || '').toLowerCase().trim()
     if (!['a', 'b', 'c', 'd', 'e'].includes(ans))
         errs.push(`Q${index}: gabarito invalido ("${ans}")`)
-    if (!qj?.rationale || String(qj.rationale).length < 5)
+    const rationale = qj?.rationale || qj?.justificativa_gabarito || qj?.justificativa_geral || qj?.justificativa || qj?.explanation || ''
+    if (!rationale || String(rationale).length < 5)
         errs.push(`Q${index}: justificativa ausente`)
     return errs
 }
@@ -230,17 +246,42 @@ async function getBankName(supabase: any, bankId?: string): Promise<string> {
     } catch { return 'Geral' }
 }
 
-function resolveTaxonomyFromPath(path: string) {
+function resolveTaxonomyFromPath(path: string, taxonomyNodes: any[]) {
     const parts = path.split('>').map(p => p.trim()).filter(Boolean)
+
+    const findNodeSlug = (name: string, level: string) => {
+        if (!name) return null
+        const node = taxonomyNodes.find(n =>
+            n.level === level &&
+            (n.name.toLowerCase() === name.toLowerCase() || n.slug.toLowerCase() === name.toLowerCase())
+        )
+        return node ? node.slug : slugify(name)
+    }
+
+    const specialty_slug = parts[1] ? findNodeSlug(parts[1], 'specialty') : null
+    const subspecialty_slug = parts[2] ? findNodeSlug(parts[2], 'subspecialty') : null
+    const subject_slug = parts[3] ? findNodeSlug(parts[3], 'subject') : subspecialty_slug
+
     return {
         course_id: 'medicina',
-        specialty_id: parts[1] || null,
-        subspecialty_id: parts[2] || null,
-        subject_id: parts[3] || parts[2] || null,
-        area_id: parts[1] || null,
-        subarea_id: parts[2] || null,
-        tema_id: parts[3] || parts[2] || null
+        specialty_id: specialty_slug,
+        subspecialty_id: subspecialty_slug,
+        subject_id: subject_slug,
+        area_id: specialty_slug,
+        subarea_id: subspecialty_slug,
+        tema_id: subject_slug
     }
+}
+
+function slugify(text: string): string {
+    return text
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '') // remove accents
+        .replace(/[^\w\s-]/g, '') // remove non-alphanumeric
+        .replace(/\s+/g, '-') // spaces to hyphens
+        .replace(/-+/g, '-') // double hyphens
+        .trim()
 }
 
 async function unlockPackage(supabase: any, packageId: string) {

@@ -20,10 +20,15 @@ import {
     Sparkles,
     Crown,
     Activity,
-    Info
+    Info,
+    FileText,
+    ChevronRight,
+    GripVertical,
+    LayoutGrid,
+    X as XIcon
 } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { useState, useMemo, useEffect } from 'react'
+import { useState, useMemo, useEffect, useRef, useCallback } from 'react'
 import Link from 'next/link'
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 import { SRSDashboardWidget } from '@/components/srs-dashboard-widget'
@@ -36,6 +41,7 @@ import { COURSES } from '@/lib/data-mock'
 import { UserStatsCard } from '@/components/user-stats-card'
 import { ReportModal } from '@/components/report-modal'
 import { MessageSquare, Send } from 'lucide-react'
+import { getEditais, Edital } from '@/lib/editais'
 
 export default function StudentDashboard() {
     const router = useRouter()
@@ -87,6 +93,7 @@ export default function StudentDashboard() {
     const [showRankElite, setShowRankElite] = useState(false)
     const [showFeedbackModal, setShowFeedbackModal] = useState(false)
     const [trainModalInitialSpecialty, setTrainModalInitialSpecialty] = useState<string | undefined>(undefined)
+    const [activeEditais, setActiveEditais] = useState<Edital[]>([])
 
     // Load responses and SRS progress on mount
     useEffect(() => {
@@ -96,6 +103,10 @@ export default function StudentDashboard() {
         }
         loadBlueprints()
         loadQuestions() // Power Dr. QRub intelligence
+
+        getEditais({ status: 'publicado' }).then(({ data }) => {
+            setActiveEditais(data || [])
+        })
     }, [user?.id])
 
     // Calculated metrics
@@ -341,18 +352,18 @@ export default function StudentDashboard() {
     const renderEvolutionStats = () => {
         const evolutionData = get_weekly_accuracy().map(d => ({ name: d.day, val: d.accuracy }))
         return (
-            <div className="bg-white border-2 border-slate-100 rounded-[50px] p-10 md:p-14 soft-shadow h-full flex flex-col relative">
+            <div className="bg-white border-2 border-slate-100 rounded-[30px] p-6 md:p-8 soft-shadow flex flex-col h-full relative">
                 <InfoBubble text="Gráfico da sua precisão média dia a dia na última semana." />
-                <div className="flex items-center justify-between mb-10">
+                <div className="flex items-center justify-between mb-4">
                     <div className="space-y-1">
-                        <h3 className="text-2xl font-black italic uppercase tracking-tighter text-[#1A1033]">Evolução Global</h3>
-                        <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Precisão média nos últimos 7 dias</p>
+                        <h3 className="text-lg font-black italic uppercase tracking-tighter text-[#1A1033]">Evolução Global</h3>
+                        <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Últimos 7 dias</p>
                     </div>
-                    <div className="p-4 bg-emerald-500/10 rounded-2xl text-emerald-500">
-                        <TrendingUp className="w-6 h-6" />
+                    <div className="p-3 bg-emerald-500/10 rounded-xl text-emerald-500 shrink-0">
+                        <TrendingUp className="w-4 h-4" />
                     </div>
                 </div>
-                <div className="flex-1 w-full min-h-[250px]">
+                <div className="flex-1 w-full min-h-[140px] max-h-[160px]">
                     <ResponsiveContainer width="100%" height="100%">
                         <AreaChart data={evolutionData}>
                             <defs>
@@ -362,12 +373,50 @@ export default function StudentDashboard() {
                                 </linearGradient>
                             </defs>
                             <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="rgba(0,0,0,0.05)" />
-                            <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{ fontSize: 10, fontWeight: 700, fill: '#94A3B8' }} />
-                            <YAxis axisLine={false} tickLine={false} tick={{ fontSize: 10, fontWeight: 700, fill: '#94A3B8' }} domain={[0, 100]} />
-                            <Tooltip contentStyle={{ backgroundColor: '#1A1033', border: 'none', borderRadius: '15px', color: '#fff' }} />
-                            <Area type="monotone" dataKey="val" stroke="#8B5CF6" strokeWidth={4} fillOpacity={1} fill="url(#colorEvo)" />
+                            <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{ fontSize: 9, fontWeight: 700, fill: '#94A3B8' }} />
+                            <YAxis axisLine={false} tickLine={false} tick={{ fontSize: 9, fontWeight: 700, fill: '#94A3B8' }} domain={[0, 100]} width={25} />
+                            <Tooltip contentStyle={{ backgroundColor: '#1A1033', border: 'none', borderRadius: '10px', color: '#fff', fontSize: '10px' }} />
+                            <Area type="monotone" dataKey="val" stroke="#8B5CF6" strokeWidth={3} fillOpacity={1} fill="url(#colorEvo)" />
                         </AreaChart>
                     </ResponsiveContainer>
+                </div>
+            </div>
+        )
+    }
+
+    const renderActiveBlueprints = () => {
+        if (activeEditais.length === 0) return null
+
+        return (
+            <div className="space-y-6 mt-8">
+                <SectionHeader title="Editais Publicados" subtitle="Material exclusivo e focado" icon={<FileText className="w-5 h-5" />} />
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {activeEditais.map(edital => (
+                        <div key={edital.id} className="bg-white border-2 border-slate-100 p-6 rounded-[32px] soft-shadow hover:-translate-y-1 hover:border-primary/30 transition-all group flex flex-col justify-between">
+                            <div className="flex items-start justify-between gap-4">
+                                <div className="space-y-2">
+                                    <div className="flex items-center gap-2">
+                                        <div className="p-2 bg-primary/10 text-primary rounded-xl">
+                                            <FileText className="w-4 h-4" />
+                                        </div>
+                                        <span className="text-[10px] font-black uppercase tracking-widest text-primary">{edital.ano || new Date().getFullYear()}</span>
+                                    </div>
+                                    <h4 className="text-sm font-black italic uppercase tracking-tighter text-[#1A1033] leading-tight line-clamp-2">{edital.titulo}</h4>
+                                    <p className="text-xs font-bold text-slate-500 uppercase">{edital.banca || 'Banca Padrão'}</p>
+                                </div>
+                                <div className="text-[10px] font-black text-slate-400 uppercase tracking-widest shrink-0 text-right">
+                                    <p>{edital.total_questoes || 0}</p>
+                                    <p className="text-[8px]">Questões</p>
+                                </div>
+                            </div>
+                            <button
+                                onClick={() => router.push(`/dashboard/editais/${edital.slug || edital.id}`)}
+                                className="w-full mt-6 py-3 rounded-xl bg-slate-50 text-slate-600 font-black uppercase text-[10px] tracking-widest group-hover:bg-primary group-hover:text-white transition-all flex items-center justify-center gap-2"
+                            >
+                                Iniciar Preparação <ChevronRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+                            </button>
+                        </div>
+                    ))}
                 </div>
             </div>
         )
@@ -468,54 +517,138 @@ export default function StudentDashboard() {
             <ReportModal isOpen={showFeedbackModal} onClose={() => setShowFeedbackModal(false)} />
 
             {renderUpgradeBanner()}
+            {renderActiveBlueprints()}
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-                <AnimatePresence mode="popLayout">
-                    {widgets.filter(w => w.id !== 'UPGRADE_BANNER').map((widget) => {
-                        const renderer = WIDGET_MAP[widget.id]
-                        if (!renderer) return null
+            {/* Edit mode toggle - visible to master only */}
+            {user?.role === 'MASTER' && (
+                <div className="flex items-center justify-end mt-8 mb-2">
+                    <button
+                        onClick={toggleEditMode}
+                        className={`flex items-center gap-2 px-5 py-2.5 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all shadow-sm ${isEditMode
+                                ? 'bg-primary text-white shadow-primary/20 shadow-lg'
+                                : 'bg-white border-2 border-slate-100 text-slate-500 hover:border-primary/30 hover:text-primary'
+                            }`}
+                    >
+                        {isEditMode ? <XIcon className="w-3.5 h-3.5" /> : <LayoutGrid className="w-3.5 h-3.5" />}
+                        {isEditMode ? 'Concluir Edição' : 'Organizar Painel'}
+                    </button>
+                </div>
+            )}
 
-                        const isPendingCritical = widget.id === 'PENDING_CRITICAL'
-                        const isMaster = user?.role === 'MASTER'
+            <WidgetGrid
+                widgets={widgets}
+                isMaster={user?.role === 'MASTER'}
+                isEditMode={isEditMode}
+                reorderWidgets={reorderWidgets}
+                WIDGET_MAP={WIDGET_MAP}
+            />
+        </div>
+    )
+}
 
-                        // Hide entirely for non-master if it's the pending critical widget
-                        if (isPendingCritical && !isMaster) return null
+// ─── Drag-and-drop Widget Grid ───────────────────────────────────────────────
 
-                        try {
-                            let content = renderer()
-                            if (!content && !isEditMode) return null
-                            if (!widget.visible && !isEditMode) return null
+function WidgetGrid({
+    widgets,
+    isMaster,
+    isEditMode,
+    reorderWidgets,
+    WIDGET_MAP
+}: {
+    widgets: any[]
+    isMaster: boolean
+    isEditMode: boolean
+    reorderWidgets: (a: number, b: number) => void
+    WIDGET_MAP: Record<string, () => React.ReactNode>
+}) {
+    const dragIndex = useRef<number | null>(null)
+    const [dragOver, setDragOver] = useState<number | null>(null)
 
-                            // For Master, make it translucent and add a warning
-                            if (isPendingCritical && isMaster) {
-                                content = (
-                                    <div className="relative group/unstable">
-                                        <div className="absolute inset-0 z-50 flex items-center justify-center p-8 bg-background/5 rounded-[45px] backdrop-blur-[2px]">
-                                            <div className="bg-amber-500 text-white px-6 py-3 rounded-2xl font-black text-[10px] uppercase tracking-widest shadow-2xl border border-white/20 flex items-center gap-2 animate-bounce">
-                                                <Info className="w-4 h-4" />
-                                                Precisa ser ajustado esta função
-                                            </div>
-                                        </div>
-                                        <div className="opacity-20 grayscale pointer-events-none transition-all">
-                                            {content}
-                                        </div>
+    const visibleWidgets = widgets.filter(w => w.id !== 'UPGRADE_BANNER')
+    const WIP_WIDGETS = ['PENDING_CRITICAL', 'EVOLUTION_STATS', 'PERFORMANCE_BY_AREA', 'READINESS_INDEX']
+
+    return (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 mt-8">
+            {visibleWidgets.map((widget, idx) => {
+                const renderer = WIDGET_MAP[widget.id]
+                if (!renderer) return null
+                if (!widget.visible && !isEditMode) return null
+
+                const isWipWidget = WIP_WIDGETS.includes(widget.id)
+                const isFullWidth = widget.width === 'full'
+                const isDraggable = isEditMode && isMaster
+                const isDragTarget = dragOver === idx
+
+                let content: React.ReactNode
+                try {
+                    content = renderer()
+                    if (!content && !isEditMode) return null
+
+                    // Em Breve overlay for non-masters
+                    if (isWipWidget && !isMaster) {
+                        content = (
+                            <div className="relative h-full">
+                                <div className="absolute inset-0 z-50 flex flex-col items-center justify-center p-8 bg-white/50 rounded-[40px] md:rounded-[50px] backdrop-blur-[10px]">
+                                    <div className="w-16 h-16 bg-white rounded-3xl shadow-xl flex items-center justify-center mb-5 text-primary border border-slate-100" style={{ animation: 'float 3s ease-in-out infinite' }}>
+                                        <Sparkles className="w-8 h-8" />
                                     </div>
-                                )
-                            }
-
-                            const isFullWidth = widget.width === 'full'
-                            return (
-                                <motion.div key={widget.id} layout className={isFullWidth ? 'md:col-span-2' : ''}>
+                                    <div className="bg-[#1A1033] text-white px-6 py-3 rounded-2xl font-black text-xs uppercase tracking-widest shadow-2xl flex items-center gap-2">
+                                        <Clock className="w-4 h-4 text-amber-400" />
+                                        Em Breve Disponível
+                                    </div>
+                                    <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-4 bg-white/80 px-4 py-1.5 rounded-full border border-slate-200">
+                                        Nova experiência em desenvolvimento
+                                    </p>
+                                </div>
+                                <div className="opacity-10 grayscale pointer-events-none h-full">
                                     {content}
-                                </motion.div>
-                            )
-                        } catch (err) {
-                            console.error(`Error rendering widget ${widget.id}:`, err)
-                            return null
-                        }
-                    })}
-                </AnimatePresence>
-            </div>
+                                </div>
+                            </div>
+                        )
+                    }
+                } catch {
+                    return null
+                }
+
+                return (
+                    <motion.div
+                        key={widget.id}
+                        layout
+                        className={`relative group ${isFullWidth ? 'md:col-span-2' : ''
+                            } ${isDragTarget ? 'ring-2 ring-primary/40 ring-offset-2 rounded-[50px] scale-[0.98]' : ''
+                            } transition-transform`}
+                        draggable={isDraggable}
+                        onDragStart={() => { dragIndex.current = idx }}
+                        onDragOver={(e) => { e.preventDefault(); setDragOver(idx) }}
+                        onDragLeave={() => setDragOver(null)}
+                        onDrop={() => {
+                            if (dragIndex.current !== null && dragIndex.current !== idx) {
+                                reorderWidgets(dragIndex.current, idx)
+                            }
+                            dragIndex.current = null
+                            setDragOver(null)
+                        }}
+                        onDragEnd={() => { dragIndex.current = null; setDragOver(null) }}
+                    >
+                        {/* Drag handle — only in edit mode */}
+                        {isDraggable && (
+                            <div className="absolute top-4 left-4 z-30 opacity-0 group-hover:opacity-100 transition-opacity">
+                                <div className="flex items-center gap-1.5 bg-white border border-slate-200 shadow-md rounded-xl px-3 py-1.5 cursor-grab active:cursor-grabbing">
+                                    <GripVertical className="w-3.5 h-3.5 text-slate-400" />
+                                    <span className="text-[9px] font-black text-slate-400 uppercase tracking-widest">Mover</span>
+                                </div>
+                            </div>
+                        )}
+                        {content}
+                    </motion.div>
+                )
+            })}
+            <style>{`
+                @keyframes float {
+                    0%, 100% { transform: translateY(0); }
+                    50% { transform: translateY(-8px); }
+                }
+            `}</style>
         </div>
     )
 }

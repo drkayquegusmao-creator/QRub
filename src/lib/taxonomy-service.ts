@@ -59,9 +59,16 @@ export const fetchTaxonomyHierarchy = async (): Promise<HierarchyNode[]> => {
         if (n.parent_id && nodeMap.has(n.parent_id)) {
             const parent = nodeMap.get(n.parent_id)
 
-            if (n.level === 'specialty') parent.specialties.push(current)
-            else if (n.level === 'subspecialty') parent.subspecialties.push(current)
-            else if (n.level === 'subject') parent.subjects.push(current)
+            if (n.level === 'specialty') {
+                if (!parent.specialties) parent.specialties = []
+                parent.specialties.push(current)
+            } else if (n.level === 'subspecialty') {
+                if (!parent.subspecialties) parent.subspecialties = []
+                parent.subspecialties.push(current)
+            } else if (n.level === 'subject') {
+                if (!parent.subjects) parent.subjects = []
+                parent.subjects.push(current)
+            }
 
         } else if (n.level === 'course') {
             roots.push(current)

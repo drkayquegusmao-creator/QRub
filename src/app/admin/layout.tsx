@@ -3,7 +3,7 @@
 import { useAuth } from '@/store/use-auth'
 import { useRouter, usePathname, useSearchParams } from 'next/navigation'
 import { Suspense, useEffect, useState } from 'react'
-import { Shield, LayoutDashboard, Database, Settings, LogOut, Hexagon, DollarSign, ArrowLeft, MessageSquare, ClipboardCheck } from 'lucide-react'
+import { Shield, LayoutDashboard, Database, Settings, LogOut, Hexagon, DollarSign, ArrowLeft, MessageSquare, ClipboardCheck, Package, Users, BarChart3, Building2 } from 'lucide-react'
 import Link from 'next/link'
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
@@ -54,9 +54,18 @@ function AdminLayoutContent({ children }: { children: React.ReactNode }) {
                     <span className="text-xl font-black uppercase italic tracking-tighter">QRub Master</span>
                 </div>
 
-                <nav className="flex-1 flex flex-col gap-2">
-                    <AdminNavLink href="/admin?tab=analytics" icon={LayoutDashboard} label="Dashboard" active={isActive('/admin') && (!searchParams.get('tab') || searchParams.get('tab') === 'analytics')} />
+                <nav className="flex-1 flex flex-col gap-1 overflow-y-auto">
+                    <AdminNavLink href="/admin?tab=analytics" icon={BarChart3} label="Dashboard" active={isActive('/admin') && (!searchParams.get('tab') || searchParams.get('tab') === 'analytics')} />
                     <AdminNavLink href="/admin?tab=questions" icon={Database} label="Banco de Dados" active={isActive('/admin') && searchParams.get('tab') === 'questions'} />
+                    <AdminNavLink href="/admin?tab=users" icon={Users} label="Gestão de Alunos" active={isActive('/admin') && searchParams.get('tab') === 'users'} />
+
+                    <div className="h-px bg-border my-2 mx-4 opacity-50" />
+
+                    <AdminNavLink href="/admin/editais" icon={ClipboardCheck} label="Editais" active={isActive('/admin/editais')} />
+                    <AdminNavLink href="/admin/pacotes" icon={Package} label="Pacotes & Deploy" active={isActive('/admin/pacotes')} />
+                    <AdminNavLink href="/admin/bancas" icon={Building2} label="Bancas & Perfis" active={isActive('/admin/bancas')} />
+
+                    <div className="h-px bg-border my-2 mx-4 opacity-50" />
 
                     <AdminNavLink href="/admin/support" icon={MessageSquare} label="Suporte ao Aluno" active={isActive('/admin/support')} />
                     <AdminNavLink href="/admin/finance" icon={DollarSign} label="Faturamento e Planos" active={isActive('/admin/finance')} />
@@ -65,7 +74,7 @@ function AdminLayoutContent({ children }: { children: React.ReactNode }) {
             </aside>
 
             {/* Main Content */}
-            <main className="flex-1 p-6 md:p-12 overflow-y-auto">
+            <main className="flex-1 p-6 md:p-12 overflow-y-auto bg-white text-slate-900">
                 <div className="max-w-6xl mx-auto">
                     <div className="flex items-center justify-between mb-12">
                         <div>

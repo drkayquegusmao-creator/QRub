@@ -18,17 +18,21 @@ import EditalFiltersPanel from '@/components/edital-filters-panel'
 
 function StatCard({ icon, label, value, color = 'blue' }: { icon: string; label: string; value: string | number; color?: string }) {
     const colors: Record<string, string> = {
-        blue: 'from-blue-600/20 to-blue-600/5 border-blue-500/20',
-        green: 'from-green-600/20 to-green-600/5 border-green-500/20',
-        yellow: 'from-yellow-600/20 to-yellow-600/5 border-yellow-500/20',
-        gray: 'from-white/10 to-white/5 border-white/10',
+        blue: 'bg-blue-50 border-blue-100 text-blue-600',
+        green: 'bg-emerald-50 border-emerald-100 text-emerald-600',
+        yellow: 'bg-amber-50 border-amber-100 text-amber-600',
+        gray: 'bg-slate-50 border-slate-100 text-slate-600',
     }
 
     return (
-        <div className={`bg-gradient-to-br ${colors[color]} border rounded-2xl p-4`}>
-            <p className="text-2xl mb-2">{icon}</p>
-            <p className="text-white/50 text-xs mb-1">{label}</p>
-            <p className="text-white text-2xl font-bold">{value}</p>
+        <div className={`border rounded-3xl p-6 ${colors[color].split(' text-')[0]} shadow-sm hover:shadow-md transition-all`}>
+            <div className="flex items-center gap-3 mb-4">
+                <div className={`w-10 h-10 rounded-xl flex items-center justify-center bg-white shadow-sm border ${colors[color].split(' ')[1]}`}>
+                    <span className="text-xl">{icon}</span>
+                </div>
+                <p className="text-slate-500 text-[10px] font-black uppercase tracking-widest">{label}</p>
+            </div>
+            <p className="text-slate-900 text-4xl font-black tracking-tighter">{value}</p>
         </div>
     )
 }
@@ -53,29 +57,33 @@ function EditalRow({
     onFilters: () => void
 }) {
     const statusColors: Record<string, string> = {
-        rascunho: 'bg-yellow-500/20 text-yellow-300 border-yellow-500/30',
-        publicado: 'bg-green-500/20 text-green-300 border-green-500/30',
-        arquivado: 'bg-white/10 text-white/40 border-white/10',
+        rascunho: 'bg-amber-50 text-amber-700 border-amber-200',
+        publicado: 'bg-emerald-50 text-emerald-700 border-emerald-200',
+        arquivado: 'bg-slate-100 text-slate-500 border-slate-200',
     }
 
     return (
-        <tr className="border-b border-white/5 hover:bg-white/[0.02] transition-colors">
-            <td className="px-4 py-3">
+        <tr className="border-b border-slate-100 hover:bg-slate-50/50 transition-colors">
+            <td className="px-6 py-4">
                 <div>
-                    <p className="text-white text-sm font-medium line-clamp-1">{edital.titulo}</p>
-                    <p className="text-white/40 text-xs">{edital.banca} · {edital.ano}</p>
+                    <p className="text-slate-900 text-sm font-semibold line-clamp-1">{edital.titulo}</p>
+                    <p className="text-slate-400 text-[10px] font-medium uppercase tracking-wider mt-0.5">{edital.banca} · {edital.ano}</p>
                 </div>
             </td>
-            <td className="px-4 py-3">
-                <span className={`px-2.5 py-1 rounded-full text-xs border font-medium ${statusColors[edital.status] || statusColors.rascunho}`}>
+            <td className="px-6 py-4">
+                <span className={`px-3 py-1 rounded-full text-[10px] border font-black uppercase tracking-widest ${statusColors[edital.status] || statusColors.rascunho}`}>
                     {edital.status}
                 </span>
             </td>
-            <td className="px-4 py-3 text-white/60 text-sm">{formatDate_BR(edital.data_prova)}</td>
-            <td className="px-4 py-3 text-white/60 text-sm">{formatCurrency(edital.taxa)}</td>
-            <td className="px-4 py-3 text-white/60 text-sm">{edital.total_questoes || 0}</td>
-            <td className="px-4 py-3">
-                <div className="flex items-center gap-1.5">
+            <td className="px-6 py-4 text-slate-600 text-xs font-medium">{formatDate_BR(edital.data_prova)}</td>
+            <td className="px-6 py-4 text-slate-600 text-xs font-medium">{formatCurrency(edital.taxa)}</td>
+            <td className="px-6 py-4">
+                <span className="bg-blue-50 text-blue-700 px-2 py-1 rounded text-[10px] font-bold border border-blue-100">
+                    {edital.total_questoes || 0} QUESTÕES
+                </span>
+            </td>
+            <td className="px-6 py-4">
+                <div className="flex items-center gap-2">
                     <ActionBtn icon="👁" title="Visualizar" onClick={onView} color="gray" />
                     <ActionBtn icon="✏️" title="Editar" onClick={onEdit} color="blue" />
                     <ActionBtn icon="📚" title="Importar Questoes" onClick={onImport} color="purple" />
@@ -94,18 +102,18 @@ function EditalRow({
 
 function ActionBtn({ icon, title, onClick, color }: { icon: string; title: string; onClick: () => void; color: string }) {
     const colors: Record<string, string> = {
-        blue: 'hover:bg-blue-500/20 hover:text-blue-300',
-        green: 'hover:bg-green-500/20 hover:text-green-300',
-        yellow: 'hover:bg-yellow-500/20 hover:text-yellow-300',
-        purple: 'hover:bg-purple-500/20 hover:text-purple-300',
-        gray: 'hover:bg-white/10 hover:text-white',
+        blue: 'bg-blue-50 text-blue-600 border-blue-100 hover:bg-blue-600 hover:text-white',
+        green: 'bg-emerald-50 text-emerald-600 border-emerald-100 hover:bg-emerald-600 hover:text-white',
+        yellow: 'bg-amber-50 text-amber-600 border-amber-100 hover:bg-amber-600 hover:text-white',
+        purple: 'bg-purple-50 text-purple-600 border-purple-100 hover:bg-purple-600 hover:text-white',
+        gray: 'bg-slate-100 text-slate-600 border-slate-200 hover:bg-slate-600 hover:text-white',
     }
 
     return (
         <button
             title={title}
             onClick={onClick}
-            className={`w-8 h-8 flex items-center justify-center rounded-lg text-white/50 transition-all ${colors[color]}`}
+            className={`w-9 h-9 flex items-center justify-center rounded-xl border transition-all shadow-sm ${colors[color]}`}
         >
             <span className="text-sm">{icon}</span>
         </button>
@@ -169,124 +177,131 @@ export default function AdminEditaisPage() {
     }
 
     return (
-        <div className="min-h-screen bg-[#080818] p-6">
-            <div className="max-w-7xl mx-auto space-y-6">
+        <div className="space-y-6 pb-20">
 
-                {/* Header */}
-                <div className="flex items-center justify-between">
-                    <div>
-                        <h1 className="text-2xl font-bold text-white">📋 Gestão de Editais</h1>
-                        <p className="text-white/40 text-sm mt-0.5">Sistema Inteligente de Editais — QRub</p>
-                    </div>
-                    <button
-                        onClick={() => { setEditingEdital(null); setShowForm(true) }}
-                        className="flex items-center gap-2 px-4 py-2.5 bg-blue-600 hover:bg-blue-500 text-white rounded-xl font-semibold transition-colors"
-                    >
-                        ➕ Novo Edital
-                    </button>
-                </div>
-
-                {/* Stats */}
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                    <StatCard icon="📋" label="Total" value={stats.total} color="gray" />
-                    <StatCard icon="✅" label="Publicados" value={stats.publicados} color="green" />
-                    <StatCard icon="📝" label="Rascunhos" value={stats.rascunhos} color="yellow" />
-                    <StatCard icon="📚" label="Com Questões" value={stats.comQuestoes} color="blue" />
-                </div>
-
-                {/* Filters */}
-                <div className="flex flex-col sm:flex-row gap-3">
-                    <div className="relative flex-1">
-                        <span className="absolute left-3 top-1/2 -translate-y-1/2 text-white/40">🔍</span>
-                        <input
-                            type="text"
-                            placeholder="Buscar editais..."
-                            value={search}
-                            onChange={e => setSearch(e.target.value)}
-                            className="w-full pl-10 pr-4 py-2.5 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/30 focus:outline-none focus:border-blue-500 transition-colors text-sm"
-                        />
-                    </div>
-                    <select
-                        value={filterStatus}
-                        onChange={e => setFilterStatus(e.target.value)}
-                        className="bg-[#1a1a2e] border border-white/10 rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-blue-500 transition-colors"
-                    >
-                        <option value="">Todos os status</option>
-                        <option value="rascunho">Rascunho</option>
-                        <option value="publicado">Publicado</option>
-                        <option value="arquivado">Arquivado</option>
-                    </select>
-                </div>
-
-                {/* Table */}
-                <div className="bg-white/5 border border-white/10 rounded-2xl overflow-hidden">
-                    {error ? (
-                        <div className="text-center py-12">
-                            <p className="text-white/50 mb-3">{error}</p>
-                            <button onClick={loadEditais} className="text-blue-400 text-sm">Tentar novamente</button>
+            {/* Header */}
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+                <div>
+                    <h1 className="text-3xl font-black italic uppercase tracking-tighter text-slate-900 flex items-center gap-3">
+                        <div className="w-10 h-10 bg-indigo-50 rounded-xl flex items-center justify-center border border-indigo-100 shadow-sm">
+                            <span className="text-xl">📋</span>
                         </div>
-                    ) : loading ? (
-                        <div className="space-y-0">
-                            {[...Array(5)].map((_, i) => (
-                                <div key={i} className="flex gap-4 p-4 border-b border-white/5 animate-pulse">
-                                    <div className="flex-1 h-10 bg-white/10 rounded-xl" />
-                                    <div className="w-20 h-6 bg-white/10 rounded-full" />
-                                    <div className="w-24 h-6 bg-white/10 rounded" />
-                                    <div className="w-20 h-6 bg-white/10 rounded" />
-                                    <div className="w-32 h-6 bg-white/10 rounded" />
-                                </div>
-                            ))}
-                        </div>
-                    ) : filtered.length === 0 ? (
-                        <div className="text-center py-12">
-                            <p className="text-4xl mb-3">📭</p>
-                            <p className="text-white/50">Nenhum edital encontrado</p>
-                            {!search && !filterStatus && (
-                                <button
-                                    onClick={() => { setEditingEdital(null); setShowForm(true) }}
-                                    className="mt-3 text-blue-400 text-sm"
-                                >
-                                    Criar primeiro edital
-                                </button>
-                            )}
-                        </div>
-                    ) : (
-                        <div className="overflow-x-auto">
-                            <table className="w-full">
-                                <thead>
-                                    <tr className="border-b border-white/10">
-                                        <th className="px-4 py-3 text-left text-white/50 text-xs font-medium uppercase">Edital</th>
-                                        <th className="px-4 py-3 text-left text-white/50 text-xs font-medium uppercase">Status</th>
-                                        <th className="px-4 py-3 text-left text-white/50 text-xs font-medium uppercase">Prova</th>
-                                        <th className="px-4 py-3 text-left text-white/50 text-xs font-medium uppercase">Taxa</th>
-                                        <th className="px-4 py-3 text-left text-white/50 text-xs font-medium uppercase">Questões</th>
-                                        <th className="px-4 py-3 text-left text-white/50 text-xs font-medium uppercase">Ações</th>
+                        Gestão de Editais
+                    </h1>
+                    <p className="text-slate-400 text-[10px] font-black uppercase tracking-[0.2em] mt-1 ml-14">
+                        Sistema Inteligente — QRub v2
+                    </p>
+                </div>
+                <button
+                    onClick={() => { setEditingEdital(null); setShowForm(true) }}
+                    className="flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-2xl font-black uppercase text-[11px] tracking-widest shadow-lg shadow-blue-500/20 transition-all hover:scale-105"
+                >
+                    ➕ Novo Edital Master
+                </button>
+            </div>
+
+            {/* Stats */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                <StatCard icon="📋" label="Total" value={stats.total} color="gray" />
+                <StatCard icon="✅" label="Publicados" value={stats.publicados} color="green" />
+                <StatCard icon="📝" label="Rascunhos" value={stats.rascunhos} color="yellow" />
+                <StatCard icon="📚" label="Com Questões" value={stats.comQuestoes} color="blue" />
+            </div>
+
+            {/* Filters */}
+            <div className="flex flex-col sm:flex-row gap-4">
+                <div className="relative flex-1">
+                    <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">🔍</span>
+                    <input
+                        type="text"
+                        placeholder="Buscar por título, banca ou ano..."
+                        value={search}
+                        onChange={e => setSearch(e.target.value)}
+                        className="w-full pl-12 pr-4 py-3.5 bg-slate-50 border border-slate-200 rounded-2xl text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/10 focus:border-blue-500 transition-all text-sm"
+                    />
+                </div>
+                <select
+                    value={filterStatus}
+                    onChange={e => setFilterStatus(e.target.value)}
+                    className="bg-slate-50 border border-slate-200 rounded-2xl px-6 py-3.5 text-slate-700 text-sm font-bold uppercase tracking-widest focus:outline-none focus:ring-2 focus:ring-blue-500/10 focus:border-blue-500 transition-all flex items-center gap-2"
+                >
+                    <option value="">TODOS OS STATUS</option>
+                    <option value="rascunho">RASCUNHOS</option>
+                    <option value="publicado">PUBLICADOS</option>
+                    <option value="arquivado">ARQUIVADOS</option>
+                </select>
+            </div>
+
+            {/* Table */}
+            <div className="bg-white border border-slate-200 rounded-[2rem] shadow-xl shadow-slate-200/50 overflow-hidden">
+                <div className="overflow-x-auto">
+                    <table className="w-full text-left">
+                        <thead className="bg-slate-50/50 border-b border-slate-200">
+                            <tr>
+                                <th className="px-6 py-4 text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">Edital / Banca</th>
+                                <th className="px-6 py-4 text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">Status</th>
+                                <th className="px-6 py-4 text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">Data Prova</th>
+                                <th className="px-6 py-4 text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">Taxa</th>
+                                <th className="px-6 py-4 text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">Banco</th>
+                                <th className="px-6 py-4 text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {error ? (
+                                <tr>
+                                    <td colSpan={6} className="text-center py-12">
+                                        <p className="text-slate-400 font-medium mb-3">{error}</p>
+                                        <button onClick={loadEditais} className="text-blue-600 text-sm font-bold hover:underline">Tentar novamente</button>
+                                    </td>
+                                </tr>
+                            ) : loading ? (
+                                [...Array(5)].map((_, i) => (
+                                    <tr key={i} className="animate-pulse border-b border-slate-100 last:border-0">
+                                        <td colSpan={6} className="p-4">
+                                            <div className="h-10 bg-slate-100 rounded-2xl w-full" />
+                                        </td>
                                     </tr>
-                                </thead>
-                                <tbody>
-                                    {filtered.map(edital => (
-                                        <EditalRow
-                                            key={edital.id}
-                                            edital={edital}
-                                            onEdit={() => { setEditingEdital(edital); setShowForm(true) }}
-                                            onPublish={() => handlePublish(edital.id)}
-                                            onArchive={() => handleArchive(edital.id)}
-                                            onImport={() => setImportingEditalId(edital.id)}
-                                            onView={() => router.push(`/dashboard/editais/${edital.slug || edital.id}`)}
-                                            onFilters={() => setFiltersEdital(edital)}
-                                        />
-                                    ))}
-                                </tbody>
-                            </table>
-                        </div>
-                    )}
+                                ))
+                            ) : filtered.length === 0 ? (
+                                <tr>
+                                    <td colSpan={6} className="text-center py-20">
+                                        <div className="w-20 h-20 bg-slate-50 rounded-full flex items-center justify-center mx-auto mb-4 border border-slate-100 shadow-inner">
+                                            <span className="text-4xl grayscale opacity-50">📭</span>
+                                        </div>
+                                        <p className="text-slate-400 font-black uppercase tracking-widest text-xs">Nenhum edital encontrado</p>
+                                        {!search && !filterStatus && (
+                                            <button
+                                                onClick={() => { setEditingEdital(null); setShowForm(true) }}
+                                                className="mt-3 text-blue-600 text-sm font-bold hover:underline underline-offset-4"
+                                            >
+                                                Criar primeiro edital
+                                            </button>
+                                        )}
+                                    </td>
+                                </tr>
+                            ) : (
+                                filtered.map(edital => (
+                                    <EditalRow
+                                        key={edital.id}
+                                        edital={edital}
+                                        onEdit={() => { setEditingEdital(edital); setShowForm(true) }}
+                                        onPublish={() => handlePublish(edital.id)}
+                                        onArchive={() => handleArchive(edital.id)}
+                                        onImport={() => setImportingEditalId(edital.id)}
+                                        onView={() => router.push(`/dashboard/editais/${edital.slug || edital.id}`)}
+                                        onFilters={() => setFiltersEdital(edital)}
+                                    />
+                                ))
+                            )}
+                        </tbody>
+                    </table>
                 </div>
             </div>
 
             {/* Modals */}
             {showForm && (
                 <EditalFormModal
-                    edital={editingEdital as never}
+                    edital={editingEdital as any}
                     onClose={() => { setShowForm(false); setEditingEdital(null) }}
                     onSuccess={() => { setShowForm(false); setEditingEdital(null); loadEditais() }}
                 />
@@ -303,7 +318,7 @@ export default function AdminEditaisPage() {
             {filtersEdital && (
                 <EditalFiltersPanel
                     editalId={filtersEdital.id}
-                    editalBanca={filtersEdital.banca}
+                    editalBanca={filtersEdital.banca || ''}
                     onClose={() => setFiltersEdital(null)}
                 />
             )}

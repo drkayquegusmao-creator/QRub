@@ -127,9 +127,16 @@ export const useSRS = create<SRSState>()(
                             const node = nodeMap.get(item.id)
                             if (item.parent_id && nodeMap.has(item.parent_id)) {
                                 const parent = nodeMap.get(item.parent_id)
-                                if (item.level === 'specialty') parent.specialties.push(node)
-                                else if (item.level === 'subspecialty') parent.subspecialties.push(node)
-                                else if (item.level === 'subject') parent.subjects.push(node)
+                                if (item.level === 'specialty') {
+                                    if (!parent.specialties) parent.specialties = []
+                                    parent.specialties.push(node)
+                                } else if (item.level === 'subspecialty') {
+                                    if (!parent.subspecialties) parent.subspecialties = []
+                                    parent.subspecialties.push(node)
+                                } else if (item.level === 'subject') {
+                                    if (!parent.subjects) parent.subjects = []
+                                    parent.subjects.push(node)
+                                }
                             } else if (item.level === 'course') {
                                 roots.push(node)
                             }

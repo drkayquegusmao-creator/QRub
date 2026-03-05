@@ -5,7 +5,7 @@ import {
     Plus, Search, Edit2, Trash2, Users, Crown, Star,
     RefreshCw, Database, BarChart3, Upload, CheckCircle2, XCircle,
     AlertCircle, History, ExternalLink, Mail, Phone, BookOpen, GraduationCap, Sparkles, X, ShieldCheck, DollarSign, Settings, ArrowLeft,
-    Activity, Target, Zap, Clock, TrendingUp, ChevronLeft, ChevronRight, Flag, Hammer, Wrench, ShieldAlert, Paperclip, Network, Eye, MessageSquare
+    Activity, Target, Zap, Clock, TrendingUp, ChevronLeft, ChevronRight, Flag, Hammer, Wrench, ShieldAlert, Paperclip, Network, Eye, MessageSquare, ClipboardCheck, Package, Building2
 } from 'lucide-react'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
@@ -58,6 +58,12 @@ export default function AdminDashboard() {
     const [structuralTema, setStructuralTema] = useState('')
     const [validationFilter, setValidationFilter] = useState<'PENDENTE' | 'APROVADA' | 'REPROVADA'>('PENDENTE')
     const [previewQuestion, setPreviewQuestion] = useState<Question | null>(null)
+    useEffect(() => {
+        const tab = searchParams.get('tab')
+        if (tab && ['analytics', 'questions', 'users', 'reports', 'import', 'structural', 'validation', 'settings', 'taxonomy'].includes(tab)) {
+            setViewInternal(tab as any)
+        }
+    }, [searchParams])
     const [isBreakdownOpen, setIsBreakdownOpen] = useState(false)
     const [analysisUserId, setAnalysisUserId] = useState<string | null>(null)
     const [currentReportId, setCurrentReportId] = useState<string | null>(null)
@@ -2270,37 +2276,66 @@ Obrigado por nos ajudar a melhorar o QRub! 🚀`
                 )}
             </AnimatePresence>
 
-            {/* Admin Header */}
-            <header className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
-                <div className="space-y-1">
-                    <h1 className="text-4xl font-black italic uppercase tracking-tighter flex items-center gap-3">
-                        <ShieldCheck className="w-10 h-10 text-primary" />
-                        Master Control
-                    </h1>
-                    <p className="text-muted-foreground text-xs font-black uppercase tracking-[0.2em] opacity-60">
-                        Whitelist: {user?.email}
-                    </p>
+            {/* Admin Header: Command Center (Light Mode) */}
+            <header className="space-y-8 mb-12">
+                <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8 pb-8 border-b border-slate-100">
+                    {/* Left: Identity */}
+                    <div className="flex items-center gap-4">
+                        <div className="w-16 h-16 bg-primary/5 rounded-2xl flex items-center justify-center border border-primary/10 shadow-sm">
+                            <ShieldCheck className="w-8 h-8 text-primary" />
+                        </div>
+                        <div className="space-y-1">
+                            <h1 className="text-3xl font-black italic uppercase tracking-tighter text-slate-900">
+                                Master Control
+                            </h1>
+                            <div className="flex items-center gap-2">
+                                <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse" />
+                                <p className="text-slate-400 text-[10px] font-black uppercase tracking-[0.2em]">
+                                    {user?.email}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Right: Module Links */}
+                    <div className="flex flex-wrap gap-3">
+                        <Link href="/admin/editais">
+                            <button className="group flex items-center gap-3 px-6 py-3 rounded-2xl text-[10px] font-black uppercase tracking-widest text-[#5E5CE6] hover:bg-[#5E5CE6]/5 transition-all border border-[#5E5CE6]/20 bg-white shadow-sm">
+                                <ClipboardCheck className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                                Editais & Caixas
+                            </button>
+                        </Link>
+                        <Link href="/admin/pacotes">
+                            <button className="group flex items-center gap-3 px-6 py-3 rounded-2xl text-[10px] font-black uppercase tracking-widest text-purple-600 hover:bg-purple-500/5 transition-all border border-purple-500/20 bg-white shadow-sm">
+                                <Package className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                                Pacotes & Deploy
+                            </button>
+                        </Link>
+                        <Link href="/admin/finance">
+                            <button className="group flex items-center gap-3 px-6 py-3 rounded-2xl text-[10px] font-black uppercase tracking-widest text-emerald-600 hover:bg-emerald-500/5 transition-all border border-emerald-500/20 bg-white shadow-sm">
+                                <DollarSign className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                                Financeiro Pro
+                            </button>
+                        </Link>
+                    </div>
                 </div>
 
-                <div className="flex flex-wrap gap-2 p-1.5 bg-muted rounded-2xl w-fit">
-                    <NavBtn active={view === 'analytics'} onClick={() => setView('analytics')} icon={<BarChart3 className="w-4 h-4" />} label="Stats" />
-                    <NavBtn active={view === 'questions'} onClick={() => setView('questions')} icon={<Database className="w-4 h-4" />} label="Banco" />
-                    <NavBtn active={view === 'validation'} onClick={() => setView('validation')} icon={<ShieldCheck className="w-4 h-4" />} label="Validação" />
-                    <NavBtn active={view === 'structural'} onClick={() => setView('structural')} icon={<Sparkles className="w-4 h-4" />} label="Gerador" />
-                    <NavBtn active={view === 'import'} onClick={() => setView('import')} icon={<Upload className="w-4 h-4" />} label="Import" />
-                    <NavBtn active={view === 'reports'} onClick={() => setView('reports')} icon={<AlertCircle className="w-4 h-4" />} label="Regulação" />
-                    <NavBtn active={view === 'taxonomy'} onClick={() => setView('taxonomy')} icon={<Network className="w-4 h-4" />} label="Taxonomia" />
-                    <NavBtn active={view === 'users'} onClick={() => setView('users')} icon={<Users className="w-4 h-4" />} label="Alunos" />
-                    <NavBtn active={view === 'settings'} onClick={() => setView('settings')} icon={<Settings className="w-4 h-4" />} label="Ajustes" />
-                </div>
-
-                <div className="flex gap-3">
-                    <Link href="/admin/finance">
-                        <button className="flex items-center gap-2 px-6 py-3 rounded-xl text-xs font-black uppercase tracking-widest text-emerald-500 hover:bg-emerald-500/10 transition-all border border-emerald-500/20">
-                            <DollarSign className="w-4 h-4" />
-                            Financeiro
-                        </button>
-                    </Link>
+                {/* Central Navigation Tabs */}
+                <div className="flex justify-center">
+                    <div className="flex flex-wrap items-center justify-center gap-1.5 p-1.5 bg-slate-50 border border-slate-200 rounded-[2rem] w-fit shadow-sm">
+                        <NavBtn active={view === 'analytics'} onClick={() => setView('analytics')} icon={<BarChart3 className="w-4 h-4" />} label="Estatísticas" />
+                        <div className="w-px h-4 bg-slate-200 mx-1" />
+                        <NavBtn active={view === 'questions'} onClick={() => setView('questions')} icon={<Database className="w-4 h-4" />} label="Banco" />
+                        <NavBtn active={view === 'validation'} onClick={() => setView('validation')} icon={<ShieldCheck className="w-4 h-4" />} label="Validação" />
+                        <NavBtn active={view === 'structural'} onClick={() => setView('structural')} icon={<Sparkles className="w-4 h-4" />} label="Gerador IA" />
+                        <div className="w-px h-4 bg-slate-200 mx-1" />
+                        <NavBtn active={view === 'import'} onClick={() => setView('import')} icon={<Upload className="w-4 h-4" />} label="Importador" />
+                        <NavBtn active={view === 'reports'} onClick={() => setView('reports')} icon={<AlertCircle className="w-4 h-4" />} label="Regulação" />
+                        <NavBtn active={view === 'taxonomy'} onClick={() => setView('taxonomy')} icon={<Network className="w-4 h-4" />} label="Taxonomia" />
+                        <div className="w-px h-4 bg-slate-200 mx-1" />
+                        <NavBtn active={view === 'users'} onClick={() => setView('users')} icon={<Users className="w-4 h-4" />} label="Alunos" />
+                        <NavBtn active={view === 'settings'} onClick={() => setView('settings')} icon={<Settings className="w-4 h-4" />} label="Ajustes" />
+                    </div>
                 </div>
             </header>
 
@@ -2899,7 +2934,7 @@ Obrigado por nos ajudar a melhorar o QRub! 🚀`
 
                         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                             {/* 📊 SEÇÃO 2 – ENGAJAMENTO REAL */}
-                            <section className="lg:col-span-2 bg-card glass-card border border-border/50 rounded-[40px] p-8 space-y-8">
+                            <section className="lg:col-span-2 bg-white border-2 border-slate-100 soft-shadow rounded-[40px] p-8 space-y-8">
                                 <div className="flex items-center justify-between">
                                     <h4 className="text-xl font-black italic uppercase tracking-tighter">Engajamento de Guerra</h4>
                                     <div className="bg-primary/10 border border-primary/20 rounded-2xl p-4 flex gap-3 items-center">
@@ -2941,7 +2976,7 @@ Obrigado por nos ajudar a melhorar o QRub! 🚀`
                             </section>
 
                             {/* 🧠 SEÇÃO 3 – USO DO GERADOR */}
-                            <section className="bg-card glass-card border border-border/50 rounded-[40px] p-8 space-y-6">
+                            <section className="bg-white border-2 border-slate-100 soft-shadow rounded-[40px] p-8 space-y-6">
                                 <h4 className="text-xl font-black italic uppercase tracking-tighter">Motor Dr. QRub</h4>
                                 <div className="space-y-4">
                                     <GenStat label="Geradas Hoje" value={questions.filter(q => {
@@ -2961,7 +2996,7 @@ Obrigado por nos ajudar a melhorar o QRub! 🚀`
 
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                             {/* 🚨 SEÇÃO 4 – ALERTAS DO SISTEMA */}
-                            <section className="bg-card glass-card border border-border/50 rounded-[40px] p-8 space-y-6">
+                            <section className="bg-white border-2 border-slate-100 soft-shadow rounded-[40px] p-8 space-y-6">
                                 <div className="flex items-center justify-between">
                                     <h4 className="text-xl font-black italic uppercase tracking-tighter">Alertas Prioritários</h4>
                                     <AlertCircle className="w-5 h-5 text-rose-500" />
@@ -2975,7 +3010,7 @@ Obrigado por nos ajudar a melhorar o QRub! 🚀`
                             </section>
 
                             {/* 🧩 SEÇÃO 7 – CONTROLE OPERACIONAL */}
-                            <section className="bg-card glass-card border border-border/50 rounded-[40px] p-8 space-y-6">
+                            <section className="bg-white border-2 border-slate-100 soft-shadow rounded-[40px] p-8 space-y-6">
                                 <div className="flex items-center justify-between">
                                     <h4 className="text-xl font-black italic uppercase tracking-tighter">Protocolo de Operação</h4>
                                     <ShieldCheck className="w-5 h-5 text-primary opacity-40" />
@@ -2990,7 +3025,7 @@ Obrigado por nos ajudar a melhorar o QRub! 🚀`
                         </div>
 
                         {/* 👥 SEÇÃO 5 – USUÁRIOS SUMMARY */}
-                        <section className="bg-card glass-card border border-border/50 rounded-[40px] overflow-hidden">
+                        <section className="bg-white border-2 border-slate-100 soft-shadow rounded-[40px] overflow-hidden">
                             <div className="p-8 border-b border-border flex justify-between items-center">
                                 <h4 className="text-xl font-black italic uppercase tracking-tighter">Demografia da Elite</h4>
                                 <div className="flex gap-4">
@@ -3009,7 +3044,7 @@ Obrigado por nos ajudar a melhorar o QRub! 🚀`
                         </section>
 
                         {/* 📈 SEÇÃO 6 – PERFORMANCE EDUCACIONAL */}
-                        <div className="bg-card glass-card border border-border/50 rounded-[40px] p-10 space-y-8">
+                        <div className="bg-white border-2 border-slate-100 soft-shadow rounded-[40px] p-10 space-y-8">
                             <h4 className="text-xl font-black italic uppercase tracking-tight">Métricas Globais de Domínio</h4>
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
                                 <div className="space-y-6">
