@@ -163,6 +163,18 @@ export default function StudentDashboard() {
         getEditais({ status: 'publicado' }).then(({ data }) => {
             setActiveEditais(data || [])
         })
+
+        // Realtime: when admin changes dashboard config, all users get updated instantly
+        const channel = supabase
+            .channel('dashboard-config-changes')
+            .on(
+                'postgres_changes',
+                { event: 'UPDATE', schema: 'public', table: 'system_settings', filter: 'key=eq.dashboard_config' },
+                () => { loadFromSupabase() }
+            )
+            .subscribe()
+
+        return () => { supabase.removeChannel(channel) }
     }, [user?.id, loadFromSupabase])
 
     // Calculated metrics

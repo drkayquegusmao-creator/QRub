@@ -69,7 +69,8 @@ export const useDashboard = create<DashboardState>()(
                 set((state) => ({
                     widgets: state.widgets.map(w => w.id === id ? { ...w, status, visible: status !== 'disabled' } : w)
                 }))
-                // Trigger sync if master? (Handled in component usually)
+                // Auto-sync immediately to Supabase — master control affects ALL users globally
+                setTimeout(() => get().syncWithSupabase(), 50)
             },
 
             reorderWidgets: (startIndex, endIndex) => set((state) => {
@@ -100,13 +101,14 @@ export const useDashboard = create<DashboardState>()(
             loadFromSupabase: async () => {
                 set({ loading: true })
                 try {
-                    const { data, error } = await supabase
+                    const { data } = await supabase
                         .from('system_settings')
                         .select('value')
                         .eq('key', 'dashboard_config')
                         .single()
 
                     if (data && data.value && (data.value as any).widgets) {
+                        // Supabase is always the source of truth — override localStorage completely
                         // Normalize: visible must reflect status (active/maintenance = visible, disabled = hidden)
                         const normalized = (data.value as any).widgets.map((w: WidgetConfig) => ({
                             ...w,
