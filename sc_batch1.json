@@ -1,0 +1,671 @@
+[
+    {
+        "enunciado": "Paciente masculino, 58 anos, hipertenso e diabético, chega ao pronto-socorro com dor precordial em aperto, irradiada para o braço esquerdo, com início há 40 minutos, associada a sudorese intensa e náuseas. PA: 130/80 mmHg, FC: 95 bpm, SpO2: 96% em ar ambiente. O ECG mostra supradesnivelamento de ST ≥ 2 mm em V1–V4. Qual é a conduta imediata mais adequada?",
+        "options": {
+            "a": "Aspirina 300 mg + ticagrelor 180 mg + heparina não fracionada IV + encaminhamento urgente para angioplastia primária",
+            "b": "Morfina IV 4 mg + nitroglicerina sublingual + solicitar troponina e aguardar resultado para definir conduta",
+            "c": "Trombolítico IV (alteplase) como primeira escolha independentemente da disponibilidade de hemodinâmica",
+            "d": "Metoprolol IV imediato + aspirina + encaminhamento para UTI coronariana",
+            "e": "Nitroglicerina em infusão contínua + anticoagulação plena + ecocardiograma de urgência"
+        },
+        "answer": "a",
+        "rationale": "O quadro é de IAMCSST anterior extenso (supra em V1–V4). A conduta prioritária é reperfusão mecânica (ICP primária) no menor tempo possível (meta: porta-balão < 90 min). Deve-se iniciar dupla antiagregação (AAS + ticagrelor ou prasugrel) e anticoagulação (HNF ou enoxaparina) antes do procedimento.",
+        "option_rationales": {
+            "a": "Correta. Dupla antiagregação + anticoagulação + ICP primária é o padrão-ouro para IAMCSST.",
+            "b": "Errada. Aguardar troponina atrasa a reperfusão; o diagnóstico já está feito pelo ECG.",
+            "c": "Errada. Trombólise só é indicada quando ICP primária não está disponível em < 120 min.",
+            "d": "Errada. Metoprolol IV não é indicação prioritária na fase aguda; não substitui a reperfusão.",
+            "e": "Errada. Ecocardiograma de urgência não deve atrasar a reperfusão mecânica."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "IAMCSST",
+            "ICP primária",
+            "reperfusão",
+            "síndromes coronarianas agudas"
+        ]
+    },
+    {
+        "enunciado": "Homem de 65 anos é trazido ao PS após 2 horas de dor precordial típica. ECG: supradesnivelamento de ST em DII, DIII e aVF. PA: 90/60 mmHg, FC: 50 bpm, pele fria e sudorética. Qual complicação está ocorrendo e qual o risco do uso de nitroglicerina neste cenário?",
+        "options": {
+            "a": "Choque cardiogênico; nitroglicerina pode piorar a hipotensão de forma grave",
+            "b": "Dissecção aórtica; nitroglicerina está contraindicada por risco de extensão",
+            "c": "Choque distributivo; nitroglicerina é segura se associada a vasopressores",
+            "d": "IAM de VE com bloqueio AV; nitroglicerina deve ser usada criteriosamente",
+            "e": "Tamponamento cardíaco; nitroglicerina ativa o reflexo vagal e piora a bradicardia"
+        },
+        "answer": "a",
+        "rationale": "IAM inferior (DII, DIII, aVF) frequentemente compromete o VD. Hipotensão + bradicardia + sinais de baixo débito configuram choque. Nitroglicerina causa vasodilatação venosa, reduz pré-carga e pode precipitar colapso hemodinâmico grave no IAM de VD, onde o enchimento cardíaco depende da pré-carga. É contraindicada neste cenário.",
+        "option_rationales": {
+            "a": "Correta. IAM inferior/VD com choque; nitroglicerina é contraindicada.",
+            "b": "Errada. O quadro não sugere dissecção; além disso, a contraindicação da nitro neste caso é a queda de pré-carga, não extensão de dissecção.",
+            "c": "Errada. Não é choque distributivo; vasopressores não resolvem o problema fisiopatológico do IAM de VD.",
+            "d": "Errada. O principal comprometimento é o VD, não um BAVT isolado.",
+            "e": "Errada. Tamponamento teria pulso paradoxal e bulhas abafadas; não é o diagnóstico aqui."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "IAM inferior",
+            "IAM de VD",
+            "nitroglicerina",
+            "contraindicação",
+            "choque"
+        ]
+    },
+    {
+        "enunciado": "Mulher de 70 anos, diabética, apresenta dispneia progressiva e mal-estar há 6 horas, sem dor precordial típica. ECG: inversão de onda T em V4–V6 e troponina I: 3,2 ng/mL (normal < 0,04). Diagnóstico mais provável?",
+        "options": {
+            "a": "IAMSST (onda T invertida + troponina elevada sem supra de ST)",
+            "b": "IAMCSST posterior (imagem em espelho)",
+            "c": "Pericardite aguda (troponina pode elevar-se leve)",
+            "d": "Síndrome de Takotsubo (apresentação em mulher idosa)",
+            "e": "Miocardite viral (troponina alta + sintomas atípicos)"
+        },
+        "answer": "a",
+        "rationale": "A paciente tem apresentação atípica (equivalente anginoso — dispneia), comum em diabéticos e mulheres idosas. A troponina muito elevada (3,2 ng/mL) com alterações dinâmicas do segmento ST (inversão de T, sem supra) configura IAMSST. É a SCA de maior risco dentre as sem supra.",
+        "option_rationales": {
+            "a": "Correta. IAMSST: troponina alta + alteração de ST sem supradesnivelamento.",
+            "b": "Errada. O IAM posterior mostra supra em V7–V9 e imagem em espelho em V1–V2, não inversão de T em V4–V6.",
+            "c": "Errada. Pericardite geralmente eleva troponina levemente e tem supra côncavo difuso.",
+            "d": "Errada. Takotsubo é possível, mas troponina tão elevada e ECG com inversão de T faz IAMSST ser o diagnóstico mais provável na ausência de estressor emocional.",
+            "e": "Errada. Miocardite é diagnóstico de exclusão; o padrão clínico aponta mais para SCA."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "IAMSST",
+            "equivalente anginoso",
+            "diabética",
+            "troponina",
+            "SCA"
+        ]
+    },
+    {
+        "enunciado": "Paciente com angina instável de alto risco (TIMI 5 pontos) é internado e recebe AAS + ticagrelor + enoxaparina. Na estratificação, opta-se por estratégia invasiva. Em quantas horas deve ser realizado o cateterismo, segundo diretrizes?",
+        "options": {
+            "a": "Dentro de 24 horas",
+            "b": "Dentro de 2 horas (urgente)",
+            "c": "Dentro de 72 horas",
+            "d": "Eletivo, após estabilização em 5–7 dias",
+            "e": "Dentro de 48 horas"
+        },
+        "answer": "a",
+        "rationale": "Para angina instável/IAMSST de alto risco (TIMI ≥ 5, GRACE > 140), as diretrizes recomendam estratégia invasiva precoce em até 24 horas. A janela de 2 horas é reservada para situações de muito alto risco (isquemia recorrente, instabilidade hemodinâmica, arritmias graves).",
+        "option_rationales": {
+            "a": "Correta. Alto risco = cateterismo em < 24 horas.",
+            "b": "Errada. 2 horas é para muito alto risco com instabilidade hemodinâmica ou arritmia refratária.",
+            "c": "Errada. 72 horas é para risco intermediário.",
+            "d": "Errada. Estratégia conservadora (eletiva) não é indicada para pacientes de alto risco.",
+            "e": "Errada. 48 horas é para risco intermediário-alto, não para TIMI 5."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "angina instável",
+            "IAMSST",
+            "estratégia invasiva",
+            "TIMI",
+            "cateterismo"
+        ]
+    },
+    {
+        "enunciado": "Homem de 55 anos com IAMCSST anterior extenso é submetido a ICP primária com resultado angiográfico satisfatório. Ao exame, 48 horas após, apresenta nova queda de PA, bulha extra na borda esternal esquerda e piora da dispneia. O ECG não mostra novo supra de ST. Qual complicação mecânica deve ser investigada primariamente?",
+        "options": {
+            "a": "Comunicação interventricular (CIV) pós-IAM",
+            "b": "Reestenose do stent com reoclusão coronariana",
+            "c": "Tromboembolismo pulmonar",
+            "d": "Ruptura de músculo papilar com insuficiência mitral aguda",
+            "e": "Pericardite pós-IAM (síndrome de Dressler)"
+        },
+        "answer": "a",
+        "rationale": "CIV pós-IAM ocorre tipicamente nos primeiros 3–5 dias, mais comum no IAM anterior extenso. O sopro holosistólico rude na borda esternal inferior esquerda + choque com baixo débito é característico. O ecocardiograma confirma o diagnóstico. Ruptura de papilar produz sopro de regurgitação mitral e piora com posição.",
+        "option_rationales": {
+            "a": "Correta. CIV pós-IAM: sopro sistólico esternal + choque nos primeiros dias após IAM anterior.",
+            "b": "Errada. Reestenose precoce causaria novo supra de ST, não presente aqui.",
+            "c": "Errada. Não há fatores que justifiquem TEP como primeira hipótese neste contexto.",
+            "d": "Errada. Ruptura de papilar é mais comum no IAM inferior, com foco no ápice e sopro de IM.",
+            "e": "Errada. Dressler ocorre semanas a meses após o IAM, com febre e atrito pericárdico."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "CIV pós-IAM",
+            "complicação mecânica",
+            "IAMCSST",
+            "sopro sistólico"
+        ]
+    },
+    {
+        "enunciado": "Paciente chega ao PS com dor precordial há 3 horas; ECG mostra supradesnivelamento de ST em DIII e aVF com infradesnivelamento em V1–V2. Qual derivação adicional deve ser solicitada imediatamente?",
+        "options": {
+            "a": "V3R e V4R (derivações direitas)",
+            "b": "V7, V8 e V9 (derivações posteriores)",
+            "c": "aVL e extensão do precórdio até V8",
+            "d": "DI e aVL para avaliar comprometimento lateral alto",
+            "e": "V1 ampliado e ritmo de 30 segundos para BAVT"
+        },
+        "answer": "a",
+        "rationale": "IAM inferior frequentemente acomete o VD pela oclusão da coronária direita (CD). O infradesnivelamento de ST em V1–V2 pode ser reciprocidade ou extensão para VD. As derivações V3R e V4R são obrigatórias para diagnosticar IAM de VD, o que muda radicalmente a conduta (pré-carga dependente, nitroglicerina contraindicada).",
+        "option_rationales": {
+            "a": "Correta. V3R/V4R são obrigatórias no IAM inferior para excluir envolvimento de VD.",
+            "b": "Errada. As derivações posteriores (V7–V9) avaliam IAM posterior, não VD.",
+            "c": "Errada. aVL é para IAM lateral alto; não é prioritário aqui.",
+            "d": "Errada. DI e aVL já estão no ECG padrão e não esclarecem o VD.",
+            "e": "Errada. A investigação de BAVT é secundária à confirmação do envolvimento de VD."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "IAM inferior",
+            "IAM de VD",
+            "derivações direitas",
+            "V3R",
+            "ECG"
+        ]
+    },
+    {
+        "enunciado": "Mulher de 62 anos com IAMCSST inferior é submetida a ICP primária com sucesso. Apresenta bradicardia sinusal (FC: 42 bpm) assintomática, sem hipotensão, 2 horas após o procedimento. Qual conduta é mais apropriada?",
+        "options": {
+            "a": "Observação clínica; bradicardia sinusal assintomática pós-IAM inferior é frequente e autolimitada",
+            "b": "Atropina 0,5–1 mg IV imediata",
+            "c": "Marcapasso transvenoso temporário profilático",
+            "d": "Isoproterenol IV em infusão contínua",
+            "e": "Dopamina em dose cronotropa imediata"
+        },
+        "answer": "a",
+        "rationale": "Bradicardia sinusal é muito comum após IAM inferior por hipertonia vagal e/ou isquemia do nó sinusal (ramo do nó sinusal supre a CD em ~60% dos casos). Na ausência de sintomas ou instabilidade hemodinâmica, conduta expectante é apropriada. O tratamento é indicado apenas com sinais de instabilidade.",
+        "option_rationales": {
+            "a": "Correta. Bradicardia assintomática pós-IAM inferior: observação.",
+            "b": "Errada. Atropina é reservada para bradicardia sintomática (síncope, hipotensão, angina).",
+            "c": "Errada. Marcapasso profilático sem indicação aumenta complicações sem benefício.",
+            "d": "Errada. Isoproterenol é raramente usado e não indicado em bradicardia assintomática.",
+            "e": "Errada. Dopamina em dose cronotropa não é indicada na ausência de sintomas."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "bradicardia",
+            "IAM inferior",
+            "pós-ICP",
+            "manejo",
+            "tonismo vagal"
+        ]
+    },
+    {
+        "enunciado": "Analise as afirmativas sobre o score TIMI para IAMSST/Angina Instável:\nI. Inclui a presença de 3 ou mais fatores de risco para DAC.\nII. Desvio de ST ≥ 0,5 mm conta como 1 ponto.\nIII. Uso de AAS nos últimos 7 dias é paradoxalmente fator de risco que pontua no TIMI.\nAssinale a alternativa que contém apenas as afirmativas corretas:",
+        "options": {
+            "a": "Apenas I e II",
+            "b": "Apenas I",
+            "c": "I, II e III",
+            "d": "Apenas II e III",
+            "e": "Apenas I e III"
+        },
+        "answer": "c",
+        "rationale": "Todos os três itens estão corretos. O TIMI score para IAMSST inclui: ≥3 FRC para DAC (1pt), DAC com estenose ≥50% (1pt), desvio de ST ≥0,5mm (1pt), ≥2 eventos anginosos em 24h (1pt), marcadores elevados (1pt), uso de AAS nos últimos 7 dias (1pt) — paradoxal porque indica DAC ativa apesar do uso –, e idade ≥65 anos (1pt).",
+        "option_rationales": {
+            "a": "Errada. Inclui corretamente I e II, mas omite III que também é verdadeiro.",
+            "b": "Errada. Apenas a afirmativa I está incorreta por ser incompleta — II e III também são verdadeiras.",
+            "c": "Correta. Todas as três afirmativas são componentes do TIMI score.",
+            "d": "Errada. Omite o item I, que é correto.",
+            "e": "Errada. Inclui I e III mas omite II, que também é verdadeiro."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "TIMI score",
+            "estratificação de risco",
+            "angina instável",
+            "IAMSST"
+        ]
+    },
+    {
+        "enunciado": "Paciente de 48 anos, sem comorbidades conhecidas, apresenta dor retroesternal em queimação há 20 minutos, que cede espontaneamente. ECG normal. Troponina na admissão: normal. Qual a próxima conduta mais adequada?",
+        "options": {
+            "a": "Repetir troponina em 3 horas (protocolo de exclusão rápida) e manter observação",
+            "b": "Alta hospitalar imediata com prescrição de AAS e nitrato",
+            "c": "Cateterismo cardíaco diagnóstico de urgência",
+            "d": "Holter de 24 horas e teste ergométrico ambulatorial em 72 horas",
+            "e": "Ecocardiograma de repouso urgente para avaliar contratilidade segmentar"
+        },
+        "answer": "a",
+        "rationale": "Dor torácica possivelmente isquêmica com ECG normal e troponina inicial negativa não exclui SCA, pois a troponina pode não ter atingido pico. O padrão atual preconiza repetição da troponina em 3 horas (ou protocolos ESC de 0h/1h com troponina de alta sensibilidade). Alta prematura sem segunda dosagem é conduta de risco.",
+        "option_rationales": {
+            "a": "Correta. Protocolo de exclusão rápida com segunda troponina é o padrão atual.",
+            "b": "Errada. Alta sem segunda troponina expõe o paciente a risco de IAMSST não diagnosticado.",
+            "c": "Errada. Cateterismo urgente não tem indicação sem confirmação de SCA.",
+            "d": "Errada. Holter e teste ergométrico ambulatorial não têm utilidade na fase aguda.",
+            "e": "Errada. Ecocardiograma de repouso tem baixa sensibilidade para isquemia sem dor ativa."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "dor torácica",
+            "protocolo troponina",
+            "SCA",
+            "exclusão rápida"
+        ]
+    },
+    {
+        "enunciado": "Paciente masculino, 60 anos, em uso de varfarina por FA, apresenta IAMCSST anterosseptal. Indica-se ICP primária. Qual anticoagulante deve ser utilizado durante o procedimento?",
+        "options": {
+            "a": "Heparina não fracionada IV, com dose ajustada pelo TCA intraoperatório",
+            "b": "Manter varfarina sem adicionar anticoagulação periprocedimento",
+            "c": "Bivalirudina IV como substituto à HNF em qualquer cenário",
+            "d": "Enoxaparina subcutânea 1 mg/kg antes do cateterismo",
+            "e": "Fondaparinux como primeira escolha na ICP primária"
+        },
+        "answer": "a",
+        "rationale": "Na ICP primária, independentemente do anticoagulante oral em uso, a HNF IV é o agente de escolha durante o procedimento, com dose ajustada pelo TCA (tempo de coagulação ativado) para garantir anticoagulação adequada. A bivalirudina pode ser alternativa, mas a HNF é o padrão.",
+        "option_rationales": {
+            "a": "Correta. HNF IV com monitorização pelo TCA é o padrão na ICP primária.",
+            "b": "Errada. A varfarina sozinha não fornece anticoagulação adequada periprocedimento intervencionista.",
+            "c": "Errada. Bivalirudina é alternativa à HNF, mas não é universalmente preferida.",
+            "d": "Errada. Enoxaparina SC tem absorção variável e não é ideal para ICP de emergência.",
+            "e": "Errada. Fondaparinux é contraindicado como único anticoagulante na ICP primária (risco de trombose de cateter)."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "ICP primária",
+            "anticoagulação",
+            "varfarina",
+            "HNF",
+            "IAMCSST"
+        ]
+    },
+    {
+        "enunciado": "Mulher de 52 anos, sem histórico cardíaco, apresenta dor torácica em aperto após discussão familiar intensa, associada a supra transitório de ST em V3–V5 que regride em 20 minutos. Troponina levemente elevada. Ecocardiograma: acinesia apical com hipercinesia basal. Coronariografia: artérias coronárias sem obstruções significativas. Diagnóstico?",
+        "options": {
+            "a": "Síndrome de Takotsubo (cardiomiopatia de estresse)",
+            "b": "IAMCSST com reperfusão espontânea",
+            "c": "Vasoespasmo coronariano (angina de Prinzmetal)",
+            "d": "Miocardite aguda focal",
+            "e": "Embolia coronariana por FA paroxística"
+        },
+        "answer": "a",
+        "rationale": "A síndrome de Takotsubo (cardiomiopatia de estresse) é caracterizada por: mulher pós-menopausa, gatilho emocional/físico, supra transitório de ST, acinesia apical com hipercinesia basal ao eco, elevação leve de troponina e coronárias normais. Essa combinação é patognomônica do diagnóstico.",
+        "option_rationales": {
+            "a": "Correta. Takotsubo: padrão clínico clássico com coronárias normais e disfunção apical.",
+            "b": "Errada. IAMCSST com reperfusão espontânea teria artéria culpada identificável na angiografia.",
+            "c": "Errada. Vasoespasmo (Prinzmetal) causa supra transitório, mas o eco não mostba acinesia apical típica e ocorre em repouso sem gatilho emocional específico invariavelmente.",
+            "d": "Errada. Miocardite teria padrão inflamatório diferente e histórico viral frequente.",
+            "e": "Errada. Não há FA conhecida, e embolia coronariana produziria oclusão visível na angiografia."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Takotsubo",
+            "cardiomiopatia de estresse",
+            "coronárias normais",
+            "acinesia apical"
+        ]
+    },
+    {
+        "enunciado": "Paciente de 68 anos recebe alta após IAMCSST com ICP bem-sucedida. Qual a combinação de medicamentos que comprovadamente reduz mortalidade a longo prazo após IAM?",
+        "options": {
+            "a": "AAS + inibidor P2Y12 + betabloqueador + IECA + estatina de alta intensidade",
+            "b": "AAS + nitrato contínuo + betabloqueador + estatina",
+            "c": "Dupla antiagregação + antagonista de aldosterona + nitrato + anticoagulante oral",
+            "d": "Betabloqueador + IECA + estatina + warfarina",
+            "e": "AAS + BCC di-hidropiridínico + IECA + estatina"
+        },
+        "answer": "a",
+        "rationale": "O esquema com evidência de redução de mortalidade pós-IAM é: AAS (antiagreção crônica), inibidor P2Y12 por 12 meses, betabloqueador (reduz mortalidade pós-IAM), IECA (especialmente se FE reduzida, diabetes ou hipertensão), e estatina de alta intensidade (atorvastatina 40–80 mg ou rosuvastatina 20–40 mg).",
+        "option_rationales": {
+            "a": "Correta. Cinco pilares com evidência de redução de mortalidade pós-IAM.",
+            "b": "Errada. Nitrato contínuo não reduz mortalidade pós-IAM; omite IECA e P2Y12.",
+            "c": "Errada. Antagonista de aldosterona é usado seletivamente (FE < 40% + diabetes ou IC); anticoagulante oral só se houver FA.",
+            "d": "Errada. Warfarina não é indicada rotineiramente pós-IAM sem FA ou trombo intracardíaco.",
+            "e": "Errada. BCC di-hidropiridínico não tem evidência de redução de mortalidade pós-IAM; omite antiagregação P2Y12."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "tratamento pós-IAM",
+            "prevenção secundária",
+            "dupla antiagregação",
+            "betabloqueador",
+            "IECA"
+        ]
+    },
+    {
+        "enunciado": "Paciente masculino, 72 anos, chega ao PS com dor torácica há 6 horas. PA: 80/50 mmHg, FC: 110 bpm, pulsos periféricos finos. ECG: supradesnivelamento de ST em V1–V6. Qual medida de suporte hemodinâmico é mais adequada como ponte para ICP primária?",
+        "options": {
+            "a": "Balão intra-aórtico (BIA) ou suporte hemodinâmico percutâneo + vasopressores se necessário",
+            "b": "Cristaloide IV em bolus de 1000 mL imediato para expansão volêmica",
+            "c": "Noradrenalina em alta dose como único suporte antes da ICP",
+            "d": "Dobutamina em dose crescente sem associar vasopressor",
+            "e": "Furosemida IV para reduzir pré-carga e aliviar congestão pulmonar"
+        },
+        "answer": "a",
+        "rationale": "No choque cardiogênico por IAMCSST, o suporte circulatório mecânico (BIA ou dispositivos percutâneos como Impella) associado a vasopressores (noradrenalina) é recomendado como ponte para ICP. A expansão volêmica indiscriminada piora a congestão pulmonar; furosemida reduz pré-carga de forma perigosa no VE comprometido.",
+        "option_rationales": {
+            "a": "Correta. Suporte mecânico + vasopressor é o padrão no choque cardiogênico pré-ICP.",
+            "b": "Errada. Expansão volêmica em choque cardiogênico causa edema pulmonar.",
+            "c": "Errada. Noradrenalina isolada sem suporte inotrópico pode ser insuficiente.",
+            "d": "Errada. Dobutamina isolada sem vasopressor não controla a hipotensão grave.",
+            "e": "Errada. Furosemida é contraindicada em choque cardiogênico por reduzir pré-carga criticamente."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "choque cardiogênico",
+            "IAMCSST",
+            "suporte hemodinâmico",
+            "BIA",
+            "vasopressor"
+        ]
+    },
+    {
+        "enunciado": "Jovem de 32 anos, usuário de cocaína, apresenta dor precordial intensa e ECG com supradesnivelamento de ST em V1–V4. Coronariografia: sem trombose, porém com intenso espasmo coronariano. Qual tratamento deve ser EVITADO neste cenário?",
+        "options": {
+            "a": "Betabloqueadores",
+            "b": "Bloqueadores dos canais de cálcio",
+            "c": "Nitratos",
+            "d": "Benzodiazepínicos",
+            "e": "Heparina não fracionada"
+        },
+        "answer": "a",
+        "rationale": "Na SCA por cocaína, betabloqueadores são contraindicados pela 'blocagem beta sem bloqueio alfa': a cocaína estimula receptores adrenérgicos alfa e beta. Ao bloquear apenas o beta, ocorre vasoconstricção alfa-mediada não antagonizada, exacerbando o espasmo coronariano e podendo causar hipertensão paradoxal. O tratamento é: nitratos + BCC + benzodiazepínicos.",
+        "option_rationales": {
+            "a": "Correta (a ser evitada). Betabloqueadores são contraindicados na SCA por cocaína.",
+            "b": "Errada. BCC (diltiazem, verapamil) são os fármacos de escolha para espasmo coronariano.",
+            "c": "Errada. Nitratos são indicados para vasodilatação coronariana.",
+            "d": "Errada. Benzodiazepínicos são indicados para reduzir o estímulo simpaticomimético da cocaína.",
+            "e": "Errada. HNF pode ser utilizada se houver suspeita de componente trombótico."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "cocaína",
+            "espasmo coronariano",
+            "betabloqueador",
+            "contraindicação",
+            "SCA"
+        ]
+    },
+    {
+        "enunciado": "Paciente de 58 anos com IAMCSST recém-tratado com ICP apresenta ritmo irregular com complexos QRS alargados (> 0,12 s), frequência em torno de 80–90 bpm, sem comprometimento hemodinâmico, 18 horas após a reperfusão. ECG mostra ondas de Brugada negativas. Qual o diagnóstico mais provável?",
+        "options": {
+            "a": "Ritmo idioventricular acelerado (RIVA) — arritmia de reperfusão benigna",
+            "b": "Taquicardia ventricular monomórfica sustentada de baixo débito",
+            "c": "Bloqueio de ramo esquerdo novo, sem arritmia associada",
+            "d": "Fibrilação ventricular de baixa amplitude",
+            "e": "Torsades de Pointes por hipopotassemia"
+        },
+        "answer": "a",
+        "rationale": "O RIVA (ritmo idioventricular acelerado) é uma arritmia característica de reperfusão, com QRS alargado (foco ventricular ectópico), FC entre 60–100 bpm, geralmente autolimitada e sem repercussão hemodinâmica. É um sinal indireto de reperfusão bem-sucedida. Não requer tratamento específico.",
+        "option_rationales": {
+            "a": "Correta. RIVA: QRS alargado, 60–100 bpm, sem instabilidade hemodinâmica, pós-reperfusão.",
+            "b": "Errada. TV monomórfica sustentada é > 100 bpm e frequentemente causa instabilidade.",
+            "c": "Errada. BRE novo não produz QRS variável ao longo das derivações com esse padrão de frequência.",
+            "d": "Errada. FV tem aspecto caótico de alta frequência, não QRS organizados em 80–90 bpm.",
+            "e": "Errada. Torsades tem QRS alternante clássico (spindle-shaped) e estava associado a QT longo."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "RIVA",
+            "arritmia de reperfusão",
+            "pós-ICP",
+            "ritmo idioventricular",
+            "IAMCSST"
+        ]
+    },
+    {
+        "enunciado": "Paciente com IAMCSST é trazido para hospital sem hemodinâmica disponível. O tempo de transferência estimado para o centro com ICP é de 3 horas. Segundo as diretrizes, qual é a conduta correta?",
+        "options": {
+            "a": "Trombólise imediata com agente fibrínosoespecífico e transferência para centro ICP após",
+            "b": "Aguardar transferência sem trombólise, pois a janela ainda comporta ICP primária",
+            "c": "Trombólise e, se bem-sucedida, alta hospitalar sem necessidade de ICP",
+            "d": "ICP de resgate apenas se houver reoclusão sintomática",
+            "e": "Nitroglicerina IV e heparina até o centro de ICP"
+        },
+        "answer": "a",
+        "rationale": "Quando o tempo total porta-balão ultrapassa 120 minutos (tempo de transferência > 90–120 min), a trombólise farmacológica deve ser administrada imediatamente, seguida de transferência obrigatória para ICP (estratégia fármaco-invasiva). A transferência sem trombolítico neste cenário levaria a reperfusão tardia inaceitável.",
+        "option_rationales": {
+            "a": "Correta. Tempo de transferência > 120 min total → trombólise imediata + transferência (estratégia fármaco-invasiva).",
+            "b": "Errada. Com 3h de transferência, o tempo total ultrapassaria 120 min, tornando a ICP primária tardia demais.",
+            "c": "Errada. Após trombólise bem-sucedida, ICP de rotina em 3–24 horas é mandatória.",
+            "d": "Errada. ICP de resgate apenas para falha de trombólise, não é a conduta planejada inicial.",
+            "e": "Errada. Nitrato e heparina sozinhos sem reperfusão são insuficientes no IAMCSST com longa espera."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "trombolítico",
+            "estratégia fármaco-invasiva",
+            "IAMCSST",
+            "tempo porta-balão",
+            "reperfusão"
+        ]
+    },
+    {
+        "enunciado": "Paciente de 75 anos, com IAM prévio e FE de 30%, é hospitalizado por angina instável. Está em uso de AAS, enalapril e carvedilol. Qual medicamento deve ser adicionado para antiagregação plaquetária neste cenário de IAMSST/AI?",
+        "options": {
+            "a": "Ticagrelor 180 mg de ataque + 90 mg duas vezes ao dia",
+            "b": "Clopidogrel 75 mg/dia sem dose de ataque, por ser idoso",
+            "c": "Varfarina associada ao AAS para dupla cobertura antitrombótica",
+            "d": "Prasugrel 60 mg de ataque + 10 mg/dia",
+            "e": "Heparina de baixo peso molecular como substituto ao P2Y12"
+        },
+        "answer": "a",
+        "rationale": "Para IAMSST, o ticagrelor (com dose de ataque de 180 mg) é o inibidor do P2Y12 preferencial sobre o clopidogrel por ter maior potência e início de ação mais rápido. Prasugrel não é indicado em pacientes > 75 anos (risco hemorrágico aumentado sem benefício comprovado). A HNF é complementar, não substituta do P2Y12.",
+        "option_rationales": {
+            "a": "Correta. Ticagrelor é o P2Y12 de escolha no IAMSST (incluindo idosos, exceto contraindicações).",
+            "b": "Errada. Clopidogrel sem dose ataque é inadequado; dose de ataque é 300–600 mg.",
+            "c": "Errada. Varfarina só se houver FA, trombo intracardíaco ou prótese valvar.",
+            "d": "Errada. Prasugrel é contraindicado em > 75 anos por risco hemorrágico elevado.",
+            "e": "Errada. HBPM é anticoagulante complementar, não substitui a antiagregação plaquetária."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "ticagrelor",
+            "P2Y12",
+            "IAMSST",
+            "antiagregação",
+            "idoso"
+        ]
+    },
+    {
+        "enunciado": "Paciente de 55 anos apresenta dor torácica típica em repouso, episódica, com duração de 5–10 minutos, geralmente de madrugada. ECG durante a dor mostra supra transitório de ST em V3–V5 que regride com nitroglicerina. Troponinas normais em duas dosagens. Qual diagnóstico e conduta?",
+        "options": {
+            "a": "Angina vasoespástica (Prinzmetal); tratamento com BCC e nitratos, evitar betabloqueadores",
+            "b": "IAMSST com liberação mínima de troponina; indicar cateterismo urgente",
+            "c": "Pericardite aguda episódica; tratar com AINEs e colchicina",
+            "d": "Angina estável com limiar variável; otimizar betabloqueador e nitrato",
+            "e": "Doença do refluxo gastroesofágico com espasmo esofágico; omeprazol e câspero"
+        },
+        "answer": "a",
+        "rationale": "A angina de Prinzmetal (vasoespástica) caracteriza-se por: dor em repouso (tipicamente noturna), supra transitório de ST durante a dor, reversão com nitrato, troponinas normais (sem necrose). O tratamento é com BCC (diltiazem, anlodipina) e nitratos. Betabloqueadores estão relativamente contraindicados pois podem exacerbar o espasmo pela ação alfa não bloqueada.",
+        "option_rationales": {
+            "a": "Correta. Angina de Prinzmetal: padrão clínico típico + tratamento com BCC/nitratos.",
+            "b": "Errada. IAMSST exigiria troponina elevada; aqui são normais.",
+            "c": "Errada. Pericardite não causa supra transitório que regride; tem supra côncavo persistente e difuso.",
+            "d": "Errada. Angina estável piora com esforço, não ocorre em repouso de madrugada.",
+            "e": "Errada. Espasmo esofágico não causa supra de ST; pode simular dor anginosa mas sem alterações no ECG."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "angina de Prinzmetal",
+            "vasoespasmo",
+            "BCC",
+            "supra transitório",
+            "ECG"
+        ]
+    },
+    {
+        "enunciado": "Homem de 63 anos com IAMCSST anterolateral é submetido a ICP primária. No 4º dia de internação, apresenta pico febril (38,5°C), dor pleurítica, atrito pericárdico e piora da dispneia. ECG sem alterações novas. Troponina estável. Qual o diagnóstico?",
+        "options": {
+            "a": "Síndrome pós-pericardiotomia (síndrome de Dressler)",
+            "b": "Pericardite epistenocárdica precoce",
+            "c": "Pneumonia hospitalar adquirida",
+            "d": "Trombose de stent com reoclusão parcial",
+            "e": "Endocardite infecciosa complicando IAM"
+        },
+        "answer": "b",
+        "rationale": "Pericardite epistenocárdica ocorre nas primeiras 24–96 horas após IAM transmural (localmente por necrose adjacente ao pericárdio). A síndrome de Dressler (pós-pericardiotomia) ocorre semanas a meses após o IAM, por mecanismo autoimune. Ocorrendo no 4º dia, ainda está dentro da janela da pericardite epistenocárdica.",
+        "option_rationales": {
+            "a": "Errada. Dressler ocorre semanas a meses após IAM, não no 4º dia.",
+            "b": "Correta. Pericardite epistenocárdica: 1º–5º dia pós-IAM transmural, por inflamação pericárdica local.",
+            "c": "Errada. Pneumonia não causa atrito pericárdico.",
+            "d": "Errada. Trombose de stent produziria novo supra de ST e elevação de troponina.",
+            "e": "Errada. Endocardite infecciosa não é complicação direta do IAM na fase aguda."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "pericardite epistenocárdica",
+            "Dressler",
+            "complicação pós-IAM",
+            "atrito pericárdico"
+        ]
+    },
+    {
+        "enunciado": "Paciente de 70 anos foi submetida a ICP com implante de stent farmacológico (DES) após IAMCSST. Após 6 meses, necessita de cirurgia eletiva de colecistectomia. O cirurgião solicita parecer sobre a suspensão dos antiagregantes. Qual a conduta correta?",
+        "options": {
+            "a": "Manter AAS e suspender ticagrelor por 5 dias antes da cirurgia, reintroduzindo logo após",
+            "b": "Suspender ambos os antiagregantes 7–10 dias antes e reiniciar apenas 4 semanas após cirurgia",
+            "c": "Adiar a cirurgia eletiva; não suspender dupla antiagregação antes de 12 meses do DES",
+            "d": "Substituir ambos por heparina (bridging) e suspender 12 horas antes da cirurgia",
+            "e": "Manter dupla antiagregação plena durante e após a cirurgia, aumentando risco aceitável"
+        },
+        "answer": "c",
+        "rationale": "Após implante de DES em contexto de IAMCSST, a dupla antiagregação deve ser mantida por no mínimo 12 meses para prevenir trombose de stent (especialmente no primeiro ano). Cirurgia eletiva deve ser adiada até completar esse período. A suspensão precoce do P2Y12 é a principal causa de trombose tardia de stent, com mortalidade elevada.",
+        "option_rationales": {
+            "a": "Errada. Suspender ticagrelor com 6 meses de DES aumenta risco de trombose de stent.",
+            "b": "Errada. Suspender ambos os antiagregantes nesse período é perigoso e não recomendado.",
+            "c": "Correta. Cirurgia eletiva deve ser adiada até completar 12 meses de dupla antiagregação após DES.",
+            "d": "Errada. Bridging com heparina não previne trombose de stent (problema plaquetário, não de coagulação).",
+            "e": "Errada. Manter dupla antiagregação plena em cirurgia eletiva aumenta risco hemorrágico inaceitável."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "DES",
+            "dupla antiagregação",
+            "trombose de stent",
+            "cirurgia perioperatória",
+            "stent farmacológico"
+        ]
+    },
+    {
+        "enunciado": "Asserção: O supradesnivelamento de ST em aVR associado a infradesnivelamento difuso em múltiplas derivações (≥ 8 derivações) sugere isquemia por doença de tronco de coronária esquerda ou lesão equivalente.\nRazão: O supra em aVR reflete isquemia subendocárdica difusa com vetor residual voltado para a base do coração, compatível com obstrução proximal do fluxo coronariano.",
+        "options": {
+            "a": "Asserção e razão são verdadeiras, e a razão justifica a asserção.",
+            "b": "Asserção e razão são verdadeiras, mas a razão não justifica a asserção.",
+            "c": "A asserção é verdadeira e a razão é falsa.",
+            "d": "A asserção é falsa e a razão é verdadeira.",
+            "e": "Asserção e razão são falsas."
+        },
+        "answer": "a",
+        "rationale": "Ambas estão corretas e a razão justifica a asserção. O padrão de supra em aVR + infra difuso indica isquemia subendocárdica global por comprometimento do tronco ou DA proximal. O vetor de repolarização em direção à base (aVR aponta para cavidade) reflete esse padrão fisiopatológico.",
+        "option_rationales": {
+            "a": "Correta. Asserção e razão verdadeiras e com relação causal adequada.",
+            "b": "Errada. A razão explica adequadamente o mecanismo da asserção.",
+            "c": "Errada. A razão é verdadeira e pertinente.",
+            "d": "Errada. A asserção é correta; o padrão de supra em aVR com infra difuso é bem descrito.",
+            "e": "Errada. Ambas são afirmativas corretas na literatura cardiovascular atual."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "supra aVR",
+            "doença de tronco",
+            "ECG",
+            "isquemia subendocárdica",
+            "assertiva-razão"
+        ]
+    },
+    {
+        "enunciado": "Paciente de 48 anos, sem comorbidades, apresenta dor torácica típica aos grandes esforços há 2 meses. ECG normal em repouso. Qual é o melhor exame inicial de estratificação?",
+        "options": {
+            "a": "Teste ergométrico (TE) convencional",
+            "b": "Coronariografia diagnóstica imediata",
+            "c": "Cintilografia de perfusão miocárdica de repouso",
+            "d": "Holter de 24 horas",
+            "e": "Ecocardiograma de repouso com Doppler"
+        },
+        "answer": "a",
+        "rationale": "Para paciente com probabilidade pré-teste intermediária de DAC e ECG interpretável, o teste ergométrico convencional é o exame de primeira linha para estratificação de risco isquêmico. É custo-efetivo, amplamente disponível e adequado para pacientes que podem exercitar-se adequadamente.",
+        "option_rationales": {
+            "a": "Correta. TE é o exame inicial para DAC estável com ECG normal e capacidade de exercício.",
+            "b": "Errada. Coronariografia invasiva não é o exame de triagem inicial na angina estável.",
+            "c": "Errada. Cintilografia de repouso não avalia isquemia induzida; é para viabilidade miocárdica.",
+            "d": "Errada. Holter detecta isquemia silenciosa ou arritmias, mas não é o primeiro exame para angina de esforço.",
+            "e": "Errada. Eco de repouso tem baixa sensibilidade para DAC sem sintoma no momento do exame."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "angina estável",
+            "estratificação",
+            "teste ergométrico",
+            "DAC",
+            "diagnóstico"
+        ]
+    },
+    {
+        "enunciado": "Homem de 60 anos, hipertenso, infartou a parede anterior há 3 semanas e permanece com FE de 28%. ECG atual: ritmo sinusal sem arritmia. Qual medicamento, além do IECA, betabloqueador e AAS, tem indicação de classe I para redução de mortalidade neste paciente?",
+        "options": {
+            "a": "Espironolactona (ou eplerenona) — antagonista de aldosterona",
+            "b": "Amiodarona profilática para prevenção de arritmias",
+            "c": "Digoxina para melhora da contratilidade",
+            "d": "Hidralazina + nitrato oral em substituição ao IECA",
+            "e": "Ivabradina para redução da FC caso ela esteja acima de 70 bpm"
+        },
+        "answer": "a",
+        "rationale": "Em paciente pós-IAM com FE ≤ 40% (especialmente ≤ 35%) e sem insuficiência renal grave ou hipercalemia, os antagonistas de aldosterona (espironolactona ou eplerenona) têm indicação de classe I por redução de mortalidade e hospitalização (estudos EPHESUS/RALES). Amiodarona profilática não tem benefício; CDI é considerado após otimização.",
+        "option_rationales": {
+            "a": "Correta. Antagonista de aldosterona: indicação I pós-IAM com FE < 40% e sem contraindicações.",
+            "b": "Errada. Amiodarona profilática não reduz mortalidade em pacientes após IAM sem TV/FV documentada.",
+            "c": "Errada. Digoxina não reduz mortalidade; melhora sintomas de IC, mas não é indicação de classe I pós-IAM.",
+            "d": "Errada. Hidralazina + nitrato é alternativa ao IECA quando há intolerância, não adição.",
+            "e": "Errada. Ivabradina pode ser considerada em IC crônica sintomática, mas não é classe I pós-IAM com FE baixa sem sintomas de IC."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "pós-IAM",
+            "FE reduzida",
+            "espironolactona",
+            "antagonista aldosterona",
+            "mortalidade"
+        ]
+    },
+    {
+        "enunciado": "Paciente com angina estável é submetido a cateterismo que evidencia estenose de 65% na artéria descendente anterior proximal. FFR (reserva de fluxo fracionado) = 0,85. Qual é a conduta mais adequada?",
+        "options": {
+            "a": "Tratamento clínico otimizado; FFR > 0,80 indica ausência de isquemia hemodinamicamente significativa",
+            "b": "ICP imediata da lesão, pois estenose > 60% tem indicação absoluta de revascularização",
+            "c": "Cirurgia de revascularização miocárdica por ser lesão proximal de DA",
+            "d": "Nova coronariografia em 6 meses para reavaliação da progressão",
+            "e": "Terapia com ISDN (dinitrato de isossorbida) em alta dose para vasodilatação coronariana"
+        },
+        "answer": "a",
+        "rationale": "O FFR (reserva de fluxo fracionado) é o padrão-ouro funcional para avaliar significância hemodinâmica de lesões coronarianas. FFR > 0,80 indica que a lesão não causa isquemia significativa e que o paciente não se beneficia de revascularização mecânica em relação ao tratamento clínico. A estenose anatômica de 65% sem relevância funcional (FFR 0,85) deve ser tratada clinicamente.",
+        "option_rationales": {
+            "a": "Correta. FFR 0,85 > 0,80 → ausência de isquemia funcional → tratamento clínico.",
+            "b": "Errada. O critério anatômico isolado (porcentagem de estenose) é insuficiente para indicar ICP; o FFR é superior.",
+            "c": "Errada. CRM não tem indicação sem isquemia funcional documentada em lesão única.",
+            "d": "Errada. Nova coronariografia em 6 meses não altera a conduta baseada no FFR atual.",
+            "e": "Errada. Nitrato em alta dose não é a intervenção correta para estenose coronariana estável com FFR normal."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "FFR",
+            "reserva de fluxo fracionado",
+            "angina estável",
+            "DAC",
+            "ICP"
+        ]
+    },
+    {
+        "enunciado": "Mulher de 45 anos, pós-menopausa precoce, sem fatores de risco clássicos para DAC, é internada com IAMCSST anterosseptal. Coronariografia revela: DA ocluída com trombo intraluminal e dissecção espontânea da artéria coronária. Qual é o diagnóstico e qual a conduta preferencial?",
+        "options": {
+            "a": "Dissecção coronariana espontânea (SCAD); tratamento conservador preferido na maioria dos casos",
+            "b": "Embolia coronariana; anticoagulação plena com heparina e ICP obrigatória",
+            "c": "Aterosclerose acelerada pela menopausa; ICP com stent de primeira escolha",
+            "d": "Trombose in situ por hipercoagulabilidade; investigar trombofilias antes da conduta",
+            "e": "Vasoespasmo prolongado com trombose secundária; BCC + nitrato + aspiração de trombo"
+        },
+        "answer": "a",
+        "rationale": "A dissecção coronariana espontânea (SCAD) é causa importante de IAM em mulheres jovens e peri/pós-menopausa, sem aterosclerose significativa. A coronariografia mostra imagem de dupla luz ou radiolucência intraluminal. A conduta preferencial é conservadora (tratamento clínico), pois a ICP pode propagar a dissecção. A cirurgia é reservada para casos com isquemia persistente.",
+        "option_rationales": {
+            "a": "Correta. SCAD: tratamento conservador preferencialmente; ICP pode piorar a dissecção.",
+            "b": "Errada. Embolia coronariana não produz imagem de dissecção; angioplastia não é padrão inicial.",
+            "c": "Errada. Stent em SCAD pode propagar a dissecção para a parede arterial delaminada.",
+            "d": "Errada. Trombofilia não é investigada antes da conduta de urgência no IAM.",
+            "e": "Errada. Vasoespasmo não produz imagem angiográfica de ruptura de parede/dupla luz."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "SCAD",
+            "dissecção coronariana espontânea",
+            "mulher jovem",
+            "IAM",
+            "tratamento conservador"
+        ]
+    }
+]
