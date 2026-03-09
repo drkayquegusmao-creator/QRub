@@ -1,0 +1,257 @@
+[
+    {
+        "enunciado": "A respeito do diagnóstico de Insuficiência Cardíaca com Fração de Ejeção Preservada (ICFEp), o escore H2FPEF é uma ferramenta clínica validada. Qual dos itens abaixo NÃO faz parte dos critérios deste escore?",
+        "options": {
+            "a": "Obesidade (IMC > 30 kg/m²).",
+            "b": "Fibrilação Atrial.",
+            "c": "Idade > 60 anos.",
+            "d": "Hipertensão arterial tratada com 2 ou mais drogas.",
+            "e": "Tabagismo ativo."
+        },
+        "answer": "e",
+        "rationale": "O escore H2FPEF usa: H (Hipertensão - 1 pt), H (Heaviness/Obesidade - 2 pts), F (Fibrilação Atrial - 3 pts), P (Pulmonary hypertension - 1 pt), E (Elderly/Idade > 60 - 1 pt), F (Filling pressures - 1 pt). O tabagismo (E) é fator de risco cardiovascular, mas não compõe a pontuação específica do H2FPEF para o diagnóstico de ICFEp.",
+        "option_rationales": {
+            "a": "Incorreta. Faz parte do escore (Heaviness).",
+            "b": "Incorreta. É o item de maior pontuação no escore.",
+            "c": "Incorreta. Faz parte do escore (Elderly).",
+            "d": "Incorreta. Faz parte do escore (Hypertension).",
+            "e": "Correta. Não é um critério direto do escore H2FPEF."
+        },
+        "difficulty": "difícil",
+        "tags": [
+            "ICFEp",
+            "H2FPEF",
+            "Diagnóstico",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Qual a principal alteração hemodinâmica esperada no 'Perfil L' de Stevenson (Frio e Seco)?",
+        "options": {
+            "a": "Pressão capilar pulmonar elevada e baixo índice cardíaco.",
+            "b": "Pressão capilar pulmonar baixa e baixo índice cardíaco.",
+            "c": "Pressão capilar pulmonar elevada e índice cardíaco normal.",
+            "d": "Pressão capilar pulmonar normal e índice cardíaco normal.",
+            "e": "Pressão venosa central elevada persistente."
+        },
+        "answer": "b",
+        "rationale": "O perfil L (Low output) é caracterizado pela ausência de congestão (Seco = PCP baixa ou normal) associada à má perfusão periférica (Frio = Baixo índice cardíaco). Frequentemente exige prova volêmica cuidadosa se as pressões estiverem muito baixas.",
+        "option_rationales": {
+            "a": "Incorreta. Este é o Perfil C (Frio e Úmido).",
+            "b": "Correta. Caracteriza a baixa oferta de fluxo sem excesso de volume no átrio esquerdo.",
+            "c": "Incorreta. Este é o Perfil B (Quente e Úmido).",
+            "d": "Incorreta. Este é o Perfil A (Compensado).",
+            "e": "Incorreta. A PVC elevada sugeriria congestão (Úmido)."
+        },
+        "difficulty": "média",
+        "tags": [
+            "Stevenson",
+            "Himodinâmica",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "No tratamento da fibrilação atrial em pacientes com ICFEr, qual a primeira escolha farmacológica para o controle de frequência cardíaca no repouso, visando melhora sintomática?",
+        "options": {
+            "a": "Amiodarona.",
+            "b": "Betabloqueador (Carvedilol, Bisoprolol ou Metoprolol).",
+            "c": "Diltiazem.",
+            "d": "Verapamil.",
+            "e": "Propafenona."
+        },
+        "answer": "b",
+        "rationale": "Betabloqueadores são as drogas de primeira escolha para o controle de frequência na FA com ICFEr, pois além do controle cronotrópico, eles possuem benefício prognóstico (redução de mortalidade) na doença de base. Diltiazem e Verapamil (C, D) são contraindicados pela cardiodepressão na FE reduzida.",
+        "option_rationales": {
+            "a": "Incorreta. Amiodarona é reservada se houver falha no controle com BB ou Digoxina, ou para controle de ritmo.",
+            "b": "Correta. Droga de escolha pelo benefício duplo (arritmia e prognóstico IC).",
+            "c": "Incorreta. Contraindicado na ICFEr.",
+            "d": "Incorreta. Contraindicado na ICFEr.",
+            "e": "Incorreta. Contraindicado em cardiopatia estrutural pelo risco pró-arrítmico."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "FA",
+            "Control de Frequência",
+            "ICFEr",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Um paciente de 82 anos com IC apresenta quadro de desorientação, náuseas, vômitos e visão amarelada (xantopsia). Ao ECG, observa-se ritmo bigeminado ventricular. Qual medicação deve ser imediatamente investigada como causa provável deste quadro?",
+        "options": {
+            "a": "Furosemida.",
+            "b": "Enalapril.",
+            "c": "Digoxina.",
+            "d": "Espironolactona.",
+            "e": "Empagliflozina."
+        },
+        "answer": "c",
+        "rationale": "Estes são sinais clássicos de intoxicação digitálica. A visão colorida (embaçada, amarela ou verde) é um sintoma neurológico típico. Idosos e pacientes com insuficiência renal são mais suscetíveis. O bigeminismo ventricular é uma das arritmias frequentes na toxicidade por digitais.",
+        "option_rationales": {
+            "a": "Incorreta. Furosemida causa hiponatremia/hipocalemia, mas não xantopsia.",
+            "b": "Incorreta. Enalapril pode causar tosse ou hipercalemia.",
+            "c": "Correta. Quadro clínico e eletrocardiográfico típico de intoxicação.",
+            "d": "Incorreta. Espironolactona cursa com hipercalemia e ginecomastia.",
+            "e": "Incorreta. iSGLT2 podem causar infecções genitais, mas não este quadro sistêmico."
+        },
+        "difficulty": "média",
+        "tags": [
+            "Intoxicação",
+            "Digoxina",
+            "Semiologia",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "A respeito do teste de caminhada de 6 minutos (TC6M) na insuficiência cardíaca, é correto afirmar:",
+        "options": {
+            "a": "É um teste invasivo de alta complexidade.",
+            "b": "Uma distância percorrida < 300 metros associa-se a um pior prognóstico e maior mortalidade.",
+            "c": "Serve apenas para o diagnóstico de IC de alto débito.",
+            "d": "Substitui completamente o ecocardiograma na avaliação funcional.",
+            "e": "Deve ser feito em esteira inclinada a 10%."
+        },
+        "answer": "b",
+        "rationale": "O TC6M é uma ferramenta funcional simples, barata e bem correlacionada com a capacidade funcional e prognóstico. Pacientes que caminham menos de 300-350 metros têm risco aumentado de eventos adversos e internação.",
+        "option_rationales": {
+            "a": "Incorreta. É um teste simples e não invasivo.",
+            "b": "Correta. Distâncias curtas marcam baixa reserva funcional e gravidade clínica.",
+            "c": "Incorreta. Avalia a capacidade funcional em qualquer tipo de IC ou doença pulmonar.",
+            "d": "Incorreta. Avaliam aspectos diferentes (função de esforço vs. estrutura cardíaca).",
+            "e": "Incorreta. É feito em corredor plano de superfície dura (geralmente 30 metros de extensão)."
+        },
+        "difficulty": "média",
+        "tags": [
+            "TC6M",
+            "Avaliação Funcional",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Qual a principal causa farmacológica de elevação do potássio sérico acima de 5.5 mEq/L em um paciente com IC em uso de terapia quádrupla?",
+        "options": {
+            "a": "Bloqueio do canal de sódio renal pelo iSGLT2.",
+            "b": "Inibição da síntese ou ação da aldosterona pelo IECA/BRA e Espironolactona.",
+            "c": "Efeito colateral direto do betabloqueador no túbulo contorcido distal.",
+            "d": "Desidratação causada pelo diurético de alça.",
+            "e": "Aumento da ingestão de água mineral."
+        },
+        "answer": "b",
+        "rationale": "Tanto os inibidores do Eixo RAA (IECA/BRA/INRA) quanto o antagonista da aldosterona reduzem a espoliação de potássio no néfron distal. O uso combinado destas drogas é a causa mais comum de hiperpotassemia iatrogênica na IC.",
+        "option_rationales": {
+            "a": "Incorreta. iSGLT2 costumam ter efeito neutro ou levemente redutor do K sérico.",
+            "b": "Correta. Mecanismo clássico de retenção de potássio pelas medicações pilares da IC.",
+            "c": "Incorreta. BB podem elevar levemente o K por redistribuição celular, mas não por efeito renal direto principal.",
+            "d": "Incorreta. Diuréticos de alça causam hipocalemia (perda de potássio).",
+            "e": "Incorreta. Ingestão hídrica não eleva potássio significativamente a ponto de causar hipercalemia patológica isolada."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "Hiperpotassemia",
+            "Segurança",
+            "Fisiologia Renal",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "No ecocardiograma de um paciente com IC, observa-se um gradiente de pressão transaórtico médio elevado e área valvar aórtica reduzida (< 1.0 cm²). Entretanto, a FE é de 28% e o fluxo é baixo. Para diferenciar entre Estenose Aórtica (EAO) real e 'Pseudo-estenose', qual a conduta recomendada?",
+        "options": {
+            "a": "Ecocardiograma transesofágico imediato.",
+            "b": "Ecocardiograma sob estresse farmacológico com dobutamina em baixas doses.",
+            "c": "Cintilografia miocárdica com tálio.",
+            "d": "Troca valvar aórtica urgente baseada apenas no eco basal.",
+            "e": "Troca de IECA por Hidralazina."
+        },
+        "answer": "b",
+        "rationale": "Trata-se do cenário de EAO 'low-flow low-gradient'. A dobutamina em dose baixa aumenta o débito cardíaco (reserva contrátil). Se ao aumentar o fluxo, a área valvar continuar pequena (< 1.0), é EAO verdadeira. Se a área valvar aumentar, era pseudo-estenose (a válvula não abre tudo apenas por falta de força do ventrículo).",
+        "option_rationales": {
+            "a": "Incorreta. Ajuda na visualização, mas não no diferencial funcional dinâmico do fluxo.",
+            "b": "Correta. Padrão-ouro para testar a reserva contrátil e confirmar a gravidade da estenose valvar.",
+            "c": "Incorreta. Avalia isquemia, não gravidade valvar funcional.",
+            "d": "Incorreta. Arriscado operar uma pseudo-estenose que não se beneficiaria da troca.",
+            "e": "Incorreta. Não tem papel diagnóstico neste contexto valvar."
+        },
+        "difficulty": "difícil",
+        "tags": [
+            "Estenose Aórtica",
+            "Dobutamina",
+            "Ecocardiograma",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "A respeito do uso de Ivabradina na IC, qual o critério mandatório em relação ao ritmo cardíaco para que a droga tenha eficácia?",
+        "options": {
+            "a": "O paciente deve estar em Fibrilação Atrial controlada.",
+            "b": "O paciente deve estar em Ritmo Sinusal.",
+            "c": "O paciente deve possuir marca-passo definitivo.",
+            "d": "O ritmo é indiferente para a ação da droga.",
+            "e": "O paciente deve ter bloqueio de ramo esquerdo."
+        },
+        "answer": "b",
+        "rationale": "A Ivabradina age especificamente sobre os canais I(f) localizados no nó sinoatrial. Portanto, só tem utilidade em pacientes que mantêm o ritmo sinusal. Se o paciente estiver em FA, a droga não tem alvo para atuar e não reduz a frequência ventricular.",
+        "option_rationales": {
+            "a": "Incorreta. FA contraindica o uso clínico pois a droga não funciona nesse ritmo.",
+            "b": "Correta. Critério fundamental para indicação (SHIFT study).",
+            "c": "Incorreta. Marca-passo comandando o ventrículo anula o controle de frequência pela ivabradina.",
+            "d": "Incorreta. É uma droga ritmo-dependente.",
+            "e": "Incorreta. BRE não é pré-requisito nem contraindicação para Ivabradina."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "Ivabradina",
+            "Farmacologia",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Qual dos seguintes achados na anamnese é o mais específico (embora não o mais sensível) para o diagnóstico de insuficiência cardíaca crônica?",
+        "options": {
+            "a": "Dispneia aos esforços.",
+            "b": "Dispneia Paroxística Noturna (DPN).",
+            "c": "Edema de membros inferiores.",
+            "d": "Fadiga matinal.",
+            "e": "Tosse seca noturna."
+        },
+        "answer": "b",
+        "rationale": "Pelos critérios de Framingham, a DPN é um critério MAIOR e apresenta alta especificidade para IC. A dispneia aos esforços (A) é muito comum em doenças pulmonares e obesidade, sendo pouco específica. O edema (C) também ocorre em doenças renais, hepáticas e vasculares.",
+        "option_rationales": {
+            "a": "Incorreta. Alta sensibilidade, baixa especificidade.",
+            "b": "Correta. Quando presente, sugere fortemente o diagnóstico de IC.",
+            "c": "Incorreta. Comum, mas muito inespecífico.",
+            "d": "Incorreta. Inespecífico.",
+            "e": "Incorreta. Pode ocorrer, mas é critério menor ou sintoma de asma/refluxo."
+        },
+        "difficulty": "média",
+        "tags": [
+            "Sinais e Sintomas",
+            "Framingham",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "A respeito da insuficiência cardíaca de etiologia isquêmica, o termo 'Miocárdio Hibernante' refere-se a áreas do coração que:",
+        "options": {
+            "a": "Estão mortas e substituídas por fibrose irreversível.",
+            "b": "Estão vivas, porém com disfunção contrátil crônica devido à hipoperfusão persistente, podendo recuperar a função após revascularização.",
+            "c": "Estão hipercontráteis compensatoriamente.",
+            "d": "Apresentam inflamação viral aguda.",
+            "e": "Têm depósitos de ferro nos cardiomiócitos."
+        },
+        "answer": "b",
+        "rationale": "O miocárdio hibernante é um estado de adaptação à isquemia crônica onde a célula miocárdica diminui sua função mecânica para preservar a viabilidade energética. Identificar estas áreas em exames de viabilidade (Ressonância, PET ou Eco-dobuta) é crucial, pois elas justificam a cirurgia de bypass ou angioplastia.",
+        "option_rationales": {
+            "a": "Incorreta. Isto seria o miocárdio infartado/fibrosado.",
+            "b": "Correta. Corresponde à disfunção reversível após restauração do fluxo.",
+            "c": "Incorreta. O hibernante está hipocinético ou acinético.",
+            "d": "Incorreta. Seria miocardite.",
+            "e": "Incorreta. Seria hemocromatose."
+        },
+        "difficulty": "média",
+        "tags": [
+            "Isquemia",
+            "Viabilidade",
+            "FGV"
+        ]
+    }
+]

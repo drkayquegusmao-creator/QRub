@@ -66,5 +66,41 @@ export const MEDICAL_LIBRARY: Record<string, StructuralTheme> = {
                 dificuldade: "moderada"
             }
         ]
+    },
+    "ana-circ-coracao": {
+        id: "ana-circ-coracao",
+        name: "Anatomia do Coração",
+        scenarios: [
+            {
+                enunciado_template: "Ao estudar a anatomia interna do coração humano, observa-se que a válvula que separa o átrio esquerdo do ventrículo esquerdo é composta por duas cúspides.",
+                diagnostico: "Válvula Mitral (Bicúspide)",
+                conduta_correta: "Identificar corretamente a anatomia valvar cardíaca.",
+                distratores: [
+                    { texto: "Válvula Tricúspide.", motivo: "A tricúspide separa o átrio direito do ventrículo direito." },
+                    { texto: "Válvula Aórtica.", motivo: "A válvula aórtica separa o ventrículo esquerdo da aorta e possui três válvulas semilunares." },
+                    { texto: "Válvula Pulmonar.", motivo: "A válvula pulmonar separa o ventrículo direito da artéria pulmonar." }
+                ],
+                erros_graves: ["Confusão anatômica básica entre circulações sistêmica e pulmonar"],
+                dificuldade: "moderada"
+            }
+        ]
+    },
+    "ana-resp-pulmoes": {
+        id: "ana-resp-pulmoes",
+        name: "Anatomia dos Pulmões",
+        scenarios: [
+            {
+                enunciado_template: "Estruturalmente, o pulmão direito apresenta características que o distinguem do pulmão esquerdo, incluindo o número de lobos e fissuras.",
+                diagnostico: "Três lobos e duas fissuras (oblíqua e horizontal)",
+                conduta_correta: "Reconhecer a segmentação lobar do pulmão direito.",
+                distratores: [
+                    { texto: "Dois lobos e uma fissura oblíqua.", motivo: "Esta é a característica do pulmão esquerdo." },
+                    { texto: "Três lobos e uma única fissura horizontal.", motivo: "O pulmão direito possui duas fissuras." },
+                    { texto: "Dois lobos e presença de incisura cardíaca.", motivo: "A incisura cardíaca é característica do pulmão esquerdo." }
+                ],
+                erros_graves: ["Ignorância da lateralidade e segmentação pulmonar"],
+                dificuldade: "moderada"
+            }
+        ]
     }
 };

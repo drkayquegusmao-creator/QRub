@@ -1,0 +1,389 @@
+[
+    {
+        "enunciado": "A respeito do uso de anticoagulantes em pacientes com IC e FA, qual a classe de drogas demonstrou ser pelo menos tão eficaz quanto a varfarina, porém com menor taxa de hemorragia intracraniana grave nos estudos ARISTOTLE, RE-LY e ROCKET-AF?",
+        "options": {
+            "a": "Aspirina 500 mg.",
+            "b": "Novos Anticoagulantes Orais (DOACs - como Apixabana, Rivaroxabana ou Dabigartana).",
+            "c": "Clopidogrel.",
+            "d": "Heparina não fracionada contínua para o resto da vida.",
+            "e": "Vitamina K em doses altas."
+        },
+        "answer": "b",
+        "rationale": "Os DOACs revolucionaram a prevenção de AVC na FA e IC por serem mais seguros (menos sangramentos graves e fatais no cérebro) e não exigirem exames de controle de sangue (RNI) semanais, oferecendo dose estável e previsível.",
+        "option_rationales": {
+            "a": "Incorreta. Aspirina não previne AVC embólico na FA de forma eficaz.",
+            "b": "Correta. Padrão atual de anticoagulação na cardiologia.",
+            "c": "Incorreta. Antiagregante plaquetário, não indicado para FA isolada.",
+            "d": "Incorreta. Logística e clinicamente inviável.",
+            "e": "Incorreta. Vitamina K é o antídoto da varfarina, não um anticoagulante."
+        },
+        "difficulty": "média",
+        "tags": [
+            "DOACs",
+            "Anticoagulação",
+            "AVC",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Qual dos seguintes parâmetros ecograficos do coração fetal pode sugerir o desenvolvimento de IC e hidropisia já no útero, em casos de anemia fetal grave ou arritmias?",
+        "options": {
+            "a": "Aumento do líquido amniótico apenas.",
+            "b": "Presença de derrame pericárdico, ascite fetal e cardiomegalia (Índice Cardiotorácico Fetal aumentado).",
+            "c": "Apenas movimento fetal normal.",
+            "d": "Crescimento da placenta de 10 mm por hora.",
+            "e": "Aumento do peso da gestante em 100 kg."
+        },
+        "answer": "b",
+        "rationale": "A Hidropisia Fetal é a manifestação terminal da IC in utero. O coração não dá conta de bombear, e o feto começa a acumular líquido em terceiros espaços (pericárdio, abdome, pele), indicando gravidade extrema.",
+        "option_rationales": {
+            "a": "Incorreta.",
+            "b": "Correta. Conjunto clássico de sinais fetais de descompensação cardíaca.",
+            "c": "Incorreta.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "Fetal",
+            "Hidropisia",
+            "Diagnóstico",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "A respecto de laringite e asma brônquica (causa respiratória) vs 'Asma Cardíaca' (causa cardíaca), o que caracteriza melhor o fenômeno de sibilância na insuficiência cardíaca?",
+        "options": {
+            "a": "Apenas alergia ao pó doméstico.",
+            "b": "O sibilismo na IC (Asma Cardíaca) ocorre pelo edema da mucosa brônquica e compressão mecânica dos bronquíolos pelo excesso de pressão nos capilares pulmonares periféricos.",
+            "c": "Presença de catarro verde em todos os casos cardíacos.",
+            "d": "Melhora imediata com o uso de amendoim.",
+            "e": "Sempre ausência total de qualquer som pulmonar."
+        },
+        "answer": "b",
+        "rationale": "A 'Asma Cardíaca' é uma confusão diagnóstica comum. O paciente sibila (tem chiado) porque o pulmão está úmido e as vias aéreas ficam estreitadas pelo inchaço (edema). Trata-se com diuréticos e não apenas com 'bombinhas' de broncodilatador.",
+        "option_rationales": {
+            "a": "Incorreta.",
+            "b": "Correta. Explicação hemodinâmica para o chiado do peito na IC.",
+            "c": "Incorreta. Catarro verde sugere infecção respiratória acompanhando.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "média",
+        "tags": [
+            "Asma Cardíaca",
+            "Semiologia",
+            "Diferenciação",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Qual a principal limitação no uso crônico de Diuréticos de Alça (ex: Furosemida) isoladamente em doses muito altas na IC crônica, sem o bloqueio neuro-humoral?",
+        "options": {
+            "a": "Perda transitória da audição em 100% das vezes.",
+            "b": "Ativação rebote intensa do sistema renina-angiotensina-aldosterona (eixo RAA) em resposta à depleção rápida de volume e sal, agravando a progressão da doença a longo prazo.",
+            "c": "Crescimento excessivo de pelos nas orelhas.",
+            "d": "Piora súbita da visão central para cores azuis.",
+            "e": "Melhora imediata da função de todos os dentes posteriores."
+        },
+        "answer": "b",
+        "rationale": "Embora a furosemida alivie os sintomas (seca o paciente), ela não aumenta a sobrevida isoladamente e pode até prejudicar ao 'irritar' o rim e o sistema simpático compensatoriamente. Por isso, nunca deve ser usada sem o IECA/BRA e o betabloqueador (o alicerce da sobrevida).",
+        "option_rationales": {
+            "a": "Incorreta. Ototoxicidade existe em doses altíssimas endovenosas rápidas, mas não é a principal limitação sistêmica do uso oral crônico.",
+            "b": "Correta. Fenômeno de ativação neuro-hormonal por diuréticos isolados.",
+            "c": "Incorreta.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "média",
+        "tags": [
+            "Furosemida",
+            "Manejo",
+            "Limitações",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "A respecto de transplante cardíaco e rejeição celular aguda, qual exame é indicado periodicamente de rotina no primeiro ano pós-transplante para vigiar e detectar o ataque imunológico ao novo órgão?",
+        "options": {
+            "a": "Apenas Raio-X de tórax a cada 4 horas.",
+            "b": "Biópsia Endomiocárdica (BEM) das cavidades direitas do coração transplantado.",
+            "c": "Apenas exame de fezes para verificação de vermes.",
+            "d": "Tomografia de crânio com contraste mensal.",
+            "e": "Remoção cirúrgica de um rim para checagem de imunoglobulinas."
+        },
+        "answer": "b",
+        "rationale": "A biópsia é o método mais fidedigno para graduar a rejeição celular e humoral. É colhida através de um cateter longo inserido pela jugular até o ventrículo direito. Se houver muitos linfócitos atacando o tecido, aumenta-se a dose da prednisona ou tacrolimus.",
+        "option_rationales": {
+            "a": "Incorreta.",
+            "b": "Correta. Padrão de vigilância pós-transplante inicial.",
+            "c": "Incorreta.",
+            "d": "Incorreta.",
+            "e": "Incorreta. Absurdo clínico."
+        },
+        "difficulty": "média",
+        "tags": [
+            "Transplante",
+            "Biópsia",
+            "Vigilância",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Qual dos seguintes parâmetros define o estágio 'D' de insuficiência cardíaca de acordo com a classificação das diretrizes?",
+        "options": {
+            "a": "Paciente com apenas hipertensão arterial inicial.",
+            "b": "Insuficiência cardíaca refratária com sintomas de repouso, mesmo com terapia tripla convencional otimizada, exigindo intervenções avançadas (transplante, inotrópicos contínuos ou suporte mecânico).",
+            "c": "Paciente que melhorou da falta de ar após usar 1 comprimido de diurético.",
+            "d": "Apenas presença de sopro no coração.",
+            "e": "Paciente saudável que corre 10 km."
+        },
+        "answer": "b",
+        "rationale": "O Estágio D é o fim de linha do tratamento clínico convencional. Estes pacientes consomem 90% dos custos da IC e têm mortalidade anual superior a 50-80% sem as terapias de exceção.",
+        "option_rationales": {
+            "a": "Incorreta. Isso é Estágio A.",
+            "b": "Correta. Corresponde à fase terminal/avançada da insuficiência cardíaca.",
+            "c": "Incorreta.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "Estágio D",
+            "Gravidade",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "A respecto da fisiopatologia, qual a mudança no 'índice de esfericidade' do ventrículo esquerdo ocorre na miocardiopatia dilatada comparada ao coração normal?",
+        "options": {
+            "a": "O ventrículo torna-se mais fino e longo (forma de charuto).",
+            "b": "O ventrículo torna-se mais arredondado (esférico), mudando sua geometria elipsoide original para uma esfera ineficiente mecanicamente.",
+            "c": "O ventrículo desaparece eletricamente.",
+            "d": "Não há mudança na forma, apenas na cor das válvulas.",
+            "e": "O músculo torna-se mais rígido que o osso do fêmur."
+        },
+        "answer": "b",
+        "rationale": "O coração normal é como um melão ou elipse. Na dilatação, ele vira uma bola de boliche (esfera). Isso aumenta a tensão parietal (Lei de Laplace) e piora a regurgitação mitral por afastar os músculos papilares uns dos outros.",
+        "option_rationales": {
+            "a": "Incorreta.",
+            "b": "Correta. Define o remodelamento geométrico da IC sistólica dilatada.",
+            "c": "Incorreta.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "média",
+        "tags": [
+            "Remodelamento",
+            "Laplace",
+            "Geometria",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "A respeto de sintomas atípicos de IC em idosos frágeis, qual quadro clínico pode ser o equivalente de dispneia nesta população específica?",
+        "options": {
+            "a": "Excessiva fome e ganho de força nas pernas.",
+            "b": "Confusão mental aguda, fadiga extrema em repouso, anomalias de sono e perda de memória recente (delirium secundário ao baixo débito cerebral).",
+            "c": "Melhora súbita de todos os sintomas crônicos prévios.",
+            "d": "Apenas risos súbitos inadequadamente localizados.",
+            "e": "Aumento total da produção de saliva bucal."
+        },
+        "answer": "b",
+        "rationale": "Muitas vezes o idoso frágil não se exercita o suficiente para sentir 'falta de ar'. A falência cardíaca se manifesta como prostração, desatenção ou agitação, sinais de que o cérebro não está sendo devidamente oxigenado pelo débito cardíaco reduzido.",
+        "option_rationales": {
+            "a": "Incorreta.",
+            "b": "Correta. Descreve as apresentações atípicas e foge do óbvio clínico.",
+            "c": "Incorreta.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "média",
+        "tags": [
+            "Idosos",
+            "Apresentações",
+            "Equivalente Dispico",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "No tratamento do edema agudo de pulmão hipertensivo na emergência, qual medicação intravenosa é utilizada em infusão contínua para reduzir rapidamente a PÓS-CARGA através da venodilatação e vasodilatação arteriolar potente?",
+        "options": {
+            "a": "Nitroglicerina ou Nitroprussiato de Sódio.",
+            "b": "Dopamina em doses altas.",
+            "c": "Apenas aminas simpaticomiméticas como a Noradrenalina.",
+            "d": "Bicarbonato de sódio.",
+            "e": "Injeção de potássio concentrada intravenosa rápida."
+        },
+        "answer": "a",
+        "rationale": "Os nitratos abrem os vasos. Ao diminuir a resistência que o coração enfrenta para bombear (pós-carga) e ao represar sangue nas veias periféricas (reduzindo o pulmão - pré-carga), eles são o alicerce do tratamento do EAP associado à hipertensão.",
+        "option_rationales": {
+            "a": "Correta. Vasodilatadores de eleição na emergência de IC hipertensiva.",
+            "b": "Incorreta. Dopamina em dose alta aumenta a RVS e pioraria o quadro.",
+            "c": "Incorreta. Noradrenalina aumenta a pós-carga (vasoconstrição), sendo reservada apenas se houver choque.",
+            "d": "Incorreta.",
+            "e": "Incorreta. Seria fatal por induzir parada cardíaca imediata."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "Emergência",
+            "EAP",
+            "Nitratos",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Qual dos seguintes sintomas gastroenterológicos pode ser um sinal precoce de congestão venosa sistêmica (ascitite incipiente ou edema de parede intestinal) em um paciente com IC direita grave?",
+        "options": {
+            "a": "Diarreia profusa logo após o banho.",
+            "b": "Sensação de saciedade precoce (comer pouco e já se sentir cheio), empachamento pós-prandial e desconforto no quadrante superior direito (dor no fígado congestivo).",
+            "c": "Apenas vontade extrema de comer doces.",
+            "d": "Melhora da digestão de gorduras pesadas.",
+            "e": "Redução total da língua."
+        },
+        "answer": "b",
+        "rationale": "O edema das alças intestinais e a cápsula hepática distendida (pela congestão do sangue que não sobe ao coração) causam esses sintomas digestivos inespecíficos, mas muito importantes de serem valorizados no exame clínico da IC direita.",
+        "option_rationales": {
+            "a": "Incorreta.",
+            "b": "Correta. Sintomas de congestão sistêmica/visceral.",
+            "c": "Incorreta.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "média",
+        "tags": [
+            "Congestão Sistêmica",
+            "Gastro",
+            "Fígado",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "A respecto de fármacos inotrópicos positivos na insuficiência cardíaca aguda (estágio Frio-Úmido), qual a principal função da Dobutamina?",
+        "options": {
+            "a": "Curar a pneumonia.",
+            "b": "Aumentar a contratilidade cardíaca (força de batimento) através do estímulo aos receptores Beta-1 adrenérgicos, visando melhorar o débito cardíaco e o fluxo para os órgãos vitais.",
+            "c": "Reduzir a pressão arterial para zero.",
+            "d": "Apenas tratar o soluço persistente.",
+            "e": "Reduzir o tamanho das unhas do paciente internado."
+        },
+        "answer": "b",
+        "rationale": "A dobutamina é um agente simpaticomimético sintético. É usada como 'ponte' para estabilização ou tratamento definitivo, ajudando o ventrículo falido a ejetar o sangue necessário para manter a vida durante uma crise aguda de choque ou baixo débito grave.",
+        "option_rationales": {
+            "a": "Incorreta.",
+            "b": "Correta. Papel farmacológico clássico da dobutamina no choque cardiogênico.",
+            "c": "Incorreta. Hipotensão é um efeito colateral possível pelo estímulo Beta-2, não o objetivo.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "Dobutamina",
+            "Inotrópicos",
+            "Choque",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Um paciente de 45 anos, com IC por miocardiopatia idiopática, está sendo tratado com altas doses de Captopril. Ele desenvolve subitamente insuficiência renal aguda (aumento de 100% da creatinina) após o início do IECA. O que este quadro sugere fortemente?",
+        "options": {
+            "a": "A droga é falsa e não funciona.",
+            "b": "Presença de Estenose Bilateral da Artéria Renal.",
+            "c": "Melhora súbita da imunidade renal.",
+            "d": "Paciente está bebendo muita água destilada.",
+            "e": "Alergia ao látex da luva do médico."
+        },
+        "answer": "b",
+        "rationale": "Na estenose de artéria renal bilateral, o rim depende da angiotensina II para manter a pressão de filtração. O IECA retira essa 'muleta', causando colapso da filtração renal. É uma contraindicação absoluta relativa ao uso destas medicações.",
+        "option_rationales": {
+            "a": "Incorreta.",
+            "b": "Correta. Efeito 'diagnóstico' adverso do IECA na renovascular periférica associada.",
+            "c": "Incorreta.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "média",
+        "tags": [
+            "Estenose Artéria Renal",
+            "IECA Efeitos",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Qual a principal recomendação para a prática de atividade física em pacientes com IC crônica ESTÁVEL (NYHA II ou III)?",
+        "options": {
+            "a": "Repouso absoluto no leito para evitar o cansaço do coração.",
+            "b": "Recomendação Classe I de exercício físico aeróbico regular e reabilitação cardiovascular supervisionada para melhorar a capacidade funcional, diminuir sintomas e reduzir hospitalizações.",
+            "c": "Levantamento de peso de 100 kg no primeiro dia.",
+            "d": "Atividade física é proibida para quem tem FE < 40%.",
+            "e": "Apenas exercícios de apneia prolongada embaixo da água."
+        },
+        "answer": "b",
+        "rationale": "O treinamento físico na IC melhora a extração periférica de oxigênio pelo músculo estriado, diminui a ativação simpática e melhora a qualidade de vida. O dogma antigo do 'repouso absoluto' foi derrubado pelo estudo HF-ACTION.",
+        "option_rationales": {
+            "a": "Incorreta. Causa atrofia e piora o prognóstico funcional.",
+            "b": "Correta. Base da reabilitação cardíaca moderna.",
+            "c": "Incorreta.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "Exercício",
+            "Reabilitação",
+            "HF-ACTION",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "A respecto do tratamento de suporte, quando se deve iniciar o uso de oxigênio suplementar em um paciente com IC aguda?",
+        "options": {
+            "a": "Em todos os pacientes, mesmo se a saturação estiver 99%.",
+            "b": "Apenas se a saturação de oxigênio for < 90% ou houver hipoxemia documentada (PaO2 < 60 mmHg).",
+            "c": "Nunca usar oxigênio, pois é tóxico ao coração em 5 segundos.",
+            "d": "Apenas se o paciente estiver dormindo.",
+            "e": "O oxigênio deve ser usado apenas para tratar as unhas do paciente."
+        },
+        "answer": "b",
+        "rationale": "O oxigênio em excesso em quem não precisa (normoxêmicos) causa vasoconstrição coronariana e sistêmica, reduzindo o débito cardíaco (efeito hiperóxico deletério). Deve ser usado apenas para corrigir a falta dele (hipóxia).",
+        "option_rationales": {
+            "a": "Incorreta. Hiperóxia desnecessária traz riscos hemodinâmicos.",
+            "b": "Correta. Alvos terapêuticos de segurança diretriz brasileira e internacional.",
+            "c": "Incorreta.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "média",
+        "tags": [
+            "Oxigenioterapia",
+            "Cuidados",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Qual dos seguintes marcadores eletrocardiográficos (no ECG de 12 derivações) pode indicar um pior prognóstico ou maior risco de morte súbita em um paciente com IC?",
+        "options": {
+            "a": "Apenas a presença de ritmo sinusal normal.",
+            "b": "Fragmentação do complexo QRS, intervalo QT muito longo e ondas T negativas gigantes.",
+            "c": "Eixo do QRS em zero grau.",
+            "d": "Presença de onda U pequena fisiológica.",
+            "e": "Frequência cardíaca de 70 bpm estável."
+        },
+        "answer": "b",
+        "rationale": "Alterações complexas na repolarização (QT longo) e cicatrizes elétricas (QRS fragmentado) traduzem um substrato miocárdico instável com maior propensão a gatilhos arrítmicos fatais (TV/FV), exigindo acompanhamento rigoroso.",
+        "option_rationales": {
+            "a": "Incorreta.",
+            "b": "Correta. Identifica marcadores de instabilidade elétrica ventricular.",
+            "c": "Incorreta.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "média",
+        "tags": [
+            "ECG",
+            "Prognóstico",
+            "Arritmias",
+            "FGV"
+        ]
+    }
+]

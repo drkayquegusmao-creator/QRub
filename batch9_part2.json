@@ -1,0 +1,627 @@
+[
+    {
+        "enunciado": "A articulação do joelho é estabilizada por ligamentos cruzados. Qual a principal função do Ligamento Cruzado Anterior (LCA)?",
+        "options": {
+            "a": "Impedir o deslocamento posterior da tíbia em relação ao fêmur.",
+            "b": "Impedir o deslocamento anterior da tíbia em relação ao fêmur.",
+            "c": "Limitar a adução da perna.",
+            "d": "Limitar a abdução da perna.",
+            "e": "Estabilizar apenas a patela."
+        },
+        "answer": "b",
+        "rationale": "O LCA evita a translação anterior da tíbia, sendo testado pelo sinal de gaveta anterior.",
+        "option_rationales": {
+            "a": "Errada. Função do LCP.",
+            "b": "Correta. Artrologia funcional do joelho.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Membro Inferior",
+            "Artrologia"
+        ]
+    },
+    {
+        "enunciado": "Os 'meniscos' do joelho são fibrocartilagens que absorvem impacto. Qual a diferença anatômica clássica entre o menisco medial e o lateral?",
+        "options": {
+            "a": "O medial é em formato de 'O' e o lateral de 'C'.",
+            "b": "O medial é em formato de 'C' e mais fixo; o lateral é mais circular e móvel.",
+            "c": "O lateral é muito maior que o medial.",
+            "d": "O medial não possui suprimento sanguíneo em nenhuma zona.",
+            "e": "Apenas o lateral se liga ao ligamento colateral."
+        },
+        "answer": "b",
+        "rationale": "O menisco medial é maior, em forma de 'C', e está firmemente aderido ao ligamento colateral medial, o que o torna mais propenso a lesões.",
+        "option_rationales": {
+            "a": "Errada. É o contrário.",
+            "b": "Correta. Anatomia estrutural do joelho.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Membro Inferior",
+            "Artrologia"
+        ]
+    },
+    {
+        "enunciado": "A 'fossa poplítea' contém vasos e nervos importantes. Qual a estrutura mais SUPERFICIAL contida nesta fossa?",
+        "options": {
+            "a": "Artéria poplítea.",
+            "b": "Veia poplítea.",
+            "c": "Nervo tibial.",
+            "d": "Nervo fibular comum.",
+            "e": "Músculo poplíteo."
+        },
+        "answer": "c",
+        "rationale": "Na fossa poplítea, de superficial para profundo, temos: Nervo tibial, Veia poplítea e Artéria poplítea (junto ao osso).",
+        "option_rationales": {
+            "a": "Errada. É a mais profunda.",
+            "b": "Errada. Fica em posição intermediária.",
+            "c": "Correta. Topografia da fossa poplítea.",
+            "d": "Errada. Segue a borda do bíceps femoral.",
+            "e": "Errada."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "Anatomia",
+            "Membro Inferior",
+            "Topografia"
+        ]
+    },
+    {
+        "enunciado": "O 'nervo fibular comum' contorna uma estrutura óssea onde é frequentemente lesado por trauma ou compressão lateral. Que estrutura é essa?",
+        "options": {
+            "a": "Maléolo lateral.",
+            "b": "Colo da fíbula.",
+            "c": "Epicôndilo lateral do fêmur.",
+            "d": "Tuberosidade da tíbia.",
+            "e": "Calcâneo."
+        },
+        "answer": "b",
+        "rationale": "O nervo fibular comum passa superficialmente ao colo da fíbula antes de se dividir.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Anatomia aplicada e trauma.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Membro Inferior",
+            "Neuroanatomia/Osteologia"
+        ]
+    },
+    {
+        "enunciado": "Uma lesão completa do 'nervo fibular comum' resulta em qual achado clínico característico?",
+        "options": {
+            "a": "Pé calcâneo (impossibilidade de ficar na ponta dos pés).",
+            "b": "Pé caído (impossibilidade de dorsiflexão) e perda da eversão.",
+            "c": "Perda da sensibilidade na planta do pé.",
+            "d": "Paralisia do quadríceps.",
+            "e": "Incapacidade de flexionar os dedos."
+        },
+        "answer": "b",
+        "rationale": "O fibular comum inerva os compartimentos anterior (dorsiflexores) e lateral (eversores) da perna.",
+        "option_rationales": {
+            "a": "Errada. Lesão do nervo tibial.",
+            "b": "Correta. Neurologia periférica.",
+            "c": "Errada. Nervo tibial.",
+            "d": "Errada. Nervo femoral.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Membro Inferior",
+            "Neuroanatomia/Clínica"
+        ]
+    },
+    {
+        "enunciado": "Os músculos do compartimento ANTERIOR da perna realizam dorsiflexão. Qual deles é o principal responsável por INVERTER o pé também?",
+        "options": {
+            "a": "Extensor longo dos dedos.",
+            "b": "Extensor longo do hálux.",
+            "c": "Tibial anterior.",
+            "d": "Fibular terceiro.",
+            "e": "Fibular curto."
+        },
+        "answer": "c",
+        "rationale": "O tibial anterior realiza dorsiflexão e inversão potentes.",
+        "option_rationales": {
+            "a": "Errada. Auxilia na eversão.",
+            "b": "Errada.",
+            "c": "Correta. Miologia funcional da perna.",
+            "d": "Errada. Auxilia na eversão.",
+            "e": "Errada. É eversor puro."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Membro Inferior",
+            "Miologia"
+        ]
+    },
+    {
+        "enunciado": "O 'tendão calcâneo' (de Aquiles) é a inserção comum de quais músculos?",
+        "options": {
+            "a": "Tibial posterior e flexor longo dos dedos.",
+            "b": "Gastrocnêmio lateral, gastrocnêmio medial e sóleo.",
+            "c": "Fibular longo e curto.",
+            "d": "Semitendíneo e semimembranáceo.",
+            "e": "Poplíteo e plantar."
+        },
+        "answer": "b",
+        "rationale": "Este conjunto forma o tríceps sural, o principal flexor plantar.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Miologia da perna posterior.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Membro Inferior",
+            "Miologia"
+        ]
+    },
+    {
+        "enunciado": "O 'pulso pedioso' (da artéria dorsal do pé) deve ser palpado em qual localização anatômica?",
+        "options": {
+            "a": "Atrás do maléolo medial.",
+            "b": "No dorso do pé, lateralmente ao tendão do extensor longo do hálux.",
+            "c": "No dorso do pé, medialmente ao tendão do tibial anterior.",
+            "d": "Na planta do pé.",
+            "e": "Atrás do maléolo lateral."
+        },
+        "answer": "b",
+        "rationale": "A artéria dorsal do pé é a continuação da tibial anterior e corre entre os tendões do extensor longo do hálux e extensor longo dos dedos.",
+        "option_rationales": {
+            "a": "Errada. Local do pulso tibial posterior.",
+            "b": "Correta. Anatomia de superfície e vascular.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada. Local da artéria fibular."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Membro Inferior",
+            "Angiologia/Superfície"
+        ]
+    },
+    {
+        "enunciado": "A 'síndrome compartimental' da perna é uma emergência. Qual compartimento é o mais frequentemente afetado e contém o nervo fibular profundo?",
+        "options": {
+            "a": "Compartimento Lateral.",
+            "b": "Compartimento Anterior.",
+            "c": "Compartimento Posterior Superficial.",
+            "d": "Compartimento Posterior Profundo.",
+            "e": "Compartimento Medial."
+        },
+        "answer": "b",
+        "rationale": "O compartimento anterior é rígido e contém estruturas vitais como a artéria tibial anterior e o nervo fibular profundo.",
+        "option_rationales": {
+            "a": "Errada. Contém o fibular superficial.",
+            "b": "Correta. Anatomia aplicada/Patologia.",
+            "c": "Errada.",
+            "d": "Errada. Contém a artéria tibial posterior e nervo tibial.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Membro Inferior",
+            "Topografia/Clínica"
+        ]
+    },
+    {
+        "enunciado": "O osso 'sustentáculo do talo' é uma projeção importante de qual osso do tarso?",
+        "options": {
+            "a": "Talo.",
+            "b": "Calcâneo.",
+            "c": "Navicular.",
+            "d": "Cuboide.",
+            "e": "Cuneiforme medial."
+        },
+        "answer": "b",
+        "rationale": "O sustentáculo do talo projeta-se medialmente do calcâneo para suportar a cabeça do talo.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Osteologia do pé.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "Anatomia",
+            "Membro Inferior",
+            "Osteologia"
+        ]
+    },
+    {
+        "enunciado": "O 'túnel do tarso' situa-se na face medial do tornozelo. Qual estrutura NÃO passa por dentro deste túnel?",
+        "options": {
+            "a": "Tendão do tibial posterior.",
+            "b": "Nervo tibial.",
+            "c": "Artéria tibial posterior.",
+            "d": "Nervo fibular superficial.",
+            "e": "Tendão do flexor longo do hálux."
+        },
+        "answer": "d",
+        "rationale": "O conteúdo do túnel (medial-lateral): Tibial posterior, flexor dos Dedos, Artéria/veia, Nervo tibial, flexor do Hálux (Tênis De Algodão Não Tem Horário). O fibular superficial é lateral.",
+        "option_rationales": {
+            "a": "Errada. É o mais anterior.",
+            "b": "Errada. Faz parte do conteúdo.",
+            "c": "Errada. Faz parte do conteúdo.",
+            "d": "Correta. Estruturas do pé.",
+            "e": "Errada. É o mais posterior."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Membro Inferior",
+            "Topografia"
+        ]
+    },
+    {
+        "enunciado": "Qual músculo é considerado o 'mestre do joelho' por realizar a rotação necessária para 'destravar' a articulação no início da flexão?",
+        "options": {
+            "a": "Gastrocnêmio.",
+            "b": "Plantaris.",
+            "c": "Poplíteo.",
+            "d": "Sóleo.",
+            "e": "Sartório."
+        },
+        "answer": "c",
+        "rationale": "O poplíteo realiza rotação lateral do fêmur sobre a tíbia fixa para iniciar a flexão.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Errada.",
+            "c": "Correta. Biomecânica do joelho.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "Anatomia",
+            "Membro Inferior",
+            "Miologia/Biomecânica"
+        ]
+    },
+    {
+        "enunciado": "A 'articulação talocrural' (tornozelo) realiza principalmente quais movimentos?",
+        "options": {
+            "a": "Inversão e eversão.",
+            "b": "Dorsiflexão e flexão plantar.",
+            "c": "Rotação interna e externa.",
+            "d": "Abdução e adução.",
+            "e": "Apenas circundução."
+        },
+        "answer": "b",
+        "rationale": "É uma articulação em dobradiça (gínglimo) entre a pinça maleolar e o talo.",
+        "option_rationales": {
+            "a": "Errada. Ocorrem na subtalar e transversa do tarso.",
+            "b": "Correta. Artrologia funcional.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Membro Inferior",
+            "Artrologia"
+        ]
+    },
+    {
+        "enunciado": "Qual ligamento do tornozelo é o mais frequentemente lesado em entorses banais por inversão?",
+        "options": {
+            "a": "Ligamento deltoide.",
+            "b": "Ligamento talofibular anterior.",
+            "c": "Ligamento talofibular posterior.",
+            "d": "Ligamento calcaneofibular.",
+            "e": "Ligamento tibiofibular inferior."
+        },
+        "answer": "b",
+        "rationale": "O talofibular anterior é o componente mais fraco da estabilidade lateral.",
+        "option_rationales": {
+            "a": "Errada. Forte ligamento medial.",
+            "b": "Correta. Patologia traumática.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Membro Inferior",
+            "Artrologia/Trauma"
+        ]
+    },
+    {
+        "enunciado": "O 'arco plantar cano' (pé chato) está frequentemente associado à falência de qual tendão/músculo que suporta o arco longitudinal medial?",
+        "options": {
+            "a": "Fibular longo.",
+            "b": "Tibial anterior.",
+            "c": "Tibial posterior.",
+            "d": "Flexor curto dos dedos.",
+            "e": "Extensor longo do hálux."
+        },
+        "answer": "c",
+        "rationale": "O tibial posterior insere-se no navicular e cuneiformes, mantendo a curvatura medial do pé.",
+        "option_rationales": {
+            "a": "Errada. Suporta o arco transversal.",
+            "b": "Errada.",
+            "c": "Correta. Anatomia funcional do pé.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "Anatomia",
+            "Membro Inferior",
+            "Miologia/Ortopedia"
+        ]
+    },
+    {
+        "enunciado": "Qual nervo inerva o pequeno 'músculo extensor curto dos dedos' no dorso do pé?",
+        "options": {
+            "a": "Nervo fibular superficial.",
+            "b": "Nervo fibular profundo.",
+            "c": "Nervo sural.",
+            "d": "Nervo plantar lateral.",
+            "e": "Nervo safeno."
+        },
+        "answer": "b",
+        "rationale": "O fibular profundo inerva o compartimento anterior da perna e os extensores intrínsecos no pé.",
+        "option_rationales": {
+            "a": "Errada. Sensitivo no dorso do pé.",
+            "b": "Correta. Neuroanatomia motora distal.",
+            "c": "Errada. Puramente sensitivo.",
+            "d": "Errada. Inerva a planta do pé.",
+            "e": "Errada."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "Anatomia",
+            "Membro Inferior",
+            "Neuroanatomia"
+        ]
+    },
+    {
+        "enunciado": "A 'sensibilidade do primeiro espaço interdigital' (entre o hálux e o 2º dedo) é suprida por qual nervo?",
+        "options": {
+            "a": "Fibular superficial.",
+            "b": "Fibular profundo.",
+            "c": "Plantar medial.",
+            "d": "Sural.",
+            "e": "Safeno."
+        },
+        "answer": "b",
+        "rationale": "Este é o único território sensitivo cutâneo do nervo fibular profundo no pé.",
+        "option_rationales": {
+            "a": "Errada. Inerva o restante do dorso do pé.",
+            "b": "Correta. Neuroanatomia sensitiva (dermátomos).",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Membro Inferior",
+            "Neuroanatomia"
+        ]
+    },
+    {
+        "enunciado": "O 'tendão do músculo fibular longo' tem um trajeto incomum. Por onde ele passa para chegar à sua inserção na base do 1º metatarso?",
+        "options": {
+            "a": "Pelo dorso do pé.",
+            "b": "Pela planta do pé, cruzando de lateral para medial.",
+            "c": "Atrás do maléolo medial.",
+            "d": "Por cima do cuneiforme lateral.",
+            "e": "Pelo seio do tarso."
+        },
+        "answer": "b",
+        "rationale": "Ele contorna o maléolo lateral, passa pelo sulco do cuboide e atravessa a planta do pé profundamente.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Trajeto miológico complexo.",
+            "c": "Errada. Trajeto do tibial posterior e flexores.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "Anatomia",
+            "Membro Inferior",
+            "Miologia"
+        ]
+    },
+    {
+        "enunciado": "Os 'músculos gastrocnêmios' cruzam a articulação do joelho. Qual a consequência disso em termos de ação biomecânica?",
+        "options": {
+            "a": "São apenas flexores plantares.",
+            "b": "Auxiliam na flexão do joelho além da flexão plantar.",
+            "c": "Impedem a extensão da perna.",
+            "d": "Auxiliam na extensão do joelho.",
+            "e": "Não possuem ação sobre o joelho."
+        },
+        "answer": "b",
+        "rationale": "Por originarem-se nos furos femorais, são biarticulares.",
+        "option_rationales": {
+            "a": "Errada. Este é o sóleo (monarticular).",
+            "b": "Correta. Cinesiologia funcional.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Membro Inferior",
+            "Miologia/Biomecânica"
+        ]
+    },
+    {
+        "enunciado": "O 'ligamento calcaneonavicular plantar' é essencial para o arco do pé. Qual o seu nome comum?",
+        "options": {
+            "a": "Ligamento em Y.",
+            "b": "Ligamento Spring (mola).",
+            "c": "Ligamento bifurcado.",
+            "d": "Ligamento longus.",
+            "e": "Fáscia plantar."
+        },
+        "answer": "b",
+        "rationale": "Ele suporta a cabeça do talo e 'amortece' o peso do corpo.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Artrologia do pé.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "Anatomia",
+            "Membro Inferior",
+            "Artrologia"
+        ]
+    },
+    {
+        "enunciado": "No pé, qual a inervação da maioria dos músculos intrínsecos da PLANTA do pé (similar ao nervo ulnar na mão)?",
+        "options": {
+            "a": "Nervo plantar medial.",
+            "b": "Nervo plantar lateral.",
+            "c": "Nervo tibial.",
+            "d": "Nervo fibular profundo.",
+            "e": "Nervo sural."
+        },
+        "answer": "b",
+        "rationale": "O plantar lateral (ramo do tibial) supre a maioria dos intrínsecos, enquanto o plantar medial (similar ao mediano) supre apenas quatro músculos.",
+        "option_rationales": {
+            "a": "Errada. Supre apenas o abdutor do hálux, flexor curto do hálux, flexor curto dos dedos e 1º lumbrical.",
+            "b": "Correta. Neuroanatomia da mão vs pé (analogia).",
+            "c": "Errada. É o nervo de origem.",
+            "d": "Errada. É dorsal.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Membro Inferior",
+            "Neuroanatomia"
+        ]
+    },
+    {
+        "enunciado": "A 'lacuna vasorum' (espaço vascular) abaixo do ligamento inguinal não contém qual dessas estruturas?",
+        "options": {
+            "a": "Artéria femoral.",
+            "b": "Veia femoral.",
+            "c": "Nervo femoral.",
+            "d": "Ramo femoral do nervo genitofemoral.",
+            "e": "Linfonodos inguinais profundos."
+        },
+        "answer": "c",
+        "rationale": "O nervo femoral passa pela lacuna musculorum (lateralmente), separado dos vasos pelo arco iliopectíneo.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Errada.",
+            "c": "Correta. Topografia regional inguinal.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "Anatomia",
+            "Membro Inferior",
+            "Topografia"
+        ]
+    },
+    {
+        "enunciado": "Em qual situação anatômica o 'músculo piriforme' ganha extrema relevância clínica em uma condição de 'pseudociatalgia'?",
+        "options": {
+            "a": "Quando ele está inflamado.",
+            "b": "Quando o nervo isquiático passa por dentro de suas fibras ou é comprimido por ele.",
+            "c": "Quando o paciente tem pé chato.",
+            "d": "Quando a sínfise púbica está aberta.",
+            "e": "Não tem relevância clínica."
+        },
+        "answer": "b",
+        "rationale": "A Síndrome do Piriforme mimetiza uma hérnia de disco por comprimir o nervo ciático na pelve.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Anatomia aplicada/Neurologia.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Membro Inferior",
+            "Neuroanatomia/Miologia"
+        ]
+    },
+    {
+        "enunciado": "A 'articulação do quadril' é do tipo esferoide multiaxial. Qual dessas estruturas amplia a área de contato e profundidade da cavidade acetabular?",
+        "options": {
+            "a": "Ligamento redondo.",
+            "b": "Lábio (labrum) acetabular.",
+            "c": "Cartilagem hialina medial.",
+            "d": "Zona orbicular.",
+            "e": "Bolsa trocantérica."
+        },
+        "answer": "b",
+        "rationale": "O labrum é um anel fibrocartilaginoso que aprofunda o acetábulo.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Artrologia do quadril.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Membro Inferior",
+            "Artrologia"
+        ]
+    },
+    {
+        "enunciado": "Qual o principal estabilizador LATERAL da articulação do joelho, ligando o fêmur à cabeça da fíbula?",
+        "options": {
+            "a": "Ligamento colateral medial.",
+            "b": "Ligamento colateral fibular (lateral).",
+            "c": "Ligamento cruzado anterior.",
+            "d": "Tendão do bíceps femoral.",
+            "e": "Trato iliotibial."
+        },
+        "answer": "b",
+        "rationale": "O LCL separa-se do menisco lateral (diferente do medial) e resiste ao estresse em varo.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Artrologia do joelho.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada. Auxilia, mas o ligamento é a estrutura primária."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Membro Inferior",
+            "Artrologia"
+        ]
+    }
+]

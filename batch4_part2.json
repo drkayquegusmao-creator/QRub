@@ -1,0 +1,627 @@
+[
+    {
+        "enunciado": "A irrigação arterial dos pulmões é realizada prioritariamente para suprir as necessidades metabólicas do tecido pulmonar (não para troca gasosa). Quais vasos realizam essa função e de onde eles se originam habitualmente?",
+        "options": {
+            "a": "Artérias pulmonares; tronco pulmonar.",
+            "b": "Artérias bronquiais; aorta torácica.",
+            "c": "Artérias intercostais; aorta.",
+            "d": "Artéria torácica interna; subclávia.",
+            "e": "Artérias frênicas superiores; aorta."
+        },
+        "answer": "b",
+        "rationale": "Enquanto as artérias pulmonares levam sangue venoso para oxigenação, as artérias bronquiais levam sangue arterial para nutrir o parênquima pulmonar e os brônquios.",
+        "option_rationales": {
+            "a": "Errada. Levam sangue para troca gasosa.",
+            "b": "Correta. Vasos nutricionais do pulmão.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Tórax",
+            "Vascularização"
+        ]
+    },
+    {
+        "enunciado": "O linfonodo de Virchow (ou sinal de Troisier) é um linfonodo aumentado na fossa supraclavicular esquerda. Anatômica e clinicamente, por que esse local é proeminente em metástases de tumores abdominais?",
+        "options": {
+            "a": "Pela drenagem direta da veia porta.",
+            "b": "Pela conexão terminal do ducto torácico no ângulo venoso esquerdo.",
+            "c": "Pela proximidade com a artéria carótida.",
+            "d": "Pela drenagem do ducto linfático direito.",
+            "e": "Pela comunicação com o timo."
+        },
+        "answer": "b",
+        "rationale": "O ducto torácico drena quase toda a linfa infra-diafragmática. Ele termina no ângulo venoso esquerdo, e células neoplásicas podem se depositar nos linfonodos adjacentes à sua terminação.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Fundamentação anatômica para um importante sinal clínico oncológico.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Tórax",
+            "Imunologia/Clínica"
+        ]
+    },
+    {
+        "enunciado": "A inervação parassimpática dos pulmões causa broncoconstrição e secreção glandular. Qual nervo é responsável por essas fibras pré-ganglionares?",
+        "options": {
+            "a": "Nervos esplâncnicos cardiopulmonares.",
+            "b": "Nervo frênico.",
+            "c": "Nervo vago (X par).",
+            "d": "Nervos intercostais.",
+            "e": "Cadeia simpática torácica."
+        },
+        "answer": "c",
+        "rationale": "O nervo vago fornece toda a inervação parassimpática para as vísceras torácicas.",
+        "option_rationales": {
+            "a": "Errada. São fibras simpáticas.",
+            "b": "Errada. Motor esquelético.",
+            "c": "Correta. Principal nervo do sistema autônomo parassimpático no tórax.",
+            "d": "Errada.",
+            "e": "Errada. Causa broncodilatação."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Tórax",
+            "Neuroanatomia"
+        ]
+    },
+    {
+        "enunciado": "As costelas são classificadas em verdadeiras, falsas e flutuantes. Quais pares de costelas são considerados 'costelas falsas' (cuja cartilagem se une à da costela superior e não diretamente ao esterno)?",
+        "options": {
+            "a": "1ª à 7ª.",
+            "b": "8ª, 9ª e 10ª.",
+            "c": "11ª e 12ª.",
+            "d": "1ª e 2ª apenas.",
+            "e": "8ª à 12ª."
+        },
+        "answer": "b",
+        "rationale": "Costelas verdadeiras: 1-7. Costelas falsas: 8-10. Costelas flutuantes (subtipo das falsas): 11-12.",
+        "option_rationales": {
+            "a": "Errada. São as verdadeiras (vertebroesternais).",
+            "b": "Correta. Vertebrocondrais.",
+            "c": "Errada. São as flutuantes.",
+            "d": "Errada.",
+            "e": "Errada. A 11 e 12 não têm conexão anterior sequer indireta."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Tórax",
+            "Osteologia"
+        ]
+    },
+    {
+        "enunciado": "O seio transverso do pericárdio é um espaço de importância cirúrgica durante operações cardíacas. Onde ele se localiza especificamente?",
+        "options": {
+            "a": "Atrás do átrio esquerdo.",
+            "b": "Entre as veias cavas superior e inferior.",
+            "c": "Atrás da aorta ascendente e do tronco pulmonar, e à frente da veia cava superior.",
+            "d": "Abaixo do ventrículo direito.",
+            "e": "Entre o pericárdio fibroso e o osso esterno."
+        },
+        "answer": "c",
+        "rationale": "O seio transverso permite ao cirurgião passar um dedo ou um clampe isolando a aorta e o tronco pulmonar do restante do coração.",
+        "option_rationales": {
+            "a": "Errada. Local do seio oblíquo.",
+            "b": "Errada.",
+            "c": "Correta. Espaço de acesso vascular pericárdico.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "Anatomia",
+            "Tórax",
+            "Topografia"
+        ]
+    },
+    {
+        "enunciado": "A 'crista terminal' (crista terminalis) é um relevo muscular encontrado no interior de qual câmara cardíaca, marcando a transição entre a parte lisa e a parte pectínea?",
+        "options": {
+            "a": "Átrio esquerdo.",
+            "b": "Ventrículo direito.",
+            "c": "Átrio direito.",
+            "d": "Ventrículo esquerdo.",
+            "e": "Seio coronário."
+        },
+        "answer": "c",
+        "rationale": "A crista terminal separa o sinus venarum (liso, onde desembocam as cavas) da parte rugosa (músculos pectíneos) no átrio direito.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Errada.",
+            "c": "Correta. Marco interno do átrio direito.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Tórax",
+            "Cardiologia"
+        ]
+    },
+    {
+        "enunciado": "A drenagem venosa da parede torácica é feita principalmente pelo sistema ázigo. Qual veia drena a maior parte do lado ESQUERDO inferior do tórax e desemboca na veia ázigo ao nível de T9?",
+        "options": {
+            "a": "Veia hemiázigo.",
+            "b": "Veia hemiázigo acessória.",
+            "c": "Veia intercostal superior esquerda.",
+            "d": "Veia lombar ascendente.",
+            "e": "Veia subclávia."
+        },
+        "answer": "a",
+        "rationale": "A hemiázigo (inferior esquerda) e a hemiázigo acessória (superior esquerda) drenam o lado esquerdo e cruzam a linha média para a veia ázigo.",
+        "option_rationales": {
+            "a": "Correta. Homóloga inferior à ázigo no lado esquerdo.",
+            "b": "Errada. Drena a parte superior esquerda.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Tórax",
+            "Angiologia"
+        ]
+    },
+    {
+        "enunciado": "O septo interventricular possui duas porções distintas. Qual dessas porções é mais fina e é o local mais comum de defeitos congênitos (Comunicação Interventricular - CIV)?",
+        "options": {
+            "a": "Parte muscular.",
+            "b": "Parte membranosa.",
+            "c": "Parte infundibular.",
+            "d": "Septo primum.",
+            "e": "Trígono fibroso."
+        },
+        "answer": "b",
+        "rationale": "A porção membranosa situa-se superiormente, próxima às valvas aórtica e tricúspide. É o local de fechamento mais tardio no desenvolvimento embrionário.",
+        "option_rationales": {
+            "a": "Errada. Parte espessa e inferior.",
+            "b": "Correta. Área de maior fragilidade e patologia congênita.",
+            "c": "Errada.",
+            "d": "Errada. Estrutura do septo interatrial.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Tórax",
+            "Cardiologia"
+        ]
+    },
+    {
+        "enunciado": "Qual estrutura anatômica passa ANTERIORMENTE ao esôfago e POSTERIORMENTE ao arco da aorta no mediastino superior, sendo desviada para a direita pela crossa da aorta?",
+        "options": {
+            "a": "Traqueia.",
+            "b": "Ducto torácico.",
+            "c": "Veia cava superior.",
+            "d": "Nervo frênico esquerdo.",
+            "e": "Veia braquiocefálica."
+        },
+        "answer": "a",
+        "rationale": "A traqueia localiza-se entre os grandes vasos (anteriormente) e o esôfago (posteriormente).",
+        "option_rationales": {
+            "a": "Correta. Relações fundamentais do mediastino superior.",
+            "b": "Errada. Situa-se atrás do esôfago.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Tórax",
+            "Topografia"
+        ]
+    },
+    {
+        "enunciado": "O músculo transverso do tórax localiza-se na face interna da parede anterior do tórax. Qual a sua função e inervação?",
+        "options": {
+            "a": "Eleva as costelas; nervo frênico.",
+            "b": "Deprime as costelas; nervos intercostais.",
+            "c": "Estabiliza o mediastino; nervo vago.",
+            "d": "Expande o tórax; nervo acessório.",
+            "e": "Não possui função mecânica."
+        },
+        "answer": "b",
+        "rationale": "O transverso do tórax auxilia na expiração deprimindo as cartilagens costais. É inervado pelos nervos intercostais adjacentes.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Função expiratória acessória.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "Anatomia",
+            "Tórax",
+            "Miologia"
+        ]
+    },
+    {
+        "enunciado": "A 'lingula' é uma projeção em forma de língua encontrada em qual lobo pulmonar?",
+        "options": {
+            "a": "Lobo médio do pulmão direito.",
+            "b": "Lobo superior do pulmão esquerdo.",
+            "c": "Lobo inferior do pulmão esquerdo.",
+            "d": "Lobo superior do pulmão direito.",
+            "e": "Lobo inferior do pulmão direito."
+        },
+        "answer": "b",
+        "rationale": "A língula do pulmão esquerdo é o análogo anatômico (embora não funcionalmente separado como lobo) do lobo médio do pulmão direito.",
+        "option_rationales": {
+            "a": "Errada. O pulmão direito tem lobo médio, não língula.",
+            "b": "Correta. Característica exclusiva do pulmão esquerdo.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Tórax",
+            "Pneumologia"
+        ]
+    },
+    {
+        "enunciado": "O seio coronário é o principal coletor de sangue venoso do coração. Onde ele se localiza e onde desemboca?",
+        "options": {
+            "a": "No sulco interventricular anterior; desemboca no átrio esquerdo.",
+            "b": "No sulco coronário posterior; desemboca no átrio direito.",
+            "c": "No septo interatrial; desemboca no ventrículo direito.",
+            "d": "Na base da aorta; desemboca na veia cava.",
+            "e": "No epicárdio do ventrículo esquerdo; desemboca livremente."
+        },
+        "answer": "b",
+        "rationale": "O seio coronário situa-se na parte posterior do sulco coronário (entre átrios e ventrículos) e drena para o átrio direito, próximo à valva da veia cava inferior.",
+        "option_rationales": {
+            "a": "Errada. Sangue venoso cardíaco vai para o coração direito.",
+            "b": "Correta. Anatomia venosa do coração.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Tórax",
+            "Angiologia/Cardiologia"
+        ]
+    },
+    {
+        "enunciado": "Qual dos seguintes brônquios segmentares é o local mais provável para a retenção de um corpo estranho aspirado se o paciente estiver deitado em decúbito dorsal?",
+        "options": {
+            "a": "Segmento apical do lobo superior direito.",
+            "b": "Segmento superior do lobo inferior direito.",
+            "c": "Segmento basal posterior do lobo inferior esquerdo.",
+            "d": "Segmento lingular superior.",
+            "e": "Segmento anterior do lobo superior direito."
+        },
+        "answer": "b",
+        "rationale": "Em decúbito dorsal, o brônquio do segmento superior do lobo inferior (especialmente o direito) é o primeiro a 'descer' verticalmente em relação ao brônquio principal, coletando material aspirado.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Relação clínica gravitacional importante em pneumologia.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "Anatomia",
+            "Tórax",
+            "Clínica/Pneumologia"
+        ]
+    },
+    {
+        "enunciado": "A inervação SIMPÁTICA do coração é fornecida pelos nervos cardíacos provenientes da cadeia simpática. Qual o efeito dessa estimulação sobre o nó sinoatrial?",
+        "options": {
+            "a": "Efeito cronotrópico negativo (diminui frequência).",
+            "b": "Efeito cronotrópico positivo (aumenta frequência).",
+            "c": "Efeito inotrópico negativo (diminui força).",
+            "d": "Bloqueio da condução atrioventricular.",
+            "e": "Apenas vasocontrição das coronárias."
+        },
+        "answer": "b",
+        "rationale": "O sistema simpático aumenta a frequência cardíaca (cronotropismo+) e a força de contração (inotropismo+).",
+        "option_rationales": {
+            "a": "Errada. Efeito do parassimpático.",
+            "b": "Correta. Fisiologia do sistema nervoso autônomo no coração.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada. Geralmente causa vasodilatação coronariana metabólica."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Tórax",
+            "Fisiologia/Neuroanatomia"
+        ]
+    },
+    {
+        "enunciado": "As veias braquiocefálicas direita e esquerda unem-se para formar a veia cava superior. Qual dessas veias é mais LONGA e cruza a linha média obliquamente?",
+        "options": {
+            "a": "Veia braquiocefálica direita.",
+            "b": "Veia braquiocefálica esquerda.",
+            "c": "Ambas têm o mesmo comprimento.",
+            "d": "Veia cava superior.",
+            "e": "Veia jugular interna."
+        },
+        "answer": "b",
+        "rationale": "Como a veia cava superior localiza-se à direita, a veia braquiocefálica esquerda precisa cruzar todo o mediastino superior para alcançá-la.",
+        "option_rationales": {
+            "a": "Errada. Curta e vertical.",
+            "b": "Correta. Característica decorrente da assimetria venosa torácica.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Tórax",
+            "Angiologia"
+        ]
+    },
+    {
+        "enunciado": "A 'fovea capitis' da costela articula-se com qual estrutura vertebral?",
+        "options": {
+            "a": "Processo transverso da vértebra correspondente.",
+            "b": "Corpo vertebral da vértebra correspondente e da superior.",
+            "c": "Processo espinhoso.",
+            "d": "Pedículo vertebral.",
+            "e": "Lâmina vertebral."
+        },
+        "answer": "b",
+        "rationale": "A cabeça da maioria das costelas possui duas faces articulares (fóveas) que se articulam com os corpos de duas vértebras adjacentes e com o disco intervertebral entre elas.",
+        "option_rationales": {
+            "a": "Errada. O tubérculo da costela articula-se com o processo transverso.",
+            "b": "Correta. Articulação costovertebral padrão.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "Anatomia",
+            "Tórax",
+            "Osteologia/Artrologia"
+        ]
+    },
+    {
+        "enunciado": "Qual estrutura é responsável por conduzir sangue OXIGENADO da placenta para o coração fetal, atravessando o fígado via ducto venoso?",
+        "options": {
+            "a": "Artéria umbilical.",
+            "b": "Veia umbilical.",
+            "c": "Veia vitelina.",
+            "d": "Artéria aorta abdominal.",
+            "e": "Veia porta."
+        },
+        "answer": "b",
+        "rationale": "Ao contrário da circulação pós-natal, na vida fetal a Veia Umbilical carrega o sangue mais oxigenado e rico em nutrientes.",
+        "option_rationales": {
+            "a": "Errada. Carregam sangue desoxigenado de volta à placenta.",
+            "b": "Correta. Único vaso que traz sangue novo para o feto.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Tórax",
+            "Embriologia"
+        ]
+    },
+    {
+        "enunciado": "O nervo laríngeo recorrente ESQUERDO difere do direito em seu trajeto. Onde ele faz a curva (recorre) para voltar ao pescoço?",
+        "options": {
+            "a": "Sob a artéria subclávia esquerda.",
+            "b": "Sob o arco da aorta, lateralmente ao ligamento arterioso.",
+            "c": "Sob a artéria carótida.",
+            "d": "Dentro da glândula tireoide.",
+            "e": "Atrás do esôfago."
+        },
+        "answer": "b",
+        "rationale": "O laríngeo recorrente esquerdo contorna o arco da aorta, enquanto o direito contorna a artéria subclávia direita.",
+        "option_rationales": {
+            "a": "Errada. Trajeto do nervo direito.",
+            "b": "Correta. Posição anatômica distinta e clinicamente relevante.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Tórax",
+            "Neuroanatomia"
+        ]
+    },
+    {
+        "enunciado": "A 'janela aortopulmonar' é um espaço radiológico e anatômico no tórax. Qual nervo atravessa verticalmente esse espaço no mediastino superior?",
+        "options": {
+            "a": "Nervo frênico direito.",
+            "b": "Nervo vago esquerdo.",
+            "c": "Nervo laríngeo recorrente direito.",
+            "d": "Nervo hipoglosso.",
+            "e": "Nervo infra-costal."
+        },
+        "answer": "b",
+        "rationale": "O nervo vago esquerdo atravessa o mediastino anterior ao arco da aorta e entra na janela aortopulmonar para emitir o nervo laríngeo recorrente esquerdo.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Relação topográfica específica no lado esquerdo.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "Anatomia",
+            "Tórax",
+            "Neuroanatomia/Topografia"
+        ]
+    },
+    {
+        "enunciado": "A veia cava inferior entra no tórax através de qual estrutura e em qual nível vertebral?",
+        "options": {
+            "a": "Hiato esofágico; T10.",
+            "b": "Forame da veia cava no centro tendíneo do diafragma; T8.",
+            "c": "Hiato aórtico; T12.",
+            "d": "Atrás do ligamento arqueado; L1.",
+            "e": "Pelo mediastino posterior sem perfurar o diafragma."
+        },
+        "answer": "b",
+        "rationale": "A VCI perfura a parte tendinosa do diafragma no nível da 8ª vértebra torácica. É a abertura mais anterior e superior.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Nível e local de trânsito diafragmático venoso.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Tórax",
+            "Splatcnologia/Angiologia"
+        ]
+    },
+    {
+        "enunciado": "O triângulo de Koch é uma região anatômica no átrio direito onde se localiza qual componente do sistema de condução cardíaco?",
+        "options": {
+            "a": "Nó sinoatrial.",
+            "b": "Nó atrioventricular.",
+            "c": "Feixe de His.",
+            "d": "Ramo direito do feixe.",
+            "e": "Fibras de Purkinje."
+        },
+        "answer": "b",
+        "rationale": "O triângulo de Koch é delimitado pelo tendão de Todaro, o óstio do seio coronário e a cúspide septal da valva tricúspide. Ele contém o Nó AV.",
+        "option_rationales": {
+            "a": "Errada. Fica no teto do átrio.",
+            "b": "Correta. Referência cirúrgica fundamental para evitar bloqueios.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "Anatomia",
+            "Tórax",
+            "Cardiologia/Cirurgia"
+        ]
+    },
+    {
+        "enunciado": "Qual dos seguintes músculos é o mais profundo da parede torácica, situando-se internamente aos vasos intercostais?",
+        "options": {
+            "a": "Intercostal externo.",
+            "b": "Intercostal interno.",
+            "c": "Intercostal íntimo.",
+            "d": "Serrátil anterior.",
+            "e": "Peitoral menor."
+        },
+        "answer": "c",
+        "rationale": "A ordem de superficial para profundo é: Intercostal externo, interno, feixe vasculonervoso, e então o intercostal íntimo.",
+        "option_rationales": {
+            "a": "Errada. Mais superficial.",
+            "b": "Errada.",
+            "c": "Correta. Camada muscular mais profunda do espaço intercostal propriamente dito.",
+            "d": "Errada. Músculo extrínseco.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Tórax",
+            "Miologia"
+        ]
+    },
+    {
+        "enunciado": "O ápice do coração (ictus cordis) é formado exclusivamente por qual câmara?",
+        "options": {
+            "a": "Átrio esquerdo.",
+            "b": "Ventrículo esquerdo.",
+            "c": "Ventrículo direito.",
+            "d": "Átrio direito.",
+            "e": "Ambos os ventrículos."
+        },
+        "answer": "b",
+        "rationale": "O ápice cardíaco é a ponta voltada para baixo, frente e esquerda, formada inteiramente pelo ventrículo esquerdo.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Definição anatômica da ponta do coração.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Tórax",
+            "Cardiologia"
+        ]
+    },
+    {
+        "enunciado": "A valva aórtica é composta por três cúspides semilunares. Qual delas está relacionada anatomica e funcionalmente ao seio que NÃO origina uma artéria coronária?",
+        "options": {
+            "a": "Cúspide direita.",
+            "b": "Cúspide esquerda.",
+            "c": "Cúspide posterior (não coronariana).",
+            "d": "Cúspide anterior.",
+            "e": "Todas as cúspides originam artérias."
+        },
+        "answer": "c",
+        "rationale": "Existem os seios coronários direito e esquerdo, e o seio não coronariano, que fica em posição posterior nas descrições anatômicas padrão da valva.",
+        "option_rationales": {
+            "a": "Errada. Origina a coronária direita.",
+            "b": "Errada. Origina a coronária esquerda.",
+            "c": "Correta. Detalhe da vascularização cardíaca.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Tórax",
+            "Cardiologia/Vascularização"
+        ]
+    },
+    {
+        "enunciado": "A 'bainha do reto abdominal' acima da linha arqueada (de Douglas) é formada pelas aponeuroses de quais músculos no tórax inferior/abdome superior?",
+        "options": {
+            "a": "Apenas oblíquo externo.",
+            "b": "Oblíquo externo e lâmina anterior do oblíquo interno.",
+            "c": "Oblíquo interno e transverso apenas.",
+            "d": "Todos os três músculos largos.",
+            "e": "Fáscia transversalis."
+        },
+        "answer": "b",
+        "rationale": "A parede anterior da bainha acima da linha arqueada é formada pelo oblíquo externo e metade do oblíquo interno. A parede posterior pela outra metade do interno e pelo transverso.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Anatomia da parede abdominal superior.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Tórax/Abdome",
+            "Miologia"
+        ]
+    }
+]

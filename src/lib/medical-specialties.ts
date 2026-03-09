@@ -25,6 +25,52 @@ export const MEDICAL_HIERARCHY = [
                     { id: 'oncologia-clinica', name: 'Oncologia Clínica', subjects: [{ id: 'geral', name: 'Geral' }] }
                 ]
             },
+            {
+                id: 'anatomia', name: 'Anatomia', category: 'Especialidades Básicas', subspecialties: [
+                    {
+                        id: 'anatomia-circulatorio', name: 'Sistema Circulatório', subjects: [
+                            { id: 'ana-circ-coracao', name: 'Coração' },
+                            { id: 'ana-circ-vasos', name: 'Vasos Sanguíneos' }
+                        ]
+                    },
+                    {
+                        id: 'anatomia-respiratorio', name: 'Sistema Respiratório', subjects: [
+                            { id: 'ana-resp-pulmoes', name: 'Pulmões' },
+                            { id: 'ana-resp-vias', name: 'Vias Respiratórias' }
+                        ]
+                    },
+                    {
+                        id: 'anatomia-digestorio', name: 'Sistema Digestório', subjects: [
+                            { id: 'ana-dig-estomago', name: 'Estômago' },
+                            { id: 'ana-dig-intestinos', name: 'Intestinos' },
+                            { id: 'ana-dig-anexos', name: 'Fígado e Pâncreas' }
+                        ]
+                    },
+                    {
+                        id: 'anatomia-esqueletico', name: 'Sistema Esquelético', subjects: [
+                            { id: 'ana-esq-cranio', name: 'Crânio e Face' },
+                            { id: 'ana-esq-coluna', name: 'Colunas e Tronco' },
+                            { id: 'ana-esq-membros', name: 'Membros Superiores e Inferiores' }
+                        ]
+                    },
+                    { id: 'anatomia-muscular', name: 'Sistema Muscular', subjects: [{ id: 'geral', name: 'Geral' }] },
+                    {
+                        id: 'anatomia-nervoso', name: 'Sistema Nervoso', subjects: [
+                            { id: 'ana-ner-encefalo', name: 'Encéfalo e Medula' },
+                            { id: 'ana-ner-periferico', name: 'Nervos e Receptores' }
+                        ]
+                    },
+                    { id: 'anatomia-tegumentar', name: 'Sistema Tegumentar', subjects: [{ id: 'geral', name: 'Geral' }] },
+                    { id: 'anatomia-urinario', name: 'Sistema Urinário', subjects: [{ id: 'geral', name: 'Geral' }] },
+                    {
+                        id: 'anatomia-genital', name: 'Sistema Genital', subjects: [
+                            { id: 'ana-gen-masc', name: 'Masculino' },
+                            { id: 'ana-gen-fem', name: 'Feminino' }
+                        ]
+                    },
+                    { id: 'anatomia-endocrino', name: 'Sistema Endócrino', subjects: [{ id: 'ana-end-glandulas', name: 'Glândulas e Hormônios' }] }
+                ]
+            },
             { id: 'cirurgia-geral', name: 'Cirurgia Geral', category: 'Especialidades Básicas', subspecialties: [] },
             {
                 id: 'pediatria', name: 'Pediatria', category: 'Especialidades Básicas', subspecialties: [

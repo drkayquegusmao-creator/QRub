@@ -1,0 +1,688 @@
+[
+    {
+        "enunciado": "A 'Potência' de um anestésico inalatório é inversamente proporcional à sua Concentração Alveolar Mínima (CAM). Qual característica físico-química do agente inalatório é o principal determinante da sua potência anestésica, segundo a teoria de Meyer-Overton?",
+        "options": {
+            "a": "Solubilidade sangue-gás.",
+            "b": "Solubilidade óleo-gás (lipossolubilidade).",
+            "c": "Peso molecular.",
+            "d": "Pressão de vapor saturado (PVS).",
+            "e": "Ponto de ebulição."
+        },
+        "answer": "b",
+        "rationale": "A teoria de Meyer-Overton estabelece que quanto mais lipossolúvel o agente, menor a CAM (mais potente ele é).",
+        "option_rationales": {
+            "a": "Errada. Determina a velocidade de indução e recuperação.",
+            "b": "Correta. Base da farmacodinâmica dos inalatórios.",
+            "c": "Errada.",
+            "d": "Errada. Determina a necessidade de vaporizadores específicos.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anestesiologia",
+            "Farmacologia",
+            "Inalatórios"
+        ]
+    },
+    {
+        "enunciado": "O 'Desflurano' possui uma característica físico-química que exige o uso de um vaporizador aquecido e pressurizado. Qual é essa característica?",
+        "options": {
+            "a": "Baixa solubilidade sangue-gás.",
+            "b": "Alta toxicidade renal.",
+            "c": "Ponto de ebulição próximo à temperatura ambiente (23.5°C).",
+            "d": "Baixa estabilidade à cal sodada.",
+            "e": "Alta potência anestésica."
+        },
+        "answer": "c",
+        "rationale": "Devido ao baixo ponto de ebulição e alta pressão de vapor, o Desflurano ferveria em vaporizadores convencionais, exigindo controle eletrônico de temperatura.",
+        "option_rationales": {
+            "a": "Errada. Isso é verdade, mas não justifica o tipo de vaporizador.",
+            "b": "Errada.",
+            "c": "Correta. Propriedades físicas e equipamentos.",
+            "d": "Errada. Ele é muito estável.",
+            "e": "Errada. É o menos potente dos halogenados atuais."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anestesiologia",
+            "Farmacologia",
+            "Inalatórios",
+            "Equipamentos"
+        ]
+    },
+    {
+        "enunciado": "Qual anestésico venoso é conhecido por manter o drive respiratório e a estabilidade hemodinâmica através da estimulação simpática indireta, sendo ideal para pacientes em choque?",
+        "options": {
+            "a": "Propofol.",
+            "b": "Etomidato.",
+            "c": "Cetamina.",
+            "d": "Midazolam.",
+            "e": "Tiopental."
+        },
+        "answer": "c",
+        "rationale": "A cetamina causa anestesia dissociativa e libera catecolaminas, mantendo a PA e a FC, além de ser broncodilatadora.",
+        "option_rationales": {
+            "a": "Errada. Causa hipotensão e apneia.",
+            "b": "Errada. Estável hemodinamicamente, mas inibe a adrenal.",
+            "c": "Correta. Farmacologia dos indutores venosos.",
+            "d": "Errada.",
+            "e": "Errada. Causa depressão miocárdica."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anestesiologia",
+            "Farmacologia",
+            "Indutores Venosos"
+        ]
+    },
+    {
+        "enunciado": "O 'Propofol' é o agente de escolha para anestesia venosa total (TIVA). Qual o mecanismo de ação molecular predominante deste fármaco?",
+        "options": {
+            "a": "Antagonismo de receptores NMDA.",
+            "b": "Potencialização de receptores GABA-A.",
+            "c": "Inibição de canais de sódio dependentes de voltagem.",
+            "d": "Agonismo de receptores alfa-2 adrenérgicos.",
+            "e": "Bloqueio de receptores colinérgicos nicotínicos."
+        },
+        "answer": "b",
+        "rationale": "O propofol aumenta a condutância de cloreto através do receptor GABA-A, hiperpolarizando o neurônio.",
+        "option_rationales": {
+            "a": "Errada. Mecanismo da cetamina.",
+            "b": "Correta. Farmacodinâmica básica.",
+            "c": "Errada.",
+            "d": "Errada. Mecanismo da dexmedetomidina.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anestesiologia",
+            "Farmacologia",
+            "Propofol"
+        ]
+    },
+    {
+        "enunciado": "A 'Dexmedetomidina' é um agonista alfa-2 seletivo. Qual o principal efeito colateral observado durante um bolus rápido deste fármaco?",
+        "options": {
+            "a": "Taquicardia reflexa.",
+            "b": "Hipotensão profunda imediata.",
+            "c": "Hipertensão arterial transitória seguida de bradicardia.",
+            "d": "Hipertermia maligna.",
+            "e": "Rigidez torácica."
+        },
+        "answer": "c",
+        "rationale": "Bolus rápidos ativam receptores alfa-2B pós-sinápticos nos vasos (vasoconstrição), provocando hipertensão e bradicardia reflexa.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Errada. Hipotensão ocorre na infusão contínua.",
+            "c": "Correta. Resposta hemodinâmica bifásica.",
+            "d": "Errada.",
+            "e": "Errada. Típico de opioides."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anestesiologia",
+            "Farmacologia",
+            "Sedações"
+        ]
+    },
+    {
+        "enunciado": "Os 'Bloqueadores Neuromusculares' (BNM) não despolarizantes, como o atracúrio e o cisatracúrio, sofrem eliminação de forma peculiar. Qual o nome da via de degradação independente de órgãos (fígado/rins) utilizada por esses fármacos?",
+        "options": {
+            "a": "Oxidação citocrômica P450.",
+            "b": "Hidrólise por estearases plasmáticas.",
+            "c": "Eliminação de Hofmann.",
+            "d": "Filtração glomerular direta.",
+            "e": "Excreção biliar ativa."
+        },
+        "answer": "c",
+        "rationale": "A eliminação de Hofmann é uma degradação química espontânea que depende apenas do pH e da temperatura corporal.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Errada. Via do mivacúrio/succinilcolina.",
+            "c": "Correta. Farmacocinética especial e segura em falência de órgãos.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anestesiologia",
+            "Farmacologia",
+            "BNM"
+        ]
+    },
+    {
+        "enunciado": "A 'Succinilcolina' é o único BNM despolarizante em uso clínico. Qual alteração eletrolítica é uma contraindicação relativa ao seu uso, devido ao risco de parada cardíaca em assistolia?",
+        "options": {
+            "a": "Hipocalcemia.",
+            "b": "Hiperpotassemia (Hipercalemia).",
+            "c": "Hiponatremia.",
+            "d": "Hipermagnesemia.",
+            "e": "Hipocloridemia."
+        },
+        "answer": "b",
+        "rationale": "A succinilcolina causa efluxo de potássio na placa motora (aumento de ~0.5 mEq/L). Em pacientes com potássio já elevado ou denervação, o aumento pode ser fatal.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Segurança farmacológica e contraindicações.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anestesiologia",
+            "Farmacologia",
+            "Succinilcolina"
+        ]
+    },
+    {
+        "enunciado": "Os 'Opioides' são pilares da analgesia intraoperatória. Qual opioide sintético possui metabolismo por esterases inespecíficas no sangue e tecidos, conferindo-lhe uma meia-vida sensível ao contexto ultracurta e constante (independente do tempo de infusão)?",
+        "options": {
+            "a": "Fentanil.",
+            "b": "Sufentanil.",
+            "c": "Alfentanil.",
+            "d": "Remifentanil.",
+            "e": "Morfina."
+        },
+        "answer": "d",
+        "rationale": "O remifentanil é degradado quase instantaneamente, permitindo controle minuto a minuto da analgesia e despertar rápido.",
+        "option_rationales": {
+            "a": "Errada. Acumula-se muito em infusão longa.",
+            "b": "Errada.",
+            "c": "Errada.",
+            "d": "Correta. Farmacocinética de fármacos modernos.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anestesiologia",
+            "Farmacologia",
+            "Opioides"
+        ]
+    },
+    {
+        "enunciado": "Qual a principal complicação respiratória associada ao uso de doses elevadas ou bolus rápidos de 'Fentanil' durante a indução rápida?",
+        "options": {
+            "a": "Laringoespasmo agudo.",
+            "b": "Rigidez da musculatura torácica e abdominal ('tórax em grade').",
+            "c": "Broncodilatação excessiva.",
+            "d": "Edema pulmonar neurogênico.",
+            "e": "Pneumotórax hipertensivo."
+        },
+        "answer": "b",
+        "rationale": "A rigidez torácica induzida por opioides dificulta ou impede a ventilação sob máscara antes do bloqueio neuromuscular.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Complicação farmacológica clássica.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anestesiologia",
+            "Farmacologia",
+            "Opioides",
+            "Complicações"
+        ]
+    },
+    {
+        "enunciado": "O 'Sugamadex' revolucionou a reversão do bloqueio neuromuscular. Qual o mecanismo de ação deste fármaco e quais BNM ele é capaz de reverter?",
+        "options": {
+            "a": "Inibição da acetilcolinesterase; reverte todos os BNM.",
+            "b": "Encapsulamento molecular do BNM esteroide (Rocurônio e Vecurônio).",
+            "c": "Antagonismo direto na placa motora; reverte atracúrio.",
+            "d": "Estimulação da liberação de cálcio; reverte succinilcolina.",
+            "e": "Proteólise enzimática do BNM."
+        },
+        "answer": "b",
+        "rationale": "O sugamadex é uma ciclodextrina que 'sequestra' a molécula de rocurônio/vecurônio, terminando o bloqueio independentemente da profundidade.",
+        "option_rationales": {
+            "a": "Errada. Mecanismo da Neostigmina.",
+            "b": "Correta. Farmacologia moderna e reversão.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anestesiologia",
+            "Farmacologia",
+            "Reversão",
+            "BNM"
+        ]
+    },
+    {
+        "enunciado": "O 'Etomidato' é valorizado pela estabilidade cardiovascular. No entanto, qual efeito endócrino adverso ele provoca, mesmo após uma dose única para indução?",
+        "options": {
+            "a": "Hiperplasia adrenal.",
+            "b": "Inibição dose-dependente da enzima 11-beta-hidroxilase, reduzindo a síntese de cortisol.",
+            "c": "Estimulo à secreção de aldosterona.",
+            "d": "Diabetes insipidus central.",
+            "e": "Tireoidite actínica."
+        },
+        "answer": "b",
+        "rationale": "A supressão adrenal dura de 24 a 48 horas e é a principal crítica ao uso do Etomidato em pacientes sépticos.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Farmacodinâmica e efeitos colaterais.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anestesiologia",
+            "Farmacologia",
+            "Indutores Venosos"
+        ]
+    },
+    {
+        "enunciado": "A 'Toxicidade por Anestésicos Locais' (LAST) é uma emergência grave. Além do suporte básico de vida, qual a terapia adjuvante específica recomendada para tratar as arritmias e o colapso cardiovascular por anestésico local?",
+        "options": {
+            "a": "Sulfato de Magnésio EV.",
+            "b": "Gluconato de Cálcio 10%.",
+            "c": "Infusão intravenosa de Emulsão Lipídica (Lipid Rescue).",
+            "d": "Bicarbonato de Sódio.",
+            "e": "Azul de Metileno."
+        },
+        "answer": "c",
+        "rationale": "A emulsão lipídica atua como um 'sumidouro' para o anestésico lipofílico (especialmente bupivacaína), reduzindo sua concentração livre.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Errada.",
+            "c": "Correta. Manejo de toxicidade sistêmica.",
+            "d": "Errada.",
+            "e": "Errada. Usado para metemoglobinemia."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anestesiologia",
+            "Farmacologia",
+            "Anestésicos Locais",
+            "Toxicidade"
+        ]
+    },
+    {
+        "enunciado": "Qual anestésico local é amplamente utilizado em obstetrícia devido ao seu 'Bloqueio Diferencial' pronunciado, permitindo analgesia sem comprometer significativamente a função motora (em baixas concentrações)?",
+        "options": {
+            "a": "Lidocaína.",
+            "b": "Bupivacaína em baixas concentrações ou Ropivacaína.",
+            "c": "Procaína.",
+            "d": "Cloroprocaína.",
+            "e": "Benzocaína."
+        },
+        "answer": "b",
+        "rationale": "A ropivacaína e a bupivacaína levógira têm maior afinidade por fibras sensitivas, preservando melhor a força muscular.",
+        "option_rationales": {
+            "a": "Errada. Tem pouco bloqueio diferencial.",
+            "b": "Correta. Escolha farmacológica em obstetricia.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anestesiologia",
+            "Farmacologia",
+            "Anestésicos Locais",
+            "Obstetrícia"
+        ]
+    },
+    {
+        "enunciado": "A 'Meia-vida Sensível ao Contexto' (MVSC) é um conceito fundamental na infusão alvo-controlada. O que define o 'contexto' nesta definição?",
+        "options": {
+            "a": "A idade do paciente.",
+            "b": "O tipo de solvente do fármaco.",
+            "c": "A duração da infusão contínua do fármaco.",
+            "d": "A presença de insuficiência renal.",
+            "e": "A temperatura ambiente da sala cirúrgica."
+        },
+        "answer": "c",
+        "rationale": "MVSC é o tempo necessário para a concentração plasmática cair 50% após interromper uma infusão de determinada duração.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Errada.",
+            "c": "Correta. Farmacocinética de infusão contínua.",
+            "d": "Errada. Isso é meia-vida de eliminação.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anestesiologia",
+            "Farmacologia",
+            "Farmacocinética"
+        ]
+    },
+    {
+        "enunciado": "O 'Sevoflurano' é amplamente utilizado para indução inalatória em crianças. Qual subproduto potencialmente nefrotóxico pode ser formado pela reação do Sevoflurano com a cal sodada em baixos fluxos de gases frescos?",
+        "options": {
+            "a": "Fosgênio.",
+            "b": "Composto A.",
+            "c": "Monóxido de Carbono.",
+            "d": "Flúor inorgânico livre em níveis tóxicos.",
+            "e": "Cloreto de Vinila."
+        },
+        "answer": "b",
+        "rationale": "O Composto A é o resultado da degradação do Sevoflurano por bases fortes, embora sua relevância clínica em humanos seja debatida.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Segurança dos inalatórios.",
+            "c": "Errada. Formado pela degradação de Des/Iso em cal seca.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anestesiologia",
+            "Farmacologia",
+            "Inalatórios",
+            "Segurança"
+        ]
+    },
+    {
+        "enunciado": "Em relação à farmacologia dos 'Vasopressores', qual o receptor adrenérgico predominante cuja estimulação resulta em vasoconstrição periférica intensa e aumento da pós-carga?",
+        "options": {
+            "a": "Beta-1 receptor.",
+            "b": "Beta-2 receptor.",
+            "c": "Alfa-1 receptor.",
+            "d": "Alfa-2 receptor pré-sináptico.",
+            "e": "Dopamina-1 receptor."
+        },
+        "answer": "c",
+        "rationale": "A ativação de receptores alfa-1 na musculatura lisa vascular aumenta o cálcio intracelular e causa contração.",
+        "option_rationales": {
+            "a": "Errada. Aumenta FC e contratilidade.",
+            "b": "Errada. Causa vasodilatação e broncodilatação.",
+            "c": "Correta. Fisiologia cardiovascular e drogas vasoativas.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anestesiologia",
+            "Farmacologia",
+            "Vasopressores"
+        ]
+    },
+    {
+        "enunciado": "A 'Efedrina' é frequentemente usada para tratar hipotensão perioperatória. Qual o seu mecanismo de ação predominante?",
+        "options": {
+            "a": "Agonismo direto puro em receptores Alfa-1.",
+            "b": "Agonismo indireto através da liberação de noradrenalina endógena das vesículas sinápticas.",
+            "c": "Inibição do canal de cálcio tipo L.",
+            "d": "Antagonismo de receptores muscarínicos M2.",
+            "e": "Redução da recaptação de serotonina."
+        },
+        "answer": "b",
+        "rationale": "A efedrina tem ação mista, mas principalmente indireta. Seu uso repetido pode causar taquifilaxia (exaustão dos estoques de noradrenalina).",
+        "option_rationales": {
+            "a": "Errada. Esse é o mecanismo da Fenilefrina.",
+            "b": "Correta. Farmacodinâmica das aminas simpaticomiméticas.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anestesiologia",
+            "Farmacologia",
+            "Hipotensão"
+        ]
+    },
+    {
+        "enunciado": "Sobre a 'Midazolam', um benzodiazepínico comumente usado como medicação pré-anestésica, qual fármaco é o seu ANTAGONISTA específico para reversão de sedação excessiva?",
+        "options": {
+            "a": "Naloxona.",
+            "b": "Flumazenil.",
+            "c": "Neostigmina.",
+            "d": "Fisostigmina.",
+            "e": "Atropina."
+        },
+        "answer": "b",
+        "rationale": "O flumazenil compete pelo sítio de ligação dos benzodiazepínicos no receptor GABA-A.",
+        "option_rationales": {
+            "a": "Errada. Antagonista de opioides.",
+            "b": "Correta. Farmacologia de reversão.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anestesiologia",
+            "Farmacologia",
+            "Benzodiazepínicos"
+        ]
+    },
+    {
+        "enunciado": "Qual anestésico inalatório é contraindicado em cirurgias de timpanoplastia ou correção de descolamento de retina com injeção de gás (perfluorocarbono), devido à sua alta capacidade de expandir espaços gasosos fechados?",
+        "options": {
+            "a": "Isoflurano.",
+            "b": "Sevoflurano.",
+            "c": "Óxido Nitroso (N2O).",
+            "d": "Xenônio.",
+            "e": "Halotano."
+        },
+        "answer": "c",
+        "rationale": "O N2O é muito mais solúvel que o nitrogênio atmosférico e o SF6, difundindo-se para cavidades aéreas mais rápido do que estas perdem o gás original.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Errada.",
+            "c": "Correta. Solubilidade e difusão em espaços fechados.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anestesiologia",
+            "Farmacologia",
+            "Inalatórios",
+            "Contraindicações"
+        ]
+    },
+    {
+        "enunciado": "O 'Volume de Distribuição' (Vd) de um fármaco influencia sua dose de ataque. Em um paciente idoso, com redução de massa muscular e aumento de gordura corporal, qual a tendência do Vd para fármacos altamente LIPOSSOLÚVEIS (como o fentanil)?",
+        "options": {
+            "a": "O Vd diminui significativamente.",
+            "b": "O Vd aumenta, levando a um maior tempo de meia-vida de eliminação.",
+            "c": "O Vd permanece inalterado.",
+            "d": "O Vd torna-se irrelevante para fármacos lipossolúveis.",
+            "e": "O fármaco deixa de ser metabolizado."
+        },
+        "answer": "b",
+        "rationale": "O aumento do compartimento gorduroso serve como reservatório para drogas lipofílicas, aumentando seu volume central e periférico de distribuição.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Farmacologia em populações especiais (Idoso).",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anestesiologia",
+            "Farmacologia",
+            "Geriatria"
+        ]
+    },
+    {
+        "enunciado": "Qual complicação metabólica está clássicamente associada à infusão prolongada (geralmente > 48h) de altas doses de 'Propofol' (> 4 mg/kg/h), caracterizada por acidose láctica, rabdomiólise e insuficiência cardíaca?",
+        "options": {
+            "a": "Síndrome de Cushing Iatrogênica.",
+            "b": "Síndrome da Infusão do Propofol (PRIS).",
+            "c": "Hipertermia Maligna.",
+            "d": "Porfiria Aguda Intermitente.",
+            "e": "Cetoacidose diabética."
+        },
+        "answer": "b",
+        "rationale": "A PRIS decorre da inibição da cadeia de transporte de elétrons mitocondrial e oxidação de ácidos graxos.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Complicação grave de sedação prolongada.",
+            "c": "Errada. Propofol é seguro em HM.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Médio",
+        "tags": [
+            "Anestesiologia",
+            "Farmacologia",
+            "Segurança",
+            "UTI"
+        ]
+    },
+    {
+        "enunciado": "A 'Lidocaína' intravenosa pode ser usada como parte de uma técnica de analgesia multimodal. Além do efeito analgésico, qual benefício perioperatório ela oferece em cirurgias abdominais?",
+        "options": {
+            "a": "Aumento do tempo de esvaziamento gástrico.",
+            "b": "Redução da incidência de íleo paralítico pós-operatório.",
+            "c": "Estimulação direta da secreção ácida gástrica.",
+            "d": "Broncoconstrição protetora.",
+            "e": "Inibição de estearases plasmáticas."
+        },
+        "answer": "b",
+        "rationale": "A lidocaína sistêmica tem propriedades anti-inflamatórias que auxiliam na recuperação da motilidade intestinal.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Analgesia multimodal e recuperação funcional (ERAS).",
+            "c": "Errada.",
+            "d": "Errada. Ela é broncodilatadora em via aérea reativa.",
+            "e": "Errada."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "Anestesiologia",
+            "Farmacologia",
+            "ERAS"
+        ]
+    },
+    {
+        "enunciado": "O 'Dantrolene' é o tratamento específico para a Hipertermia Maligna. Qual o seu mecanismo de ação?",
+        "options": {
+            "a": "Inibição competitiva de receptores de acetilcolina.",
+            "b": "Bloqueio dos receptores de rianodina (RYR1) no retículo sarcoplasmático.",
+            "c": "Antagonismo de canais de potássio voltagem-dependentes.",
+            "d": "Estimulação da captação de cálcio pela bomba SERCA.",
+            "e": "Bloqueio de receptores beta-adrenérgicos cardíacos."
+        },
+        "answer": "b",
+        "rationale": "O dantrolene impede a liberação excessiva de cálcio das lojas intracelulares para o mioplasma, revertendo a hipermetabolia muscular.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Manejo de crise farmacogenética.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anestesiologia",
+            "Farmacologia",
+            "Hipertermia Maligna"
+        ]
+    },
+    {
+        "enunciado": "A 'Clonidina' é um agonista alfa-2 adrenérgico. Quando usada por via subaracnóidea associada a anestésicos locais, qual o seu principal objetivo clínico?",
+        "options": {
+            "a": "Melhorar a força motora durante o bloqueio.",
+            "b": "Prolongar a duração e aumentar a qualidade da analgesia sensorial.",
+            "c": "Evitar bradicardia induzida pelo bloqueio simpático.",
+            "d": "Acelerar a eliminação do anestésico local.",
+            "e": "Reduzir o risco de cefaleia pós-raqui."
+        },
+        "answer": "b",
+        "rationale": "Agonistas alfa-2 medulares inibem a liberação de substância P e hiperpolarizam neurônios no corno dorsal, potencializando o anestésico.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Adjuvantes em anestesia regional.",
+            "c": "Errada. Pode causar bradicardia.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anestesiologia",
+            "Farmacologia",
+            "Regional",
+            "Adjuvantes"
+        ]
+    },
+    {
+        "enunciado": "A 'Metemoglobinemia' pode ser induzida por certos anestésicos locais. Qual fármaco, por possuir um metabólito chamado orto-toluidina, é o mais frequentemente associado a esta complicação?",
+        "options": {
+            "a": "Lidocaína.",
+            "b": "Prilocaína.",
+            "c": "Mepivacaína.",
+            "d": "Bupivacaína.",
+            "e": "Articaína."
+        },
+        "answer": "b",
+        "rationale": "A orto-toluidina oxida o ferro da hemoglobina de Fe2+ para Fe3+, impedindo o transporte de O2.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Toxicidade de anestésicos locais.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada. (Benzocaína também causa, mas não por o-toluidina)."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anestesiologia",
+            "Farmacologia",
+            "Anestésicos Locais",
+            "Toxicidade"
+        ]
+    },
+    {
+        "enunciado": "Qual opioide possui afinidade por receptores 'Kappa' (além do receptor Mu), sendo utilizado especificamente para o tratamento de tremores (shivering) no pós-anestésico?",
+        "options": {
+            "a": "Morfina.",
+            "b": "Meperidina (Petidina).",
+            "c": "Tramadol.",
+            "d": "Fentanil.",
+            "e": "Oxicodona."
+        },
+        "answer": "b",
+        "rationale": "A petidina é o único opioide com eficácia comprovada na supressão de tremores pós-operatórios por ação em receptores kappa.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Farmacologia clínica aplicada.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anestesiologia",
+            "Farmacologia",
+            "Opioides",
+            "Recuperação Post-Anestésica"
+        ]
+    },
+    {
+        "enunciado": "A 'Procaína' e a 'Benzocaína' pertencem ao grupo dos anestésicos locais tipo ÉSTER. Qual a principal característica de sua metabolização?",
+        "options": {
+            "a": "Metabolismo hepático via citocromo P450.",
+            "b": "Hidrólise por pseudocolinesterase (colinesterase plasmática).",
+            "c": "Excreção renal inalterada.",
+            "d": "Degradação por calor no sangue.",
+            "e": "Metabolismo pulmonar."
+        },
+        "answer": "b",
+        "rationale": "Ésteres são degradados rapidamente no plasma; amidas (2 'is' no nome) são degradadas no fígado.",
+        "option_rationales": {
+            "a": "Errada. Via das amidas (Lidocaína, Bupivacaína).",
+            "b": "Correta. Farmacocinética de anestésicos locais.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anestesiologia",
+            "Farmacologia",
+            "Anestésicos Locais"
+        ]
+    }
+]

@@ -1,0 +1,261 @@
+[
+    {
+        "enunciado": "A respeito do uso de ferro endovenoso (ex: Carboximaltose Férrica) em pacientes com ICFEr, de acordo com as evidências do estudo HEART-FID e diretrizes atuais, qual a população que MAIS se beneficia desta terapia?",
+        "options": {
+            "a": "Pacientes com anemia hemolítica crônica.",
+            "b": "Pacientes estáveis (sintomáticos ou não) com deficiência de ferro (Ferritina < 100 ou 100-300 com saturação de transferrina < 20%), independentemente da presença de anemia.",
+            "c": "Apenas pacientes com hemoglobina < 7.0 g/dL.",
+            "d": "Pacientes com insuficiência renal dialítica.",
+            "e": "O uso de ferro é contraindicado se a hemoglobina estiver normal."
+        },
+        "answer": "b",
+        "rationale": "Estudos como FAIR-HF, CONFIRM-HF e IRONMAN demonstraram que a reposição de ferro EV em pacientes com IC e deficiência de ferro (mesmo sem anemia) melhora a classe funcional, qualidade de vida e reduz hospitalizações. A deficiência de ferro funcional é comum na IC devido ao estado inflamatório crônico.",
+        "option_rationales": {
+            "a": "Incorreta. O benefício estudado é na deficiência de ferro absoluta ou funcional.",
+            "b": "Correta. Define os critérios laboratoriais para indicação da reposição visando melhora clínica na IC.",
+            "c": "Incorreta. O benefício ocorre mesmo com Hb normal se os estoques de ferro estiverem baixos.",
+            "d": "Incorreta. Embora usem ferro, o benefício clínico na IC foi validado na população geral de ICFEr sintomática.",
+            "e": "Incorreta. A anemia não é pré-requisito se houver deficiência de ferro documentada."
+        },
+        "difficulty": "média",
+        "tags": [
+            "Ferro",
+            "Deficiência de Ferro",
+            "Tratamento",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Qual a principal indicação para o uso de Digoxina no tratamento da insuficiência cardíaca crônica atualmente?",
+        "options": {
+            "a": "Redução da mortalidade cardiovascular em todos os pacientes.",
+            "b": "Controle de sintomas e redução de hospitalizações em pacientes com ICFEr que permanecem sintomáticos apesar da terapia padrão.",
+            "c": "Tratamento de primeira escolha na ICFEp.",
+            "d": "Prevenção primária de fibrilação atrial.",
+            "e": "Substituição do betabloqueador em pacientes com asma."
+        },
+        "answer": "b",
+        "rationale": "A Digoxina (estudo DIG) não reduz mortalidade, mas reduz a taxa de internações hospitalares e melhora sintomas em pacientes com ICFEr. Atualmente é considerada droga de 3ª ou 4ª linha, ou usada precocemente se houver Fibrilação Atrial associada para controle de frequência.",
+        "option_rationales": {
+            "a": "Incorreta. Estudo DIG confirmou efeito neutro na mortalidade.",
+            "b": "Correta. Reflete o papel atual da droga no alívio sintomático/congestivo.",
+            "c": "Incorreta. Não há benefício comprovado na ICFEp.",
+            "d": "Incorreta. Não previne a ocorrência da arritmia.",
+            "e": "Incorreta. Não tem o mesmo benefício prognóstico que o BB na ICFEr."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "Digoxina",
+            "Medicamentos",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "A respeito da pericardite constritiva, qual achado no exame físico é clássico e ajuda a diferenciá-la do tamponamento cardíaco?",
+        "options": {
+            "a": "Pulso paradoxal.",
+            "b": "Sinal de Kussmaul (elevação da pressão venosa jugular na inspiração).",
+            "c": "Bulhas abafadas (Tríade de Beck).",
+            "d": "Sopro diastólico em foco mitral.",
+            "e": "Onda 'v' gigante no pulso jugular."
+        },
+        "answer": "b",
+        "rationale": "O sinal de Kussmaul ocorre na constrição pericárdica porque o pericárdio rígido impede que o aumento do retorno venoso na inspiração seja acomodado pelas câmaras direitas, levando ao refluxo/turgência jugular. No tamponamento (A), o pulso paradoxal é mais comum, e o sinal de Kussmaul é raramente visto.",
+        "option_rationales": {
+            "a": "Incorreta. Mais típico do tamponamento, embora possa ocorrer na constrição em 1/3 dos casos.",
+            "b": "Correta. Sinal semiológico muito útil para diagnóstico de pericardite constritiva.",
+            "c": "Incorreta. Compõe a Tríade de Beck do tamponamento agudo.",
+            "d": "Incorreta. Sugere estenose mitral.",
+            "e": "Incorreta. Sugere insuficiência tricúspide."
+        },
+        "difficulty": "média",
+        "tags": [
+            "Exame Físico",
+            "Pericardite",
+            "Diagnóstico",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Um paciente com IC aguda apresenta-se com extremidades quentes e edema pulmonar bilateral (Perfil B). A pressão arterial é 170/100 mmHg. Além do diurético de alça, qual o próximo passo terapêutico MAIS eficaz para reduzir rapidamente a congestão pulmonar neste paciente hipertenso?",
+        "options": {
+            "a": "Dopamina em dose renal.",
+            "b": "Vasodilatador endovenoso (ex: Nitroglicerina ou Nitroprussiato de Sódio).",
+            "c": "Betabloqueador endovenoso.",
+            "d": "Amiodarona em bólus.",
+            "e": "Reposição de potássio."
+        },
+        "answer": "b",
+        "rationale": "Pacientes 'Quentes e Úmidos' com hipertensão beneficiam-se muito de vasodilatadores. A Nitroglicerina (venodilatador) reduz a pré-carga imediatamente, aliviando a congestão. O Nitroprussiato (arteriodilatador) reduz a pós-carga, facilitando o esvaziamento do VE. O uso precoce de vasodilatadores na IC hipertensiva reduz a necessidade de ventilação mecânica.",
+        "option_rationales": {
+            "a": "Incorreta. Dose renal de dopamina não tem benefício comprovado em estudos (ROSE).",
+            "b": "Correta. Tratamento de escolha para pacientes com IC hipertensiva (emergência hipertensiva).",
+            "c": "Incorreta. BB não deve ser iniciado ou aumentado na fase aguda de congestão franca.",
+            "d": "Incorreta. Só tem papel se houver arritmia desencadeante.",
+            "e": "Incorreta. Importante, mas não resolve a emergência congestiva respiratória."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "Tratamento",
+            "IC Aguda",
+            "Nitratos",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Considerando as diretrizes para insuficiência cardíaca avançada, qual o valor de corte de Fração de Ejeção do Ventrículo Esquerdo que geralmente define a elegibilidade para avaliação de terapias de suporte circulatório mecânico (coração artificial) ou transplante?",
+        "options": {
+            "a": "FE < 50%.",
+            "b": "FE < 25-30% com sintomas persistentes NYHA III/IV apesar de terapia otimizada.",
+            "c": "FE < 40% isoladamente.",
+            "d": "Qualquer valor de FE, desde que o paciente tenha mais de 80 anos.",
+            "e": "A FE não é usada para indicação de transplante."
+        },
+        "answer": "b",
+        "rationale": "O transplante e dispositivos de assistência ventricular são reservados para IC estágio D (refratária). Embora a clínica (consumo de O2 < 12-14 mL/kg/min no ergoespirometria) seja soberana, a maioria destes pacientes tem FE gravemente reduzida (geralmente < 25-30%).",
+        "option_rationales": {
+            "a": "Incorreta. FE de 50% é preservada.",
+            "b": "Correta. Define a base da população com IC avançada que necessita de intervenções heróicas.",
+            "c": "Incorreta. FE de 35-40% ainda pode responder bem à terapia farmacológica.",
+            "d": "Incorreta. Idade avançada (> 70 anos) costuma ser contraindicação para o transplante.",
+            "e": "Incorreta. É um dos parâmetros de triagem iniciais."
+        },
+        "difficulty": "média",
+        "tags": [
+            "Transplante",
+            "IC Avançada",
+            "Elegibilidade",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Qual o principal eletrólito que deve ser monitorado com extrema frequência em pacientes utilizando o regime triplo de IC (IECA + BB + Espironolactona) associado a doses variáveis de Furosemida?",
+        "options": {
+            "a": "Cálcio.",
+            "b": "Potássio.",
+            "c": "Cloro.",
+            "d": "Zinco.",
+            "e": "Fósforo."
+        },
+        "answer": "b",
+        "rationale": "O balanço de potássio é crítico: IECA e Espironolactona tendem a CAUSAR hipercalemia, enquanto a Furosemida causa hipocalemia. Variações extremas (K < 3.5 ou K > 5.5) aumentam o risco de arritmias fatais e parada cardíaca. A monitorização laboratorial é a base da segurança do tratamento da IC.",
+        "option_rationales": {
+            "a": "Incorreta. Varia menos agudamente com estas medicações.",
+            "b": "Correta. É o eletrólito de maior vigilância clínica na IC.",
+            "c": "Incorreta. Varia com o diurético, mas não tem o mesmo risco de arritmia súbita que o K.",
+            "d": "Incorreta. Deficiência crônica, não aguda.",
+            "e": "Incorreta. Monitorado na DRC, mas não é o pilar da IC aguda/crônica."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "Segurança",
+            "Eletrólitos",
+            "Potássio",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "A respeito da insuficiência cardíaca causada por Miocardite Aguda, qual o achado na Ressonância Magnética (critérios de Lake Louise) que confirma a presença de inflamação miocárdica?",
+        "options": {
+            "a": "Realce tardio subendocárdico compatível com infarto.",
+            "b": "Presença de Edema (T2 prolongado) e realce tardio não isquêmico (mesocárdico ou epicárdico).",
+            "c": "Espessamento difuso do pericárdio > 4mm.",
+            "d": "Presença de trombos murais calcificados.",
+            "e": "Redução global da contratilidade sem outras alterações."
+        },
+        "answer": "b",
+        "rationale": "Os critérios de Lake Louise revisados para miocardite exigem a presença de edema miocárdico (visualizado em sequências T2) associado a outro marcador de lesão tecidual (realce tardio com gadolínio ou aumento de T1). O padrão de realce na miocardite poupa o subendocárdio, sendo tipicamente mesocárdico ou subepicárdico.",
+        "option_rationales": {
+            "a": "Incorreta. Padrão subendocárdico é típico da doença isquêmica (infarto).",
+            "b": "Correta. Define os achados inflamatórios e cicatriciais da miocardite.",
+            "c": "Incorreta. Sugere pericardite constritiva.",
+            "d": "Incorreta. Sugere cronicidade de insultos, mas não inflamação aguda.",
+            "e": "Incorreta. Define a disfunção, mas não a etiologia inflamatória."
+        },
+        "difficulty": "difícil",
+        "tags": [
+            "Miocardite",
+            "Ressonância",
+            "Diagnóstico",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Qual a principal vantagem da terapia com iSGLT2 (como Dapagliflozina) em pacientes com IC e doença renal crônica leve a moderada?",
+        "options": {
+            "a": "Reduzem a proteinuria de forma comparável aos IECA e preservam a TFG a longo prazo.",
+            "b": "Aumentam a glicemia para fornecer mais energia ao miocárdio.",
+            "c": "Não possuem efeito diurético, evitando a azotemia.",
+            "d": "São medicações extremamente baratas e onipresentes no mundo.",
+            "e": "Não exigem monitorização de potássio."
+        },
+        "answer": "a",
+        "rationale": "Os iSGLT2 demonstraram efeito nefroprotetor (diminuição da taxa de declínio da TFG e redução de albuminúria) além do benefício cardiovascular. Eles promovem uma 'vasoconstrição da arteríola aferente' via feedback tubuloglomerular, reduzindo a hipertensão intraglomerular de forma complementar ao efeito na asteríola eferente dos IECA.",
+        "option_rationales": {
+            "a": "Correta. Benefício duplo cardiovascular e renal comprovado (DAPA-CKD, EMPA-KIDNEY).",
+            "b": "Incorreta. Reduzem a glicemia (embora pouco se o paciente não for diabético).",
+            "c": "Incorreta. Possuem efeito natriurético/diurético osmótico leve.",
+            "d": "Incorreta. Ainda são medicações de custo moderadamente elevado comparado aos genéricos de IECA.",
+            "e": "Incorreta. Embora causem menos hipercalemia que IECA, o monitoramento de eletrólitos na IC continua sendo padrão."
+        },
+        "difficulty": "média",
+        "tags": [
+            "iSGLT2",
+            "Nefroproteção",
+            "Tratamento",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "A respeito da cardiomiopatia dilatada de origem alcoólica, é correto afirmar que:",
+        "options": {
+            "a": "A lesão é irreversível, mesmo se o paciente cessar o consumo de álcool.",
+            "b": "O álcool tem efeito tóxico direto sobre o cardiomiócito, e a abstinência precoce pode levar à recuperação parcial ou total da função ventricular.",
+            "c": "O diagnóstico só é feito se o consumo for superior a 5 litros de cerveja por dia por 40 anos.",
+            "d": "Afecta exclusivamente pacientes com cirrose hepática associada.",
+            "e": "O tratamento medicamentoso é diferente da IC de outras causas."
+        },
+        "answer": "b",
+        "rationale": "Diferente de algumas etiologias, a cardiomiopatia alcoólica é potencialmente reversível se a intervenção (abstinência) ocorrer antes que a fibrose miocárdica seja extensa. O etanol e seus metabólitos (acetaldeído) prejudicam a síntese proteica e o transporte de cálcio no miócito.",
+        "option_rationales": {
+            "a": "Incorreta. É um dos tipos de IC com maior potencial de recuperação.",
+            "b": "Correta. A abstinência é o pilar fundamental do tratamento etiológico.",
+            "c": "Incorreta. O consumo varia, mas geralmente define-se como > 80g/dia por > 5 anos.",
+            "d": "Incorreta. Pode ocorrer dano cardíaco isolado sem dano hepático relevante.",
+            "e": "Incorreta. O tratamento farmacológico básico (quádrupla terapia) é idêntico à ICFEr de outras causas."
+        },
+        "difficulty": "média",
+        "tags": [
+            "Alcoolismo",
+            "Etiologia",
+            "Reversibilidade",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "A utilização de balão intra-aórtico (BIA) no choque cardiogênico visa:",
+        "options": {
+            "a": "Substituir a função do ventrículo esquerdo permanentemente.",
+            "b": "Melhorar a perfusão coronariana durante a diástole e reduzir a pós-carga ventricular na sístole.",
+            "c": "Aumentar a frequência cardíaca para compensar o baixo débito.",
+            "d": "Filtrar toxinas urêmicas do sangue circulante.",
+            "e": "Promover a oxigenação do sangue venoso."
+        },
+        "answer": "b",
+        "rationale": "O BIA insufla na diástole (aumentando a pressão de perfusão na raiz da aorta e artérias coronárias) e desinfla imediatamente antes da sístole (criando um vácuo que reduz a pós-carga e o trabalho cardíaco). É um dispositivo de assistência circulatória temporária.",
+        "option_rationales": {
+            "a": "Incorreta. É uma medida temporária de ponte para decisão ou recuperação.",
+            "b": "Correta. Define o princípio de contra-pulsação intra-aórtica.",
+            "c": "Incorreta. Não altera a cronotropia diretamente.",
+            "d": "Incorreta. Dispositivo mecânico de pressão, não filtro.",
+            "e": "Incorreta. Esta é a função da ECMO veno-arterial ou pulmonar."
+        },
+        "difficulty": "média",
+        "tags": [
+            "Suporte Mecânico",
+            "Choque Cardiogênico",
+            "BIA",
+            "FGV"
+        ]
+    }
+]

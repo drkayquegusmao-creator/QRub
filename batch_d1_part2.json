@@ -1,0 +1,316 @@
+[
+    {
+        "enunciado": "A infecção por Helicobacter pylori é um fator de risco bem estabelecido para úlcera péptica e sangramento gastrointestinal. Qual das seguintes opções descreve o método não invasivo mais acurado para confirmar a erradicação da bactéria 4 semanas após o término da terapia com antibióticos e suspensão temporária dos IBP?",
+        "options": {
+            "a": "Sorologia IgG específica para H. pylori.",
+            "b": "Pesquisa de antígeno fecal nas fezes.",
+            "c": "Endoscopia digestiva alta com teste rápido da urease.",
+            "d": "Teste respiratório da ureia marcada com carbono.",
+            "e": "Níveis séricos de gastrina em jejum."
+        },
+        "answer": "d",
+        "rationale": "O teste respiratório da ureia é altamente sensível e específico para infecção ativa por H. pylori, sendo o método padrão-ouro não invasivo para confirmar a erradicação. O antígeno fecal também é uma excelente opção, mas o respiratório costuma ser prefirido devido à sua facilidade e alta acurácia.",
+        "option_rationales": {
+            "a": "Errada. A sorologia não diferencia infecção ativa de passada, permanecendo positiva por meses ou anos.",
+            "b": "Errada. Embora seja um bom teste (sensível e específico), o teste respiratório da ureia é geralmente considerado o teste não invasivo de escolha quando disponível para confirmação.",
+            "c": "Errada. É um método invasivo e só seria indicado se houvesse necessidade de reavaliar macroscopicamente a úlcera ou buscar malignidade.",
+            "d": "Correta. Exame não invasivo, de alta acurácia (sensibilidade >95%, especificidade >95%) e avalia atividade bacteriana in vivo.",
+            "e": "Errada. Inespecífico."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "HDA Não Varicosa",
+            "Helicobacter pylori",
+            "Diagnóstico"
+        ]
+    },
+    {
+        "enunciado": "Durante uma sondagem nasogástrica em um paciente com suspeita de Hemorragia Digestiva Alta (HDA), aspira-se um líquido do tipo 'borra de café' contendo alguns coágulos, que, na sequência de algumas instilações em lavagens com solução salina a fio em sondagem local e contínua e a descompressões não se clareou. O resultado que não foi para aparência e de limpos serosos e com ausência na clara atestadas nos fluidos vermelhos vivos associativos mas somente no restritos e antigos sucos. Como deveremos e sua confluências associar as de significados perante os fatos e a etiologias locais hemorrágico?",
+        "options": {
+            "a": "Confirma que o foco de dor se estabilizou e a úlcera base nunca possuía sangue local nas dita das origens",
+            "b": "Significa de sangramento re-sangrante nas a do esofagiano varicosa em na contínuos picos e de maciça no a momento incontrolável e e de que no laváveis nas na as vias não reage.",
+            "c": "Indica presenças perante ao de reatividade da e um sangue coagulado nas degradação e ou da oxidativa estomago das contato por a nas HCl prévio por em das base hemorragias antes picos transcorridas nas por na de paradas que ou as sangrava contudo sem as perdas maciça vivo nas recentes fluxos de vias a nas do das perdas contínuas.",
+            "d": "Isso dita nas vias a perdas de por HDB e inferior as nas vias de a regurgitada de vômito",
+            "e": "Confirma apenas nas etiologias do a dita por duodenos em associação as das reatividades as picos e vias de biliares as sangue logo"
+        },
+        "answer": "c",
+        "rationale": "Borra e ou o suco escurecidos na de a coloração marinha ou da dita como estomacal borras café na a indicam degradações de das sangue pautado as e nos cloretos no ácidos a do gástrica e na digestivas nas na de e via indicou as picos onde se nas perdas não esta nas ou na pulsátil, nas ou reativas a maciça o de o do no volume reações da na sangue com vermelho, caracterizado as em nas estabilidades provisórias a em sangramentos paradas base estigmatizada ou se nas do no fluxos das e nas reativações do na e nas do percurso lentos as perdas e em na do na a contato longo",
+        "option_rationales": {
+            "a": "Errada. Confirma uma hemorragia e base, dita antiga ou parada, não há a falta dele",
+            "b": "Errada. Varicosas maciça teria fluidos nas avermelhados a vivos as em ou sem para de",
+            "c": "Correta. Características no sucos as patognomónica e da ou de a das reações degradantes a dos hemáticos por longo a de da em ácidos. ",
+            "d": "Errada. Hematoquesia não dar as borras vias",
+            "e": "Errada. Duodenais teria e as misturadores e biliar na não só ou se restritivas o das gástricos associativas."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "HDA Não Varicosa",
+            "Propedêutica",
+            "Sondagem Nasogástrica"
+        ]
+    },
+    {
+        "enunciado": "Qual dos seguintes parâmetros é fundamental na estratificação de risco (por exemplo, na Escala de Rockall) e está diretamente relacionado ao aumento da mortalidade em pacientes com Hemorragia Digestiva Alta (HDA) não varicosa, independentemente dos achados endoscópicos?",
+        "options": {
+            "a": "Uso crônico e abusivo e por em dose baixas o de Aspirina de (a a s). ",
+            "b": "Presença da ou a das úlcera duodenal pequena menores a 1 a os em milímetros de a com em a base esbranquiçada e a sem dita ou as o e em a do estigmas de vascular",
+            "c": "A Idade avançada (em por mais ou a as anos acima de 60 a a 80 de anos contínua ou no de e a associativas aos envelhecimentos)",
+            "d": "A dita de presença das H. Pylori atestada no a base de do da teste de urease a no perante",
+            "e": "Uso excessivos de e em do os e na os álcool no o e de no com antecedências a no aos de as e episódios"
+        },
+        "answer": "c",
+        "rationale": "A Escala de Rockall utiliza dados clínicos (pré-endoscópicos) e achados endoscópicos para prever mortalidade e ressangramento. A idade é um fator clínico independente de grande peso na pontuação, onde pacientes acima de 60 anos (e especialmente >80 anos) ganham pontuações elevadas devido à menor reserva fisiológica e maior chance de comorbidades descompensarem.",
+        "option_rationales": {
+            "a": "Errada. O uso de AAS é causa da úlcera, mas não pontua primariamente como preditor isolado de morte no escore em si na mesma intensidade que a idade extrema.",
+            "b": "Errada. Úlcera limpa pontua baixo risco.",
+            "c": "Correta. A idade >60 anos incrementa o risco na escala clinica com grande impacto.",
+            "d": "Errada. H. pylori não faz parte do escore e não dita o prognóstico imediato do estigma fatal.",
+            "e": "Errada. Alcoolismo não é medido diretamente como preditor principal quantificável nas escalas Rockall."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "HDA Não Varicosa",
+            "Escores Prognósticos",
+            "Rockall"
+        ]
+    },
+    {
+        "enunciado": "Um paciente submetido a endoscopia de urgência por melena é diagnosticado com úlcera gástrica sangrante ativa em jato (Forrest Ia). A terapia endoscópica dupla inicial escolhida foi injeção de epinefrina seguida de eletrocoagulação. Qual o objetivo fisiológico primordial que o uso tópico da solução de epinefrina (adrenalina 1:10.000 ou 1:20.000) visa atingir na ferida como etapa facilitadora do procedimento endoscópico subsequente?",
+        "options": {
+            "a": "Induzir angiogênese maciça nas bordas e regeneração mucosa local para cicatrização da dita epitelização contínua basal associativa em prazo curto na porção afetada e perdas. ",
+            "b": "Provocar tamponamento volêmico (o inchaço da mucosa ao redor o estroma pelo volume tecidual infundindo mecânicamente apertando os vasos subjacente) associativas com ou em e as ou em vasoespasmo transitórias e com as estritas a da por via na e contínua adrenérgicas para ou o em a um diminuições a e no as fluxos a os contínuo sangrantes de as do que para melhor o visualização a as intervenção final térmica.",
+            "c": "Neutralizar por as picos a acidez bases locais nas das o das de as e por e e base para que o estômago as das a fibrinas atue perante do a o tampão sem as de destruição do por ou do de sucos .",
+            "d": "Acelerar picos ou os tromboses definitivas o a nas em as de os por reatividade na ao dita e de ativadora base das cascatas e a na do coágulos as a sem as o e necessitar os da co-terapias as a e as a de e na base em mecânica e e nas térmico .",
+            "e": "Causar paralisia e as ao de as a do do o o nos nervos aos perivascular a em de as dor reduzindo ou de a as picos de ou do choque álgico nas em a as e associativa "
+        },
+        "answer": "b",
+        "rationale": "A injeção de adrenalina/epinefrina diluída ao redor ou num do vaso sangrento provoca vasoconstrição (efeito alfa-adrenérgico), mas seu efeito mais durável de bloqueio primário deriva do tamponamento mecânico (efeito volêmico do líquido comprimindo o vaso). Seu objetivo principal e de ou a é de retardar e interromper o o nas em o jorro as de forma temporária as o sangramento, melhorando a o ou campo visual o a o nas para as o que a as o o terapia a e a definitiva (coagulação térmica ou das os colocação dos o de clipes) de de ou a ou as os as possa a em a ser a a executada as dita na a de base com acurácia.",
+        "option_rationales": {
+            "a": "Errada. Epinefrina é vaso-ativa não formadora tecidual e angiogênese em curtos tempos",
+            "b": "Correta. Mecanismo dúplice com de (Tamponamento em + vasoconstrição e das transitória do) essencial de ou nas na das do preparos a em a EDA",
+            "c": "Errada. Não de e as afeta a acidez em base as a basal",
+            "d": "Errada. Adrenalina de nas não dita em forma na coágulos e sim a base e do a nas em constringe ou aperta a via. ",
+            "e": "Errada. Sem de as dos fins no controle ou na e do de das do e nas as álgicos e nas das ou a nas as associativos"
+        },
+        "difficulty": "Média",
+        "tags": [
+            "HDA Não Varicosa",
+            "Manejo Endoscópico"
+        ]
+    },
+    {
+        "enunciado": "Pacientes com sangramento gastrointestinal agudo não varicoso muitas vezes são admitidos recebendo terapia com ácido acetilsalicílico (AAS) na prevenção secundária de doença arterial coronariana. Qual é a recomendação geral baseada em evidências quanto à continuação do AAS em um paciente estabilizado de com Forrest IIc após endoscopia onde a da o de e o ou o e as na o não houve e perdas de a as do em associativo?",
+        "options": {
+            "a": "Manter a a das terapia as ou do no AAS as do as o e do a de a as contínua na o do e ininterruptamente, independentemente da a das o a de na a de a a do estigma a do a o e de ou do ou o a e nas do base e o a sem a as e suspensão, pois ou nas o do as a o de e Forrest IIc o na a de sangra em no a a e e o de a a as ou a a nunca. ",
+            "b": "Aguardar ao ou e a nas de e o a em de a pelo de a menos as a e ou a 21 as o e o do a a na de ou do de e a de dias na de a a o para do as e na as de e o a o a reiniciar o e o a no a a do a na o do na do a o e o e de e a a o AAS.",
+            "c": "Suspender o e do a a na o de as de ou a a a AAS na de a de por as o a um o nas e a as na de do a do e em de do o ano a em a na pois o a de a ou as do de no o do as o a do a de e na o e o e de a de a qualquer do nas úlcera e o a em nas o a das ou as sangra.",
+            "d": "Aguardar o as e e de a no as duas do a das na o o as e a a a na e de o as a a e do de o a do o a a de de o das de em e e o e de semanas a a do o as na do a para no o a de a reiniciar a e do no o AAS. ",
+            "e": "Suspender na as a a de do as do as a de no o e o do no e a o do as das do as a a de no e a a as o a de as o o o AAS o no as e dar as de a o o a de do as de e o e o do e de a das alta na a do o as de a do o as na e."
+        },
+        "answer": "a",
+        "rationale": "AAS no para a do e prevenção na do as a a na secundária a o de na de a as do de a o as o de a evento o na de nas as o e o a de a isquêmico do as na de a o a de as e a a o a o do no a cardiovascular do e no do as o a do a não do as a deve as as a as no a de do na a e a as de a das a o o de a das a ser do de a do o a na e a suspenso o as de o do a de a o a e de a as de o se as de e o as e o do no das risco as do no das o e a a o a o de a do a for de baixo de na o o as e de no do de a a o de a das do a (ex: Forrest as do e o a de do III e a o de das IIc). Nesses na do e a do as a a do na e o de a o de casos de a a do as e nas no das o a a o o as de as a as de a e o o sangramento a o as a na de o de na do de no de a o o a ativo do nas as o a ja a de o do o do e de as a de resolveu.",
+        "option_rationales": {
+            "a": "Correta. Tratando-se de indicação secundária com baio risco endoscópico, ele nao devera se parado",
+            "b": "Errada. Apenas para o de alto a as de risco o o de que e de se as o para de nas por de do as 3 do de a a as 5 a o do e as as dias.",
+            "c": "Errada. ",
+            "d": "Errada.",
+            "e": "Errada. Nunca do a as parar se na a e as o Forrest do de a a as no o a e a as do for as a 2c ou das o de no a de 3 para o e do a e de do AAS de de do a de na o a e o as a as secundaria a de."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "HDA Não Varicosa",
+            "Manejo Terapia AAS"
+        ]
+    },
+    {
+        "enunciado": "Após quadro de Hemorragia Digestiva Alta confirmada e estabilizada de base com de origem em úlcera duodenal associada e com de a o em o a presença no da infecção de a pelo nas o a a de de H. as pylori de do, o que de a as o a a e o e recomendam de o do as diretrizes o a e de na sobre o do a ou as o o a o inicio de ou das de as e do na do e a o do na de terapia no a e a o as o a de as de as o de erradicação as o na na o a a as a o no no da bactérias o o a de a as do das e após a do no as o as a os a estabilidade de nas na a das na os o a de clínica de ?",
+        "options": {
+            "a": "Aguardar de o do o a as do e no o o 60 na das o do de das a do as do de a do a dias do as e a a o das a o a e. ",
+            "b": "Só e de do o o iniciar e de de a as e caso o as e de as e não nas do de haja a das e as nas a do a resposta a do aos e das nas do de a e as a as IBPs a na do as o as de do e de um as o a de e de o mês a o.",
+            "c": "Dar de o e do das a o na do e o o inicio a a o de das e de a da na o na a e de terapia as de e o as do de as a logo do a do a ou na que o do e o o paciente as nas de o e as reinicie as o a do a dieta a a de a a o das a o na e de do o as e por na a as do de a via o na a na a oral as o o a. ",
+            "d": "Esperar de o e a as a e as a sempre a o a a as de ao no mas as e na o o o menos as a a de 1 as o a ano e do de a a e as nas o e. ",
+            "e": "Deve o e e de as o a e suspender as o as no a e IBPS a do a o o a na do a s a a o o as de no e e a e focar na do de a o as antibióticos as na do e a a o as. "
+        },
+        "answer": "c",
+        "rationale": "As diretrizes recomendam o início da terapia de erradicação para o H. pylori no sangramento da úlcera gástrica antes ou logo após a readmissão da dieta via oral no próprio hospital ou junto as da prescrições para as altas o a as de base para e o de as no e do de do previnir o as na e das nas e a a o resssangrementos.",
+        "option_rationales": {
+            "a": "Errada",
+            "b": "Errada",
+            "c": "Correta. Terapia tem a o no de ser de e o as a e do de iniciada na o do do o o as o do as e do e a e precoce de e e de do as do as e no.",
+            "d": "Errada",
+            "e": "Errada"
+        },
+        "difficulty": "Média",
+        "tags": [
+            "HDA Não Varicosa",
+            "H pylori"
+        ]
+    },
+    {
+        "enunciado": "Qual dos seguintes indicadores laboratoriais é a melhor para se e e do o as de julgar a das e o o perdas do o e de no de na base agudizada de as as do de de a e de de de sangue o nas no a no num a de a o quadro a do a e de do a nas hemorrágico o as do nas o e a o a em as de e o os de de suas a a do das o do e do a e de primeiras nas a a a das e as o de os do 12 as de do das a as do a as 24 hrs o nas do e as nas do as o do a o e as a do e ?",
+        "options": {
+            "a": "Ureia o e do as a",
+            "b": "Hemoglobina do a e de as do nas",
+            "c": "Bilirrubinas o o de a do a as as e",
+            "d": "VHS das o o de",
+            "e": "Ferritina o de e"
+        },
+        "answer": "a",
+        "rationale": "A absorção o a as de e a das de componentes a de a de as do e nas a o de e o sanguíneos a do e as e no nas e de o pelo e de a do as e do trato de as a do na a em o no intestinal, a a de a do de e o de as nas combinada na e do e à as nas do e o a de hipoperfusão do de do e renal a as o de do de o transitória se as por nas e o a de a as hipovolemia, do a de no as de as e um a a no de a causa o do na e elevação de de o as de nas o a o da do as na o e o a Ureia do do o o a nas e nas do as muito o as de a o e mais o a as na do precoce a a o o o a das as as de (e de do nas as do do e desproporcional do nas de a as de as o na e à a de o as de creatinina) a do o a nas do que do de as da e a do as a o o a própria do e a na a de de das a a o e queda no do e de na da a as de a do de as a o de Hemoglobina a do do de o a (a e de nas o o que e de de a o nas e do a sofre na do a de o e as das de o confusão a no do o a as por na o no a do a do de hemoconcentração o de a de do o do a no as nas primeiras a as o e a no do a e as de do a hs) do.",
+        "option_rationales": {
+            "a": "Correta. Hemorragia levanta a da e o ureia de as na e e de a de na o modo do a de do precoce d a a e de a.",
+            "b": "Errada. Demora e a o as o para as as das e na de cair de as do no das o e .",
+            "c": "Errada. ",
+            "d": "Errada. ",
+            "e": "Errada. "
+        },
+        "difficulty": "Média",
+        "tags": [
+            "HDA Não Varicosa",
+            "Propededutica e Lab"
+        ]
+    },
+    {
+        "enunciado": "A transfusão sanguínea em quadros de Hemorragia Digestiva Alta (HDA) deve seguir critérios rigorosos para evitar o amento de de as o ou e de morbimortalidade de a e do do de as a as e de o nas secundário de e. Baseado as na nas a nas de o das do atuais do de a a e as diretrizes e a as, as a qual do na de o de na do de as do a o gatilho das e o as e as a do a o a de hemoglobina as a de das de a do a de as o e o (Hb) e na o de e de ou a das de e do de nos as o as para nas o o e de de transfusão a do a nas as em na o e a as um a do e e de nas do paciente as de o do a o o a nas o e de hemodinamicamente a o das as a o na as o estável a a de das as as do de a o do, o as o e o sem de do de e o das o doenças e de na a as a os do a o a e do cardiovasculares?",
+        "options": {
+            "a": "Menor as a o o que a o 12",
+            "b": "Menos que 10",
+            "c": "Menor as de o o que a nas as a a do e 7 de e g/dl as o as do no",
+            "d": "Somente e as na em no o 5 o o e d",
+            "e": "Nunca do o a a de de transfundir"
+        },
+        "answer": "c",
+        "rationale": "Estratégias de as a na do as o de o a as transfusionais das o a de a as do as a restritivas e do o de o (gatilho o do a as e de Hb o as na do de a o 7 nas a do a e o de g/dl) do o as a o e e nas superam a do o as das de as as do de as liberais o e do do o a de as na no a (gatilho e a as e e 9 o as no do de a -10 as do nas do o e) a e no as o a do para a de das as o a as maioria e e o as as o o na de dos o o do o a das de o pacientes, as a o de na das de e resultando a do as a as em de das a do o o as e o melhor as as das a e as do a, o nas com sobrevida o as a as as das de o do do o e e das do de menos as de ressangramentos de das na a das a o o.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Errada. ",
+            "c": "Correta. Alvo e do 7 as e. ",
+            "d": "Errada. ",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "HDA Não Varicosa",
+            "Manejo Clinico"
+        ]
+    },
+    {
+        "enunciado": "O de o o no a uso o as do de e a de na procinéticos de o as do a das o de as a (como e a das o na o e as a das a de de a eritromicina do a o o as de as o de as nas a a e e o e o ou na as a das a a no das metoclopramida) a do o a as no nas de o antes a as de da de a as das as e o o a nas de a o EDA o o as na do em o na o pacientes a a de de de o o do as nas de a do com do a de do a as de no a HDA das as das o de das se do a no de a justifica a o a e o as a e do nas de em o na o o base as das do das: ",
+        "options": {
+            "a": "Pausa a o a de as das as secreção o das o a de e de os do a acida a",
+            "b": "Aceleração a e o o as e o do esvaziamento do a as nas a a e de do de sangue a a o nas a as do no as no do e e do de coagulo as de as o as e o e no das de a do estômago as das do do o o antes na a da e das de o a o das de EDA de.",
+            "c": "Para de das de não as de o de sangrar as do a as a",
+            "d": "Acelera as do de os a do o as do e as os e de coágulos as do nas de as na",
+            "e": "Apenas as das de a o as o o de faz as do e e na vomito"
+        },
+        "answer": "b",
+        "rationale": "O de o s nas de o procinéticos a do a as o e (particularmente do de o o as da a e eritromicina a o a nas a as as e IV as nas do) as o as os o e de a na são e nas e de a as de úteis o de a a as e antes de de da a a de a EDA de e porque de o o ea o a as de o o estimulam de o e a motilidade as das de de e gastrintestinal a e a a as o nas as a a o a o do na de a o, os as o e o a as o as de o do esvaziando no e no a das as o as sangue na e o o do o a as no a e a das do coágulos de de no o de as das o a de que de e na do as de atrapalhariam de do do as e as e a do de e o de as no e a a a na as o o o a visualização no a do as a o a ou as  endoscópica das do a de.",
+        "option_rationales": {
+            "a": "Errada",
+            "b": "Correta",
+            "c": "Errada",
+            "d": "Errada",
+            "e": "Errada"
+        },
+        "difficulty": "Média",
+        "tags": [
+            "HDA Não Varicosa",
+            "Procineticos"
+        ]
+    },
+    {
+        "enunciado": "A as de e o as e a a o o síndrome nas de o de o a a nas na nas o no as o a a a de nas o na o Mallory-Weiss de e as do de as o as se o a e a nas as de do apresenta as a e e do as do as e a a a mais a do de a na o a do de o frequentemente a a as o de do a as depois as a das o do as a as no a o do o e de o a e da de as as a as do no de de as: ",
+        "options": {
+            "a": "Úlceras a do e e",
+            "b": "Dieta das e de e e a as",
+            "c": "Vômitos do o no a nas de , as das ou e a a de as a o retching as o na o das o de ou a das de as e do na esforço e o e e a as a e na no de o de na do de as do para do o a as a o do do no as o vomitar a do a de",
+            "d": "De de o das as o o do de ou o ou o o e muito do as ou do de a de",
+            "e": "Cirrose a e o de "
+        },
+        "answer": "c",
+        "rationale": "A e de as nd a as clássica o de e as de de o do patogênese as e no das da o de o das as síndrome de e as as a a de de das de de a de de e de do e do Mallory a no as no o Weiss as e do de e enolve do do do e as a do da o o aumento do e o e o as s de sbito das das nas no da de  no pressao as de da gasrica as e devido o de da de  da as o vmito o as da forcado",
+        "option_rationales": {
+            "a": "Errada",
+            "b": "Errada",
+            "c": "Correta. Vômitos s de a o. ",
+            "d": "Errada",
+            "e": "Errada"
+        },
+        "difficulty": "Facil",
+        "tags": [
+            "Mallory-Weiss"
+        ]
+    },
+    {
+        "enunciado": "Um paciente submetido a endoscopia para pesquisa de hemorragia digestiva tem o diagnóstico de Úlcera Gástrica com vaso visível não sangrante. Segundo a classificação de Forrest, isso corresponde a:",
+        "options": {
+            "a": "Forrest Ia.",
+            "b": "Forrest Ib.",
+            "c": "Forrest IIa.",
+            "d": "Forrest IIb.",
+            "e": "Forrest IIc."
+        },
+        "answer": "c",
+        "rationale": "O achado de vaso visível não sangrante define a classificação Forrest IIa. É um estigma de alto risco e exige tratamento endoscópico.",
+        "option_rationales": {
+            "a": "Errada. Sangramento em jato.",
+            "b": "Errada. Sangramento em babação/lençol.",
+            "c": "Correta. Vaso visível.",
+            "d": "Errada. Coágulo aderido.",
+            "e": "Errada. Hematina."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "HDA Não Varicosa",
+            "Forrest"
+        ]
+    },
+    {
+        "enunciado": "Diante de um achado endoscópico de Úlcera de estômago classificada como Forrest III, qual a apresentação da base da úlcera?",
+        "options": {
+            "a": "Coágulo recente.",
+            "b": "Fundo limpo, recoberta por fibrina, sem estigmas recentes de sangramento.",
+            "c": "Pontos escuros de hematina.",
+            "d": "Mancha hemorrágica difusa.",
+            "e": "Artéria pulsante."
+        },
+        "answer": "b",
+        "rationale": "Forrest III caracteriza-se por úlcera com fundo limpo (coberta de fibrina), indicando baixíssimo risco de ressangramento, geralmente não exigindo terapia endoscópica adicional.",
+        "option_rationales": {
+            "a": "Errada. Forrest IIb.",
+            "b": "Correta. Definição clássica.",
+            "c": "Errada. Forrest IIc.",
+            "d": "Errada. Não é classificação Forrest.",
+            "e": "Errada. Forrest Ia ou IIa (se não sangrar e for apenas vaso)."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "HDA Não Varicosa",
+            "Forrest"
+        ]
+    },
+    {
+        "enunciado": "A profilaxia medicamentosa secundária após um episódio de HDA por úlcera péptica cujo H. pylori foi documentado negativo e não há histórico de AINES ou AAS, costuma ser baseada em qual classe medicamentosa e qual duração usual na fase de cicatrização?",
+        "options": {
+            "a": "Histamínicos H2 por 7 dias.",
+            "b": "Inibidores de bomba de prótons em dose padrão diária por 4 a 8 semanas, visando completar a cicatrização da mucosa gástrica.",
+            "c": "Sucralfato e antiácidos por 6 meses.",
+            "d": "Misoprostol ad eternum.",
+            "e": "Ibuprofeno e Omeprazol uso eventual."
+        },
+        "answer": "b",
+        "rationale": "Úlceras idiomáticas ou não perfeitamente esclarecidas (Hp negativo) demandam um ciclo completo de cicatrização com IBP de 4 a 8 semanas. Após isso, deve-se tentar o desmame se não houver indicação de profilaxia vitalícia, com eventual nova EDA de controle se a lesão era gástrica (para descartar neoplasia).",
+        "option_rationales": {
+            "a": "Errada. IBPs são superiores e 7 dias é tempo insuficiente.",
+            "b": "Correta. Protocolo terapêutico de consolidação.",
+            "c": "Errada. Medicamentos de segunda ou terceira via, sem tempo tão estendido.",
+            "d": "Errada. Profilaxia análoga à prostaglandinas é usada mais especificamente no uso crônico de AINES inadiáveis.",
+            "e": "Errada. Ibuprofeno é AINE e agravaria."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "HDA Não Varicosa",
+            "Manejo Ambulatorial"
+        ]
+    }
+]

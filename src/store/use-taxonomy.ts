@@ -1,10 +1,5 @@
 import { create } from 'zustand'
-import { createClient } from '@supabase/supabase-js'
-
-const supabase = createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-)
+import { supabase } from '@/lib/supabase'
 
 export interface TaxonomyNode {
     id: string
@@ -15,6 +10,7 @@ export interface TaxonomyNode {
     active: boolean
     order: number
     metadata: any
+    questionCount?: number
     children?: TaxonomyNode[]
 }
 
@@ -36,13 +32,32 @@ export const useTaxonomy = create<TaxonomyState>((set, get) => ({
     loadTaxonomy: async () => {
         set({ loading: true, error: null })
         try {
-            const { data, error } = await supabase
+            // Fetch taxonomy nodes
+            const { data: taxonomyData, error: taxonomyError } = await supabase
                 .from('taxonomia')
                 .select('*')
                 .order('order')
                 .order('name')
 
-            if (error) throw error
+            if (taxonomyError) throw taxonomyError
+
+            // Fetch question counts from our new view
+            const { data: countsData, error: countsError } = await supabase
+                .from('v_taxonomia_counts')
+                .select('*')
+
+            if (countsError) {
+                console.error('Error loading taxonomy counts:', countsError)
+                // We don't throw here to allow the taxonomy to load even if counts fail
+            }
+
+            // Create a lookup for counts
+            // Using a Map for O(1) matching
+            const countsMap = new Map()
+            countsData?.forEach(c => {
+                const key = `${c.level}:${c.val}`
+                countsMap.set(key.toLowerCase(), c.count)
+            })
 
             // Build hierarchical tree
             const buildTree = (nodes: any[]) => {
@@ -50,7 +65,16 @@ export const useTaxonomy = create<TaxonomyState>((set, get) => ({
                 const roots: TaxonomyNode[] = []
 
                 nodes.forEach(n => {
-                    map.set(n.id, { ...n, children: [] })
+                    // Try to find count by slug or name
+                    const countBySlug = countsMap.get(`${n.level}:${n.slug}`.toLowerCase()) || 0
+                    const countByName = countsMap.get(`${n.level}:${n.name}`.toLowerCase()) || 0
+                    const questionCount = Math.max(countBySlug, countByName)
+
+                    map.set(n.id, {
+                        ...n,
+                        children: [],
+                        questionCount
+                    })
                 })
 
                 nodes.forEach(n => {
@@ -60,15 +84,29 @@ export const useTaxonomy = create<TaxonomyState>((set, get) => ({
                     } else if (!n.parent_id) {
                         roots.push(node)
                     } else if (n.parent_id && !map.has(n.parent_id)) {
-                        // Orphaned but has parent_id (parent might be filtered out or deleted)
                         roots.push(node)
                     }
                 })
 
+                // Recursive function to sum counts from children to parents
+                // This ensures "Cardiologia" shows the total of all its subspecialties/subjects
+                const rollupCounts = (node: TaxonomyNode): number => {
+                    let total = node.questionCount || 0
+                    if (node.children) {
+                        node.children.forEach(child => {
+                            total += rollupCounts(child)
+                        })
+                    }
+                    node.questionCount = total
+                    return total
+                }
+
+                roots.forEach(root => rollupCounts(root))
+
                 return roots
             }
 
-            set({ taxonomy: buildTree(data || []), loading: false })
+            set({ taxonomy: buildTree(taxonomyData || []), loading: false })
         } catch (err: any) {
             set({ error: err.message, loading: false })
         }

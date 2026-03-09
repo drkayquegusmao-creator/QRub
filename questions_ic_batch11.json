@@ -1,0 +1,258 @@
+[
+    {
+        "enunciado": "A respeito do uso de biomarcadores na insuficiência cardíaca, qual a utilidade do NT-proBNP em relação ao BNP em pacientes que utilizam o fármaco Sacubitril-Valsartana (INRA)?",
+        "options": {
+            "a": "O NT-proBNP sofre interferência direta do Sacubitril e fica falsamente elevado.",
+            "b": "O NT-proBNP não é substrato da neprilisina, portanto seus níveis não são afetados pelo uso de Sacubitril, sendo o marcador preferencial para monitorização neste cenário.",
+            "c": "O BNP é o único marcador que pode ser usado sob terapia com INRA.",
+            "d": "Ambos os biomarcadores tornam-se inúteis após o início da terapia.",
+            "e": "O NT-proBNP aumenta apenas se o paciente desenvolver tosse."
+        },
+        "answer": "b",
+        "rationale": "O Sacubitril inibe a neprilisina, que é a enzima degradadora do BNP. Assim, o BNP sobe artificialmente com o remédio. Já o NT-proBNP é degradado por outros mecanismos (via renal principalmente) e não pela neprilisina; por isso, seus níveis refletem o estresse miocárdico real sem interferência farmacológica direta da inibição da neprilisina.",
+        "option_rationales": {
+            "a": "Incorreta. É o BNP que sofre essa interferência.",
+            "b": "Correta. Base teórica e prática para o acompanhamento laboratorial de pacientes em uso de Entresto.",
+            "c": "Incorreta. O BNP sofre interferência, o NT-proBNP não.",
+            "d": "Incorreta. O NT-proBNP continua sendo muito útil.",
+            "e": "Incorreta."
+        },
+        "difficulty": "média",
+        "tags": [
+            "Biomarcadores",
+            "BNP",
+            "Sacubitril",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Qual dos seguintes parâmetros define o estágio C da insuficiência cardíaca (classificação de estágios AHA/ACC/SBC)?",
+        "options": {
+            "a": "Paciente com alto risco de desenvolver IC (ex: hipertenso), mas sem doença estrutural ou sintomas.",
+            "b": "Paciente com doença estrutural cardíaca (ex: infarto prévio), mas sem sintomas atuais ou prévios de IC.",
+            "c": "Paciente com doença estrutural cardíaca e sintomas atuais ou prévios de insuficiência cardíaca.",
+            "d": "Paciente com IC refratária às terapias médicas convencionais, necessitando de suporte avançado.",
+            "e": "Paciente com IC de alto débito curada após tratamento do hipertireoidismo."
+        },
+        "answer": "c",
+        "rationale": "Os estágios de IC são: A (Sob risco, sem doença estrutural); B (Doença estrutural presente, mas assintomático); C (Doença estrutural + Sintomas prévios ou atuais); D (IC refratária). Uma vez no estágio C, o paciente nunca volta para o B, mesmo que os sintomas desapareçam com o tratamento.",
+        "option_rationales": {
+            "a": "Incorreta. Este é o Estágio A.",
+            "b": "Incorreta. Este é o Estágio B.",
+            "c": "Correta. Define a maioria dos pacientes em tratamento clínico regular.",
+            "d": "Incorreta. Este é o Estágio D.",
+            "e": "Incorreta."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "Estágios de IC",
+            "Classificação",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "No contexto da IC descompensada, a 'ascite' e o 'refluxo hepatojugular' são sinais físicos que indicam predominantemente:",
+        "options": {
+            "a": "Disfunção sistólica do ventrículo esquerdo com baixa pressão capilar.",
+            "b": "Congestão sistêmica e aumento das pressões nas câmaras direitas (Ventrículo Direito e Átrio Direito).",
+            "c": "Isquemia miocárdica aguda em parede lateral.",
+            "d": "Efeito colateral do uso de betabloqueador.",
+            "e": "Deficiência nutricional de vitamina B12."
+        },
+        "answer": "b",
+        "rationale": "Sinais como turgência jugular patológica, refluxo hepatojugular, hepatomegalia congestiva, ascite e edema de membros inferiores são marcadores de falência cardíaca DIREITA ou de pressão venosa central elevada.",
+        "option_rationales": {
+            "a": "Incorreta. Ascite indica congestão 'para trás' do lado direito.",
+            "b": "Correta. Traduzem a sobrecarga de volume e pressão no sistema venoso sistêmico.",
+            "c": "Incorreta. Quadros isquêmicos causam dor ou choque, mas a ascite é um sinal de congestão crônico-agudizada.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "Exame Físico",
+            "IC Direita",
+            "Congestão",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "A respeito do papel dos Inibidores da SGLT2 (Dapagliflozina e Empagliflozina) na insuficiência cardíaca, qual foi a principal descoberta dos estudos DAPA-HF e EMPEROR-Reduced?",
+        "options": {
+            "a": "Eles funcionam apenas em pacientes diabéticos.",
+            "b": "Eles reduzem o desfecho combinado de morte cardiovascular e hospitalização por IC em pacientes com ICFEr, INDEPENDENTEMENTE da presença de diabetes mellitus.",
+            "c": "Eles substituem a necessidade de diuréticos de alça em todos os pacientes.",
+            "d": "Eles aumentam a fração de ejeção em 20% em apenas duas semanas.",
+            "e": "Eles são contraindicados em pacientes com mais de 65 anos."
+        },
+        "answer": "b",
+        "rationale": "Os iSGLT2 consolidaram-se como o 4º pilar do tratamento da IC após demonstrarem benefício robusto na redução de desfechos graves tanto em diabéticos quanto em não-diabéticos. Mudaram o paradigma de que eram apenas drogas antidiabéticas.",
+        "option_rationales": {
+            "a": "Incorreta. Este foi o grande 'achado': o benefício é cardiovascular extraglicêmico.",
+            "b": "Correta. Define o principal motivo para a recomendação Classe I destas drogas nas diretrizes.",
+            "c": "Incorreta. Podem ajudar a reduzir a dose, mas geralmente não substituem a furosemida se houver congestão.",
+            "d": "Incorreta. A melhora é gradual e sistêmica.",
+            "e": "Incorreta. Idosos se beneficiam muito devido ao perfil de segurança."
+        },
+        "difficulty": "média",
+        "tags": [
+            "iSGLT2",
+            "Estudos",
+            "ICFEr",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Qual a conduta indicada para um paciente com FE 32% que desenvolve tosse persistente e irritativa, sem sinais de congestão, após 2 semanas de uso de Enalapril?",
+        "options": {
+            "a": "Manter Enalapril e prescrever antitussígenos potentes.",
+            "b": "Substituir o Enalapril por um Bloqueador do Receptor de Angiotensina (BRA), como Losartana ou Valsartana.",
+            "c": "Suspender toda a medicação do eixo renina-angiotensina e usar apenas diuréticos.",
+            "d": "Trocar o betabloqueador por um bloqueador de canal de cálcio.",
+            "e": "Investigar pneumonia bacteriana agudizada por refluxo."
+        },
+        "answer": "b",
+        "rationale": "A tosse por IECA ocorre pelo acúmulo de bradicininas nas vias aéreas superiores. Como o BRA (Losartana) não interfere no metabolismo da bradicinina, ele é a alternativa automática nesses casos, mantendo o benefício do bloqueio da angiotensina II sem o efeito colateral da tosse.",
+        "option_rationales": {
+            "a": "Incorreta. A tosse costuma ser intolerável e de difícil controle farmacológico.",
+            "b": "Correta. Conduta padrão baseada na farmacodinâmica das classes.",
+            "c": "Incorreta. O bloqueio do SRAA é essencial para a sobrevida na IC.",
+            "d": "Incorreta.",
+            "e": "Incorreta. A tosse seca após início de IECA é um diagnóstico clínico clássico de exclusão."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "Farmacologia",
+            "Efeitos Colaterais",
+            "IECA/BRA",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Um paciente de 60 anos com IC chagaica e FE 25% apresenta episódios de síncope. O ECG revela bloqueio atrioventricular de 3º grau (BAVT) com escape ventricular de 35 bpm. Qual a conduta imediata e de longo prazo mais adequada?",
+        "options": {
+            "a": "Atropina endovenosa contínua para o resto da vida.",
+            "b": "Marca-passo provisório seguido do implante de Marca-passo definitivo (ou CDI, se preencher critérios).",
+            "c": "Troca de betabloqueador por amiodarona.",
+            "d": "Apenas reduzir a dose dos medicamentos da IC.",
+            "e": "Exercício físico para aumentar a FC basal."
+        },
+        "answer": "b",
+        "rationale": "O BAVT em um paciente com IC chagaica é uma manifestação comum da destruição do sistema de condução. Exige estabilização (marca-passo provisório se houver instabilidade) e implante de dispositivo definitivo. Devido à FE de 25%, se o paciente estiver estável após o tratamento da fase aguda, deve-se considerar inclusive um CDI (se sintomático NYHA II/III) em vez de MP simples.",
+        "option_rationales": {
+            "a": "Incorreta. Atropina é medida de curtíssimo prazo e ineficaz em bloqueios infra-hessianos.",
+            "b": "Correta. Medida salvadora e necessária para a manutenção do débito cardíaco.",
+            "c": "Incorreta. BB e Amiodarona agravariam o bloqueio.",
+            "d": "Incorreta. BAVT não costuma ser puramente medicamentoso na chagas estrutural.",
+            "e": "Incorreta."
+        },
+        "difficulty": "média",
+        "tags": [
+            "Chagas",
+            "Arritmias",
+            "Marca-passo",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "A respeito da insuficiência cardíaca por cardiotoxicidade de fármacos não-quimioterápicos, qual das substâncias abaixo está mais associada ao desenvolvimento de miocardiopatia dilatada e arritmias malignas?",
+        "options": {
+            "a": "Cafeína em doses usuais.",
+            "b": "Cocaína.",
+            "c": "Vitamina C em excesso.",
+            "d": "Eritropoetina.",
+            "e": "Omeprazol."
+        },
+        "answer": "b",
+        "rationale": "A cocaína causa um estado hiperadrenérgico brutal, levando a vasoespasmo coronário (isquemia), toxicidade miocárdica direta por apoptose e desarranjo de canais iônicos, podendo causar IC aguda por miocardite tóxica ou IC crônica dilatada pelo insulto persistente.",
+        "option_rationales": {
+            "a": "Incorreta.",
+            "b": "Correta. Droga de abuso com impacto cardiovascular devastador bem documentado.",
+            "c": "Incorreta.",
+            "d": "Incorreta. Pode causar hipertensão mas não é causa direta clássica de IC dilatada.",
+            "e": "Incorreta."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "Cardiotoxicidade",
+            "Drogas de Abuso",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "A respeito do uso de Vericiguat na IC, de acordo com o estudo VICTORIA, para qual grupo de pacientes este estimulador da guanilato ciclase solúvel é indicado?",
+        "options": {
+            "a": "Pacientes com IC estágio A.",
+            "b": "Pacientes com ICFEr sintomática que tiveram uma descompensação ou internação por IC recente.",
+            "c": "Pacientes com IC de alto débito apenas.",
+            "d": "Uso profilático em atletas de alto rendimento.",
+            "e": "Apenas para pacientes que não toleram Betabloqueadores."
+        },
+        "answer": "b",
+        "rationale": "O Vericiguat (Estudo VICTORIA) mostrou redução de desfechos em pacientes de 'alto risco', definidos como aqueles que tiveram um evento de piora da IC (internação ou necessidade de diurético EV) nos meses anteriores. Age melhorando a via do GMPc, que está deficiente no miocárdio insuficiente.",
+        "option_rationales": {
+            "a": "Incorreta.",
+            "b": "Correta. População específica de 'alto risco' de re-internação.",
+            "c": "Incorreta.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "difícil",
+        "tags": [
+            "Vericiguat",
+            "Estudos",
+            "Manejo",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Qual achado semiológico à palpação da região precordial é mais sugestivo de dilatação grave do ventrículo esquerdo (cardiomegalia)?",
+        "options": {
+            "a": "Ictus cordis impalpável.",
+            "b": "Ictus cordis desviado para baixo e para a esquerda, ocupando dois ou mais espaços intercostais.",
+            "c": "Impulsão paraesternal esquerda (elevatória).",
+            "d": "Frêmito sistólico em foco aórtico.",
+            "e": "Presença de sinal de Murphy cardíaco."
+        },
+        "answer": "b",
+        "rationale": "O Ictus cordis (choque da ponta) reflete a posição e o tamanho do VE. Quando o Ictus está desviado além da linha hemiclavicular esquerda ou abaixo do 5º espaço intercostal, e apresenta-se globoso/esparramado, é um sinal físico clássico de dilatação ventricular.",
+        "option_rationales": {
+            "a": "Incorreta. Ictus impalpável pode ocorrer por obesidade ou enfisema, não confirma dilatação.",
+            "b": "Correta. Tradução física da cardiomegalia.",
+            "c": "Incorreta. Sugere sobrecarga de ventrículo DIREITO.",
+            "d": "Incorreta. Sugere estenose aórtica importante.",
+            "e": "Incorreta. Murphy é sinal de colecistite."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "Exame Físico",
+            "Semiologia",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "A respeito da etiologia idiopática da IC, o diagnóstico de 'Miocardiopatia Dilatada Idiopática' é feito por:",
+        "options": {
+            "a": "Presença de anticorpos específicos contra o miocárdio.",
+            "b": "Exclusão de todas as outras causas conhecidas (isquêmica, valvar, hipertensiva, Chagas, álcool, etc.).",
+            "c": "Achado de cicatriz transmural na ressonância.",
+            "d": "História familiar negativa em 100% dos casos.",
+            "e": "Elevação persistente da troponina T."
+        },
+        "answer": "b",
+        "rationale": "O termo 'idiopático' na medicina significa sem causa conhecida. Na IC, é o diagnóstico de exclusão após uma investigação completa que descarte as etiologias mais prováveis. No entanto, sabe-se hoje que cerca de 30-40% destes casos têm base genética (familiar).",
+        "option_rationales": {
+            "a": "Incorreta.",
+            "b": "Correta. Reflete a abordagem diagnóstica por exclusão.",
+            "c": "Incorreta. Cicatriz transmural sugere infarto.",
+            "d": "Incorreta. Muitos casos 'idiopáticos' são, na verdade, genéticos/familiares.",
+            "e": "Incorreta. Troponina alta sugere insulto agudo ou descompensação, não etiologia."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "Etiologia",
+            "Diagnóstico por Exclusão",
+            "FGV"
+        ]
+    }
+]

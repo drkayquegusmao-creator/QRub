@@ -1,0 +1,16 @@
+{
+  "cardio": {
+    "slug": "cardiologia",
+    "name": "Cardiologia",
+    "parent_id": "bd3e581d-30e5-4f43-9cf8-d383ceb7d88b"
+  },
+  "clinica": {
+    "slug": "clinica-medica",
+    "name": "Clínica Médica",
+    "parent_id": "684c16b9-1feb-4cfc-8ca0-89dffd5248eb"
+  },
+  "med": {
+    "slug": "medicina",
+    "name": "Medicina"
+  }
+}

@@ -103,43 +103,55 @@ export default function TreinoExecucaoPage() {
                 const excludedIds = historyData?.map(h => h.question_id) || []
 
                 // 3. Fetch Questions
-                let query = supabase
-                    .from('questao_base')
-                    .select('*')
-                    .eq('course_id', 'medicina')
-                    .eq('status', 'active')
-                    .eq('status_validacao', 'APROVADA')
-                    .eq('specialty_id', sessionData.area)
+                let finalQuestions: any[] = []
 
-                if (sessionData.subarea) query = query.eq('subspecialty_id', sessionData.subarea)
-                if (sessionData.subject) query = query.eq('subject_id', sessionData.subject)
-                if (sessionData.difficulty !== 'Qualquer') query = query.eq('difficulty', sessionData.difficulty.toLowerCase())
+                if (sessionData.question_ids && sessionData.question_ids.length > 0) {
+                    // Optimized: Fetch exactly what was decided in the filter page
+                    const { data: idQuestions, error: idError } = await supabase
+                        .from('questao_base')
+                        .select('*')
+                        .in('id', sessionData.question_ids)
 
-                // Fetch more to shuffle and avoid excluded
-                query = query.limit(sessionData.volume * 3)
+                    if (idError) throw idError
+                    finalQuestions = idQuestions || []
+                } else {
+                    // Fallback: Re-apply filters if question_ids missing (legacy sessions)
+                    let query = supabase
+                        .from('questao_base')
+                        .select('*')
+                        .eq('status', 'active')
+                        .eq('status_validacao', 'APROVADA')
 
-                // Add timeout controller
-                const timeoutController = new AbortController()
-                const timeoutId = setTimeout(() => timeoutController.abort(), 10000)
+                    const slug = sessionData.area
+                    const orConditions = [
+                        `specialty_id.eq.${slug}`,
+                        `subspecialty_id.eq.${slug}`,
+                        `subject_id.eq.${slug}`,
+                        `area_id.eq.${slug}`,
+                        `tema_id.eq.${slug}`,
+                        `subarea_id.eq.${slug}`
+                    ].join(',')
+                    query = query.or(orConditions)
 
-                const { data: rawQuestions, error: qError } = await query.abortSignal(timeoutController.signal)
-                clearTimeout(timeoutId)
+                    if (sessionData.difficulty && sessionData.difficulty !== 'Qualquer') {
+                        // Handle accents in difficulty normalization
+                        const diff = sessionData.difficulty.toLowerCase()
+                            .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
 
-                if (qError) throw qError
+                        // We search for both normalized and original just in case
+                        query = query.or(`difficulty.eq.${diff},difficulty.eq.${sessionData.difficulty.toLowerCase()}`)
+                    }
 
-                // Filter out excluded ones locally since NOT IN is tricky with large arrays in PostgREST
-                const availableQuestions = rawQuestions?.filter(q => !excludedIds.includes(q.id)) || []
+                    query = query.limit(sessionData.volume)
+                    const { data: fallbackQuestions, error: fallbackError } = await query
+                    if (fallbackError) throw fallbackError
+                    finalQuestions = fallbackQuestions || []
+                }
 
-                if (availableQuestions.length === 0) {
+                if (finalQuestions.length === 0) {
                     setStatus('EMPTY')
                     return
                 }
-
-                // Shuffle
-                const shuffled = availableQuestions.sort(() => Math.random() - 0.5)
-
-                // Slice to volume
-                const finalQuestions = shuffled.slice(0, sessionData.volume)
 
                 // Map options properly (JSON parsing safety)
                 const parsedQuestions = finalQuestions.map(q => {
@@ -155,7 +167,8 @@ export default function TreinoExecucaoPage() {
                     return
                 }
 
-                setQuestions(parsedQuestions)
+                // Shuffle for the session experience
+                setQuestions(parsedQuestions.sort(() => Math.random() - 0.5))
                 setStatus('READY')
 
             } catch (error: any) {
@@ -353,8 +366,8 @@ export default function TreinoExecucaoPage() {
                         QID: {currentQ?.id?.substring(0, 6)}
                     </span>
                     <span className={`px-3 py-1 text-[10px] font-black uppercase tracking-widest rounded-lg ${currentQ?.difficulty === 'fcil' || currentQ?.difficulty === 'fácil' ? 'bg-emerald-100 text-emerald-600' :
-                            currentQ?.difficulty === 'difcil' || currentQ?.difficulty === 'difícil' ? 'bg-rose-100 text-rose-600' :
-                                'bg-amber-100 text-amber-600'
+                        currentQ?.difficulty === 'difcil' || currentQ?.difficulty === 'difícil' ? 'bg-rose-100 text-rose-600' :
+                            'bg-amber-100 text-amber-600'
                         }`}>
                         {currentQ?.difficulty}
                     </span>
@@ -390,8 +403,8 @@ export default function TreinoExecucaoPage() {
                                 className={`w-full text-left p-5 rounded-[24px] border-2 transition-all flex gap-4 relative overflow-hidden ${stateClass}`}
                             >
                                 <div className={`shrink-0 w-8 h-8 rounded-xl flex items-center justify-center font-black mt-0.5 ${isConfirmed && isCorrectOption ? 'bg-emerald-500 text-white' :
-                                        isConfirmed && isSelected && !isCorrectOption ? 'bg-rose-500 text-white' :
-                                            isSelected ? 'bg-primary text-white' : 'bg-slate-100 text-slate-400'
+                                    isConfirmed && isSelected && !isCorrectOption ? 'bg-rose-500 text-white' :
+                                        isSelected ? 'bg-primary text-white' : 'bg-slate-100 text-slate-400'
                                     }`}>
                                     {isConfirmed && isCorrectOption ? <Check className="w-5 h-5" /> :
                                         isConfirmed && isSelected ? <X className="w-5 h-5" /> :

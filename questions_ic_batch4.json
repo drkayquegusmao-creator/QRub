@@ -1,0 +1,262 @@
+[
+    {
+        "enunciado": "Durante a avaliação de um paciente com insuficiência cardíaca crônica, o médico observa a presença de pulso alternante durante a palpação do pulso radial. Este achado semiológico é altamente sugestivo de:",
+        "options": {
+            "a": "Disfunção sistólica grave do ventrículo esquerdo.",
+            "b": "Tamponamento cardíaco iminente.",
+            "c": "Estenose aórtica importante com baixo débito.",
+            "d": "Pericardite constritiva com sinal de Kussmaul.",
+            "e": "Insuficiência tricúspide grave."
+        },
+        "answer": "a",
+        "rationale": "O pulso alternante (alternância de batimentos de grande e pequena amplitude com ritmo regular) é um sinal clássico de falência ventricular esquerda grave. Reflete a variação da contratilidade miocárdica e do volume sistólico batimento a batimento. Diferencia-se do pulso paradoxal (B), que é a queda da PAS > 10 mmHg na inspiração, típico de tamponamento ou DPOC grave.",
+        "option_rationales": {
+            "a": "Correta. É um sinal de grave comprometimento da reserva contrátil do VE.",
+            "b": "Incorreta. O tamponamento associa-se ao pulso paradoxal, não ao alternante.",
+            "c": "Incorreta. Estenose aórtica causa pulso 'parvus et tardus'.",
+            "d": "Incorreta. Pericardite constritiva associa-se ao sinal de Kussmaul (turgência jugular na inspiração).",
+            "e": "Incorreta. Insuficiência tricúspide reflete no pulso venoso jugular (onda v gigante), não no pulso arterial radial com alternância."
+        },
+        "difficulty": "média",
+        "tags": [
+            "Exame Físico",
+            "Semiologia",
+            "ICFEr",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Qual a principal causa de descompensação de insuficiência cardíaca crônica em pacientes ambulatoriais, devendo ser sempre investigada na primeira abordagem na emergência?",
+        "options": {
+            "a": "Infecções respiratórias.",
+            "b": "Má adesão à dieta hipossódica e ao tratamento medicamentoso.",
+            "c": "Isquemia miocárdica silenciosa.",
+            "d": "Arritmias supraventriculares, como fibrilação atrial.",
+            "e": "Uso inadvertido de anti-inflamatórios não esteroides (AINEs)."
+        },
+        "answer": "b",
+        "rationale": "Embora todas as alternativas sejam causas comuns, a má adesão (medicamentosa ou dietética) é estatisticamente a causa mais frequente de descompensação. Investigar se o paciente suspendeu o diurético ou abusou de sal é o primeiro passo logístico no manejo ambulatorial/emergencial.",
+        "option_rationales": {
+            "a": "Incorreta. É a segunda causa mais comum, mas perde para a má adesão.",
+            "b": "Correta. A falta de aderência ao tratamento é o principal gatilho para novas internações.",
+            "c": "Incorreta. Importante, mas menos frequente como gatilho isolado comparado à dieta/remédios.",
+            "d": "Incorreta. Arritmias são gatilhos importantes (perfil B), mas a má adesão é onipresente.",
+            "e": "Incorreta. AINEs causam retenção hídrica e piora renal, mas são causas menos prevalentes que erros na dieta/medicação padrão."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "Descompensação",
+            "Epidemiologia",
+            "Manejo",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "A respeito do uso de antagonistas da aldosterona (Espironolactona) na ICFEr, é correto afirmar:",
+        "options": {
+            "a": "Devem ser iniciados mesmo se a Creatinina estiver acima de 3.5 mg/dL.",
+            "b": "O principal benefício demonstrado no estudo RALES foi a melhora apenas sintomática.",
+            "c": "Sua principal contraindicação é o nível pressórico sistólico limítrofe (90-100 mmHg).",
+            "d": "Reduzem a mortalidade em pacientes com ICFEr classe funcional II a IV (NYHA).",
+            "e": "Devem ser suspensos imediatamente se o paciente desenvolver ginecomastia, sem opção de troca."
+        },
+        "answer": "d",
+        "rationale": "Iniciada a partir do estudo RALES (NYHA III/IV) e posteriormente EPHESUS/EMPHASIS-HF, a espironolactona provou reduzir mortalidade em pacientes com ICFEr. Contraindicada se Cr > 2.5 (homens) ou 2.0 (mulheres) ou K > 5.0. Se houver ginecomastia, a Eplerenona (não disponível no SUS) seria a alternativa.",
+        "option_rationales": {
+            "a": "Incorreta. O limite de segurança para Creatinina é geralmente 2.5 mg/dL para evitar hiperpotassemia grave.",
+            "b": "Incorreta. O benefício foi redução de mortalidade absoluta.",
+            "c": "Incorreta. Diferente de BB e IECA, a Espironolactona tem pouco efeito sobre a PA sistólica.",
+            "d": "Correta. É um pilar do tratamento modificador de doença na IC reduzida.",
+            "e": "Incorreta. Se houver ginecomastia, pode-se tentar reduzir a dose ou trocar por Eplerenona."
+        },
+        "difficulty": "média",
+        "tags": [
+            "Espironolactona",
+            "Farmacologia",
+            "RALES",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "No contexto da insuficiência cardíaca aguda, um paciente apresenta-se com congestão pulmonar franca, PA 110/70 mmHg e sinais de hipoperfusão periférica leve (extremidades frias, mas sem choque franco). De acordo com a classificação de Stevenson, qual a conduta inicial mais adequada?",
+        "options": {
+            "a": "Dobutamina isolada em doses elevadas.",
+            "b": "Diuréticos de alça endovenosos e vasodilatadores, monitorando perfusão.",
+            "c": "Expansão volêmica vigorosa com cristaloides.",
+            "d": "Noradrenalina para elevar a PA acima de 140 mmHg.",
+            "e": "Apenas observação clínica até a melhora espontânea."
+        },
+        "answer": "b",
+        "rationale": "O paciente é 'Frio e Úmido' (Perfil C), mas com PA estável (PAS > 90). Nestes casos, o foco é tratar a congestão com diuréticos. Se houver dúvida sobre o débito, pode-se associar inotrópico em doses baixas, mas o uso de vasodilatadores (se a PA tolerar) ajuda a reduzir a pós-carga e melhorar o débito sem aumentar o consumo de O2 como os inotrópicos.",
+        "option_rationales": {
+            "a": "Incorreta. Inotrópicos puros podem causar arritmias e aumento de consumo de O2 miocárdico; deve-se tentar diurético e vasodilatador primeiro se a PA permitir.",
+            "b": "Correta. Manejo equilibrado para Perfil C com pressão arterial limítrofe/normal.",
+            "c": "Incorreta. Expansão hídrica em paciente 'Úmido' (congestionado) agravaria o edema pulmonar.",
+            "d": "Incorreta. Noradrenalina é reservada para choque cardiogênico refratário com hipotensão grave.",
+            "e": "Incorreta. IC aguda exige intervenção imediata para evitar falência respiratória."
+        },
+        "difficulty": "difícil",
+        "tags": [
+            "IC Aguda",
+            "Stevenson",
+            "Tratamento",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "A respeito da insuficiência cardíaca de alto débito, qual das causas abaixo deve ser suspeitada em um paciente com IC, anemia grave e sopro sistólico hiperdinâmico?",
+        "options": {
+            "a": "Beribéri (deficiência de tiamina).",
+            "b": "Hipertireoidismo.",
+            "c": "Fístula arteriovenosa sistêmica.",
+            "d": "Doença de Paget óssea.",
+            "e": "Todas as alternativas acima."
+        },
+        "answer": "e",
+        "rationale": "A IC de alto débito ocorre quando o coração não consegue suprir a demanda metabólica aumentada dos tecidos, apesar de um débito cardíaco elevado em repouso. Beribéri, hipertireoidismo, grandes fístulas AV, doença de Paget e anemia grave são causas clássicas descritas na literatura.",
+        "option_rationales": {
+            "a": "Correta, mas incompleta isoladamente.",
+            "b": "Correta, mas incompleta isoladamente.",
+            "c": "Correta, mas incompleta isoladamente.",
+            "d": "Correta, mas incompleta isoladamente.",
+            "e": "Correta. Todas as condições listadas podem levar a um estado de IC com alto débito."
+        },
+        "difficulty": "média",
+        "tags": [
+            "Etiologia",
+            "IC Alto Débito",
+            "Fisiopatologia",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Qual o achado radiológico no tórax que indica o estágio mais avançado de congestão venocapilar pulmonar na IC esquerda?",
+        "options": {
+            "a": "Cefalização da trama vascular.",
+            "b": "Infiltrado alveolar 'em asa de borboleta'.",
+            "c": "Linhas B de Kerley.",
+            "d": "Derrame pleural bilateral.",
+            "e": "Aumento da área cardíaca."
+        },
+        "answer": "b",
+        "rationale": "A progressão da congestão no RX é: 1. Cefalização vascular (pressão capilar 13-18 mmHg); 2. Edema intersticial/Linhas B de Kerley (18-25 mmHg); 3. Edema alveolar/Asa de borboleta (> 25 mmHg). O infiltrado alveolar centralizado indica que o líquido extravasou do interstício para o alvéolo, caracterizando o edema agudo de pulmão.",
+        "option_rationales": {
+            "a": "Incorreta. Achado inicial de redistribuição de fluxo.",
+            "b": "Correta. Indica edema alveolar, o estágio final da congestão pulmonar.",
+            "c": "Incorreta. Representa o estágio de edema intersticial (moderado).",
+            "d": "Incorreta. Derrame pleural indica congestão crônica, mas não estratifica a gravidade capilar aguda como o edema alveolar.",
+            "e": "Incorreta. Indica cardiomegalia (doença estrutural), mas não a gravidade da congestão aguda pulmonar no momento."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "Radiologia",
+            "Diagnóstico",
+            "Congestão",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Paciente masculino de 64 anos, portador de DAC e ICFEr (FE 34%), estável em classe funcional II. Em uso de Lisinopril 20mg, Metoprolol 100mg e Espironolactona 25mg. No ECG: ritmo sinusal, FC 62 bpm, bloqueio de ramo esquerdo (BRE) com QRS de 165ms. O ecocardiograma mostra dissincronia ventricular importante. Qual a recomendação terapêutica adicional com melhor evidência para este caso?",
+        "options": {
+            "a": "Trocar Metoprolol por Carvedilol.",
+            "b": "Indicar implante de Cardiodesfibrilador (CDI) isolado.",
+            "c": "Indicar Terapia de Ressincronização Cardíaca (TRC).",
+            "d": "Indicar transplante cardíaco imediato.",
+            "e": "Iniciar Digoxina."
+        },
+        "answer": "c",
+        "rationale": "A TRC tem indicação Classe I em pacientes com ICFEr sintomática (NYHA II-IVa), FE ≤ 35%, em ritmo sinusal e com QRS largo (≥ 150ms) com padrão de BRE. O objetivo é reduzir a dissincronia, melhorar a FE e reduzir mortalidade. CDI isolado (B) seria indicado para prevenção de morte súbita, mas a TRC (muitas vezes via TRC-D) resolve o problema da dissincronia e melhora a função ventricular no BRE largo.",
+        "option_rationales": {
+            "a": "Incorreta. Ambos são BB de primeira linha; a troca não resolve o problema do QRS largo.",
+            "b": "Incorreta. Embora tenha indicação de CDI, a TRC é o procedimento superior para tratar o BRE largo com dissincronia.",
+            "c": "Correta. Paciente preenche critérios clássicos de diretriz para ressincronização (FE < 35%, BRE, QRS > 150ms).",
+            "d": "Incorreta. Transplante é para Classe IV refratária; este paciente está em Classe II.",
+            "e": "Incorreta. Digoxina reduz internações, mas não altera o prognóstico estrutural como a TRC."
+        },
+        "difficulty": "difícil",
+        "tags": [
+            "TRC",
+            "Eletrocardiograma",
+            "ICFEr",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "A respeito da cardiomiopatia restritiva decorrente de Amiloidose Cardíaca, qual exame é considerado o 'padrão-ouro' não invasivo para o diagnóstico da forma por Transtirretina (ATTR) após exclusão de cadeias leves?",
+        "options": {
+            "a": "Ressonância Magnética Cardíaca com realce tardio.",
+            "b": "Cintilografia miocárdica com pirofosfato de tecnécio (99mTc-PYP).",
+            "c": "Ecocardiograma com Doppler tecidual e Strain.",
+            "d": "Dosagem de Pro-BNP seriado.",
+            "e": "Eletrocardiograma de alta resolução."
+        },
+        "answer": "b",
+        "rationale": "A cintilografia com pirofosfato (PYP) é excelente para o diagnóstico de Amiloidose ATTR, apresentando alta captação cardíaca (Graus 2 ou 3 de Perugini). Se o paciente não tiver cadeias leves monoclonais séricas/urinárias, o PYP positivo é diagnóstico sem necessidade de biópsia. A Ressonância (A) sugere amiloidose pelo realce tardio subendocárdico difuso, mas não diferencia as formas de forma tão específica quanto o PYP.",
+        "option_rationales": {
+            "a": "Incorreta. Ótima para suspeita, mas o PYP é mais específico para a forma ATTR.",
+            "b": "Correta. Exame fundamental para o diagnóstico de Amiloidose ATTR de forma não invasiva.",
+            "c": "Incorreta. Mostra o padrão 'apical sparing' no Strain, mas não é o padrão-ouro confirmatório.",
+            "d": "Incorreta. Marcador de estresse miocárdico, não diagnóstico etiológico.",
+            "e": "Incorreta. O ECG costuma mostrar baixa voltagem, mas não confirma a etiologia da infiltração."
+        },
+        "difficulty": "média",
+        "tags": [
+            "Amiloidose",
+            "Exame Complementar",
+            "Cintilografia",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Em um paciente idoso internado com insuficiência cardíaca descompensada (perfil 'molhado e quente'), qual o principal cuidado ao utilizar altas doses de diuréticos de alça considerando a proteção renal?",
+        "options": {
+            "a": "Monitorar a queda do débito urinário e a elevação da ureia acima da creatinina (azotemia pré-renal).",
+            "b": "Garantir uma oferta hídrica de 3 litros de soro fisiológico ao dia.",
+            "c": "Suspender o BB antes de iniciar o diurético.",
+            "d": "Iniciar inibidores da SGLT2 apenas quando o paciente estiver anúrico.",
+            "e": "Evitar o uso de oxigênio suplementar para não causar vasoconstrição renal."
+        },
+        "answer": "a",
+        "rationale": "O uso agressivo de diuréticos pode levar à desidratação intravascular e azotemia pré-renal, mesmo que o paciente ainda tenha edema periférico. Monitorar eletrólitos (K, Mg, Na), Ureia e Creatinina é mandatório para evitar lesão renal aguda iatrogênica (Síndrome Cardiorrenal tipo 1).",
+        "option_rationales": {
+            "a": "Correta. A azotemia pré-renal é uma complicação frequente da diurese excessiva.",
+            "b": "Incorreta. Hidratação vigorosa anula o efeito do diurético no paciente congestionado.",
+            "c": "Incorreta. BB não deve ser suspenso de rotina na descompensação leve/moderada, a menos que haja choque.",
+            "d": "Incorreta. iSGLT2 são seguros na maioria dos casos de IC aguda estável, mas anúria é uma contraindicação clínica óbvia.",
+            "e": "Incorreta. O2 é indicado se houver hipoxemia; o impacto na vasoconstrição renal não impede seu uso na falência respiratória."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "Furosemida",
+            "Segurança",
+            "Idoso",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Qual a principal limitação diagnóstica do uso do BNP em pacientes com insuficiência cardíaca que iniciaram tratamento recentemente com Sacubitril-Valsartana?",
+        "options": {
+            "a": "O Sacubitril inibe a neprilisina, o que impede a degradação do BNP, elevando falsamente seus níveis.",
+            "b": "O BNP sofre uma reação cruzada com a Valsartana, tornando-se indetectável.",
+            "c": "O BNP costuma cair drasticamente nas primeiras 12 horas de uso, mascarando crises agudas.",
+            "d": "O Sacubitril aumenta apenas o fragmento NT-proBNP.",
+            "e": "Não há interferência farmacológica entre estas substâncias."
+        },
+        "answer": "a",
+        "rationale": "O Sacubitril é um inibidor da neprilisina, enzima responsável pela degradação de diversos peptídeos, incluindo o BNP. Assim, sob uso de Sacubitril, o BNP plasmático estará artificialmente ELEVADO. Por isso, para monitorar pacientes em uso de INRA, deve-se preferir o NT-proBNP, que não é substrato da neprilisina e reflete melhor o estresse miocárdico real nesse cenário.",
+        "option_rationales": {
+            "a": "Correta. O mecanismo de ação da droga eleva o BNP por menor degradação enzimática.",
+            "b": "Incorreta. Não há reação cruzada química de detecção, mas sim interferência fisiopatológica.",
+            "c": "Incorreta. O BNP sobe, não cai, logo após o início da droga.",
+            "d": "Incorreta. É o contrário: o Sacubitril interfere no BNP e não no NT-proBNP.",
+            "e": "Incorreta. Existe interferência significativa e reconhecida em todas as diretrizes."
+        },
+        "difficulty": "média",
+        "tags": [
+            "BNP",
+            "Sacubitril-Valsartana",
+            "Neprilisina",
+            "FGV"
+        ]
+    }
+]

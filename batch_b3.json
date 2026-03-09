@@ -1,0 +1,684 @@
+[
+    {
+        "enunciado": "Um paciente de 70 anos, portador de insuficiência cardíaca (CF II), será submetido a uma herniorrafia inguinal. Durante a monitorização, você observa uma onda capnográfica com início lento e inclinação suave (curva em 'barbatana de tubarão'). Qual a interpretação fisiopatológica deste achado?",
+        "options": {
+            "a": "Desconexão do circuito respiratório.",
+            "b": "Presença de esforço inspiratório do paciente (fenda de curare).",
+            "c": "Aumento da resistência das vias aéreas (broncoespasmo ou obstrução).",
+            "d": "Embolia pulmonar maciça.",
+            "e": "Intubação esofágica."
+        },
+        "answer": "c",
+        "rationale": "A inclinação da fase II e III da capnografia indica esvaziamento alveolar heterogêneo, típico de doenças obstrutivas ou broncoespasmo.",
+        "option_rationales": {
+            "a": "Errada. Causaria ausência súbita de onda.",
+            "b": "Errada. Causaria uma queda na fase III.",
+            "c": "Correta. Interpretação de traçados na anestesia.",
+            "d": "Errada. Causaria queda súbita do EtCO2 com manutenção da onda.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anestesiologia",
+            "Monitorização",
+            "Capnografia"
+        ]
+    },
+    {
+        "enunciado": "A análise da 'Variação da Pressão de Pulso' (deltaPP) é um parâmetro dinâmico de responsividade a fluidos. Para que este parâmetro seja confiável em um paciente cirúrgico, qual condição deve ser OBRIGATORIAMENTE atendida?",
+        "options": {
+            "a": "Paciente em ventilação espontânea.",
+            "b": "Presença de arritmia cardíaca (ex: Fibrilação Atrial).",
+            "c": "Ventilação mecânica controlada com volume corrente de pelo menos 8 mL/kg e ritmo sinusal.",
+            "d": "Uso de cateter venoso central.",
+            "e": "Frequência cardíaca superior a 120 bpm."
+        },
+        "answer": "c",
+        "rationale": "Arritmias e baixo volume corrente (ou esforço do paciente) invalidam a análise do deltaPP como preditor de volemia.",
+        "option_rationales": {
+            "a": "Errada. Invalida o deltaPP.",
+            "b": "Errada. Invalida o deltaPP.",
+            "c": "Correta. Requisitos técnicos para monitorização hemodinâmica.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "Anestesiologia",
+            "Hemodinâmica",
+            "Monitorização"
+        ]
+    },
+    {
+        "enunciado": "A 'Tromboelastometria' (ROTEM) ou Tromboelastografia (TEG) avalia a dinâmica da formação do coágulo. O que representa o parâmetro 'R' (no TEG) ou 'CT' (no ROTEM) e qual a conduta indicada se este valor estiver prolongado em um paciente com sangramento ativo?",
+        "options": {
+            "a": "Força do coágulo; indicar plaquetas.",
+            "b": "Velocidade de lise; indicar ácido tranexâmico.",
+            "c": "Tempo de início da formação de fibrina; indicar plasma fresco congelado ou complexo protrombínico.",
+            "d": "Conteúdo de fibrinogênio; indicar crioprecipitado.",
+            "e": "Presença de heparina; indicar protamina."
+        },
+        "answer": "c",
+        "rationale": "O CT (Clotting Time) reflete a fase de iniciação da coagulação dependente dos fatores de coagulação.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Errada.",
+            "c": "Correta. Manejo guiado de coagulopatia.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "Anestesiologia",
+            "Hematologia",
+            "Monitorização"
+        ]
+    },
+    {
+        "enunciado": "A 'Pressão de Platô' obtida durante uma pausa inspiratória na ventilação mecânica reflete qual propriedade do sistema respiratório?",
+        "options": {
+            "a": "Resistência das vias aéreas superiores.",
+            "b": "Pressão alveolar média ao final da inspiração (estática).",
+            "c": "Pressão no interior do balonete do tubo traqueal.",
+            "d": "Trabalho inspiratório total do paciente.",
+            "e": "Capacidade Vital funcional."
+        },
+        "answer": "b",
+        "rationale": "A pressão de platô é medida quando o fluxo é zero, representando a pressão necessária para manter os alvéolos abertos (reflete complacência).",
+        "option_rationales": {
+            "a": "Errada. Isso é refletido pela diferença entre Pico e Platô.",
+            "b": "Correta. Fisiologia respiratória aplicada.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anestesiologia",
+            "Fisiologia Respiratória",
+            "Ventilação Mecânica"
+        ]
+    },
+    {
+        "enunciado": "A 'Saturação Venosa Mista de Oxigênio' (SvO2), coletada na artéria pulmonar, é um excelente marcador global de perfusão. Se a SvO2 de um paciente cai bruscamente de 75% para 50%, qual das seguintes alterações NÃO justifica este achado?",
+        "options": {
+            "a": "Aumento do consumo de oxigênio (ex: febre ou tremores).",
+            "b": "Queda no débito cardíaco.",
+            "c": "Diminuição da concentração de hemoglobina (anemia).",
+            "d": "Aumento da oferta de oxigênio (DO2).",
+            "e": "Hipóxia arterial grave."
+        },
+        "answer": "d",
+        "rationale": "A SvO2 cai quando a oferta (DO2) diminui ou o consumo (VO2) aumenta. Um aumento na DO2 elevaria a SvO2.",
+        "option_rationales": {
+            "a": "Errada. Justifica a queda.",
+            "b": "Errada. Justifica a queda.",
+            "c": "Errada. Justifica a queda.",
+            "d": "Correta. Entendimento do balanço de oxigênio.",
+            "e": "Errada. Justifica a queda."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anestesiologia",
+            "Fisiologia",
+            "Hemodinâmica"
+        ]
+    },
+    {
+        "enunciado": "Um recém-nascido apresenta cianose e desconforto respiratório imediato ao nascimento. Ao tentar passar uma sonda nasogástrica, observa-se resistência em ambas as narinas. Qual o diagnóstico mais provável?",
+        "options": {
+            "a": "Hérnia diafragmática congênita.",
+            "b": "Atresia de coanas.",
+            "c": "Fístula traqueoesofágica.",
+            "d": "Síndrome de Pierre Robin.",
+            "e": "Estreitamento de laringe."
+        },
+        "answer": "b",
+        "rationale": "RNs são respiradores nasais obrigatórios. A atresia bicoanal impede a respiração normal, melhorando com o choro (respiração oral).",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Anatomia e patologia pediátrica.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anestesiologia",
+            "Pediatria",
+            "Anatomia"
+        ]
+    },
+    {
+        "enunciado": "A 'Laringe' infantil difere significativamente da adulta. Qual é a principal diferença anatômica que torna a intubação da criança mais desafiadora em termos de visualização?",
+        "options": {
+            "a": "A laringe infantil é mais posterior e baixa (C6).",
+            "b": "A epiglote é curta e rígida.",
+            "c": "A laringe é mais anterior e alta (C3-C4), com epiglote em formato de 'U' ou 'V' longa.",
+            "d": "As cordas vocais são perfeitamente horizontais.",
+            "e": "A cartilagem cricoide é o ponto mais largo da via aérea."
+        },
+        "answer": "c",
+        "rationale": "A posição cefálica da laringe e a epiglote longa/flexível exigem técnicas de laringoscopia adaptadas na pediatria.",
+        "option_rationales": {
+            "a": "Errada. Descrição do adulto.",
+            "b": "Errada.",
+            "c": "Correta. Anatomia pediátrica aplicada.",
+            "d": "Errada. Elas têm inclinação postero-anterior.",
+            "e": "Errada. É o ponto mais estreito até os 8-10 anos."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anestesiologia",
+            "Pediatria",
+            "Anatomia",
+            "Via Aérea"
+        ]
+    },
+    {
+        "enunciado": "Qual a 'Regra de Jejum' padrão (Sociedade Brasileira de Anestesiologia) para Leite Materno e Fórmulas Infantis em crianças antes de procedimentos eletivos?",
+        "options": {
+            "a": "2h para ambos.",
+            "b": "4h para leite materno; 6h para fórmulas e leite de vaca.",
+            "c": "6h para leite materno; 8h para fórmulas.",
+            "d": "8h para ambos.",
+            "e": "Jejum absoluto de 12h."
+        },
+        "answer": "b",
+        "rationale": "O leite materno é esvaziado mais rápido que fórmulas, exigindo tempos de jejum diferenciados.",
+        "option_rationales": {
+            "a": "Errada. Esse é o tempo para líquidos claros.",
+            "b": "Correta. Segurança e cuidados pré-anestésicos.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anestesiologia",
+            "Pediatria",
+            "Jejum"
+        ]
+    },
+    {
+        "enunciado": "A 'Anestesia Caudal' é uma técnica regional amplamente utilizada em pediatria para analgesia infraumbilical. Através de qual estrutura anatômica a agulha deve ser introduzida para acessar o canal sacral?",
+        "options": {
+            "a": "Hiato sacral (membrana sacrococcígea).",
+            "b": "Espaço L4-L5.",
+            "c": "Forame sacral posterior.",
+            "d": "Promontório sacral.",
+            "e": "Sínfise púbica."
+        },
+        "answer": "a",
+        "rationale": "O hiato sacral resulta da falha de fusão das lâminas de S5, sendo o acesso clássico para a epidural caudal.",
+        "option_rationales": {
+            "a": "Correta. Anatomia de bloqueios regionais.",
+            "b": "Errada.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anestesiologia",
+            "Regional",
+            "Pediatria",
+            "Anatomia"
+        ]
+    },
+    {
+        "enunciado": "Nas crianças pequenas, o 'Débito Cardíaco' é extremamente dependente de qual variável hemodinâmica, devido à baixa complacência do ventrículo e menor massa muscular cardíaca?",
+        "options": {
+            "a": "Volume Sistólico.",
+            "b": "Frequência Cardíaca.",
+            "c": "Pós-carga (Resistência Vascular Sistêmica).",
+            "d": "Pressão Venosa Central.",
+            "e": "Contratilidade miocárdica pura."
+        },
+        "answer": "b",
+        "rationale": "O coração infantil não consegue aumentar muito o volume sistólico por distensão, logo, o DC é fixo à FC. Bradicardia no RN é sinal de baixo débito iminente.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Fisiologia cardiovascular pediátrica.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anestesiologia",
+            "Pediatria",
+            "Fisiologia"
+        ]
+    },
+    {
+        "enunciado": "Quais são as três camadas de proteção que envolvem o nervo periférico, da mais interna para a mais externa?",
+        "options": {
+            "a": "Perineuro, Endoneuro e Epineuro.",
+            "b": "Endoneuro, Perineuro e Epineuro.",
+            "c": "Epineuro, Perineuro e Endoneuro.",
+            "d": "Mielina, Axônio e Membrana.",
+            "e": "Duramáter, Aracnoide e Piamáter."
+        },
+        "answer": "b",
+        "rationale": "O endoneuro envolve fibras individuais; o perineuro envolve fascículos; o epineuro envolve todo o nervo.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Anatomia fundamental para bloqueios.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada. (Camadas das meninges)."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anestesiologia",
+            "Regional",
+            "Anatomia"
+        ]
+    },
+    {
+        "enunciado": "Durante um 'Bloqueio do Plexo Braquial via Interescalênica', quais raízes nervosas são primariamente atingidas e qual região do membro superior costuma ser POUPADA (falha de bloqueio)?",
+        "options": {
+            "a": "C5-C7; poupa o ombro.",
+            "b": "C5-C6; poupa o território do nervo ulnar (C8-T1).",
+            "c": "C8-T1; poupa o nervo musculocutâneo.",
+            "d": "C5-T1; não há falhas comuns.",
+            "e": "C1-C4; poupa a mão."
+        },
+        "answer": "b",
+        "rationale": "O acesso interescalênico foca nos troncos superior e médio. As raízes inferiores (C8-T1) ficam distantes, resultando em falha frequente no território ulnar.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Anatomia aplicada à anestesia regional.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anestesiologia",
+            "Regional",
+            "Anatomia",
+            "Plexo Braquial"
+        ]
+    },
+    {
+        "enunciado": "Em relação à 'Anatomia da Coluna Vertebral', em qual nível medular termina a medula espinhal (Conus Medullaris) na maioria dos ADULTOS?",
+        "options": {
+            "a": "L4-L5.",
+            "b": "T12-L1.",
+            "c": "L1-L2.",
+            "d": "S1-S2.",
+            "e": "L3-L4."
+        },
+        "answer": "c",
+        "rationale": "A medula termina em L1-L2 no adulto. Nas crianças, pode terminar mais baixo (L3), subindo com o crescimento.",
+        "option_rationales": {
+            "a": "Errada. Nível da crista ilíaca.",
+            "b": "Errada.",
+            "c": "Correta. Referência anatômica para raquianestesia.",
+            "d": "Errada. Fim do saco dural.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anestesiologia",
+            "Regional",
+            "Anatomia"
+        ]
+    },
+    {
+        "enunciado": "Uma complicação potencial do bloqueio interescalênico é a 'Paralisia do Nervo Frênico' ipsilateral. Qual o nível radicular do nervo frênico?",
+        "options": {
+            "a": "C1-C2.",
+            "b": "C3-C5.",
+            "c": "C5-C7.",
+            "d": "T1-T4.",
+            "e": "C8-T1."
+        },
+        "answer": "b",
+        "rationale": "O nervo frênico (C3, C4, C5) inerva o diafragma. Sua paralisia ocorre em quase 100% dos bloqueios interescalênicos por difusão do anestésico.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Anatomia e complicações.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anestesiologia",
+            "Regional",
+            "Complicações"
+        ]
+    },
+    {
+        "enunciado": "Qual estrutura anatômica serve como principal referência para a realização do 'Bloqueio do Nervo Isquiático' (Ciático) via acesso posterior (Técnica de Labat)?",
+        "options": {
+            "a": "Espinha ilíaca anterossuperior.",
+            "b": "Trocânter Maior e Espinha Ilíaca Posterossuperior (EIPS).",
+            "c": "Tuberosidade isquiática apenas.",
+            "d": "Ligamento inguinal.",
+            "e": "Sínfise púbica."
+        },
+        "answer": "b",
+        "rationale": "A linha traçada entre o trocânter maior e a EIPS, com uma perpendicular no ponto médio, localiza a saída do nervo pelo forame isquiático.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Anatomia de superfície e bloqueios.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anestesiologia",
+            "Regional",
+            "Anatomia",
+            "Membro Inferior"
+        ]
+    },
+    {
+        "enunciado": "A 'Plexopatia Cervical' superficial é frequentemente bloqueada para cirurgias de carótida. Este plexo é formado pelos ramos ventrais de quais nervos cervicais?",
+        "options": {
+            "a": "C1 a C4.",
+            "b": "C5 a T1.",
+            "c": "C3 a C6.",
+            "d": "C1 a C2 apenas.",
+            "e": "C7 a T2."
+        },
+        "answer": "a",
+        "rationale": "O plexo cervical (C1-C4) inerva a pele e musculatura do pescoço, saindo atrás do músculo esternocleidomastoideo.",
+        "option_rationales": {
+            "a": "Correta. Anatomia regional.",
+            "b": "Errada. (Plexo Braquial).",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anestesiologia",
+            "Regional",
+            "Anatomia"
+        ]
+    },
+    {
+        "enunciado": "O 'Nervo Femoral' situa-se em qual posição em relação à artéria femoral no triângulo femoral (Inguinal)?",
+        "options": {
+            "a": "Medial à artéria.",
+            "b": "Lateral à artéria.",
+            "c": "Posterior à artéria.",
+            "d": "Anterior à artéria.",
+            "e": "Dentro da bainha femoral."
+        },
+        "answer": "b",
+        "rationale": "A mnemônica VAN (Veia, Artéria, Nervo) de medial para lateral localiza as estruturas no canal inguinal.",
+        "option_rationales": {
+            "a": "Errada. Local da veia.",
+            "b": "Correta. Anatomia para bloqueio de membro inferior.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada. O nervo fica fora da bainha femoral."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anestesiologia",
+            "Regional",
+            "Anatomia"
+        ]
+    },
+    {
+        "enunciado": "A 'Anestesia Espinal' (Raqui) atravessa diversas camadas. Qual a sequência correta das meninges, da mais externa para a mais interna, que a agulha encontra antes de atingir o líquor?",
+        "options": {
+            "a": "Aracnoide, Piamáter, Duramáter.",
+            "b": "Duramáter, Aracnoide, Piamáter.",
+            "c": "Piamáter, Duramáter, Aracnoide.",
+            "d": "Duramáter, Piamáter, Aracnoide.",
+            "e": "Aracnoide, Duramáter, Piamáter."
+        },
+        "answer": "b",
+        "rationale": "A agulha perfura a duramáter, depois a aracnoide para entrar no espaço subaracnóideo. A piamáter reveste a medula e não deve ser perfurada.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Anatomia do neuroeixo.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anestesiologia",
+            "Regional",
+            "Anatomia",
+            "Neuroeixo"
+        ]
+    },
+    {
+        "enunciado": "O 'Bloqueio do Nervo Alveolar Inferior' é comum em cirurgias odontológicas/bucomaxilares. Este nervo é um ramo de qual divisão do Nervo Trigêmeo (V par)?",
+        "options": {
+            "a": "V1 (Oftálmico).",
+            "b": "V2 (Maxilar).",
+            "c": "V3 (Mandibular).",
+            "d": "Nervo Facial.",
+            "e": "Nervo Glossofaríngeo."
+        },
+        "answer": "c",
+        "rationale": "O nervo mandibular (V3) emite o nervo alveolar inferior, responsável pela sensibilidade dos dentes inferiores e lábio inferior.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Errada.",
+            "c": "Correta. Anatomia de cabeça e pescoço.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anestesiologia",
+            "Regional",
+            "Anatomia",
+            "Trigêmeo"
+        ]
+    },
+    {
+        "enunciado": "No bloqueio do 'Plexo Lombar' (acesso posterior / Psoas Compartment Block), qual o principal risco anatômico devido à proximidade com o neuroeixo?",
+        "options": {
+            "a": "Injeção intravascular na aorta.",
+            "b": "Disseminação epidural ou subaracnóidea inadvertida (anestesia espinal total).",
+            "c": "Lesão do rim.",
+            "d": "Pneumotórax.",
+            "e": "Lesão do ureter."
+        },
+        "answer": "b",
+        "rationale": "As raízes do plexo lombar saem pelos forames intervertebrais próximos ao espaço epidural, permitindo a migração do anestésico local.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Complicações de bloqueios profundos.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anestesiologia",
+            "Regional",
+            "Complicações"
+        ]
+    },
+    {
+        "enunciado": "A 'Artéria de Adamkiewicz' é a principal supridora de sangue para os 2/3 anteriores da medula espinhal torácica baixa e lombar. Em qual lado e nível ela costuma originar-se mais frequentemente?",
+        "options": {
+            "a": "Lado direito, entre T3 e T5.",
+            "b": "Lado esquerdo, entre T9 e L2.",
+            "c": "Lado direito, entre L4 e L5.",
+            "d": "Lado esquerdo, entre C5 e C7.",
+            "e": "Origem aorta abdominal infra-renal."
+        },
+        "answer": "b",
+        "rationale": "A lesão ou oclusão desta artéria (comum em cirurgias de aorta torácica) causa a síndrome da artéria espinal anterior (paraplegia).",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Anatomia vascular da medula.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "Anestesiologia",
+            "Regional",
+            "Anatomia",
+            "Complicações"
+        ]
+    },
+    {
+        "enunciado": "A 'Goteira Retromaleolar Medial' do tornozelo contém estruturas importantes. Qual a ordem destas estruturas de ANTERIOR para POSTERIOR?",
+        "options": {
+            "a": "Nervo Tibial, Artéria Tibial Posterior, Tendões.",
+            "b": "Tendão Tibial Posterior, Tendão Flexor Longo dos Dedos, Artéria Tibial Posterior, Nervo Tibial, Tendão Flexor Longo do Hálux.",
+            "c": "Artéria, Veia e Nervo.",
+            "d": "Nervo Fibular, Artéria e Tendão.",
+            "e": "Nenhuma das anteriores."
+        },
+        "answer": "b",
+        "rationale": "Mnemônica clássica: 'Tom, Dick And Very Nervous Harry'. Essencial para o bloqueio do pé.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Anatomia regional aplicada (Tornozelo).",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "Anestesiologia",
+            "Regional",
+            "Anatomia"
+        ]
+    },
+    {
+        "enunciado": "O 'Nervo Glossofaríngeo' (IX par) é responsável pela aferência de qual reflexo protetor da via aérea, importante durante a indução anestésica?",
+        "options": {
+            "a": "Reflexo de Tosse.",
+            "b": "Reflexo de Vômito (Gag reflex).",
+            "c": "Reflexo Oculocardíaco.",
+            "d": "Reflexo Corneano.",
+            "e": "Reflexo de deglutição apenas."
+        },
+        "answer": "b",
+        "rationale": "O IX par faz a aferência do arco reflexo do vômito (estimulação da orofaringe posterior).",
+        "option_rationales": {
+            "a": "Errada. (Nervo Vago).",
+            "b": "Correta. Anatomia e reflexos de via aérea.",
+            "c": "Errada. (V e X pares).",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anestesiologia",
+            "Anatomia",
+            "Via Aérea"
+        ]
+    },
+    {
+        "enunciado": "A 'Distância Tireomentoniana' é um preditor de via aérea difícil. Qual valor (em cm) costuma ser utilizado como ponto de corte para indicar uma laringoscopia potencialmente difícil?",
+        "options": {
+            "a": "> 10 cm.",
+            "b": "< 6 a 6.5 cm.",
+            "c": "> 7 cm.",
+            "d": "< 3 cm.",
+            "e": "8 cm."
+        },
+        "answer": "b",
+        "rationale": "Uma distância reduzida sugere que a laringe é anterior e o espaço para a língua é pequeno.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Avaliação pré-anestésica e via aérea.",
+            "c": "Errada. Sugere facilidade.",
+            "d": "Errada. Extremamente difícil.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anestesiologia",
+            "Via Aérea",
+            "Predição"
+        ]
+    },
+    {
+        "enunciado": "A classificação de 'Mallampati' avalia a visibilidade das estruturas da orofaringe. No 'Mallampati Grau III', o que é visível ao exame físico com o paciente de boca aberta?",
+        "options": {
+            "a": "Pala mole, fauces, úvula e pilares amigdalianos.",
+            "b": "Palato mole e base da úvula.",
+            "c": "Apenas palato duro.",
+            "d": "Palato mole, fauces e úvula (sem pilares).",
+            "e": "Glote completa."
+        },
+        "answer": "b",
+        "rationale": "No Grau III, visualiza-se o palato mole e apenas a base da úvula. No Grau IV, apenas o palato duro é visível.",
+        "option_rationales": {
+            "a": "Errada. (Grau I).",
+            "b": "Correta. Escala de predição de via aérea.",
+            "c": "Errada. (Grau IV).",
+            "d": "Errada. (Grau II).",
+            "e": "Errada. (Isso é Cormack)."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anestesiologia",
+            "Via Aérea",
+            "Mallampati"
+        ]
+    },
+    {
+        "enunciado": "Qual músculo é o principal 'Abdutor' das cordas vocais, sendo o único responsável por abrir a glote (permitindo a passagem de ar)?",
+        "options": {
+            "a": "Cricoaritenóideo lateral.",
+            "b": "Cricoaritenóideo posterior.",
+            "c": "Tiroaritenóideo.",
+            "d": "Aritenóideo transverso.",
+            "e": "Cricotireóideo."
+        },
+        "answer": "b",
+        "rationale": "O par posterior abre; a lesão bilateral do nervo laríngeo recorrente paralisa este músculo em adução, causando obstrução.",
+        "option_rationales": {
+            "a": "Errada. É adutor.",
+            "b": "Correta. Anatomia da laringe.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anestesiologia",
+            "Anatomia",
+            "Laringe"
+        ]
+    },
+    {
+        "enunciado": "O 'Nervo Laríngeo Superior' inerva qual músculo intrínseco da laringe, responsável por tensionar as cordas vocais e elevar o tom da voz?",
+        "options": {
+            "a": "Músculo Vocal.",
+            "b": "Músculo Cricotireóideo.",
+            "c": "Músculo Aritenóideo Oblíquo.",
+            "d": "Músculo Tireoepiglótico.",
+            "e": "Todos os músculos são inervados pelo recorrente."
+        },
+        "answer": "b",
+        "rationale": "O laríngeo superior (ramo externo) inerva apenas o cricotireóideo. Todos os outros são pelo laríngeo recorrente.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Neuroanatomia da laringe.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anestesiologia",
+            "Anatomia",
+            "Laringe"
+        ]
+    }
+]

@@ -1,0 +1,132 @@
+[
+    {
+        "enunciado": "Um homem de 75 anos com ICFEr (FE 30%) e doença renal crônica (clara de creatinina 25 mL/min/1.73m²) apresenta piora da dispneia. Qual das seguintes medicações modificadoras de doença na IC tem sua indicação limitada ou exige cautela extrema devido à função renal deste paciente?",
+        "options": {
+            "a": "Betabloqueador (ex: Bisoprolol).",
+            "b": "Antagonista de receptor de mineralocorticoide (Espironolactona).",
+            "c": "Inibidor da SGLT2 (Dapagliflozina).",
+            "d": "Digoxina.",
+            "e": "IECA (Enalapril)."
+        },
+        "answer": "b",
+        "rationale": "A Espironolactona é contraindicada se o clearance de creatinina for < 30 mL/min ou K > 5.0, devido ao alto risco de hipercalemia fatal. Os iSGLT2 (C) podem ser iniciados até ClCr de 20-25 mL/min conforme estudos recentes. O IECA (E) pode ser usado com monitoramento estrito, mas a Espironolactona é a que apresenta a contraindicação mais formal nesse nível de ClCr.",
+        "option_rationales": {
+            "a": "Incorreta. Betabloqueadores não têm metabolismo renal predominante que impeça seu uso no ClCr de 25.",
+            "b": "Correta. Diretrizes recomendam evitar espironolactona com ClCr < 30 mL/min.",
+            "c": "Incorreta. Estudos como DAPA-CKD incluíram pacientes até ClCr de 25 mL/min.",
+            "d": "Incorreta. Exige ajuste de dose, mas não é contraindicação absoluta como a espironolactona.",
+            "e": "Incorreta. Pode ser usado com cautela, embora exija ajuste se houver queda rápida da função renal."
+        },
+        "difficulty": "média",
+        "tags": [
+            "IC e Rim",
+            "Contraindicações",
+            "Farmacologia",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Qual o sinal clássico no eletrocardiograma que sugere a etiologia chagásica em um paciente com insuficiência cardíaca?",
+        "options": {
+            "a": "Bloqueio de Ramo Esquerdo isolado.",
+            "b": "Bloqueio de Ramo Direito associado ao Bloqueio Divisional Antero-Superior Esquerdo.",
+            "c": "Infradesnivelamento de ST em parede anterior.",
+            "d": "Ondas Q patológicas em todas as derivações.",
+            "e": "Taquicardia sinusal persistente."
+        },
+        "answer": "b",
+        "rationale": "O padrão de BRD + BDAS é altamente sugestivo e frequente na cardiopatia chagásica, refletindo o dano ao sistema de condução pelo T. cruzi. Embora não seja patognomônico, no contexto epidemiológico e de IC, é um marcador clínico fortíssimo.",
+        "option_rationales": {
+            "a": "Incorreta. BRE é mais comum na etiologia idiopática ou isquêmica.",
+            "b": "Correta. Trata-se da alteração eletrocardiográfica mais característica da doença de Chagas.",
+            "c": "Incorreta. Indica isquemia, não é específico para Chagas.",
+            "d": "Incorreta. Ondas Q sugerem infarto prévio (isquemia).",
+            "e": "Incorreta. Inespecífico e comum em qualquer quadro de IC descompensada."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "Chagas",
+            "Eletrocardiograma",
+            "Etiologia",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Em pacientes com ICFEr classe funcional II, a adição de Hidralazina e Dinitrato de Isossorbida tem indicação Classe I (diretriz brasileira) especificamente para qual grupo de pacientes?",
+        "options": {
+            "a": "Pacientes com intolerância absoluta a betabloqueadores.",
+            "b": "Pacientes que se autodeclaram negros e persistem sintomáticos apesar de terapia tripla otimizada.",
+            "c": "Pacientes diabéticos com proteinúria maciça.",
+            "d": "Apenas pacientes com IC de etiologia valvar.",
+            "e": "Idosos acima de 85 anos com insuficiência renal."
+        },
+        "answer": "b",
+        "rationale": "Baseado no estudo A-HeFT, a combinação de hidralazina + isossorbida reduz mortalidade e hospitalização em pacientes negros com ICFEr sintomáticos já em uso de terapia padrão. Também é indicação de escolha (Classe IIa) quando há contraindicação ao uso de IECA/BRA por insuficiência renal.",
+        "option_rationales": {
+            "a": "Incorreta. Hidralazina/Isossorbida não substitui o benefício do BB.",
+            "b": "Correta. Indicação específica baseada em subgrupo étnico com excelente resposta a doadores de NO.",
+            "c": "Incorreta. Para proteinúria diabética, o IECA/BRA continua sendo a primeira escolha.",
+            "d": "Incorreta. Não há restrição apenas a etiologia valvar.",
+            "e": "Incorreta. Idosos podem usar, mas a indicação Classe I é para o grupo étnico citado."
+        },
+        "difficulty": "média",
+        "tags": [
+            "Hidralazina",
+            "A-HeFT",
+            "Tratamento",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Qual exame é considerado o padrão-ouro para a avaliação de volumes ventriculares e frações de ejeção, especialmente quando os resultados do ecocardiograma são limitados pela janela acústica?",
+        "options": {
+            "a": "Tomografia de coronárias.",
+            "b": "Cintilografia miocárdica (Gated-SPECT).",
+            "c": "Ressonância Magnética Cardíaca.",
+            "d": "Angiografia ventricular por cateterismo.",
+            "e": "Radiografia de tórax digital."
+        },
+        "answer": "c",
+        "rationale": "A Ressonância Magnética Cardíaca (RMC) é o método de referência para quantificação de massas e volumes, pois não depende de pressupostos geométricos e possui alta resolução espacial. É essencial na suspeita de miocardites, amiloidose e para avaliar viabilidade miocárdica.",
+        "option_rationales": {
+            "a": "Incorreta. Avalia anatomia coronária, não volumes ventriculares com precisão de referência.",
+            "b": "Incorreta. Útil para isquemia, mas a quantificação de volumes é menos precisa que na RMC.",
+            "c": "Correta. Padrão-ouro absoluto para morfologia e função ventricular.",
+            "d": "Incorreta. Método invasivo e sujeito a erros geométricos de projeção.",
+            "e": "Incorreta. Avalia globalmente o tórax, mas não mede volumes ou FE de forma quantitativa."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "Ressonância",
+            "Diagnóstico",
+            "Volumes",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "No tratamento da IC aguda com choque cardiogênico, os inotrópicos inibidores da fosfodiesterase III, como o Milrinone, apresentam qual característica diferencial em relação aos agonistas beta-adrenérgicos (Dobutamina)?",
+        "options": {
+            "a": "Promovem bradicardia reflexa intensa.",
+            "b": "Causam vasodilatação sistêmica e pulmonar (inodilatador).",
+            "c": "Não podem ser usados em pacientes em uso crônico de betabloqueadores.",
+            "d": "Apresentam metabolismo exclusivamente hepático.",
+            "e": "Não aumentam o consumo de oxigênio miocárdico."
+        },
+        "answer": "b",
+        "rationale": "O Milrinone age por um mecanismo independente do receptor beta (inibição da degradação de cAMP). Por isso, é útil em pacientes beta-bloqueados. Possui efeito vasodilatador potente (redução da pré e pós-carga), sendo chamado de inodilatador. No entanto, pode causar hipotensão importante e exige ajuste na insuficiência renal.",
+        "option_rationales": {
+            "a": "Incorreta. Costumam causar taquicardia, embora menos que a dobutamina.",
+            "b": "Correta. A vasodilatação é um efeito marcante da classe.",
+            "c": "Incorreta. É justamente preferível em pacientes beta-bloqueados pois age 'depois' do receptor.",
+            "d": "Incorreta. Milrinone tem eliminação predominantemente renal.",
+            "e": "Incorreta. Todos os inotrópicos tendem a aumentar o consumo de O2 ao aumentar a contratilidade."
+        },
+        "difficulty": "difícil",
+        "tags": [
+            "Inotrópicos",
+            "Farmacologia",
+            "Milrinone",
+            "FGV"
+        ]
+    }
+]

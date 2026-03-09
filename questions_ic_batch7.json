@@ -1,0 +1,131 @@
+[
+    {
+        "enunciado": "Um paciente com insuficiência cardíaca crônica apresenta-se com fadiga excessiva e intolerância ao exercício, mas sem edema periférico ou ortopneia. O ecocardiograma mostra FE 25%. Este quadro clínico, focado em baixo débito sem sinais exuberantes de congestão, classifica-se frequentemente na prática como:",
+        "options": {
+            "a": "Perfil de Stevenson tipo A (Quente e Seco).",
+            "b": "Perfil de Stevenson tipo L (Frio e Seco).",
+            "c": "IC de alto débito.",
+            "d": "Choque obstrutivo por TEP.",
+            "e": "IC com fração de ejeção preservada."
+        },
+        "answer": "b",
+        "rationale": "O perfil Cold-Dry (Frio e Seco) caracteriza-se por baixo débito cardíaco (fadiga, hipoperfusão periférica) SEM sinais clínicos de congestão pulmonar ou sistêmica. Muitas vezes decorre de hipovolemia ou desidratação iatrogênica em um coração com baixa reserva contrátil.",
+        "option_rationales": {
+            "a": "Incorreta. Seria o paciente compensado.",
+            "b": "Correta. Define a hipoperfusão isolada.",
+            "c": "Incorreta. IC de alto débito geralmente causa congestão por hipervolemia.",
+            "d": "Incorreta. Quadro agudo dramático, não crônico de fadiga progressiva isolada.",
+            "e": "Incorreta. A FE citada (25%) é claramente reduzida."
+        },
+        "difficulty": "média",
+        "tags": [
+            "Stevenson",
+            "Clínica",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "A respeito do remodelamento cardíaco na insuficiência cardíaca, qual das seguintes classes de medicamentos é a principal responsável por REVERTER ou ATENUAR este processo patológico, reduzindo a fibrose e a dilatação ventricular?",
+        "options": {
+            "a": "Diuréticos de alça.",
+            "b": "Inotrópicos positivos (ex: Digoxina).",
+            "c": "Bloqueadores do sistema renina-angiotensina-aldosterona (IECA/BRA/INRA).",
+            "d": "Vasodilatadores de ação direta (ex: Nitratos).",
+            "e": "Benzodiazepínicos."
+        },
+        "answer": "c",
+        "rationale": "O bloqueio neuro-humoral (especialmente do eixo RAA e do sistema simpático com betabloqueadores) é o único tratamento que comprovadamente interrompe e reverte o remodelamento adverso (mudança de forma, tamanho e função do coração). Diuréticos e inotrópicos tratam sintomas, mas não a biologia do remodelamento celular.",
+        "option_rationales": {
+            "a": "Incorreta. Aliviam sintomas mas podem até ativar o SRAA se usados em excesso.",
+            "b": "Incorreta. Não interferem no processo de fibrose e morte celular programada.",
+            "c": "Correta. Estas são as drogas 'modificadoras de doença' que melhoram a arquitetura cardíaca.",
+            "d": "Incorreta. Nitratos reduzem carga, mas não têm o impacto molecular neuro-humoral dos inibidores do EAA.",
+            "e": "Incorreta. Não possuem papel cardiovascular na IC."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "Remodelamento",
+            "Fisiopatologia",
+            "Tratamento",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Qual a principal causa de morte súbita em pacientes com ICFEr que utilizam terapia medicamentosa otimizada?",
+        "options": {
+            "a": "Fibrilação ventricular ou Taquicardia ventricular sustentada.",
+            "b": "Acidente vascular cerebral hemorrágico.",
+            "c": "Tromboembolismo pulmonar maciço.",
+            "d": "Hipotensão refratária pós-dose de IECA.",
+            "e": "Insuficiência respiratória por edema alveolar agudo."
+        },
+        "answer": "a",
+        "rationale": "Em pacientes com FE < 35%, o substrato arrítmico (cicatrizes de fibrose) favorece fenômenos de reentrada, levando a arritmias ventriculares fatais (TV/FV). É por isso que o CDI (Cardiodesfibrilador) é indicado para prevenção primária nesses casos.",
+        "option_rationales": {
+            "a": "Correta. Arritmias ventriculares são o principal mecanismo de morte súbita na IC.",
+            "b": "Incorreta. O risco embólico existe (isquêmico), mas não é o mecanismo de morte 'súbita' primário clássico.",
+            "c": "Incorreta. Causa importante, mas menos frequente que as arritmias.",
+            "d": "Incorreta. Causa síncope ou mal-estar, mas raramente morte súbita isolada.",
+            "e": "Incorreta. Causa morte por falência respiratória progressiva, não é o evento 'súbito' arrítmico típico."
+        },
+        "difficulty": "média",
+        "tags": [
+            "Morte Súbita",
+            "Complicações",
+            "ICFEr",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Paciente com diagnóstico de miocardiopatia periparto (FE 35%) descobre nova gravidez apenas 1 ano após a estabilização do quadro. Qual a conduta obrigatória em relação ao tratamento da IC nesta paciente durante a gestação?",
+        "options": {
+            "a": "Manter Enalapril para garantir a função ventricular materna.",
+            "b": "Suspender IECA/BRA devido ao alto risco de teratogenicidade (malformações renais e cranianas fetais).",
+            "c": "Substituir Betabloqueador por Varfarina plena.",
+            "d": "Indicar aborto terapêutico imediatamente em todos os casos.",
+            "e": "Manter todas as medicações, pois o risco materno supera o fetal."
+        },
+        "answer": "b",
+        "rationale": "Inibidores da ECA e Bloqueadores de Receptores de Angiotensina (BRA) são ABSOLUTAMENTE contraindicados na gestação devido à toxicidade fetal (disgenesia renal, hipoplasia pulmonar, defeitos de ossificação craniana). Se necessário, devem ser substituídos por Hidralazina e Nitrato. Betabloqueadores como Carvedilol podem ser mantidos com vigilância do crescimento fetal.",
+        "option_rationales": {
+            "a": "Incorreta. Risco fetal gravíssimo (categoria D/X).",
+            "b": "Correta. Medida de segurança fetal essencial e imediata.",
+            "c": "Incorreta. Varfarina também tem riscos fetais no 1º trimestre e o BB é importante para a mãe.",
+            "d": "Incorreta. Embora a nova gravidez seja de altíssimo risco na miocardiopatia periparto, a conduta inicial é o ajuste farmacológico e acompanhamento multidisciplinar.",
+            "e": "Incorreta. O risco fetal é inaceitável com IECA/BRA."
+        },
+        "difficulty": "média",
+        "tags": [
+            "Gravidez",
+            "Contraindicações",
+            "Farmacologia",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Qual dos seguintes parâmetros ecocardiográficos sugere uma pressão de enchimento do ventrículo esquerdo aumentada (congestão atrial/ventricular)?",
+        "options": {
+            "a": "Relação E/A < 0.8.",
+            "b": "Relação E/e' média > 14.",
+            "c": "Velocidade da onda s' > 10 cm/s.",
+            "d": "Átrio esquerdo medindo 30 mL/m².",
+            "e": "Fração de encurtamento de 35%."
+        },
+        "answer": "b",
+        "rationale": "A relação E (velocidade de enchimento precoce no Doppler mitral) sobre e' (velocidade de relaxamento tecidual) é um proxy para a pressão capilar pulmonar. Valores de E/e' média acima de 14 (ou e' septal > 15) indicam pressões de enchimento VE elevadas com alta especificidade.",
+        "option_rationales": {
+            "a": "Incorreta. E/A < 0.8 sugere relaxamento alterado (diastólico), mas não necessariamente pressão aumentada.",
+            "b": "Correta. Parâmetro chave para diagnóstico de disfunção diastólica avançada e congestão.",
+            "c": "Incorreta. s' > 10 sugere boa função sistólica longitudinal.",
+            "d": "Incorreta. Átrio normal é atá 34 mL/m².",
+            "e": "Incorreta. Medida de função sistólica."
+        },
+        "difficulty": "difícil",
+        "tags": [
+            "Ecocardiograma",
+            "Diagnóstico",
+            "Disfunção Diastólica",
+            "FGV"
+        ]
+    }
+]

@@ -1,0 +1,132 @@
+[
+    {
+        "enunciado": "Um homem de 68 anos, com diagnóstico prévio de insuficiência cardíaca de fração de ejeção reduzida (ICFEr) de etiologia isquêmica, apresenta-se em consulta com dispneia aos pequenos esforços (NYHA III). Em uso regular de Enalapril 20mg 12/12h, Carvedilol 25mg 12/12h e Espironolactona 25mg/dia. Ao exame físico: PA 115/75 mmHg, FC 72 bpm, ritmo cardíaco regular em 2 tempos, sem sopros; pulmões limpos; sem edemas periféricos. O ecocardiograma recente mostra fração de ejeção de 32%. De acordo com as diretrizes atuais, a conduta mais apropriada para otimizar o prognóstico deste paciente é:",
+        "options": {
+            "a": "Substituir Enalapril por Sacubitril-Valsartana.",
+            "b": "Adicionar Ivabradina à terapia atual.",
+            "c": "Aumentar a dose de Espironolactona para 50mg/dia.",
+            "d": "Trocar Carvedilol por Bisoprolol.",
+            "e": "Adicionar Digoxina para controle de sintomas."
+        },
+        "answer": "a",
+        "rationale": "O paciente já está em uso de doses otimizadas de IECA, betabloqueador e antagonista mineralocorticoide, permanecendo sintomático (NYHA III) e com FE < 35%. A evidência (estudo PARADIGM-HF) demonstra superioridade do Sacubitril-Valsartana (INRA) sobre o IECA na redução de mortalidade e hospitalização em pacientes com ICFEr sintomáticos. A Ivabradina (B) seria indicada apenas se a FC estivesse > 70 bpm em ritmo sinusal sob dose máxima de BB. Aumentar espironolactona (C) ou trocar o BB (D) não tem benefício prognóstico superior comprovado nesta fase.",
+        "option_rationales": {
+            "a": "Correta. A substituição de IECA/BRA por INRA em pacientes com ICFEr sintomáticos reduz morbimortalidade cardiovascular.",
+            "b": "Incorreta. Ivabradina é considerada se FC > 70 bpm (sinusal) apesar de BB otimizado, o que não é o caso principal de troca prognóstica imediata comparado ao INRA.",
+            "c": "Incorreta. A dose de 25mg de Espironolactona já é a dose terapêutica padrão para benefício de sobrevida na IC.",
+            "d": "Incorreta. Carvedilol e Bisoprolol são ambos betabloqueadores de primeira linha na ICFEr; a troca não oferece benefício adicional claro.",
+            "e": "Incorreta. A digoxina auxilia no controle de sintomas e redução de internações, mas não altera a sobrevida como o INRA."
+        },
+        "difficulty": "média",
+        "tags": [
+            "ICFEr",
+            "Tratamento",
+            "Prognóstico",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Mulher de 72 anos, hipertensa de longa data, interna por dispneia aos mínimos esforços e ortopneia de início há 2 dias. Ao exame: PA 160/95 mmHg, FC 92 bpm, FR 26 irpm. Estertores crepitantes em terços inferiores de ambos os pulmões e edema de membros inferiores (++/4+). O ecocardiograma revela fração de ejeção de 55%, com aumento do átrio esquerdo e hipertrofia ventricular esquerda. Sobre a principal hipótese diagnóstica e manejo inicial, assinale a alternativa correta:",
+        "options": {
+            "a": "Insuficiência Cardíaca de Fração de Ejeção Preservada (ICFEp); o manejo inicial foca em diurese e controle pressórico.",
+            "b": "Insuficiência Cardíaca de Fração de Ejeção Reduzida; deve-se iniciar IECA e betabloqueador imediatamente na fase aguda.",
+            "c": "Mixoma atrial esquerdo; a paciente deve ser encaminhada para cineangiocoronariografia urgente.",
+            "d": "Estenose aórtica importante; o uso de diuréticos de alça é contraindicado devido ao risco de choque.",
+            "e": "Cor pulmonale agudo; a conduta de escolha é a anticoagulação plena imediata com heparina."
+        },
+        "answer": "a",
+        "rationale": "A paciente apresenta sinais e sintomas clássicos de IC aguda, porém com FE preservada (≥ 50%), o que caracteriza a ICFEp. Em idosos e hipertensos, esta é uma apresentação frequente. O manejo na descompensação foca no alívio da congestão com diuréticos e no controle das comorbidades (hipertensão). Betabloqueadores e IECA (B) na fase aguda não são a prioridade absoluta na ICFEp como na ICFEr descompensada (perfil B). As outras alternativas (C, D, E) são diagnósticos menos prováveis diante do quadro de congestão sistêmica e pulmonar com FE preservada e HVE.",
+        "option_rationales": {
+            "a": "Correta. Define o diagnóstico clínico-ecocardiográfico (ICFEp) e a conduta de alívio sintomático/congestivo.",
+            "b": "Incorreta. A fração de ejeção está preservada (55%) e BB não deve ser iniciado na fase de congestão aguda.",
+            "c": "Incorreta. Quadro clínico e eco sugerem cardiopatia hipertensiva/ICFEp, não massa atrial; cinecoronariografia não é o primeiro passo para mixoma.",
+            "d": "Incorreta. Embora a estenose aórtica exija cautela, a congestão pulmonar franca muitas vezes requer diuréticos em baixas doses; o diagnóstico clínico aqui é de ICFEp.",
+            "e": "Incorreta. O quadro é de insuficiência ventricular esquerda (congestão pulmonar), não de falência de VD isolada por TEP ou doença pulmonar crônica."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "ICFEp",
+            "Diagnóstico",
+            "Manejo Agudo",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Paciente masculino, 55 anos, em tratamento para Insuficiência Cardíaca com Fração de Ejeção Reduzida (FE 28%) de etiologia alcoólica. Atualmente em uso de Sacubitril-Valsartana, Carvedilol, Espironolactona e Empagliflozina em doses máximas toleradas. Mantém-se em classe funcional NYHA II, estável hemodinamicamente. Sódio 138 mEq/L, Potássio 4.8 mEq/L, Creatinina 1.1 mg/dL. ECG mostra ritmo sinusal, FC 78 bpm e complexo QRS de 110ms. Qual a recomendação adicional mais adequada no momento para este paciente?",
+        "options": {
+            "a": "Adicionar Ivabradina.",
+            "b": "Indicar Terapia de Ressincronização Cardíaca (TRC).",
+            "c": "Trocar Empagliflozina por Dapagliflozina.",
+            "d": "Iniciar Vericiguat.",
+            "e": "Suspender Espironolactona devido ao risco de hiperpotassemia."
+        },
+        "answer": "a",
+        "rationale": "O paciente permanece sintomático (NYHA II) sob terapia quádrupla otimizada, em ritmo sinusal e com FC ≥ 70 bpm (78 bpm). Nestes casos, a adição de Ivabradina está indicada para redução de hospitalizações por IC (Estudo SHIFT). A TRC (B) não tem indicação clara pois o QRS é estreito (< 130-150ms). Os iSGLT2 (C) são equivalentes na IC. O vericiguat (D) é indicado geralmente após uma internação recente por descompensação, e a espironolactona (E) deve ser mantida, pois o potássio está em nível seguro.",
+        "option_rationales": {
+            "a": "Correta. Ivabradina é indicada em pacientes em ritmo sinusal, FC > 70 bpm, sob uso de BB na dose máxima tolerada e persistência de sintomas.",
+            "b": "Incorreta. TRC exige QRS largo (geralmente > 130ms ou 150ms com padrão de BRE) para ter benefício demonstrado.",
+            "c": "Incorreta. As drogas da classe iSGLT2 possuem efeito de classe na insuficiência cardíaca e a troca não é recomendada.",
+            "d": "Incorreta. Vericiguat é uma opção para pacientes de maior risco (pós-internação recente), não sendo o 'próximo passo' padrão antes da Ivabradina neste cenário.",
+            "e": "Incorreta. O nível de potássio atual (4.8) é seguro e a suspensão retiraria o benefício de sobrevida do fármaco."
+        },
+        "difficulty": "difícil",
+        "tags": [
+            "Ivabradina",
+            "SHIFT",
+            "Critérios",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Durante a avaliação de um paciente com insuficiência cardíaca aguda na emergência, o médico utiliza a classificação baseada no perfil hemodinâmico (Stevenson). O paciente apresenta-se com extremidades frias, tempo de enchimento capilar alentado, sonolência, estertores crepitantes bilaterais e turgência jugular patológica. A pressão arterial sistólica é de 85 mmHg. Este perfil hemodinâmico é classificado como:",
+        "options": {
+            "a": "Frio e Úmido (Perfil C).",
+            "b": "Quente e Úmido (Perfil B).",
+            "c": "Frio e Seco (Perfil L).",
+            "d": "Quente e Seco (Perfil A).",
+            "e": "Perfil de Congestão Isolada."
+        },
+        "answer": "a",
+        "rationale": "O paciente apresenta sinais de má perfusão periférica (extremidades frias, TEC lento, alteração do sensório, hipotensão), o que o define como 'Frio'. Simultaneamente, apresenta sinais de congestão pulmonar (estertores) e sistêmica (turgência jugular), o que o define como 'Úmido'. A combinação Frio e Úmido corresponde ao perfil C da classificação de Stevenson, indicando baixo débito e alta pressão de enchimento, frequentemente necessitando de inotrópicos e ajuste cuidadoso de diuréticos/vasodilatadores.",
+        "option_rationales": {
+            "a": "Correta. O perfil C caracteriza-se por má perfusão (frio) e congestão (úmido).",
+            "b": "Incorreta. O perfil B (quente e úmido) é o mais comum, mas não apresenta sinais de má perfusão/baixo débito crítico.",
+            "c": "Incorreta. O perfil L (frio e seco) apresenta má perfusão, mas sem sinais clínicos de congestão.",
+            "d": "Incorreta. O perfil A (quente e seco) é o estado de compensação hemodinâmica.",
+            "e": "Incorreta. Não existe este termo na classificação clássica de Stevenson; a congestão isolada sem má perfusão seria o perfil B."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "Stevenson",
+            "IC Aguda",
+            "Hemodinâmica",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "A respeito do uso de inibidores do cotransportador sódio-glicose tipo 2 (iSGLT2) no tratamento da insuficiência cardíaca, de acordo com as evidências mais recentes (DAPA-HF, EMPEROR-Reduced, EMPEROR-Preserved), é correto afirmar que:",
+        "options": {
+            "a": "Demonstraram redução de hospitalizações e morte cardiovascular tanto na ICFEr quanto na ICFEp.",
+            "b": "São indicados apenas para pacientes diabéticos com insuficiência cardíaca.",
+            "c": "O principal benefício é a redução da pré-carga através de um efeito diurético potente e sustentado.",
+            "d": "Devem ser evitados em pacientes com insuficiência cardíaca estável NYHA I.",
+            "e": "Sua eficácia na redução de mortalidade é restrita apenas a pacientes com fração de ejeção inferior a 25%."
+        },
+        "answer": "a",
+        "rationale": "Os iSGLT2 (Dapagliflozina, Empagliflozina) revolucionaram o tratamento da IC por demonstrarem benefícios em todo o espectro da fração de ejeção. No cenário da ICFEr, reduzem morte cardiovascular e hospitalizações (DAPA-HF/EMPEROR-Reduced). Recentemente, os estudos EMPEROR-Preserved e DELIVER confirmaram o benefício na ICFEp (principalmente redução de hospitalizações). O benefício ocorre independentemente da presença de diabetes (desmentindo B) e em toda a gama de FE sintomática (desmentindo E).",
+        "option_rationales": {
+            "a": "Correta. Estudos corroboram o benefício dos iSGLT2 em pacientes com FE reduzida, levemente reduzida e preservada.",
+            "b": "Incorreta. O benefício na IC é independente do status glicêmico do paciente.",
+            "c": "Incorreta. Embora tenham efeito natriurético/diurético leve inicial, o mecanismo de proteção cardiovascular é multifatorial (metabólico, renal, remodelamento).",
+            "d": "Incorreta. Embora os estudos foquem em sintomáticos (II-IV), não há contraindicação formal baseada apenas na estabilidade se o paciente tiver indicação prognóstica.",
+            "e": "Incorreta. O benefício é observado em diversos pontos de corte de fração de ejeção, não apenas em valores extremos."
+        },
+        "difficulty": "média",
+        "tags": [
+            "iSGLT2",
+            "DAPA-HF",
+            "EMPEROR",
+            "FGV"
+        ]
+    }
+]

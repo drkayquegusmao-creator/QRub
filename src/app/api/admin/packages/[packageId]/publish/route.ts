@@ -5,8 +5,11 @@ export async function POST(
     request: Request,
     { params }: { params: Promise<{ packageId: string }> }
 ) {
+    let supabaseWithToken: any = null;
+    let packageId: string = '';
+
     try {
-        const { packageId } = await params
+        packageId = (await params).packageId
 
         // 1) Auth via Bearer token from Authorization header
         const authHeader = request.headers.get('Authorization') || ''
@@ -16,14 +19,8 @@ export async function POST(
             return NextResponse.json({ error: 'Nao autenticado' }, { status: 401 })
         }
 
-        // 2) Admin client (bypasses RLS) — used for all DB operations
-        const supabaseAdmin = createClient(
-            process.env.NEXT_PUBLIC_SUPABASE_URL!,
-            process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-        )
-
-        // Verify token by calling getUser with the access token
-        const supabaseWithToken = createClient(
+        // 2) Verify token by calling getUser with the access token
+        supabaseWithToken = createClient(
             process.env.NEXT_PUBLIC_SUPABASE_URL!,
             process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
             { global: { headers: { Authorization: `Bearer ${token}` } } }
@@ -33,7 +30,7 @@ export async function POST(
             return NextResponse.json({ error: 'Nao autenticado' }, { status: 401 })
         }
 
-        // 3) Verify admin role — use supabaseWithToken to ensure we can read our own record if SERVICE_ROLE is missing
+        // 3) Verify admin role 
         const { data: profile } = await supabaseWithToken
             .from('users')
             .select('role')
@@ -43,7 +40,6 @@ export async function POST(
         if (!profile || !['MASTER', 'ADMIN', 'ADMIN_MASTER', 'master', 'admin'].includes(profile.role)) {
             return NextResponse.json({ error: 'Acesso restrito a administradores' }, { status: 403 })
         }
-
 
         // 4) Load package
         const { data: pkg, error: pkgErr } = await supabaseWithToken
@@ -60,9 +56,13 @@ export async function POST(
             return NextResponse.json({ error: 'Pacote arquivado nao pode ser publicado' }, { status: 400 })
         }
 
-        // 5) Lock against double-publish
+        // 5) Lock against double-publish, unless older than 5 mins
         if ((pkg as any).publishing_at) {
-            return NextResponse.json({ error: 'Publicacao ja em andamento. Aguarde.' }, { status: 423 })
+            const pubAt = new Date((pkg as any).publishing_at)
+            const diffMs = Date.now() - pubAt.getTime()
+            if (diffMs < 5 * 60 * 1000) {
+                return NextResponse.json({ error: 'Publicacao ja em andamento. Aguarde.' }, { status: 423 })
+            }
         }
         await supabaseWithToken
             .from('question_packages')
@@ -81,10 +81,15 @@ export async function POST(
             return NextResponse.json({ error: 'Nenhuma questao no pacote' }, { status: 400 })
         }
 
-        // 7) Validate all questions first
+        // 7) Validate only pending questions
         const validationErrors: string[] = []
+        let pkgHasPending = false;
+
         for (let i = 0; i < pkgQuestions.length; i++) {
             const pq = pkgQuestions[i]
+            if (pq.status === 'approved') continue; // skips if python script already published them
+
+            pkgHasPending = true;
             const qj = typeof pq.question_json === 'string'
                 ? JSON.parse(pq.question_json)
                 : pq.question_json
@@ -95,101 +100,132 @@ export async function POST(
         if (validationErrors.length > 0) {
             await unlockPackage(supabaseWithToken, packageId)
             return NextResponse.json({
-                error: 'Validacao falhou. Reprocesse o pacote antes de publicar.',
+                error: 'Validacao falhou. Reprocesse ou remova a questão com defeito antes de publicar.',
                 details: validationErrors
             }, { status: 422 })
         }
 
-        // 8) Resolve taxonomy + bank name
-        const bankName = await getBankName(supabaseWithToken, pkg.bank_id)
-
-        // Fetch taxonomy nodes for precise mapping
-        const { data: taxNodes } = await supabaseWithToken
-            .from('taxonomia')
-            .select('slug, name, level')
-            .eq('active', true)
-
-        const txFields = resolveTaxonomyFromPath(pkg.taxonomy_path || '', taxNodes || [])
-
-        // 9) Upsert each question into questao_base
         let publishedCount = 0
         const upsertErrors: string[] = []
 
-        for (let i = 0; i < pkgQuestions.length; i++) {
-            const pq = pkgQuestions[i]
-            try {
-                // Parse & normalize: support both English and Portuguese field names
-                const qj = typeof pq.question_json === 'string'
-                    ? JSON.parse(pq.question_json)
-                    : pq.question_json
+        // 8) Resolve taxonomy only if we actually need to insert questions
+        if (pkgHasPending) {
+            const bankName = await getBankName(supabaseWithToken, pkg.bank_id)
 
-                const enunciado = qj.enunciado || qj.stem || qj.pergunta || ''
-                const answer = String(qj.answer || qj.gabarito || qj.resposta || qj.correct_answer || '').toLowerCase().trim()
-                const rationale = qj.rationale || qj.justificativa_gabarito || qj.justificativa_geral || qj.justificativa || qj.explanation || ''
-                const optionRationales = qj.option_rationales || qj.justificativas_alternativas || null
-                const rawOpts = qj.options || qj.alternativas || qj.alternatives || {}
+            const { data: taxNodes } = await supabaseWithToken
+                .from('taxonomia')
+                .select('slug, name, level')
+                .eq('active', true)
 
-                // questao_base uses array [{id, text}] format for options
-                const optionsArray = ['a', 'b', 'c', 'd', 'e']
-                    .filter(k => rawOpts[k])
-                    .map(k => ({ id: k, text: rawOpts[k] }))
+            const txFields = resolveTaxonomyFromPath(pkg.taxonomy_path || '', taxNodes || [])
 
-
-                const questionId = pq.question_id || generateShortId()
-
-                const { error: upsertErr } = await supabaseWithToken
-                    .from('questao_base')
-                    .upsert({
-                        id: questionId,
-                        enunciado: enunciado,
-                        options: optionsArray,
-                        correct_option_id: answer,
-                        explanation: rationale,
-                        alternative_explanations: optionRationales,
-                        difficulty: qj.difficulty || pkg.difficulty || 'media',
-                        hash: pq.hash_logico,
-                        status: 'active',
-                        status_validacao: 'APROVADA',
-                        fonte: 'importada',
-                        source: bankName,
-                        ...txFields,
-                        metadata: {
-                            tags: qj.tags || [],
-                            package_id: packageId,
-                            source_package_question_id: pq.id,
-                            published_at: new Date().toISOString(),
-                            published_by: user.id
-                        }
-                    }, { onConflict: 'id' })
-
-                if (upsertErr) {
-                    upsertErrors.push(`Q${i + 1}: ${upsertErr.message}`)
-                    continue
+            // 9) Upsert pending questions into questao_base
+            for (let i = 0; i < pkgQuestions.length; i++) {
+                const pq = pkgQuestions[i]
+                if (pq.status === 'approved') {
+                    // Already published
+                    publishedCount++
+                    continue;
                 }
 
-                // Mark question as approved in the package
-                await supabaseWithToken
-                    .from('package_questions')
-                    .update({ status: 'approved', question_id: questionId })
-                    .eq('id', pq.id)
+                try {
+                    const qj = typeof pq.question_json === 'string'
+                        ? JSON.parse(pq.question_json)
+                        : pq.question_json
 
-                publishedCount++
-            } catch (err: any) {
-                upsertErrors.push(`Q${i + 1}: ${err?.message || 'Erro desconhecido'}`)
+                    const enunciado = qj.enunciado || qj.stem || qj.pergunta || ''
+                    const answer = String(qj.answer || qj.gabarito || qj.resposta || qj.correct_answer || '').toLowerCase().trim()
+                    const rationale = qj.rationale || qj.justificativa_gabarito || qj.justificativa_geral || qj.justificativa || qj.explanation || ''
+                    const optionRationales = qj.option_rationales || qj.justificativas_alternativas || null
+                    const rawOpts = qj.options || qj.alternativas || qj.alternatives || {}
+
+                    const optionsArray = ['a', 'b', 'c', 'd', 'e']
+                        .filter(k => rawOpts[k])
+                        .map(k => ({ id: k, text: rawOpts[k] }))
+
+                    const questionId = pq.question_id || generateShortId()
+
+                    const { error: upsertErr } = await supabaseWithToken
+                        .from('questao_base')
+                        .upsert({
+                            id: questionId,
+                            enunciado: enunciado,
+                            options: optionsArray,
+                            correct_option_id: answer,
+                            explanation: rationale,
+                            alternative_explanations: optionRationales,
+                            difficulty: qj.difficulty || pkg.difficulty || 'media',
+                            hash: pq.hash_logico,
+                            status: 'active',
+                            status_validacao: 'APROVADA',
+                            fonte: 'importada',
+                            source: bankName,
+                            ...txFields,
+                            metadata: {
+                                tags: qj.tags || [],
+                                package_id: packageId,
+                                source_package_question_id: pq.id,
+                                published_at: new Date().toISOString(),
+                                published_by: user.id
+                            }
+                        }, { onConflict: 'id' })
+
+                    if (upsertErr) {
+                        upsertErrors.push(`Q${i + 1}: ${upsertErr.message}`)
+                        continue
+                    }
+
+                    await supabaseWithToken
+                        .from('package_questions')
+                        .update({ status: 'approved', question_id: questionId })
+                        .eq('id', pq.id)
+
+                    publishedCount++
+                } catch (err: any) {
+                    upsertErrors.push(`Q${i + 1}: ${err?.message || 'Erro desconhecido'}`)
+                }
+            }
+        } else {
+            // If they were already approved (e.g. by python script), we just count them.
+            publishedCount = pkgQuestions.length;
+        }
+
+        // 10) Update package status to approved (if we successfully pushed the pending questions)
+        const updateParams = {
+            status: 'approved',
+            publishing_at: null,
+            updated_at: new Date().toISOString()
+        } as any;
+
+        const { data: updData, error: updErr } = await supabaseWithToken
+            .from('question_packages')
+            .update(updateParams)
+            .eq('id', packageId)
+            .select();
+
+        if (updErr) {
+            console.error('[publish] Update package error:', updErr);
+            throw new Error(`Falha ao atualizar status do pacote: ${updErr.message}`);
+        }
+
+        if (!updData || updData.length === 0) {
+            console.warn('[publish] Nenhuma linha atualizada (possível bloqueio de RLS). Tentando contornar...');
+            // Fallback para admin puro
+            const supabaseAdminFallback = createClient(
+                process.env.NEXT_PUBLIC_SUPABASE_URL!,
+                process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+            );
+            const { error: fallbackErr } = await supabaseAdminFallback
+                .from('question_packages')
+                .update(updateParams)
+                .eq('id', packageId);
+
+            if (fallbackErr) {
+                throw new Error(`Não foi possível atualizar o status do pacote (RLS & Fallback falharam): ${fallbackErr.message}`);
             }
         }
 
-        // 10) Update package status to approved
-        await supabaseWithToken
-            .from('question_packages')
-            .update({
-                status: 'approved',
-                publishing_at: null,
-                updated_at: new Date().toISOString()
-            })
-            .eq('id', packageId)
-
-        // 11) Log (optional — table may not exist)
+        // 11) Log
         try {
             await supabaseWithToken.from('package_logs').insert({
                 package_id: packageId,
@@ -199,7 +235,7 @@ export async function POST(
                 new_status: 'approved',
                 count_questions: publishedCount,
             })
-        } catch { /* log table is optional */ }
+        } catch { }
 
         return NextResponse.json({
             success: true,
@@ -210,8 +246,11 @@ export async function POST(
 
     } catch (err: any) {
         console.error('[publish] Unexpected error:', err)
+        if (supabaseWithToken && packageId) {
+            await unlockPackage(supabaseWithToken, packageId)
+        }
         return NextResponse.json(
-            { error: 'Erro interno', msg: err?.message },
+            { error: err?.message || 'Erro interno' },
             { status: 500 }
         )
     }

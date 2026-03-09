@@ -42,7 +42,6 @@ import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContai
 import { SRSDashboardWidget } from '@/components/srs-dashboard-widget'
 import { PlansModal } from '@/components/plans-modal'
 import { PaywallModal } from '@/components/paywall-modal'
-import { TrainModal } from '@/components/train-modal'
 import { SectionHeader } from '@/components/dashboard-ui'
 import { WelcomeTutorial } from '@/components/welcome-tutorial'
 import { COURSES } from '@/lib/data-mock'
@@ -142,10 +141,8 @@ export default function StudentDashboard() {
 
     const [showPaywall, setShowPaywall] = useState(false)
     const [showPlansModal, setShowPlansModal] = useState(false)
-    const [showTrainModal, setShowTrainModal] = useState(false)
     const [showRankElite, setShowRankElite] = useState(false)
     const [showFeedbackModal, setShowFeedbackModal] = useState(false)
-    const [trainModalInitialSpecialty, setTrainModalInitialSpecialty] = useState<string | undefined>(undefined)
     const [activeEditais, setActiveEditais] = useState<Edital[]>([])
 
 
@@ -538,7 +535,7 @@ export default function StudentDashboard() {
                 <h3 className="text-3xl md:text-5xl font-black italic uppercase tracking-tighter text-[#1A1033] leading-[0.9] mb-4">Treinar <br /> <span className="royal-gradient-text">Por Área</span></h3>
                 <p className="text-slate-500 font-medium text-sm leading-relaxed">Acesse todo o banco de questões organizado por especialidades médicas.</p>
             </div>
-            <button onClick={() => setShowTrainModal(true)} className="w-full bg-[#1A1033] text-white py-6 rounded-2xl font-black uppercase text-sm tracking-[0.2em] mt-10 hover:scale-[1.02] active:scale-95 transition-all relative z-10">Iniciar Agora</button>
+            <button onClick={() => router.push('/dashboard/treinar-area')} className="w-full bg-[#1A1033] text-white py-6 rounded-2xl font-black uppercase text-sm tracking-[0.2em] mt-10 hover:scale-[1.02] active:scale-95 transition-all relative z-10">Iniciar Agora</button>
         </div>
     )
 
@@ -625,7 +622,6 @@ export default function StudentDashboard() {
 
             <PlansModal isOpen={showPlansModal} onClose={() => setShowPlansModal(false)} />
             <PaywallModal isOpen={showPaywall} onClose={() => setShowPaywall(false)} reason="feature" requiredPlan="INSANO" />
-            <TrainModal isOpen={showTrainModal} onClose={() => setShowTrainModal(false)} initialSpecialtyId={trainModalInitialSpecialty} />
             <ReportModal isOpen={showFeedbackModal} onClose={() => setShowFeedbackModal(false)} />
 
             {renderUpgradeBanner()}

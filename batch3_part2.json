@@ -1,0 +1,627 @@
+[
+    {
+        "enunciado": "A orelha média comunica-se com a nasofaringe através da tuba auditiva (trompa de Eustáquio). Qual a principal função desta comunicação e qual músculo do palato auxilia em sua abertura durante a deglutição?",
+        "options": {
+            "a": "Drenagem de muco; músculo levantador do véu palatino.",
+            "b": "Igualar a pressão aérea; músculo tensor do véu palatino.",
+            "c": "Condução de som; músculo palatofaríngeo.",
+            "d": "Proteção contra infecções; músculo salpingofaríngeo.",
+            "e": "Vibrar a membrana timpânica; músculo estapédio."
+        },
+        "answer": "b",
+        "rationale": "A tuba auditiva equilibra a pressão entre a orelha média e a atmosfera. O músculo tensor do véu palatino (inervado pelo V3) é o principal responsável por abrir a tuba durante movimentos como deglutição e bocejo.",
+        "option_rationales": {
+            "a": "Errada. Embora o muco drene, a função primordial é a pressão.",
+            "b": "Correta. Papel fisiológico e anatômico essencial da tuba auditiva.",
+            "c": "Errada.",
+            "d": "Errada. O salpingofaríngeo eleva a faringe e pode auxiliar, mas o tensor é o motor principal da abertura.",
+            "e": "Errada. O estapédio protege contra sons altos amortecendo o estribo."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Cabeça e Pescoço",
+            "Otologia"
+        ]
+    },
+    {
+        "enunciado": "A cavidade nasal possui uma parede lateral rica em relevos ósseos conhecidos como conchas (cornetos) nasais. Qual dessas conchas é um osso INDEPENDENTE do crânio, e não um processo de outro osso como o etmoide?",
+        "options": {
+            "a": "Concha nasal superior.",
+            "b": "Concha nasal média.",
+            "c": "Concha nasal inferior.",
+            "d": "Concha nasal suprema.",
+            "e": "Todas as conchas fazem parte do etmoide."
+        },
+        "answer": "c",
+        "rationale": "As conchas nasais superior e média são partes do osso etmoide. A concha nasal inferior é um osso facial par e independente.",
+        "option_rationales": {
+            "a": "Errada. Parte do etmoide.",
+            "b": "Errada. Parte do etmoide.",
+            "c": "Correta. Classificação osteológica das conchas nasais.",
+            "d": "Errada. Variante anatômica, parte do etmoide.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Cabeça e Pescoço",
+            "Osteologia"
+        ]
+    },
+    {
+        "enunciado": "Os dentes decíduos ('de leite') são substituídos pelos dentes permanentes. Quantos dentes compõem a dentição permanente completa de um adulto, sem considerar anomalias?",
+        "options": {
+            "a": "20 dentes.",
+            "b": "28 dentes.",
+            "c": "32 dentes.",
+            "d": "36 dentes.",
+            "e": "24 dentes."
+        },
+        "answer": "c",
+        "rationale": "A dentição permanente completa possui 32 dentes (8 incisivos, 4 caninos, 8 pré-molares e 12 molares, incluindo os terceiros molares ou sisos).",
+        "option_rationales": {
+            "a": "Errada. Número de dentes da dentição decídua.",
+            "b": "Errada. Número se excluirmos os sisos.",
+            "c": "Correta. Padrão anatômico humano adulto.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Cabeça e Pescoço",
+            "Odontologia/Splatcnologia"
+        ]
+    },
+    {
+        "enunciado": "O septo nasal divide a cavidade nasal em duas metades. Quais são as duas principais estruturas ÓSSEAS que formam o septo nasal?",
+        "options": {
+            "a": "Vômer e lâmina perpendicular do etmoide.",
+            "b": "Vômer e osso nasal.",
+            "c": "Lâmina cribriforme e esfenóide.",
+            "d": "Concha inferior e palatino.",
+            "e": "Maxila e lacrimal."
+        },
+        "answer": "a",
+        "rationale": "O septo nasal é formado pela cartilagem do septo anteriormente, e pelos ossos Vômer e Lâmina Perpendicular do Etmoide posteriormente e superiormente.",
+        "option_rationales": {
+            "a": "Correta. Componentes ósseos primários do septo.",
+            "b": "Errada. Os ossos nasais formam o teto.",
+            "c": "Errada. A lâmina cribriforme é o teto da cavidade.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Cabeça e Pescoço",
+            "Osteologia"
+        ]
+    },
+    {
+        "enunciado": "A fáscia cervical profunda é organizada em várias lâminas. Em qual desses espaços localiza-se a 'faringe pré-vertebral' e onde infecções retrofaríngeas podem se disseminar livremente até o mediastino posterior?",
+        "options": {
+            "a": "Espaço carotídeo.",
+            "b": "Espaço retrofaríngeo.",
+            "c": "Espaço supraestidiano.",
+            "d": "Espaço submandibular.",
+            "e": "Espaço visceral."
+        },
+        "answer": "b",
+        "rationale": "O espaço retrofaríngeo localiza-se entre a fáscia bucofaríngea e a lâmina pré-vertebral. Ele é um caminho de baixa resistência para a propagação de abscessos do pescoço para o tórax.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Espaço de trânsito mediastino-cervical.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Cabeça e Pescoço",
+            "Topografia"
+        ]
+    },
+    {
+        "enunciado": "A artéria carótida comum bifurca-se em carótida interna e externa. Onde se localiza o 'seio carotídeo', um importante barorreceptor para o controle da pressão arterial?",
+        "options": {
+            "a": "Na base da carótida interna, logo após a bifurcação.",
+            "b": "Na base da carótida externa.",
+            "c": "Dentro do canal carotídeo no crânio.",
+            "d": "No arco da aorta.",
+            "e": "No bulbo raquidiano."
+        },
+        "answer": "a",
+        "rationale": "O seio carotídeo é uma dilatação na origem da artéria carótida interna. Ele é inervado principalmente pelo nervo glossofaríngeo (IX par).",
+        "option_rationales": {
+            "a": "Correta. Localização anatômica do sensor de pressão.",
+            "b": "Errada.",
+            "c": "Errada.",
+            "d": "Errada. No arco da aorta existem barorreceptores, mas não o 'seio carotídeo'.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Cabeça e Pescoço",
+            "Fisiologia/Angiologia"
+        ]
+    },
+    {
+        "enunciado": "Qual músculo do pescoço tem sua origem no manúbrio do esterno e clavícula e sua inserção no processo mastoide do osso temporal, sendo o principal responsável pela inclinação lateral e rotação contralateral da cabeça?",
+        "options": {
+            "a": "Trapézio.",
+            "b": "Esplênio da cabeça.",
+            "c": "Esternocleidomastoideo.",
+            "d": "Escaleno anterior.",
+            "e": "Omo-hióideo."
+        },
+        "answer": "c",
+        "rationale": "O esternocleidomastoideo (ECOM) é o músculo chave para a movimentação cervical e ponto de referência para os trígonos do pescoço.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Errada. Músculo posterior.",
+            "c": "Correta. Função e descrição anatômica do ECOM.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Cabeça e Pescoço",
+            "Miologia"
+        ]
+    },
+    {
+        "enunciado": "O nervo facial (VII par) possui ramos que emergem no pescoço e face após sair pelo forame estilomastoideo. Qual ramo é responsável pela inervação do ventre posterior do músculo digástrico e do músculo estilo-hióideo?",
+        "options": {
+            "a": "Nervo auricular posterior.",
+            "b": "Ramo digástrico do nervo facial.",
+            "c": "Ramo marginal da mandíbula.",
+            "d": "Nervo corda do tímpano.",
+            "e": "Nervo petroso maior."
+        },
+        "answer": "b",
+        "rationale": "Imediatamente após sair do crânio, o nervo facial emite ramos para o músculo auricular posterior, para o ventre posterior do digástrico e para o estilo-hióideo, antes de entrar na parótida.",
+        "option_rationales": {
+            "a": "Errada. Inerva músculos ao redor da orelha.",
+            "b": "Correta. Ramo motor cervical proximal do facial.",
+            "c": "Errada. Ramo terminal facial para músculos do lábio inferior.",
+            "d": "Errada. Ramo intracanal para paladar e glândulas.",
+            "e": "Errada. Ramo intracanal para glândula lacrimal."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "Anatomia",
+            "Cabeça e Pescoço",
+            "Neuroanatomia"
+        ]
+    },
+    {
+        "enunciado": "A faringe é dividida em três partes. Em qual delas se localiza a abertura da tuba auditiva e a tonsila faríngea?",
+        "options": {
+            "a": "Orofaringe.",
+            "b": "Nasofaringe.",
+            "c": "Laringofaringe.",
+            "d": "Istmo das fauces.",
+            "e": "Espaço retrofaríngeo."
+        },
+        "answer": "b",
+        "rationale": "A nasofaringe é a porção superior, situada atrás da cavidade nasal e acima do palato mole.",
+        "option_rationales": {
+            "a": "Errada. Situa-se atrás da boca.",
+            "b": "Correta. Porção superior da faringe.",
+            "c": "Errada. Situa-se atrás da laringe.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Cabeça e Pescoço",
+            "Esplanccnologia"
+        ]
+    },
+    {
+        "enunciado": "O crânio é composto por ossos unidos por suturas. Qual o nome do ponto de união entre as suturas coronal e sagital, que corresponde à fontanela anterior ('moleira') no recém-nascido?",
+        "options": {
+            "a": "Lambda.",
+            "b": "Bregma.",
+            "c": "Ptério.",
+            "d": "Astério.",
+            "e": "Násio."
+        },
+        "answer": "b",
+        "rationale": "O bregma é o ponto de junção das suturas sagital e coronal. O lambda é a junção das suturas sagital e lambdoide.",
+        "option_rationales": {
+            "a": "Errada. Referente à fontanela posterior.",
+            "b": "Correta. Ponto antropométrico superior do crânio.",
+            "c": "Errada. Junção de quatro ossos na lateral do crânio.",
+            "d": "Errada. Junção de ossos na região mastóidea.",
+            "e": "Errada. Ponto na raiz do nariz."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Cabeça e Pescoço",
+            "Osteologia"
+        ]
+    },
+    {
+        "enunciado": "Qual dos seguintes nervos cranianos atravessa a placa cribriforme do osso etmoide para suprir a sensibilidade olfativa?",
+        "options": {
+            "a": "Nervo óptico (II).",
+            "b": "Nervo oculomotor (III).",
+            "c": "Nervo olfatório (I).",
+            "d": "Nervo trigêmeo (V).",
+            "e": "Nervo vago (X)."
+        },
+        "answer": "c",
+        "rationale": "O nervo olfatório (I par) é formado por pequenos filetes que atravessam os orifícios da lâmina cribriforme do etmoide para chegar ao bulbo olfatório.",
+        "option_rationales": {
+            "a": "Errada. Passa pelo canal óptico.",
+            "b": "Errada. Passa pela fissura orbital superior.",
+            "c": "Correta. Único nervo que atravessa o etmoide diretamente.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Cabeça e Pescoço",
+            "Neuroanatomia"
+        ]
+    },
+    {
+        "enunciado": "A musculatura extrínseca do olho inclui seis músculos. Qual nervo craniano inerva o músculo RETO LATERAL, responsável por desviar o olhar lateralmente?",
+        "options": {
+            "a": "Oculomotor (III).",
+            "b": "Troclear (IV).",
+            "c": "Abducente (VI).",
+            "d": "Facial (VII).",
+            "e": "Oftálmico (V1)."
+        },
+        "answer": "c",
+        "rationale": "O nervo abducente (VI par) inerva apenas o músculo reto lateral. Sua paralisia resulta em estrabismo convergente.",
+        "option_rationales": {
+            "a": "Errada. Inerva todos os outros exceto o oblíquo superior e reto lateral.",
+            "b": "Errada. Inerva apenas o oblíquo superior.",
+            "c": "Correta. Função de abdução do globo ocular.",
+            "d": "Errada. Músculos da face.",
+            "e": "Errada. Sensibilidade."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Cabeça e Pescoço",
+            "Neuroanatomia"
+        ]
+    },
+    {
+        "enunciado": "O 'ducto nasolacrimal' conduz as lágrimas do saco lacrimal para a cavidade nasal. Onde ele desemboca na cavidade nasal?",
+        "options": {
+            "a": "Meato superior.",
+            "b": "Meato médio.",
+            "c": "Meato inferior.",
+            "d": "Recesso esfenoetmoidal.",
+            "e": "Vestíbulo nasal."
+        },
+        "answer": "c",
+        "rationale": "O ducto nasolacrimal é a única estrutura que drena para o meato inferior, localizado abaixo da concha nasal inferior.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Errada. Local de drenagem da maioria dos seios paranasais.",
+            "c": "Correta. Local de drenagem das lágrimas.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Cabeça e Pescoço",
+            "Esplanccnologia"
+        ]
+    },
+    {
+        "enunciado": "A língua recebe inervação gustativa (paladar) complexa. Qual nervo é responsável pelo paladar dos DOIS TERÇOS ANTERIORES da língua?",
+        "options": {
+            "a": "Nervo lingual.",
+            "b": "Nervo corda do tímpano (ramo do facial).",
+            "c": "Nervo glossofaríngeo.",
+            "d": "Nervo hipoglosso.",
+            "e": "Nervo vago."
+        },
+        "answer": "b",
+        "rationale": "O nervo corda do tímpano (ramo do VII par) une-se ao nervo lingual (V3) para levar fibras gustativas dos 2/3 anteriores da língua ao cérebro.",
+        "option_rationales": {
+            "a": "Errada. Leva a sensibilidade geral (dor, tato, temp) dos 2/3 anteriores.",
+            "b": "Correta. Nervo específico para o paladar anterior.",
+            "c": "Errada. Paladar do 1/3 posterior.",
+            "d": "Errada. Nervo motor.",
+            "e": "Errada. Paladar da epiglote."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Cabeça e Pescoço",
+            "Neuroanatomia"
+        ]
+    },
+    {
+        "enunciado": "A glândula sublingual situa-se no assoalho da boca. Qual músculo forma o 'assoalho' da boca, separando as glândulas salivares da região cervical?",
+        "options": {
+            "a": "Músculo digástrico.",
+            "b": "Músculo milo-hióideo.",
+            "c": "Músculo estilo-hióideo.",
+            "d": "Músculo gênio-hióideo.",
+            "e": "Músculo platisma."
+        },
+        "answer": "b",
+        "rationale": "O músculo milo-hióideo forma um diafragma muscular que constitui o assoalho da cavidade bucal propriamente dita.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Padrão anatômico do assoalho bucal.",
+            "c": "Errada.",
+            "d": "Errada. Situa-se superiormente ao milo-hióideo.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Cabeça e Pescoço",
+            "Miologia"
+        ]
+    },
+    {
+        "enunciado": "O osso temporal contém as estruturas da audição e equilíbrio. Qual parte do osso temporal abriga o labirinto (orelha interna)?",
+        "options": {
+            "a": "Parte escamosa.",
+            "b": "Parte mastóidea.",
+            "c": "Parte petrosa.",
+            "d": "Processo zigomático.",
+            "e": "Processo estiloide."
+        },
+        "answer": "c",
+        "rationale": "A parte petrosa ('rochedo') do temporal é extremamente densa e protege a cóclea e os canais semicirculares da orelha interna.",
+        "option_rationales": {
+            "a": "Errada. Porção fina e plana lateral.",
+            "b": "Errada. Contém as células aéreas mastóideas.",
+            "c": "Correta. Localização da orelha interna.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Cabeça e Pescoço",
+            "Osteologia"
+        ]
+    },
+    {
+        "enunciado": "O trígono carotídeo é um espaço no pescoço anterior contendo vasos importantes. Qual dos seguintes músculos NÃO é um limite do trígono carotídeo?",
+        "options": {
+            "a": "Ventre superior do músculo omo-hióideo.",
+            "b": "Ventre posterior do músculo digástrico.",
+            "c": "Músculo esternocleidomastoideo.",
+            "d": "Ventre anterior do músculo digástrico.",
+            "e": "Nenhuma das anteriores."
+        },
+        "answer": "d",
+        "rationale": "O trígono carotídeo é delimitado pelo ECOM (posteriormente), ventre posterior do digástrico (superiormente) e ventre superior do omo-hióideo (anteriormente e abaixo). O ventre anterior do digástrico limita o trígono submental/submandibular.",
+        "option_rationales": {
+            "a": "Errada. É um limite.",
+            "b": "Errada. É um limite.",
+            "c": "Errada. É um limite.",
+            "d": "Correta. Não faz parte da delimitação do trígono carotídeo.",
+            "e": "Errada."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "Anatomia",
+            "Cabeça e Pescoço",
+            "Topografia"
+        ]
+    },
+    {
+        "enunciado": "A 'ânfora cervical' (ansa cervical) é uma alça nervosa do plexo cervical que inerva quais músculos?",
+        "options": {
+            "a": "Músculos da língua.",
+            "b": "Músculos infra-hióideos (exceto tireo-hióideo).",
+            "c": "Músculo esternocleidomastoideo.",
+            "d": "Músculo escalenos.",
+            "e": "Músculos da mastigação."
+        },
+        "answer": "b",
+        "rationale": "A ansa cervical fornece inervação motora para os músculos esternotireóideo, esterno-hióideo e omo-hióideo. O tireo-hióideo é inervado por fibras de C1 que viajam com o nervo hipoglosso.",
+        "option_rationales": {
+            "a": "Errada. Inervados pelo hipoglosso.",
+            "b": "Correta. Função principal da ansa cervical.",
+            "c": "Errada. Inervado pelo nervo XI.",
+            "d": "Errada.",
+            "e": "Errada. Inervados pelo mandibular (V3)."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Cabeça e Pescoço",
+            "Neuroanatomia"
+        ]
+    },
+    {
+        "enunciado": "A articulação temporomandibular (ATM) possui um disco articular que divide a cavidade articular em compartimentos superior e inferior. Quais tipos de movimento ocorrem predominantemente em cada compartimento?",
+        "options": {
+            "a": "Inferior: deslizamento; Superior: rotação.",
+            "b": "Inferior: rotação; Superior: deslizamento (translação).",
+            "c": "Ambos realizam apenas rotação.",
+            "d": "Ambos realizam apenas deslizamento.",
+            "e": "Inferior: fechamento; Superior: abertura."
+        },
+        "answer": "b",
+        "rationale": "Na ATM, o compartimento inferior (entre disco e côndilo) permite a rotação inicial (abertura pequena). O compartimento superior (entre disco e fossa) permite o deslizamento para frente (abertura maior/protrusão).",
+        "option_rationales": {
+            "a": "Errada. Lados invertidos.",
+            "b": "Correta. Mecânica funcional da ATM.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "Anatomia",
+            "Cabeça e Pescoço",
+            "Artrologia"
+        ]
+    },
+    {
+        "enunciado": "Qual ramo da artéria carótida externa é responsável pelo suprimento sanguíneo da glândula tireoide (pólo superior)?",
+        "options": {
+            "a": "Artéria tireóidea inferior.",
+            "b": "Artéria tireóidea superior.",
+            "c": "Artéria lingual.",
+            "d": "Artéria facial.",
+            "e": "Artéria laríngea."
+        },
+        "answer": "b",
+        "rationale": "A artéria tireóidea superior é o primeiro ramo anterior da carótida externa. A tireóidea inferior é ramo do tronco tireocervical (artéria subclávia).",
+        "option_rationales": {
+            "a": "Errada. Vem da subclávia.",
+            "b": "Correta. Ramo direto da carótida externa.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada. Ramo da tireóidea superior."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Cabeça e Pescoço",
+            "Angiologia"
+        ]
+    },
+    {
+        "enunciado": "A cavidade orbitária comunica-se com a fossa craniana média através de quais aberturas?",
+        "options": {
+            "a": "Canal óptico e fissura orbital superior.",
+            "b": "Fissura orbital inferior e forame redondo.",
+            "c": "Forames etmoidais e canal lacrimal.",
+            "d": "Forame oval e fissura orbital superior.",
+            "e": "Nenhuma das anteriores."
+        },
+        "answer": "a",
+        "rationale": "O canal óptico e a fissura orbital superior ligam a órbita diretamente à fossa craniana média. A fissura inferior liga-a à fossa pterigopalatina e infratemporal.",
+        "option_rationales": {
+            "a": "Correta. Vias de passagem de nervos III, IV, V1, VI e II.",
+            "b": "Errada. Fissura inferior liga a fossa pterigopalatina.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Cabeça e Pescoço",
+            "Osteologia"
+        ]
+    },
+    {
+        "enunciado": "Os músculos supra-hióideos elevam o osso hioide e auxiliam na deglutição. Qual dos seguintes músculos possui uma inervação dupla, um ventre pelo nervo mandibular (V3) e outro pelo nervo facial (VII)?",
+        "options": {
+            "a": "Estilo-hióideo.",
+            "b": "Milo-hióideo.",
+            "c": "Gênio-hióideo.",
+            "d": "Digástrico.",
+            "e": "Omo-hióideo."
+        },
+        "answer": "d",
+        "rationale": "O músculo digástrico tem o ventre anterior inervado pelo nervo milo-hióideo (ramo de V3) e o ventre posterior pelo nervo facial. Isso ocorre porque os ventres derivam de arcos faríngeos diferentes.",
+        "option_rationales": {
+            "a": "Errada. Inervado apenas pelo facial.",
+            "b": "Errada. Inervado apenas pelo V3.",
+            "c": "Errada. Inervado por C1 via hipoglosso.",
+            "d": "Correta. Exceção clássica de inervação dupla no pescoço.",
+            "e": "Errada. Infra-hióideo (ansa cervical)."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Cabeça e Pescoço",
+            "Neuroanatomia"
+        ]
+    },
+    {
+        "enunciado": "O 'modíolo' é um ponto de encontro de diversos músculos da expressão facial. Onde ele se localiza?",
+        "options": {
+            "a": "Ângulo da boca.",
+            "b": "Asa do nariz.",
+            "c": "Sínfise mentoniana.",
+            "d": "Glabela.",
+            "e": "Pálpebra inferior."
+        },
+        "answer": "a",
+        "rationale": "O modíolo é um nódulo fibromuscular situado lateralmente ao ângulo da boca onde se inserem vários músculos (zigomático maior, risório, bucinador, orbicular da boca, etc.).",
+        "option_rationales": {
+            "a": "Correta. Ponto crucial para a mímica oral.",
+            "b": "Errada.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "Anatomia",
+            "Cabeça e Pescoço",
+            "Miologia"
+        ]
+    },
+    {
+        "enunciado": "Qual dos seguintes nervos cranianos NÃO possui fibras parassimpáticas eferentes (secretomotoras)?",
+        "options": {
+            "a": "Oculomotor (III).",
+            "b": "Facial (VII).",
+            "c": "Glossofaríngeo (IX).",
+            "d": "Trigêmeo (V).",
+            "e": "Vago (X)."
+        },
+        "answer": "d",
+        "rationale": "Os nervos cranianos com componente parassimpático são 3, 7, 9 e 10 (mnemônico: 1973 - as datas dos episódios de Star Wars?). O trigêmeo é um nervo motor e sensitivo puro, embora ramos parassimpáticos de outros nervos 'peguem carona' em seus ramos.",
+        "option_rationales": {
+            "a": "Errada. Para o músculo ciliar e esfíncter da pupila.",
+            "b": "Errada. Para glândulas lacrimais, submandibulares e sublinguais.",
+            "c": "Errada. Para a glândula parótida.",
+            "d": "Correta. O trigêmeo não gera suas próprias fibras autônomas.",
+            "e": "Errada. Para vísceras torácicas e abdominais."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Cabeça e Pescoço",
+            "Neuroanatomia"
+        ]
+    },
+    {
+        "enunciado": "O osso hioide é único no corpo humano por qual motivo?",
+        "options": {
+            "a": "É o único osso que não se articula com nenhum outro osso diretamente.",
+            "b": "É o único osso de origem puramente cartilaginosa.",
+            "c": "É o único osso impar da face.",
+            "d": "É o único osso que se desenvolve do 1º arco faríngeo.",
+            "e": "É o único osso localizado no plano médio do pescoço."
+        },
+        "answer": "a",
+        "rationale": "O osso hioide é mantido em posição por ligamentos (estilo-hióideos) e músculos, sem possuir superfícies de articulação óssea direta (sinovial ou fibrosa) com o esqueleto adjacente.",
+        "option_rationales": {
+            "a": "Correta. Características anatômica singular do hioide.",
+            "b": "Errada.",
+            "c": "Errada. O vômer e a mandíbula também são ímpares.",
+            "d": "Errada. Deriva do 2º e 3º arcos.",
+            "e": "Errada. Corpos vertebrais também estão no plano médio."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Cabeça e Pescoço",
+            "Osteologia"
+        ]
+    }
+]

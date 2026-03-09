@@ -1,0 +1,627 @@
+[
+    {
+        "enunciado": "O osso do quadril (ilíaco) resulta da fusão de três ossos primários. Em qual estrutura anatômica ocorre o encontro desses três ossos no adulto?",
+        "options": {
+            "a": "Crista ilíaca.",
+            "b": "Acetábulo (cartilagem trirradiada).",
+            "c": "Sínfise púbica.",
+            "d": "Espinha isquiática.",
+            "e": "Tuber isquiático."
+        },
+        "answer": "b",
+        "rationale": "Ílio, ísquio e pube fundem-se no acetábulo para formar a cavidade articular do quadril.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Osteologia da pelve.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Membro Inferior",
+            "Osteologia"
+        ]
+    },
+    {
+        "enunciado": "O 'ligamento da cabeça do fêmur' (ligamento redondo) contém uma estrutura vascular importante. Qual a relevância clínica dessa artéria em crianças?",
+        "options": {
+            "a": "É a única fonte de sangue para o fêmur inteiro.",
+            "b": "Suprimento essencial para a epífise da cabeça do fêmur antes do fechamento da placa de crescimento.",
+            "c": "Regula a pressão arterial nas pernas.",
+            "d": "Inerva o músculo glúteo máximo.",
+            "e": "Não possui vasos sanguíneos."
+        },
+        "answer": "b",
+        "rationale": "A artéria do ligamento da cabeça do fêmur (ramo da obturatória) é vital para evitar a necrose avascular na infância (Doença de Legg-Calvé-Perthes).",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Vascularização aplicada à ortopedia pediátrica.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Membro Inferior",
+            "Angiologia/Ortopedia"
+        ]
+    },
+    {
+        "enunciado": "O 'trígono femoral' (de Scarpa) é um marco cirúrgico importante. Qual a sequência correta das estruturas contidas nele, de LATERAL para MEDIAL?",
+        "options": {
+            "a": "Veia, Artéria, Nervo.",
+            "b": "Nervo, Artéria, Veia, Linfáticos (NAVunEL).",
+            "c": "Artéria, Nervo, Veia.",
+            "d": "Linfáticos, Veia, Artéria, Nervo.",
+            "e": "Nervo, Veia, Artéria."
+        },
+        "answer": "b",
+        "rationale": "A organização lateral-medial é Nervo femoral, Artéria femoral, Veia femoral e Canal femoral (linfáticos).",
+        "option_rationales": {
+            "a": "Errada. Sequência medial-lateral.",
+            "b": "Correta. Topografia do trígono femoral.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Membro Inferior",
+            "Topografia"
+        ]
+    },
+    {
+        "enunciado": "Qual o principal músculo responsável pela ABDUÇÃO do quadril e que mantém a pelve nivelada durante a marcha (evitando o Sinal de Trendelenburg)?",
+        "options": {
+            "a": "Glúteo máximo.",
+            "b": "Glúteo médio.",
+            "c": "Piriforme.",
+            "d": "Psoas maior.",
+            "e": "Adutor longo."
+        },
+        "answer": "b",
+        "rationale": "O glúteo médio (e o mínimo) estabiliza a pelve. Sua fraqueza faz com que a pelve 'caia' para o lado oposto ao membro de apoio.",
+        "option_rationales": {
+            "a": "Errada. É extensor e rotador lateral.",
+            "b": "Correta. Miologia funcional e marcha.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Membro Inferior",
+            "Miologia/Cinesiologia"
+        ]
+    },
+    {
+        "enunciado": "O 'nervo isquiático' (ciático) costuma emergir na região glútea em relação a qual músculo marco?",
+        "options": {
+            "a": "Glúteo máximo (superficialmente).",
+            "b": "Abaixo (inferiormente) ao músculo Piriforme.",
+            "c": "Acima (superiormente) ao músculo Piriforme.",
+            "d": "Através do músculo Obturador interno.",
+            "e": "Pelo forame obturado."
+        },
+        "answer": "b",
+        "rationale": "O piriforme é o 'divisor de águas' da região glútea; o isquiático geralmente sai pelo forame isquiático maior, inferior ao piriforme.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Topografia nervosa da região glútea.",
+            "c": "Errada. Local de saída dos vasos e nervos glúteos superiores.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Membro Inferior",
+            "Neuroanatomia/Topografia"
+        ]
+    },
+    {
+        "enunciado": "O 'músculo sartório' tem um trajeto oblíquo na coxa. Quais ações ele realiza simultaneamente?",
+        "options": {
+            "a": "Extensão do quadril e flexão do joelho.",
+            "b": "Flexão, abdução e rotação lateral do quadril + flexão do joelho.",
+            "c": "Adução pura.",
+            "d": "Extensão do joelho.",
+            "e": "Rotação medial do quadril."
+        },
+        "answer": "b",
+        "rationale": "É o 'músculo do alfaiate', permitindo sentar de pernas cruzadas.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Cinesiologia funcional do membro inferior.",
+            "c": "Errada.",
+            "d": "Errada. Função do quadríceps.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Membro Inferior",
+            "Miologia"
+        ]
+    },
+    {
+        "enunciado": "A 'veia safena magna' é a veia superficial mais longa do corpo. Onde ela se origina e onde desemboca?",
+        "options": {
+            "a": "Origem no maléolo lateral; desemboca na veia poplítea.",
+            "b": "Origem no arco venoso dorsal do pé (lado medial); desemboca na veia femoral (hiato safeno).",
+            "c": "Origem na coxa; desemboca na veia cava.",
+            "d": "Origem no joelho; desemboca na ilíaca.",
+            "e": "É uma veia profunda."
+        },
+        "answer": "b",
+        "rationale": "Passa anteriormente ao maléolo medial e sobe pela face medial da perna e coxa.",
+        "option_rationales": {
+            "a": "Errada. Descrição da safena parva.",
+            "b": "Correta. Sistema venoso superficial.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Membro Inferior",
+            "Angiologia"
+        ]
+    },
+    {
+        "enunciado": "O 'músculo quadríceps femoral' é o principal extensor do joelho. Qual das suas quatro cabeças é a única que também auxilia na FLEXÃO do quadril?",
+        "options": {
+            "a": "Vasto lateral.",
+            "b": "Vasto medial.",
+            "c": "Vasto intermediário.",
+            "d": "Reto femoral.",
+            "e": "Sartório."
+        },
+        "answer": "d",
+        "rationale": "O reto femoral origina-se na espinha ilíaca anteroinferior, cruzando as articulações do quadril e joelho.",
+        "option_rationales": {
+            "a": "Errada. Origem no fêmur.",
+            "b": "Errada. Origem no fêmur.",
+            "c": "Errada. Origem no fêmur.",
+            "d": "Correta. Miologia funcional.",
+            "e": "Errada. Não faz parte do quadríceps."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Membro Inferior",
+            "Miologia"
+        ]
+    },
+    {
+        "enunciado": "A 'pata de ganso' (pes anserinus) é a inserção comum de três músculos no lado medial da tíbia. Quais são eles?",
+        "options": {
+            "a": "Sartório, Grácil e Semitendíneo.",
+            "b": "Sartório, Grácil e Semimembranáceo.",
+            "c": "Bíceps femoral, Reto femoral e Grácil.",
+            "d": "Vasto medial, Grácil e Poplíteo.",
+            "e": "Gastrocnêmio, Sóleo e Plantar."
+        },
+        "answer": "a",
+        "rationale": "Mnemônico 'SGS' (Sartório, Grácil, Semitendíneo). Representam um flexor de cada compartimento da coxa (anterior, medial e posterior).",
+        "option_rationales": {
+            "a": "Correta. Importante para diagnóstico de bursites do joelho.",
+            "b": "Errada. Semimembranáceo insere-se mais profundamente e posterior.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada. Formam o tendão calcâneo."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Membro Inferior",
+            "Miologia"
+        ]
+    },
+    {
+        "enunciado": "Qual nervo é responsável pela inervação MOTORA do compartimento MEDIAL (adutores) da coxa?",
+        "options": {
+            "a": "Nervo femoral.",
+            "b": "Nervo obturatório.",
+            "c": "Nervo isquiático.",
+            "d": "Nervo glúteo inferior.",
+            "e": "Nervo fibular comum."
+        },
+        "answer": "b",
+        "rationale": "O nervo obturatório atravessa o canal obturatório para suprir os adutores e o grácil.",
+        "option_rationales": {
+            "a": "Errada. Inerva o compartimento anterior.",
+            "b": "Correta. Regras de inervação do membro inferior.",
+            "c": "Errada. Inerva o compartimento posterior.",
+            "d": "Errada. Inerva o glúteo máximo.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Membro Inferior",
+            "Neuroanatomia"
+        ]
+    },
+    {
+        "enunciado": "O 'canal dos adutores' (de Hunter) termina em uma abertura no músculo adutor magno. Como se chama essa abertura por onde os vasos femorais passam para a região poplítea?",
+        "options": {
+            "a": "Forame obturado.",
+            "b": "Hiato dos adutores.",
+            "c": "Lacuna vasorum.",
+            "d": "Canal pudendo.",
+            "e": "Fossa oval."
+        },
+        "answer": "b",
+        "rationale": "O hiato do adutor magno marca a mudança de nome de 'vasos femorais' para 'vasos poplíteos'.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Topografia vascular da coxa.",
+            "c": "Errada. Abaixo do ligamento inguinal.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Membro Inferior",
+            "Topografia/Angiologia"
+        ]
+    },
+    {
+        "enunciado": "O 'nervo femoral' origina-se de quais níveis do plexo lombar?",
+        "options": {
+            "a": "L1-L2.",
+            "b": "L2-L4 (ramos posteriores).",
+            "c": "L4-S3.",
+            "d": "T12-L1.",
+            "e": "S1-S4."
+        },
+        "answer": "b",
+        "rationale": "Tanto o femoral quanto o obturatório derivam de L2, L3 e L4, mas de divisões diferentes.",
+        "option_rationales": {
+            "a": "Errada. Níveis do nervo genitofemoral.",
+            "b": "Correta. Neuroanatomia do plexo lombar.",
+            "c": "Errada. Níveis do nervo isquiático.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Membro Inferior",
+            "Neuroanatomia"
+        ]
+    },
+    {
+        "enunciado": "A 'crista ilíaca' é um local comum para biópsia de medula óssea. Qual marco anatômico marca o ponto mais anterior desta crista?",
+        "options": {
+            "a": "Espinha ilíaca anteroinferior (EIAI).",
+            "b": "Espinha ilíaca anterosuperior (EIAS).",
+            "c": "Tubérculo púbico.",
+            "d": "Espinha ilíaca posterosuperior (EIPS).",
+            "e": "Incisura isquiática maior."
+        },
+        "answer": "b",
+        "rationale": "A EIAS é palpável e utilizada para medir o comprimento dos membros inferiores.",
+        "option_rationales": {
+            "a": "Errada. Local de origem do reto femoral.",
+            "b": "Correta. Osteologia e anatomia de superfície.",
+            "c": "Errada.",
+            "d": "Errada. Marcada pelas 'covinhas' na região lombar baixa.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Membro Inferior",
+            "Osteologia/Superfície"
+        ]
+    },
+    {
+        "enunciado": "O 'colo do fêmur' é o local mais frequente de fraturas em idosos. Qual o principal ângulo de inclinação do fêmur (entre o colo e a diáfise) no adulto normal?",
+        "options": {
+            "a": "90°.",
+            "b": "126° (média).",
+            "c": "150°.",
+            "d": "100°.",
+            "e": "180°."
+        },
+        "answer": "b",
+        "rationale": "A redução deste ângulo é chamada de 'coxa vara' e o aumento de 'coxa valga'.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Osteologia funcional do fêmur.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Membro Inferior",
+            "Osteologia"
+        ]
+    },
+    {
+        "enunciado": "Qual estrutura passa pelo 'espaço infrapiriforme' (abaixo do músculo piriforme)?",
+        "options": {
+            "a": "Nervo glúteo superior.",
+            "b": "Nervo pudendo e vasos pudendos internos.",
+            "c": "Músculo psoas.",
+            "d": "Nervo femoral.",
+            "e": "Nervo obturatório."
+        },
+        "answer": "b",
+        "rationale": "Estruturas que passam sob o piriforme: Nervo isquiático, Nervo glúteo inferior, Vasos glúteos inferiores, Nervo pudendo, Vasos pudendos internos e nervos cutâneos.",
+        "option_rationales": {
+            "a": "Errada. Passa acima (suprapiriforme).",
+            "b": "Correta. Topografia da região glútea.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "Anatomia",
+            "Membro Inferior",
+            "Topografia"
+        ]
+    },
+    {
+        "enunciado": "O 'ligamento iliofemoral' (Ligamento de Bigelow) é considerado o ligamento mais resistente do corpo humano. Qual movimento ele limita prioritariamente?",
+        "options": {
+            "a": "Flexão excessiva.",
+            "b": "Hiperextensão do quadril durante a posição ereta.",
+            "c": "Abdução.",
+            "d": "Rotação medial.",
+            "e": "Adução."
+        },
+        "answer": "b",
+        "rationale": "Sua resistência permite que fiquemos de pé com mínimo esforço muscular, bloqueando a tendência do tronco cair para trás sobre o quadril.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Artrologia e estabilidade do quadril.",
+            "c": "Errada. Limitada pelo pubofemoral.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Membro Inferior",
+            "Artrologia"
+        ]
+    },
+    {
+        "enunciado": "O 'nervo safeno' é um ramo puramente sensitivo de qual nervo maior?",
+        "options": {
+            "a": "Nervo isquiático.",
+            "b": "Nervo femoral.",
+            "c": "Nervo obturatório.",
+            "d": "Nervo tibial.",
+            "e": "Nervo fibular comum."
+        },
+        "answer": "b",
+        "rationale": "O nervo safeno acompanha a artéria femoral no canal dos adutores e fornece sensibilidade para a face medial da perna.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Neuroanatomia do membro inferior.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "Anatomia",
+            "Membro Inferior",
+            "Neuroanatomia"
+        ]
+    },
+    {
+        "enunciado": "O 'músculo bíceps femoral' compõe o grupo dos isquiotibiais (hamstrings). Além da flexão do joelho, qual a função da sua cabeça longa sobre a articulação do quadril?",
+        "options": {
+            "a": "Flexão.",
+            "b": "Extensão.",
+            "c": "Adução.",
+            "d": "Rotação medial.",
+            "e": "Estabilização apenas."
+        },
+        "answer": "b",
+        "rationale": "Os músculos posteriores da coxa (bíceps longo, semitendíneo e semimembranáceo) são extensores do quadril e flexores do joelho.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Miologia funcional.",
+            "c": "Errada.",
+            "d": "Errada. Faz rotação lateral (os outros dois fazem medial).",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Membro Inferior",
+            "Miologia"
+        ]
+    },
+    {
+        "enunciado": "A 'hérnia femoral' ocorre através do canal femoral. Qual o limite LATERAL desse canal (importante marco cirúrgico)?",
+        "options": {
+            "a": "Linfonodo de Cloquet.",
+            "b": "Veia femoral.",
+            "c": "Artéria femoral.",
+            "d": "Ligamento lacunar (de Gimbernat).",
+            "e": "Ligamento inguinal."
+        },
+        "answer": "b",
+        "rationale": "O canal femoral fica medial à veia femoral. O ligamento lacunar é o limite medial.",
+        "option_rationales": {
+            "a": "Errada. É o conteúdo do canal.",
+            "b": "Correta. Anatomia cirúrgica das hérnias.",
+            "c": "Errada. Fica lateral à veia.",
+            "d": "Errada. É o limite medial.",
+            "e": "Errada. É o limite superior (teto)."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "Anatomia",
+            "Membro Inferior",
+            "Topografia/Cirurgia"
+        ]
+    },
+    {
+        "enunciado": "Qual o principal flexor do quadril, formado pela união de dois músculos que se inserem no trocanter menor do fêmur?",
+        "options": {
+            "a": "Reto femoral.",
+            "b": "Iliopsoas.",
+            "c": "Pectíneo.",
+            "d": "Tensor da fáscia lata.",
+            "e": "Grácil."
+        },
+        "answer": "b",
+        "rationale": "O iliopsoas (músculos ilíaco e psoas maior) é o flexor mais potente do quadril.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Miologia da região glútea/coxa.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Membro Inferior",
+            "Miologia"
+        ]
+    },
+    {
+        "enunciado": "A 'artéria femoral profunda' produz ramos que perfuram o músculo adutor magno para suprir qual região?",
+        "options": {
+            "a": "Região anterior da coxa.",
+            "b": "Região posterior da coxa.",
+            "c": "Articulação do joelho apenas.",
+            "d": "Pé.",
+            "e": "Bexiga."
+        },
+        "answer": "b",
+        "rationale": "As artérias perfurantes são o suprimento principal para os isquiotibiais.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Vascularização da coxa.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Membro Inferior",
+            "Angiologia"
+        ]
+    },
+    {
+        "enunciado": "O 'músculo tensor da fáscia lata' insere-se no trato iliotibial. Qual o nervo responsável pela sua inervação?",
+        "options": {
+            "a": "Nervo femoral.",
+            "b": "Nervo glúteo superior.",
+            "c": "Nervo glúteo inferior.",
+            "d": "Nervo isquiático.",
+            "e": "Nervo para o piriforme."
+        },
+        "answer": "b",
+        "rationale": "O nervo glúteo superior inerva o glúteo médio, o glúteo mínimo e o tensor da fáscia lata.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Neuroanatomia motora pélvica.",
+            "c": "Errada. Inerva apenas o máximo.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "Anatomia",
+            "Membro Inferior",
+            "Neuroanatomia"
+        ]
+    },
+    {
+        "enunciado": "O 'trocanter maior' do fêmur serve como ponto de inserção para diversos músculos da região glútea. Qual destes músculos se insere no TROCANTER MENOR?",
+        "options": {
+            "a": "Glúteo médio.",
+            "b": "Piriforme.",
+            "c": "Iliopsoas.",
+            "d": "Obturador interno.",
+            "e": "Glúteo máximo."
+        },
+        "answer": "c",
+        "rationale": "O iliopsoas é o único grande músculo que se insere no trocanter menor na face medial do fêmur proximal.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Errada.",
+            "c": "Correta. Osteologia/Miologia do fêmur.",
+            "d": "Errada.",
+            "e": "Errada. Insere-se na tuberosidade glútea e trato iliotibial."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Membro Inferior",
+            "Osteologia"
+        ]
+    },
+    {
+        "enunciado": "A 'fáscia lata' é a fáscia profunda da coxa. Como se chama a sua abertura enfraquecida por onde a veia safena magna se torna profunda?",
+        "options": {
+            "a": "Canal inguinal.",
+            "b": "Hiato safeno (fossa oval).",
+            "c": "Cisterna do quilo.",
+            "d": "Forame isquiático menor.",
+            "e": "Meato acústico."
+        },
+        "answer": "b",
+        "rationale": "O hiato safeno é recoberto pela fáscia cribriforme.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Anatomia de superfície e angiologia.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Membro Inferior",
+            "Topografia"
+        ]
+    },
+    {
+        "enunciado": "O 'nervo cutâneo femoral lateral' (L2-L3) pode sofrer compressão sob o ligamento inguinal em pessoas com cintos apertados ou obesidade. Como se chama essa condição clínica de parestesia na coxa lateral?",
+        "options": {
+            "a": "Ciatalgia.",
+            "b": "Meralgia parestésica.",
+            "c": "Síndrome de Guillain-Barré.",
+            "d": "Sinal de Babinski.",
+            "e": "Neuralgia do trigêmeo."
+        },
+        "answer": "b",
+        "rationale": "É uma neuropatia sensitiva pura por compressão mecânica na região da EIAS.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Neuroanatomia clínica aplicada.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "Anatomia",
+            "Membro Inferior",
+            "Neuroanatomia/Clínica"
+        ]
+    }
+]

@@ -1,0 +1,627 @@
+[
+    {
+        "enunciado": "Qual a conduta profilática recomendada para um paciente de 35 anos, sem fatores de risco adicionais, submetido a uma herniorrafia inguinal laparoscópica (procedimento de baixo risco e curta duração) em regime de hospital-dia?",
+        "options": {
+            "a": "Heparina de Baixo Peso Molecular (HBPM) por 10 dias.",
+            "b": "Apenas deambulação precoce.",
+            "c": "Compressão pneumática intermitente durante todo o pós-operatório.",
+            "d": "Varfarina oral.",
+            "e": "Filtro de veia cava."
+        },
+        "answer": "b",
+        "rationale": "Para pacientes jovens em cirurgias de baixo risco e ambulatoriais, a deambulação precoce é suficiente para prevenir o TEV, conforme o score de Caprini.",
+        "option_rationales": {
+            "a": "Errada. Riscos superam os benefícios neste caso.",
+            "b": "Correta. Medida padrão para baixo risco.",
+            "c": "Errada. Excessivo.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Cirurgia Geral",
+            "Pós-operatório",
+            "Profilaxia TEV"
+        ]
+    },
+    {
+        "enunciado": "Um paciente no 3º dia de pós-operatório (PO) de hemicolectomia apresenta quadro de taquicardia e dor súbita em hemitórax direito que piora com a inspiração. O ECG mostra apenas taquicardia sinusal e o RX de tórax é normal. Qual o próximo passo diagnóstico mais indicado?",
+        "options": {
+            "a": "Dosar Enzimas Cardíacas (Troponina).",
+            "b": "Angiotomografia de Tórax (Angio-TC).",
+            "c": "Repetir o raio-x em 24 horas.",
+            "d": "Realizar pleurocentese de alívio.",
+            "e": "Administrar antibióticos para pneumonia."
+        },
+        "answer": "b",
+        "rationale": "A suspeita clínica de TEP (dor pleurítica + taquicardia + RX normal) deve ser confirmada preferencialmente por Angio-TC de artérias pulmonares.",
+        "option_rationales": {
+            "a": "Errada. Pode estar alterada no TEP por sobrecarga de VD, mas não confirma o diagnóstico.",
+            "b": "Correta. Exame padrão-ouro em vigência de suspeita clínica.",
+            "c": "Errada. Perda de tempo em quadro agudo.",
+            "d": "Errada. Indicado para derrame pleural volumoso.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Cirurgia Geral",
+            "Pós-operatório",
+            "TEP"
+        ]
+    },
+    {
+        "enunciado": "Sobre o manejo do 'Dreno de Tórax' no pós-operatório, em qual situação o dreno deve ser 'clampeado'?",
+        "options": {
+            "a": "Para transporte de todos os pacientes dentro do hospital.",
+            "b": "Rotineiramente durante a noite para o paciente dormir melhor.",
+            "c": "Suspeita de fístula aérea maciça.",
+            "d": "Pode ser feito temporariamente para testar a tolerância antes da retirada em casos específicos ou para troca do selo d'água.",
+            "e": "Sempre que houver saída de sangue."
+        },
+        "answer": "d",
+        "rationale": "Clampear o dreno de tórax é perigoso pois pode causar pneumotórax hipertensivo. Deve ser feito apenas para manobras rápidas de troca de sistema ou como 'teste de desmame' sob vigilância.",
+        "option_rationales": {
+            "a": "Errada. Risco de hipertensão pleural durante o movimento.",
+            "b": "Errada.",
+            "c": "Errada. Jamais clampear se houver saída de ar ativa.",
+            "d": "Correta. Prática cirúrgica específica.",
+            "e": "Errada. Pioraria o tamponamento se houver sangramento ativo."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Cirurgia Geral",
+            "Pós-operatório",
+            "Drenagem Torácica"
+        ]
+    },
+    {
+        "enunciado": "Qual dos seguintes fatores é o gatilho mais comum para o aparecimento de 'Delirium' no pós-operatório de pacientes idosos?",
+        "options": {
+            "a": "Sono excessivo durante o dia.",
+            "b": "Privação sensorial (escuridão, falta de óculos), dor não controlada e uso de sondas/cateteres.",
+            "c": "Dieta hiperproteica.",
+            "d": "Excesso de visitas familiares.",
+            "e": "Deambulação precoce."
+        },
+        "answer": "b",
+        "rationale": "O ambiente hospitalar hostil e a polifarmácia são fatores precipitantes clássicos. A imobilização forçada por sondas e drenos também contribui.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Fatores evitáveis no manejo hospitalar.",
+            "c": "Errada.",
+            "d": "Errada. A presença de familiares ajuda a prevenir.",
+            "e": "Errada. Previne o delirium."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Cirurgia Geral",
+            "Pós-operatório",
+            "Geriátria"
+        ]
+    },
+    {
+        "enunciado": "Um paciente no 1º dia de PO de uma prótese total de quadril apresenta oligúria (15 mL/h). O médico suspeita de causa pré-renal. Qual o teste diagnóstico inicial mais seguro e informativo?",
+        "options": {
+            "a": "Administrar 40 mg de Furosemida venosa.",
+            "b": "Desafio volêmico (Fluid Challenge) com 250-500 mL de cristaloides e reavaliação do débito urinário.",
+            "c": "Iniciar diálise de urgência.",
+            "d": "Solicitar biópsia renal.",
+            "e": "Restrição hídrica absoluta."
+        },
+        "answer": "b",
+        "rationale": "O desafio volêmico ajuda a diferenciar se a oligúria é por falta de volume (pré-renal) ou por dano tubular (NTA). Se o débito subir, confirma-se o componente pré-renal.",
+        "option_rationales": {
+            "a": "Errada. Diuréticos podem piorar a lesão se o paciente estiver desidratado.",
+            "b": "Correta. Abordagem inicial clássica da oligúria.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Cirurgia Geral",
+            "Pós-operatório",
+            "Renal"
+        ]
+    },
+    {
+        "enunciado": "Sobre o manejo da 'Dor Aguda' no pós-operatório, a estratégia de 'Analgesia Multimodal' consiste em:",
+        "options": {
+            "a": "Usar apenas morfina em altas doses.",
+            "b": "Combinar diferentes classes de medicamentos (ex: dipirona, AINEs, opioides e bloqueios regionais) para agir em diferentes vias da dor e reduzir efeitos colaterais.",
+            "c": "Aguardar o paciente pedir medicação para evitar vício.",
+            "d": "Usar apenas medicações por via oral.",
+            "e": "Prescrever apenas placebo para testar o limiar de dor."
+        },
+        "answer": "b",
+        "rationale": "A analgesia multimodal reduz a necessidade de opioides (poupadores de opioides), diminuindo riscos de íleo adinâmico, náuseas e depressão respiratória.",
+        "option_rationales": {
+            "a": "Errada. Causa muito efeito colateral.",
+            "b": "Correta. Conceito moderno de controle álgico.",
+            "c": "Errada. A dor deve ser tratada 'de horário' para evitar o pico álgico.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Cirurgia Geral",
+            "Pós-operatório",
+            "Analgesia"
+        ]
+    },
+    {
+        "enunciado": "No 2º pós-operatório de cirurgia abdominal, qual o critério para progressão da dieta de líquida para pastosa?",
+        "options": {
+            "a": "Obrigatoriamente aguardar 7 dias.",
+            "b": "Tolerância à dieta anterior (ausência de náuseas/vômitos) e presença de clínica de retorno da motilidade (ruídos, flatos ou fome).",
+            "c": "Apenas se o paciente evacuar fezes formadas.",
+            "d": "Sempre após a retirada de todos os drenos.",
+            "e": "Somente após normalização da glicemia."
+        },
+        "answer": "b",
+        "rationale": "A progressão deve ser guiada pela clínica e tolerância do paciente, não por prazos fixos arbitrários.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Manejo nutricional prático.",
+            "c": "Errada. Flatulência precede a evacuação.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Cirurgia Geral",
+            "Pós-operatório",
+            "Nutrição"
+        ]
+    },
+    {
+        "enunciado": "A 'Trombocitopenia Induzida por Heparina' (HIT) deve ser suspeitada se o paciente em profilaxia com heparina apresentar:",
+        "options": {
+            "a": "Aumento súbito de plaquetas (> 1 milhão).",
+            "b": "Queda de mais de 50% na contagem de plaquetas ou novos eventos trombóticos entre o 5º e 14º dia de uso.",
+            "c": "Sangramento nasal intenso nas primeiras 2 horas.",
+            "d": "Hipotensão refratária imediata.",
+            "e": "Anemia hemolítica microangiopática."
+        },
+        "answer": "b",
+        "rationale": "A HIT é uma reação imuno-mediada paradoxal onde há queda de plaquetas associada a um alto risco de trombose arterial e venosa.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Complicação hematológica grave da profilaxia.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Cirurgia Geral",
+            "Pós-operatório",
+            "Hematologia"
+        ]
+    },
+    {
+        "enunciado": "Qual dos drenos abaixo é considerado um 'Dreno de Selo d'Água', essencial para manter a pressão negativa no espaço pleural?",
+        "options": {
+            "a": "Dreno de Penrose.",
+            "b": "Tubo de Tórax conectado a frasco coletor com coluna de líquido (pântano).",
+            "c": "Dreno de vácuo (Hemovac).",
+            "d": "Sonda de aspiração traqueal.",
+            "e": "Cateter de Swan-Ganz."
+        },
+        "answer": "b",
+        "rationale": "O selo d'água funciona como uma válvula unidirecional, permitindo que ar e líquido saiam do pulmão mas impedindo que o ar atmosférico entre.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Princípio da drenagem torácica.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Cirurgia Geral",
+            "Pós-operatório",
+            "Drenos"
+        ]
+    },
+    {
+        "enunciado": "Em relação à 'Insuficiência adrenal' relativa no pós-operatório (Crise Addisoniana), qual a manifestação hemodinâmica característica que não responde a volume ou vasopressores?",
+        "options": {
+            "a": "Hipertensão persistente.",
+            "b": "Choque hipotensivo refratário associado a dor abdominal e talvez hiperpigmentação ou histórico de uso crônico de corticoides.",
+            "c": "Bradicardia extrema.",
+            "d": "Edema agudo de pulmão súbito.",
+            "e": "Poliúria maciça."
+        },
+        "answer": "b",
+        "rationale": "Pacientes que usam corticoides cronicamente podem ter o eixo HPA suprimido e não conseguir produzir cortisol suficiente para o estresse cirúrgico.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Emergência endócrina em cirurgia.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "Cirurgia Geral",
+            "Pós-operatório",
+            "Endocrinologia"
+        ]
+    },
+    {
+        "enunciado": "A 'Retenção Urinária Aguda' é comum após raquianestesia e cirurgias pélvicas. Qual a primeira medida recomendada se o paciente estiver com bexigoma e dor, sem conseguir miccionar?",
+        "options": {
+            "a": "Encaminhar para hemodiálise.",
+            "b": "Cateterismo vesical de alívio.",
+            "c": "Administrar diuréticos agressivos.",
+            "d": "Puncionar a bexiga via supra-púbica em todos os casos.",
+            "e": "Apenas aguardar mais 12 horas."
+        },
+        "answer": "b",
+        "rationale": "O cateterismo de alívio resolve o desconforto imediato e evita o estiramento excessivo (lesão) do músculo detrusor.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Conduta imediata para retenção.",
+            "c": "Errada. Pioraria o bexigoma.",
+            "d": "Errada. Reservada se o cateterismo uretral não for possível.",
+            "e": "Errada. Pode causar lesão permanente na bexiga."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Cirurgia Geral",
+            "Pós-operatório",
+            "Urologia"
+        ]
+    },
+    {
+        "enunciado": "Qual dos seguintes parâmetros é fundamental acompanhar em um paciente no PO imediato para detecção precoce de 'Hemorragia Interna' oculta?",
+        "options": {
+            "a": "Temperatura corporal.",
+            "b": "Nível de consciência, perfusão periférica, frequência cardíaca e débito urinário.",
+            "c": "Peso diário apenas.",
+            "d": "Níveis de eletrólitos no sangue.",
+            "e": "Presença de flatos."
+        },
+        "answer": "b",
+        "rationale": "A clínica de choque (taquicardia, oligúria, palidez) frequentemente precede a queda do hematócrito no sangramento agudo.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Monitorização clínica de choque hemorrágico.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Cirurgia Geral",
+            "Pós-operatório",
+            "Choque"
+        ]
+    },
+    {
+        "enunciado": "No manejo da ferida operatória, quando é permitida a retirada do curativo oclusivo original de uma ferida limpa, de acordo com as diretrizes de prevenção de infecção?",
+        "options": {
+            "a": "Após 12 horas.",
+            "b": "Após 24 a 48 horas, desde que a ferida esteja seca e sem sinais de complicações.",
+            "c": "Apenas no dia da retirada dos pontos (10-14 dias).",
+            "d": "Nunca deve ser retirado no hospital.",
+            "e": "Imediatamente após a saída da sala cirúrgica."
+        },
+        "answer": "b",
+        "rationale": "A reepitelização da ferida ocorre geralmente em 24-48h, tornando o curativo oclusivo desnecessário após esse período em feridas limpas.",
+        "option_rationales": {
+            "a": "Errada. Precoce demais.",
+            "b": "Correta. Prática de controle de infecção hospitalar.",
+            "c": "Errada. Dificulta a vigilância da ferida.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Cirurgia Geral",
+            "Pós-operatório",
+            "Infecção"
+        ]
+    },
+    {
+        "enunciado": "Um paciente no 5º dia de PO de uma gastrectomia evolui com febre alta, calafrios e dor em hipocôndrio direito. A TC mostra uma coleção de 8 cm com gás no seu interior, compatível com abscesso hepático/subfrênico. Qual a conduta terapêutica de escolha?",
+        "options": {
+            "a": "Laparotomia ampla imediata.",
+            "b": "Antibioticoterapia e drenagem percutânea guiada por imagem (TC ou USG).",
+            "c": "Manter apenas vigilância clínica.",
+            "d": "Injeção de álcool no interior da lesão.",
+            "e": "Drenagem biliar retrograda (CPRE)."
+        },
+        "answer": "b",
+        "rationale": "A drenagem percutânea associada ao antibiótico é o tratamento padrão para abscessos intra-abdominais localizados pós-cirurgia.",
+        "option_rationales": {
+            "a": "Errada. Menos eficiente e mais agressiva que a drenagem guiada.",
+            "b": "Correta. Tratamento de escolha moderno.",
+            "c": "Errada. Risco de sepse e óbito.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Cirurgia Geral",
+            "Pós-operatório",
+            "Drenagem"
+        ]
+    },
+    {
+        "enunciado": "A 'Fase de Resolução' da resposta metabólica ao estresse cirúrgico é marcada pelo retorno do balanço nitrogenado para:",
+        "options": {
+            "a": "Negativo (perda de massa magra).",
+            "b": "Equilíbrio ou Positivo (Fase Anabólica).",
+            "c": "Permanece sempre negativo por 1 ano.",
+            "d": "Nulo.",
+            "e": "Inexistente."
+        },
+        "answer": "b",
+        "rationale": "Após a fase catabólica inicial (queima de proteína para energia), o corpo entra em reparação e síntese proteica.",
+        "option_rationales": {
+            "a": "Errada. Isso ocorre na fase aguda.",
+            "b": "Correta. Fisiologia da cicatrização e recuperação.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Cirurgia Geral",
+            "Fisiologia",
+            "REMIT"
+        ]
+    },
+    {
+        "enunciado": "Qual complicação do pós-operatório está associada ao uso prolongado e inadvertido de 'Drenos de Tórax' rígidos posicionados muito próximos ao ápice pulmonar?",
+        "options": {
+            "a": "Pneumonia de lobo inferior.",
+            "b": "Dor crônica e risco de neuropatia do plexo braquial ou dor neuropática intercostal.",
+            "c": "Aumenta o risco de câncer de pulmão.",
+            "d": "Não há riscos associados à posição do dreno.",
+            "e": "Melhora a audição do paciente."
+        },
+        "answer": "b",
+        "rationale": "A ponta do dreno pode comprimir nervos intercostais ou o plexo braquial se estiver muito mal posicionada, causando dor intensa e sequelas.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Complicação técnica de drenagem.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Cirurgia Geral",
+            "Pós-operatório",
+            "Drenos"
+        ]
+    },
+    {
+        "enunciado": "A conduta 'Wait and See' em relação à febre baixa (37,8°C) nas primeiras 24 horas de pós-operatório é baseada no fato de que:",
+        "options": {
+            "a": "Toda febre deve ser tratada com antibióticos potentes imediatamente.",
+            "b": "Essa febre geralmente é fisiológica, causada pelo estresse cirúrgico e liberação de citocinas inflamatórias, sem necessidade de investigação exaustiva inicial.",
+            "c": "Indica falha catastrófica da cirurgia.",
+            "d": "É contagiosa.",
+            "e": "Deve ser tratada com banho de gelo."
+        },
+        "answer": "b",
+        "rationale": "A febre precoce (<24h) raramente é infecciosa, a menos que haja trauma prévio evidente.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Raciocínio clínico sobre febre pós-op.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Cirurgia Geral",
+            "Pós-operatório",
+            "Febre"
+        ]
+    },
+    {
+        "enunciado": "Em pacientes com DPOC grave, qual é o principal risco da administração de oxigênio em alto fluxo para tratar uma hipoxemia leve no pós-operatório?",
+        "options": {
+            "a": "Hemorragia pulmonar.",
+            "b": "Diminuição do drive respiratório (narcolepsia por CO2) e subsequente acidose respiratória grave.",
+            "c": "Tosse seca excessiva.",
+            "d": "Hipertensão portal.",
+            "e": "Queda do potássio."
+        },
+        "answer": "b",
+        "rationale": "Pacientes retentores crônicos de CO2 dependem da hipoxemia como estímulo para respirar. Retirar a hipoxemia pode levar à apneia.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Fisiologia respiratória aplicada.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Cirurgia Geral",
+            "Pós-operatório",
+            "Respiratório"
+        ]
+    },
+    {
+        "enunciado": "Qual medida é considerada 'Estandard de Ouro' para prevenir a Trombose Venosa Profunda (TVP) em cirurgias de grande porte quando a anticoagulação farmacológica está contraindicada por risco de sangramento iminente?",
+        "options": {
+            "a": "Administrar dose baixa de aspirina.",
+            "b": "Uso de Compressão Pneumática Intermitente (CPI) associada a meias elásticas de compressão graduada.",
+            "c": "Manter o paciente em NPO.",
+            "d": "Administrar Vitamina K.",
+            "e": "Fazer apenas massagem manual nas pernas uma vez ao dia."
+        },
+        "answer": "b",
+        "rationale": "A compressão pneumática mimetiza a bomba muscular da panturrilha e aumenta a fibrinólise endógena, sendo a alternativa mecânica de escolha.",
+        "option_rationales": {
+            "a": "Errada. Menos eficaz que a compressão mecânica ativa.",
+            "b": "Correta. Prevenção mecânica de TEV.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada. Insuficiente."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Cirurgia Geral",
+            "Pós-operatório",
+            "Vascular"
+        ]
+    },
+    {
+        "enunciado": "Na avaliação do 'Equilíbrio Hidroeletrolítico' pós-operatório, o que caracteriza a 'Síndrome de Secreção Inapropriada de ADH' (SIADH)?",
+        "options": {
+            "a": "Poliúria e Hipernatremia.",
+            "b": "Oligúria, Hiponatremia dilucional e urina concentrada (sódio urinário elevado).",
+            "c": "Diurese de 5 litros por dia e sede intensa.",
+            "d": "Desidratação grave com pele seca.",
+            "e": "Hipercalemia extrema."
+        },
+        "answer": "b",
+        "rationale": "O ADH excessivo causa retenção de água livre, diluindo o sódio plasmático.",
+        "option_rationales": {
+            "a": "Errada. (Sugere Diabetes Insipidus).",
+            "b": "Correta. Distúrbio hidroeletrolítico complexo em cirurgia.",
+            "c": "Errada. (Sugere Diabetes Insipidus).",
+            "d": "Errada. O paciente costuma estar com volume normal ou expandido (euvolêmico).",
+            "e": "Errada."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "Cirurgia Geral",
+            "Pós-operatório",
+            "Eletrólitos"
+        ]
+    },
+    {
+        "enunciado": "Um paciente no 5º dia de PO de uma cirurgia urológica apresenta quadro súbito de instabilidade hemodinâmica, turgência jugular e ausculta pulmonar limpa. O ECG mostra sinais de sobrecarga de ventrículo direito (S1Q3T3). Qual a hipótese mais provável?",
+        "options": {
+            "a": "IAM anterior.",
+            "b": "Tromboembolismo Pulmonar Maciço.",
+            "c": "Pneumonia por Pseudomonas.",
+            "d": "Perfuração intestinal.",
+            "e": "Crise de ansiedade."
+        },
+        "answer": "b",
+        "rationale": "O padrão S1Q3T3 associado a choque obstrutivo (turgência jugular e pulmão limpo) é o quadro clínico dramático do TEP maciço.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Emergência cardiovascular pulmonar.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Cirurgia Geral",
+            "Pós-operatório",
+            "TEP"
+        ]
+    },
+    {
+        "enunciado": "Qual dreno é mais especificamente utilizado em cirurgias de cabeça e pescoço e mama para evitar o acúmulo de seroma e facilitar a adesão dos retalhos de pele?",
+        "options": {
+            "a": "Dreno de Kehr.",
+            "b": "Dreno de Port-o-vac (sistema de sucção fechada).",
+            "c": "Dreno de selo d'água.",
+            "d": "Sonda nasogástrica.",
+            "e": "Gaze embebida em álcool."
+        },
+        "answer": "b",
+        "rationale": "A pressão negativa constante do dreno de sucção garante a aposição dos tecidos e a retirada do fluido inflamatório.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Dreno de escolha para grandes áreas de descolamento.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Cirurgia Geral",
+            "Pós-operatório",
+            "Drenos"
+        ]
+    },
+    {
+        "enunciado": "A 'Mobilização Precoce' no pós-operatório (colocar o paciente sentado ou de pé nas primeiras 12-24h) reduz todas as complicações abaixo, EXCETO:",
+        "options": {
+            "a": "Atelectasia.",
+            "b": "Tromboembolismo Venoso.",
+            "c": "Íleo adinâmico.",
+            "d": "Incidência de deiscência de ferida de pele puramente mecânica (por esforço).",
+            "e": "Duração do tempo de internação."
+        },
+        "answer": "d",
+        "rationale": "Pelo contrário, esforços intensos e precoces em pacientes obesos ou com técnica de sutura inadequada podem até favorecer a deiscência / evisceração, embora os benefícios sistêmicos superem os riscos na maioria dos casos. A mobilização não 'previne' a deiscência mecânica da mesma forma que previne complicações sistêmicas.",
+        "option_rationales": {
+            "a": "Errada. A mobilização previne atelectasia.",
+            "b": "Errada. A mobilização previne TEV.",
+            "c": "Errada. A mobilização previne íleo.",
+            "d": "Correta. Exceção lógica no contexto da prevenção sistêmica.",
+            "e": "Errada. A mobilização reduz tempo de internação."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Cirurgia Geral",
+            "Pós-operatório",
+            "Manejo"
+        ]
+    },
+    {
+        "enunciado": "Em pacientes idosos, qual medicação utilizada para controle de náuseas e vômitos pode causar 'Efeitos Extrapiramidais' (tremores, rigidez) e agitação, mimetizando um delirium?",
+        "options": {
+            "a": "Ondansetrona.",
+            "b": "Metoclopramida.",
+            "c": "Escopolamina.",
+            "d": "Soro fisiológico.",
+            "e": "Pantoprazol."
+        },
+        "answer": "b",
+        "rationale": "A metoclopramida é um antagonista dopaminérgico central e seu uso em idosos deve ser cauteloso pelo risco de efeitos neurológicos.",
+        "option_rationales": {
+            "a": "Errada. Bloqueia receptores de serotonina, sem efeitos extrapiramidais significativos.",
+            "b": "Correta. Farmacologia em geriatria.",
+            "c": "Errada. Causa efeito anticolinérgico (boca seca, confusão), mas não extrapiramidal.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Cirurgia Geral",
+            "Pós-operatório",
+            "Farmacologia"
+        ]
+    },
+    {
+        "enunciado": "Um paciente submetido a ressecção de intestino delgado apresenta febre e leucocitose no 9º PO. A ferida operatória está normal. O dreno de cavidade apresenta saída de líquido purulento e fétido. Qual é o diagnóstico epidemiológico desta infecção?",
+        "options": {
+            "a": "ISC Superficial.",
+            "b": "ISC Profunda.",
+            "c": "ISC de Órgão ou Espaço.",
+            "d": "Pneumonia hospitalar.",
+            "e": "Infecção comunitária."
+        },
+        "answer": "c",
+        "rationale": "Infecções que se manifestam no dreno de cavidade após o procedimento são classificadas como de órgão/espaço (ex: peritonite, abscessos).",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Errada.",
+            "c": "Correta. Classificação CDC de infecções cirúrgicas.",
+            "d": "Errada.",
+            "e": "Errada. É relacionada à assistência à saúde (IRAS)."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Cirurgia Geral",
+            "Pós-operatório",
+            "Infecção"
+        ]
+    }
+]

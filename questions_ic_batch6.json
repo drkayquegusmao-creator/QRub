@@ -1,0 +1,130 @@
+[
+    {
+        "enunciado": "A respeito da Síndrome Cardiorrenal do Tipo 2, qual a definição correta fisiopatológica?",
+        "options": {
+            "a": "Lesão renal aguda causando insuficiência cardíaca aguda.",
+            "b": "Insuficiência cardíaca crônica causando doença renal crônica progressiva.",
+            "c": "Insuficiência cardíaca aguda causando lesão renal aguda.",
+            "d": "Doença renal crônica causando insuficiência cardíaca crônica.",
+            "e": "Disfunção sistêmica (ex: Sepse) causando falência cardíaca e renal simultâneas."
+        },
+        "answer": "b",
+        "rationale": "A classificação de Ronco para Síndrome Cardiorrenal divide-a em: Tipo 1 (IC aguda -> Rim agudo); Tipo 2 (IC crônica -> Rim crônico); Tipo 3 (Rim agudo -> IC aguda); Tipo 4 (Rim crônico -> IC crônica); Tipo 5 (Sistêmica -> Ambos). Portanto, o Tipo 2 reflete a congestão venosa crônica e baixo débito prolongado levando à perda de função renal estável.",
+        "option_rationales": {
+            "a": "Incorreta. Este é o Tipo 3.",
+            "b": "Correta. Define a forma crônica-crônica da síndrome.",
+            "c": "Incorreta. Este é o Tipo 1.",
+            "d": "Incorreta. Este é o Tipo 4.",
+            "e": "Incorreta. Este é o Tipo 5."
+        },
+        "difficulty": "média",
+        "tags": [
+            "Síndrome Cardiorrenal",
+            "Fisiopatologia",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Em pacientes com IC aguda descompensada e evidência de excesso de volume (Perfil B ou C), qual a meta de perda ponderal diária sugerida nas fases iniciais de tratamento diurético agressivo?",
+        "options": {
+            "a": "0,5 a 1,0 kg por dia.",
+            "b": "3,0 a 5,0 kg por dia.",
+            "c": "Não deve haver perda de peso nas primeiras 48 horas.",
+            "d": "Pelo menos 10 kg na primeira semana.",
+            "e": "A perda de peso é irrelevante frente à melhora da saturação de oxigênio."
+        },
+        "answer": "a",
+        "rationale": "Uma perda de peso gradual entre 0,5 e 1,0 kg/dia é considerada segura e eficaz para a maioria dos pacientes. Perdas muito rápidas (> 2 kg/dia) aumentam drasticamente o risco de lesão renal por desidratação intravascular aguda.",
+        "option_rationales": {
+            "a": "Correta. Meta segura para evitar complicações renais iatrogênicas.",
+            "b": "Incorreta. Perda excessiva que predispõe à azotemia pré-renal.",
+            "c": "Incorreta. Se o paciente está congestionado, a meta é justamente reduzir o volume (e o peso).",
+            "d": "Incorreta. Meta agressiva demais para a maioria dos pacientes idosos com IC.",
+            "e": "Incorreta. O peso é um dos melhores parâmetros de monitorização da resposta ao diurético."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "Manejo",
+            "Diuréticos",
+            "Segurança",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Qual medicação abaixo é contraindicada no tratamento da insuficiência cardíaca com fração de ejeção reduzida devido ao risco de aumentar a mortalidade ou descompensação clínica?",
+        "options": {
+            "a": "Verapamil.",
+            "b": "Enalapril.",
+            "c": "Bisoprolol.",
+            "d": "Dapagliflozina.",
+            "e": "Espironolactona."
+        },
+        "answer": "a",
+        "rationale": "Bloqueadores de canal de cálcio não-di-hidropiridínicos (Verapamil e Diltiazem) possuem efeito inotrópico negativo potente e não reduzem mortalidade na IC, podendo agravar a falência contrátil. Na ICFEr, se houver indicação de bloqueador de cálcio (ex: hipertensão refratária), deve-se preferir os di-hidropiridínicos como o Anlodipino.",
+        "option_rationales": {
+            "a": "Correta. Verapamil deve ser evitado na ICFEr por seu efeito cardiodepressor.",
+            "b": "Incorreta. É droga de primeira linha.",
+            "c": "Incorreta. É droga de primeira linha.",
+            "d": "Incorreta. É droga de primeira linha.",
+            "e": "Incorreta. É droga de primeira linha."
+        },
+        "difficulty": "média",
+        "tags": [
+            "Contraindicações",
+            "Farmacologia",
+            "BCC",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "A respeito da insuficiência cardíaca direita isolada, qual a causa mais comum encontrada na prática clínica?",
+        "options": {
+            "a": "Doença Pulmonar Obstrutiva Crônica (Cor pulmonale).",
+            "b": "Insuficiência ventricular esquerda.",
+            "c": "Tromboembolismo pulmonar crônico.",
+            "d": "Comunicação interatrial (CIA).",
+            "e": "Hipertensão Pulmonar do Grupo 1."
+        },
+        "answer": "b",
+        "rationale": "Embora o 'Cor pulmonale' (A) seja a causa de falência de VD por doença pulmonar, a causa mais comum de disfunção de VD no geral é a insuficiência do ventrículo esquerdo (que causa hipertensão pulmonar retrógrada - Grupo 2). A pergunta pede a causa mais comum, e estatisticamente a falência de VE lidera.",
+        "option_rationales": {
+            "a": "Incorreta. Causa importante, mas secundária à falência de VE em termos de prevalência.",
+            "b": "Correta. A falência do lado esquerdo 'puxa' o lado direito por congestão retrógrada.",
+            "c": "Incorreta. Causa específica e menos frequente.",
+            "d": "Incorreta. Causa congênita, prevalência muito menor.",
+            "e": "Incorreta. HP idiopática é rara."
+        },
+        "difficulty": "média",
+        "tags": [
+            "IC Direita",
+            "Fisiopatologia",
+            "Etiologia",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "A hiptonese de 'forward failure' na insuficiência cardíaca refere-se a:",
+        "options": {
+            "a": "Congestão venosa sistêmica e edema de membros inferiores.",
+            "b": "Baixo débito cardíaco com perfusão tecidual inadequada.",
+            "c": "Redistribuição de fluxo sanguíneo para os membros superiores.",
+            "d": "Aumento das pressões diastólicas finais do ventrículo esquerdo.",
+            "e": "Aumento da resistência vascular pulmonar."
+        },
+        "answer": "b",
+        "rationale": "Fisiopatologicamente, a IC pode ser explicada por dois mecanismos: 'Backward failure' (falha para trás = congestão por acúmulo de sangue antes do coração) e 'Forward failure' (falha para frente = hipoperfusão sistêmica por baixo débito). O Perfil C de Stevenson é o exemplo máximo de ambos simultâneos.",
+        "option_rationales": {
+            "a": "Incorreta. Refere-se ao 'backward failure'.",
+            "b": "Correta. Define o componente de má perfusão periférica.",
+            "c": "Incorreta. Não existe este termo clássico na fisiopatologia da IC.",
+            "d": "Incorreta. Contribui para a congestão (backward).",
+            "e": "Incorreta. É uma consequência da congestão retrógrada ou causa de falência direita."
+        },
+        "difficulty": "média",
+        "tags": [
+            "Fisiopatologia",
+            "Conceitos",
+            "FGV"
+        ]
+    }
+]

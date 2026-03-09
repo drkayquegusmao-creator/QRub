@@ -1,0 +1,388 @@
+[
+    {
+        "enunciado": "Qual a principal indicação para o uso de Levosimedana no manejo da insuficiência cardíaca aguda?",
+        "options": {
+            "a": "Pacientes com IC e hipertensão grave refratária.",
+            "b": "Pacientes com choque cardiogênico ou IC aguda com baixo débito, especialmente se o paciente já estiver em uso crônico de betabloqueador.",
+            "c": "Tratamento de manutenção ambulatorial para evitar o uso de diuréticos.",
+            "d": "Controle de crises de fibrilação atrial paroxística.",
+            "e": "Prevenção de infarto do miocárdio tipo 2."
+        },
+        "answer": "b",
+        "rationale": "A Levosimedana é um sensibilizador de cálcio que aumenta a contratilidade sem aumentar significativamente o consumo de O2 e sem depender do receptor beta-adrenérgico. Por isso, é superior à dobutamina em pacientes betabloqueados na fase aguda.",
+        "option_rationales": {
+            "a": "Incorreta. Causaria mais hipotensão.",
+            "b": "Correta. Inotrópico de escolha em pacientes betabloqueados.",
+            "c": "Incorreta. Uso exclusivamente hospitalar endovenoso.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "média",
+        "tags": [
+            "Levosimedana",
+            "Inotrópicos",
+            "Manejo Hospitalar",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "A respeito do índice de choque (Frequência Cardíaca / Pressão Arterial Sistólica), qual o valor que sugere maior risco de instabilidade e má perfusão na IC?",
+        "options": {
+            "a": "Índice de choque < 0.5.",
+            "b": "Índice de choque > 0.9 ou 1.0.",
+            "c": "O índice de choque não tem valor clínico na IC.",
+            "d": "Índice de choque de exatamente 0.7.",
+            "e": "Índice de choque < 0.2."
+        },
+        "answer": "b",
+        "rationale": "O índice de choque normal é entre 0.5 e 0.7. Valores acima de 0.9 sugerem que a FC está superior ou muito próxima da PAS, o que traduz um estado de compensação adrenérgico por baixo volume sistólico, indicando risco iminente de choque estabelecido.",
+        "option_rationales": {
+            "a": "Incorreta. Valor normal ou fisiológico.",
+            "b": "Correta. Marcador de gravidade clínica e má perfusão.",
+            "c": "Incorreta. É muito útil na triagem e diagnóstico rápido de choque.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "média",
+        "tags": [
+            "Índice de Choque",
+            "Himodinâmica",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Qual dos seguintes achados no exame físico é o mais útil para estimar de forma não invasiva se a Pressão Venosa Central (PVC) está elevada?",
+        "options": {
+            "a": "Cianose de extremidades.",
+            "b": "Turgência jugular a 45 graus.",
+            "c": "Presença de sibilância à ausculta.",
+            "d": "Pulsos pediosos amplos.",
+            "e": "Pele seca e descamativa."
+        },
+        "answer": "b",
+        "rationale": "A inspeção da veia jugular interna é o 'padrão-ouro' físico para estimar a PVC. Se a pulsação venosa estiver visível acima do ângulo de Louis com o paciente a 45 graus, a pressão no átrio direito está provavelmente acima de 8-10 cmH2O (congestão sistêmica).",
+        "option_rationales": {
+            "a": "Incorreta. Sugere baixo débito ou hipoxemia, não pressão venosa.",
+            "b": "Correta. Exame semiológico essencial na IC descompensada.",
+            "c": "Incorreta. Sugere congestão pulmonar ou broncoespasmo (asma cardíaca).",
+            "d": "Incorreta. Sugere boa perfusão arterial periférica.",
+            "e": "Incorreta."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "Jugular",
+            "Exame Físico",
+            "Himodinâmica",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "A respeito do implante de Cardiodesfibrilador (CDI) em pacientes com IC isquêmica (pós-infarto), qual o tempo MÍNIMO que se deve aguardar após o evento agudo para decidir pelo implante, visando prevenção primária?",
+        "options": {
+            "a": "48 horas.",
+            "b": "10 dias.",
+            "c": "40 dias.",
+            "d": "6 meses.",
+            "e": "1 ano."
+        },
+        "answer": "c",
+        "rationale": "Diretrizes (baseadas no estudo DINAMIT) recomendam aguardar pelo menos 40 dias após o infarto agudo do miocárdio para o implante de CDI em prevenção primária. Isso ocorre porque o risco de morte súbita precoce pode não ser afetado pelo CDI e a função ventricular pode recuperar-se parcialmente após a fase aguda e revascularização.",
+        "option_rationales": {
+            "a": "Incorreta.",
+            "b": "Incorreta.",
+            "c": "Correta. Tempo clássico de espera para avaliação da função estável crônica e indicação de CDI pós-IAM.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "média",
+        "tags": [
+            "CDI",
+            "Pós-Infarto",
+            "Critérios",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Um paciente com IC e valvopatia mitral apresenta um gradiente médio de 12 mmHg e área valvar de 0.8 cm². Qual a classificação e a conduta sugerida considerando que o paciente é sintomático NYHA III?",
+        "options": {
+            "a": "Estenose mitral leve; manter apenas observação.",
+            "b": "Estenose mitral importante; considerar intervenção (percutânea ou cirúrgica).",
+            "c": "Insuficiência mitral funcional; usar apenas diuréticos.",
+            "d": "Cardiopatia chagásica pura.",
+            "e": "Mixoma atrial."
+        },
+        "answer": "b",
+        "rationale": "Uma área valvar mitral < 1.0 - 1.5 cm² e gradiente médio > 5-10 mmHg indicam estenose mitral importante. Sendo o paciente sintomático, a intervenção para desobstrução (como a valvoplastia por balão se a anatomia permitir) está indicada.",
+        "option_rationales": {
+            "a": "Incorreta. Área < 1.0 é grave.",
+            "b": "Correta. Diagnóstico e conduta baseada na gravidade anatômica e sintomas.",
+            "c": "Incorreta. Área e gradiente definem estenose (obstrução), não insuficiência (regurgitação).",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "média",
+        "tags": [
+            "Valvopatias",
+            "Estenose Mitral",
+            "Manejo",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Qual a principal causa de 'Asma Cardíaca' (presença de sibilância na IC aguda)?",
+        "options": {
+            "a": "Alergia ao látex.",
+            "b": "Edema da mucosa brônquica e compressão de pequenas vias aéreas por vasos pulmonares ingurgitados.",
+            "c": "Infecção secundária por fungos.",
+            "d": "Aspirativa crônica.",
+            "e": "Broncoespasmo induzido por betabloqueador em dose baixa."
+        },
+        "answer": "b",
+        "rationale": "O termo 'asma cardíaca' refere-se ao sibilo decorrente da congestão. O extravasamento de líquido para o interstício peribronqueolar e o ingurgitamento dos capilares causam estreitamento das vias aéreas, simulando um quadro de asma brônquica. O tratamento foca na descompressão (diurético) e não primariamente em broncodilatadores.",
+        "option_rationales": {
+            "a": "Incorreta.",
+            "b": "Correta. Mecanismo hemodinâmico que gera o achado auscultatório.",
+            "c": "Incorreta.",
+            "d": "Incorreta.",
+            "e": "Incorreta. Embora o BB possa causar sibilos em asmáticos, a 'asma cardíaca' é um fenômeno de congestão por falha do VE."
+        },
+        "difficulty": "média",
+        "tags": [
+            "Asma Cardíaca",
+            "Semiologia",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "A respeito da terapêutica com Betabloqueadores na IC descompensada (aguda), qual a conduta em relação às doses em um paciente que chega em Perfil B (congestão, mas perfusão preservada) e já utiliza a medicação cronicamente?",
+        "options": {
+            "a": "Suspender imediatamente o betabloqueador.",
+            "b": "Manter a dose prévia do betabloqueador ou, se houver instabilidade leve, reduzir a dose pela metade, evitando a suspensão.",
+            "c": "Dobrar a dose para controlar a taquicardia da descompensação.",
+            "d": "Substituir betabloqueador por inotrópico em todos os casos.",
+            "e": "Administrar betabloqueador endovenoso rápido."
+        },
+        "answer": "b",
+        "rationale": "Estudos mostram que a suspensão total do BB na internação aumenta a mortalidade a médio prazo. Se o paciente não estiver em choque ou bradicardia grave, o ideal é manter a dose. Se houver descompensação moderada, pode-se reduzir a dose. A suspensão é reservada para casos de baixo débito grave (Perfil C ou choque).",
+        "option_rationales": {
+            "a": "Incorreta. Aumenta o risco de rebote adrenérgico e mortalidade pós-alta.",
+            "b": "Correta. Conduta conservadora e protetora baseada em evidências.",
+            "c": "Incorreta. Contraindicado subir dose na fase aguda.",
+            "d": "Incorreta.",
+            "e": "Incorreta. BB endovenoso não é usado no manejo da IC descompensada padrão."
+        },
+        "difficulty": "média",
+        "tags": [
+            "Betabloqueadores",
+            "Manejo Hospitalar",
+            "Segurança",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Qual dos exames abaixo apresenta o maior valor preditivo NEGATIVO para afastar o diagnóstico de insuficiência cardíaca aguda em um paciente com dispneia na sala de emergência?",
+        "options": {
+            "a": "Eletrocardiograma.",
+            "b": "Troponina.",
+            "c": "BNP ou NT-proBNP.",
+            "d": "Radiografia de tórax.",
+            "e": "Ureia sérica."
+        },
+        "answer": "c",
+        "rationale": "Os peptídeos natriuréticos são excelentes 'excluidores'. Se um paciente tem dispneia aguda e o BNP é < 100 pg/mL (ou NT-proBNP < 300 pg/mL), a probabilidade de que a causa seja IC é extremamente baixa (VNP > 95%). No entanto, valores elevados são menos específicos e podem ocorrer em outras condições (insuficiência renal, idade, FA).",
+        "option_rationales": {
+            "a": "Incorreta.",
+            "b": "Incorreta. Marcador de lesão, não de congestão.",
+            "c": "Correta. Ferramenta de triagem de primeira linha para exclusão rápida no pronto-socorro.",
+            "d": "Incorreta. O RX pode ser normal em até 20% das IC agudas precoces.",
+            "e": "Incorreta."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "Biomarcadores",
+            "BNP",
+            "Diagnóstico Diferencial",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Na monitorização de um paciente com IC grave em uso de diuréticos de alça, o aparecimento de 'alcalose metabólica hipoclorêmica' sugere:",
+        "options": {
+            "a": "Excesso de volume urinário com perda de cloreto e hidrogênio (alcalose de contração).",
+            "b": "Insuficiência renal por necrose tubular aguda agudizada.",
+            "c": "Melhora do quadro clínico e prontidão para alta.",
+            "d": "Toxicidade por amiodarona.",
+            "e": "Instabilidade elétrica miocárdica pura."
+        },
+        "answer": "a",
+        "rationale": "Diuréticos de alça inibem o co-transportador Na-K-2Cl. O aumento da oferta de sódio ao néfron distal estimula a secreção de K+ e H+, levando à alcalose metabólica. Além disso, a perda de volume gera a 'alcalose de contração'. É um sinal de que o regime diurético está sendo agressivo.",
+        "option_rationales": {
+            "a": "Correta. Distúrbio ácido-básico clássico induzido por diuréticos.",
+            "b": "Incorreta. NTA causaria acidose metabólica.",
+            "c": "Incorreta. Representa uma complicação metabólica que deve ser corrigida/acompanhada.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "média",
+        "tags": [
+            "Distúrbios Metabólicos",
+            "Diuréticos",
+            "Segurança",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "A respeito do prognóstico na insuficiência cardíaca crônica, qual das variáveis abaixo é considerada um preditor independente de MAIOR mortalidade?",
+        "options": {
+            "a": "Frequência cardíaca de repouso elevada (> 80 bpm).",
+            "b": "Pressão arterial sistólica de 130 mmHg.",
+            "c": "Peso estável.",
+            "d": "Nível de colesterol LDL normal.",
+            "e": "Ausência de internações no último ano."
+        },
+        "answer": "a",
+        "rationale": "A frequência cardíaca elevada é um marcador de tônus simpático exacerbado e baixa reserva cardíaca, sendo um preditor independente de morte cardiovascular e hospitalizações. FC alta é o alvo terapêutico da ivabradina e um dos motivos da importância do BB.",
+        "option_rationales": {
+            "a": "Correta. FC elevada associa-se a piores desfechos na IC.",
+            "b": "Incorreta. PA mais alta (> 120-130) geralmente associa-se a melhor prognóstico que PA baixa na IC.",
+            "c": "Incorreta.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "Prognóstico",
+            "Frequência Cardíaca",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "A respeito da insuficiência cardíaca em pacientes com Diabetes Mellitus, qual a recomendação de primeira escolha para o tratamento da hiperglicemia visando reduzir hospitalizações por IC?",
+        "options": {
+            "a": "Glibenclamida.",
+            "b": "Inibidores da SGLT2 (como Empagliflozina ou Dapagliflozina).",
+            "c": "Insulina NPH isolada.",
+            "d": "Pioglitazona.",
+            "e": "Gliclazida em altas doses."
+        },
+        "answer": "b",
+        "rationale": "Os iSGLT2 são a droga de escolha para diabéticos com IC ou alto risco cardiovascular, pois além do controle glicêmico (modesto), reduzem drasticamente as mortes cardiovasculares e hospitalizações. A Pioglitazona (D) é CONTRAINDICADA na IC porque causa retenção hídrica importante.",
+        "option_rationales": {
+            "a": "Incorreta.",
+            "b": "Correta. Conduta mandatória pela diretriz de cardio-endocrinologia.",
+            "c": "Incorreta.",
+            "d": "Incorreta. Piora o quadro de congestão e aumenta internações.",
+            "e": "Incorreta."
+        },
+        "difficulty": "média",
+        "tags": [
+            "Diabetes",
+            "iSGLT2",
+            "Tratamento",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "A presença de pulso paradoxal (queda da pressão sistólica > 10 mmHg na inspiração) durante o exame físico de um paciente com IC sugere a ocorrência de qual complicação ou etiologia associada?",
+        "options": {
+            "a": "Insuficiência aórtica grave.",
+            "b": "Tamponamento cardíaco.",
+            "c": "Bloqueio de ramo esquerdo.",
+            "d": "Isquemia miocárdica de parede inferior.",
+            "e": "Hipotensão postural simples."
+        },
+        "answer": "b",
+        "rationale": "O pulso paradoxal reflete uma interdependência ventricular exagerada dentro de um saco pericárdico sob pressão. Na inspiração, o VD aumenta de volume e 'empurra' o septo para a esquerda, reduzindo o volume sistólico do VE, o que leva à queda da PAS. É o sinal semiológico cardinal do tamponamento.",
+        "option_rationales": {
+            "a": "Incorreta. Na IAo, o pulso é amplo (celere/martelo d'água).",
+            "b": "Correta. Chave para o diagnóstico de emergência pericárdica no contexto de IC ou trauma.",
+            "c": "Incorreta.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "média",
+        "tags": [
+            "Tamponamento",
+            "Pulso Paradoxal",
+            "Exame Físico",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "A respeito da insuficiência cardíaca com fração de ejeção preservada (ICFEp), qual medicação obteve evidência robusta de redução de hospitalizações, tornando-se a primeira com recomendação forte nas diretrizes recentes?",
+        "options": {
+            "a": "Enalapril.",
+            "b": "Carvedilol.",
+            "c": "Inibidores da SGLT2 (Empagliflozina ou Dapagliflozina).",
+            "d": "Digoxina.",
+            "e": "Anlodipino."
+        },
+        "answer": "c",
+        "rationale": "Por muito tempo a ICFEp não teve tratamento que mudasse o curso da doença. Os estudos EMPEROR-Preserved (Empagliflozina) e DELIVER (Dapagliflozina) mudaram isso, demonstrando redução significativa de morte CV e internações, levando à indicação Classe I destas drogas na ICFEp.",
+        "option_rationales": {
+            "a": "Incorreta. IECA não provou benefício claro na ICFEp.",
+            "b": "Incorreta. BB são usados para controle de FC/PA, mas não têm trials positivos robustos de desfecho na ICFEp.",
+            "c": "Correta. Única classe com benefício de desfecho duro validado em grandes estudos para ICFEp.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "ICFEp",
+            "iSGLT2",
+            "Estudos",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "No eletrocardiograma, a presença de ondas P com duração > 120ms e padrão bífido (onda P em 'M') na derivação DII e componente negativo profundo em V1 sugere:",
+        "options": {
+            "a": "Sobrecarga de Átrio Direito.",
+            "b": "Sobrecarga de Átrio Esquerdo.",
+            "c": "Hipertrofia de Ventrículo Esquerdo.",
+            "d": "Ritmo juncional acelerado.",
+            "e": "Normalidade para a idade."
+        },
+        "answer": "b",
+        "rationale": "Estas alterações descrevem o 'P mitrale'. A parte final da onda P reflete a despolarização do átrio esquerdo. O aumento da duração e a 'corcova' de camelo em DII, junto com o índice de Morris (parte negativa de P em V1 > 1mm²), são sinais de sobrecarga atrial esquerda, comum em pacientes com disfunção de VE.",
+        "option_rationales": {
+            "a": "Incorreta. Sobrecarga de AD causa P alta e pontiaguda (P pulmonale).",
+            "b": "Correta. Achado ECG típico em cardiopatia com pressões de enchimento altas no lado esquerdo.",
+            "c": "Incorreta. HVE avalia-se pelos complexos QRS (ex: Sokolow-Lyon).",
+            "d": "Incorreta. Ritmo juncional tem P negativa ou ausente.",
+            "e": "Incorreta."
+        },
+        "difficulty": "média",
+        "tags": [
+            "Eletrocardiograma",
+            "Sobrecarga Atrial",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Qual a principal limitação diagnóstica do uso da radiografia de tórax no paciente com insuficiência cardíaca crônica estável?",
+        "options": {
+            "a": "A presença de cardiomegalia no RX não confirma que a causa dos sintomas seja insuficiência cardíaca.",
+            "b": "O raio-X não consegue detectar derrames pleurais.",
+            "c": "A radiação emitida impede que o exame seja feito mais de uma vez ao ano.",
+            "d": "É um exame de alto custo e baixa disponibilidade.",
+            "e": "Não visualiza a traqueia."
+        },
+        "answer": "a",
+        "rationale": "Embora o RX seja bom para ver tamanho do coração e congestão aguda, a medida do Índice Cardiotorácico (ICT) tem limitações. Um coração grande (remodelado) pode estar perfeitamente compensado e sem sintomas. Por outro lado, o paciente pode estar em ICFEp grave com coração de tamanho normal.",
+        "option_rationales": {
+            "a": "Correta. O RX avalia anatomia grosseira, mas não a função hemodinâmica atual.",
+            "b": "Incorreta. RX é excelente para derrame pleural.",
+            "c": "Incorreta. Radiação do RX de tórax é baixíssima.",
+            "d": "Incorreta. É o exame mais barato e disponível.",
+            "e": "Incorreta."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "Radiografia",
+            "Diagnóstico",
+            "Limitações",
+            "FGV"
+        ]
+    }
+]

@@ -1,0 +1,366 @@
+[
+    {
+        "enunciado": "Um paciente de 65 anos, tabagista, apresenta-se no pronto-socorro com quadro de hematêmese de moderada a grande monta, acompanhada de tontura e sudorese fria. A pressão arterial inicial é de 90x60 mmHg e a frequência cardíaca é de 115 bpm. Após a obtenção imediata de dois acessos venosos periféricos calibrosos, qual deve ser o passo subsequente prioritário na ressuscitação deste paciente antes da realização da endoscopia digestiva alta?",
+        "options": {
+            "a": "Administração de inibidores de bomba de prótons em altas doses e reposição volêmica com cristaloides.",
+            "b": "Passagem imediata de balão de Sengstaken-Blakemore.",
+            "c": "Administração de Terlipressina (análogo da vasopressina) profilaticamente.",
+            "d": "Encaminhar diretamente à radiologia intervencionista para arteriografia, dispensando estabilização clínica prévia.",
+            "e": "Administração de ácido tranexâmico em bolus e intubação orotraqueal compulsória."
+        },
+        "answer": "a",
+        "rationale": "No manejo inicial do choque hemorrágico por suspeita de HDA, a reposição de cristaloides (focando na estabilização hemodinâmica) e a administração empírica precoce de IBPs endovenosos em altas doses diminuem a necessidade de tratamento endoscópico, embora não as substituam. Vasoconstritores são usados para varizes (HDA varicosa), contudo os IBPs e a expansão pautam as medidas universais.",
+        "option_rationales": {
+            "a": "Correta. Passo imperativo de estabilização (Volume + IBP alta dose empírico).",
+            "b": "Errada. Reservado para HDA varicosa refratária com sangramento massivo e choque incontrolável.",
+            "c": "Errada. Vasoconstritores esplâncnicos são a base farmacológica antes da EDA, caso haja forte suspeita de sangramento varicoso. A alternativa 'a' é superior, pois trata de medidas que abrangem a possível etiologia úlcera péptica de forma global.",
+            "d": "Errada. A arteriografia é excelente reservada a casos onde a EDA falha na detecção ou no alcance do sangramento; não dispensa suporte volêmico inicial.",
+            "e": "Errada. O uso rotineiro de antifibrinolíticos na HDA não demonstrou benefícios robustos e até incrementa taxas de fenômenos isquêmicos sistêmicos."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "HDA Não Varicosa",
+            "Manejo Clínico Inicial"
+        ]
+    },
+    {
+        "enunciado": "A 'Escala Modificada de Glasgow-Blatchford' e a 'Escala de Rockall' são os dois escores clássicos em risco na Hemorragia Digestiva Alta. Qual das assertivas abaixo define um aspecto prático em que o 'Escore de Glasgow-Blatchford' apresenta superioridade de indicação?",
+        "options": {
+            "a": "Prevê de modo uníssono se o sangramento tem origem do delgado ou cólon.",
+            "b": "Avalia o risco de recorrência hemorrágica baseado apenas nos estigmas endoscópicos diretos da etiologia varicosa.",
+            "c": "Não necessita do uso de endoscopia nos seus achados e variáveis pontuadas, de forma que permite triagem precoce pré-hospitalar ou admissional com extrema segurança para decidir alta rápida ou tratamento em D0.",
+            "d": "Requer medição seriada seriada das bilirrubinas para calcular seu score principal.",
+            "e": "Inclui na sua composição variáveis ligadas às comorbidades relativas ao índice de Charlson modificadas, além da classificação de Forrest."
+        },
+        "answer": "c",
+        "rationale": "O score de Glasgow-Blatchford (GBS) tem altíssima sensibilidade pré-hospitalar e preditivo para pacientes que precisarão de sangue transfusional ou terapia hospitalar. Como usa somente critérios unicamente laboratoriais e clínicos (Ureia, hemoglobina, PA, Pulso, melena, síncope, comorbidade hepática ou cardíaca) é idealmente implementada pré-endoscopia e possui excepcional VPP (GBS=0).",
+        "option_rationales": {
+            "a": "Errada. As escalas indicam escore e triagem de severidade de sangramentos HDA.",
+            "b": "Errada. A endoscopia não faz parte do Score Modificado ou da Escala Original Glasgow-Blatchford.",
+            "c": "Correta. Utilidade primordial da identificação de baixo risco pré-EDA.",
+            "d": "Errada. Usa-se apenas exames simples (ex: Ureia e Hemoglobina).",
+            "e": "Errada. Avaliações na endoscopia referem-se mais diretamente a escores como Rockall ou Forrest, sendo independentes do GBS."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "HDA Não Varicosa",
+            "Escores Prognósticos"
+        ]
+    },
+    {
+        "enunciado": "A infecção pelo Helicobacter pylori (H. pylori) e o uso de Anti-inflamatórios não Esteroidais (AINEs) persistem como as duas principais causas associadas a úlcera péptica com sangramento não-varicoso. Sobre as recomendações relativas ao binômio, qual é a afirmativa verdadeira caso o teste para o H. pylori for negativo de forma precoce logo na realização da EDA emergencial de um sangramento do trato gastroinestinal?",
+        "options": {
+            "a": "Deve desconsiderar o possível uso de aspirina se houver úlcera cicatrizada na porção bulbar com biópsia não contendo bactérias e sem inflamação profunda.",
+            "b": "A recomendação orienta que o estado real para ser constatado negativo na vigência da fase aguda pede teste com repetição na fase tardia (falsos negativos são acentuados com sangramento).",
+            "c": "Mesmo existindo H. pylori com certeza em outro teste sorológico ou aspirado tardio, não traria alterações em sua profilaxia secundária, se estivesse atrelado ao uso dos AINEs apenas.",
+            "d": "Não são permitidas confirmações ambulatoriais com de ureia para repetição, exceto biópsia novamente.",
+            "e": "Presume-se diagnóstico automático para 'Síndrome de Zollinger-Ellison' quando falso negativo."
+        },
+        "answer": "b",
+        "rationale": "Testes rápidos de urease e patológicos muitas vezes entregam o resultado como falsos falsos-negativos (ca. de  25-45% em algumas estatísticas) dentro do estágio imediato a um episódio recente ou vigente de sangramento péptico intraluminal. Fatores com efeito alcalinizante contido no sangue inibem o microrganismo momentaneamente mascarando os métodos diretos aplicados nos instantes primeiros.",
+        "option_rationales": {
+            "a": "Errada. Aspirina causa sangramento independente de cicatriz inflamada aparente ou etiologia confirmada na base do teste e na anatomia local.",
+            "b": "Correta. Regra mandatória a fim de afastar o viés do sangramento ativo. Deve re-testar se for negativo. O tempo médio oscila entre 4 a 8 sem após evento ativo. ",
+            "c": "Errada. Se a biópsia atestou positivo a erradicação sempre é protocolar devido à dupla sinergia sobrepostas das lesões induzidas às células parietais.",
+            "d": "Errada. Teste respiratório da Ureia e Antígeno fecal para o diagnóstico de reavaliação servem excelentemente após 4-8 semana, de fato, se a terapia de suspensão de IBPs não tiver vigência imediata.",
+            "e": "Errada. A Síndrome refere ser um tumor e as úlceras se caracterizam com multi-refratariedade pós cicatrizadas, sem ser o diagnostico inicial para viés provocado no Teste rápido de H pylori em caso sangrante. "
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "HDA Não Varicosa",
+            "H. pylori",
+            "AINEs"
+        ]
+    },
+    {
+        "enunciado": "Um homem de 50 anos dá entrada com história de vômitos vigorosos secundários ao abuso de álcool na noite anterior, precedidos de arcadas frequentes e ausência de vômito sanguinolento anterior. Repentinamente vomita com hematoquezia abundante, mas as medições vitais do paciente aparentam estáveis clinicamente com a FC em 85 e a Pressão em 125x75, e uma queda hemoglobina marginal de 14 para 12. Após fluidos e IBP no suporte em sua internação temporária a EDA do paciente logo exibe 'uma discreta ruptura de apenas camada de revestimento mucoso disposta linearmente localizando em junção esôfago-gástrica' (JEC). Como é descrita e classicamente rotulada esta descrição endoscópica sangrante sem apresentar sangramento agudo de grande proporções sistêmico na visualização?",
+        "options": {
+            "a": "Úlcera de Cameron.",
+            "b": "Síndrome de Boerhaave.",
+            "c": "Ectasia Vascular Gástrica Antral (Stomach Watermelon).",
+            "d": "Lesão Típica em Lesão de Dieulafoy.",
+            "e": "Síndrome de Mallory-Weiss."
+        },
+        "answer": "e",
+        "rationale": "O mecanismo (vômitos prévios à ocorrência sangrante e sem etiologia hepatocelular portal ou crônica anterior contundente associada ao rompimento linear na margem gástrica de localização na Junção EG com descarte de mediastinite total) indica Mallory-Weiss (Hemorragia mucosa de fundo e de natureza linear em sua constituição anatômica limitante mucosa/submucosa).",
+        "option_rationales": {
+            "a": "Errada. Esta está atrelada ao escorregamento deslizante do estômago ao mediastino em decorrência de hérnia e úlcera mecânica (úlceras de margem estática).",
+            "b": "Errada. A Boerhaave se apresenta com quadro gravíssimo e rompimento completo e transparietal e associado com o enfisema celular da junção (a mortalidade é massiva). Na questão os fatores só falam da mucosa e estabilidade local do sangramento com um corte incisivo de camada mais fútil na aparência global, não total.",
+            "c": "Errada. Tende a possuir achados mais difusos (em estrias) sem causa evidente de atrito gástrico recente; costuma ser crônico com manifestações em fundo antral sem etiologia clara de trauma físico abrupto na história do caso ou com uso repetido de distensão abdominal.",
+            "d": "Errada. Há presença arterial capilar pontual pulsante aparente de artéria aberrante não associada invariavelmente ao mecanismo de forçar a contração de vômitos gástricos anteriores.",
+            "e": "Correta. Achado protótipo pela dilaceração na pequena concavidade na proximidade no limite e pela descrição clínica temporal com a causa. "
+        },
+        "difficulty": "Média",
+        "tags": [
+            "HDA Não Varicosa",
+            "Síndrome de Mallory-Weiss"
+        ]
+    },
+    {
+        "enunciado": "Segundo os guidelines de tratamento vigentes para Hemorragia Digestiva Alta secundárias a Doenças Úlcero-Péptica, indique as condições onde após a EDA da lesão em causa será mais adequada recomendar profilaxia medicamentosa prolongada mas permitindo uma 'Alta hospitalar Imediata' e/ou liberação prévia com apenas 'Ingestão de comida normal e acompanhamento domiciliar simples' após os exames. Marque os seguintes índices Forrest na opção verdadeira.",
+        "options": {
+            "a": "Forrest I a ou I b.",
+            "b": "Forrest II b, para casos da internação simples sob monitorização leve.",
+            "c": "Forrest II c (com apenas mancha recobrindo o ferimento) ou III.",
+            "d": "Somente no grau III (Ferimentos Limpos Sem Base Pigmentada).",
+            "e": "Todos de base IIa caso em que as drogas estejam atuantes até agora e sejam passíveis de remoção das camadas superficiais dos micro-hematomas aderidos nas úlceras ativas antigas sob sedação na ala psiquiátrica."
+        },
+        "answer": "c",
+        "rationale": "Estigmas de alto risco que proíbem o retorno são aqueles de hemorragia ativada pulsante espumante (Ia, Ib) ou aqueles exibindo sinais eminentes em potencial da iminência grave de soltura com re-sangramentos abundantes como de microvasculaturas visíveis no exame sem sangue em si e esfregaço escuro com trombo muito robusto (IIa, IIb). O caso IIc já não possui potencial severoso, podendo obter acompanhamento simples assim como o nível III. A liberação imediata tem suporte das agências americanas como viável dependente da aceitação de outros achados nos scores (tipo do GBS) ao agregar informações conjuntas, e sempre após as vias orais abertas dos IBPs em regime domiciliar em repouso da dor subjacente não perfurada.",
+        "option_rationales": {
+            "a": "Errada. O Sangramento agudo, o paciente precisará fazer tratamento cirúrgico as claras em injeção direta via termocoagulador na EDA bem como acompanhamento sob internamento em ala semi-intensiva ou comum por no mínimo de 72h observando se IBPS em via parenteral fazem sucesso continuo para não abrir nova ferida. ",
+            "b": "Errada. Possuem até 30% em chance recorrente e demanda lavar com líquido salino antes a fim de ver se abaixo haveria sangramento ou estigmas perigosos I em observação contínua de 48-72h de intervenção em repouso absoluto.",
+            "c": "Correta. Condições com pouquíssimo percentual ressangrante e permite manejo ambulatórial.",
+            "d": "Errada. IIc faz parte (Mancha hematínica).",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "HDA Não Varicosa",
+            "Classificação de Forrest"
+        ]
+    },
+    {
+        "enunciado": "Um senhor diabético em seus 80 anos com sangramento melênico leve recente apresenta em sua admissão laboratorial o cálculo e valores como ureia alterada na taxa com 50, bem como níveis baixos ou marginalizando à baixa estocagem com contagem fraca das medidas do eritrograma, que pontuam em sua métrica global de Rockall (escore clínico base) igual a '8'. Sem apresentar nenhuma outra comorbidade pré-existente documentada que possua grau terminal, este indicativo e a sua triagem, após confirmada uma triagem visual ao proceder o tratamento do foco hemorrágico gástrico com ligaduras no topo curvo gástrico ou adrenalina em via tópica, e reverter adequadamente de urgência, deverão ditar a recomendação na internação do serviço médico para onde a longo prazo inicial da fase ativa deste sujeito. Como esta fase deve transcorrer e se manifestar clinicamente da orientação básica sobre as divisões disponíveis desta enfermaria?",
+        "options": {
+            "a": "Alta com IBPs VO para sua própria residência no dia seguinte, tendo vista de o prognóstico de 8 indicar estabilização basal contínua (mortalidade mínima).",
+            "b": "Direcionamento profilático em acomodação por 72 horas integral dentro da enfermaria básica e acompanhamento e uso normal.",
+            "c": "Este grau estipula uma alta chance prognostica (Rockall acima/igual 8 é indicador preditor grave nas chances iminente de fatalidades gerais e de ressangramentos). Deve existir internamento por três dias (no mínimo 72h contínuo e progressiva evolução dos parâmetros e marcadores de perfusão em ambiente de CTI/Hemodinâmica contínua ou similar em cuidados avançados dos sinais cardíacos e em estado crítico com os PPI contínuos).",
+            "d": "Alta no máximo com 48hs do internato ou CTI com verificação das sondas do vômito no dia seguinte do exame por rotina simples após hidratação das bolsas apenas.",
+            "e": "O Escore não avalia taxa associada as métricas na alta de sobrevivência global na faixa de pós triagem. Somente idade importa nesses contextos das recomendações sem uso da escala preditora na divisão correta sobre as enfermarias CTI ou semi-intensivo ao tratamento final."
+        },
+        "answer": "c",
+        "rationale": "A escala de Rockall tem principal relevância nos dados somados globais. Um valor alto sugere probabilidade superior para recaída na gravidade do choque subjacente da ferida curada e o risco iminente nos picos e as suas prováveis complicações adjuntas inerentes da idade do mesmo (acima de 8 anos). Para se chegar uma pontuação '8' com escores associando as duas facetas da tabela após os escore pós-eda e sem esmorecimento com as patologias que possam causar um choque subjacente isoladamente. Se entende logo os fatores em idades tardias em que acima das unidades preenchida acima de 8, mortalidade fica quase igual a proporção em mais de 40%, pedindo logo do corpo clínico um direcionamento de atenção integral prolongado num espaço (UTI por 3 dias em observação após estabilização local hemorrágica) e infusão IBPs parenteral para proteção base (IBP Endovenoso) contínua no choque com perfusão.   ",
+        "option_rationales": {
+            "a": "Errada. Rockall menor e igual a '2' pode-se avaliar a viabilidade dessa chance mas jamais aos 8.",
+            "b": "Errada. Devido a pontuação muito perigosa aos 8 e necessidade de contínua reposição parenteral do uso da IBP após hemostasia que dura em torno de 72 hs, as faixas e métricas indicam UTI.",
+            "c": "Correta. Protocolo do escore preditor no que se diz sobre internamento devido aos alto e provável grau atinente da sua severidade e complicação.",
+            "d": "Errada. Tem a regra contínua do IBPs não podendo dar por concluído esse tempo, sem as melhorias substanciais pós operatório e estabilização.",
+            "e": "Errada. Ambas as faixas, pré eda  avaliando o clinico global com pontuação acima e o pos-eda em que o sangramento seja da fonte da úlcera gástrica associando também estigmas com ou sem sangue e resíduos se agrupando nas notas conjuntas são aplicadas nas escalas para predizer morte da complicação subjacentes para destinar logo a área correta das alas de plantão.   "
+        },
+        "difficulty": "Médio",
+        "tags": [
+            "HDA Não Varicosa",
+            "Manejo e Indicações"
+        ]
+    },
+    {
+        "enunciado": "As lesões de classificação das úlceras pelo sistema endoscópico e anatomoclínico ditam tratamentos de terapias e suporte por guias internacionais como Forrest. A úlcera descrita endoscópicamente como 'coágulo e com base aderente que o recobre e apresenta sinais no sangramento não evidenciado pelo o fluxo mas fixado ativamente no tecido da ferida' refere-se pontualmente a qual estrato, e por indicação básica e padronizada deve possuir o seguinte tipo de suporte antes ou perante à conduta global primária e profilática na visualização imediata desta endoscopia feita por este procedimento? ",
+        "options": {
+            "a": "Forrest Ia. Tratamento imediato cirúrgico das margens da camada estomacal gástrica na cirurgia aberta abdominal de reparação mecânica profunda caso for constatada com clipe endoscópico no momento primeiro sem chance de melhora por refratariedade da doença associada",
+            "b": "Forrest IIb. Tratamento básico requer sempre inicialmente limpeza (lavagem ou a tentativa de destacar o respectivo rolha trombotônica com ou por raspagem ou lavagem por fluxo local na visualização a fim de revelar a superfície na busca aos achados subjacentes com probabilidade da ferida ativada subalternamente e caso seja vaso limpo sangrando de forma reativada e exposta usar a rotina da coagulação dupla com clipe com associação a noradrenalina caso visível) - mas em caso refratário a remoção que continue a aderir ao vaso não há consenso estrito nas diretrizes na recomendação com hemostasia a laser profunda sobre esse trombo espesso. .",
+            "c": "Forrest IIa. Tratamento local não será recomendável de uso por chance do estigma fixado estar estabilizando as feridas naturais, de risco moderado pela chance remota e pequena sem mais nenhum tratamento",
+            "d": "Forrest Ia. Tratamento medicamentoso apenas da injuria no sangue sem qualquer visualização clínica aparente e somente aplicação local da base com spray protetivo isolante de celulose que fecha no procedimento local com chance irrisória.",
+            "e": "Forrest IIc. Injeção hemostática obrigatória com noradrenalina logo sobre o estigma e inibição direta sobre os coágulos e no acompanhamento domiciliar simples logo na prescrição do tratamento base com omeprazol contínuo ."
+        },
+        "answer": "b",
+        "rationale": "Forrest IIb (coágulos não re-sangrantes aderidos sem evidência de artéria no contato exterior logo visível das lesões atesta a característica referenciando e determinando para o especialista do momento, que lave gentilmente para averiguar o vaso abaixo sem as impurezas ou remover o coágulo firmemente agarrados desde que possam exibir o que há abaixo - artéria ativa visível da IIA que terá que realizar o procedimento clássico endoscópico com eficácia se atestada a positividade sangrante na base - vaso visível abaixo.) Se os tratamentos falharem da retirada dessa rolha fibrose pelo médico endoscopista no momento inicial do exames a coagulação injetável sub-endotelial pode se tornar controversa sobre esse coágulo espesso sem re-ver qual será o foco de sangrantes nas evidências diretas por receito e viés dos seus prováveis ressangramentos iminentes causarem nova cascata abruptamente na região não exposta da úlcera anterior mas as limpezas de fato são recomendáveis para ver esse fator subalternamente escondidos ali na rolhas formadas após horas dos eventos em andamento.",
+        "option_rationales": {
+            "a": "Errada. A conduta é de lavagem. Além disso, Ia remete a esguicho / pulso de sangramento direto. ",
+            "b": "Correta. Definição acurada dos protocolos endoscópico para achados clássicos e a abordagem na base aderente para identificações mais graves das pontuações na sua provável classificação oculta sob ela.",
+            "c": "Errada. O Sangramento no IIa é sobre vaso direto à vista no próprio campo ocular de base e este atesta 50% em picos severosos após as reincidências de hemostasias com chances iminentes de ressangramento após endoscopia mal ou não tratada no momento local. É recomendado a sua dupla neutralização endoscópica logo se exposto e evidenciada e depois da internação e ibps IV para não fazer reativações graves no futuro das estâncias da cicatrizações. ",
+            "d": "Errada. IA atesta os mais graves índices sangrantes e requer sempre as abordagens ativada.",
+            "e": "Errada. O IIc se classifica da base e a área do seu fundo com a pontuação escurecida nas manchas tipo 'grãos de café', que tem indicação restritiva para tratamentos focais e apenas requer IBPs rotineiro e profiláticos oral para internações ou observações sem procedimentos diretos das hemostasia ativamente nos exames endoscópicos. Sangra raramente na regressões.  "
+        },
+        "difficulty": "Médio",
+        "tags": [
+            "HDA Não Varicosa",
+            "Endoscopia Terapêutica"
+        ]
+    },
+    {
+        "enunciado": "Durante uma avaliação clínica com uso contínuo de AINE em um idoso que agora expressa suspeitas para possíveis manifestações e indicações precoces para endoscopia na emergência. Qual dos quadros é caracteristicamente visto em pacientes onde o local ou segmento orgânico afetado mais amplamente da apresentação deste cenário se trata de lesão na região do duodeno e tem piora marcante nos quadros no decorrer noturno e em horas em sua reincidência clínica e álgica quando relacionado apenas da etiologia principal péptica?",
+        "options": {
+            "a": "Sangramento vultoso doloroso durante alimentações de jejum que agravam muito na deglutição mas são reativos pela neutralização da base. Dor crassa ao deitar para evitar o refluxos nas alimentações tardias.",
+            "b": "Apresentação sem dor, com grande associação à fezes a forma rutilante por todo intestino grosso sem disfunção do quadro, em feição indolor em períodos noturno (após o jejum com longas horas e esvaziamentos gástrico da ingesta prévia em atividade ativada apenas aos deitar para descanso no período final na madrugadas das rotinas diárias do sono).  ",
+            "c": "Vômito contínuo como piche devido ingestão alimentar, onde os seus sintomas decrescem com tempo no uso de dietas sem glúten em porção alimentar não hiperproteicas nos dias. Piorando ao se comer frutas doces durante a refeição, ocorrendo sem vômito e sem episódios febris por dia anterior.",
+            "d": "Dor aliviada transitoriamente ou que possui a fase apaziguada ou mais suprimida quando no percurso exato das alimentações ou pelo uso de antiácidos, tipicamente despertando os acometidos pelo decorre e de pico ou exacerbações ocorrendo em curso do avançar da noite ou nos estados longos perantes o jejuns. ",
+            "e": "Sintomatologia grave de espasmos continuados as refeições. Não apresenta de nenhuma manifestação na hora do sono e acorda saudável antes nas primeiras alimentações diárias. Tem alta de perda progressiva grave orgânica do seu peso. "
+        },
+        "answer": "d",
+        "rationale": "A úlcera péptica se localiza ou mais tipicamente atinge o aspecto principal em proporção dupla no duodeno ao estomago de maneira global. Nesta parte a base ou apresentação e de sua relação entre o alimento difere onde, geralmente, a ingestão alimentar e antiácidos atuam quase agindo num amortecedor transitório para redução e da inativações passageiras a das manifestações do pico dolórico no órgão intestinal inicial em atrito com mucosa e pela alcalinizações de resposta secretória, em contraste, durante período prolongados das alimentações intermitentes do repouso noturno o picos dolóricos aumentam e acordam pela sua ativação noturna basal ativada no momento sem bloqueadores neutros a revestindo ali no lúmem intraluminal como as de ingestas.",
+        "option_rationales": {
+            "a": "Errada. Estas características referem-se à úlcera Gástrica com atritos e irritação ativada nas ingestas em vias imediatas pela exacerbação inflamatória ácida de estimulo.",
+            "b": "Errada. Não a relação de fezes vivo ao local em questão, as indicações seriam a Melena ao longo do período global nas indicações. ",
+            "c": "Errada. Manifestação estranha do pico de glúten e das características disfuncionais do quadro sem lógica do acometimento em vias basais do diagnóstico difuso gástrico ou péptico, referindo mais há estirpes ou da doença celíaco intestinal não dolórico da úlcera no tecido adjunto associada aos atritamentos mecânicos ácidos.",
+            "d": "Correta. Patognomônica característica dos sintomas dolorosos nas manifestações pépticas subjacente no epitélio duodenal e sua dinâmica inflamatória diurna. ",
+            "e": "Errada. Os fatores descritivos referem a uma patogênese das úlceras alocadas intrinsecamente do espaço do antro ao corpo (Úlceras gástrica) e da sua etiologia malignas (causando perdas de pesos ou em refratariedades crônicas de tratamentos curadores contínuos prolongados). "
+        },
+        "difficulty": "Média",
+        "tags": [
+            "HDA Não Varicosa",
+            "Sintomatologia Clínica"
+        ]
+    },
+    {
+        "enunciado": "Além da resição endoscópica bem-sucedida por uso da rotineira injetáveis como epinefrina logo nas localizações nas avaliações do foco estigmatológico no risco alto sangramento (úlcera em bases IIa), o manejo contínuo logo em uso das prescrições requer infusão na estabilidades clinica protetores por IBPS (como por exemplo do omeprazol injetável - na veia). Qual a prescrição dose e no decorrer do tempo desta recomendação terapêutica injetável padrão (ou por posologia IV/VO contínua de similar eficácia se possível local) atestando um viés profilático na chance secundária destas lesões que ocorram as ressangramentos, após 72hs deste exame e também o seu respectivo período em uso prolongando basal e seu respectivo exame e em momento controle padrão nos dias posterior pós as suas prováveis sequencialidades do acometimento por via global caso persista sob investigação etiológica em que se confirmou úlcera gástrica das análises anteriores as úlceras por dores inespecíficas ao inicio.",
+        "options": {
+            "a": "Bólus imediato na injeção padrão a dose do pantoprazol (ex. 80mg) para indução por mais ou de uso rotineiro intravenoso por todo uso contínuo sequente após do resgate em taxa as infusões estipulada de no mínimo ou por volta de 8mg-hora no trajeto final contínuo decorrente das de mais exatas (72h) seguida depois pelas medicações VO do uso diário com IBPs pelo períodos entre ca de 4-8 semana e repetido exame contínuo de EDA reavaliativo póstumo na investigação etilogicas gástricas a fim certificar o fechamentos (descarte dos focos displásico).",
+            "b": "Recomenda induções do Pantoprazol ou uso oral contínuo na taxa fixa única em dose menor que 10 mg as reincidências de 72 hs e descontinuado os fatores das semanas e uso prolongados posteriores contínuas para manter risco zerados os ressangramentos basais de reavaliações do paciente global.",
+            "c": "Somente uso local após a cirúrgico (após 14d) em dosagem 20 mg VO, requerendo a de EDA sempre diariamente em intervalos com controle do fechamento ou biópsias seriada com no mínimo com de repouso por de no máximo 5 anos pós infecções do período no hospital associadas na terapia na causa etiológicas por neoplasia suspeitas as ulceras do percurso todo.",
+            "d": "Não possui uso endovenoso nas indicações no contexto do perfil ativo (Forrest IIA). Exigências contínuas de tratamento cirúrgicos por biópsias sequentes a toda vez nas endoscopias urgenciais em cada sangramento com ou o controle endovenoso de soro fisiológico local por lavamentos prolongando na internamentos estritos com mais 7 dias a seguir.",
+            "e": "Sempre no repouso oral em faixas que de indicações a doses altíssimas em todos os perfis pós infecções e inflamação do tecido subjacentes de todas as naturezas dos escores locais da bases para reativação iminentes do foco agudos na fase contínua com repetição endoscópica padrão não justificada (gastrite). "
+        },
+        "answer": "a",
+        "rationale": "A posologia endovenosa padrão para atestar a estabilização máxima da hemostasia secundária se diz com omeprazol pantoprazol associada de 80mg na aplicação imediata pré e pós controle do quadro hemostático seguido no regime intravenoso em gotejamento na margens de 8mg em média de hora a no relógio, estendido ou compreendido o estrito das próximas horas a (72 h) seguidas para evitar degradações rápidas dos coágulos e trombos contidos na base local sem a proteção em neutralizações contínuas das elevações dos picos da gastrina associadas. Além que da regra de rotina para úlcera gástrica atestando a EDA após a o fechamentos em 4-8 sem, como a sua averiguação obrigatória da cicatrização final. Este perfil descarta neoplasias secundária subalterna escondidas não visualizadas e com a margem curativas. No duodeno, na total ausencias sintéticas deste reexames das analise biópsicas (EDA de confirmações, excetuadas sintomas na recorrência) na confirmações não faria necessidade. ",
+        "option_rationales": {
+            "a": "Correta. Traz o padrão referencial completo da conduta hemostática na recomendação global do uso medicamentoso IBPs protetivas para re-sangramentos secundários de ferida (na veias nas em 72hs) em associação com reavaliações e indicações finais na etiologia das feridas focais (como foi dita, a úlcera no local inicial estomago - de repetições mandatórias)  ",
+            "b": "Errada. Uso de dosagem sub-otimal e sem recomendação das estendidas protetivas basais não suportará fechamento para que o tempo re-sangrante que gira maiores em 3 dias das incidências para que estabilize.",
+            "c": "Errada. A dose seria baixa perante recomendações as manutenções usuais que pautam doses orais protetivas em de no mínima da porções de padrões recomendada na diárias. Controle será somente avaliado pela visualização na base e os testes associativos no foco e reincidências apenas uma e em 4 até 8 em semanas na maioria relativas recomendação.  ",
+            "d": "Errada. A posologia das manutenções após choque com estabilização por 72hs dita uso exclusivo base em preferência IV ou equivalências Orais caso aceitas na estabilizações da vias ativas (IIA), com as profilaxias com uso do protetores acídicos. E Cirurgias apenas são de uso da intervenções nas persistência grave ressangrante de hemorragia massivas (cirurgia da ulcera perfuradas associativas / sangrantes volumosas não detidas pós exame duplas nas estancarias  )",
+            "e": "Errada. Se a biópsia foi não associada a etiologia no gástrico de fatores que proíba do descarte da biópsia ou fatores protetivos gástricos associativos a outras patologias subalternas como em úlcera isoladas dita duodenais a qual sua repetições das checagens será indevidas e desnecessárias nas recomendações de endoscopias sequenciais de controle após os ciclos protetivos basais orais, salvadas em recidiva clínicas de sangramentos de risco contínuo agudizado.  "
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "HDA Não Varicosa",
+            "Manejo Medicamentoso e Endoscópico"
+        ]
+    },
+    {
+        "enunciado": "A lesão característica de ''Lesão de Dieulafoy'' apresenta uma particularidade e especificidade vascular dentre os demais diagnósticos que ocasionam perdas hemáticas agudas do Trato Gastrointestinal. Sobre a morfologia etiológica específica, esta se deve a:",
+        "options": {
+            "a": "Vasodilatação sub-epitelial inflamatória das redes venosas da curvatura gástrica menor de base infecciosa contínua das mucosas no estômago inferior de fundo.",
+            "b": "Anomalia anatômica congênita restritiva da mucosa superficial de um vaso diminuto venoso crônico esclerótico ao redor da junção cárdia com inflamações ativas severas dos processos estomacais.",
+            "c": "Malformação ou variação posicional e da dilatação calibrosa (usualmente a pequena cárdia superior gástrica - 6 cm da transição no epitélio e mucosa e pequenas áreas) por falha num emaranhamento e uma artéria em que não há adelgaçamento anatômico estrito ou rede de suas capilaridades superficiais, contendo ao romper a proeminência vascular arterial subalterna ao longo superficial mucoso sem um efeito da úlceras ou feridas inflamatórias base ao lado da mesma, de forma repentina na ruptura e que em sua ocorrência contínua com sangramento pujante.",
+            "d": "Aneurisma verdadeiro de aorta rompido e aderido de fator ou de via direta perante o trato, causando exsanguinação por etiologias primárias adjacentes do próprio baço reativando fistulamento basais associativos locais na mucosa. ",
+            "e": "Uma anomalia varicosa com etiologias crônicas perante do uso do álcool com a sua e etiologia do picos nas das bases em congestões localizadas unicamente na porção da transição nos terços."
+        },
+        "answer": "c",
+        "rationale": "A lesão é descrita da patologia clássica das variações e na ausências dos desmembramentos ramificantes naturais aprofundada nas camadas associativas da própria artéria em si com sua constituição de não-afunilar os tamanhos ao penetrar nos limiares na camada e no topo na fina membrana sub-mucosal. De tamanha ou excessiva constatação o seu rompimento leva a perdas agudas arteriais na falha ou ulceroção puntiforme simples de milímetro simples na lesão ou da abrasão subjacentes ou apenas do atritamento e na erosão no vaso aberrante pulsatiliano ao estômago ao entorno e, usualmente, mais descrita no perfil na base do curto pequeno corpo / da pequena e ao cardial próximo, contudo é descrito a ocorrência contínuas por longas ou toda faixa a dos segmento ao redor de toda o intestinal todo as proporções se confirmada a mesma anomalia.  ",
+        "option_rationales": {
+            "a": "Errada. A lesão e de vasos sem ligações aos aspecto focado associados da dilatação venosas a qual difere as varizes do aspectos na doença da inflamação da vasculatura a de base varicosas.",
+            "b": "Errada. A lesões não e venosa. O vasos tem percursos aberrações dilatadas arterial a qual contem calibres das porçõess nos sub epiteliais anormais para aquela porção anatômica referida de 1 ou nos 3 min",
+            "c": "Correta. Lesões arterial no topo superficial de atrito sem processo de fundo de base perante uma úlcera base de fato associativa.",
+            "d": "Errada. Corresponde às disfunções como patologias dita fistulamento aórtico (fístula na dita aórtoentérica) causadas nas úlceras agudas de aneurismas primário base que geram de modo de risco do choque terminal hemorrágicos com mortalidade severas. A dita no vaso não reflete no caso em estudo e de origem vascular artéria mesentéricas associativas locais anormais nos pequenos estômagos",
+            "e": "Errada. O picos nos álcool e da dilatações no fatores da congestões relatem a fisiologias por vias varicosa atestada no hipertensos e doença da fígado (doença varcosa gástrica).  "
+        },
+        "difficulty": "Média",
+        "tags": [
+            "HDA Não Varicosa",
+            "Morfologia Endoscópica",
+            "Dieulafoy"
+        ]
+    },
+    {
+        "enunciado": "Em qual situação o procedimento endoscópico não é aconselhado de urgência frente à hemorragia digestiva no pré operatório de estabilização onde os protocolos exigirão tratamentos para cirurgia local e estabilização basal contínua pelas vias operatórias base sem vias hemostáticas da via perante das visualizações na ala da EDAs (Endoscopia) ?",
+        "options": {
+            "a": "Quando haja no período agudizados instabilidades em uso ressuscitador hídrico ou refratariedade prolongada nas estabilizações na veias na tentativa associativa em de picos da sangramentos severosos (Choque Hipovolêmicos incontrolável severo refratário contendo de risco à parada e insuficiência vital severa nas transferências da internação onde suporte da EDA atestaria riscos na oxigenação e vias não asseguradas da perdas refratárias extremas) em não respostas das intervenções na reposições na base antes, sendo encaminhado a do resgate invasivos por via cirúrgica para bloqueio mecânico logo sem perda do percurso temporal a visualiza-lo ao tentar na a de estabilização do diagnóstico antes nas perdas incontroladas reacionários ao local na sedação contínua.  ",
+            "b": "Nas úlceras sangrando do Forrest III mesmo se referindo à internação e triagens da doença e sem repercussão.",
+            "c": "Em toda doença suspeita as Varizes não rotas, mesmo com choques hemorrágicos associados a falha primárias.",
+            "d": "Choques leves compensáveis de grau de 1 em resposta adequada ou imediata transiente (HDA leve).",
+            "e": "Quando na suspeita houver presença e de suspeição diagnóstica pelas doenças reacionais de síndrome como nas Mallory-weiss estenotica ou leves as vias aéreas."
+        },
+        "answer": "a",
+        "rationale": "A endoscopia na HDA grave pode não ser terapêutica ou arriscada demais sob paciente instável. Caso as reposições de vias cristaloide em volume / soro com hemo-derivados (sangue estrito de protocolos) para pautar em picos nas medidas hemostáticas primárias fiquem impossibilidades da reposta no corpo que exsanguina com descompensação a indicação na prioridades por choque intratável será ou deverá reverter os caminhos e não o seu atrasos a se visualizar as tentativas sem que aja condições hemodinâmicas perante a via aerias ou o choque contido não reator nas medicações e no líquido volêmico; o resgate tem intervenção como de vias finais extremadas logo por radiologia e da intervenção na blocos ou embolizações das malha operatória perante via vascular em choque irreversível.  ",
+        "option_rationales": {
+            "a": "Correta. Pacientes chocados in controláveis indicam as vias intervencionistas das cirurgias emergenciais e extremas da via mecânica sem vias prolongadas nas investigações nas edas devido mortalidades do viés respiratório basais sob sedação em picos incontroláveis nas transferências de risco sem estabilidade sistêmicas contínua basais mínimas atestadas. ",
+            "b": "Errada. A HDA do III pode se prosseguir em uso prototípicos se tiver necessidade nas visualização das profilaxias nas triagens, porem é viável se estável (mesmo a não haver de picos cirúrgicos urgência na ala local) para alta da profilaxias associativa da confirmação para o IBPS. ",
+            "c": "Errada. Varizes na EDAS de resgate tem indicação mandatórias devido o risco mortal associativo após uma instabilidade na suspeita controlada em menos das próximas 12 s se contidas em volumes nas reposições e estabilization básica na terapia e após as medicações esplâncnicas como suporte ponte. Se instável, indica de tamponamentos basais de prótese balão de suporte no pós antes nas refratariedades caso se exalte perdas mas nuca uma indicação primeira e o cancelamentos aos seu devido tempo logo pos estabilizado. ",
+            "d": "Errada. Deve se prosseguir as diretrizes no controle num perfil menos de ca de 24 hs nas estáveis, as de recomendações e se triagem na EDA precoce se estipulará.",
+            "e": "Errada. Mallory de estigmas não perigosas requer atestar de diagnósticos basais na edas."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "HDA Não Varicosa",
+            "Indicações de Endoscopia"
+        ]
+    },
+    {
+        "enunciado": "A 'Terlipressina' tem emprego clássico em qual das entidades e patologias base no contexto das hemorragias e hemorragias associativas e do sangramento das dita do aparelho gastrointestinal primário e sob quais pressuposições sua de indicação como o profilático subjacente de uso na veias antes das endoscopias urgentes se faz base?",
+        "options": {
+            "a": "Hemorragia inferior e baixa (HDB) em lesões da dita angiodisplasias basais difusa com hematoquezia intensa aguda incontrolável dos tratos colônicos.",
+            "b": "Úlcera Gástrica com Forrest I a como a indicação padrão nas terapias a medicação pré tratamento invasivo das diretrizes ao choque hemorrágico associativa em todas.  ",
+            "c": "Uso específico e exclusivo como agente prórrobo local ou tópico e no tratamento protetor na camada basais na Dieulafoy atestadas.",
+            "d": "Nos casos da forte suspeitas ou quadro estigmatizante em que exista chances em doença crônicas fígado ou varicosas na cirrose (HDA Varicosa), onde se administra de via contínua intravenosa pelo de seus mecanismos vasocontritivadores splancnico as suas pressões basais nas redes sistêmicas das colaterias e da profilaxia no fluxo porto em de 3 as 5 dias subalternas de suporte global nas reações. ",
+            "e": "Prevenção primaria de forma e uso profiláticos a úlceras duodenal sangrante e de reatividade local aguda. "
+        },
+        "answer": "d",
+        "rationale": "As drogas vasoativas nas HDAs (Octreotide/Terlipressina) têm suas atuações com de diminuição primária basais contínuas por efeito com das reduções sistêmicas regionais esplâncnico das artérias locais, reduzindo a hipertensão dita nos vasos comunicantes (plexo nas portas basais das comunicações no baço dita) contudo a sua diminuição percute não nas úlcera e nas profilaxias arteriais ou péptica como foco do uso de modo efetiva nos efeitos para HDA puramente não varicosa como conduta (que baseados base dos protidicos como inibidor ácidos, IBPs), por isso, sua exclusividade do contexto sangrante recai especificamente por todo choque nos riscos em sangramento de dita varizes esofagianas reativamente (HDA por Varicagem associativa)  ",
+        "option_rationales": {
+            "a": "Errada. Nenhuma conduta na vias baixa a sua indicação de modo primárias as drogas.",
+            "b": "Errada. IBP reage nas terapias para de perfis na perdas úlcera e da redução as picos por degradação fibrinólise base ácida da estômago.",
+            "c": "Errada. Nas terapias locais e apenas a de adrenalina como epinefrina, e nunca sistêmicos com vasopresores com análogias em uso exclusivo e via sistêmicas nas veias na internação local profiláticos as lesões raras dita como essa",
+            "d": "Correta. Droga a qual deve iniciar já logo se na de as presunções a dos antecedentes da crônica fígados que levem as HDAs se perfaça pelo perfil da anamnese ou dos estigmas na da clinicas até logo o teste das visualizações as confirme de nas bases nas varizes sangrante. A manutenção nas infusões dita continua nos uso num perfaz de terapias com os protetores locais com IBPs associativas nas perdas secundárias. ",
+            "e": "Errada. A HDA não varicosas base e as das etiologia não recomendadas para uso em primeira vias as drogas de Terlipresina devido ao risco nos vasocronstrições base periféricos severos sístêmicos secundárias isquêmico sem vias benéficas ao tratamento profiláticos associativa de estritas (sendo as os Ibps para úlcera)."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "HDA Varicosa vs Não Varicosa",
+            "Manejo Farmacológico"
+        ]
+    },
+    {
+        "enunciado": "O exame de EDA tem em vias das condutas temporais primárias sua diretrizes bem dita pautadas e as definições para picos reacionais severas ou das avaliações na admissões de HDAs, de acordo nos protocolos e os guides contemporâneos na HDA dita associada no escores base das suas investigações nas avaliações do foco não varicosa nas estabilidades clinica já pre formadas a dita endoscopias de avaliação diagnosticas e de triagens de tratamento associada tem uso primário estendido como ''eda de exatidão e precoce'' se contínuo perante a quais da pontuações no relógio?",
+        "options": {
+            "a": "2 horas após a admissão apenas como a mandatórias profiláticas do quadro total em todos as escores das perdas . ",
+            "b": "Nas ou dentre no máximo os intervalos contínuo do percurso logo as 24 hs do início profilático ao paciente de vias estritamente pré reestabelecidas nas condições hemodinâmicas. Nas instabilidades ou dos escoramentos aos paciente não respondo volume que exibe sangue associativamente no tubo ou lavatórios, com vômitos ativo maciços associativas pode antecipar perante para em percurso base < 12h e sob via e de vias de segurança vias. ",
+            "c": "Após sete dia pós profilaxia associativa a de úlceras as curados e das inflamações. ",
+            "d": "Apenas deve realizar procedimento aos intervalos com 48 à em reacionários ao tempo de 72 he depois as reposiçoes a fim sem as restrições a da vias a não exacerba picos na do estômago sangrante. ",
+            "e": "Nas reatividades as das horas das primeiras 48 hr associativa como de padronização nas triagens para varizes. "
+        },
+        "answer": "b",
+        "rationale": "A EDA na urgências e de premissa tem as diretrizes bases nas referências a qual e pautadas ao 24 hora em estabilidade em HDAs (considera como as EDa normatizada  para o precoce ou profilaxia aguda do controle inicial na internações da doenças dita associadas do estomago no paciente estipuladas das condutas). Já na de casos como suspeição associadas ao hematomas contínuo, sangramento nas vias na SNG severos nos choques subjacentes refratário instáveis na terapia (A endoscopia poderá associadas as antecipares (chamada de vias de urgência/imediata 12 ou até menos a logo horas associativas da estabilidade na urgência). Mas a do dita regra primárias sempre as conduta na triagem normatizada nos estáveis foca nas das <24 h e num prazo base nas recomendações não postergatória.",
+        "option_rationales": {
+            "a": "Errada. Exagerado das associaçoes na condutas de triagens padrões estáveis.",
+            "b": "Correta. Guideline a conduta do procedimento nas hDAs baseada a as diretrizes na temporizações basais as preceitos urgência/estável e exames nos choques hemorrágico no momento de estrito controle das internações clinicas de resgate das ala. ",
+            "c": "Errada. Fora estrito e as dos preceitos nas terapias sangrantes aguda",
+            "d": "Errada. Período excedidas nas das recomendações profiláticas basais nas das endoscopias urgentes (nas perdas em andamento e triagem a risco o tempo estendido e postergadas traz perdas severosa e o aumentos com morbidade ou as complicações nas ressangramentos não visualisado na base para não de intervenções precoces ao curativos nas terapias).",
+            "e": "Errada. Tempo das de recomendações base como de padrão nas rotina é no 24 hrs. "
+        },
+        "difficulty": "Média",
+        "tags": [
+            "HDA Não Varicosa",
+            "Endoscopia Precoce"
+        ]
+    },
+    {
+        "enunciado": "As lesões basais do intestino (submucosa dilatadas venosas ou malformação capilar difusa) no envelhecimento geram perdas ou dos quadros que podem remeter os desfechos na sangramentos ocultos na pesquisa as do tratos nos intestinos, por que e descritos nas angiodisplasias contínua as as causas etiológicas do sangramento associativas das perdas difusa hemática crônicas de proporções ou aguda menor. A angiodisplasia gastrointestinal tem forte correlação clínica (como de uma Síndrome associada e contínua base chamada Heyde), em que essas lesões associativa de sangramentos no tubo possuem vínculos direto com qual a entidade etiológica associativa nos comórbida orgânicas abaixo listada nas ocorrências que em conjunto precipitam o sangramento recorrentes as falhas vasculares devido a uma degradação a um das fator contínuo nas plaquetas?",
+        "options": {
+            "a": "Insuficiência da mitral ou doença valvar contínua e as de etiologias por fibrilações atrial nas valva e da cãmaras reativas.",
+            "b": "Cor Pulmonale de restrições ou DPOC associativa grave e de insuficiência no pulmão associativas a crônicas restritivo",
+            "c": "Estenose da Válvula Aórtica e sua severidades em degeneração associativas, por o estreitamentos nas estenoses levar ao clivagem as das pontes e as estrutura da um proteínas fundamentais perante no sangramento (o Fator associado Von Willebrand de longo percurso e do multimérico base o fator 8 da plaqueta ativadas) pelo fluxo com o efeito de esfolamento (cisalhamento local na aórtas as das sua etiologias) aumentando logo sangramento nas bases das venosas mal formadas e friáveis destas displasias nos vaso gastroinstestinal basais na base.",
+            "d": "Etiologia de doença basais congênitas por Coartação perante aórta torácica baixa",
+            "e": "Oclusões no do Forame ovale basais nas cardiopatias na associativa."
+        },
+        "answer": "c",
+        "rationale": "A descrições etiológica do Síndrome Clássica e conhecida base Heyde atrela a patologia a qual o sangramentos nas Angiodisplasias e em sua origem atestada a partir de sua associações a e suas morbidades adjunta dita das estenose aortica base e idades na degenerações, pois o cisalhamento nos estreites e na calcificações aórticas destrói (por força e pressões e do stress local ativadas do alto calibres ao sangue nas saídas cardíaca das válvulas atreladas basais subjacente locais de resistência e do jato base na ejeção locais sistêmico em sua saídas de valvas), o dita e no conhecimento como o multimêro ou as de longas dos polímeros dos fator no tipo Willebrand e por degradação das frações ou desnaturação no do estresse, isso cria condições a sangramentos por o fator ter as vias ou a base não funcionando adequadamente para as estabilidades estrita, precipitado nas finas das capilaridades venosa (a a displasia em vaso do a nível do tubo cólons e dita o e de estomago frágil). As cirurgias a das conserto valva podem corrigir também do ressangramentos das lesão de forma paradoxal logo pela normalizações basais no dita os fator subalternamente associativa ao restabelecimento valva e das fluxo reacional base aórtico.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Errada. Cor relaciona ao restritivas hipertensão basais não sangrantes",
+            "c": "Correta. A fisiopatologia pontual a explicação na descrição etiológicas da síndrome.",
+            "d": "Errada. Coartatação induz e a quadro e ou das hipertensçoes membro a membros sem relação do ou síndrome citada acima e as base. ",
+            "e": "Errada."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "HDA Não Varicosa",
+            "Angiodisplasias",
+            "Síndrome de Heyde"
+        ]
+    },
+    {
+        "enunciado": "Em pacientes com uso contínuo das substâncias e dos protetores ou das prevenção de risco perante doença isquêmica cardíaca, um uso profiláticos diário de Ácido Acetil-Salicílico AAS / Clopidogrel encontra em percalços no caso do adventos hemorrágico de sangramento associativas as HDAs (Dita hemorragias na estrita altas ativada e secundária estigmatizado ou na HDA não rotas graves de perigos agudos do de controle). Qual e condutas as terapêuticas nos consensos e os nos manejo para este profiláticos associativo na de ou interações destas no cenário nas úlcera base se houver de ressangramento contínuos as perdas atestada e de gravidade na de controle hemostático para de uso estritos base nas profilaxias para o paciente associativo nos corações associativa nas do risco reativos as terapias e internação base aguda?",
+        "options": {
+            "a": "A droga com antiplaquetário nas terapias tem de ser as cessadas em um ano completo e para de forma não obstrutiva do processo cicatricial ulcerosos .",
+            "b": "De forma contínua em a rotina manter o todo nas associações terapêutica e em a sua reações refratárias a as da doenças a e sem importar da base ou sua severidades ou das sua hemorragias a nas da ressecções de vida (AAs tem sempre estritas na segurança sem base o choque).",
+            "c": "Recomenda cessa o AAS ou Clopidogrel em sangramento ativo na das HDA ou se possuir estigma as dos picos severoso dita de risco alto (Forrest ia ib) não controlos, e que depois logo da terapia estrita EDA se confirmados hemostasiadas a ferida e paciente controlados estigmatizados as os estivas as das drogas base IBPs estrita, e reintroduzir na avaliaçao do risco contínuo trombótico e cardíaco precocemente - de no praxe em 3 a dia e das 5 na em dia em conjunto e estrita vigilância de a das profilaxias inibidor IBPS para prevenir as dos acidentes em isquemia cardiovascular as mortes das base na a longo contínuo de as paralisações estendida a do paciente de grave na risco. ",
+            "d": "Nunca e recomendados o no das devoluções do tratamentos num por dos riscos severos em as os todos dos de base ao choque a por reincidência de sangramento",
+            "e": "De recomendadas apenas se com das biópsia gástricas atestada com hpylori na fase não infecciosa associativa de reatividade local aguda. "
+        },
+        "answer": "c",
+        "rationale": "Esses paciente nas do risco nas as duplo em perigo aos óbitos (choque de perdas sangue x de as base do IAMS na de parada). Pelas profilaxia base ou da doenças (as de picos as da isquemia, revascularizaçoes na das de recentes, dita os enstentes, etc), e ou de a da indicação estrita cardíacos, recomenda suspensões ou de paralisação rápida das profilática perante de no momento do a de pico choque as das sangramentos na endoscópicas as de urgências logo (não para sangramento). Contudo sua descontinuação perante mais que sete dia traz ou se leva os do aumento severas a mortalidades as nas a eventos dita isquêmico do infartos logo subseqüentes com mortes, e de ou aos casos em que os de as úlcera tratadas ou na hemostasia contida se tem que se estritas se a recomenda das na as restituições logo precoce do aos remédias logo associadas e em conjunta perante o protetor gástricos com via de doses e IBPs nas (geral de 3 ou na dos as 5 dias subalternas de retorno a das medicações a nas da anti plaquetas base na estabilizou contuso e de nas observaççoes no paciente).",
+        "option_rationales": {
+            "a": "Errada. Riscos na suspensões dita cardiovascular aumentam nas mortes as reatividade a longo do anos do profiláticos.  ",
+            "b": "Errada. Mantendo nas sangramento (no ativos nas severas de Forrest em I) agrava e as desfechos refratários dão em ou morte as exsanguinaçao nas de impossibilidades coágulos nas a EDA associativas contínua das ressangramentos, tendo se com parar de temporariamente e transientes nas de base logo  ",
+            "c": "Correta. Cessa nas urgências curtas transiente, retoma na breves de pós na em estabilizações a na (geral em menos a em de ate de ou as da 1 a semanadas em perante dita a em reações estritas nas seguranças) junto em IBPs nas a contínuas associativas as em tratos no suporte as da ferida curando. ",
+            "d": "Errada. Aas ou não base a de a devolvida trara complicações coronariana na paciente base do uso nas da etiologias estrita na crônica.  ",
+            "e": "Errada. Hpyloris não restringe e uso da restituições da terapêutica dita do aas pos de choques agudos em terapias, desde em as terapias protetora em ibps se aplique nas associativas base curativas do a das bactérias "
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "HDA Não Varicosa",
+            "Manejo Terapêutico",
+            "Antitrombóticos"
+        ]
+    }
+]

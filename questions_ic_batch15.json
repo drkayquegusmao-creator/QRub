@@ -1,0 +1,389 @@
+[
+    {
+        "enunciado": "A respeito do uso de vasodilatadores arteriais como a Hidralazina na IC, qual o principal cuidado em pacientes com doença arterial coronariana (DAC) associada?",
+        "options": {
+            "a": "Risco de bradicardia severa.",
+            "b": "Risco de taquicardia reflexa e aumento do consumo de oxigênio miocárdico, podendo desencadear angina.",
+            "c": "Aumenta o risco de sangramento gástrico.",
+            "d": "Causa fibrose pulmonar progressiva.",
+            "e": "Não há cuidados específicos."
+        },
+        "answer": "b",
+        "rationale": "A hidralazina promove vasodilatação arteriolar potente, o que pode causar uma ativação simpática reflexa compensatória (taquicardia). Em pacientes com coronariopatia, esse aumento da FC e do inotropismo reflexo aumenta a demanda de O2 e pode causar isquemia. Frequentemente é usada associada a nitratos para contrabalançar esses efeitos.",
+        "option_rationales": {
+            "a": "Incorreta. Hidralazina causa taquicardia.",
+            "b": "Correta. Efeito colateral hemodinâmico importante a ser monitorado.",
+            "c": "Incorreta.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "média",
+        "tags": [
+            "Hidralazina",
+            "Segurança",
+            "Interações",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Qual dos seguintes parâmetros define o estágio B da insuficiência cardíaca?",
+        "options": {
+            "a": "Paciente com insuficiência cardíaca refratária.",
+            "b": "Paciente com doença estrutural estabelecida (ex: infarto prévio, hipertrofia VE), mas que NUNCA apresentou sinais ou sintomas de IC.",
+            "c": "Paciente sem doença estrutural mas com sintomas de IC.",
+            "d": "Paciente diabético sem alterações no ecocardiograma.",
+            "e": "Paciente curado após transplante cardíaco."
+        },
+        "answer": "b",
+        "rationale": "O Estágio B é a fase pré-clínica da IC. O paciente já tem a 'máquina' estragada (ex: um coração dilatado ou com cicatriz de infarto), mas os mecanismos de compensação ainda conseguem manter o paciente assintomático. É o momento ideal para iniciar IECA e Betabloqueador para evitar a progressão para o estágio C.",
+        "option_rationales": {
+            "a": "Incorreta. Este é o Estágio D.",
+            "b": "Correta. Define a cardiopatia estrutural assintomática.",
+            "c": "Incorreta. Sem doença estrutural, dificilmente é IC; se for, e tiver sintomas, seria Estágio C.",
+            "d": "Incorreta. Este é Estágio A.",
+            "e": "Incorreta."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "Estágios de IC",
+            "Classificação",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "A respeito da insuficiência cardíaca em idosos, qual a apresentação clínica 'atípica' que pode dificultar o diagnóstico inicial?",
+        "options": {
+            "a": "Febre e calafrios.",
+            "b": "Confusão mental, desorientação e fadiga extrema, em vez da dispneia clássica.",
+            "c": "Aumento súbito da força muscular.",
+            "d": "Cabelos e unhas quebradiços.",
+            "e": "Melhora da acuidade visual."
+        },
+        "answer": "b",
+        "rationale": "No idoso frágil, as queixas de dispneia podem ser mascaradas pela imobilidade ou atribuídas à idade. Sintomas inespecíficos como queda do estado geral, confusão (por baixo débito cerebral) e sonolência são frequentes apresentações de descompensação de IC nesta faixa etária.",
+        "option_rationales": {
+            "a": "Incorreta. Sugere infecção.",
+            "b": "Correta. Fenótipo atípico comum na geriatria.",
+            "c": "Incorreta.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "média",
+        "tags": [
+            "Geriatria",
+            "Apresentação Clínica",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "No contexto da IC, qual a principal indicação para o uso de anticoagulantes orais em pacientes EM RITMO SINUSAL (sem fibrilação atrial)?",
+        "options": {
+            "a": "Uso rotineiro em todos os pacientes com FE < 35%.",
+            "b": "Presença de trombo intracavitário (ex: trombo apical no VE pós-infarto) documentado por imagem.",
+            "c": "Apenas se o paciente tiver varizes de membros inferiores.",
+            "d": "Se o paciente for tabagista.",
+            "e": "Não há indicação de anticoagulação em ritmo sinusal."
+        },
+        "answer": "b",
+        "rationale": "Diferente da FA, no ritmo sinusal a anticoagulação rotineira na IC não mostrou benefício (Estudo COMMANDER-HF / WARCEF). No entanto, a presença de um trombo formado na cavidade (comum em corações muito dilatados e hipocinéticos) é indicação formal de anticoagulação por 3 a 6 meses.",
+        "option_rationales": {
+            "a": "Incorreta. Aumenta o risco de sangramento sem reduzir eventos isquêmicos globais no ritmo sinusal.",
+            "b": "Correta. Indicação específica baseada na presença de substrato embólico.",
+            "c": "Incorreta.",
+            "d": "Incorreta.",
+            "e": "Incorreta. Há indicação no caso de trombos murais ou embolia prévia."
+        },
+        "difficulty": "média",
+        "tags": [
+            "Anticoagulação",
+            "Trombo Mural",
+            "Manejo",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Qual dos seguintes parâmetros hemodinâmicos é mais característico do choque cardiogênico?",
+        "options": {
+            "a": "Débito cardíaco elevado e resistência vascular sistêmica baixa.",
+            "b": "Débito cardíaco baixo (Índice Cardíaco < 2.2 L/min/m²) e pressão de oclusão da artéria pulmonar elevada (> 15-18 mmHg).",
+            "c": "Débito cardíaco baixo e pressões de enchimento das câmaras direitas e esquerdas normais.",
+            "d": "Hipertensão arterial sistêmica severa.",
+            "e": "Frequência cardíaca de 40 bpm."
+        },
+        "answer": "b",
+        "rationale": "O choque cardiogênico define-se pela incapacidade do coração em bombear sangue (IC baixo) apesar de pressões de enchimento adequadas (ou elevadas = congestão). É um choque 'frio e úmido' hemodinamicamente.",
+        "option_rationales": {
+            "a": "Incorreta. Este é o perfil do choque distributivo (ex: sepse).",
+            "b": "Correta. Define a falência de bomba com evidência de congestão retrógrada.",
+            "c": "Incorreta. Pressões normais sugeririam choque hipovolêmico.",
+            "d": "Incorreta. O choque cursa com hipotensão (PAS < 90).",
+            "e": "Incorreta. Pode ocorrer na bradicardia severa, mas não define a hemodinâmica do choque de bomba padrão."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "Choque Cardiogênico",
+            "Hemodinâmica",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "A respeito da reabilitação cardiovascular na IC crônica estável, qual o principal benefício demonstrado pelo estudo HF-ACTION?",
+        "options": {
+            "a": "Aumento imediato da fração de ejeção em 50%.",
+            "b": "Melhora da qualidade de vida, redução de hospitalizações por IC e tendência à redução de mortalidade.",
+            "c": "Curar a cardiopatia de base em 5 anos.",
+            "d": "Reduzir o custo do tratamento odontológico.",
+            "e": "Provocou aumento da mortalidade em pacientes idosos."
+        },
+        "answer": "b",
+        "rationale": "O HF-ACTION foi o maior trial de exercício físico na IC. Mostrou que o exercício aeróbico regular é seguro e melhora significativamente a tolerância ao esforço e a qualidade de vida, sendo recomendação Classe I em todas as diretrizes para pacientes estáveis.",
+        "option_rationales": {
+            "a": "Incorreta. A FE melhora pouco com exercício isolado.",
+            "b": "Correta. Demonstrou o valor terapêutico da atividade física supervisionada.",
+            "c": "Incorreta.",
+            "d": "Incorreta.",
+            "e": "Incorreta. O exercício foi seguro em todas as faixas etárias estudadas."
+        },
+        "difficulty": "média",
+        "tags": [
+            "Reabilitação",
+            "Exercício",
+            "Manejo",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "A respeito do diagnóstico de miocardite aguda, qual o critério clínico-histológico que exige a realização de Biópsia Endomiocárdica (BEM) de acordo com as posições de especialistas?",
+        "options": {
+            "a": "Todo paciente com suspeita de miocardite deve ser biopsiado.",
+            "b": "Sinais de insuficiência cardíaca de início súbito (fulminante) com instabilidade hemodinâmica, bloqueios de condução de alto grau ou arritmias ventriculares malignas.",
+            "c": "Apenas se o paciente for menor de 18 anos.",
+            "d": "Se a troponina estiver normal.",
+            "e": "A biópsia foi abandonada na prática moderna em favor da ressonância."
+        },
+        "answer": "b",
+        "rationale": "A BEM não é feita de rotina na miocardite leve/moderada (onde a RMC é soberana). Ela é reservada para casos graves ('miocardite fulminante') para diagnosticar causas específicas que exigem tratamento imediato, como a Miocardite de Células Gigantes (que exige imunossupressão agressiva e tem prognóstico fatal sem tratamento).",
+        "option_rationales": {
+            "a": "Incorreta. Exame invasivo com riscos, usado seletivamente.",
+            "b": "Correta. Indicações de 'salvamento' para diagnóstico etiológico específico em casos críticos.",
+            "c": "Incorreta.",
+            "d": "Incorreta.",
+            "e": "Incorreta. Continua sendo o padrão-ouro e mandatória em casos graves específicos."
+        },
+        "difficulty": "difícil",
+        "tags": [
+            "Miocardite",
+            "Biópsia",
+            "Diagnóstico",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Qual dos seguintes medicamentos deve ser evitado ou usado com cautela extrema em pacientes com IC devido ao seu potencial de causar retenção hidrossalina e desompensação congestiva?",
+        "options": {
+            "a": "Anti-inflamatórios não esteroides (AINEs).",
+            "b": "Paracetamol.",
+            "c": "Vitamina D.",
+            "d": "Estatina.",
+            "e": "Antibióticos betalactâmicos."
+        },
+        "answer": "a",
+        "rationale": "Os AINEs inibem a síntese de prostaglandinas renais, levando a vasoconstrição da arteríola aferente, redução da TFG e retenção de sódio e água. Além disso, eles antagonizam os efeitos dos diuréticos e dos IECA/BRA, sendo um gatilho muito comum de internação por IC aguda.",
+        "option_rationales": {
+            "a": "Correta. Causa clássica de descompensação iatrogênica ou por automedicação.",
+            "b": "Incorreta. Analgésico seguro para uso na IC.",
+            "c": "Incorreta.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "AINEs",
+            "Segurança",
+            "Descompensação",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "A utilização de Pro-BNP para o diagnóstico de IC aguda pode apresentar resultados falso-negativos (baixos) em qual população específica?",
+        "options": {
+            "a": "Pacientes obesos (IMC > 30).",
+            "b": "Pacientes com insuficiência renal crônica.",
+            "c": "Pacientes muito idosos (> 90 anos).",
+            "d": "Pacientes com grandes derrames pleurais.",
+            "e": "Pacientes com fibrilação atrial."
+        },
+        "answer": "a",
+        "rationale": "A obesidade está associada a níveis mais baixos de peptídeos natriuréticos circulantes. Acredita-se que o tecido adiposo possua mais receptores de clareamento (NPR-C) ou menor síntese de BNP. Assim, um obeso pode estar congestionado com um BNP de 80-150, o que exigiria um nível maior em um paciente magro.",
+        "option_rationales": {
+            "a": "Correta. Limitação diagnóstica importante no manejo do paciente com dispneia e obesidade.",
+            "b": "Incorreta. Na IRC, o BNP costuma estar FALSO-POSITIVO (elevado).",
+            "c": "Incorreta. Idosos têm níveis basais mais altos.",
+            "d": "Incorreta.",
+            "e": "Incorreta. FA eleva os níveis de BNP."
+        },
+        "difficulty": "média",
+        "tags": [
+            "Biomarcadores",
+            "Obesidade",
+            "Armadilhas",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Qual o principal mecanismo de ação do Sacubitril no tratamento da insuficiência cardíaca?",
+        "options": {
+            "a": "Bloqueia o receptor de angiotensina II.",
+            "b": "Inibe a enzima neprilisina, impedindo a degradação de peptídeos natriuréticos e outras substâncias vasodilatadoras.",
+            "c": "Bloqueia os canais de sódio no coração.",
+            "d": "Estimula a produção de eritropoetina.",
+            "e": "Reduz o colesterol LDL."
+        },
+        "answer": "b",
+        "rationale": "O Sacubitril é um profármaco que inibe a neprilisina. Ao fazer isso, ele aumenta os níveis de BNP, ANP, Bradicinina e Substância P, promovendo natriurese, vasodilatação e efeito anti-remodelamento. É sempre usado em combinação com um BRA (Valsartana) para evitar o acúmulo de angiotensina II.",
+        "option_rationales": {
+            "a": "Incorreta. Esta é a função da Valsartana.",
+            "b": "Correta. Define o papel farmacológico da nova classe INRA.",
+            "c": "Incorreta.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "Sacubitril",
+            "Farmacologia",
+            "INRA",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Na ausculta pulmonar de um paciente com IC em tratamento, o desaparecimento das crepitações (estertores) nas bases sugere:",
+        "options": {
+            "a": "Piora iminente da função cardíaca.",
+            "b": "Sucesso da terapia diurética e redução da congestão alveolar (euvolemia pulmonar).",
+            "c": "Necessidade de intubação imediata.",
+            "d": "Desenvolvimento de enfisema agudo.",
+            "e": "Melhora apenas se houver aumento concomitante da FC."
+        },
+        "answer": "b",
+        "rationale": "O sumiço dos estertores é o sinal físico de que o líquido saiu do alvéolo, indicando resposta positiva ao tratamento de descompressão do lado esquerdo.",
+        "option_rationales": {
+            "a": "Incorreta.",
+            "b": "Correta. Marcador clínico de resolução da fase aguda congestiva.",
+            "c": "Incorreta.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "Exame Físico",
+            "Manejo",
+            "Resolução",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Um paciente com ICFEr (FE 20%) apresenta-se com insuficiência mitral moderada de caráter funcional. De acordo com as diretrizes e o estudo COAPT, qual intervenção percutânea pode ser considerada em pacientes selecionados que continuam sintomáticos apesar de terapia médica plena?",
+        "options": {
+            "a": "Implante de TAVI (prótese aórtica).",
+            "b": "Reparo valvar mitral borda a borda (MitraClip).",
+            "c": "Ablação de veias pulmonares.",
+            "d": "Fechamento de comunicação interatrial.",
+            "e": "Simpatectomia renal."
+        },
+        "answer": "b",
+        "rationale": "O MitraClip (reparo borda-a-borda) mostrou reduzir mortalidade e internações em pacientes com IM funcional secundária à IC que persistem sintomáticos apesar de toda a medicação otimizada (estudo COAPT). O paciente deve preencher critérios anatômicos e de volume ventricular específicos.",
+        "option_rationales": {
+            "a": "Incorreta. TAVI é para estenose aórtica.",
+            "b": "Correta. Opção intervencionista moderna para insuficiência mitral funcional grave.",
+            "c": "Incorreta.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "difícil",
+        "tags": [
+            "MitraClip",
+            "COAPT",
+            "Intervenção",
+            "FGV"
+        ]
+    },
+    {
+        "enunciatedo": "Qual a principal alteração no ecocardiograma sugestiva de Amiloidose Cardíaca tipo transtirretina (ATTR)?",
+        "options": {
+            "a": "Miocárdio hiper-refringente (aspecto granular/brilhante), aumento da espessura das paredes e 'apical sparing' no mapa de Strain (preservação da contratilidade na ponta).",
+            "b": "Paredes excessivamente finas e dilatadas.",
+            "c": "Válvulas cardíacas totalmente normais.",
+            "d": "Presença de vegetações na valva aórtica.",
+            "e": "Movimento sistólico anterior da mitral (SAM)."
+        },
+        "answer": "a",
+        "rationale": "O aspecto infiltrativo da amiloidose causa o brilho granular (sparkling) e o espessamento que simula hipertrofia (pseudohipertrofia). O diferencial mais moderno é o Strain, que mostra a ponta do coração contraindo bem enquanto as bases estão 'congeladas' pela infiltração amiloide.",
+        "option_rationales": {
+            "a": "Correta. Conjunto de achados sugestivos de doença infiltrativa.",
+            "b": "Incorreta. Sugere miocardiopatia dilatada.",
+            "c": "Incorreta. Válvulas costumam estar espessadas na amiloidose.",
+            "d": "Incorreta.",
+            "e": "Incorreta. Típico da hipertrófica obstrutiva."
+        },
+        "difficulty": "média",
+        "tags": [
+            "Amiloidose",
+            "Ecocardiograma",
+            "Strain",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "A respeito do uso de antagonistas da aldosterona (Espironolactona) na IC, qual efeito colateral endócrino é mais comum no sexo masculino?",
+        "options": {
+            "a": "Aumento excessivo da testosterona.",
+            "b": "Ginecomastia e mastalgia por efeito antiandrogênico não seletivo.",
+            "c": "Hirsutismo (excesso de pelos).",
+            "d": "Desenvolvimento de Diabetes Tipo 1.",
+            "e": "Nodos de Bouchard nas mãos."
+        },
+        "answer": "b",
+        "rationale": "A espironolactona bloqueia não apenas o receptor mineralocorticoide, mas também tem afinidade pelos receptores de progesterona e androgênios, podendo causar crescimento das mamas e dor local em homens. A Eplerenona é seletiva e não causa este efeito.",
+        "option_rationales": {
+            "a": "Incorreta. Ela bloqueia a ação androgênica.",
+            "b": "Correta. Principal motivo de descontinuação desta droga em homens.",
+            "c": "Incorreta.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "Espironolactona",
+            "Efeitos Colaterais",
+            "Segurança",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Um paciente com IC estável em uso de terapia tripla otimizada apresenta FC de 48 bpm e tonturas. O ECG mostra bradicardia sinusal. Qual medicação deve ser preferencialmente REDUZIDA ou suspensa inicialmente?",
+        "options": {
+            "a": "Enalapril.",
+            "b": "Betabloqueador (ex: Carvedilol).",
+            "c": "Espironolactona.",
+            "d": "Dapagliflozina.",
+            "e": "HCTZ."
+        },
+        "answer": "b",
+        "rationale": "O betabloqueador é um cronotrópico negativo potente. Se houver bradicardia sintomática significativa (FC < 50), a conduta correta é reduzir a dose do BB para manter o equilíbrio entre o benefício prognóstico e a segurança clínica.",
+        "option_rationales": {
+            "a": "Incorreta. IECA não interfere na FC.",
+            "b": "Correta. Causa direta da cronotropia reduzida.",
+            "c": "Incorreta.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "Segurança",
+            "Betabloqueadores",
+            "Manejo",
+            "FGV"
+        ]
+    }
+]

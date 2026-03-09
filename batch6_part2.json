@@ -1,0 +1,627 @@
+[
+    {
+        "enunciado": "O escroto é uma bolsa cutânea que abriga os testículos. Qual músculo, situado na fáscia superficial do escroto, é responsável pelo enrugamento da pele escrotal em resposta ao frio?",
+        "options": {
+            "a": "Músculo cremáster.",
+            "b": "Músculo dartos.",
+            "c": "Músculo bulboesponjoso.",
+            "d": "Músculo isquiocavernoso.",
+            "e": "Músculo transverso do períneo."
+        },
+        "answer": "b",
+        "rationale": "O dartos é uma camada de músculo liso que atua na termorregulação testicular ao reduzir a área de superfície do escroto.",
+        "option_rationales": {
+            "a": "Errada. Músculo estriado que eleva o testículo.",
+            "b": "Correta. Anatomia da parede escrotal.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Pelve",
+            "Reprodutivo"
+        ]
+    },
+    {
+        "enunciado": "A túnica vaginal é uma bolsa serosa que envolve o testículo. Ela deriva de qual estrutura abdominal durante a descida testicular?",
+        "options": {
+            "a": "Peritônio (Processo vaginal).",
+            "b": "Fáscia transversalis.",
+            "c": "Aponeurose do oblíquo externo.",
+            "d": "Músculo transverso do abdome.",
+            "e": "Gordura pré-peritoneal."
+        },
+        "answer": "a",
+        "rationale": "A túnica vaginal é o remanescente do processo vaginal do peritônio. Sua não oclusão pode levar a hidroceles ou hérnias inguinais indiretas.",
+        "option_rationales": {
+            "a": "Correta. Embriologia e anatomia aplicada da região inguinal.",
+            "b": "Errada. Origina a fáscia espermática interna.",
+            "c": "Errada. Origina a fáscia espermática externa.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Pelve",
+            "Embriologia"
+        ]
+    },
+    {
+        "enunciado": "O suprimento sanguíneo arterial do testículo é feito pela artéria testicular. Onde ocorre a drenagem venosa da VEIA TESTICULAR DIREITA e ESQUERDA, respectivamente?",
+        "options": {
+            "a": "Ambas na veia cava inferior.",
+            "b": "Direita na veia cava inferior; Esquerda na veia renal esquerda.",
+            "c": "Direita na veia renal direita; Esquerda na veia cava inferior.",
+            "d": "Ambas nas veias ilíacas internas.",
+            "e": "Direita na veia porta; Esquerda na veia esplênica."
+        },
+        "answer": "b",
+        "rationale": "A veia testicular esquerda drena em ângulo reto na veia renal esquerda, o que predispõe ao desenvolvimento de varicocele desse lado.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Anatomia vascular gonadal assimétrica.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Pelve",
+            "Angiologia"
+        ]
+    },
+    {
+        "enunciado": "O ligamento largo do útero é uma prega dupla de peritônio. Como se denomina a porção deste ligamento que suspende as tubas uterinas?",
+        "options": {
+            "a": "Mesométrio.",
+            "b": "Mesovário.",
+            "c": "Mesossalpinge.",
+            "d": "Ligamento suspensor do ovário.",
+            "e": "Ligamento cardeal."
+        },
+        "answer": "c",
+        "rationale": "A mesossalpinge é a parte superior do ligamento largo que envolve as tubas.",
+        "option_rationales": {
+            "a": "Errada. Parte maior, ao lado do corpo do útero.",
+            "b": "Errada. Parte que se estende para o ovário.",
+            "c": "Correta. Nomenclatura das pregas peritoneais pélvicas.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Pelve",
+            "Ginecologia"
+        ]
+    },
+    {
+        "enunciado": "A vagina localiza-se entre a bexiga (anterior) e o reto (posterior). Qual estrutura recobre o fórnice vaginal posterior, permitindo a comunicação com a cavidade peritoneal?",
+        "options": {
+            "a": "Fáscia de Denonvilliers.",
+            "b": "Peritônio do fundo de saco de Douglas.",
+            "c": "Diafragma urogenital.",
+            "d": "Corpo perineal.",
+            "e": "Músculo levantador do ânus."
+        },
+        "answer": "b",
+        "rationale": "O fórnice posterior está separado do fundo de saco de Douglas apenas pela parede vaginal e pelo peritônio, sendo uma via de acesso cirúrgico.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Anatomia de relevância em ginecologia de emergência.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "Anatomia",
+            "Pelve",
+            "Topografia"
+        ]
+    },
+    {
+        "enunciado": "No canal anal, as 'colunas anais' de Morgagni terminam em pequenas válvulas que formam uma linha circular. Como se chama esta linha?",
+        "options": {
+            "a": "Linha anocutânea.",
+            "b": "Linha pectínea (dentada).",
+            "c": "Linha branca de Hilton.",
+            "d": "Esfíncter anal interno.",
+            "e": "Cripta anal."
+        },
+        "answer": "b",
+        "rationale": "A linha pectínea marca o limite entre a zona de transição e o canal anal cirúrgico, correspondendo à junção proctodeal embriológica.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Marco anatômico fundamental em proctologia.",
+            "c": "Errada. Indica a separação entre esfíncteres.",
+            "d": "Errada.",
+            "e": "Errada. São as depressões entre as colunas."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Pelve",
+            "Esplanccnologia"
+        ]
+    },
+    {
+        "enunciado": "A artéria pudenda interna atravessa quais orifícios pélvicos para chegar ao períneo?",
+        "options": {
+            "a": "Sai pelo forame isquiático maior e entra pelo forame isquiático menor.",
+            "b": "Sai pelo canal inguinal.",
+            "c": "Passa pelo forame obturado.",
+            "d": "Atravessa o sacro.",
+            "e": "Sai pelo forame isquiático menor e entra pelo maior."
+        },
+        "answer": "a",
+        "rationale": "A artéria pudenda interna contorna o ligamento sacroespinal, saindo da pelve verdadeira para entrar na fossa isquioanal.",
+        "option_rationales": {
+            "a": "Correta. Trajeto vascular complexo da região glútea e perineal.",
+            "b": "Errada.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "Anatomia",
+            "Pelve",
+            "Angiologia"
+        ]
+    },
+    {
+        "enunciado": "O clitóris é o órgão erétil feminino. Ele é composto por quais partes anatômicas?",
+        "options": {
+            "a": "Glande, corpo e dois pilares (corpos cavernosos).",
+            "b": "Glande e corpo esponjoso apenas.",
+            "c": "Corpo cavernoso único e uretra.",
+            "d": "Vestíbulo e bulbos.",
+            "e": "Nenhuma das anteriores."
+        },
+        "answer": "a",
+        "rationale": "O clitóris possui uma estrutura homóloga ao pênis, mas sem o corpo esponjoso atravessado pela uretra.",
+        "option_rationales": {
+            "a": "Correta. Anatomia do aparelho reprodutor feminino.",
+            "b": "Errada.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Pelve",
+            "Reprodutivo"
+        ]
+    },
+    {
+        "enunciado": "As vesículas seminais são glândulas acessórias masculinas. Onde elas se localizam em relação à bexiga e ao reto?",
+        "options": {
+            "a": "Anteriores à bexiga.",
+            "b": "Superiores ao reto e posteriores à bexiga.",
+            "c": "Dentro da próstata.",
+            "d": "No interior do escroto.",
+            "e": "Laterais aos rins."
+        },
+        "answer": "b",
+        "rationale": "As vesículas seminais situam-se na base da bexiga, separadas do reto pelo septo retovesical.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Topografia das glândulas sexuais acessórias.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Pelve",
+            "Reprodutivo/Topografia"
+        ]
+    },
+    {
+        "enunciado": "O plexo venoso pampiniforme é um emaranhado de veias no funiculículo espermático. Qual a sua principal função fisiológica?",
+        "options": {
+            "a": "Aumentar a pressão arterial no testículo.",
+            "b": "Troca de calor em contracorrente para resfriar o sangue arterial que chega ao testículo.",
+            "c": "Sintetizar testosterona.",
+            "d": "Drenar a linfa da próstata.",
+            "e": "Nenhuma função conhecida."
+        },
+        "answer": "b",
+        "rationale": "O plexo envolve a artéria testicular, resfriando o sangue para manter os testículos 2-3°C abaixo da temperatura corporal.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Mecanismo de termorregulação vital para a fertilidade.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Pelve",
+            "Reprodutivo/Fisiologia"
+        ]
+    },
+    {
+        "enunciado": "O ducto ejaculatório é formado pela união de quais duas estruturas?",
+        "options": {
+            "a": "Ducto deferente e ducto da vesícula seminal.",
+            "b": "Epidídimo e ducto deferente.",
+            "c": "Ducto prostático e uretra.",
+            "d": "Ureter e ducto deferente.",
+            "e": "Vesícula seminal e uretra."
+        },
+        "answer": "a",
+        "rationale": "O ducto deferente une-se ao ducto da vesícula seminal para formar o ducto ejaculatório, que penetra na próstata.",
+        "option_rationales": {
+            "a": "Correta. Anatomia do trajeto do esperma.",
+            "b": "Errada.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Pelve",
+            "Reprodutivo"
+        ]
+    },
+    {
+        "enunciado": "A 'fossa de Waldeyer' é uma depressão na parede lateral da pelve. Qual órgão se aloja habitualmente nesta fossa na mulher nulípara?",
+        "options": {
+            "a": "Útero.",
+            "b": "Ovário.",
+            "c": "Bexiga.",
+            "d": "Linfonodo ilíaco externo.",
+            "e": "Apêndice."
+        },
+        "answer": "b",
+        "rationale": "A fossa ovariana (de Waldeyer) situa-se entre as artérias ilíacas externa e interna.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Topografia ovariana clássica.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Pelve",
+            "Ginecologia"
+        ]
+    },
+    {
+        "enunciado": "O nervo obturador (L2-L4) atravessa o canal obturador para inervar qual compartimento da coxa?",
+        "options": {
+            "a": "Anterior (Extensores).",
+            "b": "Posterior (Flexores).",
+            "c": "Medial (Adutores).",
+            "d": "Lateral (Abdutores).",
+            "e": "Região glútea."
+        },
+        "answer": "c",
+        "rationale": "O nervo obturador é o principal nervo motor para os músculos adutores (curto, longo, magno e grácil).",
+        "option_rationales": {
+            "a": "Errada. Inervado pelo femoral.",
+            "b": "Errada. Inervado pelo isquiático.",
+            "c": "Correta. Anatomia funcional dos nervos pélvicos.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Pelve/Membros",
+            "Neuroanatomia"
+        ]
+    },
+    {
+        "enunciado": "O corpo perineal (Centro Tendíneo do Períneo) é uma massa fibromuscular onde vários músculos se anastomosam. Qual a relevância clínica desta estrutura durante o parto vaginal?",
+        "options": {
+            "a": "Não possui relevância.",
+            "b": "É o local onde se realiza a episiotomia para evitar lacerações descontroladas.",
+            "c": "É o local de origem do nervo pudendo.",
+            "d": "Controla a ovulação.",
+            "e": "Secretar hormônios."
+        },
+        "answer": "b",
+        "rationale": "O corpo perineal é o pivô do assoalho pélvico. Sua integridade é fundamental para prevenir prolapsos e incontinência.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Anatomia aplicada à obstetrícia e uroginecologia.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Pelve",
+            "Obstetrícia"
+        ]
+    },
+    {
+        "enunciado": "A 'artéria uterina' cruza o ureter na pelve. Qual a importância cirúrgica dessa relação durante uma histerectomia?",
+        "options": {
+            "a": "Nenhuma, os órgãos estão distantes.",
+            "b": "Risco de ligadura acidental do ureter ao tentar pinçar a artéria uterina.",
+            "c": "Risco de romper a bexiga.",
+            "d": "Possibilidade de causar infertilidade.",
+            "e": "Não se usa pinçagem nessa área."
+        },
+        "answer": "b",
+        "rationale": "A proximidade (artéria 'por cima' do ureter) exige que o cirurgião identifique e proteja o ureter antes de ligar a vascularização uterina.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Complicação clássica e evitável em cirurgia pélvica.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Pelve",
+            "Cirurgia/Topografia"
+        ]
+    },
+    {
+        "enunciado": "As glândulas bulbouretrais (de Cowper) localizam-se em qual camada do períneo no homem?",
+        "options": {
+            "a": "Espaço superficial do períneo.",
+            "b": "Espaço profundo do períneo (Diafragma urogenital).",
+            "c": "Bainha do músculo reto.",
+            "d": "Fossa isquioanal.",
+            "e": "Dentro da bolsa escrotal."
+        },
+        "answer": "b",
+        "rationale": "As glândulas de Cowper situam-se lateralmente à uretra membranácea, dentro das fibras do músculo transverso profundo do períneo.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Localização precisa das glândulas acessórias.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "Anatomia",
+            "Pelve",
+            "Reprodutivo"
+        ]
+    },
+    {
+        "enunciado": "O 'canal de Alcock' (canal pudendo) é um desdobramento da fáscia de qual músculo da parede lateral da pelve?",
+        "options": {
+            "a": "Piriforme.",
+            "b": "Obturador interno.",
+            "c": "Levantador do ânus.",
+            "d": "Glúteo máximo.",
+            "e": "Iliococcígeo."
+        },
+        "answer": "b",
+        "rationale": "O canal pudendo contém o nervo pudendo e os vasos pudendos internos ao longo da face medial do músculo obturador interno.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Caminho anatômico do feixe neurovascular pudendo.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Pelve",
+            "Neuroanatomia/Topografia"
+        ]
+    },
+    {
+        "enunciado": "O 'epidídimo' é o local de maturação e armazenamento dos espermatozoides. Qual a sua porção que se continua como ducto deferente?",
+        "options": {
+            "a": "Cabeça.",
+            "b": "Corpo.",
+            "c": "Cauda.",
+            "d": "Eferentes.",
+            "e": "Rede testicular."
+        },
+        "answer": "c",
+        "rationale": "O epidídimo tem cabeça (recebe os ductos), corpo e cauda (origina o deferente).",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Errada.",
+            "c": "Correta. Morfologia do sistema de ductos masculinos.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Pelve",
+            "Reprodutivo"
+        ]
+    },
+    {
+        "enunciado": "A uretra feminina é consideravelmente mais curta que a masculina (cerca de 4 cm). Em qual posição ela se abre no vestíbulo da vagina?",
+        "options": {
+            "a": "Anterior ao clitóris.",
+            "b": "Entre o clitóris e o óstio da vagina.",
+            "c": "Posterior ao óstio da vagina.",
+            "d": "Dentro do ânus.",
+            "e": "No topo do grandes lábios."
+        },
+        "answer": "b",
+        "rationale": "A abertura uretral (meato) situa-se na linha média, superiormente ao orifício vaginal e inferiormente à glande do clitóris.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Anatomia da genitália externa feminina.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Pelve",
+            "Urologia"
+        ]
+    },
+    {
+        "enunciado": "O 'ligamento suspensor do pênis' fixa o corpo do pênis a qual estrutura óssea?",
+        "options": {
+            "a": "Sínfise púbica.",
+            "b": "Crista ilíaca.",
+            "c": "Túber isquiático.",
+            "d": "Sacro.",
+            "e": "Fêmur."
+        },
+        "answer": "a",
+        "rationale": "Este ligamento suporta a parte fixa do pênis na linha média da sínfise.",
+        "option_rationales": {
+            "a": "Correta. Anatomia de sustentação peniana.",
+            "b": "Errada.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Pelve",
+            "Reprodutivo"
+        ]
+    },
+    {
+        "enunciado": "No útero em 'anteversoversão' (posição normal), qual a relação angular entre o colo do útero e a vagina?",
+        "options": {
+            "a": "Estão em linha reta (180°).",
+            "b": "O colo está inclinado para a frente em relação à vagina (cerca de 90°).",
+            "c": "O colo está inclinado para trás.",
+            "d": "O útero está dobrado sobre si mesmo (retroflexão).",
+            "e": "Não há ângulo definido."
+        },
+        "answer": "b",
+        "rationale": "Anteversão é o ângulo entre o longo eixo do útero e a vagina. Anteflexão é o ângulo entre o corpo e o colo.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Posicionamento uterino padrão.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Pelve",
+            "Topografia/Ginecologia"
+        ]
+    },
+    {
+        "enunciado": "O plexo venoso retal estabelece uma comunicação porto-cava importante. A veia retal MÉDIA drena para qual sistema venoso?",
+        "options": {
+            "a": "Sistema Porta (via Mesentérica Inferior).",
+            "b": "Sistema Cava (via Ilíaca Interna).",
+            "c": "Sistema Ázigo.",
+            "d": "Diretamente na veia renal.",
+            "e": "Nervos pélvicos."
+        },
+        "answer": "b",
+        "rationale": "Retal superior: Porta. Retais média e inferior: Cava. Essa transição explica as hemorroidas na hipertensão portal.",
+        "option_rationales": {
+            "a": "Errada. Destinado à veia retal superior.",
+            "b": "Correta. Anatomia venosa do canal anal e reto.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "Anatomia",
+            "Pelve",
+            "Angiologia"
+        ]
+    },
+    {
+        "enunciado": "Qual estrutura anatômica divide o períneo em trígono urogenital (anterior) e trígono anal (posterior)?",
+        "options": {
+            "a": "Ligamento inguinal.",
+            "b": "Uretra.",
+            "c": "Uma linha transversal imaginária entre as tuberosidades isquiáticas.",
+            "d": "O músculo reto abdominal.",
+            "e": "O cóccix."
+        },
+        "answer": "c",
+        "rationale": "A divisão clássica do períneo em forma de losango baseia-se nos reparos ósseos das tuberosidades isquiáticas.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Errada.",
+            "c": "Correta. Topografia regional do períneo.",
+            "d": "Errada.",
+            "e": "Errada. É o limite posterior do losango."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Pelve",
+            "Topografia"
+        ]
+    },
+    {
+        "enunciado": "O ducto deferente termina dilatando-se antes de se unir à vesícula seminal. Como se chama essa dilatação?",
+        "options": {
+            "a": "Epidídimo.",
+            "b": "Ampola do ducto deferente.",
+            "c": "Colículo seminal.",
+            "d": "Glande deferente.",
+            "e": "Ducto ejaculatório."
+        },
+        "answer": "b",
+        "rationale": "A ampola do deferente é a porção terminal dilatada que armazena espermatozoides antes da ejaculação.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Terminologia do sistema reprodutor masculino.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada. É o resultado da união."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Pelve",
+            "Reprodutivo"
+        ]
+    },
+    {
+        "enunciado": "No nervo pudendo (S2-S4), as fibras motoras inervam o esfíncter externo do ânus. Qual a característica funcional deste esfíncter em comparação ao esfíncter interno?",
+        "options": {
+            "a": "É de músculo liso e involuntário.",
+            "b": "É de músculo estriado e sob controle voluntário.",
+            "c": "Ambos são voluntários.",
+            "d": "Ambos são involuntários.",
+            "e": "O esfíncter externo não participa da continência."
+        },
+        "answer": "b",
+        "rationale": "O interno é liso (simpático/parassimpático); o externo é estriado (somático/pudendo), permitindo o adiamento da defecação.",
+        "option_rationales": {
+            "a": "Errada. Descrição do esfíncter interno.",
+            "b": "Correta. Fisiologia motora da defecação e continência fecal.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada. É o principal responsável pela continência voluntária."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Pelve",
+            "Neuroanatomia/Fisiologia"
+        ]
+    }
+]

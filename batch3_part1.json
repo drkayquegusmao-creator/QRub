@@ -1,0 +1,627 @@
+[
+    {
+        "enunciado": "A base do crânio apresenta diversos forames que permitem a passagem de nervos cranianos e vasos sanguíneos. Qual dos seguintes forames localiza-se na asa maior do osso esfenoide e permite a passagem do NERVO MAXILAR (V2)?",
+        "options": {
+            "a": "Forame oval.",
+            "b": "Forame redondo.",
+            "c": "Forame espinhoso.",
+            "d": "Canal óptico.",
+            "e": "Fissura orbital superior."
+        },
+        "answer": "b",
+        "rationale": "O nervo maxilar (V2), ramo do trigêmeo, atravessa o forame redondo para chegar à fossa pterigopalatina. O forame oval conduz o nervo mandibular (V3).",
+        "option_rationales": {
+            "a": "Errada. Conduz o nervo mandibular (V3).",
+            "b": "Correta. Canal específico para o ramo V2 do trigêmeo.",
+            "c": "Errada. Conduz a artéria meníngea média.",
+            "d": "Errada. Conduz o nervo óptico e artéria oftálmica.",
+            "e": "Errada. Conduz os nervos oculomotor, troclear, abducente e o ramo oftálmico (V1)."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Cabeça e Pescoço",
+            "Osteologia"
+        ]
+    },
+    {
+        "enunciado": "A glândula parótida é a maior das glândulas salivares. Qual estrutura nervosa atravessa o parênquima da glândula parótida, dividindo-a em lobos superficial e profundo, mas NÃO a inerva?",
+        "options": {
+            "a": "Nervo glossofaríngeo.",
+            "b": "Nervo facial (VII par).",
+            "c": "Nervo trigêmeo.",
+            "d": "Nervo vago.",
+            "e": "Nervo acessório."
+        },
+        "answer": "b",
+        "rationale": "O nervo facial atravessa a glândula parótida e se ramifica em seus cinco ramos terminais dentro dela. No entanto, o suprimento secretomotor (parassimpático) para a glândula vem do nervo glossofaríngeo (via nervo petroso menor e gânglio ótico).",
+        "option_rationales": {
+            "a": "Errada. Fornece inervação parassimpática, mas não atravessa o parênquima como o facial.",
+            "b": "Correta. Relação anatômica clássica e de risco cirúrgico em parotidectomias.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Cabeça e Pescoço",
+            "Esplanccnologia"
+        ]
+    },
+    {
+        "enunciado": "Os músculos da mastigação são derivados do primeiro arco faríngeo e são todos inervados pelo nervo mandibular (V3). Qual desses músculos é o principal responsável pelo movimento de PROTRUSÃO da mandíbula?",
+        "options": {
+            "a": "Músculo temporal.",
+            "b": "Músculo masseter.",
+            "c": "Músculo pterigoideo medial.",
+            "d": "Músculo pterigoideo lateral.",
+            "e": "Músculo bucinador."
+        },
+        "answer": "d",
+        "rationale": "O pterigoideo lateral é o principal proclamador da mandíbula. Sua contração bilateral traciona os côndilos e discos articulares para frente. O temporal retrai e o masseter e pterigoideo medial elevam.",
+        "option_rationales": {
+            "a": "Errada. Fibra posterior retrai a mandíbula.",
+            "b": "Errada. Principalmente elevador.",
+            "c": "Errada. Elevador.",
+            "d": "Correta. Único músculo da mastigação que protrui e auxilia na abertura.",
+            "e": "Errada. Músculo da expressão facial (n. facial)."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Cabeça e Pescoço",
+            "Miologia"
+        ]
+    },
+    {
+        "enunciado": "A laringe desempenha papel fundamental na fonação e proteção das vias aéreas. Qual é o único músculo laringeo intrínseco responsável pela ABDUÇÃO das pregas vocais, abrindo a rima da glote?",
+        "options": {
+            "a": "Cricoaritenóideo lateral.",
+            "b": "Cricoaritenóideo posterior.",
+            "c": "Tiroaritenóideo.",
+            "d": "Cricotireóideo.",
+            "e": "Aritenóideo transverso."
+        },
+        "answer": "b",
+        "rationale": "O músculo cricoaritenóideo posterior é o único abdutor das pregas vocais ('o salva-vidas da laringe'). Todos os outros músculos intrínsecos inervados pelo laríngeo recorrente são adutores ou tensores.",
+        "option_rationales": {
+            "a": "Errada. Principal adutor.",
+            "b": "Correta. Função única e vital para a respiração.",
+            "c": "Errada. Relaxador da prega vocal.",
+            "d": "Errada. Tensor da prega; inervado pelo nervo laríngeo superior.",
+            "e": "Errada. Adutor."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "Anatomia",
+            "Cabeça e Pescoço",
+            "Laringe"
+        ]
+    },
+    {
+        "enunciado": "A inervação sensitiva da face é dividida entre os três ramos do nervo trigêmeo. Qual área da face é suprida especificamente por ramos do NERVO OFTÁLMICO (V1)?",
+        "options": {
+            "a": "Pálpebra inferior.",
+            "b": "Ponte e dorso do nariz até a ponta.",
+            "c": "Lábio superior.",
+            "d": "Região do queixo.",
+            "e": "Região anterior ao pavilhão auricular."
+        },
+        "answer": "b",
+        "rationale": "O nervo oftálmico (V1) inerva a fronte, a pálpebra superior e o dorso do nariz até a ponta (nervo infratroclear e ramo nasal externo do etmoidal anterior).",
+        "option_rationales": {
+            "a": "Errada. Inervada pelo maxilar (V2).",
+            "b": "Correta. Território sensitivo de V1.",
+            "c": "Errada. Inervado pelo maxilar (V2).",
+            "d": "Errada. Inervado pelo mandibular (V3).",
+            "e": "Errada. Inervada pelo mandibular (V3)."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Cabeça e Pescoço",
+            "Neuroanatomia"
+        ]
+    },
+    {
+        "enunciado": "No pescoço, a bainha carotídea envolve estruturas vitais. Quais estruturas estão contidas dentro desta bainha?",
+        "options": {
+            "a": "Artéria carótida comum, veia jugular externa e nervo vago.",
+            "b": "Artéria carótida comum/interna, veia jugular interna e nervo vago.",
+            "c": "Artéria carótida comum, veia jugular interna e nervo frênico.",
+            "d": "Artéria carótida externa, veia jugular interna e nervo hipoglosso.",
+            "e": "Artéria tireóidea inferior, veia jugular interna e nervo laríngeo recorrente."
+        },
+        "answer": "b",
+        "rationale": "A bainha carotídea contém a artéria carótida comum (e interna superiormente), a veia jugular interna e o nervo vago (X par). O nervo vago situa-se posteriormente entre os vasos.",
+        "option_rationales": {
+            "a": "Errada. A jugular externa é superficial ao esternocleidomastoideo.",
+            "b": "Correta. Conteúdo clássico da bainha carotídea.",
+            "c": "Errada. O nervo frênico situa-se sobre o músculo escaleno anterior.",
+            "d": "Errada. O hipoglosso cruza a bainha, mas não é conteúdo longitudinal dela.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Cabeça e Pescoço",
+            "Angiologia"
+        ]
+    },
+    {
+        "enunciado": "O músculo esternocleidomastoideo divide o pescoço em trígonos anterior e posterior. Qual nervo craniano atravessa o trígono posterior do pescoço, situando-se superficialmente à fáscia pré-vertebral e inervando os músculos esternocleidomastoideo e trapézio?",
+        "options": {
+            "a": "Nervo vago (X).",
+            "b": "Nervo acessório (XI).",
+            "c": "Nervo hipoglosso (XII).",
+            "d": "Nervo glossofaríngeo (IX).",
+            "e": "Nervo frênico."
+        },
+        "answer": "b",
+        "rationale": "O nervo acessório (espinhal) emerge sob o esternocleidomastoideo, atravessa o trígono posterior e entra profundamente ao trapézio. É vulnerável em biópsias ganglionares nesta região.",
+        "option_rationales": {
+            "a": "Errada. Profundo na bainha carotídea.",
+            "b": "Correta. Trajeto superficial característico no trígono posterior.",
+            "c": "Errada. Localizado no trígono submandibular/carotídeo anterior.",
+            "d": "Errada. Localizado próximo à orofaringe.",
+            "e": "Errada. Profundo no pescoço."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Cabeça e Pescoço",
+            "Neuroanatomia"
+        ]
+    },
+    {
+        "enunciado": "As glândulas tireoide e paratireoides são supridas pelas artérias tireóideas superior e inferior. A artéria tireóidea inferior tem uma relação de proximidade perigosa com qual nervo, que deve ser preservado durante tireoidectomias?",
+        "options": {
+            "a": "Nervo laríngeo superior (ramo interno).",
+            "b": "Nervo laríngeo superior (ramo externo).",
+            "c": "Nervo laríngeo recorrente.",
+            "d": "Nervo vago (tronco principal).",
+            "e": "Ansa cervical."
+        },
+        "answer": "c",
+        "rationale": "O nervo laríngeo recorrente ascende no sulco traqueoesofágico e cruza os ramos da artéria tireóidea inferior. Sua lesão pode causar paralisia das pregas vocais e rouquidão.",
+        "option_rationales": {
+            "a": "Errada. Perfura a membrana tireo-hióidea com a artéria laríngea superior.",
+            "b": "Errada. Acompanha a artéria tireóidea superior.",
+            "c": "Correta. Relação anatômica crítica em cirurgia cervical.",
+            "d": "Errada.",
+            "e": "Errada. Alça motora para músculos infra-hióideos."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Cabeça e Pescoço",
+            "Clínica"
+        ]
+    },
+    {
+        "enunciado": "A língua possui uma inervação complexa. Qual nervo é o responsável pela inervação MOTORA de quase todos os músculos intrínsecos e extrínsecos da língua (exceto o palatoglosso)?",
+        "options": {
+            "a": "Nervo facial.",
+            "b": "Nervo glossofaríngeo.",
+            "c": "Nervo hipoglosso.",
+            "d": "Nervo vago.",
+            "e": "Nervo lingual."
+        },
+        "answer": "c",
+        "rationale": "O XII par craniano (hipoglosso) inerva todos os músculos da língua, com exceção do palatoglosso, que é inervado pelo plexo faríngeo (vago).",
+        "option_rationales": {
+            "a": "Errada. Sensibilidade gustativa dos 2/3 anteriores.",
+            "b": "Errada. Sensibilidade geral e gustativa do 1/3 posterior.",
+            "c": "Correta. Nervo motor da língua.",
+            "d": "Errada. Inerva apenas o palatoglosso.",
+            "e": "Errada. Ramo do V3 para sensibilidade geral dos 2/3 anteriores."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Cabeça e Pescoço",
+            "Neuroanatomia"
+        ]
+    },
+    {
+        "enunciado": "Os seios paranasais drenam para o meato nasal correspondente. Para onde drena o seio MAXILAR?",
+        "options": {
+            "a": "Meato superior.",
+            "b": "Meato médio (através do hiato semilunar).",
+            "c": "Meato inferior.",
+            "d": "Recesso esfenoetmoidal.",
+            "e": "Nasoferinge livremente."
+        },
+        "answer": "b",
+        "rationale": "Os seios frontal, maxilar e as células etmoidais anteriores/médias drenam para o meato médio através do complexo ostiomeatal (hiato semilunar e infundíbulo).",
+        "option_rationales": {
+            "a": "Errada. Drenagem das células etmoidais posteriores.",
+            "b": "Correta. Localização clínica do óstio de drenagem do seio maxilar.",
+            "c": "Errada. Drenagem do ducto nasolacrimal.",
+            "d": "Errada. Drenagem do seio esfenoide.",
+            "e": "Errada."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "Anatomia",
+            "Cabeça e Pescoço",
+            "Splatcnologia"
+        ]
+    },
+    {
+        "enunciado": "O couro cabeludo é composto por cinco camadas. Em qual dessas camadas localizam-se os vasos sanguíneos e nervos cutâneos, e que, por ser densa, impede a retração dos vasos em caso de laceração, levando a sangramentos abundantes?",
+        "options": {
+            "a": "Pele.",
+            "b": "Tecido conjuntivo denso.",
+            "c": "Aponeurose epicraniana (gálea).",
+            "d": "Tecido conjuntivo frouxo.",
+            "e": "Pericrânio."
+        },
+        "answer": "b",
+        "rationale": "Mnemônico SCALP. A camada 'C' (Connective tissue - denso) contém os vasos. Por ser inelástica, os vasos cortados permanecem abertos, causando hemorragias difíceis de estancar.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Descrição funcional da 2ª camada do couro cabeludo.",
+            "c": "Errada. Terceira camada muscular/aponeurótica.",
+            "d": "Errada. Quarta camada; 'espaço perigoso' onde infecções se disseminam.",
+            "e": "Errada. Quinta camada (periósteo do crânio)."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Cabeça e Pescoço",
+            "Topografia"
+        ]
+    },
+    {
+        "enunciado": "A artéria carótida externa emite ramos para a face e pescoço. Qual dos seguintes ramos é considerado um ramo TERMINAL dessa artéria, originando-se dentro da glândula parótida?",
+        "options": {
+            "a": "Artéria facial.",
+            "b": "Artéria lingual.",
+            "c": "Artéria tireóidea superior.",
+            "d": "Artéria maxilar.",
+            "e": "Artéria occipital."
+        },
+        "answer": "d",
+        "rationale": "A carótida externa termina dividindo-se em artéria temporal superficial e artéria maxilar. Os outros ramos listados são colaterais emitidos ao longo do pescoço.",
+        "option_rationales": {
+            "a": "Errada. Ramo anterior médio.",
+            "b": "Errada. Ramo anterior inferior.",
+            "c": "Errada. Primeiro ramo anterior.",
+            "d": "Correta. Um dos dois ramos terminais.",
+            "e": "Errada. Ramo posterior."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Cabeça e Pescoço",
+            "Angiologia"
+        ]
+    },
+    {
+        "enunciado": "O 'anel linfático de Waldeyer' é um conjunto de tecidos linfoides na transição entre cavidades oral/nasal e a faringe. Qual dessas tonsilas localiza-se no teto da nasofaringe e, quando hipertrofiada, é conhecida como 'adenóide'?",
+        "options": {
+            "a": "Tonsila palatina.",
+            "b": "Tonsila lingual.",
+            "c": "Tonsila faríngea.",
+            "d": "Tonsila tubária.",
+            "e": "Tonsila palatofaríngea."
+        },
+        "answer": "c",
+        "rationale": "A tonsila faríngea situa-se na mucosa do teto e parede posterior da nasofaringe. Seu aumento excessivo prejudica a respiração nasal em crianças.",
+        "option_rationales": {
+            "a": "Errada. Localizada entre os arcos palatoglosso e palatofaríngeo (as 'amígdalas').",
+            "b": "Errada. Localizada na base da língua.",
+            "c": "Correta. Nome anatômico da adenóide.",
+            "d": "Errada. Localizada ao redor do óstio da tuba auditiva.",
+            "e": "Errada. Não é uma das tonsilas primárias do anel."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Cabeça e Pescoço",
+            "Imunologia/Splatcnologia"
+        ]
+    },
+    {
+        "enunciado": "A fenda interscalênica (entre os músculos escaleno anterior e médio) é um local importante para bloqueios anestésicos regionais. Quais estruturas passam por esse intervalo?",
+        "options": {
+            "a": "Artéria e veia subclávias.",
+            "b": "Artéria subclávia e plexo braquial.",
+            "c": "Veia subclávia e nervo frênico.",
+            "d": "Artéria carótida e nervo vago.",
+            "e": "Cadeia simpática cervical."
+        },
+        "answer": "b",
+        "rationale": "O escaleno anterior separa a veia subclávia (anterior ao músculo) da artéria subclávia e plexo braquial (posteriores ao músculo, no intervalo interescalênico).",
+        "option_rationales": {
+            "a": "Errada. A veia passa anteriormente ao escaleno anterior.",
+            "b": "Correta. Conteúdo do espaço interescalênico.",
+            "c": "Errada. O frênico desce anterior ao músculo.",
+            "d": "Errada. Estruturas mais mediais e anteriores.",
+            "e": "Errada."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "Anatomia",
+            "Cabeça e Pescoço",
+            "Topografia"
+        ]
+    },
+    {
+        "enunciado": "A órbita contém a musculatura extrínseca do olho. Qual músculo é responsável por abduzir, deprimir e rodar lateralmente o bulbo ocular, sendo inervado pelo nervo troclear (IV par)?",
+        "options": {
+            "a": "Oblíquo superior.",
+            "b": "Oblíquo inferior.",
+            "c": "Reto superior.",
+            "d": "Reto lateral.",
+            "e": "Reto inferior."
+        },
+        "answer": "a",
+        "rationale": "O oblíquo superior é o único inervado pelo nervo IV (troclear). Suas ações na posição neutra são deprimir e abduzir o olho (além de intorsão). O reto lateral é inervado pelo VI (abducente) e o resto pelo III (oculomotor).",
+        "option_rationales": {
+            "a": "Correta. Nervo troclear inerva o oblíquo superior.",
+            "b": "Errada. Inervado pelo oculomotor; eleva e abduz.",
+            "c": "Errada. Inervado pelo oculomotor.",
+            "d": "Errada. Inervado pelo abducente; apenas abduz.",
+            "e": "Errada. Inervado pelo oculomotor."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Cabeça e Pescoço",
+            "Neuroftalmologia"
+        ]
+    },
+    {
+        "enunciado": "O gânglio pterigopalatino localiza-se na fossa de mesmo nome e é um importante centro de distribuição de fibras parassimpáticas. Para qual glândula esse gânglio fornece inervação secretomotora?",
+        "options": {
+            "a": "Glândula parótida.",
+            "b": "Glândula submandibular.",
+            "c": "Glândula sublingual.",
+            "d": "Glândula lacrimal.",
+            "e": "Glândula tireoide."
+        },
+        "answer": "d",
+        "rationale": "Fibras parassimpáticas do nervo facial (via nervo petroso maior) fazem sinapse no gânglio pterigopalatino e seguem para a glândula lacrimal. Submandibular/sublingual usam o gânglio submandibular.",
+        "option_rationales": {
+            "a": "Errada. Usa o gânglio ótico.",
+            "b": "Errada. Usa o gânglio submandibular.",
+            "c": "Errada. Usa o gânglio submandibular.",
+            "d": "Correta. Conexão clássica parassimpática facial-lacrimal.",
+            "e": "Errada. Glândula endócrina."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "Anatomia",
+            "Cabeça e Pescoço",
+            "Neuroanatomia"
+        ]
+    },
+    {
+        "enunciado": "O pavilhão auricular e o conduto auditivo externo conduzem o som até a membrana timpânica. Qual nervo é responsável pela sensibilidade da maior parte do conduto auditivo externo, cuja estimulação pode causar reflexos de tosse ou náusea?",
+        "options": {
+            "a": "Nervo facial.",
+            "b": "Nervo vago (ramo auricular).",
+            "c": "Nervo trigêmeo (nervo aurículotemporal).",
+            "d": "Nervo glossofaríngeo.",
+            "e": "Nervo occipital menor."
+        },
+        "answer": "b",
+        "rationale": "O ramo auricular do nervo vago (nervo de Arnold) inerva a pele posterior e inferior do conduto auditivo. Sua estimulação (por cera ou cotonetes) pode disparar o reflexo vagal de tosse.",
+        "option_rationales": {
+            "a": "Errada. Pequena contribuição na concha.",
+            "b": "Correta. Relação clínica com reflexos involuntários.",
+            "c": "Errada. Inerva a parte anterior e superior do conduto.",
+            "d": "Errada.",
+            "e": "Errada. Inerva a região posterior da orelha e couro cabeludo."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "Anatomia",
+            "Cabeça e Pescoço",
+            "Otologia"
+        ]
+    },
+    {
+        "enunciado": "Na cavidade oral, o ducto da glândula submandibular (ducto de Wharton) abre-se em qual local específico?",
+        "options": {
+            "a": "Papila parotídea, oposta ao 2º molar superior.",
+            "b": "Carúncula sublingual, na base do freio da língua.",
+            "c": "Pregas sublinguais lateralmente.",
+            "d": "Vestíbulo inferior.",
+            "e": "Palato duro posterior."
+        },
+        "answer": "b",
+        "rationale": "O ducto de Wharton percorre o assoalho da boca e desemboca na carúncula sublingual. O ducto da parótida (Stensen) desemboca no vestíbulo superior.",
+        "option_rationales": {
+            "a": "Errada. Óstio do ducto da parótida.",
+            "b": "Correta. Local de drenagem da glândula submandibular.",
+            "c": "Errada. Local de drenagem de múltiplos ductos da glândula sublingual.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Cabeça e Pescoço",
+            "Esplanccnologia"
+        ]
+    },
+    {
+        "enunciado": "O músculo platisma é um músculo superficial do pescoço, inserido na tela subcutânea. Ele é considerado um músculo da expressão facial e, portanto, inervado por qual nervo?",
+        "options": {
+            "a": "Ramo cervical do nervo facial.",
+            "b": "Nervo acessório.",
+            "c": "Ansa cervical.",
+            "d": "Nervo frênico.",
+            "e": "Nervos espinhais C2-C3."
+        },
+        "answer": "a",
+        "rationale": "O platisma deriva do 2º arco faríngeo e é inervado pelo ramo cervical do nervo facial (VII par).",
+        "option_rationales": {
+            "a": "Correta. Nervo específico para os músculos derivados do 2º arco.",
+            "b": "Errada. Inerva ECOM e trapézio.",
+            "c": "Errada. Inerva músculos infra-hióideos profundos.",
+            "d": "Errada.",
+            "e": "Errada. Fornecem sensibilidade cutânea via ramos do plexo cervical."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Cabeça e Pescoço",
+            "Miologia"
+        ]
+    },
+    {
+        "enunciado": "O seio cavernoso é uma grande coleção de veias de paredes finas situada em cada lado da sela turca. Qual das seguintes estruturas atravessa o INTERIOR do seio cavernoso, e não apenas sua parede lateral?",
+        "options": {
+            "a": "Nervo oculomotor (III).",
+            "b": "Nervo troclear (IV).",
+            "c": "Artéria carótida interna.",
+            "d": "Nervo oftálmico (V1).",
+            "e": "Nervo maxilar (V2)."
+        },
+        "answer": "c",
+        "rationale": "A artéria carótida interna e o nervo abducente (VI) atravessam o centro do seio cavernoso. Os nervos III, IV, V1 e V2 situam-se embutidos na parede lateral do seio.",
+        "option_rationales": {
+            "a": "Errada. Parede lateral.",
+            "b": "Errada. Parede lateral.",
+            "c": "Correta. Única artéria importante que corre 'dentro' de um seio venoso.",
+            "d": "Errada. Parede lateral.",
+            "e": "Errada. Parede lateral."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "Anatomia",
+            "Cabeça e Pescoço",
+            "Neuroanatomia"
+        ]
+    },
+    {
+        "enunciado": "A cartilagem tireoide possui uma proeminência anterior mais visível em homens ('pomo de Adão'). Superiormente, ela se liga ao osso hioide por qual membrana?",
+        "options": {
+            "a": "Membrana cricotireóidea.",
+            "b": "Membrana tireo-hióidea.",
+            "c": "Fáscia pré-traqueal.",
+            "d": "Ligamento vocal.",
+            "e": "Membrana quadrangular."
+        },
+        "answer": "b",
+        "rationale": "A membrana tireo-hióidea estende-se entre a borda superior da cartilagem tireoide e o osso hioide, sendo perfurada pelo nervo laríngeo superior (ramo interno).",
+        "option_rationales": {
+            "a": "Errada. Entre cricoide e tireoide; local de cricotireoidostomia.",
+            "b": "Correta. Conexão laringe-hioide.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada. Localizada internamente na laringe."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Cabeça e Pescoço",
+            "Laringe"
+        ]
+    },
+    {
+        "enunciado": "O plexo cervical fornece inervação sensitiva para a pele do pescoço e parte da cabeça. Qual desses nervos emerge no ponto médio da borda posterior do esternocleidomastoideo e supre a pele sobre a glândula parótida e ângulo da mandíbula?",
+        "options": {
+            "a": "Nervo occipital menor.",
+            "b": "Nervo auricular magno.",
+            "c": "Nervo cervical transverso.",
+            "d": "Nervos supraclaviculares.",
+            "e": "Nervo hipoglosso."
+        },
+        "answer": "b",
+        "rationale": "O nervo auricular magno (C2, C3) é o maior ramo ascendente do plexo cervical e supre a pele sobre a parótida e as faces medial/lateral do pavilhão auricular inferior.",
+        "option_rationales": {
+            "a": "Errada. Sobe para o couro cabeludo posterior.",
+            "b": "Correta. Nervo sensitivo da região infra-auricular.",
+            "c": "Errada. Cruza o pescoço horizontalmente.",
+            "d": "Errada. Descem para o ombro/tórax.",
+            "e": "Errada. Nervo motor craniano."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Cabeça e Pescoço",
+            "Plexo Cervical"
+        ]
+    },
+    {
+        "enunciado": "A artéria meníngea média é o maior ramo da artéria maxilar e sua ruptura em traumas cranianos causa o hematoma extradural (epidural). Por qual forame ela entra no crânio?",
+        "options": {
+            "a": "Forame magno.",
+            "b": "Forame oval.",
+            "c": "Forame espinhoso.",
+            "d": "Forame lacerado.",
+            "e": "Canal carotídeo."
+        },
+        "answer": "c",
+        "rationale": "A artéria meníngea média atravessa o forame espinhoso no osso esfenoide, situando-se depois entre a gálea aponeurótica e a tábua interna do crânio.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Errada.",
+            "c": "Correta. Localização clássica em neuroanatomia clínica.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Cabeça e Pescoço",
+            "Neuroanatomia"
+        ]
+    },
+    {
+        "enunciado": "O istmo da glândula tireoide cruza anteriormente qual estrutura anatômica?",
+        "options": {
+            "a": "Cartilagem cricoide.",
+            "b": "2º ao 4º anéis traqueais.",
+            "c": "Membrana tireo-hióidea.",
+            "d": "Cartilagem tireoide.",
+            "e": "Esôfago."
+        },
+        "answer": "b",
+        "rationale": "O istmo da tireoide une os dois lobos laterais e situa-se geralmente sobre o 2º, 3º e às vezes 4º anéis traqueais (nível fundamental para traqueostomias).",
+        "option_rationales": {
+            "a": "Errada. Situa-se abaixo da cricoide.",
+            "b": "Correta. Nível anatômico do istmo tireoidiano.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Cabeça e Pescoço",
+            "Esplanccnologia"
+        ]
+    },
+    {
+        "enunciado": "Qual músculo do palato mole é o único inervado pelo nervo mandibular (V3), sendo todos os outros inervados pelo plexo faríngeo (vago)?",
+        "options": {
+            "a": "Levantador do véu palatino.",
+            "b": "Tensor do véu palatino.",
+            "c": "Palatoglosso.",
+            "d": "Palatofaríngeo.",
+            "e": "Músculo da úvula."
+        },
+        "answer": "b",
+        "rationale": "O tensor do véu palatino deriva do 1º arco faríngeo e é inervado pelo nervo do pterigoideo medial (ramo do V3). Todos os demais músculos palatais são do 4º/6º arcos (vago).",
+        "option_rationales": {
+            "a": "Errada. Inervado pelo vago.",
+            "b": "Correta. Exceção de inervação no palato mole.",
+            "c": "Errada. Inervado pelo vago.",
+            "d": "Errada. Inervado pelo vago.",
+            "e": "Errada. Inervado pelo vago."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "Anatomia",
+            "Cabeça e Pescoço",
+            "Miologia"
+        ]
+    }
+]

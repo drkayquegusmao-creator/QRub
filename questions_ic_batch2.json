@@ -1,0 +1,132 @@
+[
+    {
+        "enunciado": "Um homem de 58 anos com IC com fração de ejeção reduzida (FEVE 30%) e ritmo sinusal apresenta palpitações. O ECG revela extrassístoles ventriculares frequentes, mas sem taquicardia ventricular sustentada. O paciente está assintomático em relação às palpitações e já utiliza doses otimizadas de betabloqueador, IECA e espironolactona. Qual a conduta mais adequada para as extrassístoles ventriculares neste caso?",
+        "options": {
+            "a": "Iniciar Amiodarona imediatamente para evitar morte súbita.",
+            "b": "Prescrever Propafenona para supressão das extrassístoles.",
+            "c": "Manter a terapia atual e monitorar clinicamente.",
+            "d": "Encaminhar para ablação por radiofrequência de urgência.",
+            "e": "Trocar o IECA por um BRA."
+        },
+        "answer": "c",
+        "rationale": "Em pacientes com ICFEr, o tratamento de arritmias ventriculares assintomáticas (como extrassístoles) não deve ser feito com antiarrítmicos de forma rotineira, pois muitos (especialmente Classe I como a Propafenona) aumentam a mortalidade. O betabloqueador já em uso é a principal droga para proteção contra morte súbita. Se o paciente for assintomático, a observação clínica e a otimização da terapia de base da IC são as condutas recomendadas.",
+        "option_rationales": {
+            "a": "Incorreta. Amiodarona pode ser usada se houver sintomas limitantes ou taquicardia ventricular sustentada, mas não é indicada de rotina para extrassístoles isoladas.",
+            "b": "Incorreta. Antiarrítmicos da Classe IC (Propafenona) são contraindicados em cardiopatia estrutural pelo risco de proarritmia e aumento de mortalidade.",
+            "c": "Correta. Pacientes assintomáticos com arritmias não sustentadas e terapia para IC otimizada não necessitam de tratamento antiarrítmico adicional.",
+            "d": "Incorreta. Ablação é reservada para casos onde a densidade de extrassístoles é muito alta e está causando piora da função ventricular (taquicardiomiopatia).",
+            "e": "Incorreta. A troca de IECA por BRA não tem relação com o manejo de extrassístoles ventriculares."
+        },
+        "difficulty": "média",
+        "tags": [
+            "ICFEr",
+            "Arritmia",
+            "Conduta",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "A utilização de peptídeos natriuréticos (BNP ou NT-proBNP) no departamento de emergência é uma ferramenta valiosa para o diagnóstico de insuficiência cardíaca aguda. No entanto, diversos fatores podem elevar os níveis desses peptídeos além da falência cardíaca primária. Qual das condições abaixo é uma causa conhecida de elevação do BNP/NT-proBNP independente de insuficiência cardíaca esquerda?",
+        "options": {
+            "a": "Obesidade mórbida.",
+            "b": "Insuficiência renal crônica.",
+            "c": "Hipotireoidismo leve.",
+            "d": "Uso de inibidores da enzima conversora de angiotensina.",
+            "e": "Atividade física leve no dia anterior."
+        },
+        "answer": "b",
+        "rationale": "Os peptídeos natriuréticos são depurados parcialmente pelos rins (especialmente o NT-proBNP). Portanto, na insuficiência renal, seus níveis basais são mais elevados. Outras causas de elevação incluem idade avançada, FA, TEP e sepse. Curiosamente, a obesidade (A) tende a REDUZIR os níveis de BNP, exigindo pontos de corte menores para o diagnóstico de IC em pacientes obesos.",
+        "option_rationales": {
+            "a": "Incorreta. A obesidade está associada a níveis menores de BNP ('pseudo-normalização').",
+            "b": "Correta. A disfunção renal diminui a depuração dos peptídeos natriuréticos, elevando seus níveis plasmáticos.",
+            "c": "Incorreta. O hipotireoidismo não é uma causa clássica de elevação significativa isolada como a DRC.",
+            "d": "Incorreta. IECA auxilia no tratamento da IC e tende a reduzir os níveis de BNP ao longo do tempo.",
+            "e": "Incorreta. Atividade física leve não produz elevações sustentadas que mimetizem o quadro de dispneia na emergência."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "BNP",
+            "Diagnóstico",
+            "Laboratório",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Paciente de 62 anos, com diabetes tipo 2 e insuficiência cardíaca (FE 35%), interna por pneumonia. No 3º dia de internação, apresenta piora da função renal (Creatinina subiu de 1.2 para 2.1 mg/dL) e potássio de 5.6 mEq/L. Atualmente em uso de Furosemida, Enalapril, Espironolactona e Metformina. A conduta imediata em relação aos medicamentos da IC deve ser:",
+        "options": {
+            "a": "Suspender Enalapril e Espironolactona.",
+            "b": "Suspender apenas a Furosemida.",
+            "c": "Aumentar a dose de Enalapril para melhorar o fluxo renal.",
+            "d": "Manter todas as medicações e iniciar hemodiálise.",
+            "e": "Substituir Enalapril por Losartana."
+        },
+        "answer": "a",
+        "rationale": "A ocorrência de hiperpotassemia significativa (> 5.5 mEq/L) e piora aguda da função renal (LRA) exige a suspensão temporária de fármacos que interferem no eixo renina-angiotensina-aldosterona (IECA/BRA e antagonistas da aldosterona). Manter estas drogas nesse cenário aumenta o risco de arritmias fatais por hipercalemia e agravamento da lesão renal. A Furosemida (B) geralmente é mantida ou aumentada se houver congestão.",
+        "option_rationales": {
+            "a": "Correta. Em vigência de hiperpotassemia e queda da TFG, deve-se suspender inibidores do EAA e espironolactona.",
+            "b": "Incorreta. A furosemida ajuda a espoliar potássio; sua suspensão pioraria a hipercalemia.",
+            "c": "Incorreta. Aumentar IECA em fase de lesão renal aguda e hipercalemia é perigoso.",
+            "d": "Incorreta. A primeira medida é o ajuste farmacológico; diálise é reservada para casos refratários.",
+            "e": "Incorreta. Trocar IECA por BRA não resolve o problema da hiperpotassemia e da piora renal aguda."
+        },
+        "difficulty": "média",
+        "tags": [
+            "ICFEr",
+            "Complicações",
+            "Farmacologia",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Qual o achado ecocardiográfico que mais fundamenta o diagnóstico de Insuficiência Cardíaca com Fração de Ejeção Preservada (ICFEp) em um paciente com dispneia?",
+        "options": {
+            "a": "Volume do átrio esquerdo indexado > 34 mL/m².",
+            "b": "Diâmetro diastólico final do ventrículo esquerdo > 55 mm.",
+            "c": "Fração de ejeção de 45%.",
+            "d": "Presença de derrame pericárdico moderado.",
+            "e": "Velocidade da onda E mitral menor que a onda A (E/A < 1)."
+        },
+        "answer": "a",
+        "rationale": "Pelas diretrizes atuais (ESC/SBC), o diagnóstico de ICFEp requer FE ≥ 50% e evidências de disfunção diastólica ou pressões de enchimento aumentadas. O aumento do átrio esquerdo (Vae > 34 mL/m²) é um marcador crônico de pressões elevadas no VE. Outros critérios incluem a relação E/e' média > 9 e a velocidade de regurgitação tricúspide > 2.8 m/s. FE de 45% (C) seria IC com FE levemente reduzida.",
+        "option_rationales": {
+            "a": "Correta. O aumento do volume do átrio esquerdo é um critério estrutural chave para ICFEp.",
+            "b": "Incorreta. Ventrículo dilatado é típico da ICFEr; na ICFEp o coração geralmente não é dilatado.",
+            "c": "Incorreta. O corte para ICFEp é FE ≥ 50%.",
+            "d": "Incorreta. Derrame pericárdico não é marcador de disfunção diastólica.",
+            "e": "Incorreta. E/A < 1 indica relaxamento alterado, mas é inespecífico e comum no envelhecimento; não é o critério mais forte isolado."
+        },
+        "difficulty": "média",
+        "tags": [
+            "ICFEp",
+            "Ecocardiograma",
+            "Diagnóstico",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Um paciente com insuficiência cardíaca crônica descompensada é admitido no hospital com quadro de edema generalizado e ascite. Após 48 horas de doses elevadas de furosemida endovenosa, o paciente apresenta redução do débito urinário, embora persista muito congesto. Sódio urinário está baixo. Este fenômeno de resistência ao diurético de alça pode ser manejado prioritariamente com:",
+        "options": {
+            "a": "Bloqueio sequencial do néfron com adição de tiazídico (ex: hidroclorotiazida).",
+            "b": "Suspensão total de diuréticos por 48 horas.",
+            "c": "Início de Manitol endovenoso.",
+            "d": "Substituição de Furosemida por Espironolactona em altas doses (200mg/dia).",
+            "e": "Início de Dopamina em dose alta para vasoconstrição renal."
+        },
+        "answer": "a",
+        "rationale": "A resistência aos diuréticos de alça (fenômeno de 'braking' ou hipertrofia do túbulo distal) é comum na IC grave. O bloqueio sequencial do néfron, adicionando-se um tiazídico que age no túbulo distal, potencializa a natriurese. Outras medidas incluem o uso de infusão contínua de furosemida em vez de bólus e a otimização da perfusão renal.",
+        "option_rationales": {
+            "a": "Correta. O uso concomitante de diuréticos de alça e tiazídicos combate a hipertrofia compensatória do túbulo distal.",
+            "b": "Incorreta. Suspender o diurético agravaria a congestão sistêmica crítica.",
+            "c": "Incorreta. Manitol não tem papel estabelecido no manejo da congestão na insuficiência cardíaca aguda.",
+            "d": "Incorreta. Espironolactona não tem potência diurética aguda suficiente para resolver este quadro.",
+            "e": "Incorreta. Dopamina em dose alta causa vasoconstrição excessiva; em dose baixa (renal) não provou benefício clínico consistente em estudos (ROSE-AHF)."
+        },
+        "difficulty": "média",
+        "tags": [
+            "IC Aguda",
+            "Diuréticos",
+            "Farmacologia",
+            "FGV"
+        ]
+    }
+]

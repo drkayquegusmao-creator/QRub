@@ -1,0 +1,389 @@
+[
+    {
+        "enunciado": "No contexto da insuficiência cardíaca crônica, qual o papel do estímulo do sistema simpático a longo prazo na evolução da doença?",
+        "options": {
+            "a": "Beneficia o coração ao aumentar permanentemente o débito cardíaco sem efeitos colaterais.",
+            "b": "Torna-se mal-adaptativo, causando hiperestimulação por catecolaminas, o que leva à morte do cardiomiócito (apoptose), fibrose e aumento do risco de arritmias fatais.",
+            "c": "Inibe a secreção de renina pelos rins, ajudando no controle da pressão.",
+            "d": "Promove o rejuvenescimento celular miocárdico.",
+            "e": "Reduz a resistência vascular periférica de forma sustentada."
+        },
+        "answer": "b",
+        "rationale": "O sistema simpático é um mecanismo de compensação agudo eficiente (aumenta FC e contratilidade). Porém, a ativação crônica na IC expõe o coração a um ambiente tóxico, resultando em remodelamento patológico e instabilidade elétrica, o que justifica o uso mandatório de betabloqueadores.",
+        "option_rationales": {
+            "a": "Incorreta. O benefício é apenas transitório.",
+            "b": "Correta. Define o conceito central da fisiopatologia neuro-humoral da IC.",
+            "c": "Incorreta. O simpático ESTIMULA o sistema RAA via receptores beta-1 renais.",
+            "d": "Incorreta.",
+            "e": "Incorreta. Causa vasoconstrição, aumentando a pós-carga."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "Fisiopatologia",
+            "Sistema Simpático",
+            "Catecolaminas",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Um paciente com insuficiência cardíaca apresenta taquicardia sinusal persistente. Ao realizar a manobra de compressão carotídea, observa-se uma redução gradual e transitória da frequência cardíaca, que retorna ao valor basal imediatamente após a cessação da manobra. Este achado sugere que o ritmo é:",
+        "options": {
+            "a": "Fibrilação Atrial.",
+            "b": "Taquicardia por Reentrada Nodal.",
+            "c": "Taquicardia Sinusal.",
+            "d": "Flutter Atrial com bloqueio variável.",
+            "e": "Taquicardia Ventricular."
+        },
+        "answer": "c",
+        "rationale": "A resposta vagal (manobra carotídea) na taquicardia sinusal é fisiologicamente a redução gradual e transitória. Nas taquicardias paroxísticas (B), a manobra costuma reverter o ritmo subitamente ou não ter efeito. Na FA/Flutter, pode haver aumento transitório do bloqueio AV.",
+        "option_rationales": {
+            "a": "Incorreta.",
+            "b": "Incorreta.",
+            "c": "Correta. Reflete a fisiologia normal do nó sinusal sob estímulo vagal.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "Arritmias",
+            "Semiologia",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "A respeito da ICFEr medicamentosa, em qual nível de potássio as diretrizes recomendam a suspensão temporária da Espironolactona visando segurança metabólica?",
+        "options": {
+            "a": "Potássio > 4.5 mEq/L.",
+            "b": "Potássio > 5.0 mEq/L.",
+            "c": "Potássio > 6.0 mEq/L ou piora aguda da função renal (Creatinina > 3.5).",
+            "d": "Potássio < 3.5 mEq/L.",
+            "e": "Potássio entre 4.0 e 5.0 mEq/L."
+        },
+        "answer": "c",
+        "rationale": "De acordo com as diretrizes da SBC, a Espironolactona deve ser reduzida se K > 5.5 e SUSPENSA se K > 6.0 ou se houver elevação importante da creatinina (usualmente cortes de Cr > 2.5 em homens ou 2.0 em mulheres sugerem cautela, mas 3.5 é um valor de suspensão segura óbvia).",
+        "option_rationales": {
+            "a": "Incorreta. Este valor é normal.",
+            "b": "Incorreta. Exige apenas vigilância.",
+            "c": "Correta. Limiares de segurança para evitar arritmia letal por hipercalemia.",
+            "d": "Incorreta. Hipocalemia é indicação para USAR, não suspender.",
+            "e": "Incorreta."
+        },
+        "difficulty": "média",
+        "tags": [
+            "Potássio",
+            "Segurança",
+            "Espironolactona",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Qual o principal benefício do uso de IECA demonstrado no histórico estudo SOLVD?",
+        "options": {
+            "a": "Redução da mortalidade total e das hospitalizações por IC em pacientes com disfunção ventricular esquerda.",
+            "b": "Apenas melhora da qualidade de vida sem impacto na sobrevida.",
+            "c": "Redução do risco de câncer de próstata.",
+            "d": "Prevenção de pneumonia.",
+            "e": "Aumento do débito urinário imediato comparável à furosemida."
+        },
+        "answer": "a",
+        "rationale": "O SOLVD (Studies of Left Ventricular Dysfunction) foi o trial divisor de águas que provou que o Enalapril reduzia a mortalidade e internações em pacientes com ICFEr, estabelecendo a classe como o primeiro pilar do tratamento moderno.",
+        "option_rationales": {
+            "a": "Correta. Conclusão histórica do estudo de referência.",
+            "b": "Incorreta.",
+            "c": "Incorreta.",
+            "d": "Incorreta.",
+            "e": "Incorreta. IECA não é diurético potente."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "Estudos",
+            "IECA",
+            "Prognóstico",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Na radiografia de tórax de um paciente com IC aguda, a presença de densidades lineares horizontais de 1 a 2 cm localizadas nas bases pulmonares e periféricas (campos inferiores) corresponde a:",
+        "options": {
+            "a": "Infiltrado alveolar difuso.",
+            "b": "Linhas B de Kerley.",
+            "c": "Broncograma aéreo.",
+            "d": "Calcificações hilares.",
+            "e": "Pneumotórax hipertensivo."
+        },
+        "answer": "b",
+        "rationale": "As Linhas B de Kerley representam o espessamento dos septos interlobulares devido ao edema intersticial. São marcadores clássicos de pressão venocapilar elevada entre 18 e 25 mmHg, indicando congestão moderada a grave antes da fase de inundação alveolar.",
+        "option_rationales": {
+            "a": "Incorreta. O edema alveolar causa infiltrado algodonoso ('asa de borboleta').",
+            "b": "Correta. Achado radiológico semiológico de alta importância na IC.",
+            "c": "Incorreta. Típico de consolidação pneumônica.",
+            "d": "Incorreta.",
+            "e": "Incorreta. Pneumotórax veria apenas ausência de trama e colapso pulmonar."
+        },
+        "difficulty": "média",
+        "tags": [
+            "Radiografia",
+            "Sinal de Kerley",
+            "Diagnóstico",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "A respeito da 'Assiduidade ao tratamento' (adesão) na insuficiência cardíaca, qual a intervenção não-farmacológica mais custo-efetiva para reduzir re-internações precoces (em 30 dias após a alta)?",
+        "options": {
+            "a": "Dieta de restrição hídrica absoluta de 200mL ao dia.",
+            "b": "Acompanhamento em clínicas multidisciplinares de IC e educação em saúde para reconhecimento precoce de sinais de descompensação.",
+            "c": "Repouso absoluto pelo menos 20 horas ao dia.",
+            "d": "Uso de suplementos vitamínicos de alta dose.",
+            "e": "Mudança para regiões de clima equatorial."
+        },
+        "answer": "b",
+        "rationale": "O manejo multidisciplinar (enfermagem especializada, cardiologia, nutrição e fisioterapia) é comprovadamente eficaz em reduzir a taxa de 'porta giratória' na IC, garantindo que o paciente compreenda sua doença e saiba ajustar o diurético conforme o peso.",
+        "option_rationales": {
+            "a": "Incorreta. Restrição agressiva pode causar desidratação e lesão renal.",
+            "b": "Correta. Pilar fundamental do manejo sistêmico da doença crônica.",
+            "c": "Incorreta. O exercício físico supervisionado é que traz benefício funcional.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "Manejo Multidisciplinar",
+            "Adesão",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Qual o principal desfecho neurológico prevenido pelo uso de anticoagulação em pacientes com IC e fibrilação atrial?",
+        "options": {
+            "a": "Mal de Alzheimer.",
+            "b": "Acidente Vascular Cerebral (AVC) isquêmico cardioembólico.",
+            "c": "Parkinsonismo secundário a betabloqueadores.",
+            "d": "Aneurisma cerebral roto.",
+            "e": "Neurocisticercose aguda."
+        },
+        "answer": "b",
+        "rationale": "A estase sanguínea no átrio esquerdo (frequentemente no apêndice atrial) durante a FA favorece a formação de trombos que podem embolizar para a circulação cerebral. A anticoagulação reduz este risco em cerca de 60-70%.",
+        "option_rationales": {
+            "a": "Incorreta.",
+            "b": "Correta. Motivo principal da prescrição de anticoagulantes nestes doentes.",
+            "c": "Incorreta.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "Anticoagulação",
+            "AVC",
+            "FA",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "A respeito da insuficiência cardíaca crônica descompensada por 'anemia aguda', qual a característica hemodinâmica esperada durante a fase de alto débito para suprir a hipóxia tecidual?",
+        "options": {
+            "a": "Vasoconstrição sistêmica e bradicardia.",
+            "b": "Vasodilatação sistêmica, taquicardia e aumento do volume sistólico (circulação hiperdinâmica).",
+            "c": "Apenas edema agudo de pulmão com PA baixa.",
+            "d": "Redução acentuada do índice cardíaco para < 2.0 L/min/m².",
+            "e": "Aumento das pressões periféricas apenas nos membros inferiores."
+        },
+        "answer": "b",
+        "rationale": "Na anemia grave, a redução da viscosidade sanguínea e a vasodilatação hipóxica reduzem a pós-carga. O coração responde aumentando a FC e a contratilidade para manter a oferta de oxigênio (DO2). Isso caracteriza a IC de alto débito, que eventualmente pode falhar se o coração já tiver doença estrutural prévia.",
+        "option_rationales": {
+            "a": "Incorreta.",
+            "b": "Correta. Define o estado hiperdinâmico da anemia/tireotoxicose/beribéri.",
+            "c": "Incorreta.",
+            "d": "Incorreta. No alto débito, o índice é elevado (> 4.0).",
+            "e": "Incorreta."
+        },
+        "difficulty": "média",
+        "tags": [
+            "IC Alto Débito",
+            "Anemia",
+            "Fisiopatologia",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Na monitorização de um paciente com IC avançada, qual o valor de Sódio Sérico (Natremia) que é um marcador clássico de gravidade e pior prognóstico?",
+        "options": {
+            "a": "Sódio > 145 mEq/L (Hipernatremia).",
+            "b": "Sódio < 135 mEq/L (Hiponatremia), refletindo ativação neuro-humoral excessiva.",
+            "c": "Sódio estável em 140 mEq/L.",
+            "d": "A natremia não tem correlação com prognóstico na IC.",
+            "e": "Sódio com variações de apenas 1 mEq ao dia."
+        },
+        "answer": "b",
+        "rationale": "A hiponatremia dilucional na IC ocorre pela ativação maciça do sistema de vasopressina (ADH) e SRAA em resposta ao baixo débito percebido. Pacientes com Na < 130-134 mEq/L têm risco muito superior de morte e re-internação, indicando estágio avançado da doença.",
+        "option_rationales": {
+            "a": "Incorreta.",
+            "b": "Correta. Marcador laboratorial de prognóstico reservado e doença grave.",
+            "c": "Incorreta.",
+            "d": "Incorreta. É um dos preditores mais consistentes em escores de risco.",
+            "e": "Incorreta."
+        },
+        "difficulty": "média",
+        "tags": [
+            "Hiponatremia",
+            "Prognóstico",
+            "Biologia",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Qual dos seguintes parâmetros do exame físico da IC AGUDA apresenta a maior correlação com a pressão capilar pulmonar elevada (congestão de VE)?",
+        "options": {
+            "a": "Edema de membros inferiores.",
+            "b": "Estertoração pulmonar bilateral.",
+            "c": "Presença de hepatomegalia dolorosa.",
+            "d": "Cianose de lábios.",
+            "e": "Bulas hipofonéticas."
+        },
+        "answer": "b",
+        "rationale": "A estertoração (crepitações) nas bases pulmonares reflete a presença de líquido nos alvéolos secundária à transudação do capilar sob pressão. É o sinal direto de congestão de lado esquerdo, diferente de edema e hepatomegalia que sugerem lado direito ou cronicidade.",
+        "option_rationales": {
+            "a": "Incorreta. Sugere congestão sistêmica.",
+            "b": "Correta. Reflete a falha aguda de VE e retro-congestão venocapilar.",
+            "c": "Incorreta. Sugere congestão sistêmica crônica.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "Semiologia",
+            "Congestão Pulmonar",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "A respeito do uso de Amiodarona na insuficiência cardíaca, é correto afirmar:",
+        "options": {
+            "a": "Reduz a mortalidade total de forma superior aos betabloqueadores.",
+            "b": "É a droga de escolha para o tratamento da intoxicação digitálica.",
+            "c": "Pode ser usada com segurança para controle de arritmias ventriculares ou suporte no controle de ritmo na FA, sendo neutra em relação à mortalidade na IC.",
+            "d": "Causa obrigatoriamente insuficiência adrenal em 100% dos casos.",
+            "e": "Sua principal vantagem é ser totalmente isenta de efeitos colaterais pulmonares ou tireoidianos."
+        },
+        "answer": "c",
+        "rationale": "A amiodarona (estudo GESICA/SCD-HeFT) é segura na IC (não mata nem cura per se em termos de sobrevida global isolada na IC grave), mas é muito útil para suprimir arritmias ventriculares ou manter o ritmo sinusal pós-cardioversão na FA. Exige monitorização rigorosa de TSH e função hepática/pulmonar.",
+        "option_rationales": {
+            "a": "Incorreta. Não reduz mortalidade na IC sem arritmia documentada.",
+            "b": "Incorreta.",
+            "c": "Correta. Papel clínico estabelecido como antiarrítmico seguro sob a ótica da mortalidade cardiovascular direta.",
+            "d": "Incorreta.",
+            "e": "Incorreta. Causa toxicidade pulmonar e disfunção tireoidiana frequentes."
+        },
+        "difficulty": "média",
+        "tags": [
+            "Amiodarona",
+            "Arritmias",
+            "Segurança",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "A utilização de IECA ou BRA na insuficiência cardíaca pode levar a um aumento discreto e inicial da Creatinina Sérica. Qual o percentual de aumento em relação ao basal que geralmente é considerado aceitável e não exige a suspensão da medicação, desde que o paciente esteja clinicamente estável?",
+        "options": {
+            "a": "Até 5%.",
+            "b": "Até 30%.",
+            "c": "Qualquer aumento exige suspensão.",
+            "d": "Até 100% (dobrar o valor).",
+            "e": "A creatinina não deve ser monitorada."
+        },
+        "answer": "b",
+        "rationale": "O bloqueio da angiotensina II causa vasodilatação da arteríola eferente glomerular, reduzindo a pressão intraglomerular (um efeito nefroprotetor crônico). Isso pode causar uma queda na TFG aguda. Aumentos de até 30% na creatinina são esperados e tolerados, refletindo o efeito hemodinâmico renal da droga.",
+        "option_rationales": {
+            "a": "Incorreta. Valor excessivamente conservador.",
+            "b": "Correta. Limiar de tolerância farmacológica renal bem estabelecido.",
+            "c": "Incorreta.",
+            "d": "Incorreta. Acima de 30% deve-se investigar desidratação ou estenose de artéria renal.",
+            "e": "Incorreta."
+        },
+        "difficulty": "média",
+        "tags": [
+            "Segurança",
+            "Função Renal",
+            "IECA/BRA",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Qual dos seguintes medicamentos está associado ao aumento do risco de novas internações por insuficiência cardíaca em pacientes diabéticos, devendo ser evitado conforme o estudo SAVOR-TIMI 53?",
+        "options": {
+            "a": "Metformina.",
+            "b": "Saxagliptina (Inibidor da DPP-4).",
+            "c": "Gliclazida.",
+            "d": "Empagliflozina.",
+            "e": "Sitagliptina."
+        },
+        "answer": "b",
+        "rationale": "O estudo SAVOR-TIMI 53 mostrou que, embora segura cardiovascularmente no geral, a Saxagliptina aumentou significativamente o risco de internação por IC. Por isso, as diretrizes sugerem cautela com esta droga em pacientes com IC estabelecida.",
+        "option_rationales": {
+            "a": "Incorreta. Metformina é segura na IC estável.",
+            "b": "Correta. Droga com alerta específico de segurança na IC.",
+            "c": "Incorreta.",
+            "d": "Incorreta. Pelo contrário, reduz internações.",
+            "e": "Incorreta. A sitagliptina mostrou neutralidade (Estudo TECOS)."
+        },
+        "difficulty": "difícil",
+        "tags": [
+            "Diabetes",
+            "Saxagliptina",
+            "Segurança",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "No tratamento da IC, a 'estimulação cardíaca ressincronizadora' (TRC) tem maior benefício em qual destes subgrupos de pacientes?",
+        "options": {
+            "a": "Pacientes com QRS < 120ms.",
+            "b": "Pacientes com ritmo de fibrilação atrial isolado.",
+            "c": "Pacientes com ritmo sinusal e padrão de Bloqueio de Ramo Esquerdo (BRE) com QRS ≥ 150ms.",
+            "d": "Pacientes com bloqueio AV isolado de primeiro grau.",
+            "e": "Pacientes idosos sem insuficiência cardíaca."
+        },
+        "answer": "c",
+        "rationale": "O maior benefício (Classe I) da TRC ocorre em pacientes com BRE e QRS muito largo. Nestes casos, a ressincronização é mais expressiva e gera os melhores resultados em termos de remodelemento reverso e sobrevida.",
+        "option_rationales": {
+            "a": "Incorreta. QRS estreito não tem indicação de TRC.",
+            "b": "Incorreta. TRC na FA exige controle rigoroso da FC ou ablação do nó AV para garantir 100% de captura biventricular.",
+            "c": "Correta. Subgrupo com melhor resposta clínica e evidência científica.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "média",
+        "tags": [
+            "TRC",
+            "Critérios",
+            "Eletrofisiologia",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Qual a principal função da Espironolactona no tratamento da ICFEr, além do seu efeito diurético fraco?",
+        "options": {
+            "a": "Aumentar a frequência cardíaca.",
+            "b": "Antagonizar os efeitos da aldosterona, reduzindo a fibrose miocárdica, a inflamação vascular e o remodelamento ventricular.",
+            "c": "Inibir a enzima conversora de angiotensina no pulmão.",
+            "d": "Promover a perda de potássio na urina.",
+            "e": "Causar vasodilatação arteriolar potente e imediata."
+        },
+        "answer": "b",
+        "rationale": "A Espironolactona na IC não é usada primariamente como diurético (as doses de 25mg são baixas para tal), mas sim como bloqueador neuro-humoral. A aldosterona causa fibrose no coração e vasos, e seu bloqueio protege a estrutura cardíaca, reduzindo a mortalidade (RALES study).",
+        "option_rationales": {
+            "a": "Incorreta.",
+            "b": "Correta. Mecanismo de 'modificação de doença' da medicação.",
+            "c": "Incorreta. Esta é a ação do IECA.",
+            "d": "Incorreta. Ela poupa potássio.",
+            "e": "Incorreta."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "Espironolactona",
+            "Fisiopatologia",
+            "Tratamento",
+            "FGV"
+        ]
+    }
+]

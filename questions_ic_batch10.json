@@ -1,0 +1,388 @@
+[
+    {
+        "enunciado": "A respeito do uso de anticoagulação na amiloidose cardíaca associada à fibrilação atrial, qual a recomendação atual das diretrizes (SBC/ESC)?",
+        "options": {
+            "a": "Anticoagular apenas se o CHA2DS2-VASc for ≥ 4.",
+            "b": "Anticoagular independentemente do escore CHA2DS2-VASc se houver Fibrilação Atrial documentada.",
+            "c": "Evitar anticoagulação pelo alto risco de sangramento miocárdico.",
+            "d": "Usar apenas aspirina 100mg.",
+            "e": "A anticoagulação não é indicada em doenças infiltrativas."
+        },
+        "answer": "b",
+        "rationale": "Na Amiloidose Cardíaca, o risco tromboembólico na FA é extremamente elevado, mesmo com escores CHA2DS2-VASc baixos (devido à infiltração amiloide no átrio e estase sanguínea). Por isso, as diretrizes recomendam anticoagular todos os pacientes com amiloidose e FA, independentemente da pontuação no escore tradicional.",
+        "option_rationales": {
+            "a": "Incorreta. O escore subestima o risco nestes pacientes.",
+            "b": "Correta. Recomendação de anticoagulação universal para FA nesta população específica.",
+            "c": "Incorreta. O risco de AVC supera o risco de sangramento na maioria dos casos.",
+            "d": "Incorreta. Aspirina é ineficaz para prevenção cardioembólica na FA.",
+            "e": "Incorreta. É fundamental e protetora."
+        },
+        "difficulty": "difícil",
+        "tags": [
+            "Amiloidose",
+            "Anticoagulação",
+            "FA",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Qual a principal alteração hemodinâmica que leva ao aparecimento da ortopneia na insuficiência cardíaca?",
+        "options": {
+            "a": "Queda brusca da pressão arterial sistólica ao deitar.",
+            "b": "Aumento do retorno venoso para as câmaras direitas e redistribuição do volume sanguíneo das pernas para os pulmões ao assumir o decúbito dorsal.",
+            "c": "Aumento reflexo da frequência cardíaca na posição deitada.",
+            "d": "Redução da complacência da caixa torácica pelo peso do diafragma.",
+            "e": "Colapso das veias jugulares na posição sentada."
+        },
+        "answer": "b",
+        "rationale": "Ao deitar, o fluido acumulado nos membros inferiores (edema gravitacional) é redistribuído para o tórax, aumentando o retorno venoso. Em um coração com VE incompetente, esse excesso de volume eleva as pressões capilares pulmonares acima do limiar crítico, causando congestão e dispneia (ortopneia). Sentar-se alivia o quadro por gravidade.",
+        "option_rationales": {
+            "a": "Incorreta. PA costuma subir ou manter-se estável.",
+            "b": "Correta. Mecanismo clássico de congestão pulmonar posicional.",
+            "c": "Incorreta. Taquicardia é consequência do estresse respiratório, não causa primária.",
+            "d": "Incorreta. Isso pode ocorrer na obesidade, mas o mecanismo da IC é hemodinâmico vascular.",
+            "e": "Incorreta. Na IC, as jugulares costumam estar turgentes (ingurgitadas)."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "Fisiopatologia",
+            "Ortopneia",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Pacientes com insuficiência cardíaca estável NYHA II que apresentam deficiência de ferro (Ferritina < 100) beneficiam-se da reposição de ferro endovenoso para melhora da capacidade funcional e redução de internações. Qual o medicamento endovenoso mais utilizado e indicado para este fim nos principais ensaios clínicos?",
+        "options": {
+            "a": "Sulfato Ferroso oral.",
+            "b": "Sacarato de Hidróxido de Ferro (Ferro Sacarato).",
+            "c": "Carboximaltose Férrica.",
+            "d": "Gluconato Ferroso.",
+            "e": "Cianocobalamina."
+        },
+        "answer": "c",
+        "rationale": "A Carboximaltose Férrica (estudos FAIR-HF, CONFIRM-HF) é a droga padrão-ouro para reposição rápida e segura na IC, permitindo doses elevadas em infusões curtas. O Sacarato de Ferro (B) também pode ser usado, mas exige múltiplas aplicações e não possui o mesmo volume de evidência dedicada em grandes trials de IC como a carboximaltose.",
+        "option_rationales": {
+            "a": "Incorreta. Ferro oral tem má absorção na IC (inflamação sistêmica e congestão intestinal) e não provou benefício clínico (Estudo IRONOUT).",
+            "b": "Incorreta. Opção secundária válida, mas não a principal dos trials de referência.",
+            "c": "Correta. Droga de maior evidência para melhora funcional na deficiência de ferro e IC.",
+            "d": "Incorreta.",
+            "e": "Incorreta. Vitamina B12, sem relação direta com ferro."
+        },
+        "difficulty": "média",
+        "tags": [
+            "Ferro",
+            "Tratamento",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "A respeito do derrame pleural na insuficiência cardíaca crônica descompensada, qual a característica laboratorial típica observada na análise do líquido pleural?",
+        "options": {
+            "a": "Exsudato com predominância de neutrófilos e glicose baixa.",
+            "b": "Transudato segundo os critérios de Light (Proteínas e LDH baixos).",
+            "c": "Líquido hemorrágico com presença de células neoplásicas.",
+            "d": "Quilotórax com altos níveis de triglicerídeos.",
+            "e": "Exsudato linfocítico com ADA elevado."
+        },
+        "answer": "b",
+        "rationale": "O derrame pleural na IC decorre de desequilíbrio de pressões hidrostáticas (acúmulo por excesso de pressão, sem inflamação primária da pleura), o que caracteriza o TRANSUDATO. Os critérios de Light para o transudato são: Relação prot. líquido/soro < 0.5, Relação LDH líquido/soro < 0.6 e LDH no líquido < 2/3 do limite superior do soro.",
+        "option_rationales": {
+            "a": "Incorreta. Sugere pneumonia ou empiema.",
+            "b": "Correta. Define o perfil químico do líquido na IC.",
+            "c": "Incorreta. Sugere malignidade.",
+            "d": "Incorreta. Típico de lesão do ducto torácico.",
+            "e": "Incorreta. Sugere tuberculose pleural."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "Derrame Pleural",
+            "Critérios de Light",
+            "Diagnóstico",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Qual a principal causa de morte em pacientes com insuficiência cardíaca de fração de ejeção preservada (ICFEp)?",
+        "options": {
+            "a": "Choque cardiogênico refratário.",
+            "b": "Causas não cardiovasculares (comorbidades, infecções, insuficiência renal).",
+            "c": "Ruptura de parede livre do ventrículo.",
+            "d": "Embolia gasosa arterial.",
+            "e": "Parada em assistolia sem reversão."
+        },
+        "answer": "b",
+        "rationale": "Diferente da ICFEr, onde a morte súbita e a falência de bomba predominam, pacientes com ICFEp frequentemente são mais idosos e possuem diversas comorbidades (Sarcopenia, Insuficiência Renal, DPOC, Diabetes). Por isso, uma proporção maior de mortes neste grupo ocorre por causas não cardíacas agravadas pelo estado de fragilidade sistêmica.",
+        "option_rationales": {
+            "a": "Incorreta. No choque cardiogênico agudo, a FE costuma estar reduzida; pacientes com ICFEp toleram melhor o débito, embora congestionem fácil.",
+            "b": "Correta. As comorbidades têm papel central na mortalidade da ICFEp.",
+            "c": "Incorreta. Complicação pós-infarto transmural, não da ICFEp per se.",
+            "d": "Incorreta.",
+            "e": "Incorreta. Inespecífico."
+        },
+        "difficulty": "média",
+        "tags": [
+            "ICFEp",
+            "Mortalidade",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "No ecocardiograma de um paciente com IC, a presença de movimento sistólico anterior (SAM) da valva mitral associado a hipertrofia septal assimétrica sugere fortemente o diagnóstico de:",
+        "options": {
+            "a": "Miocardiopatia Dilatada.",
+            "b": "Miocardiopatia Hipertrófica Obstrutiva.",
+            "c": "Estenose Pulmonar Crítica.",
+            "d": "Miocardiopatia Restritiva por Hemocromatose.",
+            "e": "Prolapso da Valva Mitral isolado."
+        },
+        "answer": "b",
+        "rationale": "O SAM ocorre quando a valva mitral é 'sugada' em direção ao septo hipertrofiado durante a sístole (efeito Venturi), causando obstrução dinâmica do fluxo na via de saída do ventrículo esquerdo (VSVE). Este é o achado clássico da Miocardiopatia Hipertrófica na sua forma obstrutiva.",
+        "option_rationales": {
+            "a": "Incorreta. Na dilatada, o ventrículo é fino e os folhetos mitrais não se aproximam do septo.",
+            "b": "Correta. Define o mecanismo de obstrução e o diagnóstico ecocardiográfico.",
+            "c": "Incorreta. Envolve o lado direito do coração.",
+            "d": "Incorreta. Restritiva cursa com paredes rígidas, mas geralmente sem obstrução dinâmica da VSVE.",
+            "e": "Incorreta. No prolapso, o folheto se desloca para o átrio, não para o septo ventricular."
+        },
+        "difficulty": "média",
+        "tags": [
+            "Miocardiopatia Hipertrófica",
+            "Ecocardiograma",
+            "SAM",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Qual dos fármacos abaixo deve ser adicionado ao tratamento da ICFEr quando o paciente apresenta ritmo sinusal com FC ≥ 70 bpm, mesmo em uso de dose máxima tolerada de betabloqueador, visando redução de hospitalização por IC?",
+        "options": {
+            "a": "Ivabradina.",
+            "b": "Eplerenona.",
+            "c": "Vericiguat.",
+            "d": "Amiodarona.",
+            "e": "Hidralazina."
+        },
+        "answer": "a",
+        "rationale": "De acordo com o estudo SHIFT e diretrizes (SBC/ESC), a Ivabradina reduz hospitalizações em pacientes com sintomáticos (NYHA II-IV), com FE ≤ 35%, em ritmo sinusal e com FC de repouso ≥ 70 bpm sob terapia otimizada.",
+        "option_rationales": {
+            "a": "Correta. Indicação específica baseada na frequência cardíaca residual.",
+            "b": "Incorreta. Antagonista da aldosterona, indicado para reduzir mortalidade independente da FC.",
+            "c": "Incorreta. Indicado geralmente após internação recente por descompensação.",
+            "d": "Incorreta. Antiarrítmico, sem papel no controle de frequência crônico visando prognóstico como a ivabradina.",
+            "e": "Incorreta. Vasodilatador."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "Ivabradina",
+            "SHIFT",
+            "Critérios",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "A respeito do tratamento da Insuficiência Cardíaca Aguda na emergência, qual a principal indicação para o uso de ventilação não invasiva (VNI), como o CPAP ou BiPAP?",
+        "options": {
+            "a": "Pacientes com insuficiência cardíaca estágio A.",
+            "b": "Edema agudo de pulmão com desconforto respiratório (FR > 25, saturação < 90% em ar ambiente) e ausência de sinais de choque ou necessidade de intubação imediata.",
+            "c": "Pacientes em choque cardiogênico com rebaixamento do nível de consciência.",
+            "d": "Apenas pacientes com asma cardíaca pura.",
+            "e": "Exclusivamente para pacientes com DPOC associado."
+        },
+        "answer": "b",
+        "rationale": "A VNI (especialmente CPAP) reduz o trabalho respiratório, melhora a troca gasosa e diminui a necessidade de intubação orotraqueal em pacientes com edema agudo de pulmão. Age aumentando a pressão intratorácica, o que reduz o retorno venoso (pré-carga) e a pós-carga do VE. Hipotensão profunda ou coma contraindicam a VNI.",
+        "option_rationales": {
+            "a": "Incorreta. Estágio A refere-se a pacientes sob risco de IC, sem sintomas ou alteração estrutural.",
+            "b": "Correta. Indicação clássica de suporte respiratório na emergência cardíaca.",
+            "c": "Incorreta. Rebaixamento do sensório e choque são contraindicações à VNI (necessário suporte invasivo).",
+            "d": "Incorreta.",
+            "e": "Incorreta. Embora útil no DPOC, o benefício no edema pulmonar cardíaco é independente."
+        },
+        "difficulty": "média",
+        "tags": [
+            "VNI",
+            "Emergência",
+            "Edema Pulmonar",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Na fisiopatologia da insuficiência cardíaca, o sistema do peptídeo natriurético tipo B (BNP) atua de forma contra-regulatória aos sistemas simpático e renina-angiotensina-aldosterona. Qual o principal efeito fisiológico do BNP?",
+        "options": {
+            "a": "Vasoconstrição sistêmica.",
+            "b": "Retenção de sódio e água pelo rim.",
+            "c": "Vasodilatação, natriurese e redução da atividade simpática.",
+            "d": "Aumento da proliferação de fibroblastos miocárdicos.",
+            "e": "Estimulação da secreção de vasopressina."
+        },
+        "answer": "c",
+        "rationale": "Os peptídeos natriuréticos (ANP/BNP) são 'hormônios anti-suficiência cardíaca'. Eles promovem a eliminação de sódio (natriurese), vasodilatação arterial e venosa, inibem a liberação de renina e aldosterona, e atuam contra o remodelamento (sendo anti-fibróticos). O Sacubitril-Valsartana funciona justamente aumentando a biodisponibilidade destes peptídeos benéficos.",
+        "option_rationales": {
+            "a": "Incorreta. BNP é vasodilatador.",
+            "b": "Incorreta. BNP é natriurético (elimina sódio).",
+            "c": "Correta. Define a ação protetora e compensatória do sistema natriurético.",
+            "d": "Incorreta. BNP é anti-fibrótico.",
+            "e": "Incorreta. BNP inibe a secreção de ADH (vasopressina)."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "Fisiopatologia",
+            "BNP",
+            "Natriurese",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Um paciente de 55 anos portador de ICFEr (FE 28%) apresenta quadro de síncope súbita ao caminhar. O ECG de repouso mostra ritmo sinusal com QRS de 90ms. O Holter de 24h revela diversos episódios de Taquicardia Ventricular Não-Sustentada (TVNS). O paciente já está em uso de terapia quádrupla otimizada há 4 meses. Qual a conduta indicada para prevenção de morte súbita?",
+        "options": {
+            "a": "Apenas observação clínica.",
+            "b": "Indicar implante de Cardiodesfibrilador (CDI) para prevenção secundária.",
+            "c": "Indicar implante de Cardiodesfibrilador (CDI) para prevenção primária.",
+            "d": "Trocar Carvedilol por Amiodarona.",
+            "e": "Substituir Enalapril por Digoxina."
+        },
+        "answer": "c",
+        "rationale": "O paciente possui indicação Classe I de CDI para prevenção PRIMÁRIA (já que ele tem FE ≤ 35% após 3 meses de terapia otimizada). Embora tenha tido síncope e TVNS no Holter, isso não caracteriza 'prevenção secundária' (que exige parada cardíaca recuperada ou TV sustentada com instabilidade). A síncope em um paciente com FE muito baixa deve ser tratada como alta suspeita de evento arrítmico maligno, reforçando a indicação de CDI.",
+        "option_rationales": {
+            "a": "Incorreta. O risco de morte súbita é muito alto.",
+            "b": "Incorreta. Prevenção secundária aplica-se a quem já teve um evento fatal/quase fatal documentado.",
+            "c": "Correta. Critério baseado na FE e persistência de disfunção estrutural apesar do tratamento.",
+            "d": "Incorreta. Betabloqueador deve ser mantido; amiodarona reduz choques mas não altera sobrevida como o CDI.",
+            "e": "Incorreta. Conduta sem respaldo nas diretrizes para este fim."
+        },
+        "difficulty": "média",
+        "tags": [
+            "CDI",
+            "Morte Súbita",
+            "Prevenção Primária",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "A respeito da miocardiopatia secundária ao uso de quimioterapia (antraciclinas como a Doxorrubicina), qual a característica típica desta toxicidade?",
+        "options": {
+            "a": "É sempre reversível com o uso imediato de betabloqueadores.",
+            "b": "Causa dano direto cumulativo e dose-dependente aos cardiomiócitos, podendo levar à IC anos após o tratamento.",
+            "c": "Ocorre exclusivamente em pacientes pediátricos.",
+            "d": "A toxicidade é mediada apenas por inflamação viral secundária.",
+            "e": "O ecocardiograma é incapaz de detectar precocemente esta lesão."
+        },
+        "answer": "b",
+        "rationale": "As antraciclinas causam estresse oxidativo e dano ao DNA mitocondrial dos miócitos, gerando uma toxicidade do Tipo I (irreversível, por perda celular). O risco aumenta significativamente com a dose cumulativa (ex: > 450-500 mg/m² de doxorrubicina). O Strain miocárdico ao Eco (E) é o exame de escolha para detectar a disfunção subclínica precocemente.",
+        "option_rationales": {
+            "a": "Incorreta. Muitas vezes é progressiva e irreversível, embora medicações ajudem na estabilização.",
+            "b": "Correta. Caracteriza o mecanismo e a progressão temporal da cardiotoxicidade crônica.",
+            "c": "Incorreta. Ocorre em qualquer idade.",
+            "d": "Incorreta. É toxicidade química direta.",
+            "e": "Incorreta. Eco com Strain e Ressonância são excelentes ferramentas de detecção precoce."
+        },
+        "difficulty": "média",
+        "tags": [
+            "Cardiotoxicidade",
+            "Quimioterapia",
+            "Antraciclinas",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "No contexto da IC avançada, o que define a 'caquexia cardíaca'?",
+        "options": {
+            "a": "Perda de peso involuntária > 6% do peso corporal total nos últimos 6-12 meses.",
+            "b": "Aumento do peso devido ao edema refratário.",
+            "c": "Ganho de massa muscular paradoxal.",
+            "d": "Aumento do apetite associado à fadiga.",
+            "e": "Qualquer perda de peso em paciente obeso."
+        },
+        "answer": "a",
+        "rationale": "A caquexia cardíaca é um marcador de péssimo prognóstico na IC avançada. Reflete um estado catabólico grave, inflamação sistêmica crônica, má absorção intestinal (por congestão de alças) e aumento do consumo energético basal. A definição clássica envolve a perda > 6% do peso não-edematoso.",
+        "option_rationales": {
+            "a": "Correta. Define o estado nutricional grave do paciente terminal ou estágio D.",
+            "b": "Incorreta. Perda de peso real, não 'ganho' por edema (anasarca).",
+            "c": "Incorreta. Ocorre perda de massa magra (sarcopenia).",
+            "d": "Incorreta. Costuma haver anorexia e saciedade precoce.",
+            "e": "Incorreta. Exige uma perda ponderal significativa e involuntária no contexto da doença."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "Caquexia",
+            "Prognóstico",
+            "Clínica",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Qual a principal limitação para a indicação de transplante cardíaco em pacientes com IC refratária?",
+        "options": {
+            "a": "Presença de hipertensão pulmonar fixa (RVP > 6-10 unidades Wood) não responsiva a vasodilatadores.",
+            "b": "Fração de ejeção de 15%.",
+            "c": "Idade de 40 anos.",
+            "d": "Uso de dobutamina em infusão contínua.",
+            "e": "Presença de bloqueio de ramo esquerdo."
+        },
+        "answer": "a",
+        "rationale": "A hipertensão pulmonar grave e fixa (irreversível) é uma contraindicação formal ao transplante de coração isolado, pois o ventrículo direito do doador (que é sadio e 'não treinado') falhará imediatamente ao tentar bombear contra uma resistência pulmonar muito alta no receptor. Outras incluem neoplasias malignas ativas e infecções graves não controladas.",
+        "option_rationales": {
+            "a": "Correta. Impede o sucesso da cirurgia devido à falência aguda do VD do doador.",
+            "b": "Incorreta. FE baixa é um dos motivos de indicação, não contraindicação.",
+            "c": "Incorreta. Idade ideal para transplante.",
+            "d": "Incorreta. Define o paciente como prioridade na lista de espera.",
+            "e": "Incorreta. Achado comum de base."
+        },
+        "difficulty": "média",
+        "tags": [
+            "Transplante",
+            "Contraindicações",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "A respeito do uso de vasodilatadores no tratamento da IC crônica, qual a combinação indicada especificamente para pacientes com contraindicação ao uso de IECA/BRA por insuficiência renal severa ou hiperpotassemia?",
+        "options": {
+            "a": "Amlodipino e Hidroclorotiazida.",
+            "b": "Hidralazina e Dinitrato de Isossorbida.",
+            "c": "Propranolol e Verapamil.",
+            "d": "Sacubitril-Valsartana isoladamente.",
+            "e": "Sildenafil e Losartana."
+        },
+        "answer": "b",
+        "rationale": "A associação de Hidralazina (vasodilatador arteriolar) e Nitrato (vasodilatador venoso) é a alternativa clássica recomendada pelas diretrizes quando os bloqueadores do Eixo RAA não podem ser utilizados. Teve seu benefício demonstrado originalmente no estudo V-HeFT I.",
+        "option_rationales": {
+            "a": "Incorreta.",
+            "b": "Correta. Alternativa segura e eficaz para o bloqueio do EAA em nefropatas graves.",
+            "c": "Incorreta. Perigosa na IC.",
+            "d": "Incorreta. Valsartana é um BRA e pode agravar função renal/hipercalemia.",
+            "e": "Incorreta."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "Hidralazina",
+            "Tratamento",
+            "Alternativas",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Qual dos seguintes pacientes apresenta o PERFIL B (Quente e Úmido) de Stevenson, sendo o fenótipo mais comum na sala de emergência?",
+        "options": {
+            "a": "Paciente chocado, inconsciente, com extremidades frias e pálidas.",
+            "b": "Paciente com PA 150/90 mmHg, saturando 88%, crepitações pulmonares bilaterais e turgência jugular.",
+            "c": "Paciente estável, sem edemas ou dispneia, em consulta de rotina.",
+            "d": "Paciente com fadiga extrema, perda de massa muscular, peso baixo e PA 90/60 mmHg, sem edemas.",
+            "e": "Paciente com febre, tosse produtiva e dor pleurítica."
+        },
+        "answer": "b",
+        "rationale": "O Perfil B é a 'Descompensação Congestiva' clássica: o paciente está 'Quente' (perfusão preservada, PA normal ou alta) e 'Úmido' (congestão pulmonar e/ou sistêmica). É o perfil que mais se beneficia de diuréticos e vasodilatadores imediatos.",
+        "option_rationales": {
+            "a": "Incorreta. Este seria o Perfil C (Frio e Úmido) se houvesse congestão, ou choque puro.",
+            "b": "Correta. Define o fenótipo congestivo com perfusão mantida.",
+            "c": "Incorreta. Este é o Perfil A.",
+            "d": "Incorreta. Este sugere o Perfil L.",
+            "e": "Incorreta. Sugere pneumonia ou pleurite."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "Stevenson",
+            "Emergência",
+            "Perfil B",
+            "FGV"
+        ]
+    }
+]

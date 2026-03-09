@@ -113,12 +113,17 @@ export default function AdminPackagesManager() {
     }
 
     const taxonomyOptions = useMemo(() => {
-        const options: { id: string; path: string; level: string }[] = []
+        const options: { id: string; path: string; level: string; count: number }[] = []
         function traverse(node: TaxonomyNode, currentPath: string) {
             const newPath = currentPath ? `${currentPath} > ${node.name}` : node.name
 
             // Adicionamos todos os níveis para permitir geração ampla (Geral) ou específica (Assunto)
-            options.push({ id: node.id, path: newPath, level: node.level })
+            options.push({
+                id: node.id,
+                path: newPath,
+                level: node.level,
+                count: (node as any).questionCount || 0
+            })
 
             if (node.children) {
                 node.children.forEach(child => traverse(child, newPath))
@@ -1088,7 +1093,7 @@ export default function AdminPackagesManager() {
                                                 <option value="">SELECIONE O CONCURSO/ÁREA</option>
                                                 {taxonomyOptions.map(t => (
                                                     <option key={t.id} value={t.path}>
-                                                        {t.path.toUpperCase()} {t.level !== 'subject' ? '— GERAL' : ''}
+                                                        {t.path.toUpperCase()} {t.level !== 'subject' ? '— GERAL' : ''} ({t.count} Questões)
                                                     </option>
                                                 ))}
                                             </select>

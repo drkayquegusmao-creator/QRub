@@ -1,0 +1,391 @@
+[
+    {
+        "enunciado": "A respeito do uso de Sildenafil ou outros inibidores da fosfodiesterase-5 em pacientes com insuficiência cardíaca crônica, qual a principal INTERAÇÃO MEDICAMENTOSA perigosa que deve ser evitada?",
+        "options": {
+            "a": "Uso concomitante com betabloqueadores.",
+            "b": "Uso concomitante com doadores de óxido nítrico (Nitratos como Isossorbida ou Nitroglicerina).",
+            "c": "Associação com diuréticos de alça.",
+            "d": "Uso em pacientes com deficiência de ferro.",
+            "e": "Combinação com estatinas."
+        },
+        "answer": "b",
+        "rationale": "Ambas as classes aumentam os níveis de GMP cíclico, promovendo vasodilatação sistêmica potente. O uso combinado pode levar a uma queda súbita e catastrófica da pressão arterial (hipotensão severa), síncope e colapso circulatório. É uma contraindicação absoluta formal.",
+        "option_rationales": {
+            "a": "Incorreta. Não há contraindicação absoluta de classe.",
+            "b": "Correta. Risco de hipotensão grave com risco de morte.",
+            "c": "Incorreta.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "Farmacologia",
+            "Interações",
+            "Segurança",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Qual a principal alteração estrutural observada na ecocardiografia que define a Miocardiopatia Dilatada, diferenciando-a de outras formas de miocardiopatia?",
+        "options": {
+            "a": "Aumento das dimensões das cavidades ventriculares (principalmente VE) associado a paredes finas e diminuição global da contratilidade (fração de ejeção reduzida).",
+            "b": "Aumento da espessura das paredes acima de 15mm com cavidades pequenas.",
+            "c": "Apenas o aumento isolado do átrio esquerdo.",
+            "d": "Presença de derrame pericárdico circunferencial.",
+            "e": "Calcificação extensa do anel mitral e aórtico."
+        },
+        "answer": "a",
+        "rationale": "A miocardiopatia dilatada caracteriza-se pela dilatação progressiva e disfunção sistólica na ausência de condições anormais de carga (como hipertensão grave ou valvopatias obstrutivas). O coração assume um formato globoso com redução importante da força de contração (fração de ejeção).",
+        "option_rationales": {
+            "a": "Correta. Define o fenótipo dilatado/hipocinético.",
+            "b": "Incorreta. Esta descrição corresponde à Miocardiopatia Hipertrófica.",
+            "c": "Incorreta.",
+            "d": "Incorreta. Derrame pode ocorrer, mas não define a miocardiopatia.",
+            "e": "Incorreta."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "Morfologia",
+            "Ecocardiograma",
+            "Diferencial",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "A respeito da Síndrome de Takotsubo (síndrome do coração partido), qual o gatilho clássico e o achado típico na ventriculografia ou ecocardiograma?",
+        "options": {
+            "a": "Uso de cocaína; hipertrofia de ponta.",
+            "b": "Estresse emocional ou físico intenso; acinesia apical com hipercinesia basal (formato de armadilha de polvo).",
+            "c": "Infecção por vírus Coxsackie; derrame pericárdico.",
+            "d": "Gravidez no terceiro trimestre; dilatação global.",
+            "e": "Hipotireoidismo severo; bradicardia."
+        },
+        "answer": "b",
+        "rationale": "A Síndrome de Takotsubo simula um infarto agudo do miocárdio, geralmente após estresse agudo. O excesso de catecolaminas causa uma disfunção regional transitória na ponta do ventrículo (balonamento apical), mantendo a base preservada ou hiperdinâmica. A recuperação costuma ocorrer em semanas.",
+        "option_rationales": {
+            "a": "Incorreta.",
+            "b": "Correta. Define o mecanismo desencadeante e o padrão de imagem característico.",
+            "c": "Incorreta. Seria miocardite.",
+            "d": "Incorreta. Seria miocardiopatia periparto.",
+            "e": "Incorreta."
+        },
+        "difficulty": "média",
+        "tags": [
+            "Takotsubo",
+            "Fisiopatologia",
+            "Ecocoardiografia",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "No tratamento da IC, a 'estimulação cardíaca ressincronizadora' (TRC) visa primordialmente corrigir qual distúrbio mecânico?",
+        "options": {
+            "a": "A fibrilação atrial permanente.",
+            "b": "A dissincronia de contração entre as paredes do ventrículo esquerdo (dissincronia interventricular e intraventricular) causada frequentemente pelo bloqueio de ramo esquerdo.",
+            "c": "A regurgitação aórtica leve.",
+            "d": "A obstrução da via de saída do ventrículo direito.",
+            "e": "A isquemia miocárdica silenciosa."
+        },
+        "answer": "b",
+        "rationale": "Em pacientes com QRS largo (especialmente BRE), as paredes do ventrículo não contraem ao mesmo tempo, reduzindo drasticamente a eficiência do débito cardíaco. A TRC (via cabo em seio coronário) estimula as paredes de forma coordenada, 'ressincronizando' o batimento e melhorando a FE.",
+        "option_rationales": {
+            "a": "Incorreta. TRC é idealmente feita em ritmo sinusal.",
+            "b": "Correta. Alvo terapêutico central da ressincronização.",
+            "c": "Incorreta.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "média",
+        "tags": [
+            "TRC",
+            "Eletrofisiologia",
+            "Manejo",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Qual a conduta indicada para um paciente de 70 anos, com IC crônica estável, que apresenta níveis de potássio de 5.4 mEq/L em exames de rotina, estando em uso de dose plena de Espironolactona e Enalapril?",
+        "options": {
+            "a": "Suspender todas as medicações da IC imediatamente.",
+            "b": "Manter a terapia, orientar dieta pobre em potássio e repetir o exame em 1 a 2 semanas; considerar redução da dose de espironolactona se subir acima de 5.5.",
+            "c": "Iniciar gluconato de cálcio endovenoso de imediato.",
+            "d": "Trocar Enalapril por Losartana.",
+            "e": "Indicar hemodiálise de urgência."
+        },
+        "answer": "b",
+        "rationale": "Níveis de potássio entre 5.0 e 5.5 exigem vigilância, mas não necessariamente a suspensão das drogas modificadoras de doença. A conduta é educacional (dieta) e monitoramento frequente. Limiares de 5.5 a 6.0 geralmente levam à redução de dose (50%), e acima de 6.0 suspende-se a droga.",
+        "option_rationales": {
+            "a": "Incorreta. Conduta agressiva demais que retira o benefício prognóstico.",
+            "b": "Correta. Manejo equilibrado para um potássio limítrofe no limite superior.",
+            "c": "Incorreta. Gluconato é para emergência hipercalêmica com alteração de ECG (geralmente K > 6.5).",
+            "d": "Incorreta. Losartana também eleva o potássio.",
+            "e": "Incorreta."
+        },
+        "difficulty": "média",
+        "tags": [
+            "Potássio",
+            "Segurança",
+            "Hipercalemia",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "A respeito do uso de antagonistas de receptores de angiotensina II (BRA) na IC, qual o principal estudo clínico que validou o uso da Candesartana em pacientes com ICFEr que não toleravam IECA?",
+        "options": {
+            "a": "CHARM-Alternative.",
+            "b": "PARADIGM-HF.",
+            "c": "EMPHASIS-HF.",
+            "d": "VALIANT.",
+            "e": "SHIFT."
+        },
+        "answer": "a",
+        "rationale": "O programa CHARM testou a Candesartana em diversos cenários da IC. O braço 'Alternative' incluiu especificamente pacientes intolerantes ao IECA (geralmente por tosse), demonstrando que o BRA era uma alternativa eficaz para reduzir morte e internação.",
+        "option_rationales": {
+            "a": "Correta. Estudo fundamental para a classe dos BRA na IC.",
+            "b": "Incorreta. Testou Sacubitril-Valsartana vs. Enalapril.",
+            "c": "Incorreta. Testou Eplerenona.",
+            "d": "Incorreta. Testou Valsartana pós-infarto.",
+            "e": "Incorreta. Testou Ivabradina."
+        },
+        "difficulty": "difícil",
+        "tags": [
+            "Estudos",
+            "BRA",
+            "Candesartana",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "A utilização de Pro-BNP ou BNP tem seu ponto de corte ajustado de acordo com qual das seguintes variáveis fisiológicas ou demográficas?",
+        "options": {
+            "a": "Apenas o sexo masculino.",
+            "b": "A idade (pacientes mais idosos têm pontos de corte maiores).",
+            "c": "O peso (pacientes obesos têm níveis de BNP falsamente elevados).",
+            "d": "A cor da pele.",
+            "e": "A altura do paciente."
+        },
+        "answer": "b",
+        "rationale": "Na emergência, para o NT-proBNP, usamos os cortes: < 50 anos: > 450; 50-75 anos: > 900; > 75 anos: > 1800 pg/mL como sugestivos de IC aguda. Isso porque a função renal diminui e a produção de peptídeos natriuréticos aumenta naturalmente com o envelhecimento. Na obesidade (C), os níveis de BNP costumam estar FALSAMENTE BAIXOS, o que é uma pegadinha comum.",
+        "option_rationales": {
+            "a": "Incorreta.",
+            "b": "Correta. O ajuste por idade aumenta a acurácia diagnóstica do biomarcador.",
+            "c": "Incorreta. Na obesidade o BNP cai, não sobe.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "média",
+        "tags": [
+            "Biomarcadores",
+            "Pontos de Corte",
+            "Idade",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Qual a principal indicação para o uso de Oxigênio suplementar em um paciente com insuficiência cardíaca aguda na emergência?",
+        "options": {
+            "a": "Deve ser administrado em todos os pacientes, mesmo com saturação normal.",
+            "b": "Apenas se a saturação de O2 (SpO2) for < 90% ou houver sinais claros de hipoxemia/desconforto respiratório.",
+            "c": "Sempre com máscara de Venturi a 50%.",
+            "d": "Proibido o uso em pacientes com cardiomiopatia chagaica.",
+            "e": "Se o paciente estiver euvolêmico."
+        },
+        "answer": "b",
+        "rationale": "O uso indiscriminado de oxigênio em pacientes que não estão hipoxêmicos pode causar vasoconstrição sistêmica e coronária, aumentar a pós-carga e reduzir o débito cardíaco. A oxigenoterapia deve ser alvo-guiada (SpO2 > 90%).",
+        "option_rationales": {
+            "a": "Incorreta. Pode ser prejudicial.",
+            "b": "Correta. Recomendação baseada em evitar efeitos deletérios da hiperóxia.",
+            "c": "Incorreta.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "Manejo",
+            "Oxigenoterapia",
+            "Segurança",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "A respeito da pericardite efusivo-constritiva, qual achado hemodinâmico ao cateterismo cardíaco sugere o diagnóstico após a realização da pericardiocentese?",
+        "options": {
+            "a": "Queda imediata das pressões atriais para níveis normais.",
+            "b": "Persistência de pressões atriais elevadas e do padrão em 'raiz quadrada' (dip-and-plateau) após a drenagem do líquido.",
+            "c": "Aumentos súbitos da pressão arterial sistólica.",
+            "d": "Desaparecimento do sinal de Kussmaul.",
+            "e": "Melhora instantânea da fração de ejeção para 70%."
+        },
+        "answer": "b",
+        "rationale": "Na pericardite efusivo-constritiva, o paciente tem um derrame sob pressão (tamponamento). Ao drenar o líquido, a pressão deveria normalizar. Se a pressão continuar alta, significa que o pericárdio visceral está rígido e constritivo, impedindo a expansão das câmaras mesmo sem o líquido externo.",
+        "option_rationales": {
+            "a": "Incorreta. Seria o esperado no tamponamento simples.",
+            "b": "Correta. Define o componente constritivo subjacente ao derrame.",
+            "c": "Incorreta.",
+            "d": "Incorreta. O sinal de Kussmaul costuma persistir se houver constrição.",
+            "e": "Incorreta."
+        },
+        "difficulty": "difícil",
+        "tags": [
+            "Pericardite",
+            "Himodinâmica",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Qual a principal causa de anemia na insuficiência cardíaca crônica?",
+        "options": {
+            "a": "Hemorragia digestiva alta varicosa.",
+            "b": "Multifatorial, incluindo deficiência de ferro (absoluta ou funcional), disfunção renal e inflamação sistêmica (anemia de doença crônica).",
+            "c": "Deficiência congênita de G6PD.",
+            "d": "Uso excessivo de aspirina.",
+            "e": "Hipoaldosteronismo primário."
+        },
+        "answer": "b",
+        "rationale": "A anemia na IC é complexa. A deficiência de ferro é proeminente (causada por má absorção intestinal ou perda oculta por antiagregantes). A inflamação crônica aumenta a hepcidina (bloqueando a liberação de ferro) e há redução da produção de eritropoetina pelo rim.",
+        "option_rationales": {
+            "a": "Incorreta. Pode ocorrer em cirróticos, mas não é a causa geral na IC.",
+            "b": "Correta. Reflete a fisiopatologia sistêmica complexa da doença.",
+            "c": "Incorreta.",
+            "d": "Incorreta. Pode contribuir para perda de ferro, mas não explica o quadro inflamatório.",
+            "e": "Incorreta."
+        },
+        "difficulty": "média",
+        "tags": [
+            "Anemia",
+            "Comorbidades",
+            "Fisiopatologia",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "No tratamento da IC aguda, o uso de Nitroprussiato de Sódio exige monitorização cuidadosa em pacientes com insuficiência renal devido ao risco de intoxicação por qual metabólito?",
+        "options": {
+            "a": "Metanol.",
+            "b": "Tiocianato e Cianeto.",
+            "c": "Ácido Úrico.",
+            "d": "Amônia.",
+            "e": "Creatinina."
+        },
+        "answer": "b",
+        "rationale": "O nitroprussiato libera cianeto ao ser metabolizado. O cianeto é convertido em tiocianato no fígado e excretado pelo rim. Na insuficiência renal, o tiocianato se acumula, podendo causar toxicidade neurológica (confusão, convulsões, coma) e acidose metabólica.",
+        "option_rationales": {
+            "a": "Incorreta.",
+            "b": "Correta. Risco farmacológico bem conhecido desta droga na UTI.",
+            "c": "Incorreta.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "média",
+        "tags": [
+            "Toxicidade",
+            "Nitroprussiato",
+            "Segurança",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "A respeito do uso de antagonistas de receptores de angiotensina II (BRA) na IC, em qual situação eles são preferíveis ao IECA como primeira escolha de tratamento?",
+        "options": {
+            "a": "Nunca, o IECA é sempre superior.",
+            "b": "Apenas se o paciente for de origem asiática.",
+            "c": "Quando o paciente desenvolve tosse persistente atribuída ao uso do IECA.",
+            "d": "Quando o paciente tem níveis de potássio muito baixos.",
+            "e": "Em pacientes com estenose mitral leve."
+        },
+        "answer": "c",
+        "rationale": "Embora o IECA (estudo SOLVD/CONSENSUS) seja a droga clássica com mais tempo de evidência, o BRA é idêntico em termos de redução de eventos (estudo CHARM/VALIANT) e deve ser usado quando o paciente não tolera o IECA, sendo a tosse o motivo mais frequente devido às bradicininas.",
+        "option_rationales": {
+            "a": "Incorreta. São considerados equivalentes nas diretrizes modernas.",
+            "b": "Incorreta.",
+            "c": "Correta. Conduta clínica padrão.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "Farmacologia",
+            "Manejo",
+            "Tosse",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Qual dos seguintes medicamentos utilizados na IC descompensada tem ação direta no aumento do GMP cíclico e promoção de natriurese e vasodilatação, sendo uma forma sintética do peptídeo natriurético tipo B (BNP)?",
+        "options": {
+            "a": "Dobutamina.",
+            "b": "Milrinone.",
+            "c": "Nesiritida.",
+            "d": "Levosimedana.",
+            "e": "Furosemida."
+        },
+        "answer": "c",
+        "rationale": "A Nesiritida é o BNP recombinante humano. Ela promove vasodilatação arteriolar e venosa expressiva, reduzindo as pressões de enchimento VE. No entanto, o estudo ASCEND-HF mostrou que ela não reduz mortalidade ou re-internação, sendo pouco utilizada hoje em dia.",
+        "option_rationales": {
+            "a": "Incorreta. Agonista beta.",
+            "b": "Incorreta. Inibidor da PDE-3.",
+            "c": "Correta. Reflete o uso clínico de peptídeos sintéticos.",
+            "d": "Incorreta. Sensibilizador de cálcio.",
+            "e": "Incorreta. Diurético de alça."
+        },
+        "difficulty": "difícil",
+        "tags": [
+            "Fisiopatologia",
+            "Medicamentos",
+            "Nesiritida",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "A síndrome de 'Dressler' refere-se a uma complicação pós-infarto do miocárdio que pode mimetizar ou agravar a insuficiência cardíaca. Qual sua característica principal?",
+        "options": {
+            "a": "Aneurisma ventricular roto.",
+            "b": "Pericardite autoimune tardia (semanas após o infarto) com dor torácica e derrame pericárdico.",
+            "c": "Arritmia supraventricular refratária.",
+            "d": "Edema agudo de pulmão por rotura de músculo papilar.",
+            "e": "Embolia pulmonar maciça."
+        },
+        "answer": "b",
+        "rationale": "A síndrome de Dressler é uma resposta inflamatória imunomediada (pericardite tardia) contra antígenos miocárdicos liberados durante a necrose do infarto. Cursa com febre, pleurite, dor pericárdica e aumento da área cardíaca por derrame. Diferencia-se da pericardite epistenocárdica, que é precoce (dias 1-3).",
+        "option_rationales": {
+            "a": "Incorreta.",
+            "b": "Correta. Define a síndrome inflamatória imunológica pós-insulto cardíaco.",
+            "c": "Incorreta.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "média",
+        "tags": [
+            "Pericardite",
+            "Dressler",
+            "Pós-Infarto",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Qual a conduta inicial recomendada para um paciente com IC, em ritmo sinusal, que apresenta frequência cardíaca de 95 bpm, estando assintomático e sem uso de qualquer medicação prévia?",
+        "options": {
+            "a": "Iniciar Digital (Digoxina) imediata.",
+            "b": "Iniciar Betabloqueador (ex: Carvedilol) em doses baixas e progressivas até a dose máxima tolerada.",
+            "c": "Encaminhar para cirurgia de troca valvar sem outros exames.",
+            "d": "Apenas orientar caminhadas leves.",
+            "e": "Iniciar Amiodarona para controle de frequência."
+        },
+        "answer": "b",
+        "rationale": "Betabloqueadores são prioridade absoluta na ICFEr e devem ser iniciados o mais precocemente possível em pacientes estáveis (Euvolemiados). O objetivo é o bloqueio adrenérgico e a redução da FC para melhorar o tempo de enchimento diastólico e reduzir o consumo de O2.",
+        "option_rationales": {
+            "a": "Incorreta. Digital não é primeira linha hoje.",
+            "b": "Correta. Base do tratamento modificador de doença.",
+            "c": "Incorreta.",
+            "d": "Incorreta. Medida incompleta.",
+            "e": "Incorreta. Amiodarona não é indicada para controle de frequência sinusal de rotina na IC."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "Betabloqueadores",
+            "Manejo Inicial",
+            "Tratamento",
+            "FGV"
+        ]
+    }
+]

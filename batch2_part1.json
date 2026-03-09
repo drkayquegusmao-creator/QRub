@@ -1,0 +1,627 @@
+[
+    {
+        "enunciado": "A articulação do ombro (glenoumeral) é a mais móvel do corpo humano, o que a torna também a mais suscetível a luxações. A estabilidade dinâmica dessa articulação é garantida pelo manguito rotador. Qual dos seguintes músculos compõe o manguito rotador e insere-se no tubérculo MENOR do úmero?",
+        "options": {
+            "a": "Agonista supraespinal.",
+            "b": "Músculo infraespinal.",
+            "c": "Músculo redondo menor.",
+            "d": "Músculo subescapular.",
+            "e": "Músculo redondo maior."
+        },
+        "answer": "d",
+        "rationale": "O manguito rotador é formado por quatro músculos: supraespinal, infraespinal, redondo menor (todos inserem-se no tubérculo maior) e o subescapular, que é o único a inserir-se no tubérculo menor do úmero.",
+        "option_rationales": {
+            "a": "Errada. Insere-se na faceta superior do tubérculo maior.",
+            "b": "Errada. Insere-se na faceta média do tubérculo maior.",
+            "c": "Errada. Insere-se na faceta inferior do tubérculo maior.",
+            "d": "Correta. É o único músculo do manguito que se insere no tubérculo menor.",
+            "e": "Errada. O redondo maior não faz parte do manguito rotador e se insere na crista do tubérculo menor."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Membro Superior",
+            "Manguito Rotador"
+        ]
+    },
+    {
+        "enunciado": "A fossa cubital é um espaço triangular na face anterior do cotovelo, importante para procedimentos de venopunção e avaliação de pulsos. Qual é o limite LATERAL da fossa cubital?",
+        "options": {
+            "a": "Músculo pronador redondo.",
+            "b": "Músculo braquiorradial.",
+            "c": "Músculo braquial.",
+            "d": "Tendão do bíceps braquial.",
+            "e": "Linha imaginária entre os epicôndilos."
+        },
+        "answer": "b",
+        "rationale": "A fossa cubital é delimitada superiormente pela linha interepicondilar, medialmente pelo músculo pronador redondo e lateralmente pelo músculo braquiorradial.",
+        "option_rationales": {
+            "a": "Errada. Este é o limite medial.",
+            "b": "Correta. Limite lateral da fossa cubital.",
+            "c": "Errada. O braquial forma o assoalho da fossa.",
+            "d": "Errada. O tendão é um conteúdo da fossa, não um limite lateral.",
+            "e": "Errada. Este é o limite superior (base do triângulo)."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Membro Superior",
+            "Topografia"
+        ]
+    },
+    {
+        "enunciado": "A mão humana possui uma complexa rede de ossos curtos agrupados no carpo. Qual osso do carpo é o mais comumente fraturado em quedas com a mão espalmada e localiza-se no assoalho da 'tabaqueira anatômica'?",
+        "options": {
+            "a": "Semilunar.",
+            "b": "Piramidal.",
+            "c": "Escafoide.",
+            "d": "Pisiforme.",
+            "e": "Hamato."
+        },
+        "answer": "c",
+        "rationale": "O escafoide é o osso mais lateral da fileira proximal do carpo e o mais frequentemente fraturado. Sua palpação na tabaqueira anatômica é um teste clínico importante para suspeita de fratura.",
+        "option_rationales": {
+            "a": "Errada. O semilunar é o mais frequentemente luxado, não fraturado.",
+            "b": "Errada. Localiza-se medialmente ao semilunar.",
+            "c": "Correta. Osso clássico de fraturas de punho e localizado na tabaqueira.",
+            "d": "Errada. Localiza-se na face palmar, sobre o piramidal.",
+            "e": "Errada. Localiza-se na fileira distal."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Membro Superior",
+            "Osteologia"
+        ]
+    },
+    {
+        "enunciado": "O plexo braquial fornece a inervação motora e sensitiva para o membro superior. Uma lesão no fascículo POSTERIOR do plexo braquial afetaria diretamente qual dos seguintes nervos?",
+        "options": {
+            "a": "Nervo musculocutâneo.",
+            "b": "Nervo mediano.",
+            "c": "Nervo ulnar.",
+            "d": "Nervo radial.",
+            "e": "Nervo cutâneo medial do braço."
+        },
+        "answer": "d",
+        "rationale": "O fascículo posterior dá origem aos nervos axilar e radial. O musculocutâneo vem do lateral, o ulnar do medial e o mediano de ambos (lateral e medial).",
+        "option_rationales": {
+            "a": "Errada. Origina-se do fascículo lateral.",
+            "b": "Errada. Tem raízes nos fascículos lateral e medial.",
+            "c": "Errada. Origina-se do fascículo medial.",
+            "d": "Correta. O radial é o principal ramo do fascículo posterior.",
+            "e": "Errada. Origina-se do fascículo medial."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Membro Superior",
+            "Plexo Braquial"
+        ]
+    },
+    {
+        "enunciado": "O músculo bíceps braquial possui duas cabeças (longa e curta). Ambas atravessam a articulação do ombro, mas apenas uma delas passa por dentro da cápsula articular (intracapsular). Onde se origina a cabeça LONGA do bíceps braquial?",
+        "options": {
+            "a": "Processo coracoide da escápula.",
+            "b": "Tubérculo infraglenoidal da escápula.",
+            "c": "Tubérculo supraglenoidal da escápula.",
+            "d": "Colo cirúrgico do úmero.",
+            "e": "Acromion."
+        },
+        "answer": "c",
+        "rationale": "A cabeça longa do bíceps origina-se no tubérculo supraglenoidal e seu tendão percorre o sulco intertubercular. A cabeça curta origina-se no processo coracoide (junto com o coracobraquial).",
+        "option_rationales": {
+            "a": "Errada. Origem da cabeça curta.",
+            "b": "Errada. Origem da cabeça longa do tríceps braquial.",
+            "c": "Correta. Local de origem da cabeça longa do bíceps.",
+            "d": "Errada. Não há origem muscular significativa nestes termos para o bíceps.",
+            "e": "Errada. Local de origem do deltoide e inserção do trapézio."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Membro Superior",
+            "Miologia"
+        ]
+    },
+    {
+        "enunciado": "A artéria braquial é a continuação direta de qual artéria após ela ultrapassar a borda inferior do músculo redondo maior?",
+        "options": {
+            "a": "Artéria subclávia.",
+            "b": "Artéria axilar.",
+            "c": "Artéria ulnar.",
+            "d": "Artéria profunda do braço.",
+            "e": "Artéria torácica lateral."
+        },
+        "answer": "b",
+        "rationale": "A artéria axilar muda de nome para artéria braquial ao atravessar a margem inferior do músculo redondo maior. Ela termina na fossa cubital dividindo-se em artérias radial e ulnar.",
+        "option_rationales": {
+            "a": "Errada. A subclávia torna-se axilar na 1ª costela.",
+            "b": "Correta. Marco anatômico clássico da transição axilo-braquial.",
+            "c": "Errada. É um ramo terminal da braquial.",
+            "d": "Errada. É um ramo colateral da braquial nascido no braço.",
+            "e": "Errada. É um ramo da segunda parte da artéria axilar."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Membro Superior",
+            "Angiologia"
+        ]
+    },
+    {
+        "enunciado": "A escápula apresenta um processo ósseo em forma de 'dedo fletido' que serve como local de inserção para os músculos peitoral menor, coracobraquial e cabeça curta do bíceps. Qual o nome dessa estrutura?",
+        "options": {
+            "a": "Acromion.",
+            "b": "Espinha da escápula.",
+            "c": "Ângulo superior.",
+            "d": "Processo coracoide.",
+            "e": "Genoide."
+        },
+        "answer": "d",
+        "rationale": "O processo coracoide é uma projeção óssea anterior da escápula fundamental para a fixação de músculos e ligamentos estabilizadores do ombro.",
+        "option_rationales": {
+            "a": "Errada. É a continuação lateral da espinha, articula-se com a clavícula.",
+            "b": "Errada. Estrutura posterior que divide as fossas supra e infraespinais.",
+            "c": "Errada. Ponto de encontro das bordas medial e superior.",
+            "d": "Correta. Descrição morfológica e funcional do processo coracoide.",
+            "e": "Errada. Provável erro de digitação para cavidade glenoide, onde o úmero articula."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Membro Superior",
+            "Osteologia"
+        ]
+    },
+    {
+        "enunciado": "O nervo ulnar é conhecido como o 'nervo do músico' por sua importância na motricidade fina da mão. No cotovelo, ele passa por um canal localizado entre quais estruturas ósseas, onde é vulnerável à compressão?",
+        "options": {
+            "a": "Epicôndilo lateral e olécrano.",
+            "b": "Epicôndilo medial e olécrano.",
+            "c": "Epicôndilo medial e tróclea.",
+            "d": "Capítulo do úmero e rádio.",
+            "e": "Fossa coronóidea e olécrano."
+        },
+        "answer": "b",
+        "rationale": "O nervo ulnar corre pelo sulco do nervo ulnar, localizado posteriormente ao epicôndilo medial do úmero e medialmente ao olécrano da ulna. É o local onde 'choques' ocorrem ao bater o cotovelo.",
+        "option_rationales": {
+            "a": "Errada. O nervo radial passa próximo ao epicôndilo lateral (anteriormente).",
+            "b": "Correta. Localização anatômica do nervo ulnar no cotovelo.",
+            "c": "Errada. A tróclea é a superfície articular, o nervo é posterior.",
+            "d": "Errada. Articulação radio-umeral, não relacionada ao nervo ulnar.",
+            "e": "Errada. Fossas situadas em lados opostos do úmero distal."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Membro Superior",
+            "Neuroanatomia"
+        ]
+    },
+    {
+        "enunciado": "A inervação do músculo serrátil anterior é fornecida por um nervo que desce pela parede lateral do tórax. A lesão desse nervo causa a condição clínica conhecida como 'escápula alada'. Qual é esse nervo?",
+        "options": {
+            "a": "Nervo toracodorsal.",
+            "b": "Nervo torácico longo (de Bell).",
+            "c": "Nervo acessório.",
+            "d": "Nervo axilar.",
+            "e": "Nervo peitoral medial."
+        },
+        "answer": "b",
+        "rationale": "O nervo torácico longo (C5, C6, C7) inerva o serrátil anterior. Sua paralisia impede que o músculo mantenha a escápula contra a grade costal, resultando em sua proeminência posterior (asa).",
+        "option_rationales": {
+            "a": "Errada. Inerva o grande dorsal.",
+            "b": "Correta. Nervo específico para o serrátil anterior.",
+            "c": "Errada. Inerva o trapézio.",
+            "d": "Errada. Inerva o deltoide e redondo menor.",
+            "e": "Errada. Inerva peitoral menor e maior."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Membro Superior",
+            "Clínica"
+        ]
+    },
+    {
+        "enunciado": "O úmero apresenta dois 'colos': o colo anatômico e o colo cirúrgico. Qual estrutura nervosa e qual artéria atravessam o espaço quadrangular, contornando o COLO CIRÚRGICO do úmero?",
+        "options": {
+            "a": "Nervo radial e artéria braquial profunda.",
+            "b": "Nervo axilar e artéria reflexa umeral posterior.",
+            "c": "Nervo musculocutâneo e artéria braquial.",
+            "d": "Nervo ulnar e artéria ulnar colateral superior.",
+            "e": "Nervo mediano e artéria braquial."
+        },
+        "answer": "b",
+        "rationale": "O colo cirúrgico do úmero é circundado pelo nervo axilar e pela artéria circunflexa umeral posterior (o termo 'reflexa' foi usado como sinônimo comum em certas bibliografias, embora 'circunflexa' seja o padrão). Fraturas nesse nível frequentemente lesam o nervo axilar.",
+        "option_rationales": {
+            "a": "Errada. Contornam o corpo do úmero no sulco do nervo radial.",
+            "b": "Correta. Estruturas em risco em fraturas do colo cirúrgico.",
+            "c": "Errada. O musculocutâneo perfura o coracobraquial.",
+            "d": "Errada. Contornam o epicôndilo medial.",
+            "e": "Errada. Descida anterior no braço."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "Anatomia",
+            "Membro Superior",
+            "Traumatologia"
+        ]
+    },
+    {
+        "enunciado": "A musculatura da eminência tenar (na base do polegar) é responsável pela oponência do polegar, um movimento essencial para a preensão. Qual nervo é o principal responsável pela inervação motora da maioria dos músculos da eminência tenar?",
+        "options": {
+            "a": "Nervo ulnar.",
+            "b": "Nervo radial.",
+            "c": "Nervo mediano.",
+            "d": "Nervo musculocutâneo.",
+            "e": "Nervo interósseo posterior."
+        },
+        "answer": "c",
+        "rationale": "O nervo mediano inerva os músculos da eminência tenar (oponente do polegar, abdutor curto e flexor curto - cabeça superficial), exceto o músculo adutor do polegar e a cabeça profunda do flexor curto, que são inervados pelo ulnar.",
+        "option_rationales": {
+            "a": "Errada. Inerva a maioria dos músculos intrínsecos da mão, mas não a maioria da tenar.",
+            "b": "Errada. Inerva apenas a pele do dorso da mão (neste contexto).",
+            "c": "Correta. Principal nervo da pinça polpar/oponência.",
+            "d": "Errada. Termina como nervo cutâneo lateral do antebraço.",
+            "e": "Errada. Ramo do radial para extensores do antebraço."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Membro Superior",
+            "Neuroanatomia"
+        ]
+    },
+    {
+        "enunciado": "A articulação rádio-ulnar distal permite os movimentos de pronação e supinação. Qual ligamento stabilize essa articulação e faz parte do complexo da fibrocartilagem triangular?",
+        "options": {
+            "a": "Ligamento anular do rádio.",
+            "b": "Ligamento colateral radial.",
+            "c": "Disco articular (fibrocartilagem triangular).",
+            "d": "Membrana interóssea.",
+            "e": "Ligamento quadrado."
+        },
+        "answer": "c",
+        "rationale": "O disco articular da articulação rádio-ulnar distal é a principal estrutura de estabilização, unindo a borda inferior da ulna ao rádio e participando da articulação do punho.",
+        "option_rationales": {
+            "a": "Errada. Estabiliza a rádio-ulnar proximal no cotovelo.",
+            "b": "Errada. Estabiliza o lado lateral do punho.",
+            "c": "Correta. Estrutura chave na estabilidade distal do antebraço.",
+            "d": "Errada. Une os corpos do rádio e ulna.",
+            "e": "Errada. Pequeno ligamento na rádio-ulnar proximal."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "Anatomia",
+            "Membro Superior",
+            "Artrologia"
+        ]
+    },
+    {
+        "enunciado": "O músculo braquiorradial é um potente flexor do antebraço. Apesar de sua função flexora, ele localiza-se no compartimento posterior (extensor) do antebraço. Qual é o nervo responsável por sua inervação?",
+        "options": {
+            "a": "Nervo mediano.",
+            "b": "Nervo musculocutâneo.",
+            "c": "Nervo radial.",
+            "d": "Nervo ulnar.",
+            "e": "Nervo axilar."
+        },
+        "answer": "c",
+        "rationale": "O braquiorradial é uma exceção funcional: é inervado pelo nervo radial (típico de extensores), mas sua ação principal é a flexão do antebraço (quando em posição semi-pronada).",
+        "option_rationales": {
+            "a": "Errada. Inerva flexores do antebraço (exceto o flexor ulnar do carpo).",
+            "b": "Errada. Inerva bíceps, braquial e coracobraquial.",
+            "c": "Correta. Nervo radial inerva o braquiorradial.",
+            "d": "Errada. Inerva o flexor ulnar do carpo.",
+            "e": "Errada. Inerva o deltoide."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "Anatomia",
+            "Membro Superior",
+            "Neuroanatomia Aplicada"
+        ]
+    },
+    {
+        "enunciado": "O tríceps braquial é o principal extensor do cotovelo e possui três cabeças: longa, lateral e medial. Qual dessas cabeças também cruza a articulação do ombro e pode auxiliar na extensão do braço?",
+        "options": {
+            "a": "Cabeça lateral.",
+            "b": "Cabeça medial.",
+            "c": "Cabeça longa.",
+            "d": "As três cabeças cruzam o ombro.",
+            "e": "Nenhuma das cabeças cruza o ombro."
+        },
+        "answer": "c",
+        "rationale": "Apenas a cabeça longa do tríceps se origina na escápula (tubérculo infraglenoidal), cruzando assim a articulação glenoumeral. As cabeças lateral e medial originam-se no corpo do úmero.",
+        "option_rationales": {
+            "a": "Errada. Origem umeral.",
+            "b": "Errada. Origem umeral profunda.",
+            "c": "Correta. Única cabeça biarticular do tríceps.",
+            "d": "Errada. Apenas uma.",
+            "e": "Errada. Incorreto."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Membro Superior",
+            "Miologia"
+        ]
+    },
+    {
+        "enunciado": "A 'tabaqueira anatômica' é uma depressão delimitada por tendões no dorso do punho. Quais tendões formam o limite MEDIAL (ulnar) dessa estrutura?",
+        "options": {
+            "a": "Abdutor longo do polegar e extensor curto do polegar.",
+            "b": "Extensor longo do polegar.",
+            "c": "Extensor radial longo do carpo.",
+            "d": "Extensor do indicador.",
+            "e": "Flexor longo do polegar."
+        },
+        "answer": "b",
+        "rationale": "O limite lateral é formado pelo abdutor longo e extensor curto do polegar. O limite medial é formado solitariamente pelo tendão do músculo extensor longo do polegar.",
+        "option_rationales": {
+            "a": "Errada. Estes são os limites laterais.",
+            "b": "Correta. Limite medial único.",
+            "c": "Errada. Passam pelo assoalho ou lateralmente.",
+            "d": "Errada. Mais medial na mão.",
+            "e": "Errada. Músculo anterior (palmar)."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Membro Superior",
+            "Topografia"
+        ]
+    },
+    {
+        "enunciado": "O músculo deltoide é o principal abdutor do braço. No entanto, ele não consegue iniciar a abdução nos primeiros 15 graus. Qual músculo é o responsável por INICIAR o movimento de abdução do ombro?",
+        "options": {
+            "a": "Supraespinal.",
+            "b": "Infraespinal.",
+            "c": "Redondo menor.",
+            "d": "Subescapular.",
+            "e": "Serrátil anterior."
+        },
+        "answer": "a",
+        "rationale": "O supraespinal inicia a abdução (0-15°). A partir de então, o deltoide assume o papel principal (15-90°). Acima de 90°, a rotação da escápula pelo serrátil anterior e trapézio é necessária.",
+        "option_rationales": {
+            "a": "Correta. Músculo iniciador da abdução.",
+            "b": "Errada. Rotador externo.",
+            "c": "Errada. Rotador externo.",
+            "d": "Errada. Rotador interno.",
+            "e": "Errada. Age na escápula, permitindo abdução acima de 90°."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Membro Superior",
+            "Biomecânica"
+        ]
+    },
+    {
+        "enunciado": "O 'ligamento anular' é uma estrutura em forma de anel que mantém a cabeça do rádio em contato com a ulna, permitindo a rotação. A luxação da cabeça do rádio através desse ligamento ('cotovelo da babá') é comum em crianças. Em qual articulação ele atua?",
+        "options": {
+            "a": "Articulação umeroumeral.",
+            "b": "Articulação radioumeral.",
+            "c": "Articulação radioulnar proximal.",
+            "d": "Articulação radioulnar distal.",
+            "e": "Articulação do punho."
+        },
+        "answer": "c",
+        "rationale": "O ligamento anular envolve a cabeça do rádio e a prende à incisura radial da ulna, formando a articulação radioulnar proximal, uma articulação do tipo trocoide (pivô).",
+        "option_rationales": {
+            "a": "Errada. Não existe tal articulação.",
+            "b": "Errada. Articulação entre rádio e capítulo do úmero.",
+            "c": "Correta. Local de ação do ligamento anular.",
+            "d": "Errada. Localizada no punho.",
+            "e": "Errada. Articulação radiocarpica."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Membro Superior",
+            "Artrologia"
+        ]
+    },
+    {
+        "enunciado": "A drenagem venosa superficial do membro superior é realizada principalmente pelas veias cefálica e basílica. Onde a veia CEFÁLICA desemboca após percorrer o sulco deltopeitoral?",
+        "options": {
+            "a": "Veia braquial.",
+            "b": "Veia basílica.",
+            "c": "Veia axilar.",
+            "d": "Veia subclávia.",
+            "e": "Veia cava superior."
+        },
+        "answer": "c",
+        "rationale": "A veia cefálica sobe pela face lateral do braço, passa pelo triângulo deltopeitoral e perfura a fáscia clavi-peitoral para desembocar na veia axilar.",
+        "option_rationales": {
+            "a": "Errada. Veia profunda.",
+            "b": "Errada. Desemboca na veia braquial para formar a axilar.",
+            "c": "Correta. Destino final da veia cefálica.",
+            "d": "Errada. Destino da veia axilar.",
+            "e": "Errada. Destino final do sistema venoso superior."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Membro Superior",
+            "Angiologia"
+        ]
+    },
+    {
+        "enunciado": "A mão recebe suprimento arterial por meio de arcos palmares (superficial e profundo). Qual artéria contribui predominantemente para a formação do ARCO PALMAR SUPERFICIAL?",
+        "options": {
+            "a": "Artéria radial.",
+            "b": "Artéria ulnar.",
+            "c": "Artéria interóssea anterior.",
+            "d": "Artéria braquial.",
+            "e": "Artéria principal do polegar."
+        },
+        "answer": "b",
+        "rationale": "O arco palmar superficial é formado principalmente pela terminação da artéria ulnar. O arco palmar profundo é formado principalmente pela artéria radial.",
+        "option_rationales": {
+            "a": "Errada. Contribui principalmente para o arco profundo.",
+            "b": "Correta. Fonte principal do arco superficial.",
+            "c": "Errada. Ramo da ulnar no antebraço.",
+            "d": "Errada. Artéria do braço.",
+            "e": "Errada. Ramo da artéria radial."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Membro Superior",
+            "Vascularização"
+        ]
+    },
+    {
+        "enunciado": "O músculo oponente do polegar é vital para a funcionalidade da mão. Onde ele se insere no primeiro metacarpal?",
+        "options": {
+            "a": "Base do metacarpal.",
+            "b": "Cabeça do metacarpal.",
+            "c": "Borda lateral de toda a diáfise.",
+            "d": "Falange proximal.",
+            "e": "Osso sesamoide."
+        },
+        "answer": "c",
+        "rationale": "Diferente de outros músculos da mão que se inserem na base ou falanges, o oponente do polegar insere-se na face lateral do corpo (diáfise) do 1º osso metacarpal, permitindo-lhe realizar a rotação necessária para a oposição.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Errada.",
+            "c": "Correta. Inserção atípica e funcionalmente relevante.",
+            "d": "Errada. Inserção do abdutor curto e flexor curto.",
+            "e": "Errada."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "Anatomia",
+            "Membro Superior",
+            "Miologia"
+        ]
+    },
+    {
+        "enunciado": "O nervo mediano atravessa o antebraço dirigindo-se à mão. No cotovelo, onde ele se localiza em relação à artéria braquial?",
+        "options": {
+            "a": "Lateral à artéria.",
+            "b": "Medial à artéria.",
+            "c": "Posterior à artéria.",
+            "d": "Superficial à artéria.",
+            "e": "Cruza a artéria no meio do braço."
+        },
+        "answer": "b",
+        "rationale": "No braço superior, o nervo mediano é lateral à artéria. No meio do braço, ele a cruza anteriormente. Na fossa cubital (cotovelo), ele situa-se MEDIALMENTE à artéria braquial.",
+        "option_rationales": {
+            "a": "Errada. Posição no braço proximal.",
+            "b": "Correta. Relação na fossa cubital.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada. Ele cruza a artéria, mas a pergunta foca na posição no cotovelo."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "Anatomia",
+            "Membro Superior",
+            "Neuroanatomia"
+        ]
+    },
+    {
+        "enunciado": "O músculo flexor profundo dos dedos possui uma inervação MOTORA dupla. Quais nervos suprem as partes desse músculo?",
+        "options": {
+            "a": "Nervo mediano (todo o músculo).",
+            "b": "Nervo ulnar (todo o músculo).",
+            "c": "Nervo mediano (metade lateral) e Nervo ulnar (metade medial).",
+            "d": "Nervo mediano (metade medial) e Nervo ulnar (metade lateral).",
+            "e": "Nervo radial e mediano."
+        },
+        "answer": "c",
+        "rationale": "O flexor profundo dos dedos é inervado pelo nervo interósseo anterior (ramo do mediano) para os dedos 2 e 3 (metade lateral) e pelo nervo ulnar para os dedos 4 e 5 (metade medial).",
+        "option_rationales": {
+            "a": "Errada. Inerva apenas a metade lateral.",
+            "b": "Errada. Inerva apenas a metade medial.",
+            "c": "Correta. Caso clássico de inervação dupla no antebraço.",
+            "d": "Errada. Lados trocados.",
+            "e": "Errada. O radial inerva extensores."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Membro Superior",
+            "Neuroanatomia"
+        ]
+    },
+    {
+        "enunciado": "A 'crista do tubérculo maior' do úmero serve como local de inserção para qual potente músculo adutor e rotador medial do braço?",
+        "options": {
+            "a": "Peitoral maior.",
+            "b": "Grande dorsal.",
+            "c": "Redondo maior.",
+            "d": "Coracobraquial.",
+            "e": "Subescapular."
+        },
+        "answer": "a",
+        "rationale": "O peitoral maior insere-se na crista do tubérculo maior. O redondo maior insere-se na crista do tubérculo menor e o grande dorsal no assoalho do sulco intertubercular (mnemônico: 'The lady between two majors').",
+        "option_rationales": {
+            "a": "Correta. Local de inserção do peitoral maior.",
+            "b": "Errada. Insere-se no assoalho do sulco.",
+            "c": "Errada. Insere-se na crista do tubérculo menor.",
+            "d": "Errada. Insere-se no meio do corpo do úmero.",
+            "e": "Errada. Insere-se no tubérculo menor."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "Anatomia",
+            "Membro Superior",
+            "Miologia"
+        ]
+    },
+    {
+        "enunciado": "O processo estiloide do rádio é uma projeção óssea lateral no punho. Qual músculo se insere diretamente nesse processo?",
+        "options": {
+            "a": "Extensor radial longo do carpo.",
+            "b": "Braquiorradial.",
+            "c": "Supinador.",
+            "d": "Abdutor longo do polegar.",
+            "e": "Músculo braquial."
+        },
+        "answer": "b",
+        "rationale": "O músculo braquiorradial insere-se na base do processo estiloide do rádio. É um caso onde um músculo do braço se insere na porção mais distal do antebraço.",
+        "option_rationales": {
+            "a": "Errada. Insere-se no 2º metacarpal.",
+            "b": "Correta. Inserção distal do braquiorradial.",
+            "c": "Errada. Insere-se no terço proximal do rádio.",
+            "d": "Errada. Insere-se na base do 1º metacarpal.",
+            "e": "Errada. Insere-se no processo coronóide da ulna."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Membro Superior",
+            "Miologia"
+        ]
+    },
+    {
+        "enunciado": "Qual dos seguintes ossos do carpo articula-se com o primeiro metacarpal, formando a articulação selar do polegar?",
+        "options": {
+            "a": "Trapezoide.",
+            "b": "Trapézio.",
+            "c": "Capitato.",
+            "d": "Hamato.",
+            "e": "Escafoide."
+        },
+        "answer": "b",
+        "rationale": "A articulação carpometacarpal do polegar é formada entre o osso trapézio e a base do 1º metacarpal. Sua forma em sela permite a grande mobilidade do polegar humano.",
+        "option_rationales": {
+            "a": "Errada. Articula-se com o 2º metacarpal.",
+            "b": "Correta. Osso rima com o polegar (quase).",
+            "c": "Errada. Articula-se com o 3º metacarpal.",
+            "d": "Errada. Articula-se com o 4º e 5º metacarpais.",
+            "e": "Errada. Osso da fileira proximal."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Membro Superior",
+            "Artrologia"
+        ]
+    }
+]

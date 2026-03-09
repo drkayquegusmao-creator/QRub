@@ -1,0 +1,627 @@
+[
+    {
+        "enunciado": "A articulação do quadril é uma articulação sinovial esferoide que suporta o peso do corpo. Qual dos seguintes ligamentos é considerado o mais forte do corpo humano e previne a hiperextensão da articulação do quadril durante a postura ereta?",
+        "options": {
+            "a": "Ligamento pubofemoral.",
+            "b": "Ligamento isquiofemoral.",
+            "c": "Ligamento iliofemoral (ligamento em Y de Bigelow).",
+            "d": "Ligamento da cabeça do fêmur.",
+            "e": "Ligamento transverso do acetábulo."
+        },
+        "answer": "c",
+        "rationale": "O ligamento iliofemoral é uma banda fibrosa extremamente resistente que reforça a face anterior da cápsula articular do quadril. Ele impede a hiperextensão e ajuda a manter a postura ereta com gasto energético mínimo.",
+        "option_rationales": {
+            "a": "Errada. Impede a abdução excessiva.",
+            "b": "Errada. Reforça a face posterior e impede a hiperextensão, mas é menos forte que o iliofemoral.",
+            "c": "Correta. Ligamento mais forte do corpo.",
+            "d": "Errada. Conduz vasos para a cabeça do fêmur em crianças; fraco no adulto.",
+            "e": "Errada. Fecha a incisura do acetábulo."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Membro Inferior",
+            "Artrologia"
+        ]
+    },
+    {
+        "enunciado": "O triângulo femoral (de Scarpa) é uma região anatômica crucial para o acesso a vasos calibrosos. Qual estrutura nervosa localiza-se na porção mais LATERAL do triângulo femoral, externa à bainha femoral?",
+        "options": {
+            "a": "Nervo obturador.",
+            "b": "Nervo femoral.",
+            "c": "Nervo genitofemoral.",
+            "d": "Nervo isquiático (ciático).",
+            "e": "Nervo cutâneo femoral lateral."
+        },
+        "answer": "b",
+        "rationale": "No triângulo femoral, a relação medial-lateral é: Veia, Artéria, Nervo (mnemônico: VAN de medial para lateral). O nervo femoral é o componente mais lateral e situa-se fora da bainha femoral.",
+        "option_rationales": {
+            "a": "Errada. Localiza-se no canal obturatório, medialmente ao triângulo.",
+            "b": "Correta. Posição clássica do nervo femoral no triângulo.",
+            "c": "Errada. O ramo femoral do genitofemoral é mais superficial e central.",
+            "d": "Errada. Localiza-se no compartimento posterior da coxa.",
+            "e": "Errada. Passa profundamente ao ligamento inguinal próximo à EIAS, lateral ao triângulo."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Membro Inferior",
+            "Topografia"
+        ]
+    },
+    {
+        "enunciado": "O músculo sartório é o músculo mais longo do corpo humano. Ele faz parte de um grupo de três tendões que se inserem conjuntamente na face medial da tíbia proximal, conhecidos como 'pata de ganso' (pes anserinus). Quais são os outros dois músculos que compõem a pata de ganso?",
+        "options": {
+            "a": "Grácil e Semitendíneo.",
+            "b": "Grácil e Semimembranáceo.",
+            "c": "Vasto medial e Adutor longo.",
+            "d": "Bíceps femoral e Semitendíneo.",
+            "e": "Pectíneo e Adutor curto."
+        },
+        "answer": "a",
+        "rationale": "A pata de ganso é formada pelos tendões dos músculos Sartório (n. femoral), Grácil (n. obturador) e Semitendíneo (n. isquiático). Eles se inserem na parte superior da face medial da diáfise da tíbia.",
+        "option_rationales": {
+            "a": "Correta. Composição clássica da pata de ganso.",
+            "b": "Errada. O semimembranáceo insere-se no côndilo medial da tíbia (inserção profunda).",
+            "c": "Errada. Músculos de compartimentos diferentes.",
+            "d": "Errada. O bíceps femoral insere-se na cabeça da fíbula.",
+            "e": "Errada. Músculos adutores profundos."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Membro Inferior",
+            "Miologia"
+        ]
+    },
+    {
+        "enunciado": "O nervo fibular comum divide-se em ramos superficial e profundo ao contornar o colo da fíbula. Qual desses ramos é responsável pela inervação dos músculos do compartimento ANTERIOR da perna, cuja paralisia leva ao 'pé caído'?",
+        "options": {
+            "a": "Nervo fibular superficial.",
+            "b": "Nervo fibular profundo.",
+            "c": "Nervo tibial.",
+            "d": "Nervo sural.",
+            "e": "Nervo safeno."
+        },
+        "answer": "b",
+        "rationale": "O nervo fibular profundo inerva o compartimento anterior (extensor) da perna (tibial anterior, extensor longo dos dedos e do hálux). Sua lesão impede a dorsiflexão do pé, causando a marcha escarvante (pé caído).",
+        "option_rationales": {
+            "a": "Errada. Inerva o compartimento lateral (fibulares longo e curto).",
+            "b": "Correta. Responsável pelos dorsiflexores.",
+            "c": "Errada. Inerva o compartimento posterior (flexores plantares).",
+            "d": "Errada. Nervo puramente sensitivo da perna/pé.",
+            "e": "Errada. Ramo sensitivo do nervo femoral."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Membro Inferior",
+            "Neuroanatomia"
+        ]
+    },
+    {
+        "enunciado": "O fêmur é o maior e mais forte osso do corpo humano. O 'ângulo de inclinação' entre o colo e a diáfise do fêmur varia com a idade. Como é denominada a condição clínica em que esse ângulo está patologicamente DIMINUÍDO?",
+        "options": {
+            "a": "Coxa valga.",
+            "b": "Coxa vara.",
+            "c": "Genu valgum.",
+            "d": "Genu varum.",
+            "e": "Anteversão femoral."
+        },
+        "answer": "b",
+        "rationale": "O ângulo normal no adulto é de cerca de 126 graus. Se o ângulo diminui, temos a 'coxa vara'. Se aumenta, 'coxa valga'. Genu refere-se ao joelho.",
+        "option_rationales": {
+            "a": "Errada. É o aumento do ângulo.",
+            "b": "Correta. Diminuição do ângulo de inclinação do fêmur.",
+            "c": "Errada. 'Joelho em X'.",
+            "d": "Errada. 'Joelho de alicate'.",
+            "e": "Errada. Refere-se à torção do fêmur em relação ao eixo transversal."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Membro Inferior",
+            "Osteologia"
+        ]
+    },
+    {
+        "enunciado": "As veias do membro superior e inferior possuem válvulas que auxiliam no retorno venoso. No membro inferior, a grande veia safena (safena magna) é frequentemente utilizada em cirurgias de revascularização miocárdica. Onde se inicia a veia safena magna e qual sua relação com o maléolo medial?",
+        "options": {
+            "a": "Inicia-se no dorso do pé e passa POSTERIORMENTE ao maléolo medial.",
+            "b": "Inicia-se no dorso do pé e passa ANTERIORMENTE ao maléolo medial.",
+            "c": "Inicia-se na planta do pé e passa lateralmente ao calcâneo.",
+            "d": "Inicia-se no arco venoso dorsal e termina na veia poplítea.",
+            "e": "Inicia-se na veia femoral e desce até o pé."
+        },
+        "answer": "b",
+        "rationale": "A veia safena magna inicia-se na extremidade medial do arco venoso dorsal do pé e sobe ANTERIORMENTE ao maléolo medial. Este fato é usado na dissecação cirúrgica (cutdown) em emergências.",
+        "option_rationales": {
+            "a": "Errada. A veia safena parva passa posteriormente ao maléolo lateral.",
+            "b": "Correta. Relação anatômica cirúrgica fundamental.",
+            "c": "Errada.",
+            "d": "Errada. Termina na veia femoral no hiato safeno.",
+            "e": "Errada. Direção do fluxo invertida."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Membro Inferior",
+            "Angiologia"
+        ]
+    },
+    {
+        "enunciado": "A musculatura glútea é dividida em várias camadas. Qual desses músculos é o marco anatômico utilizado para localizar os nervos isquiático (ciático) e glúteos na região glútea profunda?",
+        "options": {
+            "a": "Glúteo máximo.",
+            "b": "Glúteo médio.",
+            "c": "Músculo piriforme.",
+            "d": "Obturador interno.",
+            "e": "Quadrado femoral."
+        },
+        "answer": "c",
+        "rationale": "O músculo piriforme atravessa o forame isquiático maior. O nervo glúteo superior sai acima dele, enquanto os nervos glúteo inferior e isquiático (geralmente) saem abaixo dele. Ele divide o espaço glúteo profundo.",
+        "option_rationales": {
+            "a": "Errada. Camada superficial que recobre todas as estruturas.",
+            "b": "Errada. Localizado superiormente.",
+            "c": "Correta. Ponto de referência chave na região glútea.",
+            "d": "Errada. Localizado abaixo do piriforme.",
+            "e": "Errada. Localizado abaixo do gêmeo inferior e obturador interno."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Membro Inferior",
+            "Topografia"
+        ]
+    },
+    {
+        "enunciado": "O músculo quadríceps femoral é o principal extensor do joelho. Ele é composto por quatro ventres musculares. Qual desses ventres se origina na espinha ilíaca anteroinferior (EIAI), cruzando assim também a articulação do quadril?",
+        "options": {
+            "a": "Vasto lateral.",
+            "b": "Vasto medial.",
+            "c": "Vasto intermediário.",
+            "d": "Reto femoral.",
+            "e": "Tensionador da fáscia lata."
+        },
+        "answer": "d",
+        "rationale": "Apenas o músculo reto femoral tem origem na pelve (EIAI e sulco supracetabular), tornando-o biarticular (flexor do quadril e extensor do joelho). Os três vastos originam-se no próprio fêmur.",
+        "option_rationales": {
+            "a": "Errada. Origem no fêmur (linha áspera/trocânter maior).",
+            "b": "Errada. Origem no fêmur (linha áspera/intertrocantérica).",
+            "c": "Errada. Origem no corpo do fêmur.",
+            "d": "Correta. Único biarticular do quadríceps.",
+            "e": "Errada. Músculo lateral do quadril."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Membro Inferior",
+            "Miologia"
+        ]
+    },
+    {
+        "enunciado": "O canal dos adutores (de Hunter) é um túnel na coxa por onde passam os vasos femorais. Qual nervo puramente SENSITIVO acompanha a artéria femoral nesse canal antes de se tornar superficial no lado medial do joelho?",
+        "options": {
+            "a": "Nervo obturador.",
+            "b": "Nervo safeno.",
+            "c": "Nervo isquiático.",
+            "d": "Nervo femoral.",
+            "e": "Nervo sural."
+        },
+        "answer": "b",
+        "rationale": "O nervo safeno é o ramo cutâneo mais longo do nervo femoral. Ele entra no canal dos adutores com a artéria femoral, mas não atravessa o hiato adutor, perfurando a fáscia para suprir o lado medial da perna e pé.",
+        "option_rationales": {
+            "a": "Errada. Nervo motor e sensitivo do compartimento medial.",
+            "b": "Correta. Nervo sensitivo que acompanha os vasos no canal de Hunter.",
+            "c": "Errada.",
+            "d": "Errada. O nervo femoral termina acima do canal, dividindo-se em seus ramos.",
+            "e": "Errada. Nervo do compartimento posterior da perna."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "Anatomia",
+            "Membro Inferior",
+            "Neuroanatomia"
+        ]
+    },
+    {
+        "enunciado": "A articulação do joelho é estabilizada por potentes ligamentos cruzados. Qual é a função principal do ligamento cruzado ANTERIOR (LCA) e onde ele se insere na tíbia?",
+        "options": {
+            "a": "Impede o deslocamento posterior da tíbia sob o fêmur; insere-se na área intercondilar posterior.",
+            "b": "Impede o deslocamento anterior da tíbia sob o fêmur; insere-se na área intercondilar anterior.",
+            "c": "Impede a hiperextensão do joelho; insere-se no tubérculo Gerdy.",
+            "d": "Impede a abdução da perna; insere-se no côndilo lateral.",
+            "e": "Impede a rotação interna excessiva; insere-se na cabeça da fíbula."
+        },
+        "answer": "b",
+        "rationale": "O LCA impede a translação anterior da tíbia em relação ao fêmur (teste da gaveta anterior positivo em lesões). Ele se origina na face medial do côndilo lateral do fêmur e se insere na área intercondilar anterior da tíbia.",
+        "option_rationales": {
+            "a": "Errada. Função do ligamento cruzado posterior (LCP).",
+            "b": "Correta. Biomecânica clássica do LCA.",
+            "c": "Errada. LCA contribui para evitar hiperextensão, mas a descrição de inserção está errada.",
+            "d": "Errada. Função das colaterais.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Membro Inferior",
+            "Artrologia"
+        ]
+    },
+    {
+        "enunciado": "O pé humano possui arcos (longitudinal e transverso) que distribuem o peso durante a marcha. Qual estrutura ligamentar é a mais importante para sustentar o arco longitudinal medial do pé, prendendo o calcâneo ao navicular?",
+        "options": {
+            "a": "Ligamento calcaneonavicular plantar (ligamento 'mola' ou spring ligament).",
+            "b": "Fáscia plantar.",
+            "c": "Ligamento plantar longo.",
+            "d": "Ligamento colateral medial do tornozelo (deltoide).",
+            "e": "Retináculo dos flexores."
+        },
+        "answer": "a",
+        "rationale": "O ligamento calcaneonavicular plantar sustenta a cabeça do tálus e é o principal estabilizador estático do arco longitudinal medial. Sua falha leva ao 'pé chato'.",
+        "option_rationales": {
+            "a": "Correta. Peça chave da arquitetura do pé.",
+            "b": "Errada. Estabilizador importante, mas menos específico para o arco medial interno que o spring ligament.",
+            "c": "Errada. Sustenta o arco longitudinal lateral.",
+            "d": "Errada. Estabiliza o tornozelo.",
+            "e": "Errada. Estrutura de contenção de tendões."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "Anatomia",
+            "Membro Inferior",
+            "Artrologia"
+        ]
+    },
+    {
+        "enunciado": "A fossa poplítea é um espaço em forma de losango atrás do joelho. Qual a relação topográfica correta das estruturas profundas nessa fossa, da mais profunda (próxima ao osso) para a mais superficial?",
+        "options": {
+            "a": "Nervo tibial, veia poplítea, artéria poplítea.",
+            "b": "Artéria poplítea, veia poplítea, nervo tibial.",
+            "c": "Veia poplítea, artéria poplítea, nervo tibial.",
+            "d": "Artéria poplítea, nervo tibial, veia poplítea.",
+            "e": "Nervo fibular, veia safena, artéria poplítea."
+        },
+        "answer": "b",
+        "rationale": "De profundo para superficial na fossa poplítea, encontramos: Artéria poplítea (mais protegida contra o fêmur), Veia poplítea e Nervo tibial (mais superficial).",
+        "option_rationales": {
+            "a": "Errada. Ordem invertida.",
+            "b": "Correta. Disposição anteroposterior na fossa poplítea.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "Anatomia",
+            "Membro Inferior",
+            "Topografia"
+        ]
+    },
+    {
+        "enunciado": "O músculo tríceps sural é composto pelos dois ventres do gastrocnêmio e pelo músculo sóleo. Qual é o local de inserção distal comum deste complexo muscular, responsável pela flexão plantar potente?",
+        "options": {
+            "a": "Osso navicular.",
+            "b": "Base do 5º metatarsal.",
+            "c": "Tuber do calcâneo (via tendão calcâneo).",
+            "d": "Tálus.",
+            "e": "Cuneiforme medial."
+        },
+        "answer": "c",
+        "rationale": "O gastrocnêmio e o sóleo unem seus tendões para formar o tendão calcâneo (de Aquiles), que se insere na face posterior do calcâneo.",
+        "option_rationales": {
+            "a": "Errada. Local de inserção do tibial posterior.",
+            "b": "Errada. Local de inserção do fibular curto.",
+            "c": "Correta. Inserção do tendão mais forte do corpo.",
+            "d": "Errada. O tálus não recebe inserções tendinosas diretas.",
+            "e": "Errada. Inserção do tibial anterior."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Membro Inferior",
+            "Miologia"
+        ]
+    },
+    {
+        "enunciado": "O hiato dos adutores (hiato adutor) é uma abertura no tendão de qual músculo, que permite a passagem dos vasos femorais da coxa anterior para a fossa poplítea posterior?",
+        "options": {
+            "a": "Músculo adutor longo.",
+            "b": "Músculo adutor curto.",
+            "c": "Músculo adutor magno.",
+            "d": "Músculo grácil.",
+            "e": "Músculo pectíneo."
+        },
+        "answer": "c",
+        "rationale": "O hiato adutor localiza-se na inserção distal do músculo adutor magno. É por onde a artéria femoral se torna artéria poplítea.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Errada.",
+            "c": "Correta. O adutor magno possui duas partes e um hiato entre elas.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Membro Inferior",
+            "Angiologia"
+        ]
+    },
+    {
+        "enunciado": "A tíbia é o osso medial e mais volumoso da perna. Qual marco anatômico na extremidade proximal da tíbia serve como local de inserção para o tendão patelar?",
+        "options": {
+            "a": "Maléolo medial.",
+            "b": "Côndilo lateral.",
+            "c": "Tuberosidade da tíbia.",
+            "d": "Linha do músculo sóleo.",
+            "e": "Área intercondilar anterior."
+        },
+        "answer": "c",
+        "rationale": "A tuberosidade da tíbia é a proeminência óssea anterior na extremidade proximal da tíbia onde se insere o ligamento patelar (continuação do tendão do quadríceps).",
+        "option_rationales": {
+            "a": "Errada. Localizado distalmente.",
+            "b": "Errada.",
+            "c": "Correta. Ponto de transmissão da força do quadríceps.",
+            "d": "Errada. Marco posterior.",
+            "e": "Errada. Local de inserção do LCA."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Membro Inferior",
+            "Osteologia"
+        ]
+    },
+    {
+        "enunciado": "O músculo tibial anterior é o principal dorsiflexor e inversor do pé. Onde ele se insere distalmente no pé?",
+        "options": {
+            "a": "Base do 5º metatarsal.",
+            "b": "Osso navicular e cuneiformes.",
+            "c": "Cuneiforme medial e base do 1º metatarsal.",
+            "d": "Falange distal do hálux.",
+            "e": "Calcâneo medial."
+        },
+        "answer": "c",
+        "rationale": "O tibial anterior insere-se na face medial e plantar do osso cuneiforme medial e na base do 1º osso metatarsal.",
+        "option_rationales": {
+            "a": "Errada. Inserção do fibular curto.",
+            "b": "Errada. Inserção do tibial posterior.",
+            "c": "Correta. Inserção clássica do tibial anterior.",
+            "d": "Errada. Inserção do extensor longo do hálux.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Membro Inferior",
+            "Miologia"
+        ]
+    },
+    {
+        "enunciado": "A artéria dorsal do pé (pediosa) é um local importante para avaliação clínica de pulsos periféricos. Qual a sua origem anatômica?",
+        "options": {
+            "a": "Continuação da artéria tibial posterior após o maléolo medial.",
+            "b": "Continuação da artéria tibial anterior após cruzar a articulação do tornozelo.",
+            "c": "Ramo da artéria fibular.",
+            "d": "Ramo da artéria plantar medial.",
+            "e": "Continuação da artéria poplítea."
+        },
+        "answer": "b",
+        "rationale": "A artéria tibial anterior atravessa o compartimento anterior da perna e, ao passar entre os maléolos para o dorso do pé, muda seu nome para artéria dorsal do pé.",
+        "option_rationales": {
+            "a": "Errada. A tibial posterior torna-se artérias plantares medial e lateral.",
+            "b": "Correta. Transição arterial padrão no tornozelo.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada. A poplítea origina as tibiais anterior e posterior."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Membro Inferior",
+            "Angiologia"
+        ]
+    },
+    {
+        "enunciado": "Os 'músculos isquiotibiais' (hamstrings) são responsáveis pela flexão do joelho e extensão do quadril. Qual deles possui uma 'cabeça curta' que NÃO se origina na tuberosidade isquiática, perdendo assim a função na extensão do quadril?",
+        "options": {
+            "a": "Músculo semitendíneo.",
+            "b": "Músculo semimembranáceo.",
+            "c": "Músculo bíceps femoral.",
+            "d": "Músculo adutor magno.",
+            "e": "Músculo grácil."
+        },
+        "answer": "c",
+        "rationale": "O bíceps femoral possui duas cabeças. A cabeça longa origina-se no ísquio; a cabeça curta origina-se na linha áspera do fêmur. Portanto, a cabeça curta atua apenas no joelho.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Errada.",
+            "c": "Correta. Detalhe anatômico importante dos flexores da coxa.",
+            "d": "Errada. Tem uma parte que age como isquiotibial, mas não faz parte do grupo clássico.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Membro Inferior",
+            "Miologia"
+        ]
+    },
+    {
+        "enunciado": "O menisco medial e o menisco lateral são estruturas fibrocartilaginosas que amortecem a articulação do joelho. Qual deles é mais frequentemente lesado em traumas e por que?",
+        "options": {
+            "a": "Menisco lateral, pois é mais móvel e circular.",
+            "b": "Menisco medial, pois é menos móvel e está fixo ao ligamento colateral medial.",
+            "c": "Menisco lateral, pois suporta maior peso proporcionalmente.",
+            "d": "Menisco medial, pois é em forma de 'O' completo.",
+            "e": "Ambos têm a mesma frequência de lesão."
+        },
+        "answer": "b",
+        "rationale": "O menisco medial tem forma de 'C' e é menos móvel devido à sua fixação firme à cápsula articular e ao ligamento colateral medial. Essa fixação o torna mais vulnerável a rasgar em traumas de torção.",
+        "option_rationales": {
+            "a": "Errada. A mobilidade do lateral o protege de lesões.",
+            "b": "Correta. Razão anatômica para a maior incidência de lesões no medial.",
+            "c": "Errada.",
+            "d": "Errada. O lateral é mais circular ('O') e o medial mais aberto ('C').",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Membro Inferior",
+            "Artrologia"
+        ]
+    },
+    {
+        "enunciado": "A 'lacuna dos vasos' (espaço subinguinal medial) permite o trânsito de estruturas da pélvis para a coxa. Qual a ordem das estruturas de MEDIAL para LATERAL neste espaço?",
+        "options": {
+            "a": "Nervo femoral, Artéria femoral, Veia femoral, Canal femoral (Linfáticos).",
+            "b": "Canal femoral (Linfáticos), Veia femoral, Artéria femoral, Nervo femoral.",
+            "c": "Artéria femoral, Veia femoral, Nervo femoral, Canal femoral.",
+            "d": "Veia femoral, Artéria femoral, Nervo femoral.",
+            "e": "Nervo femoral, Veia femoral, Canal femoral."
+        },
+        "answer": "b",
+        "rationale": "Mnemônico NAVEL (Nerve, Artery, Vein, Empty space/Canal, Lymphatics) de lateral para medial. Invertendo para medial para lateral: Lymphatics/Canal (L), Vein (V), Artery (A), Nerve (N).",
+        "option_rationales": {
+            "a": "Errada. Ordem lateral para medial.",
+            "b": "Correta. Disposição medial para lateral no espaço subinguinal.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "Anatomia",
+            "Membro Inferior",
+            "Topografia"
+        ]
+    },
+    {
+        "enunciado": "O músculo glúteo médio é o principal abdutor do quadril. Sua fraqueza causa o 'sinal de Trendelenburg' (queda da pelve para o lado oposto ao músculo fraco durante a marcha). Qual nervo inerva o glúteo médio?",
+        "options": {
+            "a": "Nervo isquiático.",
+            "b": "Nervo femoral.",
+            "c": "Nervo glúteo superior.",
+            "d": "Nervo glúteo inferior.",
+            "e": "Nervo obturador."
+        },
+        "answer": "c",
+        "rationale": "O nervo glúteo superior (L4-S1) inerva os músculos glúteo médio, glúteo mínimo e o tensor da fáscia lata.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Errada.",
+            "c": "Correta. Nervo responsável pela estabilidade pélvica lateral.",
+            "d": "Errada. Inerva apenas o glúteo máximo.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Membro Inferior",
+            "Neuroanatomia"
+        ]
+    },
+    {
+        "enunciado": "O canal do tarso é um espaço osteofibroso no lado medial do tornozelo. Qual das seguintes estruturas NÃO passa por esse canal, sob o retináculo dos flexores?",
+        "options": {
+            "a": "Tendão do músculo tibial posterior.",
+            "b": "Artéria tibial posterior.",
+            "c": "Nervo tibial.",
+            "d": "Tendão do músculo flexor longo do hálux.",
+            "e": "Tendão do músculo fibular longo."
+        },
+        "answer": "e",
+        "rationale": "O canal do tarso contém o tendão do tibial posterior, flexor longo dos dedos, artéria tibial posterior, veias, nervo tibial e tendão do flexor longo do hálux (mnemônico: Tom, Dick And Very Nervous Harry). O fibular longo passa pelo lado LATERAL do tornozelo.",
+        "option_rationales": {
+            "a": "Errada. Componente do canal.",
+            "b": "Errada. Componente do canal.",
+            "c": "Errada. Componente do canal.",
+            "d": "Errada. Componente do canal.",
+            "e": "Correta. Estrutura lateral, não medial."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Membro Inferior",
+            "Topografia"
+        ]
+    },
+    {
+        "enunciado": "A base do 5º metatarsal é um local comum de fraturas por avulsão (fratura de Jones ou pseudo-Jones). Qual músculo se insere diretamente nessa base e pode causar essa avulsão?",
+        "options": {
+            "a": "Fibular longo.",
+            "b": "Fibular curto.",
+            "c": "Tibial posterior.",
+            "d": "Extensor curto dos dedos.",
+            "e": "Músculo plantar."
+        },
+        "answer": "b",
+        "rationale": "O músculo fibular curto insere-se na tuberosidade da base do 5º osso metatarsal. Uma inversão súbita do pé pode causar a avulsão óssea por tração desse tendão.",
+        "option_rationales": {
+            "a": "Errada. Cruza a planta do pé para se inserir no 1º metatarsal.",
+            "b": "Correta. Inserção típica relacionada a fraturas laterais do pé.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Membro Inferior",
+            "Miologia"
+        ]
+    },
+    {
+        "enunciado": "A membrana obturatriz fecha quase todo o forame obturado, deixando apenas o canal obturatório. Qual nervo atravessa esse canal para inervar a maioria dos músculos ADUTORES da coxa?",
+        "options": {
+            "a": "Nervo femoral.",
+            "b": "Nervo isquiático.",
+            "c": "Nervo obturador.",
+            "d": "Nervo pudendo.",
+            "e": "Nervo cutâneo femoral posterior."
+        },
+        "answer": "c",
+        "rationale": "O nervo obturador (L2-L4) passa pelo canal obturatório e inerva os adutores: adutor longo, adutor curto, grácil, obturador externo e parte do adutor magno.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Errada.",
+            "c": "Correta. Nervo do compartimento medial da coxa.",
+            "d": "Errada. Nervo do períneo.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Membro Inferior",
+            "Neuroanatomia"
+        ]
+    },
+    {
+        "enunciado": "O colo do fêmur recebe seu principal suprimento arterial através de quais vasos, cuja lesão em fraturas do colo femoral pode levar à necrose avascular da cabeça do fêmur?",
+        "options": {
+            "a": "Artéria obturatriz (via ligamento da cabeça do fêmur).",
+            "b": "Artérias circunflexas femorais (medial e lateral).",
+            "c": "Artéria femoral profunda diretamente.",
+            "d": "Artéria glútea inferior.",
+            "e": "Artéria pudenda interna."
+        },
+        "answer": "b",
+        "rationale": "Embora a artéria obturatriz contribua via ligamento redondo (importante em crianças), a principal fonte de sangue para a cabeça do fêmur no adulto vem das artérias circunflexas femorais que formam um anel ao redor do colo femoral.",
+        "option_rationales": {
+            "a": "Errada. Contribuição minoritária no adulto.",
+            "b": "Correta. Fontes principais da vascularização retinacular.",
+            "c": "Errada. As circunflexas são ramos da femoral profunda, mas a pergunta foca nos vasos que circundam o osso.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "Anatomia",
+            "Membro Inferior",
+            "Vascularização"
+        ]
+    }
+]

@@ -1,0 +1,627 @@
+[
+    {
+        "enunciado": "A pelve óssea é composta pelos ossos do quadril, sacro e cóccix. Qual ligamento converte a incisura isquiática maior em um forame, servindo de passagem para o músculo piriforme e o nervo isquiático?",
+        "options": {
+            "a": "Ligamento sacrotuberal.",
+            "b": "Ligamento sacroespinal.",
+            "c": "Ligamento inguinal.",
+            "d": "Ligamento iliolombar.",
+            "e": "Membrana obturatória."
+        },
+        "answer": "b",
+        "rationale": "O ligamento sacroespinal conecta o sacro à espinha isquiática, delimitando o forame isquiático maior.",
+        "option_rationales": {
+            "a": "Errada. Conecta o sacro ao túber isquiático e delimita o forame menor.",
+            "b": "Correta. Anatomia fundamental dos forames pélvicos.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Pelve",
+            "Osteologia/Artrologia"
+        ]
+    },
+    {
+        "enunciado": "O assoalho pélvico é formado principalmente pelo músculo levantador do ânus. Quais são os três componentes musculares que integram o levantador do ânus?",
+        "options": {
+            "a": "Puborretal, pubococcígeo e iliococcígeo.",
+            "b": "Piriforme, obturador interno e coccígeo.",
+            "c": "Bulboesponjoso, isquiocavernoso e transverso do períneo.",
+            "d": "Glúteo máximo, médio e mínimo.",
+            "e": "Esfíncter interno, esfíncter externo e músculo retal."
+        },
+        "answer": "a",
+        "rationale": "O levantador do ânus é o principal suporte das vísceras pélvicas, composto pelas porções puborretal, pubococcígea e iliococcígea.",
+        "option_rationales": {
+            "a": "Correta. Definição anatômica do diafragma pélvico.",
+            "b": "Errada. São músculos da parede pélvica.",
+            "c": "Errada. Músculos do períneo (diafragma urogenital).",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Pelve",
+            "Miologia"
+        ]
+    },
+    {
+        "enunciado": "O útero é mantido em posição por diversos ligamentos. Qual ligamento contém a artéria uterina e situa-se na base do ligamento largo, conectando o colo do útero às paredes laterais da pelve?",
+        "options": {
+            "a": "Ligamento redondo.",
+            "b": "Ligamento cardeal (Cervical transverso ou de Mackenrodt).",
+            "c": "Ligamento uterossacral.",
+            "d": "Ligamento suspensor do ovário.",
+            "e": "Mesométrio."
+        },
+        "answer": "b",
+        "rationale": "O ligamento cardeal é o principal suporte passivo do útero e contém os vasos uterinos na sua base.",
+        "option_rationales": {
+            "a": "Errada. Mantém a anteflexão, passa pelo canal inguinal.",
+            "b": "Correta. Estrutura de sustentação pélvica vital em ginecologia.",
+            "c": "Errada. Puxa o colo para trás.",
+            "d": "Errada. Contém os vasos ovarianos.",
+            "e": "Errada. Parte do ligamento largo."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "Anatomia",
+            "Pelve",
+            "Ginecologia"
+        ]
+    },
+    {
+        "enunciado": "A uretra masculina é dividida em quatro partes. Em qual dessas partes localizam-se as aberturas dos ductos ejaculatórios e dos ductos da próstata?",
+        "options": {
+            "a": "Uretra intramural (pré-prostática).",
+            "b": "Uretra prostática.",
+            "c": "Uretra membranácea.",
+            "d": "Uretra esponjosa (peniana).",
+            "e": "Fossa navicular."
+        },
+        "answer": "b",
+        "rationale": "Na uretra prostática, encontra-se o colículo seminal, onde desembocam os ductos ejaculatórios e os seios prostáticos.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Anatomia funcional do sistema reprodutor e urinário masculino.",
+            "c": "Errada. Atravessa o diafragma urogenital.",
+            "d": "Errada. Parte mais longa.",
+            "e": "Errada. Dilatação distal."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Pelve",
+            "Urologia"
+        ]
+    },
+    {
+        "enunciado": "O 'fundo de saco de Douglas' (recesso retouterino) é o ponto mais declive da cavidade peritoneal na mulher em posição ereta. Onde ele se localiza especificamente?",
+        "options": {
+            "a": "Entre a bexiga e o útero.",
+            "b": "Entre o útero e o reto.",
+            "c": "Atrás do reto.",
+            "d": "Acima dos ovários.",
+            "e": "No interior da vagina."
+        },
+        "answer": "b",
+        "rationale": "O recesso retouterino é delimitado anteriormente pelo útero e fórnice vaginal posterior, e posteriormente pelo reto.",
+        "option_rationales": {
+            "a": "Errada. Local do recesso vesicouterino.",
+            "b": "Correta. Local frequente de acúmulo de líquido e acesso cirúrgico (culdocentese).",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Pelve",
+            "Topografia/Ginecologia"
+        ]
+    },
+    {
+        "enunciado": "A irrigação arterial do RECTO é complexa e deriva de três fontes. De onde se origina a artéria RETAL SUPERIOR?",
+        "options": {
+            "a": "Artéria mesentérica superior.",
+            "b": "Artéria mesentérica inferior.",
+            "c": "Artéria ilíaca interna.",
+            "d": "Artéria pudenda interna.",
+            "e": "Aorta abdominal diretamente."
+        },
+        "answer": "b",
+        "rationale": "A artéria retal superior é a continuação direta da artéria mesentérica inferior após esta cruzar os vasos ilíacos.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Vascularização do intestino posterior.",
+            "c": "Errada. origina a retal média.",
+            "d": "Errada. origina a retal inferior.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Pelve/Abdome",
+            "Vascularização"
+        ]
+    },
+    {
+        "enunciado": "A próstata possui zonas anatômicas e clínicas distintas. Qual zona é o local mais comum de desenvolvimento da Hiperplasia Prostática Benigna (HPB), circundando a uretra?",
+        "options": {
+            "a": "Zona periférica.",
+            "b": "Zona central.",
+            "c": "Zona de transição.",
+            "d": "Estroma fibromuscular anterior.",
+            "e": "Ápice prostático."
+        },
+        "answer": "c",
+        "rationale": "A HPB ocorre tipicamente na zona de transição. O câncer de próstata ocorre predominantemente na zona periférica.",
+        "option_rationales": {
+            "a": "Errada. Local principal do carcinoma.",
+            "b": "Errada.",
+            "c": "Correta. Anatomia aplicada à urologia clínica.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "Anatomia",
+            "Pelve",
+            "Urologia/Clínica"
+        ]
+    },
+    {
+        "enunciado": "O trígono da bexiga é uma área de mucosa lisa na face interna da base da bexiga. Quais são os três orifícios que delimitam este trígono?",
+        "options": {
+            "a": "Os dois óstios dos ureteres e o óstio interno da uretra.",
+            "b": "O óstio da uretra, os dois óstios dos ductos deferentes.",
+            "c": "Os dois óstios dos ureteres e o umbigo.",
+            "d": "O óstio do útero e os dois óstios das tubas uterinas.",
+            "e": "Não existem orifícios no trígono."
+        },
+        "answer": "a",
+        "rationale": "O trígono vesical é uma região triangular fixa onde a mucosa não se foleia quando a bexiga esvazia.",
+        "option_rationales": {
+            "a": "Correta. Marco anatômico interno da bexiga.",
+            "b": "Errada.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Pelve",
+            "Urologia"
+        ]
+    },
+    {
+        "enunciado": "A inervação SENSITIVA do períneo e da genitália externa é fornecida principalmente por qual nervo do plexo sacral?",
+        "options": {
+            "a": "Nervo isquiático.",
+            "b": "Nervo pudendo.",
+            "c": "Nervo obturador.",
+            "d": "Nervo femoral.",
+            "e": "Nervo cutâneo posterior da coxa."
+        },
+        "answer": "b",
+        "rationale": "O nervo pudendo (S2-S4) é o principal nervo sensitivo e motor do períneo.",
+        "option_rationales": {
+            "a": "Errada. Destinado ao membro inferior.",
+            "b": "Correta. Nervo fundamental para anestesia obstétrica (bloqueio do pudendo).",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Pelve",
+            "Neuroanatomia"
+        ]
+    },
+    {
+        "enunciado": "Os ovários são órgãos intraperitoneais fixados por ligamentos. Qual estrutura conecta o ovário ao ângulo lateral do útero, situando-se dentro do ligamento largo?",
+        "options": {
+            "a": "Ligamento suspensor do ovário (infundibulopélvico).",
+            "b": "Ligamento próprio do ovário (ovariano).",
+            "c": "Mesovário.",
+            "d": "Fímbrias da tuba.",
+            "e": "Ligamento redondo."
+        },
+        "answer": "b",
+        "rationale": "O ligamento próprio do ovário é um remanescente do gubernáculo que une o polo uterino do ovário ao útero.",
+        "option_rationales": {
+            "a": "Errada. Une o ovário à parede pélvica.",
+            "b": "Correta. Parte do sistema de fixação ovariana.",
+            "c": "Errada. Mesentério do ovário.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Pelve",
+            "Ginecologia"
+        ]
+    },
+    {
+        "enunciado": "A 'linha pectínea' (dentada) no canal anal marca uma transição importante. O que define a drenagem LINFÁTICA acima desta linha?",
+        "options": {
+            "a": "Drena para os linfonodos inguinais superficiais.",
+            "b": "Drena para os linfonodos ilíacos internos e mesentéricos inferiores.",
+            "c": "Drena para os linfonodos axilares.",
+            "d": "Drena para os linfonodos poplíteos.",
+            "e": "Não há drenagem linfática acima da linha."
+        },
+        "answer": "b",
+        "rationale": "A linha pectínea marca a transição embriológica (endoderme vs ectoderme). Acima dela, a drenagem segue os vasos mesentéricos e ilíacos.",
+        "option_rationales": {
+            "a": "Errada. É o padrão de drenagem ABAIXO da linha pectínea.",
+            "b": "Correta. Diferença crucial para estadiamento de câncer anal.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "Anatomia",
+            "Pelve",
+            "Imunologia/Cirurgia"
+        ]
+    },
+    {
+        "enunciado": "A ejaculação é um processo coordenado pelo sistema nervoso. Qual sistema é responsável pela emissão do sêmen para a uretra prostática e pelo fechamento do esfíncter interno da bexiga para evitar a ejaculação retrógrada?",
+        "options": {
+            "a": "Sistema Nervoso Simpático.",
+            "b": "Sistema Nervoso Parassimpático.",
+            "c": "Nervo pudendo (somático).",
+            "d": "Sistema Entérico.",
+            "e": "Apenas controle voluntário."
+        },
+        "answer": "a",
+        "rationale": "O sistema simpático (L1-L2) coordena a emissão. O parassimpático (S2-S4) coordena a ereção ('Point and Shoot' - parassimpático aponta, simpático atira).",
+        "option_rationales": {
+            "a": "Correta. Fisiologia autonômica da reprodução masculina.",
+            "b": "Errada. Responsável pela ereção.",
+            "c": "Errada. Responsável pela contração do músculo bulboesponjoso (expulsão).",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Pelve",
+            "Neuroanatomia/Fisiologia"
+        ]
+    },
+    {
+        "enunciado": "As tubas uterinas (trompas de Falópio) possuem quatro segmentos. Em qual desses segmentos ocorre habitualmente a fertilização do óvulo?",
+        "options": {
+            "a": "Infundíbulo.",
+            "b": "Ampola.",
+            "c": "Ístmo.",
+            "d": "Parte uterina (intramural).",
+            "e": "Fímbrias."
+        },
+        "answer": "b",
+        "rationale": "A ampola é a parte mais larga e longa da tuba, onde o espermatozoide encontra o óvulo.",
+        "option_rationales": {
+            "a": "Errada. Extremidade distal com fímbrias.",
+            "b": "Correta. Local fisiológico da fecundação.",
+            "c": "Errada. Parte estreita próxima ao útero.",
+            "d": "Errada. Dentro da parede uterina.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Pelve",
+            "Embriologia/Ginecologia"
+        ]
+    },
+    {
+        "enunciado": "O ducto deferente cruza uma estrutura importante 'como água sob a ponte' na pelve masculina. Que estrutura é essa?",
+        "options": {
+            "a": "Artéria ilíaca externa.",
+            "b": "Ureter.",
+            "c": "Artéria umbilical.",
+            "d": "Nervo obturador.",
+            "e": "Veia cava inferior."
+        },
+        "answer": "b",
+        "rationale": "O ducto deferente passa superiormente ao ureter ('ponte') próximo à bexiga. Na mulher, a artéria uterina cruza o ureter da mesma forma.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Relação topográfica clássica na pelve.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Pelve",
+            "Topografia"
+        ]
+    },
+    {
+        "enunciado": "A 'fáscia de Denonvilliers' é um tabique de tecido conjuntivo localizado entre quais estruturas no homem?",
+        "options": {
+            "a": "Próstata e reto (Septo retovesical).",
+            "b": "Bexiga e sínfise púbica.",
+            "c": "Testículo e escroto.",
+            "d": "Pênis e períneo.",
+            "e": "Rins e adrenais."
+        },
+        "answer": "a",
+        "rationale": "A fáscia retovesical (Denonvilliers) separa a próstata e a bexiga do reto, sendo um plano importante em cirurgias de câncer de próstata.",
+        "option_rationales": {
+            "a": "Correta. Marco cirúrgico oncológico.",
+            "b": "Errada. Espaço de Retzius.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "Anatomia",
+            "Pelve",
+            "Cirurgia"
+        ]
+    },
+    {
+        "enunciado": "O pênis é composto por três corpos cilíndricos de tecido erétil. Qual deles contém a uretra esponjosa em toda a sua extensão?",
+        "options": {
+            "a": "Corpos cavernosos (direito e esquerdo).",
+            "b": "Corpo esponjoso.",
+            "c": "Túnica albugínea.",
+            "d": "Fáscia de Buck.",
+            "e": "Glande."
+        },
+        "answer": "b",
+        "rationale": "O corpo esponjoso situa-se ventralmente e termina expandindo-se na glande. Ele contém a uretra.",
+        "option_rationales": {
+            "a": "Errada. São os principais responsáveis pela rigidez da ereção.",
+            "b": "Correta. Anatomia funcional do pênis.",
+            "c": "Errada. Cápsula fibrosa.",
+            "d": "Errada. Fáscia profunda.",
+            "e": "Errada. É a expansão distal do corpo esponjoso."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Pelve",
+            "Reprodutivo"
+        ]
+    },
+    {
+        "enunciado": "A pelve feminina é geralmente adaptada para o parto. Como se denomina a medida da menor distância entre a sínfise púbica e o promontório do sacro, que pode limitar a passagem da cabeça fetal?",
+        "options": {
+            "a": "Diâmetro transverso.",
+            "b": "Conjugada obstétrica.",
+            "c": "Diâmetro oblíquo.",
+            "d": "Conjugada diagonal.",
+            "e": "Largura bi-isquiática."
+        },
+        "answer": "b",
+        "rationale": "A conjugada obstétrica é o menor diâmetro fixo do estreito superior da pelve.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Conceito de pelvimetria em obstetrícia.",
+            "c": "Errada.",
+            "d": "Errada. Pode ser medida pelo toque vaginal, ao contrário da obstétrica.",
+            "e": "Errada. Medida do estreito inferior."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "Anatomia",
+            "Pelve",
+            "Obstetrícia"
+        ]
+    },
+    {
+        "enunciado": "As glândulas vestibulares maiores (de Bartholin) na mulher são homólogas a quais glândulas no homem?",
+        "options": {
+            "a": "Próstata.",
+            "b": "Vesículas seminais.",
+            "c": "Glândulas bulbouretrais (de Cowper).",
+            "d": "Testículos.",
+            "e": "Glândulas parauretrais (de Skene)."
+        },
+        "answer": "c",
+        "rationale": "Ambas situam-se no espaço profundo do períneo e secretam muco lubrificante durante a excitação sexual.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Errada.",
+            "c": "Correta. Homologia embriológica reprodutiva.",
+            "d": "Errada.",
+            "e": "Errada. As de Skene são homólogas à próstata."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Pelve",
+            "Reprodutivo"
+        ]
+    },
+    {
+        "enunciado": "A irrigação do ovário é feita pela artéria ovariana. Qual a origem desta artéria e por qual ligamento ela chega ao órgão?",
+        "options": {
+            "a": "Aorta abdominal; Ligamento suspensor do ovário.",
+            "b": "Artéria ilíaca interna; Ligamento largo.",
+            "c": "Artéria uterina; Mesovário.",
+            "d": "Artéria renal; Ligamento ovariano.",
+            "e": "Aorta abdominal; Ligamento redondo."
+        },
+        "answer": "a",
+        "rationale": "As artérias gonadais (ovarianas/testiculares) surgem da aorta logo abaixo das renais e descem para a pelve/escroto.",
+        "option_rationales": {
+            "a": "Correta. Trajeto vascular gonadal.",
+            "b": "Errada.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Pelve",
+            "Vascularização"
+        ]
+    },
+    {
+        "enunciado": "A 'fossa isquioanal' (isquiorretal) é um espaço preenchido por gordura lateralmente ao canal anal. Qual a importância funcional desta gordura durante a defecação?",
+        "options": {
+            "a": "Produzir calor para o reto.",
+            "b": "Permitir a expansão do canal anal durante a passagem das fezes.",
+            "c": "Fornecer energia para os músculos esfíncteres.",
+            "d": "Fixar o reto ao osso isquial.",
+            "e": "Nenhuma, é apenas reserva de gordura."
+        },
+        "answer": "b",
+        "rationale": "A gordura isquioanal é compressível e deslocável, permitindo que o canal anal se dilate sem resistência óssea ou muscular rígida.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Relação anatômica funcional do períneo posterior.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Pelve",
+            "Proctologia"
+        ]
+    },
+    {
+        "enunciado": "Qual dos seguintes ligamentos impede a nutação espontânea (nascimento do sacro) excessiva e ajuda a estabilizar a articulação sacroilíaca?",
+        "options": {
+            "a": "Ligamento inguinal.",
+            "b": "Ligamentos sacrotuberal e sacroespinal.",
+            "c": "Ligamento longitudinal anterior.",
+            "d": "Ligamento amarelo.",
+            "e": "Ligamento de Cooper."
+        },
+        "answer": "b",
+        "rationale": "Estes ligamentos conectam o sacro aos ossos do quadril (ísquio), impedindo que a base do sacro se incline muito para a frente sob o peso do corpo.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Estabilidade biomecânica pélvica.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "Anatomia",
+            "Pelve",
+            "Biomecânica"
+        ]
+    },
+    {
+        "enunciado": "O colo do útero (cérvix) possui uma porção que se projeta para dentro da vagina. Como se denomina o espaço em forma de vala que circunda essa porção?",
+        "options": {
+            "a": "Óstio do útero.",
+            "b": "Fórnice vaginal (fundo de saco vaginal).",
+            "c": "Vestíbulo da vagina.",
+            "d": "Hímen.",
+            "e": "Canal cervical."
+        },
+        "answer": "b",
+        "rationale": "O fórnice possui porções anterior, posterior e laterais. O posterior é o mais profundo.",
+        "option_rationales": {
+            "a": "Errada. É o orifício.",
+            "b": "Correta. Anatomia ginecológica básica.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Pelve",
+            "Ginecologia"
+        ]
+    },
+    {
+        "enunciado": "A musculatura do períneo é dividida em planos. Qual músculo envolve a base do corpo esponjoso no homem e auxilia na expulsão final da urina e do sêmen?",
+        "options": {
+            "a": "Isquiocavernoso.",
+            "b": "Bulboesponjoso.",
+            "c": "Transverso superficial do períneo.",
+            "d": "Esfíncter externo do ânus.",
+            "e": "Coccígeo."
+        },
+        "answer": "b",
+        "rationale": "O bulboesponjoso comprime o bulbo do pênis e a uretra bulbar.",
+        "option_rationales": {
+            "a": "Errada. Envolve os pilares dos corpos cavernosos; mantém a ereção.",
+            "b": "Correta. Função motora do períneo anterior.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Pelve",
+            "Miologia"
+        ]
+    },
+    {
+        "enunciado": "A 'prega umbilical mediana' contém o remanescente de qual estrutura embrionária que conectava a bexiga fetal ao umbigo?",
+        "options": {
+            "a": "Artéria umbilical.",
+            "b": "Veia umbilical.",
+            "c": "Úraco (alantoide).",
+            "d": "Ducto vitelino.",
+            "e": "Gubernáculo."
+        },
+        "answer": "c",
+        "rationale": "A prega mediana é o úraco obliterado. As pregas mediais são as artérias umbilicais e as laterais contêm os vasos epigástricos inferiores.",
+        "option_rationales": {
+            "a": "Errada. Presente nas pregas mediais.",
+            "b": "Errada. Está no ligamento redondo (superior).",
+            "c": "Correta. Anatomia da parede abdominal interna/pélvica.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Pelve",
+            "Embriologia"
+        ]
+    },
+    {
+        "enunciado": "O plexo hipogástrico inferior fornece a principal inervação autonômica para as vísceras pélvicas. Quais fibras compõem este plexo?",
+        "options": {
+            "a": "Fibras simpáticas, parassimpáticas e aferentes viscerais.",
+            "b": "Apenas fibras motoras somáticas.",
+            "c": "Apenas fibras sensíveis à dor cutânea.",
+            "d": "Nervos cranianos III, VII e IX.",
+            "e": "Fibras musculares estriadas."
+        },
+        "answer": "a",
+        "rationale": "O plexo hipogástrico é um centro integrado de regulação visceral, recebendo simpático dos nervos esplâncnicos lombares e parassimpático dos esplâncnicos pélvicos.",
+        "option_rationales": {
+            "a": "Correta. Complexidade do sistema nervoso autônomo na pelve.",
+            "b": "Errada.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "Anatomia",
+            "Pelve",
+            "Neuroanatomia"
+        ]
+    }
+]

@@ -1,0 +1,385 @@
+[
+    {
+        "enunciado": "Um paciente de 70 anos chega com dispneia paroxística noturna, estertores pulmonares em 2/3 das bases e turgência jugular a 45°. O ecocardiograma mostra FE 62%, hipertrofia concêntrica do VE e aumento marcante do átrio esquerdo (volume de 44 ml/m²). O BNP está elevado (450 pg/mL). Qual o diagnóstico mais provável?",
+        "options": {
+            "a": "Insuficiência Cardíaca com Fração de Ejeção Reduzida (ICFEr).",
+            "b": "Insuficiência Cardíaca com Fração de Ejeção Preservada (ICFEp).",
+            "c": "Doença Pulmonar Obstrutiva Crônica (DPOC) descompensada.",
+            "d": "Pneumonia Lobar aguda.",
+            "e": "Embolia pulmonar subsegmentar."
+        },
+        "answer": "b",
+        "rationale": "O quadro de sinais e sintomas de IC clássicos (Critérios de Framingham positivos) com Fração de Ejeção normal (≥ 50%) e evidência de disfunção diastólica estrutural (HVE, átrio aumentado) e bioquímica (BNP alto) preenchem os critérios para ICFEp.",
+        "option_rationales": {
+            "a": "Incorreta. FE está acima de 50%.",
+            "b": "Correta. Diagnóstico clínico-laboratorial de ICFEp.",
+            "c": "Incorreta. DPOC não cursa com BNP nesses níveis ou HVE.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "média",
+        "tags": [
+            "ICFEp",
+            "Ecocardiograma",
+            "Diagnóstico",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "A respeito do tratamento da ICFEp (preservada), qual classe de medicação mostrou, no estudo EMPEROR-Preserved e DELIVER, redução significativa do desfecho composto de morte cardiovascular e hospitalização por IC, sendo hoje a terapia de escolha (Classe I)?",
+        "options": {
+            "a": "Beta-bloqueadores isolados.",
+            "b": "Antagonistas da Aldosterona isolados.",
+            "c": "Inibidores do SGLT2 (como Empagliflozina ou Dapagliflozina).",
+            "d": "Apenas Hidroclorotiazida.",
+            "e": "Digital em altas doses."
+        },
+        "answer": "c",
+        "rationale": "Até pouco tempo, não havia tratamento que reduzisse eventos na ICFEp. Os iSGLT2 foram a primeira classe a demonstrar redução robusta de hospitalizações por IC e desfechos cardiovasculares nesta população, mudando as diretrizes de 2023/2024.",
+        "option_rationales": {
+            "a": "Incorreta. Estudos com betabloqueadores em ICFEp são neutros.",
+            "b": "Incorreta. Estudo TOPCAT com espironolactona falhou no desfecho primário (embora tenha uma análise de subgrupo sugestiva).",
+            "c": "Correta. Novo padrão-ouro de tratamento para ICFEp.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "média",
+        "tags": [
+            "iSGLT2",
+            "ICFEp",
+            "Tratamento",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Qual dos seguintes sinais semiológicos é considerado o mais específico (embora não tão sensível) para o diagnóstico de insuficiência cardíaca crônica descompensada?",
+        "options": {
+            "a": "Edema de membros inferiores.",
+            "b": "Turgência jugular patológica e terceira bula (B3).",
+            "c": "Tosse seca noturna.",
+            "d": "Apenas taquicardia.",
+            "e": "Presença de sopro sistólico carotídeo."
+        },
+        "answer": "b",
+        "rationale": "A presença de B3 (galope ventricular) e turgência jugular indicam sobrecarga hídrica e aumento de pressões centrais com alta especificidade (> 90%). O edema de MMII é muito comum em diversas outras patologias (venosa, renal) e por isso é pouco específico.",
+        "option_rationales": {
+            "a": "Incorreta. Baixa especificidade.",
+            "b": "Correta. Achados de exame físico clássicos com alto valor preditivo positivo.",
+            "c": "Incorreta.",
+            "d": "Incorreta. Taquicardia é inespecífica do estresse.",
+            "e": "Incorreta. Indica estenose aórtica ou carotídea, não IC per se."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "Exame Físico",
+            "B3",
+            "Jugular",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "No contexto da fisiologia cardiovascular, a 'Pré-Carga' cardíaca refere-se a:",
+        "options": {
+            "a": "A resistência que o ventrículo deve vencer para ejetar o sangue.",
+            "b": "O estresse parietal do ventrículo ao final da diástole (grau de estiramento da fibra miocárdica antes da contração).",
+            "c": "A força de contração intrínseca das fibras.",
+            "d": "O tempo total da sístole.",
+            "e": "A quantidade de oxigênio consumida pelo cérebro."
+        },
+        "answer": "b",
+        "rationale": "A pré-carga é o volume (ou pressão) que estica o ventrículo antes de ele bater. É regulada pelo retorno venoso. Na IC, o aumento da pré-carga é um mecanismo compensatório (Lei de Starling) que acaba ficando ineficiente quando o ventrículo se dilata excessivamente.",
+        "option_rationales": {
+            "a": "Incorreta. Isso é a pós-carga.",
+            "b": "Correta. Define a pré-carga fisiológica.",
+            "c": "Incorreta. Isso é contratilidade (inotropismo).",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "média",
+        "tags": [
+            "Fisiologia",
+            "Pré-Carga",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Qual a principal causa farmacológica de morte na toxicidade digital aguda?",
+        "options": {
+            "a": "Bradicardia intensa e parada por assistolia.",
+            "b": "Arritmias fatais induzidas pela hipercalemia severa secundária ao bloqueio da bomba Na/K-ATPase.",
+            "c": "Infarto com supra de ST generalizado.",
+            "d": "Hipotensão por choque anafilático.",
+            "e": "Hemorrágia digestiva alta varicosa."
+        },
+        "answer": "b",
+        "rationale": "Na intoxicação digital Aguda (dose massiva única), o bloqueio extensivo das bombas de sódio e potássio em todo o corpo joga o potássio para fora das células, causando uma hipercalemia perigosa. Arritmias ventriculares e bradiarritmias complexas são os mecanismos de óbito. Diferente da intoxicação crônica, onde o potássio costuma estar normal ou baixo (pelo uso de diuréticos).",
+        "option_rationales": {
+            "a": "Incorreta. Embora bradicardias ocorram, a causa metabólica (hipercalemia) e arritmias de vários tipos são mais marcantes.",
+            "b": "Correta. A hipercalemia é um dos principais preditores de morte na intoxicação aguda.",
+            "c": "Incorreta.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "difícil",
+        "tags": [
+            "Digital",
+            "Intoxicação cardíaca",
+            "Potássio",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "A respeito do manejo da IC de acordo com os estágios (A, B, C e D), o que define o Estágio B?",
+        "options": {
+            "a": "Apenas fatores de risco para IC (como hipertensão ou diabetes) sem alteração cardíaca.",
+            "b": "Presença de alteração estrutural cardíaca (ex: FEVE reduzida ou hipertrofia), mas o paciente NUNCA teve sintomas de IC (pacientes assintomáticos).",
+            "c": "Paciente sintomático que responde bem a diuréticos.",
+            "d": "Paciente em choque cardiogênico refratário.",
+            "e": "Paciente com transplante cardíaco prévio."
+        },
+        "answer": "b",
+        "rationale": "O estágio B é o 'pré-IC'. O coração já está doente (ex: pós-infarto com déficit de contração), mas o paciente ainda não manifestou o quadro clínico de insuficiência. O objetivo aqui é tratar para impedir a progressão para o Estágio C (Sintomático).",
+        "option_rationales": {
+            "a": "Incorreta. Isso é Estágio A.",
+            "b": "Correta. Define a fase estrutural assintomática.",
+            "c": "Incorreta. Sintomas indicam Estágio C.",
+            "d": "Incorreta. Isso é Estágio D.",
+            "e": "Incorreta."
+        },
+        "difficulty": "média",
+        "tags": [
+            "Estágios da IC",
+            "Diretriz",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Qual dos seguintes indicadores laboratoriais é um preditor prognóstico forte de mortalidade na IC aguda descompensada, refletindo perfusão orgânica e estado metabólico?",
+        "options": {
+            "a": "Níveis de vitamina D.",
+            "b": "Hiponatremia (níveis baixos de sódio no sangue).",
+            "c": "Aumento do colesterol LDL.",
+            "d": "Redução do ácido úrico.",
+            "e": "Presença de cristais de oxalato na urina."
+        },
+        "answer": "b",
+        "rationale": "A hiponatremia na IC ocorre por excesso de ADH (vasopressiva) e ativação excessiva do sistema renina-angiotensina em resposta ao baixo débito. É um dos marcadores mais potentes de gravidade e mau prognóstico a curto e longo prazo.",
+        "option_rationales": {
+            "a": "Incorreta.",
+            "b": "Correta. Sódio baixo = Ativação neuro-humoral intensa = IC grave.",
+            "c": "Incorreta.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "média",
+        "tags": [
+            "Sódio",
+            "Hiponatremia",
+            "Prognóstico",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "A respecto do tratamento cirúrgico da insuficiência cardíaca crônica grave (Estágio D) e refratária, qual o procedimento considerado padrão-ouro de tratamento definitivo para casos selecionados?",
+        "options": {
+            "a": "Apenas troca de valva mitral.",
+            "b": "Cirurgia de Revascularização do Miocárdio.",
+            "c": "Transplante Cardíaco.",
+            "d": "Colocação de stent na aorta.",
+            "e": "Remoção de parte da gordura pericárdica."
+        },
+        "answer": "c",
+        "rationale": "O transplante cardíaco orthotópico é o tratamento final para pacientes em falência cardíaca terminal que falharam ao tratamento clínico otimizado e têm indicação clínica. Oferece melhora drástica na classe funcional e sobrevida, embora limitado pela oferta de órgãos e imunossupressão crônica.",
+        "option_rationales": {
+            "a": "Incorreta.",
+            "b": "Incorreta. Pode ser útil se houver isquemia viável, mas não é o tratamento 'definitivo' para a falência global terminal.",
+            "c": "Correta. Padrão-ouro para IC terminal.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "Transplante Cardíaco",
+            "Estágio D",
+            "FGV"
+        ]
+    },
+    {
+        "enunciatedo": "O dispositivo de assistência ventricular de longa duração (DAVI) pode ser indicado como 'Terapia de Destino'. O que isso significa?",
+        "options": {
+            "a": "O dispositivo será usado apenas por 24 horas.",
+            "b": "O dispositivo é implantado permanentemente para pacientes que não são candidatos ao transplante cardíaco.",
+            "c": "O paciente usará o aparelho apenas durante o sono.",
+            "d": "Significa que o paciente morrerá em 1 semana.",
+            "e": "É o uso do aparelho para tratar pneumonia associada ao coração."
+        },
+        "answer": "b",
+        "rationale": "A 'Terapia de Destino' é quando o suporte mecânico circulatório é planejado como solução final para o paciente, visando melhora da qualidade de vida e sobrevida fora do hospital, sem intenção de transplante futuro (devido à idade ou comorbidades impeditivas).",
+        "option_rationales": {
+            "a": "Incorreta. Isso seria suporte temporário de curto prazo.",
+            "b": "Correta. Define o uso definitivo de bombas auxiliares.",
+            "c": "Incorreta.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "média",
+        "tags": [
+            "DAVI",
+            "Terapia de Destino",
+            "Suporte Mecânico",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Sobre a classificação de NYHA (New York Heart Association), um paciente que apresenta sintomas de dispneia apenas ao realizar esforços habituais (como subir um lance de escadas ou caminhar rápido no plano) é classificado em qual classe funcional?",
+        "options": {
+            "a": "Classe I.",
+            "b": "Classe II.",
+            "c": "Classe III.",
+            "d": "Classe IV.",
+            "e": "Classe V (não existe)."
+        },
+        "answer": "b",
+        "rationale": "A Classe II de NYHA indica limitação LEVE da atividade física. O paciente está confortável em repouso, mas atividades comuns geram sintomas (fadiga, palpitação, dispneia).",
+        "option_rationales": {
+            "a": "Incorreta. Classe I é assintomático aos esforços habituais.",
+            "b": "Correta. Reflete a realidade clínica do paciente estável mas limitado.",
+            "c": "Incorreta. Classe III é limitação importante aos mínimos esforços.",
+            "d": "Incorreta. Classe IV é sintomas em repouso.",
+            "e": "Incorreta."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "NYHA",
+            "Semiologia",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Qual a principal causa de descompensação da IC crônica em pacientes previamente estáveis no cenário ambulatorial?",
+        "options": {
+            "a": "Má adesão ao tratamento (dieta e medicamentos).",
+            "b": "Novos episódios de infarto do miocárdio em 100% dos casos.",
+            "c": "Exercício físico excessivo em academias.",
+            "d": "Uso de aspirina.",
+            "e": "Excesso de repouso no leito."
+        },
+        "answer": "a",
+        "rationale": "A causa mais comum de descompensação (ida ao pronto-socorro) é o erro alimentar (excesso de sal em churrascos, festas) ou a suspensão por conta própria dos diuréticos e outras medicações vitais.",
+        "option_rationales": {
+            "a": "Correta. Fator comportamental de maior peso clínico.",
+            "b": "Incorreta. Isquemia é importante, mas não a mais frequente absoluta.",
+            "c": "Incorreta.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "Descompensação",
+            "Manejo",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Qual alteração gasométrica é mais frequentemente encontrada na fase inicial (congestiva) da insuficiência cardíaca aguda com taquipneia?",
+        "options": {
+            "a": "Acidose metabólica por choque.",
+            "b": "Alcalose respiratória (redução da pCO2) por hiperventilação.",
+            "c": "Acidose respiratória grave pura.",
+            "d": "Alcalose metabólica persistente.",
+            "e": "Gasometria totalmente normal em 100% dos pacientes."
+        },
+        "answer": "b",
+        "rationale": "Na fase inicial da congestão pulmonar, a taquipneia reflexa faz o paciente 'lavar' CO2, gerando alcalose respiratória compensatória. Se o quadro progredir para fadiga muscular ou edema agudo grave, pode evoluir para acidose mista (respiratória + metabólica por baixo débito).",
+        "option_rationales": {
+            "a": "Incorreta. Isso ocorre na fase tardia de choque (hipoperfusão).",
+            "b": "Correta. Padrão gasométrico de hiperventilação compensatória.",
+            "c": "Incorreta.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "média",
+        "tags": [
+            "Gasometria",
+            "IC Aguda",
+            "Fisiologia",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "A respeito do uso de Anti-inflamatórios Não Esteroidais (AINEs) em pacientes com IC, qual a recomendação geral?",
+        "options": {
+            "a": "São excelentes para tratar as dores musculares comuns na IC.",
+            "b": "Devem ser evitados, pois causam retenção hídrica, piora da função renal e podem descompensar a IC.",
+            "c": "Podem ser usados livremente se o paciente não tiver diabetes.",
+            "d": "Apenas o Ibuprofeno é seguro.",
+            "e": "Devem ser usados para reduzir a inflamação do miocárdio chagasico."
+        },
+        "answer": "b",
+        "rationale": "AINEs inibem as prostaglandinas renais que mantêm a perfusão do órgão, levam à retenção de sódio e água e antagonizam o efeito de diuréticos e IECAs. É uma causa clássica de descompensação e insuficiência renal pré-renal em cardiopatas.",
+        "option_rationales": {
+            "a": "Incorreta.",
+            "b": "Correta. Regra de ouro da segurança medicamentosa na IC.",
+            "c": "Incorreta.",
+            "d": "Incorreta. Nenhum AINE tradicional é seguro na IC crônica estável.",
+            "e": "Incorreta."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "AINEs",
+            "Segurança",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Qual dos seguintes medicamentos para diabetes tipo 2 tem recomendação Classe I para pacientes com IC (independentemente da fração de ejeção) por reduzir hospitalizações?",
+        "options": {
+            "a": "Glibenclamida.",
+            "b": "Insulina NPH.",
+            "c": "Inibidores do SGLT2 (Dapagliflozina, Empagliflozina).",
+            "d": "Pioglitazona (Tiazolidinedionas).",
+            "e": "Acarbose."
+        },
+        "answer": "c",
+        "rationale": "As gliflozinas (iSGLT2) são hoje parte fundamental da terapia quádrupla da IC pela sua capacidade de reduzir mortalidade e reinternações, agindo via natriurese e melhora do metabolismo cardíaco.",
+        "option_rationales": {
+            "a": "Incorreta.",
+            "b": "Incorreta.",
+            "c": "Correta. Mudança de paradigma no tratamento da IC nos últimos anos.",
+            "d": "Incorreta. Pioglitazona é contraindicada na IC pois causa retenção hídrica.",
+            "e": "Incorreta."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "iSGLT2",
+            "Diabetes e IC",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Um paciente com IC em uso de Enalapril e Carvedilol permanece com sintomas em classe III da NYHA. O potássio é 4.2 mEq/L e a Creatinina é 1.1 mg/dL. Qual a próxima adição terapêutica baseada em evidência (RALES/EMPHASIS)?",
+        "options": {
+            "a": "Aumento da dose do Betabloqueador apenas.",
+            "b": "Troca de Enalapril por Losartana.",
+            "c": "Adição de um antagonista do receptor mineralocorticoide (Espironolactona).",
+            "d": "Uso de anlodipino.",
+            "e": "Uso de AAS 325 mg."
+        },
+        "answer": "c",
+        "rationale": "Para pacientes sintomáticos (NYHA II-IV) apesar de IECA/BRA + BB, a terceira droga a ser adicionada é o antagonista da aldosterona, desde que a função renal (Cr < 2.5) e o potássio (K < 5.0) permitam. Neste caso, os parâmetros estão excelentes para o início.",
+        "option_rationales": {
+            "a": "Incorreta.",
+            "b": "Incorreta.",
+            "c": "Correta. Evolução natural da terapia tripla clássica.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "média",
+        "tags": [
+            "Espironolactona",
+            "Terapia Tripla",
+            "Manejo",
+            "FGV"
+        ]
+    }
+]

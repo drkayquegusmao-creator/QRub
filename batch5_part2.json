@@ -1,0 +1,627 @@
+[
+    {
+        "enunciado": "O canal inguinal é uma passagem oblíqua na parede abdominal anterior. Qual estrutura anatômica nos HOMENS atravessa este canal e é fixada ao escroto?",
+        "options": {
+            "a": "Ligamento redondo.",
+            "b": "Funiculículo espermático.",
+            "c": "Nervo obturador.",
+            "d": "Ducto deferente isolado.",
+            "e": "Artéria femoral."
+        },
+        "answer": "b",
+        "rationale": "O funiculículo espermático contém o ducto deferente, vasos e nervos que suprem o testículo. Nas mulheres, o canal contém o ligamento redondo do útero.",
+        "option_rationales": {
+            "a": "Errada. Presente no canal inguinal feminino.",
+            "b": "Correta. Estrutura fundamental da anatomia reprodutiva masculina e cirurgia de hérnia.",
+            "c": "Errada.",
+            "d": "Errada. O ducto é apenas um componente do funiculículo.",
+            "e": "Errada. Passa sob o ligamento inguinal, no espaço vascular."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Abdome",
+            "Reprodutivo"
+        ]
+    },
+    {
+        "enunciado": "As hérnias inguinais DIRETAS ocorrem devido à fraqueza na parede posterior do canal inguinal. Qual região anatômica específica, delimitada pelos vasos epigástricos inferiores, borda lateral do reto e ligamento inguinal, é o local de protrusão dessas hérnias?",
+        "options": {
+            "a": "Círculo de Willis.",
+            "b": "Trígono femoral.",
+            "c": "Trígono de Hesselbach (Inguinal).",
+            "d": "Forame de Winslow.",
+            "e": "Anel inguinal profundo."
+        },
+        "answer": "c",
+        "rationale": "O trígono de Hesselbach é a área de fraqueza da fáscia transversalis por onde passam as hérnias diretas.",
+        "option_rationales": {
+            "a": "Errada. Estrutura cerebral.",
+            "b": "Errada.",
+            "c": "Correta. Marco anatômico essencial para diagnóstico diferencial de hérnias.",
+            "d": "Errada. Comunicação peritoneal.",
+            "e": "Errada. Local de início das hérnias indiretas."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Abdome",
+            "Cirurgia"
+        ]
+    },
+    {
+        "enunciado": "A irrigação do intestino grosso (cólon) é dividida. Qual artéria supre o CÓLON DESCENDENTE e o CÓLON SIGMOIDE?",
+        "options": {
+            "a": "Artéria mesentérica superior.",
+            "b": "Artéria mesentérica inferior.",
+            "c": "Artéria celíaca.",
+            "d": "Artéria ilíaca interna.",
+            "e": "Artéria gástrica esquerda."
+        },
+        "answer": "b",
+        "rationale": "A artéria mesentérica inferior supre o intestino posterior (terço distal do transverso, descendente, sigmoide e reto superior).",
+        "option_rationales": {
+            "a": "Errada. Supre até os 2/3 iniciais do transverso.",
+            "b": "Correta. Distribuição vascular do trato digestório distal.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Abdome",
+            "Vascularização"
+        ]
+    },
+    {
+        "enunciado": "O fígado recebe sangue de duas fontes principais. Qual a porcentagem aproximada de suprimento sanguíneo fornecida pela VEIA PORTA e qual o seu conteúdo principal?",
+        "options": {
+            "a": "25%; sangue rico em oxigênio.",
+            "b": "75%; sangue rico em nutrientes e pobre em oxigênio.",
+            "c": "50%; sangue misto.",
+            "d": "90%; bile.",
+            "e": "10%; sangue arterial."
+        },
+        "answer": "b",
+        "rationale": "A veia porta fornece cerca de 75-80% do volume de sangue que chega ao fígado, trazendo nutrientes absorvidos no TGI, embora com baixa saturação de O2.",
+        "option_rationales": {
+            "a": "Errada. Esta é a contribuição da artéria hepática.",
+            "b": "Correta. Fisiologia e anatomia do sistema porta-hepático.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Abdome",
+            "Angiologia"
+        ]
+    },
+    {
+        "enunciado": "A 'linha arqueada' (de Douglas) no abdome marca uma mudança estrutural importante. O que ocorre com as camadas da bainha do músculo reto abdominal ABAIXO dessa linha?",
+        "options": {
+            "a": "Todas as aponeuroses passam para a frente do músculo reto.",
+            "b": "Todas as aponeuroses passam para trás do músculo reto.",
+            "c": "O músculo reto desaparece.",
+            "d": "A bainha torna-se mais espessa na sua parte posterior.",
+            "e": "As aponeuroses fundem-se com o peritônio."
+        },
+        "answer": "a",
+        "rationale": "Abaixo da linha arqueada, as aponeuroses dos três músculos largos (oblíquos e transverso) fundem-se anteriormente ao reto. Posteriormente, resta apenas a fáscia transversalis.",
+        "option_rationales": {
+            "a": "Correta. Explica a fragilidade da parede posterior no abdome inferior.",
+            "b": "Errada.",
+            "c": "Errada.",
+            "d": "Errada. Torna-se inexistente (resta só fáscia).",
+            "e": "Errada."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "Anatomia",
+            "Abdome",
+            "Miologia"
+        ]
+    },
+    {
+        "enunciado": "Qual dos seguintes órgãos possui uma posição 'secundariamente retroperitoneal' (era intraperitoneal no início do desenvolvimento e fixou-se na parede posterior depois)?",
+        "options": {
+            "a": "Rins.",
+            "b": "Ureteres.",
+            "c": "Maior parte do duodeno e pâncreas.",
+            "d": "Sigmoide.",
+            "e": "Aorta abdominal."
+        },
+        "answer": "c",
+        "rationale": "Órgãos primariamente retroperitoneais (como os rins) nunca tiveram mesentério. O duodeno e o pâncreas possuíam e os perderam durante a rotação intestinal.",
+        "option_rationales": {
+            "a": "Errada. É primário.",
+            "b": "Errada. É primário.",
+            "c": "Correta. Conceito importante de embriologia e anatomia aplicada.",
+            "d": "Errada. É intraperitoneal (possui mesosigmoide).",
+            "e": "Errada. Primário."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "Anatomia",
+            "Abdome",
+            "Embriologia/Peritônio"
+        ]
+    },
+    {
+        "enunciado": "O rim direito situa-se habitualmente em uma posição ligeiramente inferior ao rim esquerdo. Qual a causa anatômica dessa assimetria?",
+        "options": {
+            "a": "Presença do baço à esquerda.",
+            "b": "Presença do fígado à direita.",
+            "c": "A curvatura do estômago.",
+            "d": "O trajeto da aorta.",
+            "e": "O comprimento dos ureteres."
+        },
+        "answer": "b",
+        "rationale": "O grande volume do lobo direito do fígado 'empurra' o rim direito para baixo durante o desenvolvimento.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Relação sintópica básica do abdome superior.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Abdome",
+            "Urologia/Sintopia"
+        ]
+    },
+    {
+        "enunciado": "A inervação parassimpática da maior parte do trato gastrointestinal abdominal é feita pelo nervo vago. Até qual ponto anatômico o nervo vago exerce essa função antes de ser substituído pelos nervos esplâncnicos pélvicos?",
+        "options": {
+            "a": "Cárdia do estômago.",
+            "b": "Píloro.",
+            "c": "Flexura esplênica do cólon (transição para o cólon descendente).",
+            "d": "Válvula ileocecal.",
+            "e": "Junção anorretal."
+        },
+        "answer": "c",
+        "rationale": "O vago inerva o intestino anterior e médio. O intestino posterior (do terço distal do transverso em diante) é inervado pelo parassimpático sacral (S2-S4).",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Errada.",
+            "c": "Correta. Limite autonômico importante do TGI.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Abdome",
+            "Neuroanatomia"
+        ]
+    },
+    {
+        "enunciado": "A 'veia porta' drena para o fígado. Em casos de hipertensão portal grave, o sangue busca vias colaterais. Qual das seguintes é uma zona de anastomose porto-cava importante que leva ao surgimento de varizes esofágicas?",
+        "options": {
+            "a": "Veia gástrica esquerda com veias esofágicas (sistema ázigo).",
+            "b": "Veia mesentérica superior com veia renal.",
+            "c": "Veia esplênica com veia cava inferior.",
+            "d": "Veias paraumbilicais com veias epigástricas.",
+            "e": "Veia retal superior com veia retal média."
+        },
+        "answer": "a",
+        "rationale": "A conexão entre a gástrica esquerda (portal) e as esofágicas (cava via ázigo) é a causa fisiopatológica das varizes esofágicas hemorrágicas.",
+        "option_rationales": {
+            "a": "Correta. Anatomia aplicada fundamental em gastroenterologia.",
+            "b": "Errada.",
+            "c": "Errada.",
+            "d": "Errada. Causa a 'Cabeça de Medusa' periumbilical.",
+            "e": "Errada. Causa hemorroidas."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Abdome",
+            "Vascularização/Clínica"
+        ]
+    },
+    {
+        "enunciado": "Qual músculo da parede posterior do abdome tem origem nos corpos vertebrais de T12-L5 e insere-se no trocânter menor do fêmur, fundindo-se com o músculo ilíaco?",
+        "options": {
+            "a": "Quadrado lombar.",
+            "b": "Psoas maior.",
+            "c": "Transverso do abdome.",
+            "d": "Latíssimo do dorso.",
+            "e": "Reto abdominal."
+        },
+        "answer": "b",
+        "rationale": "O psoas maior é o principal flexor da coxa e forma o músculo iliopsoas com o músculo ilíaco.",
+        "option_rationales": {
+            "a": "Errada. Músculo lateral que fixa na crista ilíaca e 12ª costela.",
+            "b": "Correta. Miologia da parede posterior.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Abdome",
+            "Miologia"
+        ]
+    },
+    {
+        "enunciado": "O 'ligamento redondo do fígado' localiza-se na borda livre do ligamento falciforme. Ele é o remanescente obliterado de qual estrutura fetal?",
+        "options": {
+            "a": "Ducto venoso.",
+            "b": "Veia umbilical.",
+            "c": "Artéria umbilical.",
+            "d": "Úraco.",
+            "e": "Ducto arterioso."
+        },
+        "answer": "b",
+        "rationale": "O ligamento redondo (ligamentum teres) é a veia umbilical esquerda obliterada.",
+        "option_rationales": {
+            "a": "Errada. Torna-se o ligamento venoso.",
+            "b": "Correta. Importante para entender a circulação fetal e neonatal.",
+            "c": "Errada. Tornam-se os ligamentos umbilicais mediais.",
+            "d": "Errada. Torna-se o ligamento umbilical mediano.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Abdome",
+            "Embriologia"
+        ]
+    },
+    {
+        "enunciado": "A glândula suprarrenal é irrigada por três artérias principais. De onde se origina a artéria SUPRARRENAL MÉDIA?",
+        "options": {
+            "a": "Artéria renal.",
+            "b": "Tronco celíaco.",
+            "c": "Aorta abdominal.",
+            "d": "Artéria frênica inferior.",
+            "e": "Artéria mesentérica superior."
+        },
+        "answer": "c",
+        "rationale": "Superior: da frênica inferior. Média: da aorta. Inferior: da renal.",
+        "option_rationales": {
+            "a": "Errada. Origina a suprarrenal inferior.",
+            "b": "Errada.",
+            "c": "Correta. Detalhe da vascularização endócrina.",
+            "d": "Errada. Origina a suprarrenal superior.",
+            "e": "Errada."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "Anatomia",
+            "Abdome",
+            "Vascularização"
+        ]
+    },
+    {
+        "enunciado": "O cólon possui quatro partes. Qual delas é caracterizada por ser inteiramente retroperitoneal na maioria dos indivíduos?",
+        "options": {
+            "a": "Cólon transverso.",
+            "b": "Ceco.",
+            "c": "Cólon ascendente.",
+            "d": "Cólon sigmoide.",
+            "e": "Apenas o reto."
+        },
+        "answer": "c",
+        "rationale": "O cólon ascendente e o descendente são retroperitoneais. O ceco, o transverso e o sigmoide são intraperitoneais e móveis (possuem mesos).",
+        "option_rationales": {
+            "a": "Errada. Intraperitoneal móvel.",
+            "b": "Errada. Geralmente envolto por peritônio.",
+            "c": "Correta. Anatomia do posicionamento intestinal.",
+            "d": "Errada. Intraperitoneal móvel.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Abdome",
+            "Esplanccnologia"
+        ]
+    },
+    {
+        "enunciado": "A flexura cólica DIREITA (hepática) localiza-se inferiormente a qual órgão?",
+        "options": {
+            "a": "Estômago.",
+            "b": "Baço.",
+            "c": "Fígado.",
+            "d": "Rim esquerdo.",
+            "e": "Bexiga."
+        },
+        "answer": "c",
+        "rationale": "A flexura hepática está em contato direto com a face visceral do lobo direito do fígado.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Errada. Próximo à flexura esplênica (esquerda).",
+            "c": "Correta. Topografia visceral.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Abdome",
+            "Topografia"
+        ]
+    },
+    {
+        "enunciado": "O ducto hepático comum situa-se em qual posição em relação à artéria hepática própria no ligamento hepatoduodenal?",
+        "options": {
+            "a": "À direita da artéria.",
+            "b": "À esquerda da artéria.",
+            "c": "Atrás da artéria.",
+            "d": "Dentro da artéria.",
+            "e": "Em posição anterior à veia porta e à esquerda da artéria."
+        },
+        "answer": "a",
+        "rationale": "No pedículo hepático: Ducto biliar à direita, Artéria hepática à esquerda e Veia Porta atrás de ambos.",
+        "option_rationales": {
+            "a": "Correta. Relação espacial crítica em cirurgias de vias biliares.",
+            "b": "Errada.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "Anatomia",
+            "Abdome",
+            "Topografia/Cirurgia"
+        ]
+    },
+    {
+        "enunciado": "Qual a principal função do músculo cremáster, derivado do músculo oblíquo interno?",
+        "options": {
+            "a": "Auxiliar na evacuação.",
+            "b": "Elevar o testículo para regulação térmica.",
+            "c": "Proteger a artéria femoral.",
+            "d": "Comprimir a bexiga.",
+            "e": "Não possui função motora."
+        },
+        "answer": "b",
+        "rationale": "O reflexo cremastérico eleva o testículo em resposta ao frio ou estímulo tátil na coxa, visando manter a temperatura ideal para a espermatogênese.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Função fisiológica baseada em estrutura anatômica abdominal.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Abdome",
+            "Reprodutivo/Fisiologia"
+        ]
+    },
+    {
+        "enunciado": "O omento maior (grande epíplon) é muitas vezes chamado de 'policial do abdome'. Qual característica anatômica justifica este apelido?",
+        "options": {
+            "a": "Sua capacidade de secretar antibióticos.",
+            "b": "Sua mobilidade e capacidade de aderir a áreas inflamadas ou perfuradas, isolando infecções.",
+            "c": "Sua dureza que protege contra traumas.",
+            "d": "Sua inervação sensitiva altamente aguçada.",
+            "e": "Sua conexão direta com os linfonodos axilares."
+        },
+        "answer": "b",
+        "rationale": "O omento maior migra para locais de irritação peritoneal (como apendicite), formando bloqueios que tentam impedir a peritonite generalizada.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Descrição funcional do peritônio em clínica cirúrgica.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Abdome",
+            "Clínica/Peritônio"
+        ]
+    },
+    {
+        "enunciado": "A artéria gástrica direita origina-se habitualmente de qual vaso?",
+        "options": {
+            "a": "Tronco celíaco diretamente.",
+            "b": "Artéria hepática própria.",
+            "c": "Artéria esplênica.",
+            "d": "Artéria gastromentoventrículo.",
+            "e": "Artéria mesentérica superior."
+        },
+        "answer": "b",
+        "rationale": "A gástrica esquerda vem do tronco celíaco; a gástrica direita vem da artéria hepática própria (ou comum).",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Detalhe da árvore arterial abdominal.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "Anatomia",
+            "Abdome",
+            "Vascularização"
+        ]
+    },
+    {
+        "enunciado": "O 'ligamento inguinal' (de Poupart) é formado pela borda inferior espessada da aponeurose de qual músculo?",
+        "options": {
+            "a": "Oblíquo externo.",
+            "b": "Oblíquo interno.",
+            "c": "Transverso do abdome.",
+            "d": "Psoas maior.",
+            "e": "Fáscia lata."
+        },
+        "answer": "a",
+        "rationale": "O ligamento inguinal estende-se da espinha ilíaca anterossuperior ao tubérculo púbico, sendo a margem inferior do oblíquo externo.",
+        "option_rationales": {
+            "a": "Correta. Estrutura base da região inguinal.",
+            "b": "Errada.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Abdome",
+            "Miologia"
+        ]
+    },
+    {
+        "enunciado": "Qual o nível vertebral médio do hilo renal, onde entram vasos e sai a pelve renal?",
+        "options": {
+            "a": "T10.",
+            "b": "L1-L2.",
+            "c": "L4-L5.",
+            "d": "T12.",
+            "e": "S1."
+        },
+        "answer": "b",
+        "rationale": "Os hilais renais localizam-se aproximadamente ao nível do disco intervertebral L1-L2.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Referência topográfica para exames de imagem.",
+            "c": "Errada. Bifurcação da aorta.",
+            "d": "Errada. Passagem da aorta pelo diafragma.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Abdome",
+            "Urologia/Topografia"
+        ]
+    },
+    {
+        "enunciado": "A 'cauda pancreática' relaciona-se estreitamente com qual face do baço?",
+        "options": {
+            "a": "Face diafragmática.",
+            "b": "Face visceral (hilo).",
+            "c": "Borda superior.",
+            "d": "Polo inferior.",
+            "e": "Face posterior."
+        },
+        "answer": "b",
+        "rationale": "A ponta do pâncreas toca o baço na região do seu hilo (face visceral).",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Proximidade essencial em cirurgias esplênicas.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Abdome",
+            "Topografia"
+        ]
+    },
+    {
+        "enunciado": "O ducto pancreático ACESSÓRIO (de Santorini) desemboca em qual estrutura?",
+        "options": {
+            "a": "Papila duodenal maior.",
+            "b": "Papila duodenal menor.",
+            "c": "Óstio pilórico.",
+            "d": "Ducto colédoco.",
+            "e": "Jejuno."
+        },
+        "answer": "b",
+        "rationale": "O ducto principal (Wirsung) vai para a papila maior; o acessório (Santorini) vai para a papila menor, situada cerca de 2 cm acima.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Detalhe da excretoria pancreática.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Abdome",
+            "Esplanccnologia"
+        ]
+    },
+    {
+        "enunciado": "As veias 'supra-hepáticas' (hepáticas) desembocam diretamente em qual vaso?",
+        "options": {
+            "a": "Veia Porta.",
+            "b": "Veia Cava Inferior.",
+            "c": "Veia Ázigo.",
+            "d": "Veia Mesentérica Superior.",
+            "e": "Átrio direito diretamente."
+        },
+        "answer": "b",
+        "rationale": "Após processar o sangue, o fígado o devolve à circulação sistêmica através das veias hepáticas que entram na VCI logo abaixo do diafragma.",
+        "option_rationales": {
+            "a": "Errada. Leva sangue PARA o fígado.",
+            "b": "Correta. Drenagem venosa final hepática.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada. Apenas no caso da VCI o fazer, não as veias isoladas."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Abdome",
+            "Angiologia"
+        ]
+    },
+    {
+        "enunciado": "O 'espaço de Morrison' (recesso hepatorrenal) é clinicamente importante na ultrassonografia de trauma (FAST). Onde ele se localiza especificamente?",
+        "options": {
+            "a": "Entre o estômago e o baço.",
+            "b": "Entre o lobo direito do fígado e o rim direito.",
+            "c": "Atrás da bexiga.",
+            "d": "Acima do diafragma.",
+            "e": "No interior do pâncreas."
+        },
+        "answer": "b",
+        "rationale": "O recesso hepatorrenal é o ponto mais declive da cavidade abdominal superior em decúbito dorsal, onde o líquido livre (sangue ou ascite) se acumula precocemente.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Topografia essencial para radiologia de emergência.",
+            "c": "Errada. Local do espaço de Douglas (na pelve).",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anatomia",
+            "Abdome",
+            "Topografia/Clínica"
+        ]
+    },
+    {
+        "enunciado": "Qual a principal inervação MOTORA do músculo diafragma, responsável pela ventilação abdominal?",
+        "options": {
+            "a": "Nervo vago.",
+            "b": "Nervos intercostais T7-T11.",
+            "c": "Nervo frênico (C3, C4, C5).",
+            "d": "Nervo acessório.",
+            "e": "Plexo celíaco."
+        },
+        "answer": "c",
+        "rationale": "O nervo frênico fornece toda a inervação motora ao diafragma. 'C3, 4, 5 keep the diaphragm alive'.",
+        "option_rationales": {
+            "a": "Errada. Sensitivo e parassimpático visceral.",
+            "b": "Errada. Fornecem inervação sensitiva periférica apenas.",
+            "c": "Correta. Neuroanatomia respiratória fundamental.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anatomia",
+            "Abdome/Tórax",
+            "Neuroanatomia"
+        ]
+    }
+]

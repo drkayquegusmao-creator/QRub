@@ -1,0 +1,387 @@
+[
+    {
+        "enunciado": "A respeito do uso de anticoagulação na IC, qual a principal indicação formal de anticoagulação plena (ex: Varfarina ou DOACs) em pacientes com IC sistólica, independentemente da fração de ejeção?",
+        "options": {
+            "a": "Presença de Fibrilação Atrial associada (especialmente com CHADS-VASC score ≥ 2).",
+            "b": "Apenas por ter fração de ejeção muito baixa (< 20%).",
+            "c": "Para tratar dor de cabeça.",
+            "d": "Uso profilático em todos os pacientes ambulatoriais estáveis.",
+            "e": "Somente se o paciente for fumante."
+        },
+        "answer": "a",
+        "rationale": "A IC e a Fibrilação Atrial frequentemente andam juntas (birregularidade atrial e ventricular). A FA na IC aumenta drasticamente o risco de AVC isquêmico e embolia sistêmica, o que exige a anticoagulação plena crônica fundamentada em escores de risco.",
+        "option_rationales": {
+            "a": "Correta. Indicação clássica para prevenção tromboembólica.",
+            "b": "Incorreta. Embora o risco seja maior, a FE < 20% isolada não é indicação mandatória Classe I de anticoagulação se o ritmo for sinusal puro (salvo na evidência de trombo intracavitário).",
+            "c": "Incorreta.",
+            "d": "Incorreta. Anticoagulação profilática ambulatorial não tem benefício e aumenta riscos de sangramento.",
+            "e": "Incorreta."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "FA e IC",
+            "Anticoagulação",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Qual a principal causa fisiopatológica de dispneia paroxística noturna (DPN) no paciente com IC?",
+        "options": {
+            "a": "Aumento do volume de sangue intratorácico pelo rearranjo postural do edema periférico quando o paciente se deita, sobrecarregando o ventrículo esquerdo doente.",
+            "b": "Falta de ar causada por pesadelos.",
+            "c": "Aumento da temperatura corporal durante o sono.",
+            "d": "Refluxo gastroesofágico grave em 100% dos casos.",
+            "e": "Obstrução mecânica da laringe por gordura cervical."
+        },
+        "answer": "a",
+        "rationale": "Ao deitar, a gravidade deixa de atuar 'puxando' o sangue para as pernas. O líquido acumulado no interstício das pernas (edema) é reabsorvido e o retorno venoso aumenta. Se o coração estiver fraco, ele não consegue bombear esse volume extra, que acaba se acumulando nos pulmões, acordando o paciente subitamente com falta de ar (DPN) após 1-3 horas de sono.",
+        "option_rationales": {
+            "a": "Correta. Mecanismo de redistribuição volêmica da IC crônica.",
+            "b": "Incorreta.",
+            "c": "Incorreta.",
+            "d": "Incorreta. Embora o refluxo mimetize falta de ar ao deitar, a DPN clássica da IC tem base hemodinâmica.",
+            "e": "Incorreta. Isso descreve a apneia obstrutiva do sono, que pode coexistir, mas não é a DPN."
+        },
+        "difficulty": "média",
+        "tags": [
+            "DPN",
+            "Fisiopatologia",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "A respeito do uso de Beta-bloqueadores, quais os três tipos de drogas desta classe que têm robusta evidência clínica de redução de mortalidade na IC de acordo com os estudos (MERIT-HF, COPERNICUS, CIBIS-II)?",
+        "options": {
+            "a": "Propranolol, Atenolol e Metoprolol Tartarato.",
+            "b": "Carvedilol, Succinato de Metoprolol e Bisoprolol.",
+            "c": "Sotalol, Pindolol e Labetalol.",
+            "d": "Timolol, Nadolol e Nebivolol em todos os estudos.",
+            "e": "Somente Propranolol injetável."
+        },
+        "answer": "b",
+        "rationale": "Iniciamos apenas os betabloqueadores que provaram salvar vidas na IC através de grandes ensaios clínicos randomizados. O Carvedilol (alfa e beta-bloqueador), o Bisoprolol e o Succinato de Metoprolol de liberação lenta (estudo MERIT-HF) são as escolhas padrão.",
+        "option_rationales": {
+            "a": "Incorreta. O Metoprolol Tartarato não tem evidência robusta de sobrevida como a forma Succinato (liberação controlada).",
+            "b": "Correta. Tríade clássica de BBs recomendados na IC sistólica.",
+            "c": "Incorreta.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "média",
+        "tags": [
+            "Betabloqueadores",
+            "Farmacologia",
+            "Evidência",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Qual o achado ECG clássico que, em um paciente com IC, sugere a ocorrência de Cardiopatia de Chagas em fase avançada (Miocardiopatia Dilatada Chagásica)?",
+        "options": {
+            "a": "Supradesnivelamento de ST em parede anterior e inferior.",
+            "b": "Bloqueio de Ramo Direito (BRD) associado a Hemibloqueio Anterior Esquerdo (BDAS).",
+            "c": "Presença de Onda Delta (Síndrome de Wolff-Parkinson-White).",
+            "d": "Apenas taquicardia sinusal simples.",
+            "e": "Intervalo PR extremamente curto."
+        },
+        "answer": "b",
+        "rationale": "A fibrose seletiva do sistema de condução na Doença de Chagas frequentemente afeta o ramo direito e o fascículo anterior do ramo esquerdo. Esta associação eletrocardiográfica (BRD + BDAS), embora não seja exclusiva, é altamente sugestiva de etiologia chagásica no contexto clínico apropriado.",
+        "option_rationales": {
+            "a": "Incorreta. Sugere IAM agudo ou miopericardite.",
+            "b": "Correta. Padrão ECG epidemiologicamente associado ao Chagas no Brasil.",
+            "c": "Incorreta.",
+            "d": "Incorreta. Taquicardia sinusal é um achado secundário de baixa especificidade.",
+            "e": "Incorreta."
+        },
+        "difficulty": "média",
+        "tags": [
+            "ECG",
+            "Chagas",
+            "Padrão",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Na propedêutica da IC aguda descompensada, a medida da PVC (Pressão Venosa Central) de forma isolada e única via cateter venoso central é considerada:",
+        "options": {
+            "a": "O padrão-ouro absoluto para definir a volemia de todos os pacientes.",
+            "b": "Um dado limitado, pois reflete apenas a função do ventrículo direito e não se correlaciona obrigatoriamente com a pressão capilar pulmonar (função do VE).",
+            "c": "Desnecessária em qualquer situação de choque.",
+            "d": "Perigosa, pois injeta ar na circulação cerebral.",
+            "e": "Capaz de curar a insuficiência cardíaca sozinha."
+        },
+        "answer": "b",
+        "rationale": "A PVC reflete a volemia das cavidades direitas. Em pacientes críticos, pode haver dissociação entre os ventrículos (RV vs VE). Uma PVC normal ou baixa pode coexistir com um pulmão encharcado se houver falência esquerda grave isolada. Monitorização dinâmica (VPP, Ultrassom pulmão) é hoje preferida sobre estática isolada.",
+        "option_rationales": {
+            "a": "Incorreta. Estática isolada perdeu força preditiva de fluido-responsividade.",
+            "b": "Correta. Limitação fisiológica fundamental da monitorização de pressão venosa.",
+            "c": "Incorreta. Ainda pode ser útil em cenários específicos de choque de cavidades direitas.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "média",
+        "tags": [
+            "Monitorização",
+            "PVC",
+            "Hemodinâmica",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "A respeito do prognóstico, qual escore de gravidade é amplamente utilizado em pacientes internados com IC descompensada para estimar a gravidade clínica e o risco de eventos intra-hospitalares?",
+        "options": {
+            "a": "Escore de Wells.",
+            "b": "Escore ADHERE (baseado em ureia, creatinina e pressão sistólica).",
+            "c": "Escore de Apgar.",
+            "d": "Escore de Mallampati.",
+            "e": "Escore de Framingham inicial."
+        },
+        "answer": "b",
+        "rationale": "O escore de risco ADHERE (Acute Decompensated Heart Failure National Registry) permite estratificar o risco intra-hospitalar. Níveis elevados de ureia (BUN > 43 mg/dL) e creatinina (> 2,75 mg/dL) ou PA sistólica < 115 mmHg são preditores potentes de óbito hospitalar.",
+        "option_rationales": {
+            "a": "Incorreta. Wells é para TEP/TVP.",
+            "b": "Correta. Ferramenta de prognóstico específica para IC aguda.",
+            "c": "Incorreta. Apgar é neonatal.",
+            "d": "Incorreta. Mallampati é via aérea/anestesia.",
+            "e": "Incorreta. Framingham é para diagnóstico inicial ou risco CV global populacional."
+        },
+        "difficulty": "média",
+        "tags": [
+            "Prognóstico",
+            "Escore ADHERE",
+            "Internação",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "A respecto do tratamento de pacientes com IC crônica e anemia ferropriva associada, o que os estudos mais recentes (como FAIR-HF e CONFIRM-HF) demonstraram sobre a reposição venosa de Ferro (Carboximaltose Férrica)?",
+        "options": {
+            "a": "Não houve nenhum benefício no uso do ferro venoso.",
+            "b": "A melhora dos estoques de ferro resultou em melhora da qualidade de vida, capacidade de exercício e redução de hospitalizações por IC, independentemente do nível de hemoglobina (anêmicos ou não).",
+            "c": "O ferro venoso causou infartos extensos em todos os pacientes.",
+            "d": "A ferroterapia oral é mais eficaz que a venosa na cardiologia.",
+            "e": "A recomendação é de Classe III (contraindicada)."
+        },
+        "answer": "b",
+        "rationale": "A deficiência de ferro prejudica a respiração celular mitocondrial nos cardiomiócitos. A reposição de ferro venoso mostrou-se superior ao oral em pacientes sintomáticos com IC e deficiência comprovada (ferritina < 100 ou 100-300 com saturação < 20%), sendo hoje recomendação Classe I/IIa na cardiologia.",
+        "option_rationales": {
+            "a": "Incorreta. Resultados foram positivos e consistentes.",
+            "b": "Correta. Define a nova recomendação de reposição de ferro na IC crônica.",
+            "c": "Incorreta.",
+            "d": "Incorreta. O ferro oral tem absorção muito ruim na IC pelo estado inflamatório e edema de alças intestinais.",
+            "e": "Incorreta."
+        },
+        "difficulty": "média",
+        "tags": [
+            "Ferro",
+            "Anemia",
+            "Comorbidades",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Qual a principal causa farmacológica de tosse seca persistente em pacientes com IC que pode ser confundida com congestão pulmonar, levando ao abandono do tratamento?",
+        "options": {
+            "a": "Uso de Furosemida.",
+            "b": "Uso de Inibidores da Enzima Conversora de Angiotensina (IECA - ex: Captopril, Enalapril).",
+            "c": "Uso de AAS 100 mg.",
+            "d": "Uso de Estatinas (ex: Atorvastatina).",
+            "e": "Uso de Omeprazol."
+        },
+        "answer": "b",
+        "rationale": "O bloqueio da ECA impede a degradação de bradicininas e substância P no pulmão. O acúmulo dessas substâncias causa uma tosse irritativa crônica seca em cerca de 10-20% dos usuários de IECAs. A solução é trocar por um Bloqueador de Receptor de Angiotensina (BRA), que não interfere na bradicinina.",
+        "option_rationales": {
+            "a": "Incorreta.",
+            "b": "Correta. Efeito colateral clássico do IECA que mimetiza congestão.",
+            "c": "Incorreta.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "IECA",
+            "Tosse",
+            "Manejo",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "No contexto da fibrilação atrial na insuficiência cardíaca, qual a estratégia preferencial em pacientes jovens e com IC reversível (ex: cardiomiopatia induzida por taquicardia)?",
+        "options": {
+            "a": "Apenas controle de frequência (deixar o paciente em FA crônica e controlar o pulso).",
+            "b": "Controle de ritmo (tentar reverter para ritmo sinusal por cardioversão ou ablação).",
+            "c": "Amputar a perna direita.",
+            "d": "Realizar transplante cardíaco imediato.",
+            "e": "Usar apenas AAS isolado sem controlar o ritmo."
+        },
+        "answer": "b",
+        "rationale": "O controle do ritmo (manter o batimento sinusal) restaurando a sístole atrial é benéfico na IC, pois melhora em 15-20% o débito cardíaco. Em pacientes com 'taquicardiomiopatia' (coração que dilatou porque batia muito rápido na FA), reverter a arritmia pode levar à cura da disfunção cardíaca.",
+        "option_rationales": {
+            "a": "Incorreta. Pode ser aceitável em idosos assintomáticos, mas não é a 'preferencial' na busca de reversão da disfunção.",
+            "b": "Correta. Recomenda-se controle de ritmo especialmente se a FA for a causa provável da IC.",
+            "c": "Incorreta.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "média",
+        "tags": [
+            "FA e IC",
+            "Ritmo vs Frequência",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "A respecto da monitorização ambulatorial moderna com dispositivos implantáveis de pressão pulmonar (ex: CardioMEMS), qual o principal benefício demonstrado?",
+        "options": {
+            "a": "Nenhum, os pacientes se sentem piores.",
+            "b": "Redução acentuada de hospitalizações através do ajuste telemonitorado da dose de diuréticos antes do aparecimento de sintomas físicos (verificando a pressão pulmonar elevada preventivamente).",
+            "c": "Cura da doença em 30 dias.",
+            "d": "Substituição do uso de todas as medicações orais.",
+            "e": "Aumento do apetite sexual."
+        },
+        "answer": "b",
+        "rationale": "Esses sensores permitem ver o aumento das pressões hidráulicas nos pulmões DIAS ANTES de o paciente sentir falta de ar ou ganhar peso (congestão hemodinâmica precede a clínica). O médico ajusta a medicação remotamente, 'secando' o paciente preventivamente e evitando a internação.",
+        "option_rationales": {
+            "a": "Incorreta.",
+            "b": "Correta. Inovação no manejo 'proativo' e remoto da IC avançada.",
+            "c": "Incorreta.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "difícil",
+        "tags": [
+            "Telemonitoramento",
+            "Pressão Pulmonar",
+            "Inovações",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Qual dos seguintes parâmetros é fundamental na avaliação da gravidade da IC sistólica no ecocardiograma, medindo a velocidade com que o sangue é expulso do coração?",
+        "options": {
+            "a": "Espessura da parede do átrio.",
+            "b": "Índice de colapsabilidade da veia cava superior.",
+            "c": "Fração de Ejeção do Ventrículo Esquerdo (FEVE) pelo método biplano de Simpson.",
+            "d": "Comprimento da aorta ascendente.",
+            "e": "Presença de gordura no pescoço."
+        },
+        "answer": "c",
+        "rationale": "O método de Simpson (biplano) é mais preciso que o método de Teichholz por levar em conta a geometria global do ventrículo (irregularidades de contratilidade segmentar), sendo a métrica cardinal para definir o tratamento da IC.",
+        "option_rationales": {
+            "a": "Incorreta.",
+            "b": "Incorreta. Reflete pressões direitas.",
+            "c": "Correta. Medida padrão-ouro ecocardiográfica para função sistólica.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "Ecocardiograma",
+            "Simpson",
+            "FEVE",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Em pacientes com IC e FE < 35%, a presença de um padrão de 'Bloqueio de Ramo Esquerdo' (BRE) com QRS muito largo (> 150 ms) indica a ocorrência de qual fenômeno prejudicial?",
+        "options": {
+            "a": "Super-contração cardíaca.",
+            "b": "Dissincronia Ventricular (o septo e a parede lateral batem em tempos diferentes), reduzindo a eficiência do bombeamento.",
+            "c": "Melhora espontânea do débito cardíaco.",
+            "d": "Resolução da insuficiência mitral.",
+            "e": "Aumento súbito da força dos braços."
+        },
+        "answer": "b",
+        "rationale": "O BRE faz com que o estímulo elétrico chegue com atraso na parede lateral. Isso faz o coração bater 'torto' ou descoordenado. Nestes casos, a Terapia de Ressincronização Cardíaca (TRC - marcapasso biventricular) pode 'corrigir' esse tempo, melhorando a função e sobrevida.",
+        "option_rationales": {
+            "a": "Incorreta.",
+            "b": "Correta. Define o problema da dissincronia mecânica induzida pela eletricidade lenta.",
+            "c": "Incorreta.",
+            "d": "Incorreta. Dissincronia costuma PIORAR a insuficiência mitral funcional.",
+            "e": "Incorreta."
+        },
+        "difficulty": "média",
+        "tags": [
+            "BRE",
+            "Ressincronização",
+            "TRC",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Qual o principal órgão afetado (além do coração) na síndrome cardiorrenal Tipo 1 (Insuficiência Cardíaca Aguda levando à Insuficiência Renal Aguda)?",
+        "options": {
+            "a": "Fígado.",
+            "b": "Rim (perda rápida da função renal).",
+            "c": "Baço.",
+            "d": "Pâncreas.",
+            "e": "Pulmão apenas."
+        },
+        "answer": "b",
+        "rationale": "A síndrome cardiorrenal ocorre pela baixa perfusão renal (baixo débito cardíaco) e, principalmente, pela congestão venosa renal (aumento da pressão venosa central que impede o rim de filtrar). Tratamento envolve a compensação da IC em primeiro plano.",
+        "option_rationales": {
+            "a": "Incorreta. Congestão hepática é síndrome cardio-hepática.",
+            "b": "Correta. Definição da interação hemodinâmica coração-rim.",
+            "c": "Incorreta.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "Síndrome Cardiorrenal",
+            "Insuficiência Renal",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Qual a conduta inicial recomendada para um paciente com IC aguda e quadro de 'Saturação de O2 < 90%', taquipneia extrema e sinais de esforço respiratório acentuado, visando evitar a intubação orotraqueal?",
+        "options": {
+            "a": "Realizar oxigenação apenas com óculos nasal a 1L/min.",
+            "b": "Ventilação Não Invasiva (VNI - CPAP ou BiPAP).",
+            "c": "Uso de morfina intramuscular isolada.",
+            "d": "Injeção de adrenalina subcutânea.",
+            "e": "Fazer o paciente correr no corredor para melhorar a circulação."
+        },
+        "answer": "b",
+        "rationale": "A VNI com pressão positiva 'empurra' o edema para fora dos alvéolos, reduz a pré-carga venosa e o trabalho respiratório, sendo altamente eficaz no edema agudo de pulmão hipertensivo ou por sobrecarga, reduzindo taxas de intubação.",
+        "option_rationales": {
+            "a": "Incorreta. Insuficiente para casos graves.",
+            "b": "Correta. Terapia de suporte respiratório preferencial na IC aguda com edema.",
+            "c": "Incorreta. Morfina pode causar depressão respiratória se usada sem controle.",
+            "d": "Incorreta. Agravaria a sobrecarga cardíaca por taquicardia/vasoconstrição.",
+            "e": "Incorreta. Perigoso e absurdo clínico."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "VNI",
+            "Suporte Respiratório",
+            "IC Aguda",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "A respecto da fisiopatologia, qual a principal diferença de prognóstico entre a 'Insuficiência Cardíaca Direita isolada' vs 'Insuficiência Cardíaca Esquerda' em termos de congestão?",
+        "options": {
+            "a": "A IC direita causa congestão pulmonar grave.",
+            "b": "A IC direita cursa com congestão sistêmica (edema de pernas, hepatomegalia, ascite) sem edema pulmonar direto se não houver falência esquerda associada. Já a IC esquerda cursa tipicamente com congestão pulmonar.",
+            "c": "Não há nenhuma diferença, os sintomas são sempre na cabeça.",
+            "d": "A IC esquerda só existe em crianças.",
+            "e": "A IC direita causa infarto de 100% dos neurônios."
+        },
+        "answer": "b",
+        "rationale": "O coração direito recebe o sangue do corpo e manda para o pulmão. Se ele falha, o sangue 'represa' antes dele (no corpo). O coração esquerdo recebe do pulmão e manda para o corpo. Se ele falha, 'represa' nos pulmões.",
+        "option_rationales": {
+            "a": "Incorreta. IC direita isolada reduz o fluxo para o pulmão.",
+            "b": "Correta. Reflete o entendimento básico da circulação em série e as câmaras afetadas.",
+            "c": "Incorreta.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "média",
+        "tags": [
+            "Fisiopatologia",
+            "Diferenciação",
+            "FGV"
+        ]
+    }
+]

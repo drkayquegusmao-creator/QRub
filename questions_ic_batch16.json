@@ -1,0 +1,390 @@
+[
+    {
+        "enunciado": "Um homem de 58 anos com IC crônica e FE 35% queixa-se de palpitações e síncope. O ECG de repouso é normal, mas o Holter de 24h revela Taquicardia Ventricular Sustentada (TVS) com duração de 40 segundos e instabilidade hemodinâmica documentada. O paciente já utiliza terapia quádrupla há 6 meses. Qual a conduta de escolha para prevenção de morte súbita?",
+        "options": {
+            "a": "Iniciar apenas Amiodarona oral.",
+            "b": "Indicar implante de Cardiodesfibrilador (CDI) para prevenção secundária.",
+            "c": "Apenas aumentar a dose do betabloqueador.",
+            "d": "Indicar apenas ablação por cateter.",
+            "e": "Realizar teste ergométrico para estratificação."
+        },
+        "answer": "b",
+        "rationale": "Pacientes que sobreviveram a uma parada cardíaca por FV/TV ou que tiveram TV sustentada com instabilidade hemodinâmica têm indicação Classe I de CDI para PREVENÇÃO SECUNDÁRIA, independentemente da FEVE (embora neste caso ela também seja reduzida). O risco de recorrência fatal é altíssimo sem o dispositivo.",
+        "option_rationales": {
+            "a": "Incorreta. Amiodarona reduz arritmias mas não previne morte súbita como o CDI.",
+            "b": "Correta. Indicação formal de prevenção secundária.",
+            "c": "Incorreta. Insuficiente para proteção contra morte súbita arrítmica.",
+            "d": "Incorreta. Ablação pode ser adjunta em tempestades elétricas, mas não substitui o CDI na prevenção secundária.",
+            "e": "Incorreta. A síncope com TVS já é o evento definidor da conduta."
+        },
+        "difficulty": "média",
+        "tags": [
+            "CDI",
+            "Morte Súbita",
+            "Prevenção Secundária",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "A respeito do uso de Digitálicos (Digoxina) na IC, de acordo com o estudo DIG, qual o principal benefício observado com o uso crônico desta medicação?",
+        "options": {
+            "a": "Redução significativa da mortalidade total.",
+            "b": "Redução da taxa de hospitalização por insuficiência cardíaca, sem impacto na mortalidade.",
+            "c": "Aumento da expectativa de vida em 10 anos.",
+            "d": "Cura da disfunção sistólica em pacientes com Chagas.",
+            "e": "Redução do risco de câncer colorretal."
+        },
+        "answer": "b",
+        "rationale": "O estudo DIG demonstrou que a Digoxina é neutra em termos de sobrevida global (não mata nem prolonga a vida), mas é eficaz em reduzir a necessidade de internações hospitalares por descompensação da IC. É reservada para pacientes sintomáticos apesar da terapia padrão ou com FA associada.",
+        "option_rationales": {
+            "a": "Incorreta. O estudo foi neutro em mortalidade.",
+            "b": "Correta. Define o papel atual da digoxina na IC (sintomática/hospitalizações).",
+            "c": "Incorreta.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "Digoxina",
+            "Estudo DIG",
+            "Mortalidade",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Qual a principal causa de 'IC com Fração de Ejeção Reduzida' no Brasil, superando inclusive a etiologia isquêmica em áreas endêmicas específicas?",
+        "options": {
+            "a": "Hipotireoidismo.",
+            "b": "Doença de Chagas (Tripanossomíase Americana).",
+            "c": "Febre Reumática aguda.",
+            "d": "Estenose Aórtica congênita.",
+            "e": "Amiloidose senil."
+        },
+        "answer": "b",
+        "rationale": "A Cardiopatia Chagásica continua sendo uma causa epidemiologicamente muito relevante de IC no Brasil. É uma miocardite fibrosante crônica que leva à dilatação grave, arritmias e fenômenos tromboembólicos, frequentemente com prognóstico pior que a etiologia isquêmica.",
+        "option_rationales": {
+            "a": "Incorreta.",
+            "b": "Correta. Etiologia de grande importância social e médica no cenário nacional.",
+            "c": "Incorreta. Febre reumática causa valvopatia, mas a causa direta 'muscular' por Chagas é mais prevalente como IC dilatada pura.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "Chagas",
+            "Etiologia",
+            "Brasil",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Na fisiopatologia da IC, o fenômeno de 'remodelamento reverso' refere-se a:",
+        "options": {
+            "a": "Aumento progressivo das cavidades ventriculares.",
+            "b": "Melhora da geometria ventricular, redução dos volumes diastólicos e aumento da fração de ejeção em resposta ao tratamento médico.",
+            "c": "Crescimento de novos cardiomiócitos após o infarto.",
+            "d": "Redução súbita da frequência cardíaca em repouso.",
+            "e": "Aparecimento de novas calcificações valvares."
+        },
+        "answer": "b",
+        "rationale": "O remodelamento reverso é o objetivo maior do tratamento da IC. Medicações como IECA/BRA, Betabloqueadores, Antagonistas da Aldosterona e Sacubitril-Valsartana provaram ser capazes de 'encolher' o coração dilatado e melhorar sua função contrátil (fração de ejeção).",
+        "option_rationales": {
+            "a": "Incorreta. Isso é o remodelamento patológico negativo.",
+            "b": "Correta. Define o sucesso estrutural e funcional da terapia farmacológica.",
+            "c": "Incorreta. Cardiomiócitos têm capacidade de regeneração ínfima.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "Remodelamento Reverso",
+            "Fisiopatologia",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Qual dos seguintes achados na radiografia de tórax de um paciente com IC indica a fase de 'edema alveolar'?",
+        "options": {
+            "a": "Apenas o desvio pulmonar cefálico da trama vascular.",
+            "b": "Infiltrado algodonoso bilateral simétrico, em 'asa de borboleta', partindo dos hilos para a periferia.",
+            "c": "Presença isolada de Linhas B de Kerley.",
+            "d": "Desvio da traqueia para a direita.",
+            "e": "Rx de tórax totalmente normal."
+        },
+        "answer": "b",
+        "rationale": "O edema alveolar é a fase crítica da congestão, onde o líquido preenche os sacos alveolares. Radiologicamente, isso aparece como opacidades confluentes e mal definidas (algodonosas) com distribuição hilífuga, característica do edema agudo de pulmão grave.",
+        "option_rationales": {
+            "a": "Incorreta. Isso é redistribuição de fluxo (fase inicial).",
+            "b": "Correta. Descrição clássica do edema alveolar no EAP.",
+            "c": "Incorreta. Linhas B de Kerley indicam edema intersticial.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "média",
+        "tags": [
+            "Radiografia",
+            "Edema Alveolar",
+            "EAP",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "A respeito do uso de diuréticos tiazídicos (como a Hidroclorotiazida ou Clortalidona) na insuficiência cardíaca crônica descompensada com anasarca, qual a sua principal aplicação?",
+        "options": {
+            "a": "Substituir a Furosemida como diurético de escolha na emergência.",
+            "b": "Aumentar a frequência cardíaca na bradicardia.",
+            "c": "Serem usados em associação aos diuréticos de alça para promover o 'bloqueio sequencial do néfron' em casos de resistência diurética.",
+            "d": "Apenas tratar a hipertensão arterial leve concomitante.",
+            "e": "Reduzir o risco de hipercalcemia."
+        },
+        "answer": "c",
+        "rationale": "Em pacientes com edema refratário por hipertrofia do túbulo distal (uso crônico de furosemida), a adição de um tiazídico bloqueia a reabsorção de sódio que escapou da alça de Henle. Este bloqueio duplo gera uma natriurese potente e ajuda a superar a resistência diurética.",
+        "option_rationales": {
+            "a": "Incorreta. Furosemida é muito mais potente na fase aguda.",
+            "b": "Incorreta.",
+            "c": "Correta. Estratégia terapêutica para manejo de congestão refratária.",
+            "d": "Incorreta.",
+            "e": "Incorreta. Tiazídicos podem CAUSAR hipercalcemia (reduzem a excreção urinária de cálcio)."
+        },
+        "difficulty": "média",
+        "tags": [
+            "Diuréticos",
+            "Resistência Diurética",
+            "Tiazídicos",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Qual componente do sistema Renina-Angiotensina-Aldosterona é o alvo principal da medicação Alisquireno?",
+        "options": {
+            "a": "Enzima Conversora de Angiotensina (ECA).",
+            "b": "Receptor AT1.",
+            "c": "Renina (inibição direta).",
+            "d": "Aldosterona.",
+            "e": "Angiotensinogênio."
+        },
+        "answer": "c",
+        "rationale": "O Alisquireno é um inibidor direto da renina. Embora tenha sido testado na IC (estudo ATMOSPHERE), ele não mostrou benefício superior ao Enalapril e causou mais efeitos colaterais (hipotensão, hipercalemia), não sendo recomendado como terapia padrão.",
+        "option_rationales": {
+            "a": "Incorreta. Alvo do IECA.",
+            "b": "Incorreta. Alvo do BRA.",
+            "c": "Correta. Mecanismo de ação específico da droga.",
+            "d": "Incorreta. Alvo da Espironolactona.",
+            "e": "Incorreta."
+        },
+        "difficulty": "média",
+        "tags": [
+            "Alisquireno",
+            "Farmacologia",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "A respeito da cardiomiopatia periparto, qual o período clássico de aparecimento dos sintomas de insuficiência cardíaca?",
+        "options": {
+            "a": "Apenas no primeiro trimestre de gravidez.",
+            "b": "No último mês de gestação ou nos primeiros 5 meses após o parto, na ausência de outras causas identificáveis.",
+            "c": "Exclusivamente durante o trabalho de parto.",
+            "d": "Dez anos após o último parto.",
+            "e": "Apenas em gestantes com menos de 18 anos."
+        },
+        "answer": "b",
+        "rationale": "A cardiomiopatia periparto é uma forma idiopática de IC associada à gestação. Ocorre no final da gravidez ou no puerpério inicial. O diagnóstico exige FE < 45%. Um dos mecanismos propostos envolve o fragmento de 16kDa da prolactina (efeito anti-angiogênico e pró-apoptótico).",
+        "option_rationales": {
+            "a": "Incorreta.",
+            "b": "Correta. Define o intervalo temporal para o diagnóstico desta condição específica.",
+            "c": "Incorreta.",
+            "d": "Incorreta.",
+            "e": "Incorreta. Pode ocorrer em qualquer idade gestacional, mas é mais comum em multíparas e idades extremas."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "Periparto",
+            "Vigilância",
+            "Diagnóstico",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Na IC sistólica, o aparecimento da quarta bula (B4) à ausculta cardíaca sugere:",
+        "options": {
+            "a": "Fechamento tardio da valva pulmonar.",
+            "b": "Contração atrial vigorosa contra um ventrículo com redução da complacência (ventrículo rígido).",
+            "c": "Incompetência da valva tricúspide.",
+            "d": "Aceleração rápida do enchimento diastólico ventricular precoce.",
+            "e": "Ausência completa de atividade mecânica atrial."
+        },
+        "answer": "b",
+        "rationale": "A B4 ocorre na telediástole (sístole atrial). Indica que o átrio está fazendo força para empurrar o sangue para dentro de um ventrículo que não relaxa bem ou está hipertrofiado. Vale ressaltar que para haver B4, é OBRIGATÓRIO que o paciente esteja em ritmo sinusal (não existe B4 na FA).",
+        "option_rationales": {
+            "a": "Incorreta.",
+            "b": "Correta. Reflete a perda da complacência ventricular.",
+            "c": "Incorreta.",
+            "d": "Incorreta. Isso descreve a B3 (terceira bula).",
+            "e": "Incorreta. Exige atividade atrial mecânica."
+        },
+        "difficulty": "média",
+        "tags": [
+            "B4",
+            "Sons Cardíacos",
+            "Semiologia",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Qual dos seguintes exames de imagem é considerado o padrão-ouro para o cálculo da fração de ejeção, volumes ventriculares e quantificação de fibrose miocárdica (via realce tardio)?",
+        "options": {
+            "a": "Ecocardiograma Transtorácico.",
+            "b": "Ecocardiograma Transesofágico.",
+            "c": "Ressonância Magnética Cardíaca.",
+            "d": "Cintilografia Miocárdica (MIBI).",
+            "e": "Tomografia por Emissão de Pósitrons (PET-CT)."
+        },
+        "answer": "c",
+        "rationale": "A Ressonância Magnética Cardíaca (RMC) oferece a melhor resolução espacial e volumétrica, sendo o método de referência para volumes e massa. Além disso, o realce tardio com gadolínio permite diferenciar etiologias (ex: isquêmica vs não-isquêmica) através do padrão de fibrose.",
+        "option_rationales": {
+            "a": "Incorreta. É o mais usado pelo custo/acesso, mas não é o padrão-ouro de precisão.",
+            "b": "Incorreta.",
+            "c": "Correta. Exame de eleição para caracterização tecidual e volumetria precisa.",
+            "d": "Incorreta. Focada em isquemia/perfusão.",
+            "e": "Incorreta. Focada em viabilidade metabólica."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "Ressonância",
+            "Gadolíneo",
+            "Fibrose",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "A respeito do uso de Beta-bloqueadores na IC crônica, qual a recomendação de início da droga em relação à estabilidade volêmica do paciente?",
+        "options": {
+            "a": "Devem ser iniciados imediatamente, mesmo se o paciente estiver com edema agudo de pulmão.",
+            "b": "Devem ser iniciados apenas após o paciente estar 'euvolêmico' (sem sinais de congestão clínica), estável e sem necessidade de inotrópicos endovenosos.",
+            "c": "Devem ser usados apenas em pacientes hipertensos.",
+            "d": "Apenas durante episódios de taquicardia ventricular.",
+            "e": "Betabloqueadores são contraindicados se o paciente tiver FE < 30%."
+        },
+        "answer": "b",
+        "rationale": "Iniciar betabloqueador em um paciente congestionado ou instável pode agravar a falência de bomba (pelo efeito inotrópico negativo agudo). O momento correto é quando o paciente está compensado ('seco'), para que o benefício de longo prazo supere o risco inicial.",
+        "option_rationales": {
+            "a": "Incorreta. Perigoso, pode causar choque cardiogênico.",
+            "b": "Correta. Princípio de segurança fundamental no manejo da IC.",
+            "c": "Incorreta. São indicados mesmo em normotensos com ICFEr.",
+            "d": "Incorreta.",
+            "e": "Incorreta. São fundamentais quanto mais baixa a FE, desde que estável."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "Betabloqueadores",
+            "Segurança",
+            "Estabilização",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Qual dos seguintes parâmetros do ecocardiograma sugere fortemente a presença de insuficiência cardíaca com fração de ejeção preservada (ICFEp) em um paciente com dispneia?",
+        "options": {
+            "a": "Fração de ejeção de 20%.",
+            "b": "Presença de hipertrofia ventricular esquerda (HVE), aumento do átrio esquerdo e disfunção diastólica significativa (avaliada pelo Doppler tecidual e relação E/e').",
+            "c": "Acentuada dilatação global de todas as cavidades com valvas normais.",
+            "d": "Apenas a presença de uma pequena insuficiência tricúspide fisiológica.",
+            "e": "Ventrículo esquerdo com paredes muito finas."
+        },
+        "answer": "b",
+        "rationale": "A ICFEp (Antiga 'IC Diastólica') exige FE ≥ 50%, sintomas de IC e evidência de alteração estrutural ou funcional cardíaca. A HVE e o átrio esquerdo aumentado indicam pressões de enchimento cronicamente elevadas, sustentando o diagnóstico.",
+        "option_rationales": {
+            "a": "Incorreta. Isso caracteriza ICFEr (Reduzida).",
+            "b": "Correta. Padrão ecocardiográfico típico da ICFEp.",
+            "c": "Incorreta. Sugere ICFEr ou miocardiopatia dilatada.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "média",
+        "tags": [
+            "ICFEp",
+            "Ecocardiograma",
+            "Disfunção Diastólica",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "A respeito da medicação Espironolactona na IC, qual o resultado principal demonstrado pelo estudo RALES em pacientes com classe funcional III e IV?",
+        "options": {
+            "a": "Redução da frequência cardíaca em repouso.",
+            "b": "Redução de 30% na mortalidade por todas as causas e redução nas hospitalizações.",
+            "c": "Cura completa da hipertensão em 2 anos.",
+            "d": "Apenas redução do edema de pernas.",
+            "e": "Não houve nenhum benefício estatístico."
+        },
+        "answer": "b",
+        "rationale": "O RALES (Randomized Aldactone Evaluation Study) foi o trial definitivo que provou que o antagonismo da aldosterona prolonga a vida de pacientes com IC grave, reduzindo mortes por todas as causas e mortes súbitas.",
+        "option_rationales": {
+            "a": "Incorreta. Não interfere na FC de forma direta relevante.",
+            "b": "Correta. Impacto prognóstico robusto da droga na IC sistólica grave.",
+            "c": "Incorreta.",
+            "d": "Incorreta. O benefício é sistêmico e prognóstico.",
+            "e": "Incorreta."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "Espironolactona",
+            "Estudo RALES",
+            "Mortalidade",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Qual a principal causa de morte súbita em pacientes com IC e fração de ejeção muito reduzida?",
+        "options": {
+            "a": "Infarto agudo do miocárdio em 100% dos casos.",
+            "b": "Arritmias ventriculares malignas (Taquicardia Ventricular Sustentada e Fibrilação Ventricular).",
+            "c": "Embolia pulmonar maciça.",
+            "d": "Ruptura de bexiga.",
+            "e": "Hipotensão por desidratação severa."
+        },
+        "answer": "b",
+        "rationale": "Embora a progressão da falência de bomba (choque) seja uma causa frequente de óbito, a MORTE SÚBITA (morte inesperada em menos de 1h de sintomas) é predominantemente arrítmica, causada pelo ambiente fibótico e instável do ventrículo insuficiente.",
+        "option_rationales": {
+            "a": "Incorreta. O infarto pode ser o gatilho, mas a arritmia é o mecanismo final frequente.",
+            "b": "Correta. Mecanismo principal de morte súbita na insuficiência cardíaca estrutural.",
+            "c": "Incorreta.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "Morte Súbita",
+            "Fisiopatologia",
+            "Arritmias",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "A respeito do manejo ambulatorial da IC, qual modificação no estilo de vida é recomendada universalmente para evitar a retenção hídrica excessiva?",
+        "options": {
+            "a": "Eliminação total de carboidratos da dieta.",
+            "b": "Consumo de pelo menos 5 litros de água por dia.",
+            "c": "Restrição de sódio (sal de cozinha) e, em casos de IC avançada, restrição hídrica moderada.",
+            "d": "Prática de maratonas diárias.",
+            "e": "Ingesta de álcool moderada se associada a carnes vermelhas."
+        },
+        "answer": "c",
+        "rationale": "O sódio puxa água e aumenta a volemia circulante, sobrecarregando o coração. Recomenda-se geralmente < 2-3g de sódio por dia. A restrição hídrica é necessária apenas em pacientes sintomáticos congestionados ou com hiponatremia.",
+        "option_rationales": {
+            "a": "Incorreta.",
+            "b": "Incorreta. Seria perigoso e causaria descompensação.",
+            "c": "Correta. Medida dietética padrão no manejo clínico da IC.",
+            "d": "Incorreta. Exercício deve ser supervisionado e leve-moderado.",
+            "e": "Incorreta. Álcool é cardiotóxico direto e deve ser evitado na IC."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "Dieta",
+            "Sódio",
+            "Manejo",
+            "FGV"
+        ]
+    }
+]

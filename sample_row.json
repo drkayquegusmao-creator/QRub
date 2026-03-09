@@ -1,0 +1,68 @@
+{
+  "id": "QRB-0007",
+  "course_id": "medicina",
+  "specialty_id": "pneumologia",
+  "subspecialty_id": "Geral",
+  "subject_id": "CM-PNEUMO-TEP",
+  "difficulty": "Média",
+  "enunciado": "Mulher, 34 anos, usuária de anticoncepcional oral combinado, submetida a cirurgia ortopédica de quadril há 10 dias. Evolui com dor torácica súbita, pleurítica, e taquipneia. Ao exame: FC 115 bpm, FR 28 irpm, SatO2 91%, pulmões limpos à ausculta. Membro inferior direito com edema e empastamento de panturrilha.",
+  "options": [
+    {
+      "id": "a",
+      "text": "Solicitar D-dímero; se negativo, excluir TEP."
+    },
+    {
+      "id": "b",
+      "text": "Realizar Radiografia de tórax e ECG; se normais, descartar TEP."
+    },
+    {
+      "id": "c",
+      "text": "Solicitar Angiotomografia de tórax de imediato."
+    },
+    {
+      "id": "d",
+      "text": "Iniciar anticoagulação plena e aguardar 48 horas para exames de imagem."
+    },
+    {
+      "id": "e",
+      "text": "Solicitar Gasometria Arterial e aguardar o gradiente alveolo-arterial de O2."
+    }
+  ],
+  "correct_option_id": "c",
+  "explanation": "O escore de Wells da paciente é alto (Cirurgia recente, FC > 100, sinais de TVP, diagnóstico alternativo menos provável). Em pacientes com alta probabilidade clínica, o D-dímero não deve ser usado para triagem (pois um resultado negativo não exclui TEP com segurança), devendo-se proceder diretamente para o exame de imagem confirmatório, sendo a Angio-TC o método de escolha.",
+  "case_study": null,
+  "alternative_explanations": {
+    "a": "Incorreta. O D-dímero só tem valor preditivo negativo em baixa ou moderada probabilidade.",
+    "b": "Incorreta. Rx e ECG costumam ser normais ou inespecíficos no TEP.",
+    "c": "Correta. Via diagnóstica correta para alta probabilidade clínica.",
+    "d": "Incorreta. Deve-se confirmar o diagnóstico se o paciente estiver estável, embora a anticoagulação possa ser iniciada enquanto se aguarda o exame em casos de suspeita muito alta.",
+    "e": "Incorreta. Gasometria avalia gravidade/hipoxemia, não confirma o diagnóstico de TEP."
+  },
+  "severe_error_alert": null,
+  "references": null,
+  "image_url": null,
+  "revision_link": null,
+  "hash": null,
+  "created_at": "2026-02-05T17:24:06.110276+00:00",
+  "status": "active",
+  "guideline_id": null,
+  "guideline_version": null,
+  "metadata": {
+    "import_date": "2026-02-05T20:32:28.023Z"
+  },
+  "blueprint_id": null,
+  "study_box_id": null,
+  "tag_transversal": [],
+  "comando": "Qual o próximo passo diagnóstico mais adequado considerando a alta probabilidade clínica (Escore de Wells)?",
+  "status_validacao": "APROVADA",
+  "por_que_nao_as_outras": null,
+  "erros_graves": [],
+  "exam_type": null,
+  "year": null,
+  "source": null,
+  "area_id": "clinica-medica",
+  "tema_id": "Tromboembolismo Pulmonar (TEP)",
+  "fonte": "gerada_qrub",
+  "subarea_id": "Pneumologia",
+  "image_description": null
+}

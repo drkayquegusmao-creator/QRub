@@ -1,0 +1,131 @@
+[
+    {
+        "enunciado": "A cineangiocoronariografia (coronariografia) é um exame invasivo frequentemente solicitado na investigação da etiologia da insuficiência cardíaca. De acordo com as diretrizes da Sociedade Brasileira de Cardiologia, qual a indicação Classe I para a realização deste exame em pacientes com IC?",
+        "options": {
+            "a": "Pacientes com insuficiência cardíaca de etiologia sabidamente chagásica.",
+            "b": "Pacientes com ICFEr e angina de peito ou isquemia documentada em exames não invasivos.",
+            "c": "Como rastreamento de rotina em todos os pacientes com diagnóstico de ICFEp.",
+            "d": "Avaliação pré-operatória de cirurgias não cardíacas de baixo risco.",
+            "e": "Pacientes com IC e menos de 30 anos de idade sem fatores de risco."
+        },
+        "answer": "b",
+        "rationale": "A coronariografia é fundamental para identificar a etiologia isquêmica, que é a causa mais comum de ICFEr. A indicação Classe I (evidência B) ocorre quando o paciente tem IC e sintomas de angina ou isquemia demonstrada por métodos funcionais (como cintilografia ou eco-estresse), pois a revascularização pode melhorar o prognóstico. Para pacientes sem isquemia/angina mas com IC de etiologia desconhecida, a indicação é Classe IIa.",
+        "option_rationales": {
+            "a": "Incorreta. Na cardiopatia chagásica, a etiologia já é conhecida e a coronariografia não é rotina, a menos que haja suspeita de doença coronária associada.",
+            "b": "Correta. Define o cenário onde o benefício da revascularização é mais provável e a investigação invasiva é mandatória pela diretriz.",
+            "c": "Incorreta. Na ICFEp, a coronariografia não é recomendada como rastreamento universal sem sinais de isquemia.",
+            "d": "Incorreta. Cirurgias de baixo risco não exigem coronariografia de rotina, mesmo em pacientes com IC estável.",
+            "e": "Incorreta. Pacientes jovens sem riscos têm probabilidade muito baixa de doença coronária obstrutiva."
+        },
+        "difficulty": "média",
+        "tags": [
+            "IC",
+            "Coronariografia",
+            "Etiologia",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Um paciente de 45 anos, com quadro de insuficiência cardíaca descompensada, apresenta no exame físico um sopro holossistólico em foco mitral que irradia para a axila. O ecocardiograma mostra ventrículo esquerdo dilatado (68mm), FE 32% e insuficiência mitral importante, porém com cúspides mitrais morfologicamente normais. Este quadro é compatível com:",
+        "options": {
+            "a": "Insuficiência mitral funcional (secundária).",
+            "b": "Insuficiência mitral orgânica (primária) por prolapso.",
+            "c": "Endocardite infecciosa aguda da valva mitral.",
+            "d": "Ruptura de cordoalha tendínea idiopática.",
+            "e": "Febre reumática em fase ativa."
+        },
+        "answer": "a",
+        "rationale": "A insuficiência mitral funcional ou secundária ocorre devido à dilatação do anel valvar e ao afastamento dos músculos papilares secundários à dilatação do ventrículo esquerdo (remodelamento adverso), impedindo a coaptação correta das cúspides, que são estruturalmente normais. O sopro holossistólico irradiado para a axila é típico da regurgitação mitral importante. As outras causas (B, C, D, E) envolveriam alterações morfológicas valvares.",
+        "option_rationales": {
+            "a": "Correta. Caracteriza a regurgitação valvar decorrente da falência ventricular e dilatação da cavidade, sem lesão primária nos folhetos.",
+            "b": "Incorreta. O prolapso envolve alteração mixomatosa ou estrutural dos folhetos valvares.",
+            "c": "Incorreta. A endocardite geralmente apresenta vegetações e quadro febril/toxêmico associado.",
+            "d": "Incorreta. Ruptura de cordoalha causaria falha aguda e folheto 'flail' (balançante), visível ao eco.",
+            "e": "Incorreta. A febre reumática cursa com espessamento valvar, fusão comissural ou outras alterações morfológicas crônicas."
+        },
+        "difficulty": "média",
+        "tags": [
+            "ICFEr",
+            "Valvopatias",
+            "Ecocardiograma",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "A respeito do tratamento da insuficiência cardíaca crônica com fração de ejeção reduzida, quais dos medicamentos abaixo demonstraram reduzir a mortalidade em ensaios clínicos randomizados?",
+        "options": {
+            "a": "Furosemida e Digoxina.",
+            "b": "Anlodipino e Hidroclorotiazida.",
+            "c": "Enalapril, Carvedilol e Espironolactona.",
+            "d": "Dinitrato de Isossorbida e Varfarina.",
+            "e": "Dobutamina e Milrinone."
+        },
+        "answer": "c",
+        "rationale": "As drogas que compõem o pilar do tratamento da ICFEr e que comprovadamente reduzem mortalidade são: IECA/BRA (ou INRA), Betabloqueadores, Antagonistas Mineralocorticoides e iSGLT2. Furosemida (A) trata sintomas de congestão e Digoxina (A) reduz internações, mas não mortalidade global. Anlodipino (B) é neutro na IC. Inotrópicos (E) podem, inclusive, aumentar a mortalidade no uso crônico.",
+        "option_rationales": {
+            "a": "Incorreta. Furosemida e Digoxina melhoram sintomas e reduzem internações, mas não alteram a sobrevida.",
+            "b": "Incorreta. Estes fármacos são usados para controle pressórico, mas não são drogas modificadoras de doença na IC.",
+            "c": "Correta. IECA, BB e Antagonistas da Aldosterona são a base do tratamento que aumenta a sobrevida do paciente com ICFEr.",
+            "d": "Incorreta. A associação Hidralazina + Isossorbida reduz mortalidade (principalmente em negros), mas Isossorbida isolada ou Varfarina não têm esse papel rotineiro.",
+            "e": "Incorreta. Inotrópicos endovenosos são usados na fase aguda crítica, mas associam-se a maior mortalidade se usados prolongadamente."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "ICFEr",
+            "Medicamentos",
+            "Prognóstico",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Durante a ausculta cardíaca de um paciente com insuficiência cardíaca descompensada, a presença de uma terceira bulha (B3) está associada fisiopatologicamente a:",
+        "options": {
+            "a": "Fechamento tardio da valva pulmonar por bloqueio de ramo direito.",
+            "b": "Período de enchimento ventricular rápido em um ventrículo dilatado e complacente.",
+            "c": "Contração atrial vigorosa contra um ventrículo esquerdo hipertrofiado e rígido.",
+            "d": "Abertura súbita da valva mitral (estalido de abertura).",
+            "e": "Vibração das cordoalhas tendíneas durante a sístole ventricular."
+        },
+        "answer": "b",
+        "rationale": "A B3 (ritmo de galope) ocorre logo após a B2, na fase de enchimento ventricular rápido. É causada pela vibração das paredes ventriculares quando o sangue entra de forma súbita em uma cavidade já volumosa e dilatada. É um marcador clássico de disfunção sistólica e sobrecarga de volume. Já a B4 (C) ocorre na sístole atrial e está associada à perda de complacência (hipertrofia/rigidez), típica da ICFEp.",
+        "option_rationales": {
+            "a": "Incorreta. O desdobramento de B2 é que se relaciona ao fechamento tardio das valvas semilunares.",
+            "b": "Correta. A B3 é o som do impacto do sangue no ventrículo dilatado durante o enchimento diastólico precoce.",
+            "c": "Incorreta. Esta descrição corresponde à quarta bulha (B4).",
+            "d": "Incorreta. O estalido de abertura é típico da estenose mitral.",
+            "e": "Incorreta. Sons sistólicos geralmente são sopros ou cliques, não bulhas acessórias diastólicas."
+        },
+        "difficulty": "fácil",
+        "tags": [
+            "Exame Físico",
+            "Semiologia",
+            "FGV"
+        ]
+    },
+    {
+        "enunciado": "Paciente em acompanhamento por ICFEr (FE 25%) apresenta-se estável em classe funcional II. O ECG mostra ritmo de fibrilação atrial com resposta ventricular média de 85 bpm. Paciente já utiliza terapia tripla otimizada. Qual a recomendação para a prevenção de eventos tromboembólicos neste paciente, considerando um escore CHA2DS2-VASc de 3?",
+        "options": {
+            "a": "Aspirina 100mg ao dia.",
+            "b": "Clopidogrel 75mg ao dia.",
+            "c": "Anticoagulação oral plena (ex: Rivaroxabana ou Varfarina).",
+            "d": "Não há indicação de anticoagulação se o paciente estiver estável.",
+            "e": "Apenas controle de frequência com Digoxina adicional."
+        },
+        "answer": "c",
+        "rationale": "Pacientes com IC e fibrilação atrial apresentam alto risco tromboembólico. O escore CHA2DS2-VASc de 3 (IC conta 1 ponto, mais outros fatores adicionais para chegar a 3) indica anticoagulação oral plena (Classe I). Antigregantes plaquetários (aspirina/clopidogrel) não conferem proteção adequada contra AVC na FA e não são recomendados como alternativa à anticoagulação. Os NOACs (como Rivaroxabana) são preferíveis à Varfarina na maioria dos casos.",
+        "option_rationales": {
+            "a": "Incorreta. Aspirina não previne eficazmente o AVC cardioembólico na fibrilação atrial.",
+            "b": "Incorreta. Clopidogrel isolado também não é tratamento padrão para prevenção de embolia na FA.",
+            "c": "Correta. CHA2DS2-VASc ≥ 2 em homens ou ≥ 3 em mulheres torna a anticoagulação obrigatória.",
+            "d": "Incorreta. O risco embólico independe da estabilidade dos sintomas da IC.",
+            "e": "Incorreta. O controle de frequência trata a sintomatologia e a taquicardiomiopatia, mas não previne o AVC."
+        },
+        "difficulty": "média",
+        "tags": [
+            "IC",
+            "Fibrilação Atrial",
+            "Anticoagulação",
+            "FGV"
+        ]
+    }
+]

@@ -1,0 +1,8 @@
+﻿[dotenv@17.2.3] injecting env (5) from .env.local -- tip: ­ƒöæ add access controls to secrets: https://dotenvx.com/ops
+Table pacote error: PGRST205 Could not find the table 'public.pacote' in the schema cache
+Table pacotes error: PGRST205 Could not find the table 'public.pacotes' in the schema cache
+Table package error: PGRST205 Could not find the table 'public.package' in the schema cache
+Table packages error: PGRST205 Could not find the table 'public.packages' in the schema cache
+Table pacote_questoes error: PGRST205 Could not find the table 'public.pacote_questoes' in the schema cache
+Table package_question error: PGRST205 Could not find the table 'public.package_question' in the schema cache
+Table questoes_pacote error: PGRST205 Could not find the table 'public.questoes_pacote' in the schema cache
