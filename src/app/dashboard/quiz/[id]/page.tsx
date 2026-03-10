@@ -149,12 +149,13 @@ export default function QuizPage() {
         return { total, correct, incorrect, percentage }
     }, [answeredQuestions, availableQuestions.length])
 
-    // Timer for SIMULADO mode
+    // Timer for SIMULADO mode — only starts once when questions are loaded
     useEffect(() => {
+        if (mode !== 'SIMULADO') return
+        if (availableQuestions.length === 0) return
+
         const totalSeconds = availableQuestions.length * 90
-        if (timeLeft === 0) {
-            setTimeLeft(totalSeconds)
-        }
+        setTimeLeft(totalSeconds)
 
         const timer = setInterval(() => {
             setTimeLeft((prev) => {
@@ -167,7 +168,8 @@ export default function QuizPage() {
             })
         }, 1000)
         return () => clearInterval(timer)
-    }, [mode, availableQuestions.length])
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [mode, availableQuestions.length > 0])
 
 
 
@@ -208,6 +210,36 @@ export default function QuizPage() {
                             Dica: Acesse Menu &gt; Pacotes e Deploy para associar questões.
                         </p>
                     )}
+                </div>
+            </div>
+        )
+    }
+
+    // Safety: if question exists but options is invalid (null, object), skip to next
+    const safeOptions: { id: string; text: string }[] = (() => {
+        if (!question) return []
+        const raw = question.options
+        if (Array.isArray(raw)) return raw
+        // If it's a plain object {a: '...', b: '...'} — normalize
+        if (raw && typeof raw === 'object') {
+            return ['a', 'b', 'c', 'd', 'e']
+                .filter(k => (raw as Record<string, string>)[k])
+                .map(k => ({ id: k, text: (raw as Record<string, string>)[k] }))
+        }
+        return []
+    })()
+
+    // Guard: question exists but has no valid options (data corruption) — skip it
+    if (question && safeOptions.length === 0 && !questionsLoading) {
+        // Auto-advance past broken question
+        if (currentIdx < availableQuestions.length - 1) {
+            setTimeout(() => setCurrentIdx(prev => prev + 1), 50)
+        }
+        return (
+            <div className="min-h-screen flex items-center justify-center bg-background">
+                <div className="flex flex-col items-center gap-4">
+                    <div className="w-12 h-12 rounded-full border-4 border-primary border-t-transparent animate-spin" />
+                    <p className="text-sm font-black uppercase tracking-widest text-muted-foreground">Carregando próxima questão...</p>
                 </div>
             </div>
         )
@@ -465,7 +497,7 @@ export default function QuizPage() {
                 </div>
 
                 <div className="space-y-3">
-                    {[...question.options].sort((a, b) => a.id.localeCompare(b.id)).map((opt) => {
+                    {[...safeOptions].sort((a, b) => a.id.localeCompare(b.id)).map((opt) => {
                         const isCorrect = opt.id === question.correct_option_id
                         const isSelected = opt.id === selectedOptionId
                         const showFeedback = isAnswered && mode === 'TREINO'
