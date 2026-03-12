@@ -1,0 +1,520 @@
+[
+    {
+        "enunciado": "Um homem de 62 anos, com antecedente de insuficiência cardíaca congestiva em uso otimizado de furosemida, apresenta-se com dispneia progressiva. A radiografia de tórax revela derrame pleural bilateral, maior à direita. Realizada toracentese diagnóstica que evidencia: Proteína pleural / Proteína sérica = 0,55; LDH pleural / LDH sérica = 0,72; LDH pleural = 240 U/L (Limite superior do soro = 300 U/L). O gradiente de albumina (Soro - Pleura) é de 1,4 g/dL. Diante desses achados, a interpretação correta do líquido pleural e a conduta mais adequada são:",
+        "options": {
+            "a": "Exsudato pelos critérios de Light; iniciar investigação para neoplasia oculta.",
+            "b": "Transudato mascarado pelo uso de diuréticos; manter tratamento da patologia de base.",
+            "c": "Exsudato falso-positivo; realizar biópsia pleural por agulha imediatamente.",
+            "d": "Empiema em fase inicial; iniciar antibioticoterapia de amplo espectro venosa.",
+            "e": "Quilotórax incipiente; solicitar dosagem de triglicerídeos no líquido pleural."
+        },
+        "answer": "b",
+        "rationale": "O paciente apresenta critérios de Light que sugerem exsudato (LDH pleural/sérica > 0,6), porém o contexto clínico de ICC em uso de diuréticos frequentemente causa exsudatos falso-positivos por concentração de proteínas e LDH. O gradiente de albumina soro-pleura > 1,2 g/dL confirma que o líquido é, na verdade, um transudato. A conduta correta é focar no tratamento da doença de base (ICC).",
+        "option_rationales": {
+            "a": "Incorreta. Embora preencha critérios de Light, o gradiente de albumina desmascara o transudato por diuréticos.",
+            "b": "Correta. O gradiente de albumina soro-pleura > 1,2 g/dL é o padrão-ouro para identificar transudatos em pacientes usando diuréticos.",
+            "c": "Incorreta. A biópsia não é indicada para transudatos de origem cardíaca.",
+            "d": "Incorreta. Não há sinais clínicos ou laboratoriais (como febre ou leucocitose) que sugiram empiema.",
+            "e": "Incorreta. O aspecto do líquido e a clínica não sugerem o acúmulo de linfa (quilotórax)."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Pneumologia",
+            "Derrame Pleural",
+            "Critérios de Light",
+            "ICC"
+        ]
+    },
+    {
+        "enunciado": "Paciente feminina, 28 anos, apresenta quadro de tosse seca e dor pleurítica à direita há 15 dias, acompanhada de febre baixa vespertina. O RX de tórax mostra derrame pleural ocupando um terço do hemitórax direito. A análise do líquido pleural revela: Predomínio de linfócitos (85%), glicose de 72 mg/dL, ADA (Adenosina deaminase) de 65 U/L. Não foram visualizados germes no Gram ou BAAR no sedimento. Assinale a alternativa que apresenta o diagnóstico mais provável e o próximo passo recomendado.",
+        "options": {
+            "a": "Mesotelioma maligno; solicitar citologia oncótica e marcadores imuno-histoquímicos.",
+            "b": "Pneumonia bacteriana atípica; iniciar claritromicina e repetir RX em 48 horas.",
+            "c": "Tuberculose pleural; iniciar esquema RIPE conforme diretrizes nacionais.",
+            "d": "Lúpus Eritematoso Sistêmico; dosar anticorpos antinucleares (FAN) no líquido pleural.",
+            "e": "Derrame parapneumônico simples; realizar nova toracentese para drenagem de alívio."
+        },
+        "answer": "c",
+        "rationale": "Em áreas endêmicas como o Brasil, um líquido pleural exsudativo com predomínio linfocítico e ADA elevado (> 40-60 U/L) tem altíssimo valor preditivo positivo para Tuberculose Pleural, especialmente em pacientes jovens com sintomas subagudos. O diagnóstico pode ser presumido com base nesses achados, permitindo o início do tratamento (esquema RIPE).",
+        "option_rationales": {
+            "a": "Incorreta. Muito improvável pela idade da paciente e pelo valor de ADA.",
+            "b": "Incorreta. Pneumonias atípicas raramente causam derrames com esse perfil citológico e bioquímico.",
+            "c": "Correta. O binômio linfocitose + ADA alto é fortemente sugestivo de TB pleural no Brasil.",
+            "d": "Incorreta. O LES costuma apresentar ADA mais baixo e outros sintomas sistêmicos (artralgia, rash).",
+            "e": "Incorreta. O perfil do líquido (linfocítico) afasta o diagnóstico de exsudato neutrofílico parapneumônico."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Pneumologia",
+            "Derrame Pleural",
+            "Tuberculose",
+            "ADA"
+        ]
+    },
+    {
+        "enunciado": "Um paciente de 45 anos é diagnosticado com derrame pleural parapneumônico. Durante a toracentese diagnóstica, observa-se líquido turvo, pH de 7,12, glicose de 35 mg/dL e LDH de 1200 U/L. A coloração de Gram foi negativa para microrganismos. Com base nas recomendações atuais de manejo da pleura, a melhor conduta imediata para este paciente é:",
+        "options": {
+            "a": "Apenas antibioticoterapia venosa, postergando a drenagem devido ao Gram negativo.",
+            "b": "Toracostomia com drenagem pleural tubular em selo d'água.",
+            "c": "Pleurodese química com talco para evitar a recorrência do derrame.",
+            "d": "Encaminhamento imediato para decorticação pulmonar por toracotomia.",
+            "e": "Realização de toracocinese de alívio repetida a cada 24 horas."
+        },
+        "answer": "b",
+        "rationale": "Achados de pH < 7,20, glicose < 40-60 mg/dL ou LDH > 1000 U/L em um derrame parapneumônico indicam um exsudato 'complicado', mesmo com Gram negativo. Nesses casos, a drenagem pleural imediata é mandatória para evitar a evolução para empiema organizado e encarceramento pulmonar.",
+        "option_rationales": {
+            "a": "Incorreta. O pH baixo e a glicose consumida exigem drenagem, independentemente do Gram.",
+            "b": "Correta. Critérios bioquímicos de complicação (pH < 7,2 e glicose baixa) indicam drenagem tubular.",
+            "c": "Incorreta. A pleurodese é contraindicada em infecções pleurais agudas.",
+            "d": "Incorreta. A decorticação é uma medida tardia para casos organizados onde a drenagem falhou.",
+            "e": "Incorreta. Toracocenteses repetidas não são eficazes para derrames parapneumônicos complicados."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Pneumologia",
+            "Derrame Pleural Complicado",
+            "Conduta",
+            "Drenagem"
+        ]
+    },
+    {
+        "enunciado": "A ocorrência de derrame pleural com característica de exsudato, em paciente com história de febre, emagrecimento, dor torácica e achado de amilase pleural elevada (maior que o limite superior da amilase sérica), direciona o raciocínio clínico prioritariamente para os seguintes diferenciais, EXCETO:",
+        "options": {
+            "a": "Ruptura esofágica (Síndrome de Boerhaave).",
+            "b": "Pancreatite aguda ou crônica (pseudoqueisto pancreático).",
+            "c": "Neoplasia de pulmão ou ovário (adenocarcinoma).",
+            "d": "Tuberculose pleural em fase inicial.",
+            "e": "Adenocarcinoma de pâncreas com metástase pleural."
+        },
+        "answer": "d",
+        "rationale": "A amilase pleural elevada é encontrada tipicamente em quatro condições: doenças pancreáticas, ruptura esofágica (salivar), neoplasias (amilase isoforma salivar) e, raramente, gravidez ectópica rota. A tuberculose pleural, embora cause exsudato linfocítico, classicamente não cursa com elevação de amilase no líquido pleural.",
+        "option_rationales": {
+            "a": "Incorreta. Ruptura esofágica cursa com amilase muito alta (origem salivar).",
+            "b": "Incorreta. Pancreatite é uma causa clássica de derrame com amilase alta.",
+            "c": "Incorreta. Cerca de 10% das neoplasias malignas pleurais podem elevar a amilase.",
+            "d": "Correta. A Tuberculose Pleural não está associada à elevação de amilase pleural.",
+            "e": "Incorreta. Metástases de adenocarcinoma pancreático seguem a lógica de doenças pancreáticas."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Pneumologia",
+            "Derrame Pleural",
+            "Amilase Pleural",
+            "Diagnóstico Diferencial"
+        ]
+    },
+    {
+        "enunciado": "Considere um paciente com Cirrose Hepática e ascite volumosa que desenvolve derrame pleural à direita (Hidrotórax Hepático). Sobre esta condição, assinale a afirmativa correta.",
+        "options": {
+            "a": "O mecanismo fisiopatológico principal é a hipoalbuminemia severa isolada.",
+            "b": "A toracentese repetida é o tratamento de escolha a longo prazo.",
+            "c": "A drenagem por tubo de tórax é frequentemente contraindicada devido ao risco de depleção proteica e eletrolítica massiva.",
+            "d": "O líquido pleural costuma ser um exsudato devido à translocação bacteriana.",
+            "e": "A pleurodese química tem alta taxa de sucesso mesmo na presença de ascite descontrolada."
+        },
+        "answer": "c",
+        "rationale": "No hidrotórax hepático, a drenagem pleural com dreno tubular deve ser evitada ao máximo, pois o líquido pleural é contínuo com a ascite através de defeitos diafragmáticos. A drenagem leva à perda rápida de proteínas, eletrólitos e fluidos, podendo causar insuficiência renal aguda e desnutrição severa.",
+        "option_rationales": {
+            "a": "Incorreta. O mecanismo principal é a passagem de ascite pelos poros diafragmáticos por pressão negativa intratorácica.",
+            "b": "Incorreta. Toracocenteses repetidas aumentam o risco de infecção e empiema.",
+            "c": "Correta. Drenagem tubular em cirróticos com ascite é perigosa e deve ser evitada.",
+            "d": "Incorreta. O líquido é classicamente um transudato.",
+            "e": "Incorreta. A ascite dificulta a sínfise das pleuras, tornando a pleurodese ineficaz."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Pneumologia",
+            "Gastroenterologia",
+            "Hidrotórax Hepático",
+            "Cirrose"
+        ]
+    },
+    {
+        "enunciado": "Paciente de 70 anos, tabagista inveterado, apresenta derrame pleural volumoso à esquerda. A toracentese revela líquido hemorrágico (Hto pleural / Hto periférico = 15%). A citologia oncótica é negativa em duas amostras. O pulmão não expande completamente após a drenagem esvaziadora (pulmão encarcerado). Qual a conduta recomendada para paliação do sintoma de dispneia neste caso?",
+        "options": {
+            "a": "Realizar pleurodese química com talco via dreno de tórax.",
+            "b": "Inserção de cateter pleural de demora (PleurX ou similar).",
+            "c": "Pleurectomia parietal por videotoracoscopia (VATS).",
+            "d": "Encaminhamento para radioterapia de pleura.",
+            "e": "Toracocenteses de alívio mensais conforme a dispneia."
+        },
+        "answer": "b",
+        "rationale": "O 'pulmão encarcerado' (trapped lung) ocorre quando a pleura visceral está espessada e impede a expansão pulmonar. Nesses casos, a pleurodese falha porque não há contato entre as pleuras. O cateter pleural de demora é a melhor opção paliativa, permitindo a drenagem domiciliar conforme a necessidade do paciente.",
+        "option_rationales": {
+            "a": "Incorreta. A pleurodese exige reexpansão pulmonar completa para funcionar.",
+            "b": "Correta. O cateter de demora é indicado especificamente para pulmão encarcerado neoplásico.",
+            "c": "Incorreta. A pleurectomia é uma cirurgia de grande porte, raramente indicada para paliação em idosos com doença avançada.",
+            "d": "Incorreta. A radioterapia não é tratamento para derrame pleural volumoso.",
+            "e": "Incorreta. Toracocenteses de repetição causam desconforto e risco de infecção maior que o cateter."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Pneumologia",
+            "Oncologia",
+            "Derrame Pleural Maligno",
+            "Pulmão Encarcerado"
+        ]
+    },
+    {
+        "enunciado": "Um recém-nascido submetido à cirurgia de correção de cardiopatia congênita desenvolve derrame pleural volumoso no 5º dia pós-operatório. O líquido tem aspecto leitoso, TG = 150 mg/dL e presença de quilomícrons na eletroforese. Sobre o manejo inicial do Quilotórax, assinale a alternativa correta.",
+        "options": {
+            "a": "Drenagem pleural e dieta rica em triglicerídeos de cadeia longa (TCL).",
+            "b": "Uso de octreotide e dieta com triglicerídeos de cadeia média (TCM) ou jejum/NPP.",
+            "c": "Ligadura imediata do ducto torácico por toracotomia nas primeiras 24h.",
+            "d": "Pleurodese imediata com nitrato de prata para selar o ducto torácico.",
+            "e": "Antibioticoterapia profilática visando estafilococos da pele."
+        },
+        "answer": "b",
+        "rationale": "O manejo inicial do quilotórax pós-operatório é conservador na maioria dos casos. Envolve a redução da produção de linfa através de dieta com TCM (que é absorvido diretamente pelo sistema porta, saltando o ducto torácico) ou jejum total com Nutrição Parenteral Prolongada (NPP). O octreotide pode ser usado para reduzir as secreções esplâncnicas.",
+        "option_rationales": {
+            "a": "Incorreta. A dieta deve ser pobre em TCL, pois estes estimulam o fluxo linfático.",
+            "b": "Correta. Dieta com TCM e octreotide são os pilares do tratamento clínico inicial.",
+            "c": "Incorreta. A cirurgia é reservada para casos que falham ao tratamento clínico após 1-2 semanas.",
+            "d": "Incorreta. Pleurodese não é o tratamento inicial para quilotórax em crianças.",
+            "e": "Incorreta. O quilo é estéril e possui propriedades bacteriostáticas."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Pneumologia",
+            "Cirurgia Torácica",
+            "Quilotórax",
+            "Pós-operatório"
+        ]
+    },
+    {
+        "enunciado": "Diferenciar um exsudato de um transudato é o passo fundamental na abordagem do derrame pleural. No entanto, os Critérios de Light podem classificar erroneamente até 25% dos transudatos como exsudatos. No caso de suspeita de falso-exsudato, qual dos seguintes parâmetros deve ser solicitado para auxiliar na diferenciação?",
+        "options": {
+            "a": "Gradiente de LDH Soro-Pleura maior que 200 U/L.",
+            "b": "Colesterol pleural < 45 mg/dL.",
+            "c": "Gradiente de Proteína Total (Soro - Pleura) > 3,1 g/dL.",
+            "d": "Densidade do líquido pleural < 1015.",
+            "e": "Bilirrubina pleural / Bilirrubina sérica < 0,5."
+        },
+        "answer": "c",
+        "rationale": "Quando os critérios de Light sugerem um exsudato, mas a clínica aponta fortemente para ICC ou Cirrose, usamos os gradientes. Um gradiente de Proteína Total (Soro - Pleura) maior que 3,1 g/dL ou um gradiente de Albumina maior que 1,2 g/dL favorecem o diagnóstico de transudato, mesmo com critérios de Light positivos.",
+        "option_rationales": {
+            "a": "Incorreta. Não existe um critério amplamente validado de gradiente de LDH soro-pleura para isso.",
+            "b": "Incorreta. Colesterol pleural > 45 mg/dL é um critério para exsudato, não transudato.",
+            "c": "Correta. O gradiente de proteína > 3,1 g/dL indica transudato em casos de falso-exsudato pelo Light.",
+            "d": "Incorreta. A densidade é um parâmetro antigo e pouco preciso.",
+            "e": "Incorreta. A relação de bilirrubina é um critério adicional para exsudato (se > 0,6), mas menos usado."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Pneumologia",
+            "Derrame Pleural",
+            "Critérios de Light",
+            "Transudato"
+        ]
+    },
+    {
+        "enunciado": "Paciente com diagnóstico de Artrite Reumatoide em atividade grave apresenta derrame pleural bilateral. Durante a análise do líquido pleural, observa-se glicose de 10 mg/dL e LDH de 1800 U/L. Assinale a alternativa que apresenta a característica citológica e laboratorial adicional que reforçaria esse diagnóstico específico.",
+        "options": {
+            "a": "Presença de células LE (Lúpus Eritematoso) no líquido.",
+            "b": "Complemento (C3, C4) elevado no líquido pleural.",
+            "c": "Baixos níveis de Fator Reumatoide (FR) no líquido em relação ao soro.",
+            "d": "pH do líquido pleural extremamente baixo, frequentemente < 7,00.",
+            "e": "Presença de eosinófilos > 40% indicando hipersensibilidade."
+        },
+        "answer": "d",
+        "rationale": "O derrame pleural da Artrite Reumatoide é característico por ser 'explosivo' do ponto de vista inflamatório: glicose extremamente baixa (muitas vezes < 20 mg/dL), LDH muito alto (> 700 ou 1000) e pH muito baixo. Outros achados incluem FR elevado no líquido e presença de células multinucleadas.",
+        "option_rationales": {
+            "a": "Incorreta. Células LE são características do Lúpus, não da AR.",
+            "b": "Incorreta. O complemento costuma estar reduzido no derrame da AR devido ao consumo.",
+            "c": "Incorreta. O Fator Reumatoide costuma estar elevado no líquido pleural da AR.",
+            "d": "Correta. O pH baixo e a glicose consumida são marcas registradas do derrame da Artrite Reumatoide.",
+            "e": "Incorreta. Eosinofilia pleural não é típica da AR (sugere ar ou sangue na pleura)."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Pneumologia",
+            "Reumatologia",
+            "Derrame Pleural",
+            "Artrite Reumatoide"
+        ]
+    },
+    {
+        "enunciado": "Qual a principal indicação absoluta para a realização de biópsia pleural por agulha (como a agulha de Cope ou Abrams) em pacientes com derrame pleural exsudativo?",
+        "options": {
+            "a": "Derrame neoplásico já confirmado por citologia para estadiamento.",
+            "b": "Derrame parapneumônico que não responde ao antibiótico inicial.",
+            "c": "Suspeita de Tuberculose Pleural quandoADA é inconclusivo ou em locais de baixa incidência.",
+            "d": "Derrame pleural hemorrágico pós-traumático.",
+            "e": "Avaliação de espessamento pleural no mesotelioma."
+        },
+        "answer": "c",
+        "rationale": "A biópsia pleural por agulha tem sua maior utilidade na investigação de Tuberculose Pleural, onde o rendimento da análise histopatológica + cultura do fragmento é superior à citologia e cultura do líquido isoladamente. Para neoplasias, a VATS (biópsia dirigida) é preferível se a citologia for negativa.",
+        "option_rationales": {
+            "a": "Incorreta. Se a citologia já confirmou, a biópsia cega não acrescenta muito ao estadiamento.",
+            "b": "Incorreta. Biópsia não é indicada em processos infecciosos agudos piogênicos.",
+            "c": "Correta. A biópsia pleural é o exame de escolha para confirmar TB pleural (visualização do granuloma).",
+            "d": "Incorreta. O trauma exige drenagem ou VATS, não biópsia por agulha cega.",
+            "e": "Incorreta. No mesotelioma, a biópsia cega tem baixo rendimento, sendo indicada a biópsia por videotoracoscopia."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Pneumologia",
+            "Tuberculose Pleural",
+            "Biópsia",
+            "Procedimentos"
+        ]
+    },
+    {
+        "enunciado": "A toracentese deve ser evitada ou postergada em qual das seguintes condições clínicas, devido ao risco aumentado de complicações hemorrágicas severas?",
+        "options": {
+            "a": "Nível de Creatinina sérica > 6,0 mg/dL (Insuficiência Renal Crônica).",
+            "b": "Uso de Aspirina 100mg/dia (Antiagregante plaquetário).",
+            "c": "Contagem de plaquetas < 50.000/mm³ ou INR > 2,0.",
+            "d": "Presença de ventilação mecânica com PEEP de 10 cmH2O.",
+            "e": "Derrame pleural loculado evidenciado por ultrassom."
+        },
+        "answer": "c",
+        "rationale": "Embora a toracentese seja um procedimento seguro, contagens de plaquetas abaixo de 50.000 ou coagulopatias severas (INR > 2) aumentam o risco de hemotórax iatrogênico. Nessas condições, as diretrizes sugerem corrigir os níveis antes do procedimento ou realizar com auxílio de ultrassom e extrema cautela.",
+        "option_rationales": {
+            "a": "Incorreta. A uremia afeta a função plaquetária, mas não é contraindicação absoluta por si só.",
+            "b": "Incorreta. O uso de aspirina isolada não exige suspensão para toracentese diagnóstica.",
+            "c": "Correta. Plaquetopenia e INR elevado são marcos de risco hemorrágico elevado.",
+            "d": "Incorreta. Ventilação mecânica exige cuidado, mas não é contraindicação; o US ajuda a evitar pneumotórax.",
+            "e": "Incorreta. O derrame loculado é justamente um alvo para toracentese guiada por imagem."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Pneumologia",
+            "Toracentese",
+            "Segurança do Paciente",
+            "Hematologia"
+        ]
+    },
+    {
+        "enunciado": "Um paciente tabagista crônico apresenta derrame pleural à direita com citologia oncótica demonstrando adenocarcinoma de pulmão. É realizada pleurodese química com talco via dreno de tórax. Dez horas após o procedimento, o paciente desenvolve hipoxemia severa, infiltrado pulmonar bilateral difuso ao RX (SDRA) e instabilidade hemodinâmica. Qual a causa mais provável dessa complicação?",
+        "options": {
+            "a": "Embolia pulmonar por fragmentos de tumor.",
+            "b": "Edema pulmonar de reexpansão (EPR).",
+            "c": "Reação inflamatória sistêmica ao talco (Síndrome de Resposta Inflamatória Sistêmica).",
+            "d": "Pneumotórax hipertensivo oculto.",
+            "e": "Infarto agudo do miocárdio tipo 2."
+        },
+        "answer": "c",
+        "rationale": "A instilação de talco na pleura pode, raramente, causar uma reação inflamatória severa levando à SDRA (Síndrome do Desconforto Respiratório Agudo). Isso está associado especialmente ao uso de 'talco não graduado' (com partículas muito pequenas que entram na circulação sistêmica) ou doses elevadas.",
+        "option_rationales": {
+            "a": "Incorreta. A embolia tumoral não costuma ser desencadeada pela pleurodese de forma tão aguda.",
+            "b": "Incorreta. O edama de reexpansão ocorre logo após a drenagem volumosa, não 10h após a pleurodese.",
+            "c": "Correta. É uma complicação rara e grave da pleurodese com talco.",
+            "d": "Incorreta. O dreno de tórax está no lugar, o que torna o pneumotórax menos provável como causa primária de SDRA.",
+            "e": "Incorreta. Embora possível em idosos, o quadro relatado é clássico de complicação do talco."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Pneumologia",
+            "Pleurodese",
+            "Complicações",
+            "Oncologia"
+        ]
+    },
+    {
+        "enunciado": "Sobre o derrame pleural neutrofílico (predomínio de polimorfonucleares > 50%), qual das seguintes afirmações sobre o raciocínio diagnóstico está correta?",
+        "options": {
+            "a": "É característico da fase crônica da Tuberculose Pleural.",
+            "b": "Sempre indica a necessidade de drenagem pleural por tubo.",
+            "c": "Sugere processos agudos na pleura, como pneumonia, embolia pulmonar ou fase muito inicial da tuberculose.",
+            "d": "Descarta a possibilidade de neoplasia maligna primária.",
+            "e": "Indica obrigatoriamente que o líquido é um transudato."
+        },
+        "answer": "c",
+        "rationale": "A neutrofilia pleural é um sinal de inflamação aguda. As causas mais comuns são o derrame parapneumônico e a embolia pulmonar. Na tuberculose, os polimorfonucleares aparecem apenas nas primeiras 12-48 horas, sendo rapidamente substituídos por linfócitos.",
+        "option_rationales": {
+            "a": "Incorreta. A TB crônica é linfocítica.",
+            "b": "Incorreta. O derrame parapneumônico simples não exige drenagem, apenas o antibiótico.",
+            "c": "Correta. Reflete o estágio inflamatório agudo da pleura.",
+            "d": "Incorreta. Algumas neoplasias agressivas ou com infecção secundária podem cursar com neutrófilos.",
+            "e": "Incorreta. Neutrofilia é típica de exsudatos."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Pneumologia",
+            "Bioquímica Líquido Pleural",
+            "Diagnóstico Diferencial"
+        ]
+    },
+    {
+        "enunciado": "Em um paciente com Derrame Parapneumônico Complicado onde o dreno tubular não está esvaziando a coleção devido à presença de múltiplas loculações e septações finas, a próxima intervenção recomendada antes de se considerar cirurgia agressiva (decorticação) é:",
+        "options": {
+            "a": "Instilação intrapleural de fibrinolíticos (ex: Estreptoquinase ou tPA/DNase).",
+            "b": "Aumento do calibre do dreno de tórax para 36 French.",
+            "c": "Uso de corticoides sistêmicos (Prednisona) para diminuir a fibrose.",
+            "d": "Realização de pleurodese imediata para 'selar' as loculações.",
+            "e": "Manter conduta expectante com antibiótico por mais 14 dias."
+        },
+        "answer": "a",
+        "rationale": "A terapia fibrinolítica intrapleural (frequentemente tPA associado à DNase) pode ajudar a 'quebrar' as septações de fibrina, facilitando a drenagem e evitando a necessidade de intervenção cirúrgica (VATS ou toracotomia) em até 30-50% dos casos selecionados.",
+        "option_rationales": {
+            "a": "Correta. Fibrinolíticos são indicados para derrames loculados na fase fibrinopurulenta.",
+            "b": "Incorreta. Calibres maiores não atravessam as septações finas do líquido loculado.",
+            "c": "Incorreta. Corticoides não têm papel estabelecido no tratamento do empiema loculado agudo.",
+            "d": "Incorreta. Pleurodese em infecção ativa é um erro grave.",
+            "e": "Incorreta. A loculação impede a cura apenas com antibiótico, levando à organização do empiema."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Pneumologia",
+            "Empiema",
+            "Fibrinolíticos",
+            "Manejo Terapêutico"
+        ]
+    },
+    {
+        "enunciado": "Um paciente de 30 anos, HIV positivo, apresenta febre, perda ponderal e derrame pleural linfocítico (90% linfócitos). O ADA é de 35 U/L (valor de corte local = 40 U/L). A biópsia pleural por agulha revela inflamação crônica inespecífica, sem granulomas ou BAAR. Qual a conduta mais racional diante desse quadro inconclusivo?",
+        "options": {
+            "a": "Encaminhar para Videotoracoscopia (VATS) para biópsia dirigida.",
+            "b": "Descartar Tuberculose e investigar Linfoma Pleural.",
+            "c": "Iniciar o tratamento empírico para Tuberculose Pleural.",
+            "d": "Solicitar TRM-TB (Teste Rápido Molecular) e cultura para micobactérias no líquido pleural.",
+            "e": "Repetir a biópsia pleural por agulha de Abrams em outro sítio."
+        },
+        "answer": "d",
+        "rationale": "Em pacientes com HIV, a apresentação da TB pleural pode ser atípica (ADA mais baixo) e o rendimento da biópsia cega é menor. Antes de procedimentos invasivos como VATS, deve-se esgotar a investigação microbiológica (cultura em meio líquido e teste rápido molecular), que no HIV tem rendimento superior ao esperado na população imunocompetente.",
+        "option_rationales": {
+            "a": "Incorreta. A VATS é o próximo passo se a microbiologia falhar, mas é mais invasiva.",
+            "b": "Incorreta. A TB ainda é o principal suspeito, mesmo com ADA levemente baixo no HIV.",
+            "c": "Incorreta. O tratamento empírico deve ser reservado para quando os exames microbiológicos falham.",
+            "d": "Correta. Cultura e TRM-TB são mandatórios para aumentar a sensibilidade no paciente HIV.",
+            "e": "Incorreta. Repetir biópsia cega não costuma elevar muito o rendimento após a primeira negativa."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Pneumologia",
+            "HIV",
+            "Tuberculose Pleural",
+            "Diagnóstico"
+        ]
+    },
+    {
+        "enunciado": "A pseudotumefação pleural ('Tumor Evanescente' ou 'Tumor Fantasma') é uma imagem radiológica que pode mimetizar um nódulo ou massa pulmonar sólida. Sobre esta condição, assinale a alternativa que descreve sua localização e etiologia clássicas.",
+        "options": {
+            "a": "Localizada no ápice pulmonar; etiologia associada à Tuberculose.",
+            "b": "Localizada no ângulo costofrênico posterior; etiologia associada à Neoplasia de Cólon.",
+            "c": "Localizada na cisura horizontal ou oblíqua; etiologia associada à Insuficiência Cardíaca Congestiva.",
+            "d": "Localizada no mediastino superior; etiologia associada ao Bócio Mergulhante.",
+            "e": "Localizada na pleura visceral do lobo inferior; etiologia associada ao Infarto Pulmonar."
+        },
+        "answer": "c",
+        "rationale": "O tumor fantasma é um derrame pleural loculado dentro de uma cisura (geralmente a horizontal), que assume aspecto de massa ao RX. Ele é típico da ICC e 'desaparece' rapidamente após o início de terapia diurética agressiva, daí o nome.",
+        "option_rationales": {
+            "a": "Incorreta. O tumor fantasma não é apical nem tipicamente da TB.",
+            "b": "Incorreta. A localização clássica é cisural.",
+            "c": "Correta. Localização cisural + ICC é o quadro clínico-radiológico clássico.",
+            "d": "Incorreta. Bócio é uma massa mediastinal, não pleural cisural.",
+            "e": "Incorreta. Infarto pulmonar causa a 'Corcova de Hampton' (imagem periférica em cunha)."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Pneumologia",
+            "Radiologia",
+            "ICC",
+            "Derrame Loculado"
+        ]
+    },
+    {
+        "enunciado": "Considerando o Derrame Pleural Eosinofílico (Eosinófilos > 10% no líquido), qual das seguintes condições é considerada uma causa 'falsa' ou secundária frequente por introdução de ar ou sangue no espaço pleural?",
+        "options": {
+            "a": "Pneumonia por Chlamydia psittaci.",
+            "b": "Toracocentese prévia ou pneumotórax.",
+            "c": "Infestação por Strongyloides stercoralis.",
+            "d": "Síndrome de Churg-Strauss (Granulomatose Eosinofílica com Poliangiite).",
+            "e": "Sarcoidose em fase pulmonar avançada."
+        },
+        "answer": "b",
+        "rationale": "A causa mais comum de eosinofilia pleural é a presença de ar (pneumotórax) ou sangue (hemotórax) no espaço pleural. Uma toracentese traumática ou prévia pode induzir eosinofilia reativa em procedimentos subsequentes, o que diminui o valor diagnóstico da eosinofilia para condições raras.",
+        "option_rationales": {
+            "a": "Incorreta. Causas infecciosas bacterianas raramente dão eosinofilia.",
+            "b": "Correta. Ar e sangue são os principais estimulantes de eosinófilos na pleura.",
+            "c": "Incorreta. Parasitoses dão eosinofilia, mas são causas menos comuns que a iatrogenia.",
+            "d": "Incorreta. É uma causa real de eosinofilia pleural, mas muito rara comparada ao trauma/ar.",
+            "e": "Incorreta. Sarcoidose cursa com derrame linfocítico ou granulomatoso."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Pneumologia",
+            "Derrame Eosinofílico",
+            "Etiologia"
+        ]
+    },
+    {
+        "enunciado": "A dosagem de NT-proBNP no líquido pleural pode ser útil em situações específicas de diagnóstico desafiador. Qual o principal cenário onde este exame é recomendado?",
+        "options": {
+            "a": "Confirmar Tuberculose Pleural em pacientes anérgicos.",
+            "b": "Distinguir Transudato Cardíaco de Exsudato Maligno quando os critérios de Light são ambíguos.",
+            "c": "Prever a resposta à pleurodese no câncer de pulmão.",
+            "d": "Identificar pancreatite necrotizante precoce.",
+            "e": "Monitorar a eficácia da antibioticoterapia no empiema."
+        },
+        "answer": "b",
+        "rationale": "O NT-proBNP pleural (> 1500 pg/mL) é um excelente marcador de insuficiência cardíaca. Ele é útil exatamente quando os critérios de Light classificam o derrame como exsudato (falso-positivo), ajudando a evitar investigações invasivas desnecessárias para câncer ou TB em pacientes com disfunção miocárdica.",
+        "option_rationales": {
+            "a": "Incorreta. NT-proBNP não tem relação com infecções granulomatosas.",
+            "b": "Correta. Auxilia na diferenciação entre causa cardíaca e outras causas em casos borderline.",
+            "c": "Incorreta. Não é marcador prognóstico de pleurodese.",
+            "d": "Incorreta. Para pâncreas usamos amilase e lipase.",
+            "e": "Incorreta. Não é marcador de infecção ou resposta inflamatória aguda bacteriana."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Pneumologia",
+            "Cardiologia",
+            "Biomarcadores",
+            "ICC"
+        ]
+    },
+    {
+        "enunciated": "Paciente masculino, 55 anos, em investigação de ascite e derrame pleural esquerdo volumoso. A análise do líquido pleural mostra: Exsudato, TG = 500 mg/dL, aspecto leitoso. Radiografia mostra espessamento de linfonodos cervicais e retroperitoneais. Qual a patologia mais provável que une esses achados?",
+        "options": {
+            "a": "Cirrose alcoólica Child-Pugh C.",
+            "b": "Linfoma não-Hodgkin.",
+            "c": "Pneumonia pneumocócica com empiema.",
+            "d": "Sarcoidose multissistêmica.",
+            "e": "Mesotelioma pleural maligno."
+        },
+        "answer": "b",
+        "rationale": "O achado de triglicerídeos > 110 mg/dL e aspecto leitoso confirma Quilotórax. Em adultos, a causa não-traumática mais comum de quilotórax é a obstrução do ducto torácico por neoplasia, sendo o Linfoma a etiologia predominante. A presença de linfonodomegalia cervicorretroperitoneal reforça fortemente essa hipótese.",
+        "option_rationales": {
+            "a": "Incorreta. Cirrose dá transudato e raramente quilotórax (apenas se houver fístula de linfa).",
+            "b": "Correta. Linfoma é a causa principal de quilotórax não-traumático no adulto.",
+            "c": "Incorreta. Empiema é purulento (leucócitos), não quiloso (gordura).",
+            "d": "Incorreta. Sarcoidose raramente causa quilotórax.",
+            "e": "Incorreta. Mesotelioma causa derrame neoplásico citológico ou hemorrágico, raramente quiloso."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Pneumologia",
+            "Linfoma",
+            "Quilotórax",
+            "Hematologia"
+        ]
+    },
+    {
+        "enunciado": "Sobre a análise citológica do líquido pleural, a presença de uma grande quantidade de células mesoteliais (> 5%) em um exsudato linfocítico fala FORTEMENTE CONTRA qual diagnóstico?",
+        "options": {
+            "a": "Derrame Pleural por Mesotelioma.",
+            "b": "Derrame Pleural por Tuberculose.",
+            "c": "Derrame Pleural por Adenocarcinoma.",
+            "d": "Derrame Pleural por LES.",
+            "e": "Derrame Pleural por Artrite Reumatoide."
+        },
+        "answer": "b",
+        "rationale": "A Tuberculose Pleural é conhecida por causar uma intensa reação fibrinosa que 'reveste' a pleura, impedindo a descamação de células mesoteliais para o líquido pleural. Portanto, encontrar muitas células mesoteliais no líquido pleural torna o diagnóstico de TB pleural extremamente improvável.",
+        "option_rationales": {
+            "a": "Incorreta. O mesotelioma, por definição, tem células mesoteliais (malignas).",
+            "b": "Correta. A ausência de células mesoteliais é um dado sugestivo (mas não patognomônico) de TB.",
+            "c": "Incorreta. Neoplasias podem cursar com células mesoteliais normais descamadas.",
+            "d": "Incorreta. O Lúpus não inibe a descamação mesotelial da mesma forma que a TB.",
+            "e": "Incorreta. Na AR a pleura pode estar espessada, mas não há essa exclusão clássica como na TB."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Pneumologia",
+            "Tuberculose Pleural",
+            "Citologia",
+            "Mesoteliais"
+        ]
+    }
+]

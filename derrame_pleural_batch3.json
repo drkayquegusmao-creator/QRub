@@ -1,0 +1,518 @@
+[
+    {
+        "enunciado": "Um paciente de 52 anos com Leucemia Mieloide Crônica (LMC) em tratamento com Dasatinibe há 6 meses apresenta-se com dispneia progressiva e tosse seca. A radiografia de tórax revela derrame pleural bilateral volumoso. A toracentese mostra um exsudato linfocítico com citologia oncótica negativa. Após exclusão de infecções e progressão da doença de base, qual a melhor conduta para este paciente?",
+        "options": {
+            "a": "Iniciar quimioterapia de resgate para progressão de LMC.",
+            "b": "Realizar pleurodese imediata com talco.",
+            "c": "Suspensão temporária do Dasatinibe e uso de diuréticos/corticoides conforme necessidade.",
+            "d": "Encaminhar para decorticação pulmonar bilateral.",
+            "e": "Substituir Dasaribe por Hidroxiureia permanentemente."
+        },
+        "answer": "c",
+        "rationale": "O Dasatinibe, um inibidor de tirosina quinase, é uma causa bem conhecida de derrame pleural (ocorre em até 20-30% dos pacientes). O líquido é classicamente um exsudato linfocítico. A conduta padrão envolve a pausa da medicação ou redução da dose, associada a diuréticos ou cursos curtos de corticoides. O derrame costuma recorrer se a droga for reiniciada na mesma dose.",
+        "option_rationales": {
+            "a": "Incorreta. O derrame é um efeito colateral da droga, não sinal de falha terapêutica da LMC.",
+            "b": "Incorreta. Pleurodese não é tratamento para derrame induzido por droga antes de tentar o manejo medicamentoso.",
+            "c": "Correta. Pausa da droga e suporte clínico é a conduta recomendada.",
+            "d": "Incorreta. Medida invasiva desnecessária para um efeito colateral reversível.",
+            "e": "Incorreta. A substituição pode ser necessária, mas o Dasatinibe é uma droga de ponta; tenta-se o ajuste de dose antes da troca definitiva se possível."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Pneumologia",
+            "Hematologia",
+            "Derrame Iatrogênico",
+            "Dasatinibe"
+        ]
+    },
+    {
+        "enunciado": "A Glicose no líquido pleural é consumida por processos inflamatórios intensos e atividade metabólica de células malignas ou bactérias. No entanto, qual das seguintes situações apresenta, paradoxalmente, níveis de glicose no líquido pleural EQUIVALENTES aos níveis séricos, mesmo na presença de um exsudato volumoso?",
+        "options": {
+            "a": "Empiema bacteriano organizado.",
+            "b": "Tuberculose Pleural clássica.",
+            "c": "Derrame Pleural por Mesotelioma Maligno.",
+            "d": "Derrame Pleural por Quilotórax (não complicado).",
+            "e": "Artrite Reumatoide em fase aguda."
+        },
+        "answer": "d",
+        "rationale": "No quilotórax primário ou traumático (sem infecção associada), a barreira pleural não está inflamada a ponto de impedir o transporte de glicose, e não há consumo bacteriano ou tumoral excessivo. Assim, a glicose pleural costuma ser equivalente à sérica, o que ajuda a diferenciar de outros exsudatos linfocíticos inflamatórios como a TB ou Câncer.",
+        "option_rationales": {
+            "a": "Incorreta. Glicose é muito baixa (< 40).",
+            "b": "Incorreta. Glicose costuma estar reduzida (< 60).",
+            "c": "Incorreta. Glicose frequentemente baixa no câncer avançado.",
+            "d": "Correta. O quilo puramente linfático não altera a cinética da glicose.",
+            "e": "Incorreta. A AR é a causa de glicose mais baixa de todas."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Pneumologia",
+            "Bioquímica",
+            "Quilotórax",
+            "Glicose Pleural"
+        ]
+    },
+    {
+        "enunciado": "Um paciente tabagista crônico e com histórico de exposição ocupacional ao asbesto há 30 anos apresenta-se com dor torácica persistente e emagrecimento. A tomografia mostra espessamento pleural nodular e circunferencial envolvendo a pleura parietal e visceral, com invasão do diafragma e gordura mediastinal. O diagnóstico histopatológico revela Mesotelioma Maligno. Qual o subtipo histológico mais comum e de melhor prognóstico?",
+        "options": {
+            "a": "Sarcomatoide.",
+            "b": "Epitelioide.",
+            "c": "Bifásico.",
+            "d": "Desmoplásico.",
+            "e": "Pequenas Células."
+        },
+        "answer": "b",
+        "rationale": "O mesotelioma epitelioide é a variante histológica mais comum (50-70% dos casos) e apresenta um prognóstico significativamente melhor do que as variantes sarcomatoide ou bifásica. O diagnóstico imuno-histoquímico (Calretinina, WT1) é essencial para distinguir do adenocarcinoma.",
+        "option_rationales": {
+            "a": "Incorreta. Variante agressiva e de pior prognóstico.",
+            "b": "Correta. Mais comum e com sobrevida ligeiramente superior.",
+            "c": "Incorreta. Combina elementos epitelioides e sarcomatoides, prognóstico intermediário.",
+            "d": "Incorreta. Variante rara e geralmente muito agressiva.",
+            "e": "Incorreta. Não é um subtipo clássico do mesotelioma pleural."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Oncologia",
+            "Mesotelioma",
+            "Asbesto"
+        ]
+    },
+    {
+        "enunciado": "A Síndrome de Doege-Potter é uma síndrome paraneoplásica rara associada a um tumor específico da pleura. Ela se caracteriza por episódios de hipoglicemia grave devido à produção de uma forma anômala de IGF-2 (Insulin-like growth factor 2) pelo tumor. Qual é o tumor pleural caracteristicamente associado a essa síndrome?",
+        "options": {
+            "a": "Mesotelioma Pleural Maligno.",
+            "b": "Tumor Fibroso Solitário da Pleura (TFSP).",
+            "c": "Adenocarcinoma de pulmão invasivo.",
+            "d": "Linfoma Pleural Primário.",
+            "e": "Timoma com implante pleural."
+        },
+        "answer": "b",
+        "rationale": "O Tumor Fibroso Solitário da Pleura (anteriormente chamado de mesotelioma benigno, embora possa ser maligno) é um tumor mesenquimal que pode cursar com a Síndrome de Doege-Potter. A hipoglicemia ocorre pela secreção de 'big' IGF-2, que estimula os receptores de insulina.",
+        "option_rationales": {
+            "a": "Incorreta. Mesotelioma não causa hipoglicemia paraneoplásica.",
+            "b": "Correta. Associação clássica da questão de prova de alto nível.",
+            "c": "Incorreta. Adenocarcinoma não produz IGF-2.",
+            "d": "Incorreta. Não associado.",
+            "e": "Incorreta. Timomas podem causar Miastenia Gravis, mas não Doege-Potter."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Pneumologia",
+            "Oncologia",
+            "Síndromes Paraneoplásicas",
+            "TFSP"
+        ]
+    },
+    {
+        "enunciado": "Um paciente em diálise peritoneal ambulatorial desenvolve dispneia súbita e derrame pleural maciço à direita. Suspeita-se de 'Hidrotórax Doce' (fístula pleuroperitoneal). Qual o parâmetro laboratorial no líquido pleural que confirma este diagnóstico com maior precisão?",
+        "options": {
+            "a": "Presença de células de descamação pleural (mesoteliais).",
+            "b": "Glicose pleural significativamente MAIOR que a glicose sérica.",
+            "c": "ADA elevado e linfocitose.",
+            "d": "Proteína pleural superior a 3,0 g/dL.",
+            "e": "Presença de cristais de colesterol no líquido."
+        },
+        "answer": "b",
+        "rationale": "No hidrotórax secundário à diálise peritoneal, o líquido que vaza para a pleura é o próprio dialisado, que possui uma concentração de glicose altíssima. Assim, encontrar glicose pleural muito superior à sérica (ex: 200, 300 mg/dL ou mais) é diagnóstico da fístula pleuroperitoneal.",
+        "option_rationales": {
+            "a": "Incorreta. Não é específico, qualquer derrame ascitogênico pode ter.",
+            "b": "Correta. O termo 'Hidrotórax Doce' vem justamente da glicose elevada vinda do dialisado.",
+            "c": "Incorreta. Sugere TB e não tem relação com diálise.",
+            "d": "Incorreta. O dialisado é pobre em proteínas (transudato).",
+            "e": "Incorreta. Sugere pseudochylothorax crônico."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Pneumologia",
+            "Nefrologia",
+            "Hidrotórax Doce",
+            "Diálise Peritoneal"
+        ]
+    },
+    {
+        "enunciado": "O Urinotórax é uma condição rara onde a urina se acumula no espaço pleural, geralmente por obstrução urinária ou trauma urológico. Qual das alternativas descreve as características bioquímicas típicas desse líquido?",
+        "options": {
+            "a": "Exsudato neutrofílico com pH alcalino (> 8,0).",
+            "b": "Transudato com odor fétido e pH ácido (< 7,0).",
+            "c": "Transudato com relação Creatinina Pleural / Creatinina Sérica > 1,0.",
+            "d": "Exsudato com glicose zero e ADA elevado.",
+            "e": "Líquido de aspecto leitoso rico em amônia."
+        },
+        "answer": "c",
+        "rationale": "O urinotórax é a única causa de transudato que se apresenta com pH ácido (< 7,30). O diagnóstico é confirmado pela relação creatinina pleural / creatinina sérica > 1,0 (frequentemente > 5,0). O líquido mimetiza a química da urina.",
+        "option_rationales": {
+            "a": "Incorreta. O urinotórax é classicamente um transudato.",
+            "b": "Incorreta. Embora o pH seja ácido, o líquido pode ter odor de urina, não necessariamente 'fétido' de infecção.",
+            "c": "Correta. A relação de creatinina é o achado confirmatório.",
+            "d": "Incorreta. Características de TB ou artrite reumatoide.",
+            "e": "Incorreta. Aspecto leitoso sugere quilotórax."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Pneumologia",
+            "Urologia",
+            "Urinotórax",
+            "Diagnóstico Diferencial"
+        ]
+    },
+    {
+        "enunciado": "A exposição ocupacional ao asbesto (amianto) pode causar várias doenças pleurais benignas. Qual delas é caracterizada por ser unilateral, frequentemente recorrente, assintomática ou associada a dor leve, e que resolve espontaneamente deixando muitas vezes apenas o ângulo costofrênico rombo?",
+        "options": {
+            "a": "Placas Pleurais Parietais.",
+            "b": "Derrame Pleural Benigno do Asbesto (BAPE).",
+            "c": "Atelectasia Redonda.",
+            "d": "Mesotelioma Maligno em fase inicial.",
+            "e": "Asbestose Pulmonar."
+        },
+        "answer": "b",
+        "rationale": "O BAPE (Benign Asbestos Pleural Effusion) é a manifestação mais precoce da exposição ao asbesto (ocorre nos primeiros 10-20 anos). É um exsudato, muitas vezes hemorrágico ou eosinofílico, que costuma resolver sozinho entre 3 a 4 meses, mas pode recorrer. É um diagnóstico de exclusão.",
+        "option_rationales": {
+            "a": "Incorreta. Placas pleurais são lesões sólidas, fibróticas e calcificadas, não derrames.",
+            "b": "Correta. Quadro clínico clássico de derrame benigno por exposição laboral.",
+            "c": "Incorreta. É uma massa parenquimatosa periférica causada por invaginação da pleura visceral, não é um derrame recorrente.",
+            "d": "Incorreta. O mesotelioma não regride espontaneamente.",
+            "e": "Incorreta. Asbestose é a fibrose do parênquima pulmonar, não da pleura."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Medicina do Trabalho",
+            "Asbesto",
+            "BAPE"
+        ]
+    },
+    {
+        "enunciado": "Paciente de 4 anos com quadro de febre alta, dispneia e prostração. Radiografia de tórax mostra derrame pleural à direita ocupando 50% do hemitórax. Realizada toracentese que evidencia líquido turvo com pH de 7,05, glicose de 28 mg/dL e LDH de 2.200 U/L. O patógeno MAIS PROVÁVEL de ser isolado neste empiema pediátrico é:",
+        "options": {
+            "a": "Mycoplasma pneumoniae.",
+            "b": "Streptococcus pneumoniae.",
+            "c": "Staphylococcus aureus.",
+            "d": "Haemophilus influenzae tipo b.",
+            "e": "Klebsiella pneumoniae."
+        },
+        "answer": "b",
+        "rationale": "O Pneumococo (Streptococcus pneumoniae) continua sendo a causa número 1 de derrame pleural parapneumônico e empiema em crianças, mesmo após a introdução das vacinas conjugadas (devido ao escape de alguns sorotipos).",
+        "option_rationales": {
+            "a": "Incorreta. Mycoplasma raramente causa empiemas purulentos volumosos.",
+            "b": "Correta. Principal etiologia na pediatria.",
+            "c": "Incorreta. O S. aureus é comum e grave, mas o pneumococo ainda lidera as estatísticas gerais.",
+            "d": "Incorreta. Tornou-se raro após a vacinação extensiva.",
+            "e": "Incorreta. Raro em crianças hígidas; mais associado a etilistas e diabéticos adultos."
+        },
+        "difficulty": "facil",
+        "tags": [
+            "Pneumologia",
+            "Pediatria",
+            "Empiema",
+            "Infectologia"
+        ]
+    },
+    {
+        "enunciado": "Sobre o Derrame Pleural da Sarcoidose, assinale a correta.",
+        "options": {
+            "a": "Ocorre em mais da metade dos pacientes com sarcoidose estágio II.",
+            "b": "O líquido pleural é tipicamente um exsudato linfocítico com alta relação CD4/CD8.",
+            "c": "É invariavelmente hemorrágico e cursa com glicose zero.",
+            "d": "A presença de derrame pleural exclui o diagnóstico de sarcoidose sistêmica.",
+            "e": "O ADA pleural costuma ser superior a 100 U/L."
+        },
+        "answer": "b",
+        "rationale": "O derrame pleural na sarcoidose é raro (1-5% dos casos). Quando ocorre, é um exsudato linfocítico. Assim como no lavado broncoalveolar da sarcoidose, o líquido pleural apresenta uma relação entre linfócitos T CD4+ e CD8+ elevada (Geralmente > 3,5).",
+        "option_rationales": {
+            "a": "Incorreta. É uma manifestação incomum.",
+            "b": "Correta. Reflete o padrão de resposta imune Th1 da sarcoidose.",
+            "c": "Incorreta. Não é hemorrágico nem consome glicose de forma acentuada.",
+            "d": "Incorreta. Não exclui, mas obriga a afastar TB e câncer pelo perfil linfocítico.",
+            "e": "Incorreta. O ADA costuma ser baixo ou moderado, não atingindo os níveis da TB."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Pneumologia",
+            "Sarcoidose",
+            "Linfócitos",
+            "CD4/CD8"
+        ]
+    },
+    {
+        "enunciado": "A presença de 'pseudocilindros' ou 'corpúsculos de grãos' no líquido pleural pode ocorrer em casos de pleurite traumática crônica ou processos degenerativos de longa data. No entanto, o achado de células mesoteliais multinucleadas e gigantes é mais sugestivo de qual condição autoimune?",
+        "options": {
+            "a": "Esclerodermia Sistêmica.",
+            "b": "Lúpus Eritematoso Sistêmica (LES).",
+            "c": "Artrite Reumatoide (AR).",
+            "d": "Dermatomiosite.",
+            "e": "Poliarterite Nodosa."
+        },
+        "answer": "c",
+        "rationale": "O líquido pleural da Artrite Reumatoide possui achados citológicos peculiares, como a presença de macrófagos gigantes multinucleados e células alongadas (spindle cells), que representam restos de sinovite granulomatosa na pleura.",
+        "option_rationales": {
+            "a": "Incorreta. Esclerodermia causa mais fibrose pulmonar do que derrame exuberante.",
+            "b": "Incorreta. O LES apresenta as 'células LE' e anticorpos específicos.",
+            "c": "Correta. Citologia característica da pleurite reumatoide.",
+            "d": "Incorreta. Manifestação rara.",
+            "e": "Incorreta. Vasculite de médios vasos, raramente acomete a pleura com este padrão."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Pneumologia",
+            "Reumatologia",
+            "Citologia Pleural",
+            "Artrite Reumatoide"
+        ]
+    },
+    {
+        "enunciado": "Qual dos seguintes exames de imagem é o mais sensível para detectar pequenas quantidades de líquido pleural (em torno de 5 a 10 mL)?",
+        "options": {
+            "a": "Radiografia de tórax em PA.",
+            "b": "Radiografia de tórax em perfil.",
+            "c": "Ultrassonografia de tórax.",
+            "d": "Radiografia de tórax em decúbito lateral (Laurell).",
+            "e": "Ressonância Magnética torácica."
+        },
+        "answer": "c",
+        "rationale": "A ultrassonografia de tórax é extremamente sensível, conseguindo detectar volumes mínimos de 5-20 mL de líquido pleural. Para comparação, o RX em perfil precisa de cerca de 75 mL e o RX em PA de pelo menos 175-200 mL para apagar o seio costofrênico.",
+        "option_rationales": {
+            "a": "Incorreta. Pouco sensível para volumes pequenos.",
+            "b": "Incorreta. Melhor que PA, mas ainda exige volume moderado.",
+            "c": "Correta. Padrão-ouro para detecção de pequenos volumes e loculações.",
+            "d": "Incorreta. Detecta volumes a partir de 25-50 mL, mas menos sensível que o US.",
+            "e": "Incorreta. Cara e pouco prática para esta finalidade, apesar de detectar o líquido."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Radiologia",
+            "Ultrassonografia",
+            "Propedêutica"
+        ]
+    },
+    {
+        "enunciado": "A decorticação pulmonar por videotoracoscopia ou toracotomia está indicada primariamente em qual fase do empiema pleural?",
+        "options": {
+            "a": "Fase Exsudativa (Líquid fluido, pH normal).",
+            "b": "Fase de Organização (Pulmão encarcerado por carapaça fibrosa sólida).",
+            "c": "Fase Fibrinopurulenta inicial (pH < 7,2, mas sem septos densos).",
+            "d": "Sempre no primeiro dia de internação de qualquer empiema.",
+            "e": "Apenas em pacientes imunocomprometidos."
+        },
+        "answer": "b",
+        "rationale": "A decorticação é a remoção da 'casca' de fibrina e tecido fibroso que se forma sobre a pleura visceral na fase de organização (última fase do empiema). É indicada quando a drenagem tubular falha em reexpandir o pulmão devido a esse encarceramento.",
+        "option_rationales": {
+            "a": "Incorreta. Fase inicial, trata-se apenas com dreno ou antibiótico.",
+            "b": "Correta. Indicação clássica de cirurgia para 'soltar' o pulmão.",
+            "c": "Incorreta. Nesta fase tentam-se fibrinolíticos antes da cirurgia agressiva.",
+            "d": "Incorreta. Conduta exagerada.",
+            "e": "Incorreta. Indicação baseada na fase da pleurite, não no status imune isolado."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Cirurgia Torácica",
+            "Empiema",
+            "Decorticação"
+        ]
+    },
+    {
+        "enunciado": "Um paciente tabagista crônico apresenta derrame pleural à direita. A análise mostra: pH 7,42, Glicose 90 mg/dL, Proteína 2,8 g/dL (Sérica 6,5 g/dL) e LDH 180 U/L (Sérico 400 U/L). De acordo com os critérios de Light, este derrame é classificado como:",
+        "options": {
+            "a": "Exsudato.",
+            "b": "Transudato.",
+            "c": "Empiema.",
+            "d": "Inconclusivo.",
+            "e": "Líquido Borderline."
+        },
+        "answer": "b",
+        "rationale": "Cálculo do Light: 1) Prot Pleural/Prot Sérica = 2,8/6,5 = 0,43 (Corte > 0,5); 2) LDH Pleural/LDH Sérico = 180/400 = 0,45 (Corte > 0,6); 3) LDH Pleural = 180 (Corte > 2/3 do limite superior do soro, assumindo 400 como normal, 180 não atinge 266). Como nenhum critério é preenchido, o líquido é um transudato.",
+        "option_rationales": {
+            "a": "Incorreta. Precisaria de pelo menos um critério positivo.",
+            "b": "Correta. Classificação clássica pelos valores apresentados.",
+            "c": "Incorreta. Exige critérios inflamatórios severos.",
+            "d": "Incorreta. Os cálculos são claros.",
+            "e": "Incorreta. Não existe este termo na classificação de Light."
+        },
+        "difficulty": "facil",
+        "tags": [
+            "Pneumologia",
+            "Líquido Pleural",
+            "Critérios de Light"
+        ]
+    },
+    {
+        "enunciado": "No diagnóstico de Derrame Pleural por Lúpus Eritematoso Sistêmico (Pleurite Lúpica), a dosagem de anticorpos antinucleares (FAN) no líquido pleural apresenta qual utilidade clínica?",
+        "options": {
+            "a": "Baixa utilidade, pois o FAN pleural costuma ser negativo mesmo no lúpus.",
+            "b": "Alta utilidade se o título for > 1:160, sendo muito específico para pleurite lúpica.",
+            "c": "Inútil, pois é sempre idêntico ao título sérico e nunca ajuda no diagnóstico.",
+            "d": "Substitui a necessidade de biópsia renal.",
+            "e": "Indica obrigatoriamente insuficiência renal lúpica associada."
+        },
+        "answer": "b",
+        "rationale": "Diferentes estudos mostram que a dosagem de FAN no líquido pleural com títulos elevados (especialmente se maiores que os títulos séricos ou > 1:160) tem alto valor diagnóstico para pleurite lúpica. A detecção de células LE no líquido também é altamente específica.",
+        "option_rationales": {
+            "a": "Incorreta. Costuma ser positivo no lúpus serosítico.",
+            "b": "Correta. Títulos altos no líquido favorecem o diagnóstico local de atividade lúpica.",
+            "c": "Incorreta. Pode ajudar na diferenciação diagnóstica em casos de serosite isolada.",
+            "d": "Incorreta. Não substitui avaliação orgânica de outros sistemas.",
+            "e": "Incorreta. A serosite pode ocorrer independente da nefrite."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Pneumologia",
+            "Reumatologia",
+            "Lúpus",
+            "FAN Pleural"
+        ]
+    },
+    {
+        "enunciado": "A causa mais comum de derrame pleural transudativo em pacientes hospitalizados é:",
+        "options": {
+            "a": "Cirrose Hepática.",
+            "b": "Síndrome Nefrótica.",
+            "c": "Insuficiência Cardíaca Congestiva.",
+            "d": "Embolia Pulmonar.",
+            "e": "Hipotireoidismo."
+        },
+        "answer": "c",
+        "rationale": "A Insuficiência Cardíaca Congestiva (ICC) é disparada a causa mais comum de transudatos pleurais no mundo. Estima-se que mais de 500.000 casos ocorram anualmente apenas nos EUA.",
+        "option_rationales": {
+            "a": "Incorreta. Comum, mas menos que a ICC.",
+            "b": "Incorreta. Causa de transudato, mas menos frequente.",
+            "d": "Incorreta. TEP causa exsudato em 75-80% das vezes e transudato em apenas 20%.",
+            "e": "Incorreta. Causa rara de derrame isolado significativo."
+        },
+        "difficulty": "facil",
+        "tags": [
+            "Pneumologia",
+            "Epidemiologia",
+            "ICC",
+            "Transudato"
+        ]
+    },
+    {
+        "enunciado": "Um paciente de 48 anos, etilista, apresenta quadro de dor abdominal em barra e dispneia. RX de tórax mostra derrame pleural à esquerda volumoso. Toracentese evidencia líquido sero-hemorrágico com amilase de 5.000 U/L (Amilase sérica 250 U/L). A tomografia de abdome confirma pseudocisto pancreático. Qual o mecanismo do derrame pleural neste caso?",
+        "options": {
+            "a": "Simpatia pleural à inflamação peripancreática.",
+            "b": "Fístula Pancreato-Pleural através do hiato aórtico ou defeitos diafragmáticos.",
+            "c": "Hipoalbuminemia por má absorção pancreática.",
+            "d": "Translocação bacteriana intestinal para a pleura.",
+            "e": "Metástase pleural de câncer de pâncreas oculto."
+        },
+        "answer": "b",
+        "rationale": "Em casos de pancreatite crônica com pseudocisto, pode haver a formação de uma fístula que leva o suco pancreático rico em amilase diretamente para o espaço pleural (geralmente o esquerdo). Diferente do derrame da pancreatite aguda (simpático), o derrame da fístula é volumoso, crônico e com níveis de amilase astronômicos.",
+        "option_rationales": {
+            "a": "Incorreta. O derrame simpático não atinge níveis tão altos de amilase (5.000 U/L).",
+            "b": "Correta. Mecanismo de derrames pancreáticos volumosos recorrentes.",
+            "c": "Incorreta. Causaria transudato bilateral.",
+            "d": "Incorreta. Não explica a amilase.",
+            "e": "Incorreta. O pseudocisto e a amilase indicam patologia benigna ductal pancreática."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Gastroenterologia",
+            "Amilase Pleural",
+            "Pancreatite"
+        ]
+    },
+    {
+        "enunciado": "O gradiente de albumina (Soro - Líquido Pleural) é considerado o melhor teste para identificar transudatos cardíacos rotulados como exsudatos pelos critérios de Light. Qual valor de gradiente favorece o diagnóstico de Transudato?",
+        "options": {
+            "a": "< 0,5 g/dL",
+            "b": "> 1,2 g/dL",
+            "c": "> 3,1 g/dL",
+            "d": "= 0",
+            "e": "< 1,2 g/dL"
+        },
+        "answer": "b",
+        "rationale": "Um gradiente de albumina soro-pleura > 1,2 g/dL tem alta acurácia para identificar transudatos que parecem exsudatos devido ao uso de diuréticos (falsos exsudatos). O valor de 3,1 g/dL é usado para o gradiente de Proteína Total, não Albumina.",
+        "option_rationales": {
+            "a": "Incorreta. Sugere exsudato verdadeiro.",
+            "b": "Correta. Padrão de gradiente para ICC sob tratamento.",
+            "c": "Incorreta. Este é o corte para Proteína Total.",
+            "d": "Incorreta. Fisicamente impossível.",
+            "e": "Incorreta. Favorece exsudato."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Laboratório",
+            "Gradiente de Albumina"
+        ]
+    },
+    {
+        "enunciado": "A biópsia pleural por agulha 'cega' (Abrams) apresenta sensibilidade significativamente maior para o diagnóstico de qual patologia em comparação ao câncer pleural?",
+        "options": {
+            "a": "Mesotelioma.",
+            "b": "Linfoma.",
+            "c": "Tuberculose Pleural.",
+            "d": "Adenocarcinoma metastático.",
+            "e": "Sarcoidose."
+        },
+        "answer": "c",
+        "rationale": "A TB pleural acomete a pleura de forma difusa (granulomas em toda a superfície), o que dá à biópsia cega uma sensibilidade de 70-80%. Já o câncer pleural costuma acometer a pleura de forma nodular e focal, fazendo com que a biópsia cega 'erre' o alvo frequentemente (sensibilidade de 40-50%).",
+        "option_rationales": {
+            "a": "Incorreta. Exige biópsia dirigida por VATS pelo baixo rendimento da cega.",
+            "b": "Incorreta. Exige grande quantidade de tecido para arquitetura linfonodal.",
+            "c": "Correta. Principal indicação de biópsia de Abrams/Cope.",
+            "d": "Incorreta. Citologia costuma ser melhor que biópsia cega.",
+            "e": "Incorreta. Rara e de difícil captura na biópsia cega."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Tuberculose",
+            "Biópsia Pleural"
+        ]
+    },
+    {
+        "enunciado": "A 'Pleurodese Espontânea' é um fenômeno que pode ocorrer após a inserção de um cateter pleural de demora (PleurX) em pacientes com derrame neoplásico recorrente. Sobre este fenômeno, assinale a alternativa correta.",
+        "options": {
+            "a": "Ocorre em 100% dos pacientes após 30 dias de uso do cateter.",
+            "b": "A sínfise pleural ocorre pelo contato crônico e inflamação induzida pelo cateter, permitindo sua posterior retirada em cerca de 50% dos casos.",
+            "c": "É um sinal de mau prognóstico, indicando falha renal iminente.",
+            "d": "Ocorre apenas se forem injetados agentes esclerosantes pelo cateter diariamente.",
+            "e": "Impede a reexpansão pulmonar e causa dor intratável."
+        },
+        "answer": "b",
+        "rationale": "Pacientes com cateter pleural de demora podem desenvolver pleurodese espontânea (autopleurodese) em cerca de 45-50% das vezes. A drenagem constante e a irritação mecânica do cateter favorecem a adesão das pleuras, permitindo retirar o dreno de forma definitiva após a cessação do débito.",
+        "option_rationales": {
+            "a": "Incorreta. Ocorre em aproximadamente metade dos pacientes.",
+            "b": "Correta. Vantagem principal do cateter de demora em relação à pleurodese química única.",
+            "c": "Incorreta. É um desfecho positivo e desejado.",
+            "d": "Incorreta. Ocorre espontaneamente apenas com a drenagem.",
+            "e": "Incorreta. Pelo contrário, o cateter permite a saída controlada do líquido e alívio da dor.",
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Pneumologia",
+            "Oncologia",
+            "Cateter de Demora",
+            "Pleurodese"
+        ]
+    },
+    {
+        "enunciado": "Um paciente de 60 anos apresenta derrame pleural bilateral e ascite. A análise do líquido pleural revela: Transudato, Glicose normal, ausência de células malignas. A dosagem de hormônio tireoestimulante (TSH) é de 85 mUI/L. Qual a denominação correta para o derrame pleural neste contexto de hipotireoidismo severo?",
+        "options": {
+            "a": "Efunsão mista trans-exsudativa.",
+            "b": "Derrame Mixedematoso.",
+            "c": "Pseudotumor de Myx (Myxoma pleural).",
+            "d": "Anasarca Endócrina.",
+            "e": "Síndrome de Hoffman."
+        },
+        "answer": "b",
+        "rationale": "O derrame mixedematoso ocorre no hipotireoidismo severo por aumento da permeabilidade capilar e redução da drenagem linfática. Embora possa ser exsudato em alguns casos raros, é classicamente um transudato que resolve apenas com a reposição hormonal (levotiroxina).",
+        "option_rationales": {
+            "a": "Incorreta. Termo não utilizado.",
+            "b": "Correta. Nome clínico do derrame por mixedema.",
+            "c": "Incorreta. Myxoma é um tumor cardíaco.",
+            "d": "Incorreta. Termo genérico.",
+            "e": "Incorreta. Síndrome de Hoffman é a miopatia do hipotireoidismo no adulto."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Endocrinologia",
+            "Hipotireoidismo",
+            "Mixedema"
+        ]
+    }
+]

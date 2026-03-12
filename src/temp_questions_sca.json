@@ -1,0 +1,262 @@
+[
+    {
+        "enunciado": "Paciente masculino, 62 anos, hipertenso, diabético e ex-tabagista, procura o pronto-atendimento com história de dor retroesternal em aperto iniciada há 2 horas, de forte intensidade, com irradiação para mandíbula e sudorese profusa. Ao exame físico: PA 165/95 mmHg, FC 88 bpm, saturação de oxigênio 94% em ar ambiente. Estase jugular ausente e pulmões limpos. O eletrocardiograma (ECG) de 12 derivações revela supradesnivelamento do segmento ST de 3 mm nas derivações V1 a V4. O hospital dispõe de serviço de hemodinâmica ativo nas 24 horas. Com base nas diretrizes atuais de Síndrome Coronariana Aguda, a conduta inicial mais adequada é:",
+        "options": {
+            "a": "Administração imediata de fibrinolítico (Tenecteplase) devido ao tempo de dor.",
+            "b": "Encaminhamento imediato para cineangiocoronariografia com objetivo de realizar intervenção coronária percutânea (ICP) primária.",
+            "c": "Solicitação imediata de marcadores de necrose miocárdica e aguardar o resultado para decidir a conduta.",
+            "d": "Administração de doses elevadas de betabloqueador venoso para controle da pressão arterial e da angina.",
+            "e": "Realização de teste ergométrico de urgência para confirmar a área de isquemia."
+        },
+        "answer": "b",
+        "rationale": "O paciente apresenta um Infarto Agudo do Miocárdio com Supradesnivelamento do Segmento ST (IAMCSST) de parede anterior (V1-V4). Em hospitais com serviço de hemodinâmica disponível, a Intervenção Coronária Percutânea (ICP) primária é o tratamento de escolha, devendo ser realizada preferencialmente em menos de 90 minutos do contato médico (ou 120 minutos se houver necessidade de transporte).",
+        "option_rationales": {
+            "a": "Incorreta. O fibrinolítico é reservado para casos onde a ICP primária não pode ser realizada no tempo preconizado (120 min).",
+            "b": "Correta. Estratégia preferencial em centros com hemodinâmica disponível.",
+            "c": "Incorreta. No IAMCSST, o diagnóstico é eletrocardiográfico e a conduta de reperfusão não deve aguardar marcadores.",
+            "d": "Incorreta. Betabloqueadores venosos agudos são contraindicados se houver risco de choque ou sinais de insuficiência cardíaca; o foco deve ser a reperfusão.",
+            "e": "Incorreta. Teste ergométrico é contraindicado na fase aguda da síndrome coronariana aguda com supra de ST."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Cardiologia",
+            "SCA",
+            "IAMCSST",
+            "ICP"
+        ]
+    },
+    {
+        "enunciado": "Paciente feminina, 74 anos, com antecedentes de doença renal crônica estágio 3, procura a emergência com quadro de dispneia súbita e cansaço aos pequenos esforços há 24 horas. Nega dor torácica típica. Ao exame físico: PA 110/70 mmHg, FC 110 bpm, FR 24 irpm, presença de estertores crepitantes em bases pulmonares e B3 na ausculta cardíaca. O ECG demonstra inversão profunda e simétrica de onda T em V2 a V6, sem desvios do segmento ST. Troponina ultrassensível elevada acima do percentil 99. De acordo com o quadro clínico e os achados complementares, qual a principal suspeita diagnóstica e a classificação da síndrome coronariana?",
+        "options": {
+            "a": "Angina instável de baixo risco, manejo ambulatorial.",
+            "b": "Infarto agudo do miocárdio com supra de ST, parede anterior.",
+            "c": "Infarto agudo do miocárdio sem supradesnivelamento do segmento ST (IAMSSST) - equivalente anginoso.",
+            "d": "Miocardite aguda por provável infecção viral prévia.",
+            "e": "Insuficiência cardíaca descompensada sem relação com isquemia miocárdica."
+        },
+        "answer": "c",
+        "rationale": "Pacientes idosos, diabéticos e renais crônicos frequentemente apresentam apresentações atípicas de SCA, conhecidas como 'equivalentes anginosos' (ex: dispneia súbita). A inversão profunda de onda T em derivações anteriores (padrão de Wellens ou isquemia subendocárdica grave) associada à elevação de troponina confirma o IAMSSST. A presença de B3 e estertores indica insuficiência cardíaca associada, classificando o evento como de alto risco.",
+        "option_rationales": {
+            "a": "Incorreta. A elevação de troponina exclui angina instável e confirma infarto.",
+            "b": "Incorreta. O ECG não mostra supradesnivelamento de ST, mas sim inversão de onda T.",
+            "c": "Correta. A dispneia é o equivalente anginoso e os achados laboratoriais/ECG confirmam IAMSSST.",
+            "d": "Incorreta. Embora a miocardite eleve troponina, o contexto e o ECG são mais típicos de doença coronariana isquêmica.",
+            "e": "Incorreta. A elevação de troponina e as alterações dinâmicas no ECG apontam para isquemia como causa da descompensação."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Cardiologia",
+            "IAMSSST",
+            "Idoso",
+            "Equivalente Anginoso"
+        ]
+    },
+    {
+        "enunciado": "Um homem de 55 anos, tabagista e obeso, é admitido com dor torácica instável há 6 horas. O ECG inicial é normal. A primeira troponina colhida na admissão é negativa. Após 3 horas, o paciente apresenta recorrência da dor retroesternal, e o novo ECG revela depressão do segmento ST de 1 mm em DII, DIII e aVF. A troponina serada agora está acima do valor de referência. Qual a estratégia de estratificação de risco e o tempo alvo para intervenção coronária invasiva segundo a última diretriz brasileira e europeia?",
+        "options": {
+            "a": "Estratégia ultra-precoce: cineangiocoronariografia em até 2 horas.",
+            "b": "Estratégia precoce: cineangiocoronariografia em até 24 horas.",
+            "c": "Estratégia tardia: cineangiocoronariografia em até 72 horas.",
+            "d": "Estratégia conservadora: realizar apenas após teste de isquemia não invasivo positivo.",
+            "e": "Tratamento clínico exclusivo, sem necessidade de intervenção invasiva imediata."
+        },
+        "answer": "b",
+        "rationale": "O paciente apresenta IAMSSST com critérios de alto risco: alteração dinâmica do segmento ST e curva de marcadores positiva. Para pacientes com diagnóstico confirmado de IAMSSST e pelo menos um critério de alto risco (como a alteração dinâmica de ST), a recomendação é a estratégia invasiva precoce em até 24 horas.",
+        "option_rationales": {
+            "a": "Incorreta. Reservada para pacientes com instabilidade hemodinâmica, choque, dor refratária ou arritmias graves (emergência < 2h).",
+            "b": "Correta. Diagnóstico confirmado de IAMSSST com alto risco exige intervenção em 24h.",
+            "c": "Incorreta. A estratégia de 72h é para pacientes de risco intermediário sem as características citadas.",
+            "d": "Incorreta. IAMSSST de alto risco exige estratégia invasiva direta.",
+            "e": "Incorreta. A intervenção invasiva reduz desfechos em pacientes de alto risco."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Cardiologia",
+            "SCA",
+            "IAMSSST",
+            "Estratificação de Risco"
+        ]
+    },
+    {
+        "enunciado": "Paciente masculino, 50 anos, sem comorbidades conhecidas, apresenta dor torácica súbita e intensa, tipo rasgante, com irradiação para as costas. Ao ser avaliado pelo SAMU, o ECG demonstra supradesnivelamento do segmento ST de 2 mm em DII, DIII e aVF. Durante o transporte, nota-se diferença de pressão arterial entre os braços (180/100 mmHg no direito e 130/80 mmHg no esquerdo). Diante dessa suspeita clínica, qual a conduta imediata MAIS prudente antes da reperfusão?",
+        "options": {
+            "a": "Administrar dupla antiagregação plaquetária com aspirina e clopidogrel imediatamente.",
+            "b": "Realizar trombólise química com Tenecteplase o mais rápido possível.",
+            "c": "Realizar angiotomografia de tórax ou ecocardiograma transesofágico para excluir dissecção aguda de aorta.",
+            "d": "Administrar heparina não fracionada em bólus endovenoso.",
+            "e": "Encaminhar para ICP primária sem exames adicionais, focando no 'tempo-porta-balão'."
+        },
+        "answer": "c",
+        "rationale": "Embora o ECG sugira um infarto inferior, a história clínica de dor 'rasgante' irradiada para as costas e a assimetria de pulsos/pressão são sinais clássicos de dissecção aguda de aorta (tipo A). A dissecção pode envolver o óstio da artéria coronária direita, gerando o supra de ST inferior. Administrar antiagregantes ou fibrinolíticos nesse cenário seria catastrófico. O diagnóstico diferencial deve ser selado antes de qualquer terapia antitrombótica.",
+        "option_rationales": {
+            "a": "Incorreta. Perigoso se o diagnóstico for dissecção de aorta.",
+            "b": "Incorreta. Contraindicação absoluta se houver dissecção de aorta.",
+            "c": "Correta. Segurança diagnóstica em caso de alta suspeita de dissecção (diagnóstico diferencial crítico).",
+            "d": "Incorreta. Aumenta o risco de tamponamento em caso de dissecção.",
+            "e": "Incorreta. Embora o IAM seja urgente, a dissecção é uma 'armadilha' clássica que deve ser excluída em exames de imagem se suspeitada."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Cardiologia",
+            "IAMCSST",
+            "Dissecção de Aorta",
+            "Diagnóstico Diferencial"
+        ]
+    },
+    {
+        "enunciado": "Paciente feminina, 68 anos, admitida com IAMCSST de parede inferior há 4 horas. Realizada ICP com sucesso na coronária direita. No segundo dia de internação, a paciente evolui com hipotensão súbita, dispneia intensa, estertores crepitantes bilaterais e um novo sopro holossistólico rude em borda esternal esquerda baixa, associado a frêmito. Não há distensão jugular importante. Qual a complicação mecânica mais provável?",
+        "options": {
+            "a": "Ruptura de parede livre do ventrículo esquerdo.",
+            "b": "Ruptura de septo interventricular.",
+            "c": "Disfunção/ruptura de músculo papilar com insuficiência mitral aguda.",
+            "d": "Aneurisma de ventrículo esquerdo.",
+            "e": "Pseudoaneurisma de ventrículo esquerdo."
+        },
+        "answer": "b",
+        "rationale": "A ruptura de septo interventricular (CIV pós-infarto) manifesta-se tipicamente com choque cardiogênico, edema agudo de pulmão e um sopro holossistólico em borda esternal esquerda. O frêmito é comum. A insuficiência mitral aguda (opção C) também causa sopro e edema, mas o sopro é tipicamente em foco mitral com irradiação para a axila, e a ruptura septal é uma associação clássica com o sopro em borda esternal.",
+        "option_rationales": {
+            "a": "Incorreta. Ruptura de parede livre costuma levar a tamponamento cardíaco súbito e atividade elétrica sem pulso (AESP), sem sopro holossistólico e com pulmões limpos.",
+            "b": "Correta. Localização do sopro e quadro clínico apontam para CIV pós-IAM.",
+            "c": "Incorreta. A insuficiência mitral aguda por ruptura de papilar causa sopro sistólico apical irradiado para axila, não em borda esternal esquerda.",
+            "d": "Incorreta. Aneurismas são complicações tardias (semanas) e não causam sopro holossistólico agudo com choque.",
+            "e": "Incorreta.Pseudoaneurisma é uma ruptura contida pela pleura/pericárdio, raro causar este sopro específico."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Cardiologia",
+            "IAM",
+            "Complicações Mecânicas",
+            "Choque Cardiogênico"
+        ]
+    },
+    {
+        "enunciado": "Paciente masculino, 45 anos, tabagista, sem outras comorbidades, é admitido com dor torácica típica e supra de ST de 4 mm em V1-V6. Realizada trombólise com sucesso (critérios de reperfusão presentes). No entanto, o paciente permanece em classe funcional Killip IV (choque cardiogênico). De acordo com o estudo SHOCK e as diretrizes vigentes, qual a melhor estratégia a seguir?",
+        "options": {
+            "a": "Manter tratamento clínico com inotrópicos e observar por 24 horas.",
+            "b": "Realizar nova tentativa de trombólise com dose dobrada.",
+            "c": "Encaminhamento imediato para cineangiocoronariografia e revascularização (ICP ou cirurgia) independente do tempo da trombólise.",
+            "d": "Indicar balão intra-aórtico (BIA) e aguardar estabilização para intervenção após 48 horas.",
+            "e": "Prescrever apenas anticoagulação plena e betabloqueador venoso."
+        },
+        "answer": "c",
+        "rationale": "Em pacientes com infarto agudo do miocárdio complicado por choque cardiogênico, a revascularização precoce (seja por ICP ou cirurgia) reduz a mortalidade em 6 meses a 1 ano (conforme estudo SHOCK). Mesmo após trombólise (independente do sucesso aparente da lise), a presença de choque exige abordagem invasiva imediata.",
+        "option_rationales": {
+            "a": "Incorreta. Tratamento clínico isolado no choque cardiogênico tem mortalidade altíssima.",
+            "b": "Incorreta. Trombólise repetida aumenta risco de sangramento sem benefício estabelecido no choque.",
+            "c": "Correta. Revascularização precoce é mandatória no choque cardiogênico pós-IAM.",
+            "d": "Incorreta. O BIA não deve retardar a revascularização definitiva; evidências recentes (IABP-SHOCK II) questionam seu benefício rotineiro.",
+            "e": "Incorreta. Betabloqueadores são contraindicados no choque Killip IV."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Cardiologia",
+            "Choque Cardiogênico",
+            "IAMCSST",
+            "Invasivo"
+        ]
+    },
+    {
+        "enunciado": "Um paciente de 59 anos, obeso e hipertenso, em uso de AAS e estatina, apresenta-se com episódios de dor torácica aos pequenos esforços nas últimas 48 horas, com duração de 15 minutos. ECG na admissão demonstra infraestruturamento de ST de 0,5 mm em V4-V6. Troponina inicial discretamente elevada. O escore de risco GRACE é de 145 pontos. Além da antiagregação plaquetária e anticoagulação, qual a conduta em relação ao uso de clopidogrel ou outros bloqueadores P2Y12 se a cineangiocoronariografia for planejada para as próximas 12 horas?",
+        "options": {
+            "a": "Administrar dose de ataque de Ticagrelor imediatamente (upstream).",
+            "b": "Aguardar a cineangiocoronariografia e administrar o bloqueador P2Y12 apenas após o conhecimento da anatomia coronária, conforme diretrizes mais recentes para IAMSSST.",
+            "c": "Administrar dose de ataque de Prasugrel imediatamente.",
+            "d": "Administrar apenas Clopidogrel, pois Prasugrel e Ticagrelor são contraindicados no IAMSSST.",
+            "e": "Não utilizar nenhum bloqueador P2Y12, mantendo apenas AAS."
+        },
+        "answer": "b",
+        "rationale": "As diretrizes recentes (ESC 2020 e atualizações brasileiras) sugerem que no IAMSSST, onde a anatomia coronária será conhecida em curto prazo (< 24h), o pré-tratamento de rotina com inibidores P2Y12 (especialmente se houver chance de cirurgia de urgência) pode ser omitido até o cateterismo. O Prasugrel, especificamente, só deve ser dado após a anatomia ser conhecida. O Ticagrelor pode ser considerado em alguns casos, mas a tendência atual é o 'no-pretreatment' em centros com acesso rápido ao cateterismo.",
+        "option_rationales": {
+            "a": "Incorreta. O uso 'upstream' de rotina no IAMSSST vem perdendo força devido ao risco hemorrágico sem benefício isquêmico claro em todos os grupos.",
+            "b": "Correta. Tendência atual de aguardar anatomia coronária no IAMSSST se o cateterismo for precoce.",
+            "c": "Incorreta. Prasugrel é contraindicado antes de conhecer a anatomia no IAMSSST.",
+            "d": "Incorreta. Falsa; Ticagrelor e Prasugrel são preferidos sobre o Clopidogrel se não houver contraindicação.",
+            "e": "Incorreta. O bloqueador P2Y12 é necessário para o tratamento, a questão é o momento do início."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Cardiologia",
+            "IAMSSST",
+            "Antiagregação",
+            "Farmacologia"
+        ]
+    },
+    {
+        "enunciado": "Paciente masculino, 38 anos, usuário de cocaína, admite-se com dor torácica intensa há 1 hora. O ECG mostra elevação do segmento ST de 2 mm em derivações laterais (D1, aVL, V5, V6). PA 170/110 mmHg, FC 120 bpm. Qual a primeira linha de tratamento farmacológico para o controle da dor e da pressão arterial, e qual medicação deve ser EVITADA sistematicamente nesse contexto?",
+        "options": {
+            "a": "Primeira linha: Betabloqueadores venosos (Metoprolol); Evitar: Nitratos.",
+            "b": "Primeira linha: Nitroglicerina e Benzodiazepínicos; Evitar: Betabloqueadores.",
+            "c": "Primeira linha: Morfina e AAS; Evitar: Anticoagulantes.",
+            "d": "Primeira linha: Bloqueadores de canais de cálcio; Evitar: Benzodiazepínicos.",
+            "e": "Primeira linha: Trombolíticos; Evitar: Estatinas."
+        },
+        "answer": "b",
+        "rationale": "No infarto induzido por cocaína, há um estado adrenérgico exacerbado. O uso de betabloqueadores (opção A) pode causar estimulação alfa-adrenérgica não oposicionada, levando a piora do vasoespasmo coronariano e sistêmico. O tratamento inicial deve focar em nitratos (vasodilatação) e benzodiazepínicos (redução do drive simpático).",
+        "option_rationales": {
+            "a": "Incorreta. Betabloqueadores são perigosos pelo risco de efeito alfa puro.",
+            "b": "Correta. Protocolo padrão para SCA associada à cocaína.",
+            "c": "Incorreta. Anticoagulantes são indicados se houver infarto confirmado.",
+            "d": "Incorreta. Bloqueadores de cálcio podem ser usados, mas benzodiazepínicos são preferenciais para o drive central.",
+            "e": "Incorreta. Trombólise deve ser evitada pela alta prevalência de vasoespasmo sem trombo fixo e risco de hemorragia por picos hipertensivos."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Cardiologia",
+            "SCA",
+            "Cocaína",
+            "Betabloqueadores"
+        ]
+    },
+    {
+        "enunciado": "Em um paciente com IAMCSST de parede inferior, o ECG de derivações direitas (V3R e V4R) revela supradesnivelamento de ST de 1 mm em V4R. O paciente apresenta PA 85/50 mmHg e pulmões limpos. Qual o tratamento imediato para a hipotensão e qual classe de medicação é CONTRAINDICADA?",
+        "options": {
+            "a": "Tratamento: Furosemida venosa; Contraindicada: Dopamina.",
+            "b": "Tratamento: Volume (Salina 0,9%) endovenoso; Contraindicada: Nitratos/Diuréticos.",
+            "c": "Tratamento: Dobutamina; Contraindicada: Heparina.",
+            "d": "Tratamento: Atropina; Contraindicada: Aspirina.",
+            "e": "Tratamento: Noradrenalina; Contraindicada: Clopidogrel."
+        },
+        "answer": "b",
+        "rationale": "O supradesnivelamento em V4R confirma o diagnóstico de Infarto de Ventrículo Direito (VD). O VD infartado é dependente de pré-carga para manter o débito cardíaco para o pulmão e, consequentemente, para o VE. Por isso, a infusão de volume é o tratamento inicial para a hipotensão. Nitratos e diuréticos reduzem a pré-carga e podem agravar severamente o choque no infarto de VD.",
+        "option_rationales": {
+            "a": "Incorreta. Furosemida piora a situação por reduzir a pré-carga.",
+            "b": "Correta. Manejo clássico do infarto de VD.",
+            "c": "Incorreta. Inotrópicos podem ser usados se volume falhar, mas volume é o primeiro passo.",
+            "d": "Incorreta. Atropina é para bradiarritmias.",
+            "e": "Incorreta. Noradrenalina pode ser necessária no choque refratário, mas volume é o pilar inicial."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Cardiologia",
+            "Infarto de VD",
+            "IAMCSST",
+            "Manejo"
+        ]
+    },
+    {
+        "enunciado": "Paciente masculino, 62 anos, DM2, apresenta quadro de IAMSSST. Cineangiocoronariografia mostra lesão de 90% em tronco de coronária esquerda e lesões triarteriais complexas. O cálculo do Syntax Score resulta em 34 pontos. O Heart Team se reúne para decidir a conduta. Segundo os principais estudos (como o SYNTAX trial), qual a melhor modalidade de revascularização para este paciente visando redução de eventos maiores a longo prazo?",
+        "options": {
+            "a": "Intervenção Coronária Percutânea (ICP) com stents farmacológicos de última geração.",
+            "b": "Cirurgia de Revascularização do Miocárdio (CRVM).",
+            "c": "Tratamento clínico otimizado apenas, sem revascularização.",
+            "d": "Angioplastia APENAS da lesão culpada, sem tratar as demais.",
+            "e": "Uso de fibrinolíticos sistêmicos."
+        },
+        "answer": "b",
+        "rationale": "Para pacientes com doença coronariana complexa (Syntax Score alto - > 22 no contexto de tronco ou > 32 no triarterial) e portadores de diabetes, a Cirurgia de Revascularização do Miocárdio (CRVM) apresenta melhores resultados a longo prazo em termos de redução de morte e infarto em comparação à ICP. O Syntax de 34 indica alta complexidade anatômica.",
+        "option_rationales": {
+            "a": "Incorreta. ICP em Syntax Score alto tem maior taxa de re-intervenção e eventos em comparação à cirurgia.",
+            "b": "Correta. Recomendação classe I para anatomia complexa e diabéticos.",
+            "c": "Incorreta. A revascularização é superior ao tratamento clínico em lesões de tronco ou triarteriais graves.",
+            "d": "Incorreta. A revascularização completa é o objetivo no paciente estável/estabilizado.",
+            "e": "Incorreta. Fibrinolíticos não têm papel na doença coronariana estável ou IAMSSST."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Cardiologia",
+            "Diabetes",
+            "Revascularização",
+            "Syntax Score"
+        ]
+    }
+]

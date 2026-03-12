@@ -1,0 +1,522 @@
+[
+    {
+        "enunciado": "Um paciente de 40 anos, proveniente de área rural da Ásia e residente no Brasil há 2 anos, apresenta-se com tosse crônica, hemoptise leve e dor torácica. A radiografia revela derrame pleural à direita e infiltrado pulmonar migratório. A análise do líquido pleural mostra um exsudato com 55% de eosinófilos, glicose de 15 mg/dL e LDH de 1.500 U/L. Qual o agente etiológico mais provável considerando a epidemiologia e o perfil bioquímico 'explosivo' do líquido?",
+        "options": {
+            "a": "Schistosoma mansoni.",
+            "b": "Paragonimus westermani.",
+            "c": "Strongyloides stercoralis.",
+            "d": "Toxocara canis (Larva Migrans Visceral).",
+            "e": "Ancylostoma duodenale."
+        },
+        "answer": "b",
+        "rationale": "A paragonimíase (distomatose pulmonar) é uma causa clássica de derrame pleural eosinofílico que, paradoxalmente, apresenta bioquímica de empiema ou artrite reumatoide: glicose baixíssima (< 20 mg/dL) e LDH muito elevado. O contexto de paciente asiático com sintomas pleuropulmonares crônicos é altamente sugestivo.",
+        "option_rationales": {
+            "a": "Incorreta. O Schistosoma causa mais hipertensão pulmonar do que derrame eosinofílico com glicose baixa.",
+            "b": "Correta. Perfil bioquímico patognomônico em contexto epidemiológico favorável.",
+            "c": "Incorreta. Estrongiloidíase disseminada causa pneumonia e SDRA, mas não derrame com este padrão bioquímico.",
+            "d": "Incorreta. Causa eosinofilia periférica marcada, mas o derrame eosinofílico costuma ter glicose normal.",
+            "e": "Incorreta. Não apresenta tropismo pleural para causar exsudatos tão agressivos."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Pneumologia",
+            "Infectologia",
+            "Parasitoses",
+            "Eosinofilia Pleural"
+        ]
+    },
+    {
+        "enunciado": "A Pleurite Bacteriana Espontânea (SBPE) é uma complicação da cirrose hepática com hidrotórax hepático. Qual o critério diagnóstico para SBPE na análise do líquido pleural?",
+        "options": {
+            "a": "Presença de pus franco no espaço pleural.",
+            "b": "Contagem de Polimorfonucleares (PMN) > 250 células/mm³ com cultura positiva ou PMN > 500 células/mm³ se a cultura for negativa (excluindo empiema de causa pulmonar).",
+            "c": "Proteína total pleural > 3,0 g/dL.",
+            "d": "pH pleural < 7,10 em todas as amostras.",
+            "e": "Dosagem de amilase pleural 3x maior que a sérica."
+        },
+        "answer": "b",
+        "rationale": "A SBPE é o equivalente pleural da Peritonite Bacteriana Espontânea (PBE). Ocorre em pacientes cirróticos com hidrotórax preexistente. O diagnóstico é baseado na celularidade (PMN > 250 ou 500) e na exclusão de um foco infeccioso pulmonar (pneumonia) adjacente, que caracterizaria um derrame parapneumônico e não SBPE.",
+        "option_rationales": {
+            "a": "Incorreta. Pus franco indica empiema estabelecido, não a forma 'espontânea' do cirrótico.",
+            "b": "Correta. Critério análogo ao da PBE adaptado para a pleura.",
+            "c": "Incorreta. O hidrotórax hepático é classicamente transudato (proteína baixa).",
+            "d": "Incorreta. O pH pode não atingir valores tão baixos na fase inicial.",
+            "e": "Incorreta. Amilase alta indica causa pancreática ou ruptura esofágica."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Pneumologia",
+            "Gastroenterologia",
+            "Cirrose",
+            "SBPE"
+        ]
+    },
+    {
+        "enunciado": "No diagnóstico de Mesotelioma Maligno por citologia ou biópsia, a imuno-histoquímica é fundamental. Quais marcadores são tipicamente POSITIVOS no mesotelioma e ajudam a excluí-lo de um Adenocarcinoma metastático?",
+        "options": {
+            "a": "CEA e Ber-EP4.",
+            "b": "TTF-1 e Napsina A.",
+            "c": "Calretinina, WT1 e Citoqueratina 5/6.",
+            "d": "CD20 e CD30.",
+            "e": "Proteína S100 e HMB-45."
+        },
+        "answer": "c",
+        "rationale": "A calretinina, o WT1 (Wilms Tumor 1) e a citoqueratina 5/6 são os marcadores mesoteliais clássicos. Se presentes, confirmam a origem mesotelial da célula. O CEA, Ber-EP4, TTF-1 e Napsina A são marcadores clássicos de epitélio pulmonar/adenocarcinoma (negativos no mesotelioma).",
+        "option_rationales": {
+            "a": "Incorreta. Positivos no adenocarcinoma.",
+            "b": "Incorreta. Positivos no câncer de pulmão primário.",
+            "c": "Correta. Painel imuno-histoquímico padrão para mesotelioma.",
+            "d": "Incorreta. Marcadores de linfoma.",
+            "e": "Incorreta. Marcadores de melanoma."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Oncologia",
+            "Mesotelioma",
+            "Imuno-histoquímica"
+        ]
+    },
+    {
+        "enunciado": "Paciente feminina, 32 anos, apresenta episódios recorrentes de pneumotórax e derrame pleural quiloso (Quilotórax). A tomografia de tórax revela múltiplos cistos aéreos de paredes finas distribuídos difusamente pelo parênquima pulmonar. Qual o diagnóstico mais provável?",
+        "options": {
+            "a": "Histiocitose de Células de Langerhans.",
+            "b": "Linfangioleiomiomatose (LAM).",
+            "c": "Fibrose Cística.",
+            "d": "Enfisema pan-acinar por deficiência de alfa-1 antitripsina.",
+            "e": "Pneumonia Intersticial Linfocítica."
+        },
+        "answer": "b",
+        "rationale": "A LAM é uma doença rara que acomete quase exclusivamente mulheres em idade fértil. Caracteriza-se pela proliferação de células musculares lisas atípicas (células LAM) que obstruem vias aéreas (causando cistos/pneumotórax) e vasos linfáticos (causando quilotórax).",
+        "option_rationales": {
+            "a": "Incorreta. Causa pneumotórax e cistos (especialmente em ápices e tabagistas), mas não quilotórax.",
+            "b": "Correta. Associação clássica: mulher jovem + cistos + quilotórax.",
+            "c": "Incorreta. Doença bronquiolar supurativa crônica, não cística/quilotórax primário.",
+            "d": "Incorreta. Enfisema não cursa com quilotórax.",
+            "e": "Incorreta. Associada a doenças autoimunes (Sjögren), mas o quilotórax não é típico."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "LAM",
+            "Quilotórax",
+            "Mulher"
+        ]
+    },
+    {
+        "enunciado": "No manejo do Quilotórax Refratário ao tratamento conservador (dieta com TCM, octreotide), em um paciente com insuficiência cardíaca grave ou cirrose, uma opção de tratamento avançado que reduz a pressão no sistema linfático através da descompressão biliar/portal é:",
+        "options": {
+            "a": "Transplante de pulmão.",
+            "b": "TIPS (Shunt Portossistêmico Intra-hepático Transjugular).",
+            "c": "Pleurectomia parietal radical.",
+            "d": "Ligadura do ducto torácico via cervical.",
+            "e": "Criação de fístula arteriovenosa no braço."
+        },
+        "answer": "b",
+        "rationale": "Em casos de quilotórax ou hidrotórax hepático secundários à hipertensão portal ou pressões venosas centrais elevadas, o TIPS pode reduzir a produção de linfa e favorecer a resolução do derrame por melhorar a dinâmica hemodinâmica sistêmica e esplâncnica.",
+        "option_rationales": {
+            "a": "Incorreta. Conduta extrema não indicada para quilotórax isolado.",
+            "b": "Correta. Opção terapêutica para casos cirrogênicos/hemodinâmicos refratários.",
+            "c": "Incorreta. Procedimento de alto risco em pacientes com IC/Cirrose.",
+            "d": "Incorreta. O ducto deve ser ligado no tórax, não na cervical, para a maioria dos derrames pleurais.",
+            "e": "Incorreta. Aumentaria a sobrecarga cardíaca."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Pneumologia",
+            "Gastroenterologia",
+            "Terapêutica Avançada",
+            "Quilotórax"
+        ]
+    },
+    {
+        "enunciado": "A medição do LDH pleural é fundamental nos critérios de Light. Em qual situação a dosagem de isoenzimas do LDH (LDH-1 a LDH-5) pode ter utilidade clínica?",
+        "options": {
+            "a": "Para confirmar Tuberculose Pleural.",
+            "b": "Para diferenciar derrame neoplásico de empiema (LDH-4 e LDH-5 elevados no empiema/processos agudos).",
+            "c": "Identificar quilotórax traumático.",
+            "d": "Somente em exames veterinários.",
+            "e": "Em derrames transudativos para prever resposta a diuréticos."
+        },
+        "answer": "b",
+        "rationale": "Embora raramente usadas, as isoenzimas do LDH refletem a origem da agressão tecidual. LDH-4 e LDH-5 (típicos de granulócitos) estão muito elevados em empiemas e processos inflamatórios agudos. No câncer, o padrão de isoenzimas costuma ser mais difuso ou com predomínio de LDH-2 e LDH-3.",
+        "option_rationales": {
+            "a": "Incorreta. Não tem valor específico na TB.",
+            "b": "Correta. Ajuda a distinguir a fonte da inflamação celular no líquido.",
+            "c": "Incorreta. Quilotórax tem LDH baixo.",
+            "d": "Incorreta. Afirmação sem fundamento.",
+            "e": "Incorreta. Transudatos têm LDH baixo, sem valor nas isoenzimas."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Pneumologia",
+            "Laboratório",
+            "Bioquímica",
+            "LDH"
+        ]
+    },
+    {
+        "enunciado": "Um paciente tabagista crônico e etilista é diagnosticado com câncer de esôfago médio. Ele desenvolve derrame pleural volumoso à direita, de aspecto purulento, com pH 6,8. No líquido, observa-se a presença de partículas de alimentos e amilase pleural de 15.000 U/L. Qual a conduta cirúrgica MAIS URGENTE?",
+        "options": {
+            "a": "Drenagem pleural tubular e antibioticoterapia venosa apenas.",
+            "b": "Mediastinostomia cervical para drenagem de abscesso.",
+            "c": "Toracocinese de alívio seguida de endoscopia digestiva diagnóstica.",
+            "d": "Esofagectomia de emergência ou exclusão esofágica com drenagem mediastinal e pleural ampla.",
+            "e": "Gastrostomia para alimentação."
+        },
+        "answer": "d",
+        "rationale": "A presença de partículas de alimento no líquido pleural confirma ruptura esofágica (Síndrome de Boerhaave ou perfuração neoplásica). Trata-se de uma emergência cirúrgica catastrófica com mediastinite química e bacteriana severa. O tratamento exige controle imediato da fístula e drenagem agressiva de todos os compartimentos contaminados.",
+        "option_rationales": {
+            "a": "Incorreta. Insuficiente diante de uma fístula digestiva contínua.",
+            "b": "Incorreta. A perfuração é torácica (esôfago médio), a mediastinostomia cervical não alcança o foco adequadamente.",
+            "c": "Incorreta. Procedimento diagnóstico puramente, a urgência é terapêutica.",
+            "d": "Correta. Conduta de salvação para ruptura esofágica com contaminação pleural.",
+            "e": "Incorreta. Medida de suporte que não resolve a infecção pleural/mediastinal ativa."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Cirurgia Torácica",
+            "Esofagostomia",
+            "Mediastinite"
+        ]
+    },
+    {
+        "enunciado": "O 'Pseudoquilotórax' (Derrame de Colesterol) é caracterizado pelo acúmulo de cristais de colesterol no espaço pleural. Diferente do quilotórax, quais doenças estão classicamente associadas a esse quadro crônico?",
+        "options": {
+            "a": "Trauma torácico e Cirurgia Cardíaca.",
+            "b": "Artrite Reumatoide e Tuberculose de longa data.",
+            "c": "Linfoma e Carcinoma de Mama.",
+            "d": "Insuficiência Cardíaca e Síndrome Nefrótica.",
+            "e": "Pneumonia Estafilocócica e HIV."
+        },
+        "answer": "b",
+        "rationale": "O pseudoquilotórax ocorre em processos pleurais crônicos onde o espessamento das pleuras impede a absorção dos lipídios provenientes da quebra de células inflamatórias e hemácias. TB de longa data (antes tratada apenas com colapsoterapia) e Artrite Reumatoide crônica são as causas clássicas.",
+        "option_rationales": {
+            "a": "Incorreta. Causas de quilotórax agudo.",
+            "b": "Correta. Padrão clínico de doenças inflamatórias crônicas da pleura.",
+            "c": "Incorreta. Neoplasias causam mais quilotórax (por obstrução do ducto) que pseudo.",
+            "d": "Incorreta. Causas de transudato.",
+            "e": "Incorreta. Não associadas à cronicidade necessária para acumular cristais de colesterol."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Bioquímica",
+            "Colesterol",
+            "Pseudochylothorax"
+        ]
+    },
+    {
+        "enunciado": "Ao avaliar uma tomografia de tórax de um paciente com dor torácica incaracterística, percebe-se um espessamento isolado da pleura mediastinal à esquerda. Qual a significância deste achado radiológico?",
+        "options": {
+            "a": "Sempre indica neoplasia agressiva.",
+            "b": "É um achado inespecífico, frequentemente relacionado a gordura epicárdica ou mediastinal exuberante.",
+            "c": "Sinal patognomônico de asbestose.",
+            "d": "Indica perfuração de brônquio fonte.",
+            "e": "Sugerido como local de biópsia para amiloidose."
+        },
+        "answer": "b",
+        "rationale": "O 'espessamento' pleural na região mediastinal ou paravertebral é frequentemente simulado pelo acúmulo de gordura extrapleural. É um achado comum e geralmente benigno, a menos que seja nodular ou associado a derrame pleural ou massas mediastinais reais.",
+        "option_rationales": {
+            "a": "Incorreta. O diagnóstico mais comum é lipomatose mediastinal/extrapleural.",
+            "b": "Correta. Pista radiológica para evitar pânico diagnóstico.",
+            "c": "Incorreta. Asbestose atinge a pleura parietal lateral e o diafragma, não a mediastinal isolada.",
+            "d": "Incorreta. Perfuração brônquica causaria pneumomediastino rápido.",
+            "e": "Incorreta. Amiloidose pleural é rara e não se baseia nesse achado isolado."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Radiologia",
+            "Anatomia",
+            "Variantes"
+        ]
+    },
+    {
+        "enunciado": "Em pacientes com infecção pelo vírus HIV, a ocorrência de derrame pleural por Sarcoma de Kaposi apresenta qual característica do líquido?",
+        "options": {
+            "a": "Transudato amarelo citrino.",
+            "b": "Exsudato tipicamente hemorrágico, com citologia frequentemente negativa para células malignas claras.",
+            "c": "Líquido leitoso rico em linfócitos CD4.",
+            "d": "Pus franco com bactérias intracelulares.",
+            "e": "Líquido viscoso tipo 'gelatina de morango' (ácido hialurônico elevado)."
+        },
+        "answer": "b",
+        "rationale": "O envolvimento pleural pelo Sarcoma de Kaposi no HIV é uma causa de derrame exsudativo e hemorrágico. O diagnóstico citológico é difícil porque as células fusiformes do sarcoma não se soltam facilmente para o líquido, muitas vezes exigindo biópsia ou visualização direta por VATS (lesões violáceas na pleura).",
+        "option_rationales": {
+            "a": "Incorreta. Tumores causam exsudatos.",
+            "b": "Correta. Perfil do Kaposi visceral no tórax.",
+            "c": "Incorreta. O quilotórax no HIV pode ocorrer por linfoma, mas o Kaposi é hemorrágico.",
+            "d": "Incorreta. Isso seria um empiema.",
+            "e": "Incorreta. Descrição clássica do mesotelioma rico em ácido hialurônico."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Pneumologia",
+            "Infectologia",
+            "HIV/AIDS",
+            "Sarcoma de Kaposi"
+        ]
+    },
+    {
+        "enunciado": "Qual a principal causa de morte por complicações do procedimento de toracentese de grande volume (> 1,5 L)?",
+        "options": {
+            "a": "Pneumotórax hipertensivo.",
+            "b": "Edema Pulmonar de Reexpansão (EPR).",
+            "c": "Embolia gasosa coronariana.",
+            "d": "Síncope vasovagal com parada em assistolia.",
+            "e": "Hemorragia por laceração da artéria intercostal."
+        },
+        "answer": "b",
+        "rationale": "O edema pulmonar de reexpansão é a complicação mais temida em toracocenteses ou drenagens volumosas. Ocorre por danos causados por radicais livres durante a reoxigenação rápida do pulmão previamente colapsado e mudanças bruscas na pressão hidrostática. Pode levar à falência respiratória grave e choque.",
+        "option_rationales": {
+            "a": "Incorreta. Grave, mas tratável com drenagem imediata.",
+            "b": "Correta. Complicação sistêmica grave por agressão endotelial pós-reexpansão.",
+            "c": "Incorreta. Rara e imediata ao acidente de punção.",
+            "d": "Incorreta. Frequentemente benigna se manejada com posição.",
+            "e": "Incorreta. Grave, mas cirurgicamente controlável."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Procedimentos",
+            "EPR",
+            "Complicações"
+        ]
+    },
+    {
+        "enunciado": "A fístula pleuroperitoneal em pacientes com ascite por cirrose Child-Pugh C geralmente leva a um hidrotórax localizado em qual hemitórax?",
+        "options": {
+            "a": "Esquerdo em 90% dos casos.",
+            "b": "Bilateral em todos os casos.",
+            "c": "Direito em cerca de 75-85% dos casos.",
+            "d": "Apenas na base do pulmão esquerdo.",
+            "e": "Exclusivamente mediastinal."
+        },
+        "answer": "c",
+        "rationale": "O hidrotórax hepático é predominantemente à direita. Isso ocorre porque o hemidiafragma direito é anatomicamente mais propenso a defeitos congênitos ou fendas adquiridas, e a pressão negativa intratorácica 'puxa' a ascite do abdome para o tórax por esses trajetos.",
+        "option_rationales": {
+            "a": "Incorreta. Inverso da estatística real.",
+            "b": "Incorreta. Costuma ser unilateral pela localização da fístula.",
+            "c": "Correta. Localização preferencial anatomofisiológica.",
+            "d": "Incorreta. Não é o padrão.",
+            "e": "Incorreta. Não ocorre no mediastino."
+        },
+        "difficulty": "facil",
+        "tags": [
+            "Pneumologia",
+            "Gastroenterologia",
+            "Hidrotórax Hepático",
+            "Cirrose"
+        ]
+    },
+    {
+        "enunciado": "A presença de infiltrados pulmonares migratórios e derrame pleural com eosinofilia intensa (> 20%) em um paciente com asma grave recém-diagnosticada sugere qual vasculite sistêmica?",
+        "options": {
+            "a": "Granulomatose de Wegener.",
+            "b": "Poliarterite Nodosa.",
+            "c": "Granulomatose Eosinofílica com Poliangiite (Churg-Strauss).",
+            "d": "Arterite de Células Gigantes.",
+            "e": "Doença de Behçet."
+        },
+        "answer": "c",
+        "rationale": "A síndrome de Churg-Strauss é definida pela tríade: asma, eosinofilia periférica/tecidual e vasculite sistêmica. O derrame pleural exsudativo eosinofílico ocorre em cerca de 30% dos pacientes durante a fase de vasculite ativa.",
+        "option_rationales": {
+            "a": "Incorreta. Cursa com nódulos cavitados e granulomas, não eosinofilia marcada.",
+            "b": "Incorreta. Não acomete o pulmão de forma clássica.",
+            "c": "Correta. Tríade clínica clássica.",
+            "d": "Incorreta. Vasculite de grandes vasos em idosos.",
+            "e": "Incorreta. Afta oral, genital e uveíte; acometimento pleural é raro."
+        },
+        "difficulty": "facil",
+        "tags": [
+            "Pneumologia",
+            "Vasculites",
+            "Churg-Strauss",
+            "Asma"
+        ]
+    },
+    {
+        "enunciado": "Em relação à 'Síndrome de Meigs', qual dos seguintes tumores ovarianos NÃO faz parte da definição clássica (que exige tumor benigno)?",
+        "options": {
+            "a": "Fibroma de ovário.",
+            "b": "Tecoma.",
+            "c": "Tumor de Brenner.",
+            "d": "Adenocarcinoma de Ovário.",
+            "e": "Cistoadenoma."
+        },
+        "answer": "d",
+        "rationale": "A Síndrome de Meigs clássica exige tumor benigno de ovário + ascite + derrame pleural, com resolução dos derrames após a cirurgia. O adenocarcinoma é maligno; sua tríade ascite/derrame seria a 'Pseudo-síndrome de Meigs' ou simplesmente carcinomatose peritoneal/pleural.",
+        "option_rationales": {
+            "a": "Incorreta. É o tumor mais clássico do Meigs.",
+            "b": "Incorreta. É um tumor benigno estromal que causa a síndrome.",
+            "c": "Incorreta. Tumor fibroepitelial benigno associado ao Meigs.",
+            "d": "Correta. Tumor maligno que invalida a definição de Meigs puro.",
+            "e": "Incorreta. Tumor epitelial benigno associado."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Ginecologia",
+            "Meigs",
+            "Tumor Ovariano"
+        ]
+    },
+    {
+        "enunciado": "No diagnóstico da etiologia do derrame pleural, o achado de células de câncer no líquido pleural em um paciente com tumor de pulmão conhecido confere qual estádio T N M?",
+        "options": {
+            "a": "Tis.",
+            "b": "M1a.",
+            "c": "T4.",
+            "d": "M1b.",
+            "e": "N3."
+        },
+        "answer": "b",
+        "rationale": "De acordo com o sistema TNM (8ª edição) para câncer de pulmão, a presença de nódulos pleurais ou pericárdicos malignos ou de derrames pleural/pericárdico malignos é classificada como estádio M1a (doença metastática intratorácica), conferindo automaticamente o estágio IV.",
+        "option_rationales": {
+            "a": "Incorreta. Carcinoma in situ.",
+            "b": "Correta. Critério de disseminação pleural metastática intratorácica.",
+            "c": "Incorreta. T4 seria invasão de grandes vasos ou esôfago, mas não disseminação pleural livre por células no líquido.",
+            "d": "Incorreta. M1b é metástase extratorácica única.",
+            "e": "Incorreta. Reflete comprometimento de linfonodos cervicais ou contralaterais."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Oncologia",
+            "TNM",
+            "Estadiamento"
+        ]
+    },
+    {
+        "enunciado": "A realização de 'Toracocentese repetida' (Symphony of Thoracentesis) em pacientes com derrame neoplásico sem reexpansão pulmonar deve ser desencorajada em favor de qual conduta agressiva/definitiva?",
+        "options": {
+            "a": "Pneumonectomia de resgate.",
+            "b": "Administração de quimioterapia intrapleural isolada.",
+            "c": "Inserção de cateter pleural de demora (IPC).",
+            "d": "Uso de doses altas de furosemida endovenosa.",
+            "e": "Substituição do oxigênio por hélio."
+        },
+        "answer": "c",
+        "rationale": "Se o pulmão está encarcerado (não reexpande com a drenagem), a pleurodese química falhará e a toracentese repetida levará a multiloculações, empiema e desconforto crônico. O cateter de demora (IPC) permite a drenagem paliativa sem necessidade de sínfise pleural.",
+        "option_rationales": {
+            "a": "Incorreta. Extremamente agressivo e sem benefício paliativo em doença avançada.",
+            "b": "Incorreta. Taxas de sucesso menores que IPC para controle de sintomas.",
+            "c": "Correta. Melhor conduta para 'pulmão encarcerado' sintomático.",
+            "d": "Incorreta. Diuréticos não resolvem derrame neoplásico (exsudato).",
+            "e": "Incorreta. Heliox não tem papel no derrame pleural."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Oncologia",
+            "Palhação",
+            "Terapêutica"
+        ]
+    },
+    {
+        "enunciado": "Um paciente de 22 anos apresenta febre e derrame pleural linfocítico (88%). ADA de 45 U/L. Biópsia pleural de Abrams com granulomas e necrose de caseificação. Sobre a necessidade de isolamento respiratório para este paciente na enfermaria, assinale a correta.",
+        "options": {
+            "a": "Obrigatório para todos os pacientes com TB de qualquer sítio.",
+            "b": "Desnecessário se o paciente não tiver lesão pulmonar parenquimatosa cavitária associada e se a baciloscopia de escarro for negativa.",
+            "c": "Deve durar pelo menos 6 meses.",
+            "d": "O dreno de tórax aumenta o risco de contágio aéreo por aerolização.",
+            "e": "A biópsia pleural confirma que o paciente é altamente bacilífero."
+        },
+        "answer": "b",
+        "rationale": "A Tuberculose Pleural isolada não é considerada infectante, pois não há comunicação entre o espaço pleural e as vias aéreas para a produção de aerossóis bacilíferos. O isolamento só é necessário se houver Tuberculose Pulmonar concomitante (o que ocorre em cerca de 20-30% dos casos de TB pleural).",
+        "option_rationales": {
+            "a": "Incorreta. TB extrapulmonar isolada (ex: pleural, óssea, ganglionar) não exige precauções para aerossóis.",
+            "b": "Correta. Regra fundamental de isolamento hospitalar.",
+            "c": "Incorreta. O isolamento termina após 15 dias de tratamento eficaz se a TB for pulmonar infectante.",
+            "d": "Incorreta. O dreno é um sistema fechado.",
+            "e": "Incorreta. A biópsia reflete o tecido pleural, não a carga bacilífera nas vias aéreas respiratórias."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Infectologia",
+            "Controle de Infecção",
+            "Tuberculose"
+        ]
+    },
+    {
+        "enunciado": "A 'Pleurite Renal' é uma manifestação do Lúpus Eritematoso Sistêmico (LES). Entretanto, o termo 'Derrame Pleural Urêmico' refere-se especificamente a:",
+        "options": {
+            "a": "Derrame pleural por nefrose lipoídica.",
+            "b": "Exsudato fibrinoso em pacientes com insuficiência renal avançada sem outra causa explicável.",
+            "c": "Acúmulo de urina na pleura por ruptura de ureter (Urinotórax).",
+            "d": "Transudato por hipoalbuminemia nefrótica.",
+            "e": "Empiema por fístula nefropleural."
+        },
+        "answer": "b",
+        "rationale": "A pleurite urêmica ocorre em pacientes com ureia muito elevada (geralmente > 100 mg/dL). É um exsudato fibrinoso e muitas vezes hemorrágico. O tratamento é a diálise intensiva, que leva à resolução do derrame na maioria das vezes. Deve-se distinguir do urinotórax (urina na pleura).",
+        "option_rationales": {
+            "a": "Incorreta. Nefrose causa transudato.",
+            "b": "Correta. Entidade inflamatória clássica da uremia severa.",
+            "c": "Incorreta. Isso é urinotórax.",
+            "d": "Incorreta. Isso é transudato da síndrome nefrótica.",
+            "e": "Incorreta. Condição rara (fístula), não relacionada à síndrome urêmica metabólica."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Pneumologia",
+            "Nefrologia",
+            "Uremia",
+            "Pleurite"
+        ]
+    },
+    {
+        "enunciado": "A coloração de Gram no líquido pleural tem sensibilidade moderada, mas alta especificidade. Se o Gram for positivo em um paciente com derrame parapneumônico, mas as culturas forem negativas após 72h, qual a interpretação clínica?",
+        "options": {
+            "a": "O Gram foi um falso-positivo por contaminação do reagente.",
+            "b": "As bactérias estão mortas ou o crescimento foi inibido por antibióticos prévios, mas o derrame ainda deve ser tratado como empiema/complicado.",
+            "c": "A infecção é viral.",
+            "d": "Trata-se de Tuberculose disfarçada de bactéria.",
+            "e": "O dreno de tórax pode ser retirado imediatamente."
+        },
+        "answer": "b",
+        "rationale": "Gram positivo = Germe visualizado. Se a cultura for negativa, isso frequentemente decorre do fato de o paciente já estar recebendo antibióticos que 'esterilizam' a amostra mas as carcaças bacterianas ou germes não viáveis persistem. A drenagem e o tratamento agressivo continuam indicados.",
+        "option_rationales": {
+            "a": "Incorreta. Menos provável no cenário clínico.",
+            "b": "Correta. Padrão comum no empiema 'descapitados' por antibiótico.",
+            "c": "Incorreta. Vírus não aparecem no Gram.",
+            "d": "Incorreta. TB não aparece no Gram comum (precisa de Ziehl).",
+            "e": "Incorreta. Se houve germe no espaço pleural, a drenagem é necessária até resolução clínica total."
+        },
+        "difficulty": "facil",
+        "tags": [
+            "Pneumologia",
+            "Laboratório",
+            "Microbiologia",
+            "Empiema"
+        ]
+    },
+    {
+        "enunciado": "No diagnóstico da etiologia do derrame pleural, o uso de biomarcadores como a Procalcitonina no líquido pleural (e não no soro) apresenta qual evidência atual?",
+        "options": {
+            "a": "Substitui a dosagem de pH e glicose com vantagem.",
+            "b": "É o melhor marcador para distinguir Tuberculose de Câncer.",
+            "c": "Possui baixa utilidade clínica comprovada, não sendo superior aos parâmetros bioquímicos tradicionais (pH, glicose, LDH).",
+            "d": "Indica obrigatoriamente etiologia por Legionella.",
+            "e": "É mandatório em todos os transudatos cardíacos."
+        },
+        "answer": "c",
+        "rationale": "Diferente da Procalcitonina sérica (útil na sepse), a Procalcitonina no líquido pleural tem demonstrado baixo valor agregado. Ela não diferencia de forma confiável o empiema de outros exsudatos inflamatórios melhor do que o pH ou o LDH.",
+        "option_rationales": {
+            "a": "Incorreta. pH e glicose permanecem superiores.",
+            "b": "Incorreta. Sem utilidade neste diferencial.",
+            "c": "Correta. Evidência clínica atual desencoraja o uso rotineiro do biomarcador pleural.",
+            "d": "Incorreta. Sem relação específica.",
+            "e": "Incorreta. Sem aplicação em transudatos."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Pneumologia",
+            "Biomarcadores",
+            "Evidência",
+            "Procalcitonina"
+        ]
+    }
+]

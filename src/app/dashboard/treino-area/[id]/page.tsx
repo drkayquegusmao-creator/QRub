@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useMemo } from 'react'
 import { useRouter, useParams } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
@@ -167,8 +167,13 @@ export default function TreinoExecucaoPage() {
                     return
                 }
 
-                // Shuffle for the session experience
-                setQuestions(parsedQuestions.sort(() => Math.random() - 0.5))
+                // Shuffle for the session experience - Using a stronger random seed
+                const shuffledPool = parsedQuestions
+                    .map(value => ({ value, sort: Math.random() }))
+                    .sort((a, b) => a.sort - b.sort)
+                    .map(({ value }) => value)
+
+                setQuestions(shuffledPool)
                 setStatus('READY')
 
             } catch (error: any) {
@@ -315,6 +320,16 @@ export default function TreinoExecucaoPage() {
 
     const currentQ = questions[currentIndex]
 
+    // Stronger randomization for options to avoid letter patterns (A, B, B, B...)
+    const shuffledOptions = useMemo(() => {
+        if (!currentQ) return []
+        const baseOptions = [...(currentQ.options || [])]
+        return baseOptions
+            .map(value => ({ value, sort: Math.random() }))
+            .sort((a, b) => a.sort - b.sort)
+            .map(({ value }) => value)
+    }, [currentIndex, currentQ?.id])
+
     return (
         <div className="min-h-screen bg-slate-50/50 pb-32">
             {/* Header/Nav */}
@@ -382,9 +397,12 @@ export default function TreinoExecucaoPage() {
 
                 {/* Options */}
                 <div className="space-y-3 mb-10">
-                    {currentQ?.options?.map((opt: Option) => {
+                    {shuffledOptions.map((opt, index) => {
                         const isSelected = selectedOption === opt.id
                         const isCorrectOption = opt.id === currentQ.correct_option_id
+
+                        // Visual Label (A, B, C, D, E) independent of original ID
+                        const visualLabel = String.fromCharCode(65 + index)
 
                         let stateClass = "bg-white border-slate-200 hover:border-indigo-300"
                         if (isConfirmed) {
@@ -408,7 +426,7 @@ export default function TreinoExecucaoPage() {
                                     }`}>
                                     {isConfirmed && isCorrectOption ? <Check className="w-5 h-5" /> :
                                         isConfirmed && isSelected ? <X className="w-5 h-5" /> :
-                                            opt.id.slice(-1)}
+                                            visualLabel}
                                 </div>
                                 <div className="flex-1" style={fontStyle} dangerouslySetInnerHTML={{ __html: opt.text }} />
                             </button>
@@ -439,7 +457,11 @@ export default function TreinoExecucaoPage() {
                                         {selectedOption === currentQ.correct_option_id ? 'Correto!' : 'Incorreto'}
                                     </h3>
                                     <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mt-1">
-                                        A alternativa correta era a {currentQ.options.find((o: Option) => o.id === currentQ.correct_option_id)?.id.slice(-1)}
+                                        A alternativa correta era a {(() => {
+                                            const corrOpt = currentQ.options.find((o: Option) => o.id === currentQ.correct_option_id);
+                                            const visualIdx = shuffledOptions.findIndex(o => o.id === currentQ.correct_option_id);
+                                            return String.fromCharCode(65 + visualIdx);
+                                        })()}
                                     </p>
                                 </div>
                             </div>
@@ -450,9 +472,9 @@ export default function TreinoExecucaoPage() {
                             {currentQ.options.some((o: Option) => o.explanation && o.explanation.trim().length > 0) && (
                                 <div className="mt-6 space-y-3">
                                     <h4 className="text-[10px] font-black uppercase tracking-widest text-slate-500 mb-2">Comentário das Alternativas</h4>
-                                    {currentQ.options.filter((o: Option) => o.explanation).map((opt: Option) => (
+                                    {shuffledOptions.filter((o: Option) => o.explanation).map((opt: Option, sIdx: number) => (
                                         <div key={`exp-${opt.id}`} className="flex gap-3 text-xs bg-slate-900/50 p-4 rounded-xl">
-                                            <div className="font-black text-slate-400">{opt.id.slice(-1)}:</div>
+                                            <div className="font-black text-slate-400">{String.fromCharCode(65 + sIdx)}:</div>
                                             <div className="text-slate-300" dangerouslySetInnerHTML={{ __html: opt.explanation! }} />
                                         </div>
                                     ))}

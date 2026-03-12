@@ -125,12 +125,16 @@ export async function getQuestionsForTraining(filters: QuestionFilters, limit: n
         if (matchingIds.length === 0) return []
 
         // Shuffle for variety and cap for performance
-        const shuffled = matchingIds.sort(() => Math.random() - 0.5)
+        // Usando uma semente aleatória mais forte
+        const shuffled = matchingIds
+            .map(value => ({ value, sort: Math.random() }))
+            .sort((a, b) => a.sort - b.sort)
+            .map(({ value }) => value)
 
         let query = supabase
             .from('questao_base')
             .select('*')
-            .in('id', shuffled.slice(0, Math.max(limit * 3, 100)))
+            .in('id', shuffled.slice(0, Math.max(limit * 5, 200))) // Pega um pool maior para garantir diversidade
             .eq('status', 'active')
             .eq('status_validacao', 'APROVADA')
 
@@ -142,20 +146,27 @@ export async function getQuestionsForTraining(filters: QuestionFilters, limit: n
             query = query.in('difficulty', diffLow !== diffNorm ? [diffLow, diffNorm] : [diffLow])
         }
 
-        query = query.limit(limit)
-
         const { data, error } = await query
         if (error) { console.error('Error fetching questions:', error); return [] }
-        return data || []
+
+        // Shuffle final pool again before returning requested limit
+        return (data || [])
+            .map(value => ({ value, sort: Math.random() }))
+            .sort((a, b) => a.sort - b.sort)
+            .map(({ value }) => value)
+            .slice(0, limit)
     }
 
-    // No taxonomy
+    // No taxonomy - Fetching directly with a random offset to avoid the same initial questions
+    const totalActive = await countQuestionsByFilters(filters)
+    const randomOffset = totalActive > limit ? Math.floor(Math.random() * Math.max(0, totalActive - limit)) : 0
+
     let query = supabase
         .from('questao_base')
         .select('*')
         .eq('status', 'active')
         .eq('status_validacao', 'APROVADA')
-        .limit(limit)
+        .range(randomOffset, randomOffset + limit - 1)
 
     if (filters.banca) query = query.eq('banca', filters.banca)
 
@@ -167,5 +178,10 @@ export async function getQuestionsForTraining(filters: QuestionFilters, limit: n
 
     const { data, error } = await query
     if (error) { console.error('Error fetching questions:', error); return [] }
-    return data || []
+
+    // Final shuffle to avoid "order bias"
+    return (data || [])
+        .map(value => ({ value, sort: Math.random() }))
+        .sort((a, b) => a.sort - b.sort)
+        .map(({ value }) => value)
 }

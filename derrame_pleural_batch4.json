@@ -1,0 +1,519 @@
+[
+    {
+        "enunciado": "Um paciente de 45 anos, submetido a cirurgia de revascularização do miocárdio há 3 semanas, retorna ao pronto-socorro com febre (38,2°C), dor torácica pleurítica e dispneia. Ao exame, percebe-se atrito pericárdico à ausculta. Radiografia de tórax revela derrame pleural bilateral e aumento da silhueta cardíaca. A análise do líquido pleural mostra um exsudato hemorrágico com predomínio de linfócitos. Qual o diagnóstico e o tratamento de escolha?",
+        "options": {
+            "a": "Embolia pulmonar pós-operatória; anticoagulação plena.",
+            "b": "Pneumonia nosocomial tardia; piperacilina-tazobactam.",
+            "c": "Síndrome de Post-Pericardiotomia (Síndrome de Dressler); anti-inflamatórios (AINEs) e colchicina.",
+            "d": "Tamponamento cardíaco traumático; pericardiocentese imediata e drenagem pleural.",
+            "e": "Empiema pleural bilateral por contaminação intraoperatória; drenagem tubular bilateral."
+        },
+        "answer": "c",
+        "rationale": "A Síndrome de Lesão Pós-Cardíaca (que inclui a síndrome pós-pericardiotomia) é um processo autoimune que ocorre de semanas a meses após cirurgias cardíacas, infartos ou traumas. Caracteriza-se por pleuropericardite, febre e derrames exsudativos (muitas vezes hemorrágicos ou eosinofílicos). O tratamento baseia-se em anti-inflamatórios (Aspirina ou Ibuprofeno) e Colchicina para prevenir recorrências.",
+        "option_rationales": {
+            "a": "Incorreta. O quadro de atrito pericárdico e a temporalidade pós-cirúrgica apontam mais para serosite autoimune.",
+            "b": "Incorreta. A febre no pós-operatório tardio associada a serosites é mais comumente autoimune do que pneumonia bacteriana sem infiltrado.",
+            "c": "Correta. Diagnóstico clássico do pós-operatório de CRM.",
+            "d": "Incorreta. O aumento da silhueta sugere derrame, mas não há sinais clínicos de choque obstrutivo (tamponamento).",
+            "e": "Incorreta. Empiema bilateral seria extremamente raro e o líquido seria purulento/neutrofílico, não linfocítico-hemorrágico."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Cardiologia",
+            "Síndrome de Dressler",
+            "Derrame Pleural"
+        ]
+    },
+    {
+        "enunciado": "Para o diagnóstico de Chilotórax, a dosagem de triglicerídeos no líquido pleural é o teste inicial de escolha. No entanto, em valores intermediários (entre 50 e 110 mg/dL), qual exame adicional é mandatório para confirmar a presença de quilo no espaço pleural?",
+        "options": {
+            "a": "Dosagem de Colesterol Pleural.",
+            "b": "Pesquisa de Quilomícrons por eletroforese de lipoproteínas.",
+            "c": "Relação Creatinina Pleural / Sérica.",
+            "d": "Contagem de Eosinófilos no líquido.",
+            "e": "Linfocintilografia de membros inferiores."
+        },
+        "answer": "b",
+        "rationale": "Valores de TG > 110 mg/dL confirmam quilotórax; < 50 mg/dL praticamente excluem. No 'limbo' entre 50-110 mg/dL, a presença de quilomícrons na eletroforese do líquido pleural é o padrão-ouro para o diagnóstico confirmatório.",
+        "option_rationales": {
+            "a": "Incorreta. O colesterol ajuda no pseudoquilotórax, não na confirmação do quilo verdadeiro borderline.",
+            "b": "Correta. Exame definitivo para casos com TG inconclusivo.",
+            "c": "Incorreta. Usado no urinotórax.",
+            "d": "Incorreta. Não tem relação com o quilo.",
+            "e": "Incorreta. Pode ser usada para localizar a fístula, mas não para o diagnóstico bioquímico inicial do líquido."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Laboratório",
+            "Quilotórax",
+            "Lipídios"
+        ]
+    },
+    {
+        "enunciado": "Um paciente de 70 anos apresenta derrame pleural volumoso à direita. A análise do líquido revela: Exsudato hemorrágico, com citologia oncótica positiva para adenocarcinoma. A tomografia mostra múltiplas metástases hepáticas e cerebrais. O controle das metástases cerebrais é priorizado, mas o paciente apresenta dispneia importante pelo derrame. Qual o manejo paliativo MAIS ADEQUADO para o derrame pleural neste cenário de doença avançada?",
+        "options": {
+            "a": "Pleurodese com talco via toracotomia.",
+            "b": "Inserção de cateter pleural de demora (IPC) para drenagem domiciliar.",
+            "c": "Toracocenteses de alívio diárias no hospital.",
+            "d": "Radioterapia sobre o hemitórax direito.",
+            "e": "Quimioterapia sistêmica isolada, sem intervenção pleural."
+        },
+        "answer": "b",
+        "rationale": "O cateter pleural de demora (IPC) é excelente para pacientes com câncer avançado, curta expectativa de vida e sintomas de dispneia recorrente. Ele permite que o paciente seja tratado em casa, reduzindo o tempo de hospitalização e sendo menos invasivo que a pleurodese por drenagem tubular ou cirúrgica.",
+        "option_rationales": {
+            "a": "Incorreta. Muito agressivo e exige internação prolongada.",
+            "b": "Correta. Padrão paliativo moderno para qualidade de vida domiciliar.",
+            "c": "Incorreta. Toracocenteses repetidas causam alto desconforto e risco de infecção.",
+            "d": "Incorreta. Radioterapia não trata o derrame volumoso agudo.",
+            "e": "Incorreta. A quimio demora a agir; o alívio imediato da dispneia exige drenagem."
+        },
+        "difficulty": "facil",
+        "tags": [
+            "Pneumologia",
+            "Oncologia",
+            "Palhação",
+            "Cateter Pleural"
+        ]
+    },
+    {
+        "enunciado": "A maioria dos derrames pleurais associados ao Tromboembolismo Pulmonar (TEP) são pequenos e localizados unilateralmente. Qual a característica citológica e bioquímica MAIS FREQUENTE nesses derrames?",
+        "options": {
+            "a": "Transudato com predominância de células mesoteliais.",
+            "b": "Exsudato tipicamente hemorrágico e frequentemente eosinofílico.",
+            "c": "Empiema purulento por infarto pulmonar infectado.",
+            "d": "Líquido leitoso com triglicerídeos elevados.",
+            "e": "Exsudato com glicose zero (consumida pelo infarto)."
+        },
+        "answer": "b",
+        "rationale": "No TEP, o derrame ocorre por aumento da permeabilidade capilar após a isquemia e liberação de mediadores inflamatórios. Aproximadamente 75-80% são exsudatos, frequentemente hemorrágicos (pela isquemia/infarto) e eosinofílicos (pela presença de sangue no espaço pleural).",
+        "option_rationales": {
+            "a": "Incorreta. Apenas 20% do TEP cursa com transudato.",
+            "b": "Correta. Perfil clássico do TEP na pleura.",
+            "c": "Incorreta. O infarto pulmonar pode infectar (pneumonia), mas não é o padrão do TEP agudo.",
+            "d": "Incorreta. TEP não causa quilotórax.",
+            "e": "Incorreta. A glicose costuma ser normal no TEP."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "TEP",
+            "Derrame Pleural",
+            "Eosinofilia"
+        ]
+    },
+    {
+        "enunciado": "Em pacientes com Sarcoidose, o derrame pleural é uma manifestação rara. Quando ocorre, o diagnóstico diferencial mais difícil com base apenas no líquido pleural (exsudato linfocítico) é com:",
+        "options": {
+            "a": "Insuficiência Cardíaca Congestiva.",
+            "b": "Tuberculose Pleural.",
+            "c": "Derrame Parapneumônico Simples.",
+            "d": "Urinotórax.",
+            "e": "Atelectasia de base."
+        },
+        "answer": "b",
+        "rationale": "Ambas (Sarcoidose e Tuberculose) são doenças granulomatosas que produzem exsudatos linfocíticos. Embora o ADA ajude (muito alto na TB, baixo/médio na Sarcoidose), o perfil citológico pode ser idêntico, exigindo biópsia e cultura para diferenciação definitiva.",
+        "option_rationales": {
+            "a": "Incorreta. ICC dá transudato.",
+            "b": "Correta. Principal desafio diagnóstico pelo perfil inflamatório granulomatoso similar.",
+            "c": "Incorreta. Pneumonia dá líquido neutrofílico.",
+            "d": "Incorreta. Urinotórax é transudato ácido.",
+            "e": "Incorreta. Atelectasia dá transudatos pequenos."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Diagnóstico Diferencial",
+            "Sarcoidose",
+            "Tuberculose"
+        ]
+    },
+    {
+        "enunciado": "O escore RAPID foi validado para prever o prognóstico de pacientes com infecção pleural (Empiema/Derrame Parapneumônico). Quais são as variáveis que compõem este escore?",
+        "options": {
+            "a": "Respiração, Albumina, Plaqueta, Idade, Diabetes.",
+            "b": "Renal (Ureia), Age (Idade), Purulence (Purulência do líquido), Infection source (Hospitalar vs Comunitária), Dietary (Estado Nutricional).",
+            "c": "Renal (Ureia), Age (Idade), Purulence (Purulência), Infection source (Hospitalar vs Comunitária), Dietary (Albumina).",
+            "d": "Raciocínio, Albumina, pH, Idade, Derrame.",
+            "e": "Radiologia, ADA, Proteína, Idade, Densidade."
+        },
+        "answer": "c",
+        "rationale": "O escore RAPID utiliza: Renal (Ureia sérica), Age (Idade), Purulence (se o líquido é purulento ou não), Infection source (Comunitária vs Nosocomial) e Dietary (Albumina sérica). Ele estratifica o risco de morte em 3 meses.",
+        "option_rationales": {
+            "a": "Incorreta. Plaqueta e Diabetes não fazem parte do RAPID clássico.",
+            "b": "Incorreta. 'Dietary' não é estado nutricional genérico, mas especificamente a Albumina.",
+            "c": "Correta. Definição correta do acrônimo e das variáveis.",
+            "d": "Incorreta. Raciocínio não é variável clínica objetiva.",
+            "e": "Incorreta. ADA e Densidade não compõem o escore."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Pneumologia",
+            "Infectologia",
+            "Prognóstico",
+            "Escore RAPID"
+        ]
+    },
+    {
+        "enunciado": "Um paciente de 35 anos apresenta quadro de febre, perda de peso e sudorese noturna há 1 mês. RX de tórax com derrame pleural bilateral e múltiplos nódulos pulmonares de 2-4 mm (padrão miliar). A análise do líquido pleural revela exsudato linfocítico, ADA de 20 U/L. O Teste Rápido Molecular (TRM-TB) no líquido foi negativo. Qual o achado mais provável que explicaria um ADA baixo em um quadro clínico tão sugestivo de Tuberculose?",
+        "options": {
+            "a": "Tuberculose Pleural em paciente imunocompetente.",
+            "b": "Tuberculose Miliar com disseminação pleural secundária em paciente imunodeprimido.",
+            "c": "Linfoma de Hodgkin mimetizando TB.",
+            "d": "Coccidioidomicose pulmonar.",
+            "e": "Adenocarcinoma de pulmão estágio IV."
+        },
+        "answer": "b",
+        "rationale": "Enquanto a Tuberculose Pleural isolada (por hipersensibilidade tardia) cursa com ADA muito alto, a Tuberculose Miliar que envolve a pleura pode apresentar derrames com ADA baixo ou limítrofe, especialmente em pacientes com HIV ou imunossupressão grave, devido à falha na resposta imune celular exuberante que eleva o ADA.",
+        "option_rationales": {
+            "a": "Incorreta. TB pleural clássica tem ADA > 40 invariavelmente.",
+            "b": "Correta. A forma miliar e o status imune podem 'falsear' o ADA para baixo.",
+            "c": "Incorreta. Embora possível, o quadro miliar favorece TB.",
+            "d": "Incorreta. Fungos podem dar ADA baixo, mas a TB miliar é a causa clássica de ADA falso-baixo no contexto infeccioso disseminado.",
+            "e": "Incorreta. O padrão miliar é diferente da carcinomatose linfangítica típica."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Pneumologia",
+            "Infectologia",
+            "Tuberculose Miliar",
+            "ADA"
+        ]
+    },
+    {
+        "enunciado": "Sobre o Mesotelioma Maligno em relação ao tabagismo, assinale a alternativa correta.",
+        "options": {
+            "a": "O tabagismo é o principal fator de risco para mesotelioma, superando o asbesto.",
+            "b": "O tabagismo não tem relação causal com o mesotelioma; o risco é determinado quase exclusivamente pela exposição ao asbesto.",
+            "c": "O tabagismo e o asbesto agem de forma sinérgica (multiplicativa) no risco de mesotelioma, assim como no câncer de pulmão.",
+            "d": "Apenas o tabagismo passivo é fator de risco para mesotelioma.",
+            "e": "Fumar protege contra o mesotelioma devido à indução de muco protetor."
+        },
+        "answer": "b",
+        "rationale": "Diferentemente do câncer de pulmão (carcinoma), onde tabaco e asbesto multiplicam o risco, o mesotelioma pleural não tem associação direta com o fumo. O fator determinante é a inalação de fibras de amianto (asbesto) e, em menor escala, radiação ou erionita.",
+        "option_rationales": {
+            "a": "Incorreta. O fumo causa adenocarcinoma e epidermoide, não mesotelioma.",
+            "b": "Correta. Dado importante de epidemiologia para diferenciar das outras neoplasias torácicas.",
+            "c": "Incorreta. A sinergia ocorre apenas para o câncer de pulmão 'comum', não para o mesotelioma.",
+            "d": "Incorreta. Sem nexo causal estabelecido.",
+            "e": "Incorreta. Afirmativa estapafúrdia."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Epidemiologia",
+            "Mesotelioma",
+            "Tabagismo"
+        ]
+    },
+    {
+        "enunciado": "Em qual situação o gradiente de albumina (Soro - Pleura) é superior aos critérios de Light para o diagnóstico da causa do derrame?",
+        "options": {
+            "a": "Suspeita de Tuberculose Pleural.",
+            "b": "Suspeita de Empiema.",
+            "c": "Pacientes com Insuficiência Cardíaca que fizeram uso prévio de diuréticos.",
+            "d": "Pacientes com câncer de pulmão metastático.",
+            "e": "Qualquer derrame bilateral."
+        },
+        "answer": "c",
+        "rationale": "Os diuréticos removem água do espaço pleural mais rápido que as proteínas, 'concentrando' o transudato e transformando-o em um exsudato pelos critérios de Light. O gradiente de albumina (> 1,2 mg/dL) ignora essa concentração e identifica corretamente a origem cardíaca.",
+        "option_rationales": {
+            "a": "Incorreta. TB é exsudato verdadeiro; o gradiente será baixo.",
+            "b": "Incorreta. Empiema é exsudato verdadeiro.",
+            "c": "Correta. Indicação clássica para uso de gradiente.",
+            "d": "Incorreta. Câncer é exsudato verdadeiro.",
+            "e": "Incorreta. Nem todo derrame bilateral é cardíaco."
+        },
+        "difficulty": "facil",
+        "tags": [
+            "Pneumologia",
+            "Laboratório",
+            "ICC",
+            "Critérios de Light"
+        ]
+    },
+    {
+        "enunciado": "A biópsia pleural por videotoracoscopia (VATS) é considerada o padrão-ouro para o diagnóstico de derrames pleurais exsudativos de difícil diagnóstico. Qual a sensibilidade aproximada deste procedimento para a detecção de malignidade?",
+        "options": {
+            "a": "60-70%.",
+            "b": "80-85%.",
+            "c": "95-98%.",
+            "d": "Apenas 50%, pois só visualiza a pleura parietal.",
+            "e": "100%, sem possibilidade de erro."
+        },
+        "answer": "c",
+        "rationale": "A VATS permite a visualização direta de toda a cavidade pleural e a coleta de biópsias dirigidas das áreas mais suspeitas. Sua sensibilidade para malignidade é extremamente alta, aproximando-se de 100%.",
+        "option_rationales": {
+            "a": "Incorreta. Este é o valor da biópsia cega.",
+            "b": "Incorreta. Valor baixo para VATS.",
+            "c": "Correta. Eficácia diagnóstica superior na pleura.",
+            "d": "Incorreta. Visualiza parietal, visceral e diafragma.",
+            "e": "Incorreta. Embora rara, a falha pode ocorrer em casos de aderências totais que impeditam a visualização (espaço pleural sínfise)."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "VATS",
+            "Diagnóstico",
+            "Oncologia"
+        ]
+    },
+    {
+        "enunciado": "Um paciente tabagista pesado desenvolve derrame pleural hemorrágico unilateral. A citologia oncótica e duas biópsias de Abrams foram negativas para malignidade. O paciente apresenta também um nódulo na glândula adrenal direita evidenciado na TC. Qual a conduta diagnóstica mais lógica a seguir?",
+        "options": {
+            "a": "Realizar terceira biópsia de Abrams no mesmo hemitórax.",
+            "b": "Biópsia por agulha guiada por TC da glândula adrenal.",
+            "c": "Tratamento empírico para Tuberculose com esquema RIPE.",
+            "d": "Videotoracoscopia imediata e pleurodese.",
+            "e": "Pet-CT e acompanhamento radiológico em 6 meses."
+        },
+        "answer": "b",
+        "rationale": "Em casos de suspeita de câncer de pulmão metastático (derrame + nódulo adrenal), a biópsia da metástase presumida (adrenal) é frequentemente mais fácil e fornece tanto o diagnóstico histológico quanto o estadiamento (M1b) simultaneamente, evitando procedimentos torácicos mais invasivos se a adrenal for positiva.",
+        "option_rationales": {
+            "a": "Incorreta. O rendimento marginal seria baixo.",
+            "b": "Correta. Estratégia de 'atirar no alvo mais fácil' para diagnóstico e estadiamento.",
+            "c": "Incorreta. Sem evidências de TB e com forte suspeita de neoplasia.",
+            "d": "Incorreta. A biópsia da adrenal pode poupar o paciente de uma cirurgia torácica diagnóstica.",
+            "e": "Incorreta. O acompanhamento de 6 meses é perigoso em neoplasias agressivas."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Pneumologia",
+            "Oncologia",
+            "Estadiamento",
+            "Biópsia Adrenal"
+        ]
+    },
+    {
+        "enunciado": "A causa mais comum de quilotórax traumático (latrogênico) é a cirurgia torácica. Qual procedimento cirúrgico apresenta o maior risco histórico de lesão do ducto torácico?",
+        "options": {
+            "a": "Pneumonectomia devido a câncer.",
+            "b": "Esofagectomia.",
+            "c": "Revascularização do miocárdio.",
+            "d": "Drenagem de abscesso pulmonar.",
+            "e": "Timectomia por via esternal."
+        },
+        "answer": "b",
+        "rationale": "Devido à íntima proximidade anatômica entre o esôfago e o ducto torácico no mediastino posterior, as esofagectomias representam a principal causa cirúrgica de quilotórax iatrogênico.",
+        "option_rationales": {
+            "a": "Incorreta. Risco existe, mas menor que na esofagectomia.",
+            "b": "Correta. Causa clássica de lesão do ducto.",
+            "c": "Incorreta. O ducto é posterior e a CRM é anterior/medial.",
+            "d": "Incorreta. Procedimento geralmente periférico.",
+            "e": "Incorreta. Mediastino anterior não hospeda o ducto torácico em seu trajeto principal."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Cirurgia Torácica",
+            "Quilotórax iatrogênico"
+        ]
+    },
+    {
+        "enunciado": "O achado de células de um carcinoma espinocelular no líquido pleural, em comparação ao adenocarcinoma, é:",
+        "options": {
+            "a": "Muito mais comum.",
+            "b": "Inexistente, pois o CEC não causa derrame.",
+            "c": "Muito menos comum (raro), devido ao padrão de crescimento local/obstrutivo do CEC.",
+            "d": "Sempre indicativo de empiema associado.",
+            "e": "O critério diagnóstico para Mesotelioma."
+        },
+        "answer": "c",
+        "rationale": "O adenocarcinoma é periférico e invade a pleura precocemente, sendo a causa mais comum de derrame neoplásico citológico positivo. O carcinoma espinocelular (CEC) é central e causa mais atelectasias obstrutivas (transudatos por pressão negativa) do que invasão pleural direta (exsudatos), sendo raro encontrar células de CEC na citologia pleural.",
+        "option_rationales": {
+            "a": "Incorreta. O adenocarcinoma domina a citologia pleural.",
+            "b": "Incorreta. Pode causar, mas é infrequente.",
+            "c": "Correta. Diferença importante de comportamento biológico dos tumores de pulmão.",
+            "d": "Incorreta. Sem relação direta.",
+            "e": "Incorreta. Mesotelioma tem origem mesotelial, não escamosa/espinocelular."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Oncologia",
+            "Derrame Neoplásico",
+            "CEC"
+        ]
+    },
+    {
+        "enunciado": "Um paciente de 80 anos desenvolve derrame pleural volumoso bilateral e anasarca. A análise revela um transudato. O TSH, a função renal e a função hepática são normais. A dosagem de albumina sérica é de 1,8 g/dL (muito baixa). O paciente é desdentado e mora sozinho. Qual o provável diagnóstico nutricional associado ao derrame?",
+        "options": {
+            "a": "Kwashiorkor do idoso (Desnutrição proteica grave).",
+            "b": "Escorbuto por deficiência de vitamina C.",
+            "c": "Beribéri (Deficiência de Tiamina) com ICC de alto débito.",
+            "d": "Síndrome de Má Absorção por doença celíaca tardia.",
+            "e": "Síndrome Paraneoplásica consumptiva."
+        },
+        "answer": "a",
+        "rationale": "A hipoalbuminemia grave (< 2,0 g/dL) pode levar à formação de transudatos pleurais bilaterais por redução da pressão oncótica plasmática. Em idosos com baixa ingesta proteica (hipoproteinemia), este quadro de anasarca e derrame é uma manifestação de desnutrição proteica severa.",
+        "option_rationales": {
+            "a": "Correta. Causa de transudato por baixa pressão oncótica.",
+            "b": "Incorreta. Escorbuto causa sangramentos e alterações de pele, não derrame pleural por hipoproteinemia isolada.",
+            "c": "Incorreta. O Beribéri causa ICC, o que daria derrame, mas a albumina de 1,8 aponta para causa oncótica primária (nutricional).",
+            "d": "Incorreta. Menos provável no contexto social descrito.",
+            "e": "Incorreta. Neoplasias dariam mais comumente exsudatos e não necessariamente hipoalbuminemia tão isolada e grave sem outros sinais."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Nutrologia",
+            "Geriatria",
+            "Hipoalbuminemia"
+        ]
+    },
+    {
+        "enunciado": "Qual dos seguintes parâmetros no líquido pleural ajuda a diferenciar um hemotórax verdadeiro de uma toracentese traumática (acidente de punção)?",
+        "options": {
+            "a": "Presença de leucócitos > 10.000.",
+            "b": "Hematócrito pleural > 50% do hematócrito periférico.",
+            "c": "Ausência de plaquetas no líquido.",
+            "d": "Presença de eosinofilia > 10%.",
+            "e": "LDH pleural < 200 U/L."
+        },
+        "answer": "b",
+        "rationale": "Um hemotórax é definido por um hematócrito no líquido pleural de pelo menos 50% do hematócrito sanguíneo do paciente. Se o hematócrito pleural for baixo, trata-se apenas de um derrame sero-hemorrágico ou contaminação por sangue durante o procedimento.",
+        "option_rationales": {
+            "a": "Incorreta. Indica infecção.",
+            "b": "Correta. Critério diagnóstico clássico de hemotórax.",
+            "c": "Incorreta. As plaquetas tendem a se agregar e sumir da contagem automática no líquido pleural em ambos os casos.",
+            "d": "Incorreta. Sangue na pleura dá eosinofilia, mas não diferencia a origem aguda.",
+            "e": "Incorreta. Líquidos hemorrágicos têm LDH alto."
+        },
+        "difficulty": "facil",
+        "tags": [
+            "Pneumologia",
+            "Hemotórax",
+            "Diagnóstico"
+        ]
+    },
+    {
+        "enunciado": "A asbestose (fibrose intersticial pelo amianto) se associa ao mesotelioma de qual forma?",
+        "options": {
+            "a": "A asbestose é uma condição obrigatória para que o mesotelioma se desenvolva.",
+            "b": "O mesotelioma pode ocorrer na ausência de asbestose radiológica ou clínica, bastando a exposição prévia às fibras de asbesto.",
+            "c": "Apenas asbestose grave leva ao mesotelioma.",
+            "d": "As duas doenças nunca ocorrem no mesmo paciente.",
+            "e": "O tratamento da asbestose previne o mesotelioma."
+        },
+        "answer": "b",
+        "rationale": "O mesotelioma e a asbestose são doenças independentes causadas pelo mesmo agente. Um paciente pode ter mesotelioma sem ter fibrose pulmonar (asbestose) e vice-versa. O risco de mesotelioma está ligado à carga de exposição e ao tempo de latência.",
+        "option_rationales": {
+            "a": "Incorreta. São patologias distintas.",
+            "b": "Correta. Dado importante para estadiamento e vigilância ocupacional.",
+            "c": "Incorreta. Não há essa correlação linear direta.",
+            "d": "Incorreta. Podem coexistir frequentemente.",
+            "e": "Incorreta. Não existe tratamento curativo para asbestose que previna a transformação maligna pleural."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Oncologia",
+            "Asbesto",
+            "Asbestose"
+        ]
+    },
+    {
+        "enunciado": "Um paciente tabagista crônico apresenta derrame pleural volumoso. A toracentese revela líquido âmbar, límpido. Bioquímica: Glicose 95, Proteína 4,2 (Sérica 6,8), LDH 520 (Sérico 300). Citologia: Predomínio de linfócitos (92%), células mesoteliais raras, ausência de células malignas. ADA 25 U/L. Biópsia de Abrams: Inflamação crônica inespecífica. Próximo passo recomendado por diretrizes?",
+        "options": {
+            "a": "Tratamento empírico para Tuberculose.",
+            "b": "Videotoracoscopia (VATS) com biópsias dirigidas.",
+            "c": "Novo ciclo de antibióticos por 14 dias.",
+            "d": "Acompanhamento radiológico em 1 ano.",
+            "e": "Pesquisa de células LE no líquido pleural."
+        },
+        "answer": "b",
+        "rationale": "O paciente possui um exsudato linfocítico com ADA intermediário e biópsia cega negativa. Em um fumante idoso, a suspeita de câncer é alta e a biópsia de Abrams negativa não exclui a doença. O próximo passo é a biópsia dirigida por VATS.",
+        "option_rationales": {
+            "a": "Incorreta. O ADA é baixo (25) e o paciente é fumante, câncer é prioritário.",
+            "b": "Correta. Conduta padrão para exsudatos linfocíticos não resolvidos.",
+            "c": "Incorreta. Não há sinais de infecção bacteriana (glicose normal, líquido límpido).",
+            "d": "Incorreta. Tempo muito longo para risco de neoplasia.",
+            "e": "Incorreta. Lúpus não é o diagnóstico principal para este perfil clínico."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Fluxograma Diagnóstico",
+            "VATS",
+            "Oncologia"
+        ]
+    },
+    {
+        "enunciado": "Sobre o quilotórax, qual das seguintes manobras pode ajudar a visualizar a fístula do ducto torácico durante a cirurgia?",
+        "options": {
+            "a": "Ingestão pré-operatória de creme de leite ou azeite misturado com corante (ex: azul de metileno).",
+            "b": "Hiperventilação mecânica com PEEP alto.",
+            "c": "Injeção de contraste iodado endovenoso.",
+            "d": "Uso de corticoides 24h antes.",
+            "e": "Manobra de Valsalva mantida pelo anestesista."
+        },
+        "answer": "a",
+        "rationale": "Oferecer uma refeição rica em gorduras (creme de leite, sorvete) algumas horas antes da cirurgia aumenta a produção de linfa leitosa, facilitando a identificação do ponto de vazamento do ducto torácico no mediastino.",
+        "option_rationales": {
+            "a": "Correta. Técnica clássica de auxílio cirúrgico.",
+            "b": "Incorreta. Ajuda a ver fístulas aéreas, não linfáticas.",
+            "c": "Incorreta. O contraste circula no sangue, não no sistema linfático de forma imediata e visível.",
+            "d": "Incorreta. Não auxilia na visualização.",
+            "e": "Incorreta. Útil para ver escape aéreo."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Cirurgia Torácica",
+            "Quilotórax",
+            "Manejo Intraoperatório"
+        ]
+    },
+    {
+        "enunciado": "A 'Morte por empiema' em pacientes idosos com pneumonia é muitas vezes acelerada por qual fator relacionado ao manejo do líquido pleural?",
+        "options": {
+            "a": "Drenagem excessivamente rápida de transudatos.",
+            "b": "Atraso no reconhecimento e na drenagem de derrames parapneumônicos complicados.",
+            "c": "Uso de antibióticos de espectro muito amplo.",
+            "d": "Realização de fisioterapia motora precoce.",
+            "e": "Suplementação de oxigênio em altos fluxos."
+        },
+        "answer": "b",
+        "rationale": "O atraso em identificar que um derrame de pneumonia tornou-se complicado (empiema) é uma causa maior de morbimortalidade. A formação de carapaças, sepse persistente e encarceramento pulmonar ocorrem rapidamente se a drenagem não for instituída oportunamente.",
+        "option_rationales": {
+            "a": "Incorreta. Transudatos raramente causam morte se drenados rápido (risco apenas de edema de reexpansão).",
+            "b": "Correta. Tempo é pleura na infecção.",
+            "c": "Incorreta. O erro costuma ser o espectro insuficiente.",
+            "d": "Incorreta. Fisioterapia é benéfica.",
+            "e": "Incorreta. Não é o fator de aceleração da morte por infecção pleural."
+        },
+        "difficulty": "facil",
+        "tags": [
+            "Pneumologia",
+            "Empiema",
+            "Mortalidade",
+            "Erros Médicos"
+        ]
+    },
+    {
+        "enunciado": "Qual a relação correta entre o lado do derrame e a patologia causal para as seguintes condições?",
+        "options": {
+            "a": "Derrame por Pancreatite: Frequentemente à Direita.",
+            "b": "Derrame por Artrite Reumatoide: Frequentemente Bilateral.",
+            "c": "Derrame por ICC: Frequentemente Unilateral Esquerdo.",
+            "d": "Derrame por Ruptura de Ducto Torácico (abaixo de T5): Frequentemente à Direita.",
+            "e": "Derrame por Tuberculose: Sempre Bilateral."
+        },
+        "answer": "d",
+        "rationale": "O ducto torácico cruza da direita para a esquerda ao nível de T4-T5. Lesões abaixo deste nível resultam em quilotórax à direita. Acima de T5, resultam em quilotórax à esquerda. A pancreatite costuma dar derrame à esquerda. ICC costuma ser bilateral ou à direita.",
+        "option_rationales": {
+            "a": "Incorreta. Pancreatite é predominantemente à esquerda.",
+            "b": "Incorreta. Mais comumente unilateral (75-80% dos casos de AR são unilaterais).",
+            "c": "Incorreta. ICC é bilateral ou direita (pela maior drenagem linfática à direita).",
+            "d": "Correta. Anatomia clássica do ducto torácico.",
+            "e": "Incorreta. TB é classicamente unilateral."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Pneumologia",
+            "Anatomia",
+            "Topografia dos Derrames"
+        ]
+    }
+]

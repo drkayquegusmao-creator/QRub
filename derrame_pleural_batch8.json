@@ -1,0 +1,521 @@
+[
+    {
+        "enunciado": "Um paciente de 38 anos apresenta febre alta diária em picos, odinofagia, artralgias e rash cutâneo fugaz (cor salmão) no tronco durante os episódios febris. Ao exame físico, observa-se esplenomegalia. Laboratório mostra leucocitose importante (neutrofilia) e ferritina sérica de 8.000 ng/mL. A radiografia de tórax revela pequeno derrame pleural bilateral (exsudato neutrofílico). Qual o diagnóstico mais provável?",
+        "options": {
+            "a": "Linfoma de Hodgkin.",
+            "b": "Lúpus Eritematoso Sistêmico.",
+            "c": "Doença de Still do Adulto.",
+            "d": "Tuberculose Miliar.",
+            "e": "Febre Reumática."
+        },
+        "answer": "c",
+        "rationale": "A Doença de Still do Adulto é uma síndrome autoinflamatória caracterizada pela tríade: febre alta, artrite/artralgia e rash salmão evanescente. A ferritina muito elevada e a leucocitose neutrofílica são marcos laboratoriais. O envolvimento de serosites (pleurite e pericardite) ocorre em cerca de 30-40% dos casos.",
+        "option_rationales": {
+            "a": "Incorreta. O rash e a ferritina astronômica favorecem Still.",
+            "b": "Incorreta. Lúpus costuma ter leucopenia e outros anticorpos positivos; o rash é malar e fixo.",
+            "c": "Correta. Descrição clássica da doença e seus achados pleurais.",
+            "d": "Incorreta. Embora cause febre e serosite, não explica o rash fugaz e a ferritina tão alta.",
+            "e": "Incorreta. Quadro clínico e perfil laboratorial distintos."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Pneumologia",
+            "Reumatologia",
+            "Doença de Still",
+            "Ferritina"
+        ]
+    },
+    {
+        "enunciado": "No diagnóstico diferencial de nódulos pleurais, a Tomografia por Emissão de Pósitrons (PET-CT) com FDG-18 pode apresentar resultados FALSO-POSITIVOS (captação aumentada sem câncer) em qual das seguintes situações prévias?",
+        "options": {
+            "a": "Toracocentese diagnóstica realizada há 1 ano.",
+            "b": "Histórico de pleurodese com talco (Talc Poudrage ou Slurry) realizada anteriormente.",
+            "c": "Derrame pleural transudativo por ICC.",
+            "d": "Uso de corticoides inalatórios.",
+            "e": "Vacinação contra influenza."
+        },
+        "answer": "b",
+        "rationale": "O talco induz uma reação inflamatória granulomatosa crônica na pleura que é metabolicamente ativa e pode captar FDG intensamente no PET-CT por muitos anos. Isso dificulta a detecção de recidivas tumorais ou novos nódulos malignos na pleura 'talcada'.",
+        "option_rationales": {
+            "a": "Incorreta. Cicatriz mínima sem atividade metabólica persistente.",
+            "b": "Correta. Causa clássica de falso-positivo em PET torácico.",
+            "c": "Incorreta. Transudatos não captam FDG.",
+            "d": "Incorreta. Corticoides podem até reduzir a captação inflamatória.",
+            "e": "Incorreta. Sem relação com a pleura."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Medicina Nuclear",
+            "PET-CT",
+            "Pleurodese"
+        ]
+    },
+    {
+        "enunciado": "Um paciente tabagista pesado apresenta derrame pleural volumoso recorrente. A citologia oncótica é positiva para carcinoma, mas o tipo celular é 'indiferenciado'. O painel de imuno-histoquímica no cell block mostra: CK7 (+), CK20 (-), TTF-1 (+), Napsina A (+). Qual o sítio primário mais provável?",
+        "options": {
+            "a": "Cólon.",
+            "b": "Mama.",
+            "c": "Pulmão (Adenocarcinoma).",
+            "d": "Estômago.",
+            "e": "Rim (Carcinoma de células claras)."
+        },
+        "answer": "c",
+        "rationale": "O perfil CK7+ / CK20- associado à positividade de TTF-1 (Thyroid Transcription Factor-1) e Napsina A é altamente específico para o adenocarcinoma primário do pulmão. O TTF-1 positivo também pode ocorrer em tumores de tireoide, mas a Napsina A e o quadro clínico confirmam a origem pulmonar.",
+        "option_rationales": {
+            "a": "Incorreta. Cólon costuma ser CK20+ / CK7- / CDX2+.",
+            "b": "Incorreta. Mama costuma ser GATA3+ / Mamaglobina+.",
+            "c": "Correta. Algoritmo diagnóstico clássico da patologia pulmonar.",
+            "d": "Incorreta. Estômago costuma ser CK7/CK20 variável.",
+            "e": "Incorreta. Rim costuma ser PAX-8+ / RCC+."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Patologia",
+            "Imuno-histoquímica",
+            "Adenocarcinoma"
+        ]
+    },
+    {
+        "enunciado": "Após uma cirurgia de Pneumonectomia Direta (retirada total do pulmão), o espaço vazio no hemitórax é preenchido gradualmente por líquido e ocorre o desvio do mediastino. Qual fenômeno é esperado no 'espaço pós-pneumonectomia' em um paciente com evolução normal no primeiro mês?",
+        "options": {
+            "a": "O espaço deve ser preenchido por ar e permanecer vazio para sempre.",
+            "b": "Ocorre preenchimento por líquido (derramesinoso) e desvio do mediastino para o lado da cirurgia (ipsilateral).",
+            "c": "O mediastino deve ser empurrado para o lado oposto (contralateral) pelo líquido.",
+            "d": "Indica-se a colocação de um dreno de tórax em selo d'água permanente.",
+            "e": "O pulmão contralateral deve herniar para o lado operado imediatamente."
+        },
+        "answer": "b",
+        "rationale": "No pós-operatório estável de pneumonectomia, o hemitórax operado é preenchido por fluido sero-hemorrágico (derramamento pós-pneumonectomia) e o mediastino desvia-se para o lado operado (ipsilateral) à medida que o líquido é organizado e ocorre a redução volumétrica da cavidade. Se o mediastino desviar para o lado oposto, deve-se suspeitar de empiema ou hemorragia maciça.",
+        "option_rationales": {
+            "a": "Incorreta. O ar seria sinal de fístula ou erro de técnica.",
+            "b": "Correta. Evolução radiológica e fisiológica esperada.",
+            "c": "Incorreta. Indica tensão no espaço pleural (complicação).",
+            "d": "Incorreta. A drenagem na pneumonectomia é feita com cautela ou nem é feita para evitar desvios súbitos do mediastino.",
+            "e": "Incorreta. A hérnia pulmonar contralateral leva tempo para ocorrer (meses/anos)."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Pneumologia",
+            "Cirurgia Torácica",
+            "Pneumonectomia",
+            "Fisiologia"
+        ]
+    },
+    {
+        "enunciado": "A 'Pleurite Reumatoide' é uma causa de exsudato crônico. Qual parâmetro laboratorial no líquido pleural da artrite reumatoide costuma apresentar valores extremamente ELEVADOS, muitas vezes superando os níveis séricos?",
+        "options": {
+            "a": "Glicose.",
+            "b": "Ph (alcalino).",
+            "c": "Fator Reumatoide (FR).",
+            "d": "Células mesoteliais (> 20%).",
+            "e": "Triglicerídeos."
+        },
+        "answer": "c",
+        "rationale": "No derrame pleural da artrite reumatoide, os títulos de Fator Reumatoide no líquido são tipicamente maiores ou iguais aos títulos séricos (geralmente > 1:320). Além disso, a glicose é muito baixa e o LDH muito alto.",
+        "option_rationales": {
+            "a": "Incorreta. Glicose é mínima por bloqueio de transporte.",
+            "b": "Incorreta. Ph é ácido devido à intensa inflamação e glicólise.",
+            "c": "Correta. Característica imunológica do derrame reumatoide.",
+            "d": "Incorreta. As mesoteliais costumam ser raras por espessamento pleural.",
+            "e": "Incorreta. Sem relação direta, a menos que haja pseudoquilotórax associado."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Reumatologia",
+            "Artrite Reumatoide",
+            "FR"
+        ]
+    },
+    {
+        "enunciado": "No diagnóstico do Mieloma Múltiplo com acometimento pleural (Derrame Pleural por Mieloma), qual é a característica definitiva do líquido pleural?",
+        "options": {
+            "a": "Presença de granulomas caseosos.",
+            "b": "Citologia oncótica demonstrando plasmócitos neoplásicos (> 50% das células nucleadas) e presença de componente monoclonal (pico gama) na eletroforese de proteínas do líquido.",
+            "c": "Transudato rico em albumina.",
+            "d": "Amilase pleural elevada.",
+            "e": "Odor fétido e pH alto."
+        },
+        "answer": "b",
+        "rationale": "O envolvimento pleural direto pelo mieloma é raro (< 1% dos casos). O diagnóstico é feito pela visualização de plasmócitos atípicos no líquido e pela demonstração da proteína monoclonal (paraproteína) no próprio derrame, confirmando a infiltração plasmocitária maligna da pleura.",
+        "option_rationales": {
+            "a": "Incorreta. Indica TB.",
+            "b": "Correta. Critérios diagnósticos hematológicos aplicados à pleura.",
+            "c": "Incorreta. Mieloma infiltrativo causa exsudato.",
+            "d": "Incorreta. Não associada.",
+            "e": "Incorreta. Indica empiema por anaeróbios."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Pneumologia",
+            "Hematologia",
+            "Mieloma Múltiplo",
+            "Plasmócitos"
+        ]
+    },
+    {
+        "enunciado": "Paciente idoso, hígido até o momento, apresenta quadro de dor torácica súbita e derrame pleural hemorrágico à direita. A tomografia revela ruptura de um pequeno ramo de artéria intercostal sem história de trauma evidente. Este fenômeno é conhecido como:",
+        "options": {
+            "a": "Hemotórax espontâneo por esforço (咳嗽).",
+            "b": "Hemotórax Idiopático.",
+            "c": "Hemotórax por Fragilidade Capilar Senil.",
+            "d": "Aneurisma de artéria intercostal roto espontaneamente.",
+            "e": "Dissecção aórtica tipo B.",
+        },
+        "answer": "d",
+        "rationale": "Aneurismas verdadeiros ou pseudoaneurismas das artérias intercostais podem romper espontaneamente (ou após tosse vigorosa), causando hemotórax maciço sem trauma. O diagnóstico é angiográfico e o tratamento pode ser por embolização transcateter ou cirurgia.",
+        "option_rationales": {
+            "a": "Incorreta. Termo não padronizado para esta etiologia específica.",
+            "b": "Incorreta. Sempre deve-se buscar a causa vascular oculta.",
+            "c": "Incorreta. Termo técnico inexistente nesta patologia.",
+            "d": "Correta. Causa importante de hemotórax não traumático em idosos.",
+            "e": "Incorreta. Dissecção de aorta causa outros achados na TC, embora também possa dar hemotórax (geralmente à esquerda)."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Cirurgia Vascular",
+            "Hemotórax Espontâneo"
+        ]
+    },
+    {
+        "enunciado": "A medição do pH do líquido pleural em pacientes com Derrame Pleural Maligno apresenta qual valor prognóstico?",
+        "options": {
+            "a": "Nenhum valor.",
+            "b": "pH < 7,30 está associado a uma menor sobrevida e menor chance de sucesso na pleurodese química.",
+            "c": "pH alcalino (> 7,6) indica cura iminente.",
+            "d": "pH baixo indica que o paciente deve receber antibióticos.",
+            "e": "Indica o tipo histológico do câncer (ex: epidermoide vs adenocarcinoma)."
+        },
+        "answer": "b",
+        "rationale": "No derrame maligno, o pH ácido reflete uma alta carga metabólica tumoral, pleura mais infiltrada e espessada. Isso correlaciona-se com menor tempo de sobrevida global desses pacientes e com taxas de falha de pleurodese de até 50-70%.",
+        "option_rationales": {
+            "a": "Incorreta. Tem alto valor prognóstico validado.",
+            "b": "Correta. pH baixo = Doença mais agressiva/avançada na pleura.",
+            "c": "Incorreta. pH alcalino é raro e sem este significado.",
+            "d": "Incorreta. Ph baixo no câncer não indica infecção, mas sim atividade tumoral/inflamatória.",
+            "e": "Incorreta. Ph baixo ocorre em qualquer subtipo histológico avançado."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Oncologia",
+            "Prognóstico",
+            "pH Pleural"
+        ]
+    },
+    {
+        "enunciado": "Um paciente submetido à colocação de cateter venoso central na veia subclávia esquerda desenvolve derrame pleural esquerdo volumoso logo após o início da infusão de dieta parenteral (NPT). O líquido pleural coletado tem aspecto leitoso e os valores de glicose e lipídios são idênticos à solução de NPT infundida. Qual a complicação?",
+        "options": {
+            "a": "Quilotórax por lesão do ducto torácico.",
+            "b": "Infusão intrapleural inadvertida devido à migração ou mau posicionamento do cateter venoso central (Quilotórax iatrogênico fictício).",
+            "c": "Empiema por contaminação da dieta.",
+            "d": "Pseudoquilotórax agudo.",
+            "e": "Derrame de colesterol iatrogênico."
+        },
+        "answer": "b",
+        "rationale": "Este é um quadro clássico de complicação de acesso venoso central. O cateter perfura a veia e a pleura, e a infusão de lípidos (contidos na NPT) simula macroscopicamente um quilotórax. A análise química igual à do frasco de infusão confirma o acidente de punção/posicionamento.",
+        "option_rationales": {
+            "a": "Incorreta. O ducto torácico desemboca na junção subclávia/jugular esquerda; sua lesão daria quilo real, mas o quadro imediato pós-infusão com química idêntica aponta para o cateter no espaço pleural.",
+            "b": "Correta. Acidente evitável com RX de controle pós-punção.",
+            "c": "Incorreta. Quadro súbito logo após o início da infusão não é tempo para empiema.",
+            "d": "Incorreta. Pseudoquilotórax leva meses para se formar.",
+            "e": "Incorreta. Termo não aplicável."
+        },
+        "difficulty": "facil",
+        "tags": [
+            "Pneumologia",
+            "Terapia Intensiva",
+            "Iatrogenia",
+            "NPT"
+        ]
+    },
+    {
+        "enunciado": "Em relação à ventilação mecânica com pressão positiva (PEEP), qual o efeito esperado na detecção do líquido pleural por radiografia de tórax?",
+        "options": {
+            "a": "Aumenta a facilidade de ver pequenas quantidades de líquido.",
+            "b": "O PEEP alto pode 'esconder' o derrame pleural mascarando a opacidade pelo aumento da aeração do parênquima ou por redistribuição compressiva do líquido.",
+            "c": "Dificulta a realização de ultrassom.",
+            "d": "Causa desaparecimento total do líquido por evaporação interna.",
+            "e": "Sempre causa pneumotórax hipertensivo em derrames pequenos."
+        },
+        "answer": "b",
+        "rationale": "A pressão positiva reexpande áreas de atelectasia e empurra o líquido pleural para posições mais inferiores ou laterais, o que pode reduzir o 'velamento' clássico na radiografia e fazer com que o volume do derrame pareça menor do que realmente é.",
+        "option_rationales": {
+            "a": "Incorreta. Pelo contrário, tende a mascarar.",
+            "b": "Correta. Desafio radiológico no paciente crítico em UTI.",
+            "c": "Incorreta. O ultrassom continua sendo muito sensível independentemente do PEEP.",
+            "d": "Incorreta. Explicação absurda.",
+            "e": "Incorreta. Risco de barotrauma existe, mas não é regra absoluta."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Terapia Intensiva",
+            "Radiologia",
+            "UTI"
+        ]
+    },
+    {
+        "enunciado": "A ocorrência de derrame pleural neutrofílico (PMN > 50%) em um paciente com dor abdominal aguda, febre e sinal de Murphy positivo aponta para qual diagnóstico?",
+        "options": {
+            "a": "Abcesso Subfrênico.",
+            "b": "Infarto Pulmonar.",
+            "c": "Pleurite por TB.",
+            "d": "Amiodarona.",
+            "e": "Toxoplasmose."
+        },
+        "answer": "a",
+        "rationale": "Qualquer processo inflamatório infradiafragmático (colecistite, abscesso hepático ou subfrênico) pode causar um 'derrame simpático' por translocação de mediadores inflamatórios através dos linfáticos diafragmáticos. O líquido é exsudativo e predominantemente neutrofílico.",
+        "option_rationales": {
+            "a": "Correta. Associação clássica da pleura com o abdome agudo infeccioso.",
+            "b": "Incorreta. Não explicaria o Murphy positivo.",
+            "c": "Incorreta. TB é linfocítica.",
+            "d": "Incorreta. Amiodarona causa derrame eosinofílico/linfocítico crônico.",
+            "e": "Incorreta. Manifestação pleural da toxo é rara e não tem Murphy."
+        },
+        "difficulty": "facil",
+        "tags": [
+            "Pneumologia",
+            "Cirurgia",
+            "Abdome Agudo",
+            "Derrame Simpático"
+        ]
+    },
+    {
+        "enunciado": "Qual a principal limitação da citometria de fluxo no líquido pleural para o diagnóstico de Linfoma?",
+        "options": {
+            "a": "Poucas células no líquido.",
+            "b": "As células malignas do linfoma podem sofrer lise rápida se o transporte do líquido para o laboratório não for imediato e em frasco adequado.",
+            "c": "Não consegue detectar linfócitos B.",
+            "d": "É muito cara.",
+            "e": "Só funciona no sangue periférico."
+        },
+        "answer": "b",
+        "rationale": "Linfócitos neoplásicos são frágeis. O transporte inadequado ou a demora na análise podem destruir as células, levando a resultados falso-negativos na citometria de fluxo. O ideal é o processamento imediato ou uso de meio de conservação.",
+        "option_rationales": {
+            "a": "Incorreta. Linfomas pleurais costumam ser muito celulares.",
+            "b": "Correta. Limitação técnica e pré-analítica crítica.",
+            "c": "Incorreta. Detecta perfeitamente através de marcadores de superfície (CD19, CD20, etc).",
+            "d": "Incorreta. Embora cara, a limitação biológica/técnica citada é mais relevante no diagnóstico falho.",
+            "e": "Incorreta. Funciona muito bem em serosas (líquidos cavitários)."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Hematologia",
+            "Linfoma",
+            "Citometria"
+        ]
+    },
+    {
+        "enunciado": "Sobre o manejo da Pleurite Tuberculosa, qual o papel do uso adjuvante de Corticosteroides sistêmicos?",
+        "options": {
+            "a": "Reduzem o tempo de cura bacteriológica.",
+            "b": "Reduzem a febre e a dor mais rapidamente, mas não há evidência robusta de que previnam o espessamento pleural residual significativo a longo prazo.",
+            "c": "São obrigatórios para todos os pacientes visando esterilização da pleura.",
+            "d": "Substituem a rifampicina nos primeiros 2 meses.",
+            "e": "Causam cegueira se usados com etambutol."
+        },
+        "answer": "b",
+        "rationale": "O uso de corticoide (Prednisona) pode ser feito para alívio rápido de sintomas (febre, dor) em pacientes muito sintomáticos. No entanto, meta-análises mostram que não há benefício claro na prevenção de fibrose pleural sequelar ou melhora da função pulmonar final em comparação ao esquema RIPE isolado.",
+        "option_rationales": {
+            "a": "Incorreta. Corticoides podem até retardar o clearance se não usados com TB sensível.",
+            "b": "Correta. Consenso atual baseado em evidências de ensaios clínicos.",
+            "c": "Incorreta. Não são obrigatórios.",
+            "d": "Incorreta. Não substituem o esquema bactericida/esterilizante.",
+            "e": "Incorreta. Etambutol causa neurite óptica isoladamente; corticoide não agrava essa toxicidade específica desta forma."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Tuberculose",
+            "Terapêutica",
+            "Corticoides"
+        ]
+    },
+    {
+        "enunciado": "O 'Derrame Pleural Benigno do Asbesto' (BAPE) é frequentemente asssintomático. No entanto, quando acompanhado de dor torácica persistente e evolução para espessamento pleural fibrótico difuso, pode mimetizar:",
+        "options": {
+            "a": "Tuberculose Pleural.",
+            "b": "Mesotelioma Maligno.",
+            "c": "Pneumonia bacteriana.",
+            "d": "Embolia pulmonar recorrente.",
+            "e": "Sarcoidose estágio IV."
+        },
+        "answer": "b",
+        "rationale": "A grande dificuldade diagnóstica do BAPE crônico e fibrótico é diferenciá-lo do mesotelioma em fase inicial. Ambas ocorrem em pacientes expostos ao asbesto e podem causar dor crônica. Muitas vezes apenas a videotoracoscopia com múltiplas biópsias profundas consegue selar o diagnóstico.",
+        "option_rationales": {
+            "a": "Incorreta. TB regride com tratamento; o BAPE fibrosa ou cicatriza sozinho.",
+            "b": "Correta. Principal desafio diagnóstico diferencial na medicina ocupacional torácica.",
+            "c": "Incorreta. Quadro agudo com febre.",
+            "d": "Incorreta. TEP não causa espessamento pleural fibrótico difuso.",
+            "e": "Incorreta. Sarcoidose IV é predominantemente fibrose parenquimatosa."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Oncologia",
+            "Derrame do Asbesto",
+            "Mesotelioma"
+        ]
+    },
+    {
+        "enunciado": "A medição do Intervalo entre os batimentos no eletrocardiograma (Intervalo QT) pode sofrer interferência em qual tipo de derrame cavitário?",
+        "options": {
+            "a": "Apenas derrame pleural esquerdo.",
+            "b": "Derrame Pleural Bilateral volumoso.",
+            "c": "Derrame Pericárdico (mimetiza baixa voltagem, mas não altera o QT intrinsicamente, exceto por distúrbios de repolarização associados).",
+            "d": "Não há interferência do derrame pleural no ECG.",
+            "e": "Apenas urinotórax."
+        },
+        "answer": "c",
+        "rationale": "Embora o derrame pleural possa causar baixa voltagem nos complexos QRS, as alterações de tempo (QT) são raras e indiretas (ex: hipocalcemia no quilotórax ou hipocalemia). A questão foca na confusão clássica com a pericardite associada ( Dressler) que altera o segmento ST e a onda T.",
+        "option_rationales": {
+            "a": "Incorreta.",
+            "b": "Incorreta.",
+            "c": "Correta. Derrame pleural volumoso reduz a voltagem, mas o QT é alterado por serosites ou eletrólitos.",
+            "d": "Incorreta. Existe interferência na voltagem.",
+            "e": "Incorreta."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Pneumologia",
+            "ECG",
+            "Derrame Pleural",
+            "Interferências"
+        ]
+    },
+    {
+        "enunciado": "O Mesotelioma Peritoneal Maligno se manifesta por ascite e dor abdominal. Qual a relação dele com a exposição ao asbesto em comparação ao Mesotelioma Pleural?",
+        "options": {
+            "a": "O peritoneal exige cargas de exposição ao asbesto muito maiores que o pleural.",
+            "b": "O peritoneal não tem relação com o asbesto.",
+            "c": "O peritoneal ocorre mais em mulheres que nunca viram amianto.",
+            "d": "São doenças idênticas em todos os aspectos epidemiológicos.",
+            "e": "O peritoneal é curado com antibióticos."
+        },
+        "answer": "a",
+        "rationale": "Ambos são causados pelo asbesto, mas o mesotelioma peritoneal (que representa cerca de 10-15% dos mesoteliomas) geralmente está associado a exposições ocupacionais pesadas e prolongadas, enquanto o pleural pode ocorrer com exposições menores.",
+        "option_rationales": {
+            "a": "Correta. Diferença de 'threshold' de exposição entre as duas serosas.",
+            "b": "Incorreta. Amianto é a causa principal de ambos.",
+            "c": "Incorreta. Predomina em homens expostos ocupacionalmente.",
+            "d": "Incorreta. Locais diferentes, prognóstico e algoritmos de tratamento cirúrgico (ex: HIPEC no peritoneal) diferentes.",
+            "e": "Incorreta. É uma neoplasia maligna agressiva."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Oncologia",
+            "Mesotelioma Peritoneal",
+            "Asbesto"
+        ]
+    },
+    {
+        "enunciado": "No paciente com cirrose e derrame pleural bilateral, a ocorrência de febre e dor torácica deve levantar a suspeita de Pleurite Bacteriana Espontânea (SBPE). Qual o micro-organismo MAIS FREQUENTEMENTE isolado nesta condição?",
+        "options": {
+            "a": "Staphylococcus aureus.",
+            "b": "Escherichia coli.",
+            "c": "Mycobacterium avium.",
+            "d": "Pseudomonas aeruginosa.",
+            "e": "Legionella pneumophila."
+        },
+        "answer": "b",
+        "rationale": "Assim como na Peritonite Bacteriana Espontânea (PBE), a SBPE é causada majoritariamente por enterobactérias gram-negativas (E. coli, Klebsiella), resultantes da translocação bacteriana intestinal.",
+        "option_rationales": {
+            "a": "Incorreta. Mais comum em infecções de pele ou pós-procedimentos.",
+            "b": "Correta. Agente clássico da translocação no cirrótico.",
+            "c": "Incorreta. Germe oportunista raro.",
+            "d": "Incorreta. Germe hospitalar, menos comum na SBPE comunitária pura.",
+            "e": "Incorreta. Causa de pneumonia comunitária grave, não de SBPE."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Gastroenterologia",
+            "Cirrose",
+            "Infectologia"
+        ]
+    },
+    {
+        "enunciado": "A 'Pleurite Eosinofílica' (Eosinófilos > 10%) torna qual diagnóstico EXTREMAMENTE IMPROVÁVEL?",
+        "options": {
+            "a": "Câncer de pulmão.",
+            "b": "Tuberculose Pleural e TEP.",
+            "c": "Tuberculose Pleural (apenas).",
+            "d": "Linfoma.",
+            "e": "Reação a drogas."
+        },
+        "answer": "c",
+        "rationale": "Embora existam exceções raras, encontrar eosinofilia importante no líquido pleural fala fortemente contra o diagnóstico de Tuberculose Pleural. Essa 'regra prática' ajuda a priorizar outros exsudatos linfocíticos na ausência de eosinofilia.",
+        "option_rationales": {
+            "a": "Incorreta. Câncer pode dar eosinófilos.",
+            "b": "Incorreta. TEP frequentemente cursa com eosinofilia pleural.",
+            "c": "Correta. Regra propedêutica clássica de exclusão (ou baixíssima probabilidade) de TB.",
+            "d": "Incorreta. Alguns linfomas (T) podem dar eosinófilos.",
+            "e": "Incorreta. Drogas são causas comuns de eosinofilia."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Laboratório",
+            "Derrame Eosinofílico",
+            "Exclusão TB"
+        ]
+    },
+    {
+        "enunciado": "Qual a causa de derrame pleural volumoso à esquerda que apresenta níveis de lipase pleural superiores aos níveis séricos?",
+        "options": {
+            "a": "Pancreatite.",
+            "b": "Ruptura de Baço.",
+            "c": "Perfuração de Duodeno.",
+            "d": "Câncer de Cólon.",
+            "e": "Hérnia Diafragmática de Bochdalek infectada."
+        },
+        "answer": "a",
+        "rationale": "A amilase e a lipase pleurais elevadas são marcadores de patologia pancreática (pancreatite aguda ou pseudocisto). A enzima vaza para o espaço pleural pela via linfática transdiafragmática ou por fístulas.",
+        "option_rationales": {
+            "a": "Correta. Marcador bioquímico específico.",
+            "b": "Incorreta. Baço não produz lipase digestiva.",
+            "c": "Incorreta. Duodeno recebe lipase, mas sua ruptura dificilmente daria um derrame pleural isolado com este perfil sem um quadro abdominal catastrófico e amilase salivar.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "facil",
+        "tags": [
+            "Pneumologia",
+            "Bioquímica",
+            "Pancreatite",
+            "Lipase"
+        ]
+    },
+    {
+        "enunciate": "Em relação aos tumores pleurais, o Mesotelioma benigno (atualmente chamado de Tumor Fibroso Solitário da Pleura - TFSP) apresenta qual característica imunológica que o distingue de outros tumores mesenquimais?",
+        "options": {
+            "a": "Positividade para o marcador STAT6.",
+            "b": "Hipersensibilidade ao talco.",
+            "c": "Expressão de Receptor de Estrogênio em todos os casos.",
+            "d": "Sempre CD20 positivo.",
+            "e": "Ausência de colágeno na biópsia."
+        },
+        "answer": "a",
+        "rationale": "A mutação de fusão NAB2-STAT6 é o evento genético driver do Tumor Fibroso Solitário. A positividade nuclear para STAT6 na imuno-histoquímica é o exame padrão-ouro para confirmar o diagnóstico deste tumor fibroblástico.",
+        "option_rationales": {
+            "a": "Correta. Marcador diagnóstico específico de biologia molecular.",
+            "b": "Incorreta.",
+            "c": "Incorreta.",
+            "d": "Incorreta. CD20 é linfócito B.",
+            "e": "Incorreta. São tumores ricos em colágeno (fibrosos)."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Pneumologia",
+            "Oncologia",
+            "TFSP",
+            "STAT6"
+        ]
+    }
+]

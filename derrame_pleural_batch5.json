@@ -1,0 +1,522 @@
+[
+    {
+        "enunciado": "Um paciente de 35 anos, com histórico de trauma esplênico grave (esplenectomia traumática) há 10 anos, apresenta-se agora com múltiplos pequenos nódulos pleurais incidentais em uma tomografia de tórax de rotina. Os nódulos são periféricos, bem delimitados e captam contraste. O paciente é assintomático. Qual a principal hipótese diagnóstica que evitaria uma biópsia desnecessária?",
+        "options": {
+            "a": "Mesotelioma maligno multicêntrico.",
+            "b": "Metástases de tumor primário desconhecido.",
+            "c": "Esplenose Torácica.",
+            "d": "Sarcoidose nodular pleural.",
+            "e": "Empiema crônico calcificado."
+        },
+        "answer": "c",
+        "rationale": "A esplenose torácica ocorre quando fragmentos de tecido esplênico são 'semeados' na pleura após um trauma tóraco-abdominal com ruptura diafragmática e esplênica simultâneas. O tecido cresce e se vasculariza como múltiplos nódulos pleurais funcionantes. O diagnóstico pode ser confirmado por cintilografia com hemácias marcadas com tecnécio-99m (Tc-99m) ou mapeamento esplênico.",
+        "option_rationales": {
+            "a": "Incorreta. O asbesto e o tempo de latência não batem com o quadro.",
+            "b": "Incorreta. No jovem assintomático com história de trauma prévio, a esplenose é mais provável.",
+            "c": "Correta. Diagnóstico diferencial importante para nódulos pleurais pós-trauma.",
+            "d": "Incorreta. Sarcoidose costuma ter linfonodomegalia hilar associada.",
+            "e": "Incorreta. Nódulos de esplenose não são necessariamente calcificados."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Pneumologia",
+            "Cirurgia de Trauma",
+            "Esplenose Torácica",
+            "Nódulo Pleural"
+        ]
+    },
+    {
+        "enunciado": "No diagnóstico diferencial de derrames pleurais exsudativos, a medição do pH pleural é mandatória. Qual o cuidado técnico ESSENCIAL para garantir a validade do resultado na gasometria do líquido pleural?",
+        "options": {
+            "a": "Coletar o líquido em frasco de cultura aeróbia.",
+            "b": "Garantir a ausência total de contato do líquido com o ar ambiente e coletar em seringa heparinizada de gasometria.",
+            "c": "Adicionar soro fisiológico para diluir o excesso de proteínas.",
+            "d": "Armazenar a amostra em temperatura ambiente por até 24 horas antes da análise.",
+            "e": "Usar apenas tiras reagentes de urina (dipstick) para leitura imediata."
+        },
+        "answer": "b",
+        "rationale": "O pH do líquido pleural deve ser medido em um gasômetro, utilizando seringas heparinizadas (preferencialmente de vidro ou plástico hermético). O contato com o ar ambiente leva à perda de CO2, o que eleva artificialmente o pH, falseando o diagnóstico de empiema ou complicação.",
+        "option_rationales": {
+            "a": "Incorreta. O frasco de cultura não mantém a vedação gasosa necessária para o pH.",
+            "b": "Correta. Protocolo padrão para análise de pH pleural.",
+            "c": "Incorreta. A diluição altera o pH e a bioquímica.",
+            "d": "Incorreta. A análise deve ser imediata ou a amostra deve ser mantida em gelo seco por curto período.",
+            "e": "Incorreta. Tiras de urina são imprecisas para medir pH pleural e perdem a validade diagnóstica mínima necessária."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Procedimentos",
+            "pH Pleural",
+            "Laboratório"
+        ]
+    },
+    {
+        "enunciado": "Um paciente desenvolve derrame pleural volumoso. A toracentese revela líquido purulento com forte odor fétido. No Gram, observam-se múltiplas formas bacterianas (cocos e bastonetes), mas as culturas aeróbias tradicionais são negativas após 48h. Qual a provável etiologia?",
+        "options": {
+            "a": "Tuberculose Pleural mucoide.",
+            "b": "Infecção por micro-organismos anaeróbios.",
+            "c": "Nocardose pleural.",
+            "d": "Líquido estéril pós-antibioticoterapia errática.",
+            "e": "Hifas fúngicas mimetizando bactérias."
+        },
+        "answer": "b",
+        "rationale": "O odor fétido (putrefato) do líquido pleural é virtualmente patognomônico de infecção por bactérias anaeróbias. Como esses micro-organismos são de difícil crescimento em meios aeróbios ou ambientes sem transporte adequado, é comum que a cultura venha negativa se não houver meios específicos para anaeróbios.",
+        "option_rationales": {
+            "a": "Incorreta. TB não tem odor fétido.",
+            "b": "Correta. Característica clássica do empiema por anaeróbios (frequentemente secundário a aspiração).",
+            "c": "Incorreta. Nocardia é aeróbia e não produz o odor característico de digestão de tecidos dos anaeróbios.",
+            "d": "Incorreta. Embora culturas negativas ocorram pós-atb, o odor aponta para a etiologia.",
+            "e": "Incorreta. Fungos raramente produzem esse tipo de odor no espaço pleural."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Infectologia",
+            "Anaeróbios",
+            "Empiema"
+        ]
+    },
+    {
+        "enunciado": "A pleurodese com talco pode ser realizada via 'Talc Slurry' (instilação de suspensão líquida pelo dreno) ou 'Talc Poudrage' (insuflação de talco seco durante videotoracoscopia). Sobre a eficácia, qual a evidência trazida pelos grandes ensaios clínicos modernos?",
+        "options": {
+            "a": "O talco líquido (slurry) é infinitamente superior em todos os tipos de câncer.",
+            "b": "O talco insuflado (poudrage) apresenta maior taxa de sucesso na sínfise pleural, especialmente em pacientes com câncer de mama ou pulmão.",
+            "c": "Ambos têm eficácia idêntica, sendo o Slurry preferido por ser mais barato e menos invasivo.",
+            "d": "O Slurry é mais seguro por não causar reação inflamatória sistêmica.",
+            "e": "A pleurodese química não deve mais ser feita, sendo substituída por cateteres de demora em 100% dos casos."
+        },
+        "answer": "b",
+        "rationale": "Embora o Slurry seja eficaz e prático, grandes meta-análises sugerem que o 'Talc Poudrage' (via VATS) garante uma distribuição mais uniforme do talco em toda a superfície pleural, resultando em taxas de sucesso ligeiramente superiores em grupos específicos e menor necessidade de reintervenção em oncologia.",
+        "option_rationales": {
+            "a": "Incorreta. Slurry é menos distribuído que o poudrage.",
+            "b": "Correta. Superioridade na uniformidade da sínfise.",
+            "c": "Incorreta. Existe uma tendência estatística de superioridade do Poudrage em estudos maiores.",
+            "d": "Incorreta. Ambos podem causar SRIS se as partículas de talco forem pequenas demais (não graduadas).",
+            "e": "Incorreta. A pleurodese ainda é padrão-ouro para muitos pacientes com pulmão reexpansível."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Pneumologia",
+            "Oncologia",
+            "Pleurodese",
+            "Evidências"
+        ]
+    },
+    {
+        "enunciado": "Qual medicação anti-hipertensiva está associada ao Lupus Induzido por Drogas (Drug-Induced Lupus - DIL), cursando frequentemente com derrame pleural exsudativo e anticorpos anti-histona positivos no soro?",
+        "options": {
+            "a": "Enalapril.",
+            "b": "Hidralazina.",
+            "c": "Amlodipino.",
+            "d": "Hidroclorotiazida.",
+            "e": "Losartana."
+        },
+        "answer": "b",
+        "rationale": "A Hidralazina é uma das drogas mais clássicas associadas ao Lúpus Induzido por Drogas. Diferente do LES idiopático, o DIL costuma poupar o rim e o sistema nervoso central, manifestando-se principalmente por sintomas constitucionais, serosites (pericardite e pleurite) e artralgias. O marcador sorológico principal é o anticorpo anti-histona.",
+        "option_rationales": {
+            "a": "Incorreta. Não associada ao DIL.",
+            "b": "Correta. Causa clássica de pleurite lúpica iatrogênica.",
+            "c": "Incorreta. Pode dar edema de MMII, mas não lúpus.",
+            "d": "Incorreta. Não associada.",
+            "e": "Incorreta. Não associada."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Reumatologia",
+            "Derrame Iatrogênico",
+            "DIL"
+        ]
+    },
+    {
+        "enunciado": "Sobre o manejo do cateter pleural de demora (IPC), qual a complicação tardia específica desse dispositivo que pode ocorrer em até 2 a 5% dos pacientes com Mesotelioma Maligno?",
+        "options": {
+            "a": "Metástase no trajeto do cateter (Track metastasis).",
+            "b": "Perfuração da veia cava superior.",
+            "c": "Empiema bacteriano estéril.",
+            "d": "Quilotórax secundário.",
+            "e": "Necrose de pele por tração."
+        },
+        "answer": "a",
+        "rationale": "Células malignas (especialmente do mesotelioma e do adenocarcinoma de pulmão) podem 'semear' o trajeto por onde o cateter pleural de demora passa na parede torácica. Isso resulta em nódulos tumorais subcutâneos dolorosos no local do cateter, conhecidos como 'track metastasis'. Muitas vezes exige radioterapia local profilática ou paliativa.",
+        "option_rationales": {
+            "a": "Correta. Fenômeno bem descrito em oncologia torácica.",
+            "b": "Incorreta. Complicação de acesso venoso central, não de dreno pleural tunelizado.",
+            "c": "Incorreta. O empiema purulento ocorre, mas não existe 'empiema estéril' como diagnóstico de complicação do cateter.",
+            "d": "Incorreta. Não há lesão do ducto torácico no trajeto subcutâneo do dreno.",
+            "e": "Incorreta. Possível por erro de técnica, mas não é a complicação 'clássica' tumoral descrita."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Pneumologia",
+            "Oncologia",
+            "Cateter Pleural",
+            "Complicações"
+        ]
+    },
+    {
+        "enunciado": "A 'Pseudotumefação Pleural' ou 'Tumor Evanescente' no raio-X de tórax, associado à insuficiência cardíaca congestiva, localiza-se preferencialmente em qual estrutura anatômica?",
+        "options": {
+            "a": "Seio costofrênico posterior.",
+            "b": "Espaço retroesternal.",
+            "c": "Cisura horizontal (pequena cisura).",
+            "d": "Ápice pulmonar.",
+            "e": "Ângulo cardiofrênico esquerdo."
+        },
+        "answer": "c",
+        "rationale": "O tumor fantasma ou evanescente é o acúmulo de líquido loculado dentro de uma cisura pulmonar (mais comum na horizontal, à direita). Ao RX, a imagem biconvexa mimetiza uma massa sólida pulmonar, mas 'desaparece' rapidamente após o tratamento com diuréticos.",
+        "option_rationales": {
+            "a": "Incorreta. Localização de derrames livres habituais.",
+            "b": "Incorreta. Localização de massas mediastinais.",
+            "c": "Correta. Localização anatômica clássica dessa variante radiológica.",
+            "d": "Incorreta. Raro localização de derrames por gravidade.",
+            "e": "Incorreta. Local de coxim gorduroso ou cistos pericárdicos."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Radiologia",
+            "ICC",
+            "Semiologia Radiológica"
+        ]
+    },
+    {
+        "enunciado": "A medição da adenosina deaminase (ADA) no líquido pleural tem excelente sensibilidade para Tuberculose. Entretanto, qual é a principal causa de FALSO-POSITIVO (ADA elevado sem TB) em pacientes idosos com derrame exsudativo?",
+        "options": {
+            "a": "Insuficiência Cardíaca.",
+            "b": "Empiema e Artrite Reumatoide.",
+            "c": "Derrame por Cirrose Hepática.",
+            "d": "Urinotórax.",
+            "e": "Atelectasia pós-cirúrgica."
+        },
+        "answer": "b",
+        "rationale": "O ADA é um marcador de ativação de linfócitos T. Assim, qualquer processo inflamatório muito intenso pode elevar o ADA. No empiema (especialmente se houver linfócitos ou lise celular), no linfoma e na Artrite Reumatoide, o ADA pode ultrapassar 40-70 U/L, gerando confusão com TB. No entanto, o empiema é neutrofílico, o que ajuda na diferenciação.",
+        "option_rationales": {
+            "a": "Incorreta. Transudatos têm ADA baixo.",
+            "b": "Correta. Principais causas de falso-positivos elevados.",
+            "c": "Incorreta. Transudatos têm ADA baixo.",
+            "d": "Incorreta. Transudatos e sem inflamação aguda mediada por T.",
+            "e": "Incorreta. ADA baixo."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Tuberculose",
+            "Laboratório",
+            "ADA"
+        ]
+    },
+    {
+        "enunciado": "Na análise do líquido pleural, um exsudato com predomínio de linfócitos e ADA elevado, mas que apresenta ABSÊNCIA total de células mesoteliais (< 5%), é altamente sugestivo de qual patologia?",
+        "options": {
+            "a": "Mesotelioma.",
+            "b": "Tuberculose Pleural.",
+            "c": "Carcinoma de Células Pequenas.",
+            "d": "Pneumonia Atípica.",
+            "e": "Lúpus Eritematoso Sistêmico."
+        },
+        "answer": "b",
+        "rationale": "A inflamação granulomatosa da pleura na tuberculose causa um intenso espessamento e recobrimento da pleura visceral por fibrina e colágeno, o que impede que as células mesoteliais (que revestem a pleura) descamem para o líquido. Por isso, a escassez ou ausência de mesoteliais é uma pista citológica clássica de TB pleural.",
+        "option_rationales": {
+            "a": "Incorreta. Mesoteliomas apresentam muitas células mesoteliais (as próprias células neoplásicas).",
+            "b": "Correta. Dado clássico de citopatologia pleural.",
+            "c": "Incorreta. Pode haver mesoteliais na carcinomatose secundária.",
+            "d": "Incorreta. Não apresenta esse padrão inibitório.",
+            "e": "Incorreta. No lúpus as mesoteliais podem ser normais ou até aumentadas e atípicas."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Pneumologia",
+            "Tuberculose",
+            "Citopatologia",
+            "Mesoteliais"
+        ]
+    },
+    {
+        "enunciado": "No diagnóstico de Embolia Pulmonar (TEP) por radiografia de tórax, um achado característico é uma opacidade em forma de cunha, com base voltada para a pleura, localizada na periferia do pulmão. Qual o nome deste sinal?",
+        "options": {
+            "a": "Sinal de Westermark.",
+            "b": "Corcova de Hampton.",
+            "c": "Sinal de Palla.",
+            "d": "Sinal da Silhueta.",
+            "e": "Linhas B de Kerley."
+        },
+        "answer": "b",
+        "rationale": "A 'Corcova de Hampton' (Hampton's Hump) representa um infarto pulmonar hemorrágico na periferia. É um achado radiográfico raro, mas clássico do TEP. O sinal de Westermark é a oligoemia focal distal à embolia.",
+        "option_rationales": {
+            "a": "Incorreta. Reflete área de menor vascularização, não consolidação em cunha.",
+            "b": "Correta. Sinal clássico de infarto pulmonar periférico.",
+            "c": "Incorreta. Reflete a dilatação da artéria pulmonar central por trombo.",
+            "d": "Incorreta. Regra geral para localizar lesões intratorácicas.",
+            "e": "Incorreta. Sinal de congestão venocapilar pulmonar e edema intersticial."
+        },
+        "difficulty": "facil",
+        "tags": [
+            "Pneumologia",
+            "TEP",
+            "Radiologia",
+            "Sinais Clássicos"
+        ]
+    },
+    {
+        "enunciado": "Atualmente, qual é o calibre de dreno pleural recomendado para o manejo inicial da maioria dos empiemas e derrames parapneumônicos, visando o conforto do paciente sem prejuízo na eficácia da drenagem?",
+        "options": {
+            "a": "Drenos de grande calibre (28-36 French).",
+            "b": "Drenos de fino calibre (8-14 French), conhecidos como 'Pigtails'.",
+            "c": "Sondas nasogástricas adaptadas.",
+            "d": "Toracotomia aberta sem dreno.",
+            "e": "Apenas agulhas de biópsia 14G."
+        },
+        "answer": "b",
+        "rationale": "Estudos randomizados recentes demonstraram que drenos de fino calibre (Pigtails, inseridos pela técnica de Seldinger) são tão eficazes quanto os drenos calibrosos para o manejo do empiema, com a vantagem de serem muito menos dolorosos para o paciente e apresentarem menores taxas de complicações de inserção.",
+        "option_rationales": {
+            "a": "Incorreta. Padrão antigo, agora reservado para hemotórax traumático com coágulos.",
+            "b": "Correta. Tendência moderna de 'less is more' no empiema.",
+            "c": "Incorreta. Gambiarra não recomendada por diretrizes.",
+            "d": "Incorreta. Procedimento de exceção para empiemas crônicos graves.",
+            "e": "Incorreta. Insuficiente para drenagem contínua."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Terapêutica",
+            "Drenagem Pleural",
+            "Dispositivos"
+        ]
+    },
+    {
+        "enunciado": "A 'Asbestose' associada ao 'Derrame Pleural Benigno do Asbesto' (BAPE) é caracterizada pela presença de qual tipo de fibra de amianto que possui maior potencial carcinogênico e de irritação pleural devido à sua forma longa e rígida?",
+        "options": {
+            "a": "Crisotila (Amianto Branco).",
+            "b": "Anfibólios (ex: Crocidolita ou Amianto Azul).",
+            "c": "Gesso sintético.",
+            "d": "Sílica cristalina.",
+            "e": "Fibras de Carbono."
+        },
+        "answer": "b",
+        "rationale": "Embora a crisotila seja a mais utilizada comercialmente, os anfibólios (como a crocidolita e a amosita) são fibras retas, rígidas e finas que penetram profundamente no pulmão e alcançam a pleura com maior facilidade, apresentando maior potencial para causar mesotelioma e derrames benignos.",
+        "option_rationales": {
+            "a": "Incorreta. Menos persistente no tecido pleural que o anfibólio.",
+            "b": "Correta. Tipo de amianto mais agressivo para a pleura.",
+            "c": "Incorreta. Não causa patologia pleural clássica por fibras.",
+            "d": "Incorreta. Causa silicose (parênquima e linfonodo), raramente derrame isolado.",
+            "e": "Incorreta. Fibras modernas com baixo potencial de patogenicidade pleural comparada ao asbesto."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Pneumologia",
+            "Doença Ocupacional",
+            "Asbesto",
+            "Toxicologia"
+        ]
+    },
+    {
+        "enunciado": "Em um paciente com Derrame Pleural Maligno por Adenocarcinoma de Pulmão, qual mutação driver, se presente no tecido ou no bloco de células do líquido pleural, permite o uso de terapia-alvo oral com alta taxa de controle do derrame?",
+        "options": {
+            "a": "KRAS G12C.",
+            "b": "EGFR (Exon 19 deletion ou L858R).",
+            "c": "P53 mutação nula.",
+            "d": "BRAF V600E.",
+            "e": "HER2/neu amplificação."
+        },
+        "answer": "b",
+        "rationale": "A presença de mutações ativadoras do EGFR permite o tratamento com inibidores de tirosina quinase (ex: Osimertinibe). Esses pacientes costumam responder muito bem, com rápida involução do derrame pleural maligno na maioria das vezes, por vezes evitando pleurodeses.",
+        "option_rationales": {
+            "a": "Incorreta. Menos responsiva a terapias isoladas de controle de serosite.",
+            "b": "Correta. Alvo clássico e muito eficaz em oncologia pulmonar.",
+            "c": "Incorreta. Mutação supressora tumoral sem terapia-alvo específica de controle rápido de derrame.",
+            "d": "Incorreta. Mais rara no pulmão e menos associada a remissão completa de serosite volumosa.",
+            "e": "Incorreta. Raro como driver isolado no pulmão."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Oncologia",
+            "Terapia-Alvo",
+            "EGFR"
+        ]
+    },
+    {
+        "enunciado": "A 'Pleurite Tuberculosa' é classicamente descrita como uma resposta de hipersensibilidade retardada ao Mycobacterium tuberculosis. Por esse motivo, qual dos seguintes achados microbiológicos no líquido pleural é o MAIS COMUM nesse tipo de derrame?",
+        "options": {
+            "a": "Presença massiva de BAAR no sedimento (Gram de TB).",
+            "b": "Cultura do líquido positiva em 90% dos casos.",
+            "c": "Líquido pleural estéril (Cultura e BAAR negativos na maioria das vezes).",
+            "d": "Presença de grânulos de enxofre.",
+            "e": "Coloração de prata (Grocott) positiva."
+        },
+        "answer": "c",
+        "rationale": "Como a TB pleural é uma reação de hipersensibilidade mediada por linfócitos T a poucos antígenos bacilares no espaço pleural, a carga de bacilos no líquido é muito baixa. O BAAR é quase sempre negativo e a cultura do líquido é positiva em apenas 20-30% dos casos. O diagnóstico geralmente depende do ADA ou da biópsia pleural.",
+        "option_rationales": {
+            "a": "Incorreta. BAAR positivo em líquido é raríssimo na TB pleural isolada (sugerindo ruptura de cavidade).",
+            "b": "Incorreta. Sensibilidade da cultura no líquido é baixa.",
+            "c": "Correta. Padrão paucibacilar característico.",
+            "d": "Incorreta. Clássico da Actinomicose.",
+            "e": "Incorreta. Usado para fungos."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Tuberculose",
+            "Microbiologia",
+            "Fisiopatologia"
+        ]
+    },
+    {
+        "enunciated": "A embolia gasosa durante a toracentese é uma complicação rara, mas catastrófica. Qual deve ser a posição imediata do paciente se houver suspeita de embolia gasosa iatrogênica durante o procedimento?",
+        "options": {
+            "a": "Posição de Fowler (Sentado).",
+            "b": "Decúbito Lateral Esquerdo e Trendelenburg (Posição de Durant).",
+            "c": "Decúbito Dorsal com pernas elevadas.",
+            "d": "Pronação imediata.",
+            "e": "Posição Ortostática (Em pé)."
+        },
+        "answer": "b",
+        "rationale": "A posição de Durant (decúbito lateral esquerdo + Trendelenburg) visa manter a bolha de ar no ápice do ventrículo direito ou átrio direito, impedindo que ela entre na artéria pulmonar (no caso de embolia venosa) ou favorecendo a flutuação para longe da circulação cerebral (no caso de embolia arterial retrógrada via fencas).",
+        "option_rationales": {
+            "a": "Incorreta. Favorece a migração de ar para o cérebro.",
+            "b": "Correta. Manobra clássica de emergência para embolia gasosa.",
+            "c": "Incorreta. Não ajuda a aprisionar a bolha de ar no coração.",
+            "d": "Incorreta. Inútil.",
+            "e": "Incorreta. Perigoso."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Pneumologia",
+            "Procedimentos",
+            "Complicações",
+            "Embolia Gasosa"
+        ]
+    },
+    {
+        "enunciado": "A 'Síndrome das Unhas Amarelas' (Yellow Nail Syndrome) associa derrame pleural linfocítico a linfedema de membros inferiores e unhas distróficas amareladas. Qual é a etiologia básica aceita para esta síndrome?",
+        "options": {
+            "a": "Deposição crônica de ferro ungueal.",
+            "b": "Disfunção congênita ou adquirida na drenagem linfática sistêmica.",
+            "c": "Intoxicação por metais pesados (Cádmio).",
+            "d": "Doença autoimune contra a queratina.",
+            "e": "Infecção fúngica disseminada (onicomicose total)."
+        },
+        "answer": "b",
+        "rationale": "A síndrome decorre de uma hipoplasia ou obstrução funcional dos vasos linfáticos. O acúmulo de líquido linfático rico em proteínas na derme causa o linfedema e a alteração ungueal (crescimento lento e distrofia), além do derrame pleural por falha na absorção do líquido pelo sistema linfático pleural.",
+        "option_rationales": {
+            "a": "Incorreta. Sem relação.",
+            "b": "Correta. Fisiopatologia central da síndrome.",
+            "c": "Incorreta. Não existe nexo causal estabelecido.",
+            "d": "Incorreta. Não é inflamatória autoimune por autoanticorpos.",
+            "e": "Incorreta. As unhas são amarelas por estase linfática, não fungo primário (embora infecções secundárias possam ocorrer)."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Linfologia",
+            "Derrame Pleural",
+            "Síndromes"
+        ]
+    },
+    {
+        "enunciado": "A atelectasia redonda (Round Atelectasis) é uma forma de colapso pulmonar periférico associada a doenças pleurais crônicas (ex: asbesto). Qual é o sinal radiográfico característico na tomografia computadorizada que confirma o diagnóstico?",
+        "options": {
+            "a": "Sinal do Brônquio aéreo no centro da massa.",
+            "b": "Sinal da Cauda de Cometa (Comet Tail Sign) - vasos e brônquios curvando-se para dentro da massa.",
+            "c": "Sinal do Halo (Halo Sign).",
+            "d": "Broncograma de substituição.",
+            "e": "Cavitação em 'meia lua'."
+        },
+        "answer": "b",
+        "rationale": "O 'Comet Tail Sign' é a marca da atelectasia redonda. Representa a confluência de vasos e brônquios que são 'puxados' e curvados em direção ao foco de parênquima colapsado por baixo da pleura espessada. É crucial para distinguir de câncer de pulmão.",
+        "option_rationales": {
+            "a": "Incorreta. Comum em pneumonia, não específico da atelectasia redonda.",
+            "b": "Correta. Sinal clássico da atelectasia por asbesto.",
+            "c": "Incorreta. Sugere aspergilose angioinvasiva.",
+            "d": "Incorreta. Termo não utilizado.",
+            "e": "Incorreta. Sugere aspergiloma (bola fúngica)."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Radiologia",
+            "Asbesto",
+            "Atelectasia Redonda"
+        ]
+    },
+    {
+        "enunciado": "Sobre o manejo do empiema pleural agudo, a videotoracoscopia (VATS) deve ser considerada precocemente em qual circunstância?",
+        "options": {
+            "a": "No primeiro dia de todo derrame parapneumônico simples.",
+            "b": "Quando houver falha na drenagem tubular e antibioticoterapia (persistência de loculações radiológicas e febre) após 3-7 dias.",
+            "c": "Apenas se o paciente estiver em choque séptico refratário.",
+            "d": "Se o paciente for tabagista inveterado.",
+            "e": "Substituindo o uso de antibióticos venosos."
+        },
+        "answer": "b",
+        "rationale": "A VATS precoce (nos primeiros 7 dias de infecção pleural persistente) é altamente eficaz para limpar loculações (debris de fibrina) e garantir a reexpansão pulmonar antes que a fibrina se transforme em tecido fibroso denso (fase de organização), o que exigiria uma cirurgia muito maior (toracotomia aberta).",
+        "option_rationales": {
+            "a": "Incorreta. Exagerado para casos simples que respondem a atb.",
+            "b": "Correta. Janela de oportunidade para tratamento minimamente invasivo eficaz.",
+            "c": "Incorreta. No choque a estabilização e drenagem rápida são prioridades.",
+            "d": "Incorreta. Status tabágico não é indicação cirúrgica isolada.",
+            "e": "Incorreta. Antibióticos são fundamentais."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Cirurgia Torácica",
+            "Empiema",
+            "Manejo"
+        ]
+    },
+    {
+        "enunciado": "As placas pleurais são a manifestação radiológica mais comum da exposição ao asbesto. Qual a localização preferencial dessas placas?",
+        "options": {
+            "a": "Ápices pulmonares e pleura mediastinal.",
+            "b": "Pleura parietal lateral, posterior e superfície diafragmática (poupando os ápices e os ângulos costofrênicos).",
+            "c": "Cisuras interlobares exclusivamente.",
+            "d": "Pleura visceral perihilar.",
+            "e": "Traqueia e grandes brônquios."
+        },
+        "answer": "b",
+        "rationale": "As placas de asbesto são calcificações focais na pleura parietal. Elas têm predileção pelas zonas inferiores e médias das paredes torácicas lateral e posterior, além do diafragma. Elas classicamente poupam os ápices pulmonares e os recessos costofrênicos, o que ajuda a diferenciar de sequelas de TB ou empiema.",
+        "option_rationales": {
+            "a": "Incorreta. Ápice é mais comum para sequela de TB.",
+            "b": "Correta. Distribuição anatômica característica do asbesto.",
+            "c": "Incorreta. Cisuras podem ser acometidas, mas a parietal é o alvo principal.",
+            "d": "Incorreta. Local de linfonodomegalia na sarcoidose.",
+            "e": "Incorreta. Não acometem vias aéreas de grande calibre."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Pneumologia",
+            "Doença Ocupacional",
+            "Asbesto",
+            "Radiologia"
+        ]
+    },
+    {
+        "enunciado": "Paciente diagnosticado com Tuberculose Pleural (biópsia positiva). Inicia esquema RIPE. Após 15 dias de tratamento, apresenta aumento do volume do derrame pleural e febre leve, apesar de melhora do estado geral. Qual a interpretação correta?",
+        "options": {
+            "a": "Falência terapêutica por resistência às drogas de primeira linha.",
+            "b": "Reação Paradoxal (efeito de reconstituição imune local).",
+            "c": "Contaminação bacteriana secundária do derrame (Empiema pós-toracentese).",
+            "d": "Desenvolvimento de Linfoma associado à TB.",
+            "e": "Toxicidade hepática pela pirazinamida causando ascite translocada."
+        },
+        "answer": "b",
+        "rationale": "A 'Reação Paradoxal' na TB pleural ocorre quando a carga bacilar cai pela medicação, mas a resposta inflamatória imune aumenta transitoriamente (pela exposição de antígenos bacilares), levando à piora radiológica ou do derrame. Se o paciente está clinicamente bem, a conduta é apenas observação e manutenção do RIPE.",
+        "option_rationales": {
+            "a": "Incorreta. Muito cedo para diagnosticar falha se houver melhora clínica.",
+            "b": "Correta. Fenômeno autoimune reativo clássico pós-início de RIPE.",
+            "c": "Incorreta. Possível, mas a reação paradoxal é mais comum se o dreno não estiver lá.",
+            "d": "Incorreta. Improvável.",
+            "e": "Incorreta. Toxicidade hepática causa dor e náuseas, não aumento isolado do derrame pleural em 15 dias sem ascite volumosa prévia."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Tuberculose",
+            "Terapêutica",
+            "Reação Paradoxal"
+        ]
+    }
+]

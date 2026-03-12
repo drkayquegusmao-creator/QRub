@@ -215,22 +215,31 @@ export default function QuizPage() {
         )
     }
 
-    // Safety: if question exists but options is invalid (null, object), skip to next
-    const safeOptions: { id: string; text: string }[] = (() => {
+    // Embaralhamento de alternativas para evitar padrões (ex: muitas letras B seguidas)
+    const shuffledOptions = useMemo(() => {
         if (!question) return []
         const raw = question.options
-        if (Array.isArray(raw)) return raw
-        // If it's a plain object {a: '...', b: '...'} — normalize
-        if (raw && typeof raw === 'object') {
-            return ['a', 'b', 'c', 'd', 'e']
+        let baseOptions: { id: string; text: string }[] = []
+
+        if (Array.isArray(raw)) {
+            baseOptions = [...raw]
+        } else if (raw && typeof raw === 'object') {
+            baseOptions = ['a', 'b', 'c', 'd', 'e']
                 .filter(k => (raw as Record<string, string>)[k])
                 .map(k => ({ id: k, text: (raw as Record<string, string>)[k] }))
         }
-        return []
-    })()
+
+        // Se estiver em modo de simulação/treino, embaralhamos
+        // Em modo de revisão ou se o usuário já respondeu, talvez queiramos manter a ordem original?
+        // Mas para evitar o vício citado pelo usuário, o ideal é embaralhar sempre na primeira exibição.
+        return baseOptions
+            .map(value => ({ value, sort: Math.random() }))
+            .sort((a, b) => a.sort - b.sort)
+            .map(({ value }) => value)
+    }, [question?.id])
 
     // Guard: question exists but has no valid options (data corruption) — skip it
-    if (question && safeOptions.length === 0 && !questionsLoading) {
+    if (question && shuffledOptions.length === 0 && !questionsLoading) {
         // Auto-advance past broken question
         if (currentIdx < availableQuestions.length - 1) {
             setTimeout(() => setCurrentIdx(prev => prev + 1), 50)
@@ -497,11 +506,14 @@ export default function QuizPage() {
                 </div>
 
                 <div className="space-y-3">
-                    {[...safeOptions].sort((a, b) => a.id.localeCompare(b.id)).map((opt) => {
+                    {shuffledOptions.map((opt, index) => {
                         const isCorrect = opt.id === question.correct_option_id
                         const isSelected = opt.id === selectedOptionId
                         const showFeedback = isAnswered && mode === 'TREINO'
                         const explanation = question.alternative_explanations?.[opt.id]
+
+                        // Etiqueta visual baseada na posição atual (A, B, C...)
+                        const label = String.fromCharCode(65 + index)
 
                         let statusClasses = isFocusMode ? 'bg-white/5 border-white/10' : 'bg-card border-border hover:border-primary/50'
                         if (showFeedback) {
@@ -518,7 +530,7 @@ export default function QuizPage() {
                                     className={`w-full text-left p-5 rounded-2xl border-2 transition-all flex items-start gap-4 font-semibold group relative overflow-hidden ${statusClasses} ${showFeedback ? 'cursor-default' : ''}`}
                                 >
                                     <span className={`w-8 h-8 rounded-lg flex items-center justify-center text-xs shrink-0 ${isSelected ? 'bg-primary text-white' : isFocusMode ? 'bg-white/10 text-white' : 'bg-muted text-muted-foreground group-hover:bg-primary/10 group-hover:text-primary'} ${showFeedback && isCorrect ? '!bg-emerald-500 !text-white' : ''} ${showFeedback && isSelected && !isCorrect ? '!bg-rose-500 !text-white' : ''}`}>
-                                        {opt.id.toUpperCase()}
+                                        {label}
                                     </span>
                                     <span className="flex-1">{opt.text}</span>
                                     {showFeedback && isCorrect && <CheckCircle2 className="w-6 h-6 text-emerald-500 shrink-0" />}

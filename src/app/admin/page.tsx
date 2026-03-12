@@ -82,6 +82,7 @@ export default function AdminDashboard() {
         loadQuestions()
         loadTaxonomy()
         fetchTickets()
+        loadAllResponses()
     }, [])
 
     useEffect(() => {
@@ -303,10 +304,14 @@ export default function AdminDashboard() {
                     userFilter === 'premium' ? u.plan_level === 'PREMIUM' :
                         userFilter === 'incomplete' ? (!u.institution || !u.graduation_year) :
                             userFilter === 'active-today' ? (() => {
-                                const now = new Date()
+                                const startOfToday = new Date()
+                                startOfToday.setHours(0, 0, 0, 0)
+
                                 const last = u.updated_at ? new Date(u.updated_at) : (u.last_sign_in_at ? new Date(u.last_sign_in_at) : null)
-                                if (!last) return false
-                                return (now.getTime() - last.getTime()) < (24 * 60 * 60 * 1000)
+                                if (last && last.getTime() >= startOfToday.getTime()) return true
+
+                                const recentResponse = responses.find(r => r.user_id === u.id && new Date(r.timestamp).getTime() >= startOfToday.getTime())
+                                return !!recentResponse
                             })() :
                                 true;
 
@@ -2536,12 +2541,14 @@ Obrigado por nos ajudar a melhorar o QRub! 🚀`
                             <StatCard
                                 label="Acessou Hoje"
                                 value={realUsers.filter((u: any) => {
-                                    const now = new Date()
-                                    const last = u.updated_at ? new Date(u.updated_at) : (u.last_sign_in_at ? new Date(u.last_sign_in_at) : null)
-                                    if (!last) return false
                                     const startOfToday = new Date()
                                     startOfToday.setHours(0, 0, 0, 0)
-                                    return last.getTime() >= startOfToday.getTime()
+
+                                    const last = u.updated_at ? new Date(u.updated_at) : (u.last_sign_in_at ? new Date(u.last_sign_in_at) : null)
+                                    if (last && last.getTime() >= startOfToday.getTime()) return true
+
+                                    const recentResponse = responses.find(r => r.user_id === u.id && new Date(r.timestamp).getTime() >= startOfToday.getTime())
+                                    return !!recentResponse
                                 }).length}
                                 color="text-indigo-500"
                                 icon={<Zap className="w-4 h-4" />}

@@ -1,0 +1,521 @@
+[
+    {
+        "enunciado": "Um paciente de 68 anos, portador de insuficiência cardíaca e doença renal crônica, apresenta-se com derrame pleural bilateral. A análise do líquido pleural revela: Proteína 2,9 g/dL (Sérica 6,0 g/dL), LDH 190 U/L (Sérico 420 U/L - limite superior do soro 450 U/L). Pelos critérios de Light, o líquido é classificado como exsudato (Prot P/S > 0,5). No entanto, a dosagem de NT-proBNP no líquido pleural é de 3.200 pg/mL. Qual a interpretação mais provável?",
+        "options": {
+            "a": "Derrame pleural maligno oculto.",
+            "b": "Tuberculose pleural paucibacilar.",
+            "c": "Derrame cardíaco rotulado como exsudato falso-positivo pelos critérios de Light (frequentemente devido ao uso de diuréticos).",
+            "d": "Pleurite urêmica aguda.",
+            "e": "Empiema bacteriano na fase inicial."
+        },
+        "answer": "c",
+        "rationale": "Em pacientes com ICC usando diuréticos, os critérios de Light podem falhar (especialmente a relação de proteínas). Um NT-proBNP pleural > 1.500 pg/mL tem altíssima especificidade para origem cardíaca, sendo o melhor marcador para desmentir um falso exsudato do Light nestes casos.",
+        "option_rationales": {
+            "a": "Incorreta. O NT-proBNP alto aponta para a via cardíaca.",
+            "b": "Incorreta. TB teria ADA alto e não elevaria NT-proBNP.",
+            "c": "Correta. Aplicação clássica de biomarcadores cardíacos no líquido pleural.",
+            "d": "Incorreta. Pleurite urêmica é um exsudato real (fibrinoso/linfocítico), não explicaria o NT-proBNP tão alto sem falha cardíaca associada.",
+            "e": "Incorreta. Empiema teria pH baixo e neutrofilia."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Bioquímica",
+            "ICC",
+            "NT-proBNP"
+        ]
+    },
+    {
+        "enunciado": "Sobre o mecanismo de produção do líquido pleural na fisiologia normal (Ponto de vista de Starling), qual a afirmação correta de acordo com os conceitos modernos?",
+        "options": {
+            "a": "O líquido é produzido na pleura visceral e absorvido na pleura parietal.",
+            "b": "O líquido é produzido principalmente pelos capilares da pleura parietal e absorvido predominantemente pelos linfáticos estomais da pleura parietal.",
+            "c": "A pleura visceral é a principal responsável pela absorção linfática do líquido pleural no ser humano.",
+            "d": "A pressão oncótica das proteínas no espaço pleural é zero em condições normais.",
+            "e": "A drenagem linfática pleural não tem influência no volume do líquido."
+        },
+        "answer": "b",
+        "rationale": "Conceitos clássicos sugeriam produção na parietal e absorção na visceral. No entanto, estudos modernos mostram que no ser humano a pleura parietal (suprida pela circulação sistêmica e com maior gradiente de pressão) é responsável tanto pela maior parte da produção quanto pela quase totalidade da absorção (via linfáticos estomais da pleura parietal inferior e diafragmática).",
+        "option_rationales": {
+            "a": "Incorreta. Conceito antigo e anatomicamente impreciso para humanos.",
+            "b": "Correta. Visão fisiológica contemporânea da dinâmica de fluidos pleural.",
+            "c": "Incorreta. A pleura visceral no humano é espessa e sua drenagem linfática é voltada para o parênquima/hilo, não para o espaço pleural.",
+            "d": "Incorreta. Existe uma pequena quantidade de proteínas (cerca de 1-1,5 g/dL) no líquido normal.",
+            "e": "Incorreta. O sistema linfático é o principal regulador do equilíbrio entre entrada e saída de líquido."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Pneumologia",
+            "Fisiologia",
+            "Starling",
+            "Linfáticos"
+        ]
+    },
+    {
+        "enunciado": "No diagnóstico de amiloidose sistêmica com acometimento pleural, qual o achado padrão-ouro na biópsia pleural?",
+        "options": {
+            "a": "Granulomas não caseificantes.",
+            "b": "Deposição de material amorfo eosinofílico com birrefringência verde-maçã sob luz polarizada após coloração de Vermelho Congo.",
+            "c": "Invasão de células musculares lisas atípicas.",
+            "d": "Presença de corpúsculos de ferrugem (Asbestos bodies).",
+            "e": "Fibrina densa com neutrófilos."
+        },
+        "answer": "b",
+        "rationale": "A amiloidose pleural é uma causa rara de exsudato linfocítico crônico. O diagnóstico exige a biópsia (parietal ou pulmonar) com a coloração de Vermelho Congo, demonstrando a birrefringência clássica do material amiloide.",
+        "option_rationales": {
+            "a": "Incorreta. Característico da sarcoidose.",
+            "b": "Correta. Padrão-ouro histopatológico para amiloidose.",
+            "c": "Incorreta. Característico da Linfangioleiomiomatose (LAM).",
+            "d": "Incorreta. Indica exposição ao asbesto.",
+            "e": "Incorreta. Indica empiema organizado."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Patologia",
+            "Amiloidose",
+            "Biópsia Pleural"
+        ]
+    },
+    {
+        "enunciado": "Um paciente tabagista crônico apresenta derrame pleural à direita. A análise mostra: pH 7,38, Glicose 105, Proteína 3,6 (Sérica 6,2), LDH 400 (Sérico 350). Citologia oncótica: células malignas compatíveis com adenocarcinoma de pulmão. É solicitada a pesquisa de mutações driver no líquido. Qual é a vantagem de se utilizar o 'bloco de células' (cell block) em vez da citometria de fluxo ou esfregaço isolado?",
+        "options": {
+            "a": "O cell block permite a análise da arquitetura tecidual e a realização de múltiplas colorações imuno-histoquímicas em cortes seriados.",
+            "b": "O cell block é mais rápido, ficando pronto em 15 minutos.",
+            "c": "Não há vantagem, sendo o esfregaço superior em todos os casos.",
+            "d": "O cell block evita a necessidade de centrífuga.",
+            "e": "Apenas o cell block consegue detectar bactérias."
+        },
+        "answer": "a",
+        "rationale": "O 'Cell Block' processa as células do líquido pleural como se fossem um fragmento de tecido de biópsia. Isso permite ao patologista realizar cortes seriados no bloco de parafina e aplicar um painel extenso de imuno-histoquímica (necessário para diferenciar mesotelioma de adenocarcinoma e identificar o sítio primário), além de disponibilizar material para testes moleculares (EGFR, ALK, PD-L1).",
+        "option_rationales": {
+            "a": "Correta. Razão principal para o processamento de cell block em oncologia pleural.",
+            "b": "Incorreta. O processamento em parafina leva horas a dias.",
+            "c": "Incorreta. O esfregaço é bom para morfologia individual, mas limitado para painéis imuno-histoquímicos complexos.",
+            "d": "Incorreta. A centrífuga é necessária para concentrar as células para o bloco.",
+            "e": "Incorreta. Bactérias podem ser vistas em qualquer método citológico se a carga for alta, embora o Gram/Cultura sejam os métodos de escolha."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Patologia",
+            "Oncologia",
+            "Cell Block"
+        ]
+    },
+    {
+        "enunciado": "Um paciente de 55 anos apresenta derrame pleural volumoso recorrente. Estuda-se a realização de pleurodese química. Qual a importância de se medir o pH pleural e o grau de reexpansão pulmonar ANTES de realizar o procedimento?",
+        "options": {
+            "a": "Não têm importância, a pleurodese deve ser feita em todos.",
+            "b": "pH < 7,10 e falha na reexpansão (pulmão encarcerado) predizem alto risco de falha da pleurodese.",
+            "c": "Apenas a idade do paciente importa.",
+            "d": "Se o pH for normal, a pleurodese é contraindicada.",
+            "e": "Pulmão encarcerado é a indicação absoluta de talco insuflado (poudrage)."
+        },
+        "answer": "b",
+        "rationale": "A pleurodese exige o contato entre as duas pleuras após a drenagem para que o processo inflamatório leve à sínfise. Se o pulmão estiver encarcerado (não expande), as pleuras não se tocam e o procedimento falha. Além disso, derrames com pH muito baixo em oncologia costumam refletir grande carga tumoral e pleura espessada, o que também diminui a chance de sucesso da pleurodese química.",
+        "option_rationales": {
+            "a": "Incorreta. Taxa de falha pode ser alta em casos mal selecionados.",
+            "b": "Correta. São os dois principais preditores de sucesso/falha do procedimento.",
+            "c": "Incorreta. Status funcional e expansibilidade são os critérios chave.",
+            "d": "Incorreta. pH normal é favorável à pleurodese.",
+            "e": "Incorreta. Poudrage também exige contato pleural para funcionar."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Terapêutica",
+            "Pleurodese",
+            "Pulmão Encarcerado"
+        ]
+    },
+    {
+        "enunciado": "Qual dos seguintes parâmetros no líquido pleural ajuda a distinguir com segurança o Quilotórax (linfa) do Pseudoquilotórax (coleção crônica de colesterol)?",
+        "options": {
+            "a": "O aspecto macroscópico, pois apenas o quilotórax é leitoso.",
+            "b": "A dosagem de triglicerídeos > 110 mg/dL e a presença de quilomícrons favorecem Quilotórax.",
+            "c": "O pH, que é alcalino apenas no pseudoquilotórax.",
+            "d": "A presença de cristais rômbicos favorece quilotórax agudo.",
+            "e": "O ADA elevado é típico de quilotórax."
+        },
+        "answer": "b",
+        "rationale": "O diagnóstico diferencial clínico/químico baseia-se nos lipídios: Quilotórax tem TG alto (> 110) e Quilomícrons. Pseudoquilotórax tem TG baixo, mas colesterol muito alto (> 200 mg/dL) e presença de cristais de colesterol (rômbicos).",
+        "option_rationales": {
+            "a": "Incorreta. Ambos podem ter aspecto leitoso ou 'opalescente'.",
+            "b": "Correta. Parâmetro bioquímico confirmatório para quilo verdadeiro.",
+            "c": "Incorreta. Não é um critério de diferenciação.",
+            "d": "Incorreta. Cristais de colesterol são do pseudoquilotórax crônico.",
+            "e": "Incorreta. ADA alto é de TB ou AR."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Bioquímica",
+            "Quilotórax",
+            "Lipídios"
+        ]
+    },
+    {
+        "enunciado": "Na abordagem do derrame parapneumônico loculado, o uso de fibrinolíticos intrapleurais (ex: tPA associado à DNase) demonstrou quais benefícios de acordo com o estudo MIST-2?",
+        "options": {
+            "a": "Redução da mortalidade em 50%.",
+            "b": "Melhora da drenagem radiológica e redução da necessidade de cirurgia invasiva, mas sem impacto provado na mortalidade.",
+            "c": "Aumento do risco de sangramento sem qualquer benefício terapêutico.",
+            "d": "Substituição completa do uso de antibióticos venosos.",
+            "e": "Cura de derrames por Tuberculose de forma acelerada."
+        },
+        "answer": "b",
+        "rationale": "O ensaio MIST-2 mostrou que a combinação de tPA (para quebrar a fibrina) e DNase (para reduzir a viscosidade do pus por lise de DNA de neutrófilos) melhora significativamente a drenagem e reduz a indicação de cirurgia (VATS/Decorticação) em pacientes com derrames parapneumônicos multiloculados.",
+        "option_rationales": {
+            "a": "Incorreta. Nenhum estudo provou redução de mortalidade absoluta direta apenas pelo fibrinolítico isolado.",
+            "b": "Correta. Melhora do desfecho secundário de evitar cirurgia agressiva.",
+            "c": "Incorreta. Há risco de sangramento, mas o benefício em casos selecionados supera o risco.",
+            "d": "Incorreta. Antibióticos são obrigatórios.",
+            "e": "Incorreta. Fibrinolíticos não têm papel na TB pleural isolada."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Pneumologia",
+            "Evidência",
+            "Empiema",
+            "Fibrinolíticos"
+        ]
+    },
+    {
+        "enunciado": "Um paciente em uso crônico de Amiodarona para tratamento de arritmia desenvolve derrame pleural bilateral e infiltrado pulmonar reticular fino. A biópsia pulmonar e pleural revela a presença de macrófagos com citoplasma 'espumoso' (foam cells). Este achado é:",
+        "options": {
+            "a": "Sinal patognomônico de toxicidade pulmonar pela Amiodarona.",
+            "b": "Sinal de exposição à droga, mas não necessariamente de toxicidade estabelecida (pode ocorrer em pacientes assintomáticos que usam a medicação).",
+            "c": "Indicação imediata de quimioterapia para linfoma.",
+            "d": "Sinal de infecção por Pneumocystis jirovecii.",
+            "e": "Característico de edema agudo de pulmão por falha do ventrículo esquerdo."
+        },
+        "answer": "b",
+        "rationale": "A presença de 'foam cells' (macrófagos com lamelas fosfolipídicas por inibição da fosfolipase pela droga) indica que o paciente está impregnado pela Amiodarona, mas não confirma que a inflamação e o derrame sejam causados exclusivamente pela toxicidade. O diagnóstico de toxicidade pulmonar é de exclusão, baseando-se no quadro clínico, radiológico e resposta à suspensão da droga.",
+        "option_rationales": {
+            "a": "Incorreta. Muitos usuários da droga têm essas células sem ter doença pulmonar ativa.",
+            "b": "Correta. Distinção importante de patologia: exposição vs doença.",
+            "c": "Incorreta. Não indica malignidade.",
+            "d": "Incorreta. Pneumocystis apresenta exsudato espumoso 'intra-alveolar' característico, mas as 'foam cells' de macrófagos são clássicas da Amiodarona.",
+            "e": "Incorreta. Congestão causa macrófagos com hemossiderina (Heart failure cells)."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Pneumologia",
+            "Farmacodinâmica",
+            "Amiodarona",
+            "Efeitos Colaterais"
+        ]
+    },
+    {
+        "enunciado": "A fístula Colecistopleural é uma causa extremamente rara de derrame pleural. Qual a coloração característica do líquido pleural neste cenário clínico?",
+        "options": {
+            "a": "Hemorrágica.",
+            "b": "Leitosa.",
+            "c": "Esverdeada ou amarelada (bile), com dosagem de Bilirrubina Pleural / Bilirrubina Sérica > 1,0.",
+            "d": "Preta ou marrom escuro.",
+            "e": "Líquido viscoso transparente."
+        },
+        "answer": "c",
+        "rationale": "Também chamado de 'Biliotórax', ocorre pela fístula entre o sistema biliar e o espaço pleural (frequentemente após trauma ou procedimentos hepáticos). A confirmação diagnóstica é a relação de bilirrubina pleural/sérica maior que 1, além do aspecto biliar do líquido.",
+        "option_rationales": {
+            "a": "Incorreta. Sangue na pleura.",
+            "b": "Incorreta. Linfa ou colesterol.",
+            "c": "Correta. Biliotórax diagnóstica bioquímica.",
+            "d": "Incorreta. Infecção por Aspergillus niger ou ruptura de cisto melânico.",
+            "e": "Incorreta. Mesotelioma (ácido hialurônico)."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Gastroenterologia",
+            "Bioquímica",
+            "Biliotórax"
+        ]
+    },
+    {
+        "enunciado": "Qual a principal causa de morte imediata por acidente punção durante uma toracocentese diagnóstica realizada por via posterior?",
+        "options": {
+            "a": "Choque vagal.",
+            "b": "Lesão do fígado ou baço (hemoperitônio maciço por punção transdiafragmática).",
+            "c": "Pneumotórax bilateral.",
+            "d": "Laceração da aorta descendente.",
+            "e": "Edema agudo de pulmão."
+        },
+        "answer": "b",
+        "rationale": "Punções muito baixas (abaixo do 9º espaço intercostal) ou sem guia de ultrassom podem levar à passagem da agulha pelo diafragma e lesão de órgãos sólidos abdominais (baço à esquerda, fígado à direita). O hemoperitônio resultante pode ser volumoso e levar ao choque antes mesmo que o médico perceba o erro intra-abdominal no procedimento torácico.",
+        "option_rationales": {
+            "a": "Incorreta. Grave, mas raramente letal com manobras simples.",
+            "b": "Correta. Acidente anatômico grave potencial.",
+            "c": "Incorreta. Raro agulha puncionar os dois lados simultaneamente.",
+            "d": "Incorreta. A aorta é medial e o trajeto da punção costuma ser lateral/linha axilar.",
+            "e": "Incorreta. Complicação tardia de drenagem volumosa, não do acidente de punção imediato."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Procedimentos",
+            "Anatomia",
+            "Complicações"
+        ]
+    },
+    {
+        "enunciado": "No hemotórax traumático, o sangue no espaço pleural tende a se coagular rapidamente, o que dificulta a drenagem por cateteres finos. No entanto, por que o sangue costuma ser aspirado em estado líquido nas primeiras horas após o trauma?",
+        "options": {
+            "a": "O pulmão produz heparina natural em doses cavalares.",
+            "b": "A desfibrinação do sangue ocorre pelos movimentos respiratórios e cardíacos, transformando o fibrinogênio em fibrina que se deposita nas superfícies pleurais.",
+            "c": "O sangue pleural nunca coagula.",
+            "d": "O líquido pleural transuda água para o sangue, diluindo os fatores de coagulação.",
+            "e": "As bactérias pleurais consomem as plaquetas."
+        },
+        "answer": "b",
+        "rationale": "O sangue no espaço pleural sofre um processo de desfibrinação mecânica por agitação física do coração e pulmões. A fibrina precipita-se sobre a pleura e o líquido remanescente (soro sanguineo) permanece incoagulável in vitro. Se o sangramento for maciço e rápido, o sistema de desfibrinação falha, formando coágulos sólidos que bloqueiam drenos.",
+        "option_rationales": {
+            "a": "Incorreta. Explicação fictícia.",
+            "b": "Correta. Fenômeno fisiopatológico do hemotórax.",
+            "c": "Incorreta. Coagula sim, e pode gerar empiema coagulado/pseudotumor hemático.",
+            "d": "Incorreta. Pelo contrário, o sangue irrita a pleura e gera exsudato adicionando proteína.",
+            "e": "Incorreta. Não ocorre em condições traumáticas imediatas."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Pneumologia",
+            "Fisiopatologia",
+            "Hemotórax",
+            "Coagulação"
+        ]
+    },
+    {
+        "enunciado": "A presença de 'linfangite carcinomatosa' na radiografia e TC de tórax (espessamento nodular de septos interlobulares) em um paciente com derrame pleural maligno unilateral, aponta para qual mecanismo adicional de formação do líquido?",
+        "options": {
+            "a": "Aumento da pressão hidrostática arterial.",
+            "b": "Bloqueio da drenagem linfática pleural e pulmonar retrógrada.",
+            "c": "Redução acentuada da permeabilidade capilar.",
+            "d": "Invasão direta do esôfago pelo tumor.",
+            "e": "Hipotireoidismo paraneoplásico."
+        },
+        "answer": "b",
+        "rationale": "A linfangite carcinomatosa reflete a invasão dos vasos linfáticos pulmonares por células neoplásicas. Isso causa um bloqueio mecânico severo à drenagem linfática pleural, que é a principal via de saída de líquido e proteínas. O resultado é um derrame volumoso, recidivante e de difícil controle clínico.",
+        "option_rationales": {
+            "a": "Incorreta. Mecanismo de transudato cardíaco.",
+            "b": "Correta. Mecanismo principal de derrames neoplásicos de grandes volumes.",
+            "c": "Incorreta. O câncer aumenta a permeabilidade.",
+            "d": "Incorreta. Daria derrame purulento/alimentar.",
+            "e": "Incorreta. Hipotireoidismo não causa linfangite radiológica."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Oncologia",
+            "Linfangite Carcinomatosa",
+            "Fisiopatologia"
+        ]
+    },
+    {
+        "enunciado": "Um paciente de 40 anos apresenta derrame pleural bilateral assintomático, ascite e edema de membros inferiores. A análise do líquido pleural é um transudato. A dosagem de albumina sérica é de 1,6 g/dL e a proteinúria de 24 horas é de 12 gramas. Qual a causa do derrame pleural?",
+        "options": {
+            "a": "Cirrose Hepática.",
+            "b": "Insuficiência Cardíaca Congestiva.",
+            "c": "Síndrome Nefrótica.",
+            "d": "Tuberculose Peritoneal.",
+            "e": "Sarcoidose Sistêmica."
+        },
+        "answer": "c",
+        "rationale": "A proteinúria maciça (> 3,5g/dia) e a hipoalbuminemia grave definem a síndrome nefrótica. O derrame pleural ocorre pela queda drástica da pressão oncótica plasmática, permitindo a transudação de líquido para o espaço pleural (frequentemente bilateral e associado a anasarca).",
+        "option_rationales": {
+            "a": "Incorreta. Cirrose daria ascite desproporcional e albumina baixa, mas não proteinúria de 12g.",
+            "b": "Incorreta. ICC causa derrame, mas não explica a perda urinária de proteína.",
+            "c": "Correta. Quadro laboratorial clássico de necrose glomerular/síndrome nefrótica.",
+            "d": "Incorreta. TB seria exsudato.",
+            "e": "Incorreta. Sarcoidose pode dar nefrite, mas o quadro nefrótico franco com transudato pleural não é sua manifestação principal."
+        },
+        "difficulty": "facil",
+        "tags": [
+            "Pneumologia",
+            "Nefrologia",
+            "Transudato",
+            "Síndrome Nefrótica"
+        ]
+    },
+    {
+        "enunciado": "A presença de 'corpos psamomatosos' (psammoma bodies) no estudo citológico do líquido pleural é um achado sugestivo de quais tipos de câncer primário?",
+        "options": {
+            "a": "Carcinoma de pulmão de grandes células.",
+            "b": "Adenocarcinoma de ovário, de tireoide ou mesotelioma.",
+            "c": "Leucemia mieloide.",
+            "d": "Câncer de próstata.",
+            "e": "Linfoma de Burkitt."
+        },
+        "answer": "b",
+        "rationale": "Os corpos psamomatosos são calcificações concêntricas microscópicas. Embora clássicos no carcinoma papilífero da tireoide e no seroso de ovário, também podem ser encontrados em mesoteliomas pleurais e adenocarcinomas de pulmão, sendo um forte indício de neoplasia epitelial papilar.",
+        "option_rationales": {
+            "a": "Incorreta. Menos comum.",
+            "b": "Correta. Achado citopatológico de valor diagnóstico.",
+            "c": "Incorreta. Neoplasias hematológicas não formam calcificações psamomatosas.",
+            "d": "Incorreta. Não é o padrão.",
+            "e": "Incorreta. Linfomas não apresentam esses corpúsculos."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Pneumologia",
+            "Oncologia",
+            "Citopatologia",
+            "Corpos Psamomatosos"
+        ]
+    },
+    {
+        "enunciado": "Um paciente de 30 anos apresenta quadro de dor abdominal, náuseas e vômitos, seguido de dispneia e derrame pleural à esquerda 24h após o quadro inicial. A dosagem de amilase pleural é de 1.100 U/L (Sérica 950 U/L). RX de abdome sem pneumoperitônio. Qual a interpretação mais provável?",
+        "options": {
+            "a": "Ruptura esofágica aguda.",
+            "b": "Derrame pleural simpático secundário a Pancreatite Aguda.",
+            "c": "Adenocarcinoma gástrico metastático.",
+            "d": "Tuberculose Pleural.",
+            "e": "Derrame por trauma de baço."
+        },
+        "answer": "b",
+        "rationale": "A elefvação da amilase pleural ocorre em cerca de 10% das pancreatites agudas. O derrame costuma ser à esquerda pelo contato do pâncreas com o diafragma esquerdo. Diferente da fístula pancreática crônica, a amilase aqui costuma subir em paralelo à sérica ou levemente acima dela.",
+        "option_rationales": {
+            "a": "Incorreta. Daria amilase salivar (isoforma salivar) muito mais alta e quadro clínico de mediastinite grave.",
+            "b": "Correta. Associação clássica aguda.",
+            "c": "Incorreta. Câncer gástrico eleva amilase raramente e não de forma tão aguda.",
+            "d": "Incorreta. TB não cursa com amilase alta.",
+            "e": "Incorreta. Trauma de baço dá hemotórax, não elevação de amilase."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Gastroenterologia",
+            "Pancreatite Aguda",
+            "Amilase"
+        ]
+    },
+    {
+        "enunciado": "Qual a principal limitação da biópsia pleural por agulha 'cega' (e.g., Abrams) no diagnóstico do Mesotelioma Maligno?",
+        "options": {
+            "a": "A agulha é grossa demais e causa pneumotórax sempre.",
+            "b": "O mesotelioma acomete a pleura de forma focal/nodular no início, e a biópsia cega pode captar apenas áreas de pleurite inflamatória reativa entre os nódulos tumorais.",
+            "c": "O talco nas luvas do patologista impede o diagnóstico.",
+            "d": "A agulha de Abrams só pode ser usada na pleura visceral.",
+            "e": "O mesotelioma não é visível no microscópio comum."
+        },
+        "answer": "b",
+        "rationale": "Assim como o adenocarcinoma pleural, o mesotelioma pode crescer em placas ou nódulos. A biópsia cega tem um 'erro de amostragem' inerente. Um resultado negativo em biópsia cega não exclui o diagnóstico, exigindo biópsia dirigida por imagem ou por VATS se a suspeita persistir.",
+        "option_rationales": {
+            "a": "Incorreta. Risco de pneumotórax existe, mas não é a limitação diagnóstica principal (biológica).",
+            "b": "Correta. Limitação fundamental da técnica cega em patologias nodulares.",
+            "c": "Incorreta. Não interfere.",
+            "d": "Incorreta. Abrams biópsia exclusivamente pleura parietal.",
+            "e": "Incorreta. É visível sim."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Oncologia",
+            "Mesotelioma",
+            "Biópsia Cega"
+        ]
+    },
+    {
+        "enunciado": "A dosagem de ácido hialurônico (hialuronato) no líquido pleural foi historicamente proposta como um marcador para qual neoplasia específica da pleura?",
+        "options": {
+            "a": "Linfoma de Burkitt.",
+            "b": "Adenocarcinoma de pulmão.",
+            "c": "Mesotelioma Maligno.",
+            "d": "Tumor Fibroso Solitário.",
+            "e": "Angiossarcoma."
+        },
+        "answer": "c",
+        "rationale": "Células mesoteliais malignas produzem grandes quantidades de ácido hialurônico. Valores > 100 mg/L no líquido pleural são muito sugestivos de mesotelioma, embora a técnica de dosagem não seja rotineiramente disponível em todos os laboratórios.",
+        "option_rationales": {
+            "a": "Incorreta.",
+            "b": "Incorreta.",
+            "c": "Correta. Marcador bioquímico clássico da biologia mesotelial.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Pneumologia",
+            "Bioquímica",
+            "Mesotelioma",
+            "Marcadores"
+        ]
+    },
+    {
+        "enunciado": "Em pacientes submetidos à diálise peritoneal, a ocorrência de derrame pleural volumoso à direita ('Hidrotórax doce') é causada pela fístula pleuro-peritoneal. Por qual motivo a coloração de Gram e a cultura do líquido pleural devem ser realizadas nestes pacientes, mesmo com suspeita de transudato?",
+        "options": {
+            "a": "Para confirmar o 'gosto' doce do líquido.",
+            "b": "Porque pacientes em diálise têm alta taxa de colonização pleural por fungos.",
+            "c": "Para rastrear peritonite bacteriana que pode ter translocado junto com o dialisado através da fístula diafragmática.",
+            "d": "É uma rotina administrativa desnecessária clínica.",
+            "e": "A glicose alta atrai bactérias da pele durante a toracentese."
+        },
+        "answer": "c",
+        "rationale": "A fístula diafragmática permite que não apenas o líquido de diálise, mas também qualquer processo infeccioso peritoneal (peritonite por contaminação do cateter de diálise) se espalhe para a pleura, transformando um hidrotórax mecânico em um empiema/pleurite bacteriana.",
+        "option_rationales": {
+            "a": "Incorreta.",
+            "b": "Incorreta. Menos comum que a bacteriana.",
+            "c": "Correta. Raciocínio clínico sobre fístulas serosas.",
+            "d": "Incorreta. Tem valor diagnóstico e terapêutico.",
+            "e": "Incorreta. Explicação fictícia."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Nefrologia",
+            "Diálise",
+            "Peritonite"
+        ]
+    },
+    {
+        "enunciado": "A 'Biópsia Pleural por Agulha' é contraindicada ou apresenta risco inaceitável em qual das seguintes situações?",
+        "options": {
+            "a": "Presença de loculações pleurais.",
+            "b": "Derrame pleural muito pequeno (lâmina de líquido < 1 cm na radiografia de Laurell) sem guia de imagem.",
+            "c": "Paciente com febre acima de 39°C.",
+            "d": "Uso de oxigênio por cateter nasal.",
+            "e": "Idade inferior a 18 anos."
+        },
+        "answer": "b",
+        "rationale": "Puncionar a pleura com agulha de biópsia (que tem uma abertura cortante lateral) quando há pouco líquido coloca o pulmão e o diafragma em risco imediato de laceração. Exige técnica guiada por imagem (US ou TC) ou drenagem prévia/preenchimento com ar em técnicas antigas hoje obsoletas.",
+        "option_rationales": {
+            "a": "Incorreta. Pode ser feita guiada por imagem justamente na loculação.",
+            "b": "Correta. Regra de segurança em procedimentos invasivos cegos.",
+            "c": "Incorreta. Febre não contraindica a biópsia diagnóstica.",
+            "d": "Incorreta. Paciente hipoxêmico pode e deve ser diagnosticado.",
+            "e": "Incorreta. Crianças podem ser biopsiadas."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Procedimentos",
+            "Segurança",
+            "Contraindicações"
+        ]
+    },
+    {
+        "enunciado": "Qual a principal função fisiológica da pleura visceral?",
+        "options": {
+            "a": "Produzir 90% do líquido pleural diário.",
+            "b": "Absorver proteínas do espaço pleural.",
+            "c": "Facilitar o deslizamento pulmonar durante a respiração e manter a anatomia lobar através das cisuras.",
+            "d": "Proteger o coração contra infecções bacterianas.",
+            "e": "Filtrar o ar inspirado."
+        },
+        "answer": "c",
+        "rationale": "A pleura visceral reveste o pulmão e permite o deslizamento suave contra a pleura parietal graças à fina camada de líquido pleural (lubrificante). Suas invaginações (cisuras) dividem os pulmões em lobos, garantindo a expansibilidade e limitando a propagação de patologias em alguns cenários.",
+        "option_rationales": {
+            "a": "Incorreta. Produção é majoritariamente parietal.",
+            "b": "Incorreta. Absorção é quase exclusiva da parietal via estomas linfáticos.",
+            "c": "Correta. Função mecânica e anatômica fundamental.",
+            "d": "Incorreta. Função do pericárdio.",
+            "e": "Incorreta. Função do epitélio respiratório e cílios."
+        },
+        "difficulty": "facil",
+        "tags": [
+            "Pneumologia",
+            "Anatomia",
+            "Fisiologia"
+        ]
+    }
+]

@@ -1,0 +1,522 @@
+[
+    {
+        "enunciado": "Um paciente de 62 anos, com diagnóstico de Melanoma Metastático em tratamento com Pembrolizumabe (anti-PD1), apresenta-se com dispneia e derrame pleural bilateral exsudativo, após 3 meses de terapia. Não há evidência de progressão tumoral nos outros sítios. A análise do líquido mostra linfocitose e ADA normal. Este quadro é compatível com:",
+        "options": {
+            "a": "Progressão explosiva da doença (Pseudoprogressão).",
+            "b": "Evento Adverso Imuno-Relacionado (irAE), manifestando-se como pleurite autoimune induzida pelo inibidor de checkpoint.",
+            "c": "Tuberculose reativada pela imunoterapia.",
+            "d": "Empiema bacteriano.",
+            "e": "Toxicidade cardíaca direta pela quimioterapia convencional."
+        },
+        "answer": "b",
+        "rationale": "Inibidores de checkpoint (como Pembrolizumabe e Nivolumabe) podem causar inflamação em qualquer órgão, incluindo a pleura. O diagnóstico de pleurite imuno-relacionada é feito pela exclusão de causas infecciosas e neoplásicas, e o tratamento geralmente envolve a suspensão da droga e o uso de corticosteroides.",
+        "option_rationales": {
+            "a": "Incorreta. Pseudoprogressão é o aumento temporário do tumor antes da resposta, mas a pleurite isolada sem progressão nodal ou de massa é mais sugestiva de irAE.",
+            "b": "Correta. Manifestação moderna de toxicidade de novas terapias oncológicas.",
+            "c": "Incorreta. Embora possível, a imunoterapia não é o gatilho clássico para TB comparado a anti-TNF.",
+            "d": "Incorreta. Teria neutrofilia e pH baixo.",
+            "e": "Incorreta. Imunoterapia não é quimioterapia convencional; a disfunção cardíaca (miocardite) é rara e daria transudato.",
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Pneumologia",
+            "Oncologia",
+            "Imunoterapia",
+            "Toxicidade"
+        ]
+    },
+    {
+        "enunciado": "A 'Erdheim-Chester Disease' é uma histiocitose de células não-Langerhans rara. Qual o achado radiológico extratorácico clássico que, se associado a derrame pleural e espessamento pleural, sugere o diagnóstico?",
+        "options": {
+            "a": "Nódulos hepáticos gigantes.",
+            "b": "Infiltração perirrenal ('Hairy Kidney' - rim cabeludo) e osteosclerose bilateral de ossos longos.",
+            "c": "Cistos renais simples.",
+            "d": "Escoliose grave.",
+            "e": "Agenesia de baço."
+        },
+        "answer": "b",
+        "rationale": "A doença de Erdheim-Chester é uma neoplasia mieloide multissistêmica. O envolvimento pleural (espessamento e derrame) ocorre em até 20% dos casos. O achado patognomônico é a infiltração de gordura perirrenal por histiócitos (Hairy Kidney) e a esclerose óssea simétrica em fêmur ou tíbia.",
+        "option_rationales": {
+            "a": "Incorreta.",
+            "b": "Correta. Associação clínica rara mas clássica em provas de alto nível.",
+            "c": "Incorreta.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Pneumologia",
+            "Hematologia",
+            "Erdheim-Chester",
+            "Radiologia"
+        ]
+    },
+    {
+        "enunciado": "A 'Manometria Pleural' é uma técnica utilizada durante a toracocentese para medir a pressão no espaço pleural. Qual o principal objetivo clínico desta medição?",
+        "options": {
+            "a": "Substituir a radiografia de tórax.",
+            "b": "Identificar precocemente o 'Pulmão Encarcerado' (através da medida da elastância pleural elevada) e prevenir o edema de reexpansão ou dor intratável durante a drenagem.",
+            "c": "Verificar se o paciente está com soluços.",
+            "d": "Diagnosticar asma.",
+            "e": "Calibrar o ventilador mecânico."
+        },
+        "answer": "b",
+        "rationale": "A manometria mede a queda da pressão pleural à medida que o líquido é removido. Se a pressão cair muito rápido (alta elastância), significa que o pulmão não consegue expandir para preencher o espaço (encarceramento). Isso alerta o médico para interromper o procedimento antes que ocorra laceração pulmonar ou edema de reexpansão grave.",
+        "option_rationales": {
+            "a": "Incorreta.",
+            "b": "Correta. Utilidade fisiológica aplicada à segurança do procedimento.",
+            "c": "Incorreta.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Pneumologia",
+            "Procedimentos",
+            "Manometria Pleural",
+            "Fisiologia"
+        ]
+    },
+    {
+        "enunciado": "Paciente jovem, sexo feminino, em tratamento de infertilidade com indutores de ovulação, apresenta dor abdominal, ascite e derrame pleural bilateral volumoso. Qual a fisiopatologia deste quadro (Síndrome de Hiperestimulação Ovariana - OHSS)?",
+        "options": {
+            "a": "Infecção pélvica disseminada.",
+            "b": "Aumento maciço da permeabilidade vascular sistêmica mediado por VEGF e citocinas ovarianas, levando a extravasamento de líquido para terceiros espaços.",
+            "c": "Insuficiência cardíaca pós-parto.",
+            "d": "Metástases de coriocarcinoma.",
+            "e": "Torção de ovário purulenta."
+        },
+        "answer": "b",
+        "rationale": "A OHSS é uma complicação grave da estimulação ovariana. O excesso de folículos produz mediadores (especialmente VEGF) que causam 'vazamento capilar' sistêmico. O resultado é hemoconcentração, ascite e derrames pleurais (muitas vezes à direita ou bilateral).",
+        "option_rationales": {
+            "a": "Incorreta.",
+            "b": "Correta. Mecanismo molecular de permeabilidade endotelial.",
+            "c": "Incorreta.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Ginecologia",
+            "OHSS",
+            "VEGF"
+        ]
+    },
+    {
+        "enunciado": "A dosagem de Antígeno Carcinoembrionário (CEA) no líquido pleural apresenta qual utilidade prática no diagnóstico de adenocarcinoma de pulmão?",
+        "options": {
+            "a": "Substitui a biópsia pleural.",
+            "b": "Valores muito elevados (ex: > 5-10 ng/mL) no líquido sugerem fortemente malignidade, aumentando a sensibilidade diagnóstica quando combinada com a citologia oncótica.",
+            "c": "É o marcador específico de Tuberculose.",
+            "d": "Indica infecção por fungos.",
+            "e": "Identifica pacientes que responderão ao tabaco."
+        },
+        "answer": "b",
+        "rationale": "O CEA pleural não é 100% específico, mas quando elevado no líquido (acima do valor de corte laboratorial), aumenta consideravelmente a suspeita de câncer epitelial (especialmente pulmão, mama e trato digestivo), ajudando em casos onde a citologia inicial é inconclusiva.",
+        "option_rationales": {
+            "a": "Incorreta. Marcadores tumorais são auxiliares, não substitutos teciduais.",
+            "b": "Correta. Uso aditivo à citologia para aumentar acurácia.",
+            "c": "Incorreta. TB tem CEA baixo.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Oncologia",
+            "Marcadores Tumorais",
+            "CEA"
+        ]
+    },
+    {
+        "enunciado": "A fístula 'Gastropleural' é uma complicação rara após qual cirurgia bariátrica, manifestando-se como derrame pleural purulento persistente?",
+        "options": {
+            "a": "Balão introgástrico.",
+            "b": "Gastrectomia Vertical (Sleeve) ou Bypass Gástrico em Y-de-Roux.",
+            "c": "Lipoaspiração abdominal.",
+            "d": "Apenas em cirurgias de hérnia inguinal.",
+            "e": "Colecistectomia."
+        },
+        "answer": "b",
+        "rationale": "A fístula do ângulo de His (em cirurgias de Sleeve) pode levar à formação de abscesso subfrênico que erode o diafragma e comunica o estômago com o espaço pleural, causando empiema de difícil manejo que exige drenagem pleural e abdominal simultâneas e correção da fístula digestiva.",
+        "option_rationales": {
+            "a": "Incorreta.",
+            "b": "Correta. Complicação cirúrgica moderna relevante.",
+            "c": "Incorreta.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Cirurgia Bariátrica",
+            "Fístula Gastropleural",
+            "Empiema"
+        ]
+    },
+    {
+        "enunciado": "Em pacientes com Artrite Reumatoide, o derrame pleural tipicamente apresenta níveis MUITO BAIXOS de qual componente do complemento?",
+        "options": {
+            "a": "Apenas C1q.",
+            "b": "C3 e C4 ( níveis de complemento total CH50 frequentemente indetectáveis).",
+            "c": "Apenas C9.",
+            "d": "O complemento está sempre elevado.",
+            "e": "Não existe complemento no líquido pleural."
+        },
+        "answer": "b",
+        "rationale": "O consumo de complemento no espaço pleural da Artrite Reumatoide é intenso devido à formação in situ de imunocomplexos. Isso ajuda a diferenciar da pleurite lúpica, onde o complemento também pode estar baixo, mas no reumatoide a queda é geralmente mais drástica e associada à glicose baixíssima.",
+        "option_rationales": {
+            "a": "Incorreta.",
+            "b": "Correta. Marcador de atividade inflamatória imune intensa local.",
+            "c": "Incorreta.",
+            "d": "Incorreta. O consumo leva à redução.",
+            "e": "Incorreta. Líquidos exsudativos têm proteínas do complemento."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Pneumologia",
+            "Reumatologia",
+            "Artrite Reumatoide",
+            "Complemento"
+        ]
+    },
+    {
+        "enunciado": "Sobre a 'Linfadenite Tuberculosa' (Escrófula) e sua relação com o derrame pleural, qual a afirmação correta?",
+        "options": {
+            "a": "Sempre ocorrem juntas.",
+            "b": "São formas extrapulmonares de TB que podem coexistir, especialmente em crianças e pacientes imunossuprimidos, indicando disseminação linfogênica do bacilo.",
+            "c": "A escrófula cura o derrame pleural.",
+            "d": "Apenas o derrame pleural exige tratamento com RIPE.",
+            "e": "O dreno de tórax deve ser colocado no pescoço."
+        },
+        "answer": "b",
+        "rationale": "Ambas são manifestações de TB extrapulmonar. A coexistência de linfonodomegalia mediastinal ou cervical com derrame pleural reforça a suspeita diagnóstica de TB em casos onde o líquido pleural é linfocítico.",
+        "option_rationales": {
+            "a": "Incorreta. Frequentemente ocorrem isoladas.",
+            "b": "Correta. Visão sistêmica da infecção tuberculosa.",
+            "c": "Incorreta. Uma não cura a outra.",
+            "d": "Incorreta. Ambas exigem o mesmo esquema RIPE.",
+            "e": "Incorreta."
+        },
+        "difficulty": "facil",
+        "tags": [
+            "Pneumologia",
+            "Infectologia",
+            "Tuberculose",
+            "Extrapulmonar"
+        ]
+    },
+    {
+        "enunciado": "A 'Pleurite Lúpica' apresenta como achado característico no líquido pleural a presença de células LE (Lupus Erythematosus cells). O que são essas células?",
+        "options": {
+            "a": "Bactérias em forma de lobo.",
+            "b": "Neutrófilos ou macrófagos que fagocitaram núcleos desnaturalizados de outras células (material nuclear opsonizado por anticorpos anti-nucleares).",
+            "c": "Linfócitos gigantes atípicos.",
+            "d": "Fragmentos de talco.",
+            "e": "Células musculares lisas."
+        },
+        "answer": "b",
+        "rationale": "Embora o diagnóstico moderno do LES se baseie em anticorpos específicos (FAN, anti-DNA, etc), a visualização de células LE no líquido pleural é um achado histórico e raro, mas altamente sugestivo de pleurite lúpica ativa.",
+        "option_rationales": {
+            "a": "Incorreta.",
+            "b": "Correta. Definição citológica clássica.",
+            "c": "Incorreta.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Reumatologia",
+            "LES",
+            "Células LE"
+        ]
+    },
+    {
+        "enunciado": "Qual a principal causa de Derrame Pleural Persistente após cirurgia de Revascularização do Miocárdio (CABG) com uso da artéria mamária interna?",
+        "options": {
+            "a": "Tuberculose reativada pelo trauma.",
+            "b": "Síndrome de Post-Cardiotomia (inflamação imunológica) ou distúrbios de drenagem linfática/venosa local no hemitórax operado.",
+            "c": "Infecção por pseudomonas sempre.",
+            "d": "Rejeição ao fio de sutura.",
+            "e": "Hipotireoidismo cirúrgico."
+        },
+        "answer": "b",
+        "rationale": "Derrames pleurais pós-CABG (especialmente à esquerda devido ao uso da mamária esquerda) são muito comuns. Podem ser precoces (por sangramento ou trauma cirúrgico) ou tardios (Síndrome de Dressler/Pós-cardiotomia), respondendo frequentemente a anti-inflamatórios ou corticoides.",
+        "option_rationales": {
+            "a": "Incorreta.",
+            "b": "Correta. Evolução frequente e bem descrita na cirurgia cardíaca.",
+            "c": "Incorreta. O derrame costuma ser estéril inflamatório.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Cirurgia Cardíaca",
+            "CABG",
+            "Dressler"
+        ]
+    },
+    {
+        "enunciado": "Em pacientes com 'Insuficiência Renal Crônica' em hemodiálise, o aparecimento de derrame pleural transudativo súbito BILATERAL, associado a aumento do peso entre as sessões, sugere:",
+        "options": {
+            "a": "Urinotórax.",
+            "b": "Hipervolemia por falha na remoção de fluidos (Congestão sistêmica).",
+            "c": "Infeção pelo vírus da Hepatite C.",
+            "d": "Carcinomatose.",
+            "e": "Pleurite por alumínio."
+        },
+        "answer": "b",
+        "rationale": "Pacientes anúricos dependem totalmente da ultrafiltração na diálise. O ganho de peso interdialítico excessivo leva à sobrecarga volêmica, aumento da pressão hidrostática e consequente transudação pleural (edema 'interno'). Melhora com ajuste de peso seco na diálise.",
+        "option_rationales": {
+            "a": "Incorreta. Urinotórax é unilateral e associado a obstrução urinária aguda com rim funcionante.",
+            "b": "Correta. Causa diária e comum na nefrologia.",
+            "c": "Incorreta.",
+            "d": "Incorreta. Daria exsudato.",
+            "e": "Incorreta."
+        },
+        "difficulty": "facil",
+        "tags": [
+            "Pneumologia",
+            "Nefrologia",
+            "Hemodiálise",
+            "Hipervolemia"
+        ]
+    },
+    {
+        "enunciado": "A 'Xantomatose Pleural' é um achado raro caracterizado por depósitos amarelos de gordura na pleura. Qual condição metabólica deve ser investigada?",
+        "options": {
+            "a": "Diabetes Mellitus tipo 1.",
+            "b": "Hiperlipoproteinemias graves (geralmente tipo II ou III).",
+            "c": "Hipotireoidismo subclínico.",
+            "d": "Doença de Wilson.",
+            "e": "Porfiria."
+        },
+        "answer": "b",
+        "rationale": "Xantomas são depósitos cutâneos ou viscerais de macrófagos carregados de colesterol. Na pleura, são raríssimos, mas indicam distúrbios severos do metabolismo lipídico sistêmico.",
+        "option_rationales": {
+            "a": "Incorreta.",
+            "b": "Correta. Correlação metabólica-anatomopatológica.",
+            "c": "Incorreta.",
+            "d": "Incorreta. Cobre.",
+            "e": "Incorreta."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Pneumologia",
+            "Metabolismo",
+            "Xantomatose",
+            "Lipídios"
+        ]
+    },
+    {
+        "enunciado": "No diagnóstico de Tuberculose Pleural, qual a principal desvantagem do teste rápido molecular (GeneXpert / TRM-TB) no LÍQUIDO pleural em comparação ao escarro?",
+        "options": {
+            "a": "É muito caro.",
+            "b": "Tem baixa sensibilidade (< 50%) devido à natureza paucibacilar do derrame pleural tuberculoso, embora sua especificidade seja alta.",
+            "c": "Não detecta resistência à rifampicina.",
+            "d": "Só funciona em urina.",
+            "e": "Causa falsos-positivos com bactérias da pneumonia."
+        },
+        "answer": "b",
+        "rationale": "Embora o GeneXpert seja excelente para escarro (onde há muitos bacilos), no líquido pleural a carga bacteriana é tão baixa que o teste muitas vezes não consegue detectar o DNA do Mycobacterium. Por isso, um TRM-TB negativo no líquido NÃO exclui TB pleural.",
+        "option_rationales": {
+            "a": "Incorreta.",
+            "b": "Correta. Limitação técnica importante para o clínico saber interpretar.",
+            "c": "Incorreta. Detecta resistência se houver material genético suficiente.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Infectologia",
+            "TRM-TB",
+            "GeneXpert"
+        ]
+    },
+    {
+        "enunciado": "A ocorrência de derrame pleural purulento 'verde-azulado' pode ser indicativa de infecção por qual bactéria gram-negativa oportunista?",
+        "options": {
+            "a": "Escherichia coli.",
+            "b": "Pseudomonas aeruginosa (devido à produção de pigmentos como piocianina e pioverdina).",
+            "c": "Haemophilus influenzae.",
+            "d": "Streptococcus pneumoniae.",
+            "e": "Moraxella catarrhalis."
+        },
+        "answer": "b",
+        "rationale": "A Pseudomonas produz pigmentos coloridos que podem tingir o pus do empiema. É uma pista macroscópica importante para o início de cobertura antibiótica antipseudomonas precoce enquanto se aguarda o antibiograma.",
+        "option_rationales": {
+            "a": "Incorreta.",
+            "b": "Correta. Pista microbiológica macroscópica clássica.",
+            "c": "Incorreta.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "facil",
+        "tags": [
+            "Pneumologia",
+            "Infectologia",
+            "Pseudomonas",
+            "Pigmentos"
+        ]
+    },
+    {
+        "enunciado": "Em pacientes com 'Artroplastia de Quadril ou Joelho' recente, a ocorrência de derrame pleural súbito bilateral com hipoxemia e rash petequial axilar sugere qual diagnóstico de exclusão?",
+        "options": {
+            "a": "Empiema hospitalar.",
+            "b": "Síndrome da Embolia Gordurosa (SEG).",
+            "c": "Tuberculose óssea.",
+            "d": "Reação ao cimento ortopédico.",
+            "e": "Linfangiomatose."
+        },
+        "answer": "b",
+        "rationale": "A SEG ocorre após trauma ou cirurgia de ossos longos/grandes articulações. Os glóbulos de gordura atingem o pulmão desencadeando uma cascata inflamatória grave (pneumonite gordurosa) que pode cursar com derrames pleurais exsudativos e sofrimento respiratório agudo.",
+        "option_rationales": {
+            "a": "Incorreta.",
+            "b": "Correta. Quadro clínico-cirúrgico clássico em ortopedia/pneumo.",
+            "c": "Incorreta.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Ortopedia",
+            "Embolia Gordurosa",
+            "Derrame Pleural"
+        ]
+    },
+    {
+        "enunciado": "O 'Derrame Pleural Paraneoplásico' (Efusão Paramaligna) difere da Efusão Maligna Verdadeira porque:",
+        "options": {
+            "a": "O paraneoplásico é causado pelo talco.",
+            "b": "O paraneoplásico ocorre por mecanismos indiretos (obstrução linfática regional, pneumonia obstrutiva ou hipoalbuminemia) e NÃO contém células neoplásicas na pleura ou no líquido.",
+            "c": "É sempre purulento.",
+            "d": "Só ocorre em crianças.",
+            "e": "Cura-se com aspirina."
+        },
+        "answer": "b",
+        "rationale": "Essa distinção é vital para o estadiamento. Se o líquido for paraneoplásico (células malignas negativas em múltiplas citologias e biópsias), o paciente ainda pode ser candidato a tratamento curativo (estágio menor). Se for maligno (M1a), o tratamento é paliativo.",
+        "option_rationales": {
+            "a": "Incorreta.",
+            "b": "Correta. Definição oncológica fundamental para estadiamento (M0 vs M1).",
+            "c": "Incorreta.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Oncologia",
+            "Estadiamento",
+            "Mecanismo"
+        ]
+    },
+    {
+        "enunciado": "Qual a principal limitação do uso da 'Escrituração por Imagem' (Escore RAPID) no manejo clínico dos derrames pleurais?",
+        "options": {
+            "a": "Só funciona para câncer.",
+            "b": "O escore RAPID (Renal, Age, Purulence, Infection source, Dietary) é validado especificamente para prever mortalidade em pacientes com Empiema/Derrame Parapneumônico, não sendo aplicável para transudatos ou câncer.",
+            "c": "É impossível de decorar.",
+            "d": "Exige ressonância magnética nuclear.",
+            "e": "Só pode ser usado por cirurgiões."
+        },
+        "answer": "b",
+        "rationale": "O escore RAPID ajuda a estratificar o risco de morte em 3 meses para empiema pleural. Variáveis como Ureia (Renal), Idade, Purulência do líquido, Local da infecção (Comunitário vs Nosocomial) e Nível de Albumina são as ferramentas de cálculo. Conhecer seu público alvo é essencial.",
+        "option_rationales": {
+            "a": "Incorreta.",
+            "b": "Correta. Validação clínica específica de escores prognósticos.",
+            "c": "Incorreta.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Pneumologia",
+            "Escore RAPID",
+            "Empiema",
+            "Prognóstico"
+        ]
+    },
+    {
+        "enunciado": "A 'Pleurite Crônica Não-Específica' é um laudo comum de biópsia pleural que não detecta câncer ou TB. Qual a conduta recomendada se a suspeita clínica de malignidade for alta?",
+        "options": {
+            "a": "Dar alta ao paciente.",
+            "b": "Repetir a investigação através de biópsia guiada por videotoracoscopia (VATS) para obter amostras maiores e mais representativas da pleura parietal e visceral.",
+            "c": "Tratar como pneumonia por 2 anos.",
+            "d": "Trocar o patologista.",
+            "e": "Fazer apenas gargarejos."
+        },
+        "answer": "b",
+        "rationale": "Cerca de 30-40% das biópsias inespecíficas iniciais em pacientes com suspeita de câncer acabam revelando malignidade em investigações subsequentes mais invasivas. O acompanhamento rigoroso ou a cirurgia diagnóstica (VATS) são obrigatórios.",
+        "option_rationales": {
+            "a": "Incorreta. Negligência diagnóstica.",
+            "b": "Correta. Fluxograma de investigação de pleura de origem indeterminada.",
+            "c": "Incorreta.",
+            "d": "Incorreta. Embora a revisão de lâminas seja válida, a re-amostragem cirúrgica é o passo definitivo.",
+            "e": "Incorreta."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Diagnóstico",
+            "Propedeutica",
+            "Indeterminado"
+        ]
+    },
+    {
+        "enunciado": "Qual a principal diferença entre o 'Hemotórax' e o 'Derrame Pleural Sero-hemorrágico' na análise laboratorial?",
+        "options": {
+            "a": "Apenas a cor.",
+            "b": "O Hemotórax é definido por um hematócrito do líquido pleural ≥ 50% do hematócrito do sangue periférico.",
+            "c": "O sero-hemorrágico é comum no câncer, enquanto o hemotórax é quase sempre traumático.",
+            "d": "Ambas as alternativas B e C estão corretas e se complementam no raciocínio clínico.",
+            "e": "Não há diferença."
+        },
+        "answer": "d",
+        "rationale": "Esta é uma distinção técnica crucial. Pouco sangue (1-10 mL) já deixa o líquido vermelho (sero-hemorrágico). O hemotórax real exige uma concentração de hemácias significativa em relação ao sangue do paciente, mudando drasticamente a conduta (drenagem agressiva).",
+        "option_rationales": {
+            "a": "Incorreta.",
+            "b": "Incorreta (sozinha).",
+            "c": "Incorreta (sozinha).",
+            "d": "Correta. Síntese do conhecimento técnico-clínico sobre sangue na pleura.",
+            "e": "Incorreta."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Hematologia",
+            "Hemotórax",
+            "Critérios"
+        ]
+    },
+    {
+        "enunciado": "Encerrando o estudo dos derrames pleurais: Qual é o 'sinal radiográfico' que indica a presença de um grande volume de líquido pleural em uma radiografia de tórax realizada em DECÚBITO DORSAL (paciente deitado na UTI)?",
+        "options": {
+            "a": "Parábola de Damoiseau.",
+            "b": "Velamento difuso (Haze) de um hemitórax, com preservação da visualização dos vasos pulmonares através da 'névoa' e ausência de desvio de estruturas mediastinais.",
+            "c": "Nível hidroaéreo retilíneo.",
+            "d": "Desaparecimento do coração.",
+            "e": "Presença de bolhas de sabão."
+        },
+        "answer": "b",
+        "rationale": "No paciente deitado, o líquido se espalha uniformemente por toda a superfície posterior do pulmão. O resultado é um aumento da densidade global (um 'véu' branco) sobre o hemitórax acometido, diferente dos níveis localizados do paciente em pé.",
+        "option_rationales": {
+            "a": "Incorreta. Sinal do derrame livre no paciente em ortostatismo.",
+            "b": "Correta. Interpretação radiológica crítica no paciente crítico acamado.",
+            "c": "Incorreta. Indica hidropneumotórax.",
+            "d": "Incorreta.",
+            "e": "Incorreta."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Radiologia",
+            "UTI",
+            "Semiologia Radiológica"
+        ]
+    }
+]

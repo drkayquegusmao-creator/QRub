@@ -1,0 +1,521 @@
+[
+    {
+        "enunciado": "Um homem de 58 anos, com diagnóstico prévio de Linfoma de Hodgkin em remissão após quimioterapia e radioterapia mediastinal há 5 anos, apresenta-se com dispneia aos esforços e tosse seca. A tomografia de tórax revela espessamento pleural difuso e derrame pleural loculado à direita. A análise do líquido pleural mostra exsudato linfocítico, com glicose de 45 mg/dL e LDH de 550 U/L. A citologia oncótica e a cultura são negativas. A biópsia pleural por videotoracoscopia revela fibrose densa com hialinização, sem sinais de malignidade. Qual a causa mais provável para este derrame?",
+        "options": {
+            "a": "Recidiva do linfoma de Hodgkin na pleura.",
+            "b": "Pneumonite por radiação com extensão pleural tardia.",
+            "c": "Mesotelioma maligno induzido por radioterapia prévia.",
+            "d": "Derrame pleural por toxicidade tardia à bleomicina.",
+            "e": "Pleura 'encarcerada' secundária à radioterapia (fibrose pleural actínica)."
+        },
+        "answer": "e",
+        "rationale": "A radioterapia mediastinal para o tratamento de linfomas pode causar fibrose pleural e pericárdica tardia, levando ao quadro de pulmão encarcerado ou derrames exsudativos puramente fibróticos (pleura actínica). O achado histopatológico de hialinização e fibrose densa sem células malignas, anos após o tratamento, é característico dessa condição.",
+        "option_rationales": {
+            "a": "Incorreta. A biópsia negativa e o tempo de remissão tornam a recidiva menos provável que a complicação fibrótica.",
+            "b": "Incorreta. A pneumonite actínica costuma ocorrer nos primeiros meses após a radioterapia, não após 5 anos.",
+            "c": "Incorreta. Embora o mesotelioma possa ser induzido por radiação, o achado de fibrose hialina na biópsia aponta para uma causa benigna (cicatricial).",
+            "d": "Incorreta. A toxicidade pela bleomicina geralmente se manifesta como fibrose pulmonar intersticial, não como derrame pleural isolado e espessamento hialino.",
+            "e": "Correta. A fibrose pleural actínica é uma complicação tardia bem descrita da radioterapia torácica."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Pneumologia",
+            "Radioterapia",
+            "Fibrose Pleural",
+            "Derrame Pleural"
+        ]
+    },
+    {
+        "enunciado": "Paciente feminina, 42 anos, com história de asma grave e rinossinusite crônica, procura atendimento por dispneia, febre e dor torácica pleurítica à direita. O hemograma revela leucocitose com 22% de eosinófilos (2.500/mm³). A toracentese revela um exsudato com 45% de eosinófilos e pH de 7,30. Diante do quadro sistêmico e pleural, qual o diagnóstico mais provável?",
+        "options": {
+            "a": "Pneumonia por Strongyloides stercoralis com derrame reativo.",
+            "b": "Síndrome de Löffler clássica.",
+            "c": "Granulomatose eosinofílica com poliangiite (Síndrome de Churg-Strauss).",
+            "d": "Derrame pleural induzido pelo uso de montelucaste.",
+            "e": "Infarto pulmonar hemorrágico por tromboembolismo."
+        },
+        "answer": "c",
+        "rationale": "A Síndrome de Churg-Strauss (GEPA) é caracterizada pelo binômio asma grave + eosinofilia periférica marcada (> 1.500/mm³). O envolvimento pleural ocorre em cerca de 30% dos casos, tipicamente como um exsudato eosinofílico. O quadro de sinusite crônica e asma reforça FORTEMENTE este diagnóstico imuno-reumatológico.",
+        "option_rationales": {
+            "a": "Incorreta. Parasitoses podem dar eosinofilia, mas o quadro clínico de asma grave e sinusite aponta para vasculite.",
+            "b": "Incorreta. A síndrome de Löffler é uma pneumonia eosinofílica autolimitada e migratória, raramente causando derrame pleural importante ou sinusite.",
+            "c": "Correta. A tríade asma + eosinofilia + serosite (derrame) é clássica da GEPA.",
+            "d": "Incorreta. Embora o montelucaste tenha sido associado ao surgimento de Churg-Strauss, a doença é a vasculite em si, não um efeito tóxico direto do remédio na pleura.",
+            "e": "Incorreta. O TEP pode dar eosinofilia pleural leve, mas não explica a eosinofilia periférica grave e a asma/sinusite."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Pneumologia",
+            "Vasculites",
+            "Eosinofilia Pleural",
+            "Churg-Strauss"
+        ]
+    },
+    {
+        "enunciado": "Durante uma toracoscopia diagnóstica em um paciente com derrame pleural exsudativo linfocítico unilateral, o cirurgião observa múltiplos pequenos nódulos esbranquiçados espalhados pelas superfícies pleural parietal e visceral, com aspecto de 'grãos de milheto'. Esse achado macroscópico é altamente sugestivo de:",
+        "options": {
+            "a": "Carcinomatose pleural de origem ovariana.",
+            "b": "Mesotelioma maligno em estágio inicial.",
+            "c": "Tuberculose Pleural (forma miliar).",
+            "d": "Sarcoidose de acometimento pleural.",
+            "e": "Talcose pleural iatrogênica."
+        },
+        "answer": "c",
+        "rationale": "A visualização de 'grânulos' ou 'grãos de milho' na superfície pleural durante a VATS é a marca macroscópica da tuberculose pleural. A biópsia desses nódulos confirmará o diagnóstico através da presença de granulomas com necrose de caseificação.",
+        "option_rationales": {
+            "a": "Incorreta. A carcinomatose costuma apresentar nódulos maiores, irregulares e muitas vezes com implantes umbilicados.",
+            "b": "Incorreta. O mesotelioma costuma apresentar espessamento pleural difuso ou massas maiores, não pequenos grânulos uniformes.",
+            "c": "Correta. É o achado clássico da TB pleural na toracoscopia.",
+            "d": "Incorreta. A sarcoidose pleural é rara; embora granulomatosa, a apresentação miliar macroscópica na pleura é excepcional.",
+            "e": "Incorreta. A talcose ocorre após pleurodese e as partículas de talco são irregulares e frequentemente encapsuladas por fibrina mais densa."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Pneumologia",
+            "Tuberculose",
+            "Toracoscopia",
+            "Semiologia Pleural"
+        ]
+    },
+    {
+        "enunciado": "Um paciente de 35 anos apresenta um derrame pleural volumoso recorrente. A análise do líquido revela: Exsudato linfocítico (95%), Glicose 80 mg/dL, ADA 22 U/L, Citologia oncótica negativa. O paciente apresenta também ascite e linfedema de membros inferiores de surgimento espontâneo. Observa-se que as unhas das mãos estão espessas, opacas e com coloração amarelada. Qual a tríade diagnóstica?",
+        "options": {
+            "a": "Síndrome de Meigs.",
+            "b": "Síndrome das Unhas Amarelas.",
+            "c": "Doença de Whipple.",
+            "d": "Linfangioleiomiomatose (LAM).",
+            "e": "Hipotireoidismo severo (Mixedema)."
+        },
+        "answer": "b",
+        "rationale": "A Síndrome das Unhas Amarelas (Yellow Nail Syndrome) é uma condição rara caracterizada por: 1) Unhas amareladas e distróficas; 2) Linfedema; e 3) Derrame pleural exsudativo (geralmente linfocítico devido à disfunção linfática). A ascite também pode ocorrer como parte da linfedema sistêmico.",
+        "option_rationales": {
+            "a": "Incorreta. A Síndrome de Meigs é a associação de tumor de ovário benigno + ascite + derrame pleural.",
+            "b": "Correta. A descrição das unhas combinada com linfedema e derrame é patognomônica.",
+            "c": "Incorreta. Whipple causa diarreia, perda de peso e dor articular, podendo causar serosite, mas não unhas amarelas.",
+            "d": "Incorreta. A LAM ocorre em mulheres em idade fértil e causa pneumotórax e quilotórax, não a distrofia ungueal descrita.",
+            "e": "Incorreta. O mixedema causa transudatos e não se associa a distrofia ungueal amarelada isolada."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Pneumologia",
+            "Dermatologia",
+            "Derrame Pleural",
+            "Síndromes Raras"
+        ]
+    },
+    {
+        "enunciado": "Em relação ao diagnóstico diferencial do derrame pleural com baixos níveis de glicose (< 60 mg/dL), qual das seguintes condições costuma apresentar os níveis MAIS BAIXOS de glicose (frequentemente próximos de zero)?",
+        "options": {
+            "a": "Tuberculose Pleural.",
+            "b": "Derrame Pleural Maligno.",
+            "c": "Derrame Pleural por Artrite Reumatoide.",
+            "d": "Derrame Parapneumônico Simples.",
+            "e": "Lúpus Eritematoso Sistêmico."
+        },
+        "answer": "c",
+        "rationale": "A Artrite Reumatoide (AR) é a condição que produz a maior queda de glicose no líquido pleural, muitas vezes atingindo valores indetectáveis (0 a 10 mg/dL). O mecanismo envolve um bloqueio no transporte de glicose através da pleura inflamada e espessada.",
+        "option_rationales": {
+            "a": "Incorreta. Na TB, a glicose é baixa, mas costuma variar entre 40-60 mg/dL.",
+            "b": "Incorreta. No câncer, a glicose baixa é sinal de grande carga tumoral, variando geralmente entre 30-50 mg/dL.",
+            "c": "Correta. AR e Empiema organizado são as causas de glicose 'zero' ou quase zero.",
+            "d": "Incorreta. No derrame simples a glicose costuma ser normal.",
+            "e": "Incorreta. No LES a glicose costuma ser normal ou levemente reduzida, raramente tão baixa quanto na AR."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Pneumologia",
+            "Líquido Pleural",
+            "Bioquímica",
+            "Artrite Reumatoide"
+        ]
+    },
+    {
+        "enunciado": "Um paciente de 40 anos é admitido com hemotórax traumático após acidente automobilístico. O dreno de tórax é inserido em 5º espaço intercostal, com saída imediata de 1.200 mL de sangue. Nas 2 horas seguintes, a drenagem mantém-se constante em 250 mL/h. O paciente apresenta-se taquicárdico e hipotenso apesar de reposição volêmica. Qual a conduta cirúrgica imediata?",
+        "options": {
+            "a": "Manter observação e drenagem, aguardando 12h para estabilização.",
+            "b": "Realizar videotoracoscopia (VATS) para identificação do sangramento.",
+            "c": "Encaminhar para toracotomia de urgência.",
+            "d": "Realizar arteriografia com embolização das artérias intercostais.",
+            "e": "Administrar ácido tranexâmico e complexo protrombínico imediatamente."
+        },
+        "answer": "c",
+        "rationale": "As indicações clássicas para toracotomia de urgência no hemotórax traumático incluem: 1) Drenagem imediata > 1.500 mL (ou > 20 mL/kg); ou 2) Drenagem mantida > 200 mL/h nas primeiras 2 a 4 horas; ou 3) Instabilidade hemodinâmica sem outra causa. Este paciente preenche o critério de débito mantido e instabilidade hemodinâmica.",
+        "option_rationales": {
+            "a": "Incorreta. O atraso na intervenção em um quadro de sangramento ativo instável é fatal.",
+            "b": "Incorreta. A VATS é útil no trauma estável ou tardio (hemotórax retido), não no sangramento exsanguinante ativo.",
+            "c": "Correta. Toracotomia de emergência está indicada pelo débito mantido elevado e choque.",
+            "d": "Incorreta. A arteriografia pode ser útil em traumas pélvicos, mas no tórax com sangramento desse volume, a cirurgia é a prioridade.",
+            "e": "Incorreta. São medidas auxiliares, mas não substituem o controle cirúrgico do sangramento massivo."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Pneumologia",
+            "Cirurgia de Trauma",
+            "Hemotórax",
+            "Indicações de Toracotomia"
+        ]
+    },
+    {
+        "enunciado": "A dosagem de NT-proBNP no líquido pleural é útil na diferenciação entre transudatos e exsudatos em contextos ambíguos. No entanto, qual a faixa de valor de corte (cut-off) comumente aceita no líquido pleural para sugerir etiologia de insuficiência cardíaca?",
+        "options": {
+            "a": "> 200 pg/mL",
+            "b": "> 500 pg/mL",
+            "c": "> 1.500 pg/mL",
+            "d": "> 10.000 pg/mL",
+            "e": "> 100 pg/mL"
+        },
+        "answer": "c",
+        "rationale": "O valor de corte de 1.500 pg/mL para o NT-proBNP no líquido pleural tem alta sensibilidade e especificidade (próximas de 90%) para o diagnóstico de derrame decorrente de insuficiência cardíaca congestiva. Valores abaixo disso em líquidos ambíguos favorecem o diagnóstico de exsudato.",
+        "option_rationales": {
+            "a": "Incorreta. Valor baixo demais, não específico.",
+            "b": "Incorreta. Abaixo do ponto de corte validado na literatura principal.",
+            "c": "Correta. 1.500 pg/mL é o valor clássico de referência diagnóstica.",
+            "d": "Incorreta. Valor exageradamente alto, embora possível em IC grave, o corte é menor.",
+            "e": "Incorreta. Valor de transudato cardíaco é significativamente mais alto."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Pneumologia",
+            "Biomarcadores",
+            "ICC",
+            "NT-proBNP"
+        ]
+    },
+    {
+        "enunciado": "Um paciente de 25 anos apresenta quadro de febre, tosse produtiva e derrame pleural à esquerda. A toracentese revela líquido purulento e espesso. A ultrassonografia mostra a pleura visceral 'balançando' em sincronia com os batimentos cardíacos, sinal conhecido como 'Sinal do Pulso'. Qual o significado clínico deste achado ultrassonográfico?",
+        "options": {
+            "a": "Indica empiema na fase aguda com perfuração pericárdica iminente.",
+            "b": "Sugere atelectasia total do pulmão subjacente (ausência de respiração e presença de transmissão de pulso cardíaco).",
+            "c": "É um sinal clássico de pneumonia necrotizante com fístula broncopleural.",
+            "d": "Indica que o líquido pleural é de baixa densidade (transudato).",
+            "e": "Representa a presença de ar intrapleural (hidropneumotórax)."
+        },
+        "answer": "b",
+        "rationale": "O 'Static B-lines' associado ao 'Lung Pulse' na ultrassonografia pulmonar indica que o pulmão não está ventilando (atelectasia), mas o parênquima ainda está em contato com o mediastino, transmitindo as pulsações cardíacas. No contexto de empiema ou derrame pleural massivo, sugere que o parênquima adjacente está colapsado e não aerado.",
+        "option_rationales": {
+            "a": "Incorreta. Não indica risco de perfuração pericárdica.",
+            "b": "Correta. O sinal do pulso é característico de pulmão consolidado/atelectasiado sem ventilação.",
+            "c": "Incorreta. A fístula broncopleural costuma dar o sinal da 'cauda de cometa' ou pontos de ar móveis.",
+            "d": "Incorreta. É um achado de parênquima/consolidação, não do líquido em si.",
+            "e": "Incorreta. Ar na pleura (pneumotórax) abole o lung pulse e todas as outras linhas pulmonares pela ausência de contato pleura-pleura."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Pneumologia",
+            "Ultrassonografia",
+            "Semiologia",
+            "Atelectasia"
+        ]
+    },
+    {
+        "enunciado": "Qual a principal complicação iatrogênica associada à toracocentese diagnóstica realizada sem auxílio de ultrassonografia, especialmente em derrames de pequeno volume?",
+        "options": {
+            "a": "Edema pulmonar de reexpansão.",
+            "b": "Pneumoniti por aspiração de líquido pleural.",
+            "c": "Pneumotórax.",
+            "d": "Lipotímia vasovagal.",
+            "e": "Infecção do espaço pleural (Empiema iatrogênico)."
+        },
+        "answer": "c",
+        "rationale": "O pneumotórax é a complicação iatrogênica mais frequente da toracocentese 'cega'. O uso sistemático da ultrassonografia à beira do leito (POCUS) reduziu essa taxa de aproximadamente 10% para menos de 1-2% na prática clínica moderna.",
+        "option_rationales": {
+            "a": "Incorreta. Isso ocorre apenas após drenagens volumosas (> 1,5L), não em toracocenteses diagnósticas pequenas.",
+            "b": "Incorreta. Aspirar líquido não causa pneumonia por aspiração do próprio líquido na via aérea.",
+            "c": "Correta. A lesão pulmonar pela agulha é o risco principal sem guia de imagem.",
+            "d": "Incorreta. É comum mas benigna, não relacionada à falta de US diretamente.",
+            "e": "Incorreta. Raro se mantida técnica asséptica adequada."
+        },
+        "difficulty": "facil",
+        "tags": [
+            "Pneumologia",
+            "Procedimentos",
+            "Toracocentese",
+            "Segurança"
+        ]
+    },
+    {
+        "enunciado": "Mulher de 35 anos apresenta-se com quadro de endometriose pélvica conhecida. Durante o período menstrual, ela relata episódios recorrentes de dor torácica súbita e dispneia. O último episódio resultou em um derrame pleural hemorrágico à direita. A tomografia mostra pequenos nódulos pleurais e diafragmáticos com sinal de sangue agudo. Qual o diagnóstico?",
+        "options": {
+            "a": "Hemotórax espontâneo por ruptura de fístula arteriovenosa.",
+            "b": "Endometriose Pleural (Hemotórax Catamenial).",
+            "c": "Tuberculose Pleural hemorrágica.",
+            "d": "Câncer de ovário com metástase pleural precoce.",
+            "e": "Linfangioleiomiomatose com hemoptise associada."
+        },
+        "answer": "b",
+        "rationale": "A endometriose torácica pode causar pneumotórax catamenial (mais comum), hemotórax catamenial ou hemoptise catamenial. A característica principal é a ciclicidade dos sintomas, coincidindo com o período menstrual (geralmente entre 24-48h do início da menstruação). O hemitórax direito é acometido em > 90% dos casos devido à circulação peritoneal rumo aos poros diafragmáticos direitos.",
+        "option_rationales": {
+            "a": "Incorreta. Não explica a ciclicidade menstrual.",
+            "b": "Correta. A ciclicidade e a localização à direita são marcos da endometriose torácica/pleural.",
+            "c": "Incorreta. TB não é cíclica.",
+            "d": "Incorreta. Metástases dariam sintomas constantes e progressivos.",
+            "e": "Incorreta. A LAM causa quilotórax e pneumotórax, não tipicamente hemotórax recorrente cíclico."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Ginecologia",
+            "Endometriose Torácica",
+            "Hemotórax"
+        ]
+    },
+    {
+        "enunciado": "Paciente de 65 anos, portador de artrite reumatoide há 20 anos, apresenta derrame pleural bilateral de longa data, assintomático. Durante análise do líquido pleural, observa-se a presença de cristais rômbicos no sedimento sob luz polarizada. Este achado é sugestivo de:",
+        "options": {
+            "a": "Gota com acometimento pleural.",
+            "b": "Derrame Pleural por Colesterol (Pseudochylothorax).",
+            "c": "Infecção por fungos filamentosos.",
+            "d": "Contaminação do líquido por talco de luva.",
+            "e": "Artrite reumatoide em fase de remissão completa."
+        },
+        "answer": "b",
+        "rationale": "O pseudoquilotórax (ou derrame de colesterol) ocorre em derrames pleurais crônicos e espessados (frequentemente causados por AR ou Tuberculose de longa data). O colesterol se acumula no líquido, podendo formar cristais de colesterol típicos no sedimento. O TG costuma ser baixo (< 110 mg/dL), diferenciando do quilotórax verdadeiro.",
+        "option_rationales": {
+            "a": "Incorreta. Gota pleuropulmonar é extremamente rara; os cristais seriam de urato de sódio (agulhas).",
+            "b": "Correta. Os cristais de colesterol são típicos de processos pleurais crônicos (Pseudochylothorax).",
+            "c": "Incorreta. Fungos mostram hifas, não cristais rômbicos.",
+            "d": "Incorreta. Talco de luva tem aspecto de 'cruz de malta' na luz polarizada.",
+            "e": "Incorreta. O achado indica cronicidade e espessamento da pleura, não remissão da inflamação local."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Pneumologia",
+            "Bioquímica",
+            "Colesterol Pleural",
+            "Pseudoquilotórax"
+        ]
+    },
+    {
+        "enunciado": "Sobre a Síndrome de Meigs, assinale a alternativa que descreve CORRETAMENTE a condição.",
+        "options": {
+            "a": "Metástase ovariana de câncer gástrico (Tumor de Krukenberg) com derrame maligno.",
+            "b": "Tumor ovariano benigno (geralmente fibroma), ascite e derrame pleural.",
+            "c": "Derrame pleural bilateral associado a lúpus discoide e artrite.",
+            "d": "Ascite volumosa por cirrose que transloca para a pleura esquerda.",
+            "e": "Tumor de pulmão com invasão direta do ovário e peritônio."
+        },
+        "answer": "b",
+        "rationale": "A Síndrome de Meigs clássica consiste em um tumor ovariano benigno (fibroma, tecoma ou cistoadenoma), ascite e derrame pleural (mais comum à direita). O marco da síndrome é que tanto o derrame quanto a ascite desaparecem permanentemente após a remoção do tumor ovariano.",
+        "option_rationales": {
+            "a": "Incorreta. Meigs exige tumor benigno.",
+            "b": "Correta. Definição clássica da síndrome.",
+            "c": "Incorreta. Não tem relação com o perfil de Meigs.",
+            "d": "Incorreta. Isso seria hidrotórax hepático.",
+            "e": "Incorreta. Meigs é um tumor primário de ovário, não de pulmão."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Ginecologia",
+            "Síndrome de Meigs"
+        ]
+    },
+    {
+        "enunciado": "No manejo do derrame pleural neoplásico recorrente, a pleurodese química é uma opção comum. Qual a contraindicação PRINCIPAL para a realização de pleurodese?",
+        "options": {
+            "a": "Volume de derrame superior a 1 litro.",
+            "b": "Presença de atelectasia obstrutiva sem reexpansão pulmonar após drenagem (Pulmão Encarcerado).",
+            "c": "Idade superior a 80 anos.",
+            "d": "Uso de quimioterapia há menos de 7 dias.",
+            "e": "Classificação do líquido como exsudato."
+        },
+        "answer": "b",
+        "rationale": "Para que a pleurodese funcione, é necessário que as pleuras visceral e parietal entrem em contato após a drenagem para que o agente irritante (talco, nitrato, etc.) promova a sínfise. Se o pulmão estiver 'encarcerado' (trapped lung) por tumor ou fibrose e não reexpandir, a pleurodese irá falhar invariavelmente.",
+        "option_rationales": {
+            "a": "Incorreta. Volume alto não é contraindicação se o pulmão reexpandir.",
+            "b": "Correta. A ausência de reexpansão garante a falha do procedimento.",
+            "c": "Incorreta. Idade não impede, apenas exige cautela na dose de sedação.",
+            "d": "Incorreta. A quimio não contraindica, embora possa reduzir a resposta inflamatória desejada.",
+            "e": "Incorreta. Quase todos os derrames neoplásicos são exsudatos."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Oncologia",
+            "Pleurodese",
+            "Manejo"
+        ]
+    },
+    {
+        "enunciado": "Qual medicação, muito utilizada no tratamento de infecção urinária recorrente, é uma causa clássica e bem conhecida de derrame pleural exsudativo com eosinofilia e infiltrado pulmonar intersticial por mecanismo de hipersensibilidade?",
+        "options": {
+            "a": "Ciprofloxacino.",
+            "b": "Nitrofurantoína.",
+            "c": "Norfloxacino.",
+            "d": "Fosfomicina.",
+            "e": "Ceftriaxona."
+        },
+        "answer": "b",
+        "rationale": "A nitrofurantoína pode causar toxicidade pulmonar aguda ou crônica. A forma aguda é uma reação de hipersensibilidade caracterizada por febre, calafrios, tosse, eosinofilia periférica e derrame pleural eosinofílico. A suspensão da droga costuma levar à rápida resolução do quadro.",
+        "option_rationales": {
+            "a": "Incorreta. Quinolonas raramente causam tal reação.",
+            "b": "Correta. Causa clássica de toxicidade pleuropulmonar eosinofílica.",
+            "c": "Incorreta. Não associada tipicamente a este quadro.",
+            "d": "Incorreta. Medicação segura do ponto de vista pulmonar.",
+            "e": "Incorreta. Não apresenta este padrão de toxicidade."
+        },
+        "difficulty": "facil",
+        "tags": [
+            "Pneumologia",
+            "Farmacodinâmica",
+            "Derrame Pleural Iatrogênico",
+            "Nitrofurantoína"
+        ]
+    },
+    {
+        "enunciado": "Em um paciente com pneumonia da comunidade que desenvolve derrame pleural associado, qual o achado na análise do líquido pleural que MELHOR prediz a necessidade de drenagem torácica?",
+        "options": {
+            "a": "Presença de linfócitos > 50%.",
+            "b": "ADA > 40 U/L.",
+            "c": "LDH pleural > 1.000 U/L ou pH < 7,2.",
+            "d": "Glicose pleural de 80 mg/dL.",
+            "e": "Volume de derrame superior a 500 mL na radiografia."
+        },
+        "answer": "c",
+        "rationale": "Os critérios bioquímicos de complicação de um derrame parapneumônico (indicadores de drenagem) são: pH < 7,20, glicose < 40-60 mg/dL, ou LDH > 1.000 U/L. A presença de pus franco ou Gram/cultura positivos também são indicações absolutas.",
+        "option_rationales": {
+            "a": "Incorreta. Sugere TB ou neoplasia, não pneumonia bacteriana aguda.",
+            "b": "Incorreta. Sugere TB.",
+            "c": "Correta. Marcadores bioquímicos de empiema/complicado.",
+            "d": "Incorreta. Glicose normal costuma indicar derrame simples.",
+            "e": "Incorreta. O volume isolado não decide a drenagem, mas sim a composição bioquímica/biológica."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Empiema",
+            "Manejo",
+            "Drenagem"
+        ]
+    },
+    {
+        "enunciado": "A fístula quilosa (Quilotórax) pode levar a consequências metabólicas e imunológicas graves se não tratada precocemente. Qual é a principal alteração laboratorial sistêmica esperada em casos de quilotórax volumoso prolongado?",
+        "options": {
+            "a": "Hipernatremia e hipercalemia.",
+            "b": "Linfopenia e Hipogamaglobulinemia.",
+            "c": "Trombocitose reativa.",
+            "d": "Hipercolesterolemia grave.",
+            "e": "Alcalose metabólica hipoclorêmica."
+        },
+        "answer": "b",
+        "rationale": "A linfa é riquíssima em linfócitos T (principalmente T-helper) e imunoglobulinas. Pacientes com drenagem mantida de quilo perdem essas defesas, desenvolvendo linfopenia sistêmica profunda e redução de IGs séricas, o que aumenta drasticamente o risco de infecções oportunistas.",
+        "option_rationales": {
+            "a": "Incorreta. Perde-se eletrólitos, tendendo a hiponatremia se houver reposição hídrica apenas com água livre, mas não é a marca principal.",
+            "b": "Correta. Consequência direta da perda do fluido linfático rico em imunidade celular e humoral.",
+            "c": "Incorreta. Não há associação direta.",
+            "d": "Incorreta. Os lipídios estão sendo perdidos para fora da circulação sérica, não acumulados.",
+            "e": "Incorreta. Pode haver acidose metabólica pela perda de bicarbonato na linfa."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Pneumologia",
+            "Quilotórax",
+            "Fisiologia",
+            "Imunidade"
+        ]
+    },
+    {
+        "enunciado": "Paciente de 60 anos com quadro de ascite e derrame pleural exsudativo linfocítico unilateral. RX mostra nódulo pulmonar espiculado. Qual a sensibilidade aproximada da citologia oncótica do líquido pleural para o diagnóstico de malignidade em uma primeira amostra bem coletada?",
+        "options": {
+            "a": "Próxima de 100%.",
+            "b": "Entre 80% e 95%.",
+            "c": "Entre 50% e 65%.",
+            "d": "Menos de 20%.",
+            "e": "0%, pois a biópsia é sempre necessária."
+        },
+        "answer": "c",
+        "rationale": "A sensibilidade da primeira amostra de citologia oncótica gira em torno de 50-60%. Se uma segunda amostra for enviada, a sensibilidade sobe para cerca de 75-80%. Amostras adicionais após a segunda trazem ganho marginal de diagnóstico, sendo indicada a biópsia se a dúvida persistir.",
+        "option_rationales": {
+            "a": "Incorreta. Frequentemente a citologia é falha na primeira amostra.",
+            "b": "Incorreta. Valor alcançado apenas após várias amostras ou em casos específicos de adenocarcinoma avançado.",
+            "c": "Correta. Faixa de sensibilidade clássica da primeira toracentese.",
+            "d": "Incorreta. A citologia é um excelente exame inicial, com rendimento razoável.",
+            "e": "Incorreta. A citologia muitas vezes descarta a necessidade de biópsia invasiva."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Oncologia",
+            "Diagnóstico",
+            "Citologia"
+        ]
+    },
+    {
+        "enunciado": "Um paciente submetido a cirurgia abdominal de grande porte via laparotomia mediana desenvolve febre baixa e pequena quantidade de derrame pleural bilateral no 2º dia pós-operatório. Ele está estável, sem dispneia. RX mostra atelectasias laminares nas bases. Qual a explicação mais provável e a melhor conduta?",
+        "options": {
+            "a": "Pneumonia nosocomial precoce; iniciar meropenem.",
+            "b": "TEP pós-operatório; solicitar Angio-TC de urgência.",
+            "c": "Derrame pleural simpático secundário à cirurgia abdominal e atelectasia; fisioterapia respiratória.",
+            "d": "Empiema por translocação bacteriana; realizar toracentese imediata.",
+            "e": "Quilotórax por lesão inadvertida do ducto torácico; dieta zero."
+        },
+        "answer": "c",
+        "rationale": "É muito comum a ocorrência de pequenos derrames pleurais no pós-operatório imediato de cirurgias abdominais superiores. Eles ocorrem por irritação diafragmática, manipulação de fluidos ou atelectasias de base. Se o paciente está estável, a conduta é expectante e focada na reexpansão pulmonar com fisioterapia.",
+        "option_rationales": {
+            "a": "Incorreta. Quadro clínico leve demais para pneumonia grave.",
+            "b": "Incorreta. Embora possível, o quadro é muito típico de reação pós-cirúrgica benigna.",
+            "c": "Correta. Derrame reativo comum em cirurgias abdominais.",
+            "d": "Incorreta. Empiema não surge tão rápido e sem foco infectado importante.",
+            "e": "Incorreta. Cirurgia abdominal dificilmente lesa o ducto torácico a ponto de dar derrame bilateral no 2º dia sem outras queixas."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Cirurgia",
+            "Pós-operatório",
+            "Derrame Reativo"
+        ]
+    },
+    {
+        "enunciado": "A dosagem de interferon-gama (IFN-γ) no líquido pleural tem sido estudada como alternativa à dosagem de ADA para o diagnóstico de tuberculose pleural. Em comparação ao ADA, o INF-γ costuma apresentar:",
+        "options": {
+            "a": "Menor sensibilidade e maior custo.",
+            "b": "Maior especificidade, porém custo mais elevado e menor disponibilidade.",
+            "c": "Inutilidade total, sendo inferior em todos os parâmetros.",
+            "d": "Falsos-positivos frequentes em transudatos cardíacos.",
+            "e": "Resultado sempre negativo em pacientes HIV positivos."
+        },
+        "answer": "b",
+        "rationale": "O interferon-gama pleural tem acurácia diagnóstica excelente para TB, por vezes superior ao ADA em especificidade. No entanto, devido ao alto custo e à complexidade laboratorial, o ADA permanece como o exame de escolha na prática clínica (custo-efisicácia superior).",
+        "option_rationales": {
+            "a": "Incorreta. A sensibilidade também é muito alta.",
+            "b": "Correta. Desempenho excelente, mas custo e acesso são barreiras.",
+            "c": "Incorreta. É um ótimo teste científico.",
+            "d": "Incorreta. Ele é muito específico para inflamação granulomatosa/TB.",
+            "e": "Incorreta. Pode ser positivo no HIV, embora a carga linfocitária possa influenciar o nível absoluto."
+        },
+        "difficulty": "dificil",
+        "tags": [
+            "Pneumologia",
+            "Tuberculose",
+            "Biomarcadores",
+            "IFN-gama"
+        ]
+    },
+    {
+        "enunciado": "Qual a principal causa de hemotórax não traumático (espontâneo) em um adulto jovem previamente hígido, sem história de coagulopatia?",
+        "options": {
+            "a": "Ruptura de aneurisma de aorta descendente.",
+            "b": "Perfuração de artéria intercostal por tosse vigorosa.",
+            "c": "Pneumotórax espontâneo primário (ruptura de bridas vasculares pleurais durante o colapso pulmonar).",
+            "d": "Malformação arteriovenosa pulmonar.",
+            "e": "Câncer de pulmão oculto."
+        },
+        "answer": "c",
+        "rationale": "O hemopneumotórax espontâneo ocorre em cerca de 1-5% dos casos de pneumotórax espontâneo primário. O sangramento ocorre geralmente pela ruptura de pequenas vasos ou bridas que ligam a pleura parietal à visceral durante o colapso do pulmão. Pode ser volumoso e exigir intervenção.",
+        "option_rationales": {
+            "a": "Incorreta. Causa de idosos hipertensos, não jovens hígidos.",
+            "b": "Incorreta. Muito raro sem trauma direto.",
+            "c": "Correta. Mecanismo clássico de hemotórax espontâneo no jovem.",
+            "d": "Incorreta. A MAV pode causar hemoptise ou hemotórax, mas é menos frequente que a complicação do pneumotórax.",
+            "e": "Incorreta. Muito improvável na faixa etária e perfil descrito."
+        },
+        "difficulty": "media",
+        "tags": [
+            "Pneumologia",
+            "Pneumotórax",
+            "Hemotórax",
+            "Urgências"
+        ]
+    }
+]

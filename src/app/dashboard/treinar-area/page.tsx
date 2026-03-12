@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation'
 import { ArrowLeft, Target, Search, ChevronDown, Check, Play, Loader2, AlertCircle, RefreshCw } from 'lucide-react'
 import { supabase } from '@/lib/supabase'
 import { useAuth } from '@/store/use-auth'
-import { getRootTaxonomy, getChildren, getDescendants, TaxonomyNode } from '@/lib/taxonomy-service'
+import { getRootTaxonomy, getChildren, getDescendants, TaxonomyNode, getTaxonomyPath } from '@/lib/taxonomy-service'
 import { countQuestionsByFilters, getQuestionsForTraining } from '@/lib/question-service'
 import { v4 as uuidv4 } from 'uuid'
 
@@ -290,13 +290,42 @@ export default function TreinarAreaPage() {
                                             <button
                                                 key={idx}
                                                 onClick={async () => {
-                                                    // Selecting a deep node requires rebuilding the path
-                                                    // This will be simpler: we just jump directly to fetching the path from root.
                                                     setSearchTerm('')
                                                     setSearchResults([])
-                                                    // In a real app we'd trigger a custom path rebuilder effect here.
-                                                    // For MVP fallback we can just clear search and show alert.
-                                                    alert(`Selecionado nó: ${item.name} (${item.slug}). A construção total do caminho da busca estará disponivel no próximo release da interface.`)
+                                                    setIsSearching(true)
+                                                    try {
+                                                        const path = await getTaxonomyPath(item.id)
+                                                        if (path.length > 0) {
+                                                            const newLevels: TaxonomyLevel[] = []
+                                                            const roots = await getRootTaxonomy()
+                                                            newLevels.push({
+                                                                id: 'area',
+                                                                title: '1. Área Principal',
+                                                                nodes: roots,
+                                                                selectedNodeId: path[0]?.id || '',
+                                                                loading: false
+                                                            })
+
+                                                            for (let i = 0; i < path.length; i++) {
+                                                                const currentNode = path[i]
+                                                                const children = await getChildren(currentNode.id)
+                                                                if (children.length > 0) {
+                                                                    newLevels.push({
+                                                                        id: `lvl-${i + 1}`,
+                                                                        title: `${i + 2}. Nível Específico`,
+                                                                        nodes: children,
+                                                                        selectedNodeId: path[i + 1]?.id || '',
+                                                                        loading: false
+                                                                    })
+                                                                }
+                                                            }
+                                                            setLevels(newLevels)
+                                                        }
+                                                    } catch (err) {
+                                                        console.error('Failed to rebuild path', err)
+                                                    } finally {
+                                                        setIsSearching(false)
+                                                    }
                                                 }}
                                                 className="w-full text-left p-3 hover:bg-slate-50 rounded-xl transition-colors mb-1"
                                             >
