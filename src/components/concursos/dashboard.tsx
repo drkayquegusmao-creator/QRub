@@ -2,8 +2,8 @@
 
 import { useRouter } from 'next/navigation'
 import { useAuth } from '@/store/use-auth'
-import { useConcursoUserStats } from '@/store/concursos/use-user-stats'
-import { useConcursoQuiz } from '@/store/concursos/use-quiz'
+import { useUserStats } from '@/store/use-user-stats'
+import { useQuiz } from '@/store/use-quiz'
 import { useConcursoDashboard, WidgetId } from '@/store/concursos/use-dashboard'
 import { useConcursoTaxonomy } from '@/store/concursos/use-taxonomy'
 import { 
@@ -28,18 +28,18 @@ import { SectionHeader } from '@/components/dashboard-ui'
 export function ConcursoDashboard() {
     const router = useRouter()
     const { user } = useAuth()
-    const { stats, loadStats } = useConcursoUserStats()
-    const { responses, get_weekly_accuracy, load_responses } = useConcursoQuiz()
+    const { stats, loadStats } = useUserStats()
+    const { responses, get_weekly_accuracy, load_responses } = useQuiz()
     const { widgets } = useConcursoDashboard()
     const { taxonomy, loadTaxonomy, getAreas } = useConcursoTaxonomy()
 
     useEffect(() => {
         if (user?.id) {
-            loadStats(user.id)
-            load_responses(user.id)
+            loadStats(user.id, true)
+            load_responses(user.id, true)
             loadTaxonomy()
         }
-    }, [user?.id])
+    }, [user?.id, loadStats, load_responses, loadTaxonomy])
 
     const formattedDate = new Date().toLocaleDateString('pt-BR', {
         weekday: 'long',

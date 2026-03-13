@@ -23,8 +23,8 @@ interface QuizState {
     get_weekly_accuracy: () => { day: string; accuracy: number }[]
     get_probability_of_passing: () => number
     get_daily_mission: () => string[]
-    load_responses: (userId?: string) => Promise<void>
-    load_all_responses: () => Promise<void>
+    load_responses: (userId?: string, isConcursos?: boolean) => Promise<void>
+    load_all_responses: (isConcursos?: boolean) => Promise<void>
     reset_metrics: () => void
 }
 
@@ -119,13 +119,14 @@ export const useQuiz = create<QuizState>()(
                 })
             },
 
-            load_responses: async (userId?: string) => {
+            load_responses: async (userId?: string, isConcursosParam?: boolean) => {
+                const isConcursos = isConcursosParam ?? (typeof window !== 'undefined' && window.location.pathname.startsWith('/concursos'))
+                
                 if (!isSupabaseConfigured() || !userId) {
                     console.log('Supabase not configured or no user ID, using local responses')
                     return
                 }
 
-                const isConcursos = typeof window !== 'undefined' && window.location.pathname.startsWith('/concursos')
                 const table = isConcursos ? 'concurso_user_respostas' : 'user_responses'
 
                 // Precautionary check: Supabase UUID columns will throw if the string is not a valid UUID format
@@ -148,21 +149,24 @@ export const useQuiz = create<QuizState>()(
                         return
                     }
 
-                    if (data && data.length > 0) {
-                        const withFlag = data.map((r: any) => ({ ...r, is_concursos: isConcursos }))
+                    if (data) {
+                        const withFlag = data.map((r: any) => ({ 
+                            ...r, 
+                            is_concursos: isConcursos,
+                            // Ensure specialty_id is available even if it's stored as disciplina_id
+                            specialty_id: r.specialty_id || r.disciplina_id 
+                        }))
                         set({ responses: withFlag })
                         console.log(`Loaded ${data.length} responses from Supabase (${table})`)
-                    } else {
-                        console.log(`No responses found in Supabase (${table}) for this user`)
                     }
                 } catch (err: any) {
                     console.warn('Error loading responses (using local data):', err.message || 'Unknown error')
                 }
             },
 
-            load_all_responses: async () => {
+            load_all_responses: async (isConcursosParam?: boolean) => {
                 if (!isSupabaseConfigured()) return
-                const isConcursos = typeof window !== 'undefined' && window.location.pathname.startsWith('/concursos')
+                const isConcursos = isConcursosParam ?? (typeof window !== 'undefined' && window.location.pathname.startsWith('/concursos'))
                 const table = isConcursos ? 'concurso_user_respostas' : 'user_responses'
 
                 try {
@@ -175,9 +179,12 @@ export const useQuiz = create<QuizState>()(
                     if (error) throw error
 
                     if (data) {
-                        const withFlag = data.map((r: any) => ({ ...r, is_concursos: isConcursos }))
+                        const withFlag = data.map((r: any) => ({ 
+                            ...r, 
+                            is_concursos: isConcursos,
+                            specialty_id: r.specialty_id || r.disciplina_id
+                        }))
                         set({ responses: withFlag })
-                        console.log(`Loaded ${data.length} global responses from Supabase (${table})`)
                     }
                 } catch (err: any) {
                     console.error('Error loading all responses:', err.message)

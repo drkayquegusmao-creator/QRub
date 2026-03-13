@@ -1,6 +1,6 @@
 "use client"
 
-import { useConcursoUserStats } from '@/store/concursos/use-user-stats'
+import { useUserStats } from '@/store/use-user-stats'
 import { useAuth } from '@/store/use-auth'
 import { useEffect } from 'react'
 import { motion } from 'framer-motion'
@@ -8,11 +8,11 @@ import { BarChart3, CheckCircle2, Trophy, Loader2, Zap } from 'lucide-react'
 
 export function ConcursoUserStatsCard() {
     const { user } = useAuth()
-    const { stats, loading, loadStats } = useConcursoUserStats()
+    const { stats, loading, loadStats } = useUserStats()
 
     useEffect(() => {
         if (user?.id) {
-            loadStats(user.id)
+            loadStats(user.id, true)
         }
     }, [user?.id, loadStats])
 
@@ -24,7 +24,7 @@ export function ConcursoUserStatsCard() {
         )
     }
 
-    if (!stats || stats.total_respondidas === 0) {
+    if (!stats || stats.total_questoes === 0) {
         return (
             <div className="w-full bg-white rounded-[40px] border-2 border-slate-100 p-10 shadow-sm relative overflow-hidden group">
                 <div className="relative z-10 flex flex-col items-center text-center space-y-4">
@@ -54,7 +54,7 @@ export function ConcursoUserStatsCard() {
                         <BarChart3 className="w-6 h-6" />
                     </div>
                     <h2 className="text-3xl md:text-4xl font-black italic uppercase tracking-tighter text-[#1A1033]">
-                        {stats.total_respondidas} Questões Resolvidas
+                        {stats.total_questoes} Questões Resolvidas
                     </h2>
                 </div>
 
@@ -65,7 +65,7 @@ export function ConcursoUserStatsCard() {
                         </div>
                         <div>
                             <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest leading-none mb-1">Média de Acertos</p>
-                            <p className="text-lg font-black italic text-[#1A1033] uppercase">{stats.accuracy}%</p>
+                            <p className="text-lg font-black italic text-[#1A1033] uppercase">{stats.media_geral}%</p>
                         </div>
                     </div>
 

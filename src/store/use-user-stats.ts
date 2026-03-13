@@ -1,7 +1,7 @@
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 import { supabase, isSupabaseConfigured } from '@/lib/supabase'
-import { generatePerformanceContent, PerformanceInput } from '@/lib/generators/performance-generator'
+import { generatePerformanceContent, PerformanceInput, PerformanceTone } from '@/lib/generators/performance-generator'
 import { isSameDay } from 'date-fns'
 
 export interface UserStats {
@@ -12,7 +12,9 @@ export interface UserStats {
     ultima_frase_exibida: string | null
     headline?: string
     media?: string
-    tone?: string
+    tone?: PerformanceTone
+    streak_current?: number
+    streak_max?: number
 }
 
 interface UserStatsState {
@@ -56,11 +58,10 @@ export const useUserStats = create<UserStatsState>()(
                 const marcoAtivo = marcos.find(m => total >= m)
 
                 if (marcoAtivo && PHRASES[marcoAtivo]) {
-                    const possiblePhrases = PHRASES[marcoAtivo]
-                    return possiblePhrases[Math.floor(Math.random() * possiblePhrases.length)]
+                    const pool = PHRASES[marcoAtivo]
+                    return pool[Math.floor(Math.random() * pool.length)]
                 }
-
-                return "Consistência vence talento."
+                return "Continue seu progresso para novos marcos."
             },
 
             loadStats: async (userId, isConcursos = false) => {
@@ -77,7 +78,15 @@ export const useUserStats = create<UserStatsState>()(
 
                     if (!data) {
                         // Create initial stats
-                        const initialStats = {
+                        const initialStats = isConcursos ? {
+                            user_id: userId,
+                            total_respondidas: 0,
+                            total_acertos: 0,
+                            accuracy: 0,
+                            streak_current: 0,
+                            streak_max: 0,
+                            last_activity_at: new Date().toISOString()
+                        } : {
                             user_id: userId,
                             total_questoes: 0,
                             total_acertos: 0,
@@ -85,6 +94,7 @@ export const useUserStats = create<UserStatsState>()(
                             nivel_usuario: 'Iniciante',
                             ultima_frase_exibida: 'Resolva sua primeira questão para ativar suas estatísticas.'
                         }
+
                         const { data: newData, error: insertError } = await supabase
                             .from(table)
                             .insert(initialStats)
@@ -92,51 +102,68 @@ export const useUserStats = create<UserStatsState>()(
                             .single()
 
                         if (!insertError && newData) {
-                            set({ stats: newData })
+                            set({ stats: isConcursos ? {
+                                total_questoes: newData.total_respondidas,
+                                total_acertos: newData.total_acertos,
+                                media_geral: newData.accuracy,
+                                streak_current: newData.streak_current,
+                                streak_max: newData.streak_max,
+                                nivel_usuario: 'Iniciante',
+                                ultima_frase_exibida: 'Resolva sua primeira questão para ativar suas estatísticas.'
+                            } : newData })
                         }
                     } else {
-                        // Calculate or re-calculate extra metrics on load
+                        // Map concurso columns to general stats interface
+                        const normalizedData = isConcursos ? {
+                            total_questoes: data.total_respondidas,
+                            total_acertos: data.total_acertos,
+                            media_geral: data.accuracy,
+                            streak_current: data.streak_current,
+                            streak_max: data.streak_max,
+                            nivel_usuario: get().calculateLevel(data.total_respondidas),
+                            ultima_frase_exibida: data.ultima_frase_exibida || 'Siga firme!'
+                        } : data
+
+                        // Calculate streaks for the generator
                         const quizState = (await import('./use-quiz')).useQuiz.getState()
                         const filteredResponses = quizState.responses.filter(r => 
                             isConcursos ? !!r.is_concursos : !r.is_concursos
                         )
                         const todayResponses = filteredResponses.filter(r => isSameDay(new Date(r.timestamp), new Date()))
 
-                        // Streaks from history
-                        let streakCorrect = 0
-                        let streakWrong = 0
+                        let currentStreakCorrect = 0
+                        let currentStreakWrong = 0
                         const lastResponses = [...filteredResponses].reverse()
 
-                        // Find current streak
                         if (lastResponses.length > 0) {
                             const lastWasCorrect = lastResponses[0].is_correct
                             if (lastWasCorrect) {
                                 for (const r of lastResponses) {
-                                    if (r.is_correct) streakCorrect++
+                                    if (r.is_correct) currentStreakCorrect++
                                     else break
                                 }
                             } else {
                                 for (const r of lastResponses) {
-                                    if (!r.is_correct) streakWrong++
+                                    if (!r.is_correct) currentStreakWrong++
                                     else break
                                 }
                             }
                         }
 
                         const genInput: PerformanceInput = {
-                            total_answered: data.total_questoes,
-                            accuracy_percent: data.media_geral,
+                            total_answered: normalizedData.total_questoes,
+                            accuracy_percent: normalizedData.media_geral,
                             today_answered: todayResponses.length,
-                            streak_correct: streakCorrect,
-                            streak_wrong: streakWrong,
-                            last_10_messages: data.ultima_frase_exibida ? [data.ultima_frase_exibida] : []
+                            streak_correct: currentStreakCorrect,
+                            streak_wrong: currentStreakWrong,
+                            last_10_messages: normalizedData.ultima_frase_exibida ? [normalizedData.ultima_frase_exibida] : []
                         }
 
                         const genOutput = generatePerformanceContent(genInput)
 
                         set({
                             stats: {
-                                ...data,
+                                ...normalizedData,
                                 ultima_frase_exibida: genOutput.frase,
                                 headline: genOutput.headline,
                                 media: genOutput.media,
@@ -159,6 +186,8 @@ export const useUserStats = create<UserStatsState>()(
                     total_questoes: 0,
                     total_acertos: 0,
                     media_geral: 0,
+                    streak_current: 0,
+                    streak_max: 0,
                     nivel_usuario: 'Iniciante',
                     ultima_frase_exibida: null,
                     headline: '',
@@ -171,20 +200,16 @@ export const useUserStats = create<UserStatsState>()(
                 const newMedia = Math.round((newAcertos / newTotal) * 100)
                 const newLevel = state.calculateLevel(newTotal)
 
-                // Get additional context for the generator
+                // Streak logic for Concursos specifically uses the sequential correct answer streak
                 const quizState = (await import('./use-quiz')).useQuiz.getState()
                 const filteredResponses = quizState.responses.filter(r => 
                     isConcursos ? !!r.is_concursos : !r.is_concursos
                 )
-                const todayResponses = filteredResponses.filter(r => isSameDay(new Date(r.timestamp), new Date()))
-                const todayAnswered = todayResponses.length + 1 // +1 for the current one
-
-                // Calculate Streaks
+                const lastResponses = [...filteredResponses].reverse()
+                
                 let streakCorrect = isCorrect ? 1 : 0
                 let streakWrong = isCorrect ? 0 : 1
 
-                // Look back at previous responses in quizState
-                const lastResponses = [...filteredResponses].reverse()
                 if (isCorrect) {
                     for (const r of lastResponses) {
                         if (r.is_correct) streakCorrect++
@@ -196,6 +221,9 @@ export const useUserStats = create<UserStatsState>()(
                         else break
                     }
                 }
+
+                const todayResponses = filteredResponses.filter(r => isSameDay(new Date(r.timestamp), new Date()))
+                const todayAnswered = todayResponses.length + 1
 
                 const genInput: PerformanceInput = {
                     total_answered: newTotal,
@@ -216,7 +244,9 @@ export const useUserStats = create<UserStatsState>()(
                     ultima_frase_exibida: genOutput.frase,
                     headline: genOutput.headline,
                     media: genOutput.media,
-                    tone: genOutput.tone
+                    tone: genOutput.tone,
+                    streak_current: isConcursos ? streakCorrect : currentStats.streak_current,
+                    streak_max: isConcursos ? Math.max(currentStats.streak_max || 0, streakCorrect) : currentStats.streak_max
                 }
 
                 // Optimistic update
@@ -224,13 +254,25 @@ export const useUserStats = create<UserStatsState>()(
 
                 if (isSupabaseConfigured()) {
                     try {
+                        const payload = isConcursos ? {
+                            user_id: userId,
+                            total_respondidas: newTotal,
+                            total_acertos: newAcertos,
+                            accuracy: newMedia,
+                            streak_current: streakCorrect,
+                            streak_max: updatedStats.streak_max,
+                            last_activity_at: new Date().toISOString(),
+                            updated_at: new Date().toISOString(),
+                            ultima_frase_exibida: genOutput.frase
+                        } : {
+                            user_id: userId,
+                            ...updatedStats,
+                            updated_at: new Date().toISOString()
+                        }
+
                         await supabase
                             .from(table)
-                            .upsert({
-                                user_id: userId,
-                                ...updatedStats,
-                                updated_at: new Date().toISOString()
-                            })
+                            .upsert(payload)
                     } catch (err) {
                         // Silent error
                     }
