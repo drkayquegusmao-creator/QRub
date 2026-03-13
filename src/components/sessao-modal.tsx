@@ -76,22 +76,36 @@ export function SessaoModal({ isOpen, onClose, assunto_id, tipo, onComplete }: S
                 let assunto = null
 
                 // Helper to search in a hierarchy tree
+                // IMPORTANT: nodes may have UUID ids, but questao_base uses slugs.
+                // We match by both id and slug, and always return slug-based ids.
                 const findSubject = (nodes: any[]) => {
                     for (const node of nodes) {
-                        if (node.id === assunto_id) return { id: node.id, nome: node.name, specialty_id: node.id } // If it's a specialty itself
+                        const nodeSlug = node.slug || node.id
+                        if (node.id === assunto_id || nodeSlug === assunto_id) {
+                            return { id: nodeSlug, nome: node.name, specialty_id: nodeSlug }
+                        }
 
                         if (node.subspecialties) {
                             for (const sub of node.subspecialties) {
-                                if (sub.id === assunto_id) return { id: sub.id, nome: sub.name, specialty_id: node.id }
+                                const subSlug = sub.slug || sub.id
+                                if (sub.id === assunto_id || subSlug === assunto_id) {
+                                    return { id: subSlug, nome: sub.name, specialty_id: nodeSlug }
+                                }
                                 if (sub.subjects) {
                                     for (const subj of sub.subjects) {
-                                        if (subj.id === assunto_id) return { id: subj.id, nome: subj.name, specialty_id: node.id }
+                                        const subjSlug = subj.slug || subj.id
+                                        if (subj.id === assunto_id || subjSlug === assunto_id) {
+                                            return { id: subjSlug, nome: subj.name, specialty_id: nodeSlug }
+                                        }
                                     }
                                 }
                             }
-                        } else if (node.subjects) { // In case structure varies or flat list
+                        } else if (node.subjects) {
                             for (const subj of node.subjects) {
-                                if (subj.id === assunto_id) return { id: subj.id, nome: subj.name, specialty_id: node.id }
+                                const subjSlug = subj.slug || subj.id
+                                if (subj.id === assunto_id || subjSlug === assunto_id) {
+                                    return { id: subjSlug, nome: subj.name, specialty_id: nodeSlug }
+                                }
                             }
                         }
                     }
@@ -127,8 +141,10 @@ export function SessaoModal({ isOpen, onClose, assunto_id, tipo, onComplete }: S
                     }
 
                     if (taxNode) {
-                        // Use SLUG for specialty_id as questions use slugs
-                        assunto = { id: taxNode.id, nome: taxNode.name, specialty_id: taxNode.slug || taxNode.id }
+                        // CRITICAL: questao_base stores slugs, not UUIDs.
+                        // Use slug as the canonical id for all question matching.
+                        const slug = taxNode.slug || taxNode.id
+                        assunto = { id: slug, nome: taxNode.name, specialty_id: slug }
                     } else {
                         assunto = { id: assunto_id, nome: 'Assunto Desconhecido', specialty_id: assunto_id }
                     }
