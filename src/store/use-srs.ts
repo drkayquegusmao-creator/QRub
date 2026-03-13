@@ -111,9 +111,9 @@ export const useSRS = create<SRSState>()(
                         // Create nodes
                         items.forEach(item => {
                             const node = {
-                                id: item.slug, // Map slug to id for app compatibility
+                                id: item.id, // Use UUID as primary ID
+                                slug: item.slug,
                                 name: item.name,
-                                uuid: item.id,
                                 category: item.metadata?.category, // Only for specialties
                                 specialties: item.level === 'course' ? [] : undefined,
                                 subspecialties: item.level === 'specialty' ? [] : undefined,

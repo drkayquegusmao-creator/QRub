@@ -26,9 +26,10 @@ const supabase = createClient(
 /**
  * Returns all taxonomy nodes flat, often useful for memory-caching
  */
-export async function getAllTaxonomyNodes(): Promise<TaxonomyNode[]> {
+export async function getAllTaxonomyNodes(isConcursos = false): Promise<TaxonomyNode[]> {
+    const table = isConcursos ? 'concurso_taxonomia' : 'taxonomia'
     const { data, error } = await supabase
-        .from('taxonomia')
+        .from(table)
         .select('*')
         .eq('active', true)
         .order('order', { ascending: true })
@@ -43,9 +44,10 @@ export async function getAllTaxonomyNodes(): Promise<TaxonomyNode[]> {
 /**
  * Returns roots (highest level elements)
  */
-export async function getRootTaxonomy(): Promise<TaxonomyNode[]> {
+export async function getRootTaxonomy(isConcursos = false): Promise<TaxonomyNode[]> {
+    const table = isConcursos ? 'concurso_taxonomia' : 'taxonomia'
     const { data, error } = await supabase
-        .from('taxonomia')
+        .from(table)
         .select('*')
         .is('parent_id', null)
         .eq('active', true)
@@ -58,9 +60,10 @@ export async function getRootTaxonomy(): Promise<TaxonomyNode[]> {
 /**
  * Returns children nodes for a given node id (1 level deep)
  */
-export async function getChildren(nodeId: string): Promise<TaxonomyNode[]> {
+export async function getChildren(nodeId: string, isConcursos = false): Promise<TaxonomyNode[]> {
+    const table = isConcursos ? 'concurso_taxonomia' : 'taxonomia'
     const { data, error } = await supabase
-        .from('taxonomia')
+        .from(table)
         .select('*')
         .eq('parent_id', nodeId)
         .eq('active', true)
@@ -75,8 +78,8 @@ export async function getChildren(nodeId: string): Promise<TaxonomyNode[]> {
  * This is an iterative/recursive approach fetching locally, since taxonomia is relatively small.
  * It ensures we get everything below visually or logically.
  */
-export async function getDescendants(nodeId: string): Promise<TaxonomyNode[]> {
-    const allActive = await getAllTaxonomyNodes()
+export async function getDescendants(nodeId: string, isConcursos = false): Promise<TaxonomyNode[]> {
+    const allActive = await getAllTaxonomyNodes(isConcursos)
     const result: TaxonomyNode[] = []
 
     function recurse(currentId: string) {
@@ -94,8 +97,8 @@ export async function getDescendants(nodeId: string): Promise<TaxonomyNode[]> {
 /**
  * Returns path from root to the given node
  */
-export async function getTaxonomyPath(nodeId: string): Promise<TaxonomyNode[]> {
-    const allActive = await getAllTaxonomyNodes()
+export async function getTaxonomyPath(nodeId: string, isConcursos = false): Promise<TaxonomyNode[]> {
+    const allActive = await getAllTaxonomyNodes(isConcursos)
     const path: TaxonomyNode[] = []
 
     let current: TaxonomyNode | undefined = allActive.find(n => n.id === nodeId)
@@ -126,8 +129,8 @@ export const fetchTaxonomyHierarchy = async (): Promise<HierarchyNode[]> => {
 
     nodes.forEach((n: any) => {
         const formatted: any = {
-            id: n.slug,
-            uuid: n.id,
+            id: n.id,
+            slug: n.slug,
             name: n.name,
         }
 

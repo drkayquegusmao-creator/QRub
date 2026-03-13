@@ -3,7 +3,7 @@
 import { useAuth } from '@/store/use-auth'
 import { useRouter, usePathname, useSearchParams } from 'next/navigation'
 import { Suspense, useEffect, useState } from 'react'
-import { Shield, LayoutDashboard, Database, Settings, LogOut, Hexagon, DollarSign, ArrowLeft, MessageSquare, ClipboardCheck, Package, Users, BarChart3, Building2 } from 'lucide-react'
+import { Shield, LayoutDashboard, Database, Settings, LogOut, Hexagon, DollarSign, ArrowLeft, MessageSquare, ClipboardCheck, Package, Users, BarChart3, Building2, ArrowLeftRight } from 'lucide-react'
 import Link from 'next/link'
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
@@ -61,6 +61,22 @@ function AdminLayoutContent({ children }: { children: React.ReactNode }) {
                     </div>
                     <span className="text-xl font-black uppercase italic tracking-tighter">QRub Master</span>
                 </div>
+
+                {isMaster && (
+                    <div className="flex flex-col gap-2 p-2 bg-indigo-50/50 rounded-2xl border border-indigo-100/50">
+                        <Link href="/concursos/admin">
+                            <button
+                                className="flex items-center justify-between w-full px-4 py-3 bg-white hover:bg-indigo-600 hover:text-white text-indigo-600 rounded-xl transition-all shadow-sm border border-indigo-100 group/switch"
+                            >
+                                <div className="flex items-center gap-2">
+                                    <ArrowLeftRight className="w-3.5 h-3.5 group-hover/switch:rotate-180 transition-transform duration-500" />
+                                    <span className="text-[10px] font-black uppercase tracking-widest">Concursos</span>
+                                </div>
+                                <span className="w-1.5 h-1.5 bg-slate-300 rounded-full" />
+                            </button>
+                        </Link>
+                    </div>
+                )}
 
                 <nav className="flex-1 flex flex-col gap-1 overflow-y-auto">
                     <AdminNavLink href="/admin?tab=analytics" icon={BarChart3} label="Dashboard" active={isActive('/admin') && (!searchParams.get('tab') || searchParams.get('tab') === 'analytics')} />

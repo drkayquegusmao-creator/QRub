@@ -10,6 +10,7 @@ import { useAuth } from '@/store/use-auth'
 import { supabase } from '@/lib/supabase'
 import { MEDICAL_HIERARCHY } from '@/lib/medical-specialties'
 import srsRules from '@/lib/srs-rules.json'
+import { calculateNextSRSState, updateSubjectMemoryScore } from '@/lib/srs-service'
 
 interface SessaoModalProps {
     isOpen: boolean
@@ -214,7 +215,26 @@ export function SessaoModal({ isOpen, onClose, assunto_id, tipo, onComplete }: S
                         q.specialty_id === assunto.id
                     ) || []
 
-                    const finalData = specificPool.length > 0 ? specificPool : (qData || [])
+                    // REGRA DE OURO: Para NIVELAMENTO, a precisão é obrigatória.
+                    // Se não houver questões específicas do assunto, não podemos nivelar com lixo de outras áreas.
+                    let finalData: any[] = []
+                    
+                    if (tipo === 'NIVELAMENTO') {
+                        if (specificPool.length > 0) {
+                            finalData = specificPool
+                        } else {
+                            // Se for nivelamento e não achou nada específico, verificamos se o assunto pesquisado
+                            // é na verdade a especialidade inteira (ex: nivelar 'anatomia' diretamente)
+                            if (assunto.id === assunto.specialty_id) {
+                                finalData = qData || []
+                            } else {
+                                throw new Error(`Não encontramos questões específicas para "${assunto.nome}". O banco de dados está sendo atualizado para este tópico.`)
+                            }
+                        }
+                    } else {
+                        // Para REVISAO ou CADERNO_ERROS, aceitamos fallback se o pool específico for muito pequeno
+                        finalData = specificPool.length > 5 ? specificPool : (qData || [])
+                    }
 
                     if (finalData.length === 0) {
                         throw new Error('Nenhuma questão aprovada encontrada para este assunto.')
@@ -222,7 +242,7 @@ export function SessaoModal({ isOpen, onClose, assunto_id, tipo, onComplete }: S
 
                     pool = finalData.filter(q => !usadasIds.has(q.id))
 
-                    if (pool.length < 5) {
+                    if (pool.length < 5 && tipo !== 'NIVELAMENTO') {
                         const usadasDisponiveis = finalData.filter(q => usadasIds.has(q.id))
                         pool = [...pool, ...usadasDisponiveis]
                     }
@@ -450,6 +470,7 @@ export function SessaoModal({ isOpen, onClose, assunto_id, tipo, onComplete }: S
             // 5. LÓGICA DE NIVELAMENTO E REGULADOR SRS
             const percentual = Math.round((acertos / sessao.total_questoes) * 100)
             const nota = Math.round((acertos / sessao.total_questoes) * 10)
+            const updateDataPlaceholder: any = {}
 
             let estadoCognitivo = 'NAO_NIVELADO'
             let intervalo = 3 // Default
@@ -478,13 +499,29 @@ export function SessaoModal({ isOpen, onClose, assunto_id, tipo, onComplete }: S
 
                 const { data: currentProg } = await supabase
                     .from('assunto_progresso')
-                    .select('estado_cognitivo, data_nivelamento')
+                    .select('*')
                     .eq('user_id', user.id)
                     .eq('assunto_id', sessao.assunto.id)
                     .single()
 
+                const nextState = calculateNextSRSState(
+                    currentProg?.intervalo_dias || 0,
+                    Number(currentProg?.ease_factor || 2.5),
+                    currentProg?.repeticoes || 0,
+                    percentual
+                )
+
                 estadoCognitivo = currentProg?.estado_cognitivo || 'NIVEL_INTERMEDIARIO'
                 dataNivelamento = currentProg?.data_nivelamento
+                intervalo = nextState.intervalo_dias
+                
+                // We'll add ease_factor and repeticoes to updateData later
+                const sm2Updates = {
+                    ease_factor: nextState.ease_factor,
+                    repeticoes: nextState.repeticoes
+                }
+                
+                Object.assign(updateDataPlaceholder, sm2Updates)
             }
 
             // PENALIDADE: Se houver erros ativos
@@ -507,7 +544,7 @@ export function SessaoModal({ isOpen, onClose, assunto_id, tipo, onComplete }: S
             // 7. Atualizar Progresso
             const { data: progAnt } = await supabase
                 .from('assunto_progresso')
-                .select('total_questoes_respondidas, total_acertos')
+                .select('*')
                 .eq('user_id', user.id)
                 .eq('assunto_id', sessao.assunto.id)
                 .single()
@@ -516,6 +553,7 @@ export function SessaoModal({ isOpen, onClose, assunto_id, tipo, onComplete }: S
             const totalA = (progAnt?.total_acertos || 0) + acertos
 
             const updateData: any = {
+                ...updateDataPlaceholder,
                 user_id: user.id,
                 assunto_id: sessao.assunto.id,
                 estado_cognitivo: estadoCognitivo,
@@ -527,7 +565,8 @@ export function SessaoModal({ isOpen, onClose, assunto_id, tipo, onComplete }: S
                 data_proxima_revisao: dataProxima.toISOString(),
                 intervalo_dias: intervalo,
                 updated_at: new Date().toISOString(),
-                ultima_interacao: new Date().toISOString()
+                ultima_interacao: new Date().toISOString(),
+                tendencia: percentual >= (progAnt?.percentual_acerto || 0) ? 'SUBINDO' : 'CAINDO'
             }
 
             if (dataNivelamento) {
@@ -558,6 +597,9 @@ export function SessaoModal({ isOpen, onClose, assunto_id, tipo, onComplete }: S
                 .eq('user_id', user.id)
                 .eq('assunto_id', sessao.assunto.id)
                 .eq('status', 'ATRASADA')
+
+            // 9. ATUALIZAR SCORE DE MEMÓRIA (Real-time and History)
+            await updateSubjectMemoryScore(user.id, sessao.assunto.id)
 
             setResultado({
                 success: true,

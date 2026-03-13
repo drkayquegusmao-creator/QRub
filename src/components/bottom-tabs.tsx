@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { LayoutDashboard, BookOpen, BarChart2, User, History, Settings } from 'lucide-react'
+import { LayoutDashboard, BookOpen, BarChart2, User, History, Settings, LayoutGrid } from 'lucide-react'
 import { clsx, type ClassValue } from 'clsx'
 import { twMerge } from 'tailwind-merge'
 import { motion } from 'framer-motion'
@@ -17,30 +17,38 @@ export function BottomTabs() {
     const pathname = usePathname()
     const { user } = useAuth()
 
-    const tabs = [
-        { label: 'Início', icon: LayoutDashboard, href: '/dashboard' },
-        { label: 'Praticar', icon: BookOpen, href: '/dashboard/setup' },
-        { label: 'Revisar', icon: History, href: '/dashboard/errors' },
-        { label: 'Métricas', icon: BarChart2, href: '/dashboard/stats' },
-        { label: 'Perfil', icon: '/dashboard/profile', isProfile: true }, // Hypothetical profile link or modal trigger
-    ]
+    const isConcursos = pathname?.startsWith('/concursos')
+    const basePath = isConcursos ? '/concursos' : '/dashboard'
 
-    // Ajustando os links para serem consistentes
     const finalTabs = [
-        { label: 'Início', icon: LayoutDashboard, href: '/dashboard' },
-        { label: 'Praticar', icon: BookOpen, href: '/dashboard/setup' },
-        { label: 'Caderno', icon: History, href: '/dashboard/errors' },
-        { label: 'Métricas', icon: BarChart2, href: '/dashboard/stats' }, // Changed Intel to Métricas as requested
+        { label: 'Início', icon: LayoutDashboard, href: basePath },
+        { label: 'Praticar', icon: BookOpen, href: `${basePath}/setup` },
+        { label: 'Mapa', icon: LayoutGrid, href: `${basePath}?tab=MAPA` },
+        { label: 'Caderno', icon: History, href: `${basePath}/errors` },
+        { label: 'Métricas', icon: BarChart2, href: `${basePath}/stats` },
     ]
 
     if (user?.role === 'MASTER') {
-        finalTabs.push({ label: 'Master', icon: Settings, href: '/admin' })
+        finalTabs.push({ 
+            label: 'Master', 
+            icon: Settings, 
+            href: isConcursos ? '/concursos/admin' : '/admin' 
+        })
     }
 
     // Hide bottom tabs on quiz and error pages
-    if (pathname?.includes('/dashboard/quiz') || pathname?.includes('/dashboard/errors')) {
+    const isQuizPage = pathname?.includes('/dashboard/quiz') || 
+                      pathname?.includes('/concursos/quiz') || 
+                      pathname?.includes('/concursos/treino') ||
+                      pathname?.includes('/dashboard/errors') ||
+                      pathname?.includes('/concursos/errors')
+
+    if (isQuizPage) {
         return null
     }
+
+    const activeColor = isConcursos ? "text-indigo-600" : "text-primary"
+    const activeBg = isConcursos ? "bg-indigo-600/10" : "bg-primary/10"
 
     return (
         <div className="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] max-w-md z-40">
@@ -56,17 +64,17 @@ export function BottomTabs() {
                             {isActive && (
                                 <motion.div
                                     layoutId="activeTab"
-                                    className="absolute inset-0 bg-primary/10 rounded-2xl"
+                                    className={cn("absolute inset-0 rounded-2xl", activeBg)}
                                     transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
                                 />
                             )}
                             <tab.icon className={cn(
                                 "w-6 h-6 transition-colors relative z-10",
-                                isActive ? "text-primary" : "text-muted-foreground"
+                                isActive ? activeColor : "text-muted-foreground"
                             )} />
                             <span className={cn(
                                 "text-[9px] font-black uppercase tracking-widest relative z-10",
-                                isActive ? "text-primary" : "text-muted-foreground/60"
+                                isActive ? activeColor : "text-muted-foreground/60"
                             )}>
                                 {tab.label}
                             </span>

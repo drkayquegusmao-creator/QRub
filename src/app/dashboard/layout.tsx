@@ -7,12 +7,13 @@ import { BottomTabs } from '@/components/bottom-tabs'
 import { UserProfileModal } from '@/components/user-profile-modal'
 import { SettingsModal } from '@/components/settings-modal'
 import { SupportChatWidget } from '@/components/support-chat-widget'
-import { Hexagon, LogOut, Moon, Sun, Shield, User, Share2, Settings } from 'lucide-react'
+import { Hexagon, LogOut, Moon, Sun, Shield, User, Share2, Settings, ArrowLeftRight } from 'lucide-react'
 import { useTheme } from 'next-themes'
 import Link from 'next/link'
 import { clsx, type ClassValue } from 'clsx'
 import { twMerge } from 'tailwind-merge'
 import { usePreferences } from '@/store/use-preferences'
+import { isMasterEmail } from '@/lib/auth-constants'
 
 function cn(...inputs: ClassValue[]) {
     return twMerge(clsx(inputs))
@@ -62,8 +63,12 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
         </div>
     }
 
-    const isQuizPage = pathname?.includes('/dashboard/quiz')
-    const isErrorPage = pathname?.includes('/dashboard/errors')
+    const isConcursos = pathname?.startsWith('/concursos')
+    const homePath = isConcursos ? '/concursos' : '/dashboard'
+    const adminPath = isConcursos ? '/concursos/admin' : '/admin'
+
+    const isQuizPage = pathname?.includes('/dashboard/quiz') || pathname?.includes('/concursos/quiz')
+    const isErrorPage = pathname?.includes('/dashboard/errors') || pathname?.includes('/concursos/errors')
     const hideNav = isQuizPage || isErrorPage
 
     return (
@@ -76,18 +81,41 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                 <header className="fixed top-0 z-40 w-full bg-background/50 backdrop-blur-xl border-b border-white/5 [[data-banner-active=true]_&]:translate-y-10 transition-transform duration-200">
                     <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
                         <div className="flex items-center gap-4">
-                            <Link href="/dashboard" className="flex items-center gap-3 group transition-all">
-                                <div className="bg-primary p-2 rounded-xl shadow-lg shadow-primary/20 group-hover:scale-110 transition-transform">
+                            <Link href={homePath} className="flex items-center gap-3 group transition-all">
+                                <div className={cn(
+                                    "p-2 rounded-xl shadow-lg transition-transform group-hover:scale-110",
+                                    isConcursos ? "bg-indigo-500 shadow-indigo-500/20" : "bg-primary shadow-primary/20"
+                                )}>
                                     <Hexagon className="w-5 h-5 text-white fill-white/20" />
                                 </div>
-                                <span className="text-2xl font-black italic uppercase tracking-tighter">QRub</span>
+                                <div className="flex flex-col leading-none">
+                                    <span className="text-2xl font-black italic uppercase tracking-tighter">QRub</span>
+                                    {isConcursos && <span className="text-[8px] font-black uppercase tracking-[0.2em] text-indigo-500">Concursos</span>}
+                                </div>
                             </Link>
+
+                            {isMasterEmail(user?.email) && (
+                                <Link href={isConcursos ? '/dashboard' : '/concursos'}>
+                                    <button
+                                        className={cn(
+                                            "hidden sm:flex items-center gap-2 px-4 py-2 rounded-2xl transition-all text-[10px] font-black uppercase tracking-widest border shadow-sm group/switch",
+                                            isConcursos 
+                                                ? "bg-primary/10 text-primary border-primary/20 hover:bg-primary hover:text-white shadow-primary/10" 
+                                                : "bg-indigo-500/10 text-indigo-600 border-indigo-500/20 hover:bg-indigo-500 hover:text-white shadow-indigo-500/10"
+                                        )}
+                                        title={isConcursos ? "Mudar para Saúde" : "Mudar para Concursos"}
+                                    >
+                                        <ArrowLeftRight className="w-3.5 h-3.5 group-hover/switch:rotate-180 transition-transform duration-500" />
+                                        <span className="hidden lg:inline">{isConcursos ? "Saúde" : "Concursos"}</span>
+                                    </button>
+                                </Link>
+                            )}
 
                             <button
                                 onClick={async () => {
                                     const shareData = {
                                         title: 'QRub | Plataforma de Questões de Alta Performance',
-                                        text: '🚀 QRub: Sua Aprovação Começa Aqui!\n\nA plataforma definitiva para residência médica e concursos.\n\n✅ Questões comentadas por especialistas\n✅ Agenda inteligente (estude o que importa)\n✅ Métricas detalhadas de performance\n\nAcesse agora:',
+                                        text: `🚀 QRub${isConcursos ? ' Concursos' : ''}: Sua Aprovação Começa Aqui!\n\nA plataforma definitiva para ${isConcursos ? 'concursos públicos' : 'residência médica'}.\n\n✅ Questões comentadas por especialistas\n✅ Agenda inteligente\n✅ Métricas detalhadas\n\nAcesse agora:`,
                                         url: 'https://qrub.com.br'
                                     };
 
@@ -95,7 +123,6 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                                         try {
                                             await navigator.share(shareData);
                                         } catch (err) {
-                                            // Fallback if user cancels or error
                                             const waText = encodeURIComponent(`${shareData.text} ${shareData.url}`);
                                             window.open(`https://wa.me/?text=${waText}`, '_blank');
                                         }
@@ -139,8 +166,13 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
 
                             <div className="hidden md:flex items-center gap-3 pl-3 border-l border-white/10">
                                 {user?.role === 'MASTER' && (
-                                    <Link href="/admin">
-                                        <button className="flex items-center gap-2 bg-primary/10 text-primary px-5 py-2.5 rounded-2xl font-black uppercase text-[10px] tracking-widest hover:bg-primary/20 transition-all border border-primary/20">
+                                    <Link href={adminPath}>
+                                        <button className={cn(
+                                            "flex items-center gap-2 px-5 py-2.5 rounded-2xl font-black uppercase text-[10px] tracking-widest transition-all border",
+                                            isConcursos 
+                                                ? "bg-indigo-500/10 text-indigo-500 border-indigo-500/20 hover:bg-indigo-500/20"
+                                                : "bg-primary/10 text-primary border-primary/20 hover:bg-primary/20"
+                                        )}>
                                             <Shield className="w-4 h-4" />
                                             Painel Admin
                                         </button>

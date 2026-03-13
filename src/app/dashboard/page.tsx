@@ -600,22 +600,27 @@ export default function StudentDashboard() {
             )}
 
             {/* Premium Dashboard Header */}
-            <div className="pt-4 pb-2">
-                <motion.h1
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    className="text-4xl md:text-6xl font-black italic uppercase tracking-tighter text-[#1A1033] leading-none"
-                >
-                    Sua Central de <span className="text-primary italic">Estudos</span>
-                </motion.h1>
-                <motion.p
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.1 }}
-                    className="text-slate-500 font-bold mt-2 first-letter:uppercase"
-                >
-                    {formattedDate}
-                </motion.p>
+            <div className="pt-4 pb-0">
+                <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+                    <div className="space-y-1">
+                        <motion.h1
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            className="text-4xl md:text-7xl font-black italic uppercase tracking-tighter text-[#1A1033] leading-[0.85]"
+                        >
+                            Central de <br />
+                            <span className="text-primary italic">Estudos</span>
+                        </motion.h1>
+                        <motion.p
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: 0.1 }}
+                            className="text-slate-400 font-black uppercase text-[10px] tracking-[0.3em]"
+                        >
+                            {formattedDate}
+                        </motion.p>
+                    </div>
+                </div>
             </div>
 
             <UserStatsCard />

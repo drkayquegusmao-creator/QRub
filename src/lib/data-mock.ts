@@ -159,6 +159,7 @@ export interface UserResponse {
     subject_id?: string
     is_correct: boolean
     timestamp: string
+    is_concursos?: boolean
 }
 
 // Importar estrutura completa de especialidades médicas

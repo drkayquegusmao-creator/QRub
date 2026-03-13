@@ -14,7 +14,7 @@ import { isMasterEmail } from '@/lib/auth-constants'
 export default function AuthPage() {
     const { setTheme } = useTheme()
     const router = useRouter()
-    const { setUser, isAuthenticated } = useAuth()
+    const { setUser, isAuthenticated, user } = useAuth()
     const [mode, setMode] = useState<'login' | 'signup'>('login')
     const [loading, setLoading] = useState(false)
     const [showPassword, setShowPassword] = useState(false)
@@ -38,9 +38,13 @@ export default function AuthPage() {
 
     useEffect(() => {
         if (isHydrated && isAuthenticated) {
-            router.push('/dashboard')
+            if (user && isMasterEmail(user.email)) {
+                router.push('/select-environment')
+            } else {
+                router.push('/dashboard')
+            }
         }
-    }, [isHydrated, isAuthenticated, router])
+    }, [isHydrated, isAuthenticated, user, router])
 
     if (!isHydrated) return null
 
@@ -84,7 +88,7 @@ export default function AuthPage() {
                         profile_completed: isMaster
                     })
                     setSuccess('Cadastro realizado com sucesso! Redirecionando...')
-                    setTimeout(() => window.location.assign('/dashboard'), 1500)
+                    setTimeout(() => window.location.assign(isMaster ? '/select-environment' : '/dashboard'), 1500)
                 } else {
                     setSuccess('Cadastro realizado! Verifique seu e-mail para confirmar.')
                 }
@@ -156,7 +160,9 @@ export default function AuthPage() {
 
                 // Redirect based on profile completion
                 setTimeout(() => {
-                    if (profile.role === 'MASTER' || profile.profile_completed) {
+                    if (isMaster) {
+                        window.location.assign('/select-environment')
+                    } else if (profile.role === 'MASTER' || profile.profile_completed) {
                         window.location.assign('/dashboard')
                     } else {
                         window.location.assign('/onboarding')

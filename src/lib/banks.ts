@@ -497,15 +497,29 @@ export async function publishQuestion(packageQuestionId: string, taxonomyIds?: {
 
         const questionId = existingQ?.id || generateShortId()
 
-        // 3. Prepare taxonomy fields (using slugs/names as seen in current DB)
+        // 3. Prepare taxonomy fields (using AI override if available, else package default)
+        const aiSubspecialty = qj.subspecialty
+        const aiSubject = qj.subject
+
+        let resolvedAISub: any = null
+        let resolvedAISubject: any = null
+
+        if (aiSubspecialty || aiSubject) {
+            // Se a IA mandou o sub-assunto, vamos tentar resolver para pegar os UUIDs/Slugs corretos
+            const fullPath = `${pq.question_packages?.taxonomy_path}${aiSubspecialty ? ` > ${aiSubspecialty}` : ''}${aiSubject ? ` > ${aiSubject}` : ''}`
+            const resolved = await resolveTaxonomyPath(fullPath)
+            resolvedAISub = resolved.subspecialty
+            resolvedAISubject = resolved.subject
+        }
+
         const taxonomyFields = {
             course_id: txRaw?.course?.slug || txRaw?.course_id || 'medicina',
             specialty_id: txRaw?.specialty?.slug || txRaw?.specialty_id,
-            subspecialty_id: txRaw?.subspecialty?.slug || txRaw?.subspecialty_id,
-            subject_id: txRaw?.subject?.name || txRaw?.subject_id, // Subject uses name as seen in existing data
+            subspecialty_id: resolvedAISub?.id || txRaw?.subspecialty?.id || txRaw?.subspecialty_id,
+            subject_id: resolvedAISubject?.id || txRaw?.subject?.id || txRaw?.subject_id,
             area_id: txRaw?.specialty?.slug || txRaw?.specialty_id,
-            subarea_id: txRaw?.subspecialty?.slug || txRaw?.subspecialty_id,
-            tema_id: txRaw?.subject?.name || txRaw?.subject_id
+            subarea_id: resolvedAISub?.id || txRaw?.subspecialty?.id || txRaw?.subspecialty_id,
+            tema_id: resolvedAISubject?.id || txRaw?.subject?.id || txRaw?.subject_id
         }
 
         // 4. Upsert into main question bank (questao_base)
@@ -581,9 +595,10 @@ export function generatePrompt(opts: {
     taxonomyPath: string
     difficulty: string
     count: number
+    subTopics?: string[] // New field for balanced distribution
     packageId?: string
 }): string {
-    const { bank, profile, blueprint, taxonomyPath, difficulty, count, packageId } = opts
+    const { bank, profile, blueprint, taxonomyPath, difficulty, count, subTopics, packageId } = opts
 
     const diffLabel: Record<string, string> = {
         facil: 'FÁCIL (básico, conceitual)',
@@ -621,6 +636,12 @@ ${profileSection}
 
 ${blueprintSection}
 
+${subTopics && subTopics.length > 0 ? `## DISTRIBUIÇÃO EQUITATIVA (OBRIGATÓRIO)
+O pacote é de nível GERAL. Você deve distribuir as ${count} questões de forma igualitária entre os seguintes sub-assuntos:
+${subTopics.map(s => `- ${s}`).join('\n')}
+
+IMPORTANTE: Para cada questão, preencha obrigatoriamente os campos "subspecialty" e "subject" baseando-se na lista acima.` : ''}
+
 ---
 
 ## FORMATO DE SAÍDA OBRIGATÓRIO
@@ -648,12 +669,16 @@ Retorne APENAS um JSON array válido no seguinte formato (sem texto antes ou dep
       "e": "Por que E está errada..."
     },
     "difficulty": "${difficulty}",
+    "subspecialty": "Nome da Subespecialidade (se aplicável)",
+    "subject": "Nome do Assunto/Tema específico",
     "tags": ["tag1", "tag2"]
   }
 ]
 \`\`\`
 
 ## REGRAS OBRIGATÓRIAS
+- Distribuição balanceada: se for um tema GERAL, não repita o mesmo sub-assunto em todas as questões.
+- Use os nomes de sub-assuntos fornecidos na seção "DISTRIBUIÇÃO EQUITATIVA".
 - Todas as ${blueprint?.format === 'mcq_4' ? '4' : '5'} alternativas presentes
 - Gabarito em letra minúscula (a, b, c, d ou e)
 - Enunciado sem nome de banca ou ano
@@ -730,6 +755,8 @@ export function normalizeQuestion(q: ImportedQuestion): Record<string, unknown> 
         option_rationales,
         difficulty,
         tags,
+        subspecialty: q.subspecialty || q.sub_specialty || q.subarea || null,
+        subject: q.subject || q.tema || q.topic || null
     }
 }
 
@@ -809,7 +836,18 @@ export async function resolveTaxonomyPath(path: string): Promise<{
         'urologia': ['uro', 'sistema urinario', 'litiase renal', 'infeccao urinaria'],
         'obstetricia': ['go', 'obstetrico', 'gravidez', 'parto'],
         'pediatria': ['peds', 'crianca', 'infantil'],
-        'psiquiatria': ['psiq', 'mental', 'saude mental', 'depressao', 'ansiedade']
+        'psiquiatria': ['psiq', 'mental', 'saude mental', 'depressao', 'ansiedade'],
+        // Sub-sistemas da Anatomia
+        'Sistema Circulatório': ['circulatorio', 'cardiovascular', 'cardiaco', 'arterias', 'veias', 'coracao'],
+        'Sistema Respiratório': ['respiratorio', 'pulmao', 'bronquios', 'laringe', 'traqueia'],
+        'Sistema Digestório': ['digestorio', 'digestivo', 'esofago', 'intestino', 'estomago', 'figado', 'pâncreas'],
+        'Sistema Esquelético': ['esqueletico', 'ossos', 'osseo', 'articulacoes', 'fractura', 'cranio', 'coluna'],
+        'Sistema Muscular': ['muscular', 'musculo', 'tendao', 'ligamento'],
+        'Sistema Nervoso': ['nervoso', 'neuronal', 'cerebro', 'medula', 'nervos', 'plexo'],
+        'Sistema Tegumentar': ['tegumentar', 'pele', 'derme', 'epiderme', 'fáscia'],
+        'Sistema Urinário': ['urinario', 'rim', 'ureter', 'bexiga', 'uretra', 'renal'],
+        'Sistema Genital': ['genital', 'reprodutor', 'utero', 'ovario', 'testiculo', 'prostata'],
+        'Sistema Endócrino': ['endocrino', 'glandula', 'hormonio', 'hipofise', 'tireoide', 'suprarrenal']
     }
 
     let lastId: string | null = null

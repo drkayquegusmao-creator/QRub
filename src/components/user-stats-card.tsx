@@ -12,7 +12,8 @@ export function UserStatsCard() {
 
     useEffect(() => {
         if (user?.id) {
-            loadStats(user.id)
+            const isConcursos = typeof window !== 'undefined' && window.location.pathname.startsWith('/concursos')
+            loadStats(user.id, isConcursos)
         }
     }, [user?.id, loadStats])
 

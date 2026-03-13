@@ -1,0 +1,50 @@
+[
+  {
+    "options": [
+      {
+        "id": "a",
+        "text": "Aumentar a dose em 2 a 2.5 vezes ou iniciar infusão contínua."
+      },
+      {
+        "id": "b",
+        "text": "Suspender o diurético e iniciar soro fisiológico."
+      },
+      {
+        "id": "c",
+        "text": "Manter a mesma dose por 7 dias esperando o efeito."
+      },
+      {
+        "id": "d",
+        "text": "Trocar por Hidroclorotiazida oral isoladamente."
+      },
+      {
+        "id": "e",
+        "text": "Apenas realizar restrição hídrica severa (50ml/dia)."
+      }
+    ]
+  },
+  {
+    "options": [
+      {
+        "id": "a",
+        "text": "Baixo débito cardíaco sustentado e pior prognóstico."
+      },
+      {
+        "id": "b",
+        "text": "Função ventricular normal e excelente prognóstico."
+      },
+      {
+        "id": "c",
+        "text": "Picos hipertensivos durante o sono."
+      },
+      {
+        "id": "d",
+        "text": "Cura total da insuficiência cardíaca espontaneamente."
+      },
+      {
+        "id": "e",
+        "text": "Consumo excessivo de açúcar na dieta."
+      }
+    ]
+  }
+]

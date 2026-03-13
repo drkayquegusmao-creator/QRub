@@ -12,7 +12,25 @@ export function AnnouncementBanner() {
     const [isEditing, setIsEditing] = useState(false)
     const [editContent, setEditContent] = useState('')
     const [isLoading, setIsLoading] = useState(false)
-    const [isVisible, setIsVisible] = useState(true)
+    const [isVisible, setIsVisible] = useState(false)
+
+    useEffect(() => {
+        if (user?.id) {
+            const hasBeenShown = sessionStorage.getItem(`qrub_banner_shown_${user.id}`)
+            if (!hasBeenShown) {
+                setIsVisible(true)
+                sessionStorage.setItem(`qrub_banner_shown_${user.id}`, 'true')
+                
+                const timer = setTimeout(() => {
+                    setIsVisible(false)
+                }, 60000) // 60 seconds
+
+                return () => clearTimeout(timer)
+            }
+        } else {
+            setIsVisible(false)
+        }
+    }, [user?.id])
 
     const isAdmin = ['master', 'admin_master', 'admin_global'].includes(user?.role?.toLowerCase() || '')
 

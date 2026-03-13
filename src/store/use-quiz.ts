@@ -58,16 +58,19 @@ export const useQuiz = create<QuizState>()(
             },
 
             add_response: async (response) => {
+                const isConcursos = !!response.is_concursos
+
                 // Update persistent user stats
                 if (response.user_id) {
-                    useUserStats.getState().updateStats(response.user_id, response.is_correct)
+                    useUserStats.getState().updateStats(response.user_id, response.is_correct, isConcursos)
                 }
 
                 // Supabase Sync
                 if (isSupabaseConfigured()) {
+                    const table = isConcursos ? 'concurso_user_respostas' : 'user_responses'
                     try {
                         await supabase
-                            .from('user_responses')
+                            .from(table)
                             .insert({
                                 user_id: response.user_id,
                                 question_id: response.question_id,
@@ -122,6 +125,9 @@ export const useQuiz = create<QuizState>()(
                     return
                 }
 
+                const isConcursos = typeof window !== 'undefined' && window.location.pathname.startsWith('/concursos')
+                const table = isConcursos ? 'concurso_user_respostas' : 'user_responses'
+
                 // Precautionary check: Supabase UUID columns will throw if the string is not a valid UUID format
                 const isUuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(userId);
 
@@ -132,7 +138,7 @@ export const useQuiz = create<QuizState>()(
 
                 try {
                     const { data, error } = await supabase
-                        .from('user_responses')
+                        .from(table)
                         .select('*')
                         .eq('user_id', userId)
                         .order('timestamp', { ascending: true })
@@ -143,10 +149,11 @@ export const useQuiz = create<QuizState>()(
                     }
 
                     if (data && data.length > 0) {
-                        set({ responses: data })
-                        console.log(`Loaded ${data.length} responses from Supabase`)
+                        const withFlag = data.map((r: any) => ({ ...r, is_concursos: isConcursos }))
+                        set({ responses: withFlag })
+                        console.log(`Loaded ${data.length} responses from Supabase (${table})`)
                     } else {
-                        console.log('No responses found in Supabase for this user')
+                        console.log(`No responses found in Supabase (${table}) for this user`)
                     }
                 } catch (err: any) {
                     console.warn('Error loading responses (using local data):', err.message || 'Unknown error')
@@ -155,10 +162,12 @@ export const useQuiz = create<QuizState>()(
 
             load_all_responses: async () => {
                 if (!isSupabaseConfigured()) return
+                const isConcursos = typeof window !== 'undefined' && window.location.pathname.startsWith('/concursos')
+                const table = isConcursos ? 'concurso_user_respostas' : 'user_responses'
 
                 try {
                     const { data, error } = await supabase
-                        .from('user_responses')
+                        .from(table)
                         .select('*')
                         .order('timestamp', { ascending: false })
                         .limit(5000)
@@ -166,8 +175,9 @@ export const useQuiz = create<QuizState>()(
                     if (error) throw error
 
                     if (data) {
-                        set({ responses: data })
-                        console.log(`Loaded ${data.length} global responses from Supabase`)
+                        const withFlag = data.map((r: any) => ({ ...r, is_concursos: isConcursos }))
+                        set({ responses: withFlag })
+                        console.log(`Loaded ${data.length} global responses from Supabase (${table})`)
                     }
                 } catch (err: any) {
                     console.error('Error loading all responses:', err.message)
@@ -216,23 +226,13 @@ export const useQuiz = create<QuizState>()(
 
             reset_metrics: () => {
                 set({ responses: [], error_notebook: [] })
-                // If using Supabase, we might want to delete from DB too, but for now let's stick to local/state clear or clarify requirement.
-                // Assuming "Reset Metrics" implies clearing the user's progress.
-                // If synced, we should probably handle that.
-                // For safety, let's just clear the local state first as requested by "reset metrics feature".
-                // Ideally, this should delete from 'user_responses' in Supabase if confirmed.
-                // Leaving strictly state update for now to avoid accidental data loss without explicit "delete from db" instruction, 
-                // but usually "reset" means wipe. 
-                // Let's add the db deletion call if supabase is configured.
+                const isConcursos = typeof window !== 'undefined' && window.location.pathname.startsWith('/concursos')
+                const table = isConcursos ? 'concurso_user_respostas' : 'user_responses'
 
                 if (isSupabaseConfigured()) {
-                    // We need the user ID. 
-                    // Since this is a store action, we might not have it directly passed, but usually auth is handled separately.
-                    // However, useQuiz doesn't store user_id in state, it relies on passed args or context.
-                    // We can try to get it from supabase auth directly.
                     supabase.auth.getUser().then(({ data: { user } }) => {
                         if (user) {
-                            supabase.from('user_responses').delete().eq('user_id', user.id).then(({ error }) => {
+                            supabase.from(table).delete().eq('user_id', user.id).then(({ error }) => {
                                 if (error) console.error('Error resetting Supabase metrics:', error)
                             })
                         }

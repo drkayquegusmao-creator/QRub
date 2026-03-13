@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { useRouter } from 'next/navigation'
+import { useRouter, usePathname } from 'next/navigation'
 import { ArrowLeft, Target, Search, ChevronDown, Check, Play, Loader2, AlertCircle, RefreshCw } from 'lucide-react'
 import { supabase } from '@/lib/supabase'
 import { useAuth } from '@/store/use-auth'
@@ -20,7 +20,9 @@ interface TaxonomyLevel {
 
 export default function TreinarAreaPage() {
     const router = useRouter()
+    const pathname = usePathname()
     const { user } = useAuth()
+    const isConcursos = pathname?.startsWith('/concursos')
 
     // Status / View States
     const [status, setStatus] = useState<'LOADING' | 'READY' | 'ERROR'>('LOADING')
@@ -58,7 +60,7 @@ export default function TreinarAreaPage() {
     useEffect(() => {
         const loadRoots = async () => {
             try {
-                const roots = await getRootTaxonomy()
+                const roots = await getRootTaxonomy(isConcursos)
                 setLevels(prev => [
                     { ...prev[0], nodes: roots, loading: false }
                 ])
@@ -83,7 +85,7 @@ export default function TreinarAreaPage() {
         if (!nodeId) return
 
         try {
-            const children = await getChildren(nodeId)
+            const children = await getChildren(nodeId, isConcursos)
             if (children.length > 0) {
                 const nextLevelTitle = `${levelIndex + 2}. Nível Específico`
                 setLevels(prev => [
@@ -111,7 +113,7 @@ export default function TreinarAreaPage() {
                     taxonomyId: deepestSelectedNode.id,
                     difficulty: difficulty,
                     status: statusF
-                })
+                }, isConcursos)
                 setTotalAvailable(count)
             } catch (err) {
                 console.error('Error counting total questions:', err)
@@ -135,12 +137,15 @@ export default function TreinarAreaPage() {
             }
 
             setIsSearching(true)
+            const table = isConcursos ? 'concurso_taxonomia' : 'taxonomia'
             try {
                 const { data, error } = await supabase
-                    .from('taxonomia')
+                    .from(table)
                     .select('*')
-                    .ilike('name', `%${searchTerm}%`)
-                    .limit(20)
+                    .or(`name.ilike.%${searchTerm}%,slug.ilike.%${searchTerm}%`)
+                    .eq('active', true)
+                    .order('name', { ascending: true })
+                    .limit(50)
 
                 if (!error && data) {
                     setSearchResults(data)
@@ -165,7 +170,7 @@ export default function TreinarAreaPage() {
                 taxonomyId: deepestSelectedNode.id,
                 difficulty: difficulty,
                 status: statusF
-            }, volume)
+            }, volume, isConcursos)
 
             if (!questions || questions.length === 0) {
                 throw new Error('Não há questões com este filtro exato.')

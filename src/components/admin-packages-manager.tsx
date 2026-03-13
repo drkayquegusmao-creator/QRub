@@ -182,6 +182,25 @@ export default function AdminPackagesManager() {
         if (!selectedPackage || !selectedPackage.bank_id) return
         const bank = banks.find(b => b.id === selectedPackage.bank_id)
         if (!bank) return
+
+        // Descobrir sub-tópicos se for nível GERAL
+        const path = selectedPackage.taxonomy_path || ''
+        const parts = path.split(' > ').map(p => p.trim())
+        let currentLevel = taxonomy
+        let targetNode: TaxonomyNode | null = null
+
+        for (const part of parts) {
+            const found = currentLevel.find(n => n.name === part)
+            if (found) {
+                targetNode = found
+                currentLevel = found.children || []
+            } else {
+                break
+            }
+        }
+
+        const subTopics = targetNode?.children?.map(c => c.name) || []
+
         const profile = await getCurrentProfile(selectedPackage.bank_id)
         const blueprint = blueprints.find(b => b.id === selectedPackage.blueprint_id) || null
         const prompt = generatePrompt({
@@ -191,7 +210,8 @@ export default function AdminPackagesManager() {
             taxonomyPath: selectedPackage.taxonomy_path || '',
             difficulty: selectedPackage.difficulty,
             count: selectedPackage.requested_count,
-            packageId: selectedPackage.id
+            packageId: selectedPackage.id,
+            subTopics: subTopics.length > 0 ? subTopics : undefined
         })
         setPromptData(prompt)
         setIsPromptModalOpen(true)

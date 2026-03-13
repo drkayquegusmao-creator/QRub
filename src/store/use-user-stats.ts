@@ -18,8 +18,9 @@ export interface UserStats {
 interface UserStatsState {
     stats: UserStats | null
     loading: boolean
-    loadStats: (userId: string) => Promise<void>
-    updateStats: (userId: string, isCorrect: boolean) => Promise<void>
+    isConcursos: boolean
+    loadStats: (userId: string, isConcursos?: boolean) => Promise<void>
+    updateStats: (userId: string, isCorrect: boolean, isConcursos?: boolean) => Promise<void>
     calculateLevel: (total: number) => string
     getDynamicPhrase: (total: number) => string
 }
@@ -39,6 +40,7 @@ export const useUserStats = create<UserStatsState>()(
         (set, get) => ({
             stats: null,
             loading: false,
+            isConcursos: false,
 
             calculateLevel: (total: number) => {
                 if (total >= 1000) return 'Elite'
@@ -61,49 +63,49 @@ export const useUserStats = create<UserStatsState>()(
                 return "Consistência vence talento."
             },
 
-            loadStats: async (userId) => {
+            loadStats: async (userId, isConcursos = false) => {
                 if (!isSupabaseConfigured()) return
-                set({ loading: true })
+                set({ loading: true, isConcursos })
+                const table = isConcursos ? 'concurso_user_estatisticas' : 'user_stats'
 
                 try {
                     const { data, error } = await supabase
-                        .from('user_stats')
+                        .from(table)
                         .select('*')
                         .eq('user_id', userId)
-                        .single()
+                        .maybeSingle()
 
-                    if (error) {
-                        if (error.code === 'PGRST116') {
-                            // Not found, create initial stats
-                            const initialStats = {
-                                user_id: userId,
-                                total_questoes: 0,
-                                total_acertos: 0,
-                                media_geral: 0,
-                                nivel_usuario: 'Iniciante',
-                                ultima_frase_exibida: 'Resolva sua primeira questão para ativar suas estatísticas.'
-                            }
-                            const { data: newData, error: insertError } = await supabase
-                                .from('user_stats')
-                                .insert(initialStats)
-                                .select()
-                                .single()
-
-                            if (!insertError && newData) {
-                                set({ stats: newData })
-                            }
+                    if (!data) {
+                        // Create initial stats
+                        const initialStats = {
+                            user_id: userId,
+                            total_questoes: 0,
+                            total_acertos: 0,
+                            media_geral: 0,
+                            nivel_usuario: 'Iniciante',
+                            ultima_frase_exibida: 'Resolva sua primeira questão para ativar suas estatísticas.'
                         }
-                        // Other errors (like table not found) fail silently
-                        return
-                    } else if (data) {
+                        const { data: newData, error: insertError } = await supabase
+                            .from(table)
+                            .insert(initialStats)
+                            .select()
+                            .single()
+
+                        if (!insertError && newData) {
+                            set({ stats: newData })
+                        }
+                    } else {
                         // Calculate or re-calculate extra metrics on load
                         const quizState = (await import('./use-quiz')).useQuiz.getState()
-                        const todayResponses = quizState.responses.filter(r => isSameDay(new Date(r.timestamp), new Date()))
+                        const filteredResponses = quizState.responses.filter(r => 
+                            isConcursos ? !!r.is_concursos : !r.is_concursos
+                        )
+                        const todayResponses = filteredResponses.filter(r => isSameDay(new Date(r.timestamp), new Date()))
 
                         // Streaks from history
                         let streakCorrect = 0
                         let streakWrong = 0
-                        const lastResponses = [...quizState.responses].reverse()
+                        const lastResponses = [...filteredResponses].reverse()
 
                         // Find current streak
                         if (lastResponses.length > 0) {
@@ -143,14 +145,16 @@ export const useUserStats = create<UserStatsState>()(
                         })
                     }
                 } catch (err) {
-                    // Fail silently
+                    console.error('Error loading stats:', err)
                 } finally {
                     set({ loading: false })
                 }
             },
 
-            updateStats: async (userId, isCorrect) => {
+            updateStats: async (userId, isCorrect, isConcursos = false) => {
                 const state = get()
+                const table = isConcursos ? 'concurso_user_estatisticas' : 'user_stats'
+                
                 const currentStats = state.stats || {
                     total_questoes: 0,
                     total_acertos: 0,
@@ -168,9 +172,11 @@ export const useUserStats = create<UserStatsState>()(
                 const newLevel = state.calculateLevel(newTotal)
 
                 // Get additional context for the generator
-                // We need to access useQuiz state here or pass it
                 const quizState = (await import('./use-quiz')).useQuiz.getState()
-                const todayResponses = quizState.responses.filter(r => isSameDay(new Date(r.timestamp), new Date()))
+                const filteredResponses = quizState.responses.filter(r => 
+                    isConcursos ? !!r.is_concursos : !r.is_concursos
+                )
+                const todayResponses = filteredResponses.filter(r => isSameDay(new Date(r.timestamp), new Date()))
                 const todayAnswered = todayResponses.length + 1 // +1 for the current one
 
                 // Calculate Streaks
@@ -178,7 +184,7 @@ export const useUserStats = create<UserStatsState>()(
                 let streakWrong = isCorrect ? 0 : 1
 
                 // Look back at previous responses in quizState
-                const lastResponses = [...quizState.responses].reverse()
+                const lastResponses = [...filteredResponses].reverse()
                 if (isCorrect) {
                     for (const r of lastResponses) {
                         if (r.is_correct) streakCorrect++
@@ -219,7 +225,7 @@ export const useUserStats = create<UserStatsState>()(
                 if (isSupabaseConfigured()) {
                     try {
                         await supabase
-                            .from('user_stats')
+                            .from(table)
                             .upsert({
                                 user_id: userId,
                                 ...updatedStats,

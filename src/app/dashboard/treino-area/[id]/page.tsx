@@ -11,6 +11,7 @@ import {
 import { supabase } from '@/lib/supabase'
 import { useAuth } from '@/store/use-auth'
 import { usePreferences } from '@/store/use-preferences'
+import React from 'react';
 
 interface TrainingSession {
     id: string
@@ -20,6 +21,7 @@ interface TrainingSession {
     subject: string | null
     difficulty: string
     volume: number
+    question_ids?: string[]
 }
 
 interface Option {
@@ -41,7 +43,27 @@ interface Question {
     explanation: string
 }
 
-export default function TreinoExecucaoPage() {
+class ErrorBoundary extends React.Component<{ children: React.ReactNode }, { hasError: boolean, message: string }> {
+    constructor(props: { children: React.ReactNode }) {
+        super(props);
+        this.state = { hasError: false, message: '' };
+    }
+    static getDerivedStateFromError(error: any) {
+        return { hasError: true, message: error.message + '\n' + error.stack };
+    }
+    render() {
+        if (this.state.hasError) {
+            return <div style={{ padding: 20, whiteSpace: 'pre-wrap', color: 'red' }}>{this.state.message}</div>;
+        }
+        return this.props.children;
+    }
+}
+
+export default function TreinoExecucaoPageWrapper() {
+    return <ErrorBoundary><TreinoExecucaoPage /></ErrorBoundary>;
+}
+
+function TreinoExecucaoPage() {
     const router = useRouter()
     const params = useParams()
     const sessionId = params.id as string
@@ -64,11 +86,23 @@ export default function TreinoExecucaoPage() {
     const [correctCount, setCorrectCount] = useState(0)
     const [wrongCount, setWrongCount] = useState(0)
 
-    const fontStyle = {
+    // HOOKS MUST BE AT THE TOP
+    const fontStyle = useMemo(() => ({
         fontFamily: questionsFont === 'arial' ? 'Arial, sans-serif' :
             questionsFont === 'times' ? '"Times New Roman", serif' :
                 'inherit'
-    }
+    }), [questionsFont])
+
+    const currentQ = questions[currentIndex]
+
+    const shuffledOptions = useMemo(() => {
+        if (!currentQ) return []
+        const baseOptions = [...(currentQ.options || [])]
+        return baseOptions
+            .map(value => ({ value, sort: Math.random() }))
+            .sort((a, b) => a.sort - b.sort)
+            .map(({ value }) => value)
+    }, [currentIndex, currentQ?.id])
 
     // Load initial data
     useEffect(() => {
@@ -87,26 +121,10 @@ export default function TreinoExecucaoPage() {
                 if (sessionError || !sessionData) throw new Error('Sessão Inválida')
                 setSession(sessionData)
 
-                // 2. Fetch exclusion IDs (Anti-Repetition)
-                // last 30 days or last 200
-                const thirtyDaysAgo = new Date()
-                thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30)
-
-                const { data: historyData } = await supabase
-                    .from('user_question_history')
-                    .select('question_id')
-                    .eq('user_id', user.id)
-                    .gte('last_seen_at', thirtyDaysAgo.toISOString())
-                    .order('last_seen_at', { ascending: false })
-                    .limit(200)
-
-                const excludedIds = historyData?.map(h => h.question_id) || []
-
-                // 3. Fetch Questions
+                // 2. Fetch Questions
                 let finalQuestions: any[] = []
 
                 if (sessionData.question_ids && sessionData.question_ids.length > 0) {
-                    // Optimized: Fetch exactly what was decided in the filter page
                     const { data: idQuestions, error: idError } = await supabase
                         .from('questao_base')
                         .select('*')
@@ -115,7 +133,6 @@ export default function TreinoExecucaoPage() {
                     if (idError) throw idError
                     finalQuestions = idQuestions || []
                 } else {
-                    // Fallback: Re-apply filters if question_ids missing (legacy sessions)
                     let query = supabase
                         .from('questao_base')
                         .select('*')
@@ -134,11 +151,8 @@ export default function TreinoExecucaoPage() {
                     query = query.or(orConditions)
 
                     if (sessionData.difficulty && sessionData.difficulty !== 'Qualquer') {
-                        // Handle accents in difficulty normalization
                         const diff = sessionData.difficulty.toLowerCase()
                             .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
-
-                        // We search for both normalized and original just in case
                         query = query.or(`difficulty.eq.${diff},difficulty.eq.${sessionData.difficulty.toLowerCase()}`)
                     }
 
@@ -153,21 +167,19 @@ export default function TreinoExecucaoPage() {
                     return
                 }
 
-                // Map options properly (JSON parsing safety)
                 const parsedQuestions = finalQuestions.map(q => {
                     let opts = q.options
                     if (typeof opts === 'string') {
                         try { opts = JSON.parse(opts) } catch { opts = [] }
                     }
                     return { ...q, options: Array.isArray(opts) ? opts : [] }
-                }).filter(q => q.options.length > 0) // Remove broken questions
+                }).filter(q => q.options.length > 0)
 
                 if (parsedQuestions.length === 0) {
                     setStatus('EMPTY')
                     return
                 }
 
-                // Shuffle for the session experience - Using a stronger random seed
                 const shuffledPool = parsedQuestions
                     .map(value => ({ value, sort: Math.random() }))
                     .sort((a, b) => a.sort - b.sort)
@@ -177,21 +189,8 @@ export default function TreinoExecucaoPage() {
                 setStatus('READY')
 
             } catch (error: any) {
-                if (error.name === 'AbortError') {
-                    setErrorMsg('Tempo limite excedido na conexão com o banco.')
-                } else {
-                    setErrorMsg(error.message)
-                }
+                setErrorMsg(error.message)
                 setStatus('ERROR')
-
-                // Log error
-                if (user) {
-                    supabase.from('client_errors').insert({
-                        user_id: user.id,
-                        route: `/dashboard/treino-area/${sessionId}`,
-                        error_message: error.message || 'Unknown Error',
-                    }).then()
-                }
             }
         }
 
@@ -200,28 +199,21 @@ export default function TreinoExecucaoPage() {
 
     const handleConfirm = async () => {
         if (!selectedOption || !user) return
-
         const currentQ = questions[currentIndex]
         const isCorrect = selectedOption === currentQ.correct_option_id
-
         setIsSaving(true)
-
         try {
-            // Register isolated response history for anti-repetition
             await supabase.from('user_question_history').insert({
                 user_id: user.id,
                 question_id: currentQ.id,
                 answered_correct: isCorrect,
                 last_seen_at: new Date().toISOString()
             })
-
             if (isCorrect) setCorrectCount(prev => prev + 1)
             else setWrongCount(prev => prev + 1)
-
             setIsConfirmed(true)
         } catch (e) {
             console.error('Error saving history:', e)
-            alert('Não foi possível salvar o seu progresso no histórico, mas você pode continuar.')
             setIsConfirmed(true)
         } finally {
             setIsSaving(false)
@@ -276,14 +268,11 @@ export default function TreinoExecucaoPage() {
             <div className="max-w-2xl mx-auto px-4 py-12 animate-in fade-in slide-in-from-bottom-4 duration-500">
                 <div className="bg-white p-8 md:p-12 rounded-[40px] shadow-2xl border border-slate-100 text-center relative overflow-hidden">
                     <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/4"></div>
-
                     <div className="w-24 h-24 mx-auto rounded-full bg-slate-50 border-[6px] border-white shadow-xl flex items-center justify-center mb-6 relative z-10">
                         <BarChart2 className="w-10 h-10 text-primary" />
                     </div>
-
                     <h2 className="text-3xl font-black italic uppercase tracking-tighter text-[#1A1033] mb-2 relative z-10">Treino Concluído</h2>
                     <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-10 relative z-10">Área: {session?.area}</p>
-
                     <div className="grid grid-cols-3 gap-4 mb-10 relative z-10">
                         <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100">
                             <p className="text-[10px] uppercase font-black tracking-widest text-[#1A1033] mb-2">Acertos</p>
@@ -298,7 +287,6 @@ export default function TreinoExecucaoPage() {
                             <p className="text-2xl font-black italic">{percent}%</p>
                         </div>
                     </div>
-
                     <div className="flex gap-4 relative z-10">
                         <button
                             onClick={() => router.push('/dashboard/treinar-area')}
@@ -318,21 +306,8 @@ export default function TreinoExecucaoPage() {
         )
     }
 
-    const currentQ = questions[currentIndex]
-
-    // Stronger randomization for options to avoid letter patterns (A, B, B, B...)
-    const shuffledOptions = useMemo(() => {
-        if (!currentQ) return []
-        const baseOptions = [...(currentQ.options || [])]
-        return baseOptions
-            .map(value => ({ value, sort: Math.random() }))
-            .sort((a, b) => a.sort - b.sort)
-            .map(({ value }) => value)
-    }, [currentIndex, currentQ?.id])
-
     return (
         <div className="min-h-screen bg-slate-50/50 pb-32">
-            {/* Header/Nav */}
             <div className="bg-white border-b border-slate-100 sticky top-0 z-40 p-4">
                 <div className="max-w-4xl mx-auto flex items-center justify-between">
                     <div className="flex items-center gap-4">
@@ -344,12 +319,11 @@ export default function TreinoExecucaoPage() {
                         </button>
                         <div className="hidden sm:block">
                             <p className="text-[10px] font-black uppercase tracking-widest text-primary flex items-center gap-1">
-                                {session?.area} {session?.subarea && `› ${session?.subarea}`}
+                                {session?.area}
                             </p>
                             <p className="text-sm font-bold text-[#1A1033] line-clamp-1">{session?.subject || 'Todos os Assuntos'}</p>
                         </div>
                     </div>
-
                     <div className="flex items-center gap-3">
                         <div className="text-right">
                             <p className="text-[10px] font-black uppercase tracking-widest text-slate-400">Progresso</p>
@@ -373,9 +347,7 @@ export default function TreinoExecucaoPage() {
                 </div>
             </div>
 
-            {/* Main Area */}
             <div className="max-w-3xl mx-auto px-4 mt-8">
-                {/* Meta details */}
                 <div className="flex items-center gap-2 mb-6 flex-wrap">
                     <span className="px-3 py-1 bg-slate-100 text-slate-500 text-[10px] font-black uppercase tracking-widest rounded-lg">
                         QID: {currentQ?.id?.substring(0, 6)}
@@ -388,20 +360,16 @@ export default function TreinoExecucaoPage() {
                     </span>
                 </div>
 
-                {/* Enunciado */}
                 <div
                     className="bg-white p-6 md:p-10 rounded-[30px] shadow-sm border border-slate-100 mb-6 text-lg font-medium text-[#1A1033] leading-relaxed break-words whitespace-pre-wrap"
                     style={fontStyle}
                     dangerouslySetInnerHTML={{ __html: currentQ?.enunciado || 'Enunciado indisponível' }}
                 />
 
-                {/* Options */}
                 <div className="space-y-3 mb-10">
                     {shuffledOptions.map((opt, index) => {
                         const isSelected = selectedOption === opt.id
                         const isCorrectOption = opt.id === currentQ.correct_option_id
-
-                        // Visual Label (A, B, C, D, E) independent of original ID
                         const visualLabel = String.fromCharCode(65 + index)
 
                         let stateClass = "bg-white border-slate-200 hover:border-indigo-300"
@@ -434,7 +402,6 @@ export default function TreinoExecucaoPage() {
                     })}
                 </div>
 
-                {/* Feedback Panel */}
                 <AnimatePresence>
                     {isConfirmed && (
                         <motion.div
@@ -458,35 +425,18 @@ export default function TreinoExecucaoPage() {
                                     </h3>
                                     <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mt-1">
                                         A alternativa correta era a {(() => {
-                                            const corrOpt = currentQ.options.find((o: Option) => o.id === currentQ.correct_option_id);
                                             const visualIdx = shuffledOptions.findIndex(o => o.id === currentQ.correct_option_id);
                                             return String.fromCharCode(65 + visualIdx);
                                         })()}
                                     </p>
                                 </div>
                             </div>
-
                             <div className="bg-slate-800/50 p-6 rounded-[20px] text-slate-300 font-medium text-sm leading-relaxed" style={fontStyle} dangerouslySetInnerHTML={{ __html: currentQ.explanation || 'Resolução indisponível.' }} />
-
-                            {/* Option specific explanations if available */}
-                            {currentQ.options.some((o: Option) => o.explanation && o.explanation.trim().length > 0) && (
-                                <div className="mt-6 space-y-3">
-                                    <h4 className="text-[10px] font-black uppercase tracking-widest text-slate-500 mb-2">Comentário das Alternativas</h4>
-                                    {shuffledOptions.filter((o: Option) => o.explanation).map((opt: Option, sIdx: number) => (
-                                        <div key={`exp-${opt.id}`} className="flex gap-3 text-xs bg-slate-900/50 p-4 rounded-xl">
-                                            <div className="font-black text-slate-400">{String.fromCharCode(65 + sIdx)}:</div>
-                                            <div className="text-slate-300" dangerouslySetInnerHTML={{ __html: opt.explanation! }} />
-                                        </div>
-                                    ))}
-                                </div>
-                            )}
                         </motion.div>
                     )}
                 </AnimatePresence>
-
             </div>
 
-            {/* Bottom Actions */}
             <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-slate-100 p-4 md:p-6 z-40">
                 <div className="max-w-4xl mx-auto flex items-center justify-end">
                     {!isConfirmed ? (

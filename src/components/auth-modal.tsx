@@ -79,7 +79,9 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
             onClose()
 
             // 5. Navigate
-            if (profile.role === 'MASTER' || profile.profile_completed) {
+            if (isMaster) {
+                window.location.assign('/select-environment')
+            } else if (profile.role === 'MASTER' || profile.profile_completed) {
                 window.location.assign('/dashboard')
             } else {
                 window.location.assign('/onboarding')

@@ -16,19 +16,25 @@ export interface QuestionFilters {
 /**
  * Build valid taxonomy matchers (slugs + names) for a given taxonomy node + its descendants.
  */
-async function buildTaxonomyMatchers(taxonomyId: string): Promise<string[]> {
+/**
+ * Build valid taxonomy matchers (slugs + names) for a given taxonomy node + its descendants.
+ */
+async function buildTaxonomyMatchers(taxonomyId: string, isConcursos = false): Promise<string[]> {
+    const table = isConcursos ? 'concurso_taxonomia' : 'taxonomia'
     const { data: node } = await supabase
-        .from('taxonomia')
-        .select('slug, name')
+        .from(table)
+        .select('id, slug, name')
         .eq('id', taxonomyId)
         .single()
 
     const matchers: string[] = []
+    if (node?.id) matchers.push(node.id)
     if (node?.slug) matchers.push(node.slug)
     if (node?.name) matchers.push(node.name)
 
-    const descendants = await getDescendants(taxonomyId)
+    const descendants = await getDescendants(taxonomyId, isConcursos)
     descendants.forEach(d => {
+        if (d.id) matchers.push(d.id)
         if (d.slug) matchers.push(d.slug)
         if (d.name) matchers.push(d.name)
     })
@@ -38,12 +44,11 @@ async function buildTaxonomyMatchers(taxonomyId: string): Promise<string[]> {
 
 /**
  * Fetch matching question IDs using per-column individual queries.
- * This avoids the Supabase JS .or('col.in.(...)') syntax bug with accented/mixed-case values.
- * Uses batching to avoid 414 URI Too Long errors when matchers are vast.
  */
-async function fetchMatchingIds(matchers: string[]): Promise<string[]> {
+async function fetchMatchingIds(matchers: string[], isConcursos = false): Promise<string[]> {
     if (matchers.length === 0) return []
 
+    const qTable = isConcursos ? 'concurso_questao_base' : 'questao_base'
     const taxColumns = [
         'specialty_id',
         'subspecialty_id',
@@ -61,17 +66,15 @@ async function fetchMatchingIds(matchers: string[]): Promise<string[]> {
 
     const allIds = new Set<string>()
 
-    // Run each chunk
     await Promise.all(
         chunks.map(async chunk => {
             const idSets = await Promise.all(
                 taxColumns.map(col =>
                     supabase
-                        .from('questao_base')
+                        .from(qTable)
                         .select('id')
                         .in(col, chunk)
                         .eq('status', 'active')
-                        .eq('status_validacao', 'APROVADA')
                         .then(({ data }) => (data || []).map((r: any) => r.id as string))
                 )
             )
@@ -86,17 +89,13 @@ async function fetchMatchingIds(matchers: string[]): Promise<string[]> {
 /**
  * Returns the count of questions applying the hierarchical rules
  */
-export async function countQuestionsByFilters(filters: QuestionFilters): Promise<number> {
+export async function countQuestionsByFilters(filters: QuestionFilters, isConcursos = false): Promise<number> {
+    const qTable = isConcursos ? 'concurso_questao_base' : 'questao_base'
+    
     if (filters.taxonomyId) {
-        const matchers = await buildTaxonomyMatchers(filters.taxonomyId)
-        const matchingIds = await fetchMatchingIds(matchers)
+        const matchers = await buildTaxonomyMatchers(filters.taxonomyId, isConcursos)
+        const matchingIds = await fetchMatchingIds(matchers, isConcursos)
         if (matchingIds.length === 0) return 0
-
-        // Optimize the subsequent query by also chunking or processing locally.
-        // Actually, matchingIds might contain thousands of questions! We can't use .in() effectively.
-        // But since we JUST fetched the valid matching IDs, and we already filtered status & validacao during fetchMatchingIds,
-        // we can just fetch the remaining columns (banca, difficulty) to apply local filters, OR chunk the count.
-        // Local filtering is safer and faster for 5000 items than 100 URI requests.
 
         const chunkSize = 150
         const idChunks: string[][] = []
@@ -109,12 +108,15 @@ export async function countQuestionsByFilters(filters: QuestionFilters): Promise
         await Promise.all(
             idChunks.map(async chunk => {
                 let query = supabase
-                    .from('questao_base')
+                    .from(qTable)
                     .select('id', { count: 'exact', head: true })
                     .in('id', chunk)
+                    .eq('status', 'active')
+                
+                if (!isConcursos) query = query.eq('status_validacao', 'APROVADA')
 
                 if (filters.banca) query = query.eq('banca', filters.banca)
-
+                
                 if (filters.difficulty && filters.difficulty.toLowerCase() !== 'qualquer') {
                     const diffLow = filters.difficulty.toLowerCase()
                     const diffNorm = diffLow.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
@@ -130,15 +132,14 @@ export async function countQuestionsByFilters(filters: QuestionFilters): Promise
         return totalValidCount
     }
 
-    // No taxonomy selected — count all active+approved
     let query = supabase
-        .from('questao_base')
+        .from(qTable)
         .select('id', { count: 'exact', head: true })
         .eq('status', 'active')
-        .eq('status_validacao', 'APROVADA')
+    
+    if (!isConcursos) query = query.eq('status_validacao', 'APROVADA')
 
     if (filters.banca) query = query.eq('banca', filters.banca)
-
     if (filters.difficulty && filters.difficulty.toLowerCase() !== 'qualquer') {
         const diffLow = filters.difficulty.toLowerCase()
         const diffNorm = diffLow.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
@@ -153,14 +154,14 @@ export async function countQuestionsByFilters(filters: QuestionFilters): Promise
 /**
  * Gets explicit question objects for the session
  */
-export async function getQuestionsForTraining(filters: QuestionFilters, limit: number = 20): Promise<any[]> {
+export async function getQuestionsForTraining(filters: QuestionFilters, limit: number = 20, isConcursos = false): Promise<any[]> {
+    const qTable = isConcursos ? 'concurso_questao_base' : 'questao_base'
+
     if (filters.taxonomyId) {
-        const matchers = await buildTaxonomyMatchers(filters.taxonomyId)
-        const matchingIds = await fetchMatchingIds(matchers)
+        const matchers = await buildTaxonomyMatchers(filters.taxonomyId, isConcursos)
+        const matchingIds = await fetchMatchingIds(matchers, isConcursos)
         if (matchingIds.length === 0) return []
 
-        // Shuffle for variety and cap for performance
-        // Usando uma semente aleatória mais forte
         const shuffled = matchingIds
             .map(value => ({ value, sort: Math.random() }))
             .sort((a, b) => a.sort - b.sort)
@@ -170,7 +171,6 @@ export async function getQuestionsForTraining(filters: QuestionFilters, limit: n
         const idChunks: string[][] = []
         for (let i = 0; i < shuffled.length; i += limitChunkSize) {
             idChunks.push(shuffled.slice(i, i + limitChunkSize))
-            // We only need enough overlapping chunks to fulfill the limit. Let's cap chunks at 3 if limit is 20.
             if (idChunks.length >= Math.ceil((limit * 5) / limitChunkSize)) break
         }
 
@@ -179,14 +179,14 @@ export async function getQuestionsForTraining(filters: QuestionFilters, limit: n
         await Promise.all(
             idChunks.map(async chunk => {
                 let query = supabase
-                    .from('questao_base')
+                    .from(qTable)
                     .select('*')
                     .in('id', chunk)
                     .eq('status', 'active')
-                    .eq('status_validacao', 'APROVADA')
+                
+                if (!isConcursos) query = query.eq('status_validacao', 'APROVADA')
 
                 if (filters.banca) query = query.eq('banca', filters.banca)
-
                 if (filters.difficulty && filters.difficulty.toLowerCase() !== 'qualquer') {
                     const diffLow = filters.difficulty.toLowerCase()
                     const diffNorm = diffLow.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
@@ -200,7 +200,6 @@ export async function getQuestionsForTraining(filters: QuestionFilters, limit: n
             })
         )
 
-        // Shuffle final pool again before returning requested limit
         return validQuestions
             .map(value => ({ value, sort: Math.random() }))
             .sort((a, b) => a.sort - b.sort)
@@ -208,19 +207,19 @@ export async function getQuestionsForTraining(filters: QuestionFilters, limit: n
             .slice(0, limit)
     }
 
-    // No taxonomy - Fetching directly with a random offset to avoid the same initial questions
-    const totalActive = await countQuestionsByFilters(filters)
+    const totalActive = await countQuestionsByFilters(filters, isConcursos)
     const randomOffset = totalActive > limit ? Math.floor(Math.random() * Math.max(0, totalActive - limit)) : 0
 
     let query = supabase
-        .from('questao_base')
+        .from(qTable)
         .select('*')
         .eq('status', 'active')
-        .eq('status_validacao', 'APROVADA')
-        .range(randomOffset, randomOffset + limit - 1)
+    
+    if (!isConcursos) query = query.eq('status_validacao', 'APROVADA')
+
+    query = query.range(randomOffset, randomOffset + limit - 1)
 
     if (filters.banca) query = query.eq('banca', filters.banca)
-
     if (filters.difficulty && filters.difficulty.toLowerCase() !== 'qualquer') {
         const diffLow = filters.difficulty.toLowerCase()
         const diffNorm = diffLow.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
@@ -230,7 +229,6 @@ export async function getQuestionsForTraining(filters: QuestionFilters, limit: n
     const { data, error } = await query
     if (error) { console.error('Error fetching questions:', error); return [] }
 
-    // Final shuffle to avoid "order bias"
     return (data || [])
         .map(value => ({ value, sort: Math.random() }))
         .sort((a, b) => a.sort - b.sort)

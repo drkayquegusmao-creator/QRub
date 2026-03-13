@@ -1,0 +1,347 @@
+[
+  {
+    "enunciado": "Paciente do sexo masculino, 61 anos, hipertenso e tabagista ha 30 anos, da entrada na emergencia com dor precordial em aperto com irradiacao para o braco esquerdo e mandibula, iniciada ha 90 minutos. Refere sudorese intensa e nauseas. Ao ECG: supradesnivelamento de ST em DII, DIII e aVF. FC de 42 bpm. PA de 88/60 mmHg. Ausculta pulmonar limpa. Distensao das veias do pescoco presente. Troponina I: 4,2 ng/mL. Cateterismo revela oclusao total proximal. Considerando a anatomia coronariana e o quadro eletrocardiografico, a arteria ocluida e a estrutura nodal em maior risco isquemico sao, respectivamente:",
+    "options": {
+      "a": "Arteria descendente anterior e no sinoatrial",
+      "b": "Arteria circunflexa e no atrioventricular",
+      "c": "Arteria coronaria direita e no atrioventricular",
+      "d": "Arteria coronaria direita e no sinoatrial",
+      "e": "Arteria marginal direita e feixe de His"
+    },
+    "answer": "c",
+    "rationale": "O supradesnivelamento de ST em DII, DIII e aVF indica infarto de parede inferior, territorio da arteria coronaria direita (ACD) em 80% dos casos. A ACD fornece o ramo do no AV em aproximadamente 90% dos individuos (dominancia direita), explicando a bradicardia extrema (FC 42 bpm) e o BAV associado. A hipotensao sem congestao pulmonar e tipica do infarto de VD, tambem irrigado pela ACD.",
+    "option_rationales": {
+      "a": "Incorreta. A arteria descendente anterior irriga a parede anterior do VE; supradesnivelamento apareceria em V1-V4.",
+      "b": "Incorreta. A circunflexa irriga a parede lateral (DI, aVL, V5-V6). O no AV raramente recebe suprimento da circunflexa.",
+      "c": "CORRETA. ACD irriga parede inferior e VD; seu ramo AV nodal (dominancia direita em 90% dos casos) explica a bradicardia e BAV.",
+      "d": "Incorreta. Embora a ACD seja correta, o no sinoatrial e menos ameacado nesse cenario de bradicardia extrema que aponta para acometimento do no AV.",
+      "e": "Incorreta. A arteria marginal direita irriga a parede lateral do VD, nao o territorio inferior descrito."
+    },
+    "difficulty": "dificil",
+    "subspecialty": "Sistema Circulatorio",
+    "subject": "Arterias Coronarias",
+    "tags": ["coronarias", "ACD", "no AV", "infarto inferior"]
+  },
+  {
+    "enunciado": "Paciente de 45 anos, feminino, encaminhada por cardiologista com queixa de palpitacoes e dispneia aos medios esforcos. A ausculta cardiaca revela sopro pansistolico de grau III/VI com irradiacao axilar, epicentro no 5 espaco intercostal esquerdo na linha hemiclavicular. Ecocardiograma confirma regurgitacao com folhetos bivalves. Durante procedimento cirurgico, o cirurgiao localiza a valvula e observa dois folhetos. Sobre a anatomia das valvulas cardiacas, qual e a valvula comprometida e sua localizacao?",
+    "options": {
+      "a": "Valvula aortica; localizada no plano do anel fibroso direito, anterior ao septo interventricular",
+      "b": "Valvula mitral; localizada entre o atrio esquerdo e o ventriculo esquerdo, no anel fibroso esquerdo",
+      "c": "Valvula tricuspide; localizada entre o atrio direito e o ventriculo direito, com tres folhetos",
+      "d": "Valvula pulmonar; na via de saida do ventriculo direito, anterior e superior",
+      "e": "Valvula mitral; localizada entre o atrio direito e o ventriculo direito"
+    },
+    "answer": "b",
+    "rationale": "O sopro pansistolico no foco mitral (5 EIE na linha hemiclavicular) com irradiacao axilar indica insuficiencia mitral. A valvula mitral e bicuspide (dois folhetos: anterior e posterior), localizada entre o atrio esquerdo e o ventriculo esquerdo, inserida no anel fibroso esquerdo do esqueleto fibroso cardiaco.",
+    "option_rationales": {
+      "a": "Incorreta. A valvula aortica e semilunar com tres cuspides, nao bicuspide.",
+      "b": "CORRETA. Valvula mitral: dois folhetos, entre AE e VE, no anel fibroso esquerdo. O foco de ausculta coincide com o descrito.",
+      "c": "Incorreta. A tricuspide tem tres folhetos e fica entre AD e VD, com foco no 4 EIE paraesternal.",
+      "d": "Incorreta. A valvula pulmonar fica na via de saida do VD, com foco no 2 EIE.",
+      "e": "Incorreta. A valvula mitral esta entre o AE e o VE, nao entre AD e VD."
+    },
+    "difficulty": "media",
+    "subspecialty": "Sistema Circulatorio",
+    "subject": "Valvulas Cardiacas",
+    "tags": ["valvula mitral", "insuficiencia mitral", "anatomia cardiaca"]
+  },
+  {
+    "enunciado": "Paciente de 38 anos, masculino, com historia de infeccao viral ha 3 semanas, procura atendimento por dor toracica ventilatório-dependente e dispneia progressiva. Ao exame: PA 90/70 mmHg, FC 118 bpm, sons cardiacos abafados, veias jugulares distendidas. Radiografia de torax revela aumento da silhueta cardiaca. Ecocardiograma evidencia derrame pericardico de grande volume com colapso diastolico do VD. Medico realiza pericardiocentese de urgencia. Sobre as camadas do pericardio, e correto afirmar:",
+    "options": {
+      "a": "O pericardio parietal e composto por musculo cardiaco, sendo a camada mais externa do coracao",
+      "b": "O espaco pericardico real existe entre o pericardio fibroso e o pericardio seroso parietal",
+      "c": "O pericardio seroso visceral (epicardio) recobre diretamente o miocardio; o espaco pericardico real fica entre as folhas serosas parietal e visceral, contendo 20-50 mL de liquido",
+      "d": "O espaco pericardico virtual existe entre o epicardio e o miocardio, sendo o local de acumulo de liquido no tamponamento",
+      "e": "O pericardio fibroso e altamente distensivel, permitindo grande acumulo de liquido sem elevacao de pressao"
+    },
+    "answer": "c",
+    "rationale": "O pericardio fibroso e externo e inextensivel. O pericardio seroso possui folheto parietal (interno ao fibroso) e folheto visceral (epicardio). O espaco pericardico real existe entre os dois folhetos serosos e normalmente contem 20-50 mL de liquido. No tamponamento, esse espaco acumula liquido comprimindo as camaras cardiacas.",
+    "option_rationales": {
+      "a": "Incorreta. O pericardio parietal e tecido fibroso/seroso, nao muscular.",
+      "b": "Incorreta. O espaco pericardico real fica entre os dois folhetos serosos, nao entre o fibroso e o seroso parietal.",
+      "c": "CORRETA. Epicardio adere ao miocardio; o espaco entre seroso parietal e visceral contem o liquido pericardico normal.",
+      "d": "Incorreta. O espaco pericardico e entre os dois folhetos serosos, nao entre epicardio e miocardio.",
+      "e": "Incorreta. O pericardio fibroso e pouco distensivel, explicando o aumento rapido de pressao no tamponamento agudo."
+    },
+    "difficulty": "media",
+    "subspecialty": "Sistema Circulatorio",
+    "subject": "Pericardio",
+    "tags": ["pericardio", "tamponamento", "anatomia cardiaca"]
+  },
+  {
+    "enunciado": "Paciente de 70 anos, masculino, hipertenso mal controlado, submetido a tomografia computadorizada de torax por dor interescapular aguda de inicio subito. O exame revela imagem de duplo lumen na aorta descendente com extensao desde a aorta ascendente ate a bifurcacao aortica. O cirurgiao descreve a anatomia do vaso acometido. Sobre a anatomia da aorta e seus segmentos, e correto afirmar:",
+    "options": {
+      "a": "A aorta ascendente emite as arterias coronarias e possui aproximadamente 5 cm de comprimento; a croca aortica emite tres ramos: tronco braquiocefalico, arteria carotida comum esquerda e arteria subclavica esquerda",
+      "b": "A croca aortica emite dois ramos: arteria carotida comum direita e arteria subclavica direita",
+      "c": "A aorta ascendente nao emite ramos; a croca emite quatro ramos; a aorta descendente inicia no nivel de T6",
+      "d": "O tronco braquiocefalico divide-se em arteria carotida comum esquerda e arteria subclavica esquerda",
+      "e": "A aorta abdominal bifurca-se nas arterias iliacas internas no nivel de L4-L5"
+    },
+    "answer": "a",
+    "rationale": "A aorta ascendente tem cerca de 5 cm e emite exclusivamente as arterias coronarias. A croca aortica emite tres ramos em 70% dos casos: tronco braquiocefalico, arteria carotida comum esquerda e arteria subclavica esquerda. A aorta descendente inicia no istmo aortico ao nivel de T4.",
+    "option_rationales": {
+      "a": "CORRETA. Descricao anatomica precisa da aorta ascendente com coronarias e dos tres ramos da croca.",
+      "b": "Incorreta. A croca emite tres ramos; o tronco braquiocefalico fornece ramos para o lado direito.",
+      "c": "Incorreta. A aorta ascendente emite as coronarias; a croca tem tres ramos; a descendente inicia em T4, nao T6.",
+      "d": "Incorreta. O tronco braquiocefalico divide-se em arteria carotida comum DIREITA e arteria subclavica DIREITA.",
+      "e": "Incorreta. A aorta abdominal bifurca-se nas arterias iliacas COMUNS ao nivel de L4."
+    },
+    "difficulty": "media",
+    "subspecialty": "Sistema Circulatorio",
+    "subject": "Aorta",
+    "tags": ["aorta", "disseccao", "croca aortica", "anatomia vascular"]
+  },
+  {
+    "enunciado": "Paciente de 55 anos, feminino, portadora de neoplasia de mama direita avancada com trombose da veia subclavica direita diagnosticada por Doppler venoso. A equipe medica planeja acesso venoso central pela veia jugular interna direita. Para tanto, e necessario conhecer a anatomia do sistema venoso da cabeca e pescoco e a formacao da veia cava superior. Sobre este sistema venoso, assinale a afirmativa correta:",
+    "options": {
+      "a": "A veia cava superior e formada pela uniao das veias jugulares internas direita e esquerda posterior ao manubrio esternal",
+      "b": "A veia cava superior e formada pela uniao das veias braquiocefalicas direita e esquerda, ao nivel do 1 espaco intercostal direito, drenando para o atrio direito",
+      "c": "A veia braquiocefalica esquerda cruza transversalmente a linha mediana posterior ao arco aortico",
+      "d": "A veia jugular interna une-se a veia subclavica formando a veia braquiocefalica atras da extremidade medial da clavicula",
+      "e": "A veia cava superior recebe a veia azigos antes de entrar no pericardio, ao nivel de T6"
+    },
+    "answer": "b",
+    "rationale": "A veia cava superior e formada pela confluencia das veias braquiocefalicas direita e esquerda, posterior a 1 juncao esternocostal direita. A VCS tem 7 cm de comprimento, desce verticalmente a direita do arco aortico e drena no atrio direito. A veia azigos drena na VCS ao nivel de T4.",
+    "option_rationales": {
+      "a": "Incorreta. A VCS e formada pelas veias braquiocefalicas, nao pelas jugulares internas diretamente.",
+      "b": "CORRETA. VCS formada pelas duas braquiocefalicas ao nivel do 1 espaco intercostal direito.",
+      "c": "Incorreta. A veia braquiocefalica esquerda cruza ANTERIORMENTE ao arco aortico, nao posterior.",
+      "d": "Incorreta. A descricao anatomica da juncao esta correta mas o ponto de formacao e na raiz do pescoco, atras da articulacao esternoclavicular.",
+      "e": "Incorreta. A veia azigos drena na VCS ao nivel de T4-T5, nao em T6."
+    },
+    "difficulty": "media",
+    "subspecialty": "Sistema Circulatorio",
+    "subject": "Veia Cava Superior",
+    "tags": ["VCS", "veia braquiocefalica", "anatomia venosa"]
+  },
+  {
+    "enunciado": "Paciente de 52 anos, masculino, apresenta dor aguda em flanco direito irradiada para a virilha, hematuria e historia previa de litíase renal. Tomografia revela calculo no terco medio do ureter direito e incidentalmente mostra relacao da arteria renal direita com a veia cava inferior. Durante cirurgia renal pela via retroperitoneal, o cirurgiao deve conhecer as relacoes anatomicas entre arteria renal e veia cava inferior. Assinale a alternativa correta sobre esta relacao:",
+    "options": {
+      "a": "A arteria renal direita e mais curta que a esquerda, passando anteriormente a veia cava inferior",
+      "b": "A arteria renal direita e mais longa que a esquerda, passando posteriormente a veia cava inferior e anteriormente a veia renal direita",
+      "c": "As duas arterias renais emergem da aorta ao nivel de L2, sendo a direita mais longa e passando posterior a veia cava inferior",
+      "d": "A arteria renal esquerda e mais longa e passa posterior a veia cava inferior",
+      "e": "A arteria renal direita passa anteriormente a veia renal direita e a veia cava inferior"
+    },
+    "answer": "c",
+    "rationale": "As arterias renais emergem da aorta ao nivel de L1-L2. A arteria renal direita e significativamente mais longa pois a aorta e ligeiramente a esquerda da linha media; ela passa posteriormente a veia cava inferior para atingir o hilo renal. A arteria renal esquerda e mais curta e passa anteriormente a aorta.",
+    "option_rationales": {
+      "a": "Incorreta. A arteria renal DIREITA e mais LONGA, nao mais curta, e passa posteriormente a VCI, nao anteriormente.",
+      "b": "Incorreta. A arteria renal direita passa posteriormente a VCI, mas a relacao com a veia renal direita esta incorreta.",
+      "c": "CORRETA. Arteria renal direita mais longa, emergindo em L1-L2 e passando posterior a VCI.",
+      "d": "Incorreta. A arteria renal ESQUERDA e mais curta, nao mais longa, e nao passa posterior a VCI.",
+      "e": "Incorreta. A arteria renal direita passa POSTERIORMENTE a veia cava inferior, nao anteriormente."
+    },
+    "difficulty": "media",
+    "subspecialty": "Sistema Circulatorio",
+    "subject": "Arterias Renais",
+    "tags": ["arteria renal", "veia cava inferior", "anatomia retroperitoneal"]
+  },
+  {
+    "enunciado": "Paciente de 65 anos, masculino, em pos-operatorio de bypass de arteria coronaria, apresenta edema progressivo de membros inferiores bilateralmente, ascite e ingurgitamento jugular. Investigacao revela trombose extensa da veia cava inferior. Medico explica ao paciente as tributarias da veia cava inferior e as vias de circulacao colateral. Sobre a anatomia da veia cava inferior (VCI), assinale a alternativa INCORRETA:",
+    "options": {
+      "a": "A VCI e formada pela confluencia das veias iliacas comuns ao nivel de L5 na face posterior do corpo vertebral",
+      "b": "A VCI recebe tributarias como as veias renais, gonadais, suprarrenais e hepaticas antes de atravessar o diafragma",
+      "c": "A veia gonadal esquerda drena diretamente na veia cava inferior, enquanto a direita drena na veia renal esquerda",
+      "d": "A VCI passa pelo forame da veia cava no diafragma ao nivel de T8 e drena no atrio direito",
+      "e": "As veias hepaticas drenam na VCI logo abaixo do diafragma, antes de sua entrada no atrio direito"
+    },
+    "answer": "c",
+    "rationale": "A veia gonadal DIREITA drena diretamente na veia cava inferior, enquanto a veia gonadal ESQUERDA drena na veia renal esquerda. Esta assimetria tem importancia clinica: varicocele e mais comum a esquerda, e trombose da veia renal esquerda pode comprometer o drenagem gonadal esquerda.",
+    "option_rationales": {
+      "a": "Correta. A VCI e formada pela confluencia das iliacas comuns ao nivel de L4-L5.",
+      "b": "Correta. A VCI recebe essas tributarias no percurso abdominal.",
+      "c": "INCORRETA (resposta da questao). E o CONTRARIO: a gonadal direita drena na VCI e a esquerda na veia renal esquerda.",
+      "d": "Correta. A VCI atravessa o diafragma pelo forame de T8.",
+      "e": "Correta. As veias hepaticas drenam na VCI imediatamente antes de ela entrar no pericardio."
+    },
+    "difficulty": "dificil",
+    "subspecialty": "Sistema Circulatorio",
+    "subject": "Veia Cava Inferior",
+    "tags": ["VCI", "veia gonadal", "anatomia venosa", "sistema portal"]
+  },
+  {
+    "enunciado": "Paciente de 48 anos, feminino, em investigacao de hipertensao portal com varizes de esofago e baço aumentado confirmados por endoscopia e ultrassonografia. Medico explica ao paciente o mecanismo de formacao de varizes esofagianas e a anatomia do sistema porta. O sistema venoso porta e responsavel por drenar o sangue do trato digestivo e orgaos abdominais para o figado. Sobre a formacao e tributarias da veia porta, assinale a alternativa correta:",
+    "options": {
+      "a": "A veia porta e formada pela uniao da veia mesenterica superior com a veia esplenica, posterior ao pescoco do pancreas",
+      "b": "A veia porta e formada pela uniao das veias mesentericas superior e inferior, anterior ao duodeno",
+      "c": "A veia porta recebe diretamente a veia mesenterica inferior antes de entrar no figado",
+      "d": "A veia porta e formada posterior ao corpo do pancreas pela uniao de tres tributarias: mesenterica superior, esplenica e mesenterica inferior",
+      "e": "A veia mesenterica inferior sempre drena em separado para a veia porta hepatis"
+    },
+    "answer": "a",
+    "rationale": "A veia porta hepatis e formada posterior ao pescoco do pancreas pela confluencia da veia mesenterica superior com a veia esplenica. A veia mesenterica inferior geralmente drena na veia esplenica (em 40% dos casos), no tronco mesenterico-esplenico ou na veia mesenterica superior, mas NAO forma diretamente a veia porta.",
+    "option_rationales": {
+      "a": "CORRETA. Veia porta formada pela uniao da mesenterica superior com a esplenica, posterior ao pescoco do pancreas.",
+      "b": "Incorreta. A veia porta nao e formada pela uniao das mesoentericas superior e inferior diretamente.",
+      "c": "Incorreta. A mesenterica inferior geralmente drena na veia esplenica, nao diretamente na porta.",
+      "d": "Incorreta. A porta e classicamente formada por duas tributarias principais, nao tres.",
+      "e": "Incorreta. A mesenterica inferior raramente drena diretamente na veia porta hepatis."
+    },
+    "difficulty": "media",
+    "subspecialty": "Sistema Circulatorio",
+    "subject": "Sistema Porta",
+    "tags": ["veia porta", "hipertensao portal", "sistema venoso abdominal"]
+  },
+  {
+    "enunciado": "Neonato de 3 dias de vida, nascido a termo, apresenta cianose central refrataria ao oxigenio suplementar. Ecocardiograma demonstra comunicacao entre a aorta e a arteria pulmonar persistente. Pediatra explica aos pais a fisiologia da circulacao fetal e as estruturas que normalmente se fecham apos o nascimento. Sobre a circulacao fetal e as derivacoes normais presentes no feto, e INCORRETO afirmar:",
+    "options": {
+      "a": "O ducto arterioso conecta a arteria pulmonar principal a aorta descendente, permitindo desvio de sangue do pulmao nao funcionante",
+      "b": "O forame oval permite passagem de sangue do atrio direito para o atrio esquerdo durante a vida fetal",
+      "c": "O ducto venoso conecta a veia umbilical ao sistema porta, evitando a circulacao hepatica e caindo na veia cava inferior",
+      "d": "Apos o nascimento, o ducto arterioso se contrai e obliterat gradualmante, tornando-se o ligamento arterioso",
+      "e": "Na circulacao fetal, o pulmao recebe a maior parte do debito cardiaco combinado pois e o orgao de trocas gasosas"
+    },
+    "answer": "e",
+    "rationale": "Na circulacao fetal, os pulmoes NAO sao os orgaos de trocas gasosas (essa funcao e da placenta). O pulmao fetal recebe apenas 5-10% do debito cardiaco combinado. A maioria do sangue pulmonar e desviada pelo ducto arterioso para a aorta descendente e pela circulacao placentaria. O ducto arterioso, o forame oval e o ducto venoso sao as tres derivacoes fisiologicas fetais.",
+    "option_rationales": {
+      "a": "Correta. O ducto arterioso conecta a arteria pulmonar a aorta descendente, desviando sangue dos pulmoes.",
+      "b": "Correta. O forame oval permite shunt interatrial direita para esquerda durante a vida fetal.",
+      "c": "Correta. O ducto venoso conecta a veia umbilical a VCI, bypassando o figado.",
+      "d": "Correta. O ducto arterioso se fecha geralmente nas primeiras horas/dias de vida e torna-se o ligamento arterioso.",
+      "e": "INCORRETA (resposta da questao). Na vida fetal, o pulmao recebe minima parcela do debito cardiaco; as trocas gasosas ocorrem na placenta."
+    },
+    "difficulty": "dificil",
+    "subspecialty": "Sistema Circulatorio",
+    "subject": "Circulacao Fetal",
+    "tags": ["circulacao fetal", "ducto arterioso", "forame oval", "neonatologia"]
+  },
+  {
+    "enunciado": "Paciente de 57 anos, masculino, submetido a revascularizacao miocardica com enxerto de veia safena magna. Anestesista comenta que a veia safena magna e a veia superficial mais longa do corpo. Cirurgiao harvesta a veia da perna esquerda. No pre-operatorio, equipe realiza mapeamento por Doppler. Sobre a anatomia da veia safena magna e sua relacao com estruturas adjacentes, assinale a alternativa correta:",
+    "options": {
+      "a": "A veia safena magna origina-se no dorso do pe, sobe pelo lado medial da perna e coxa e drena na veia femoral no triangulo femoral, no hiato safeno",
+      "b": "A veia safena magna origina-se no dorso do pe, sobe pelo lado lateral da perna e coxa e drena na veia poplitica",
+      "c": "A veia safena magna e uma veia profunda que corre junto ao feixe vasculonervoso femoral",
+      "d": "A veia safena magna drena na veia femoral ao nivel do joelho, no canal de Hunter",
+      "e": "A veia safena magna origina-se na fossa poplitica e sobe pelo lado medial drendo na veia cava inferior"
+    },
+    "answer": "a",
+    "rationale": "A veia safena magna e a maior veia superficial do membro inferior. Origina-se na margem medial do pe, sobe pelo maleolo medial, lado medial da perna e coxa, perfura a fascia profunda no hiato safeno (abertura na fascia lata) e drena na veia femoral. Sua relacao com o nervo safeno e importante durante harvesting cirurgico.",
+    "option_rationales": {
+      "a": "CORRETA. Safena magna: origem no dorso medial do pe, trajeto medial, drenando na femoral pelo hiato safeno.",
+      "b": "Incorreta. A safena magna sobe pelo lado MEDIAL, nao lateral. A veia safena parva e lateral e drena na poplitica.",
+      "c": "Incorreta. A safena magna e uma veia SUPERFICIAL, nao profunda.",
+      "d": "Incorreta. A safena magna drena na veia femoral no triangulo femoral (raiz da coxa), nao ao nivel do joelho.",
+      "e": "Incorreta. A safena magna nao se origina na fossa poplitica e nao drena na veia cava inferior diretamente."
+    },
+    "difficulty": "facil",
+    "subspecialty": "Sistema Circulatorio",
+    "subject": "Sistema Venoso dos Membros Inferiores",
+    "tags": ["veia safena", "anatomia venosa", "membro inferior", "cirurgia cardiaca"]
+  },
+  {
+    "enunciado": "Paciente de 68 anos, masculino, com disfuncao eretiil progressiva e claudicacao bilateral dos membros inferiores apos caminhadas curtas. Ao exame fisico: pulsos femorais ausentes bilateralmente, sopro aortico abdominal. Arteriografia confirma oclusao da aorta ao nivel da bifurcacao. Cirurgiao planeja bypass aortobifemoral. A oclusao da aorta abdominal distal (sindrome de Leriche) afeta a bifurcacao e o suprimento dos membros inferiores. Sobre a anatomia da aorta abdominal, assinale a alternativa correta:",
+    "options": {
+      "a": "A aorta abdominal bifurca-se nas arterias iliacas comuns ao nivel de L4, ligeiramente a esquerda da linha media",
+      "b": "A aorta abdominal emite o tronco celiaco ao nivel de T12-L1, a arteria mesenterica superior em L1 e a inferior em L3",
+      "c": "A aorta abdominal e retroperitoneal e esta a direita da veia cava inferior durante todo seu trajeto",
+      "d": "As arterias lombares sao ramos viscerais da aorta abdominal",
+      "e": "A arteria mesenterica inferior origina-se abaixo do nivel da bifurcacao aortica"
+    },
+    "answer": "b",
+    "rationale": "A aorta abdominal emite o tronco celiaco ao nivel de T12-L1, a arteria mesenterica superior em L1 (logo abaixo do tronco celiaco) e a arteria mesenterica inferior em L3. A bifurcacao aortica ocorre ao nivel de L4 ligeiramente a esquerda da linha media. A aorta e retroperitoneal e fica a ESQUERDA da VCI.",
+    "option_rationales": {
+      "a": "Incorreta. A bifurcacao e ao nivel de L4, mas a aorta fica a ESQUERDA da VCI, nao a VCI e que fica a direita da aorta.",
+      "b": "CORRETA. Os niveis de origem dos ramos viscerais da aorta abdominal estao precisamente descritos.",
+      "c": "Incorreta. A aorta fica a ESQUERDA da veia cava inferior, nao a direita.",
+      "d": "Incorreta. As arterias lombares sao ramos PARIETAIS (nao viscerais) da aorta abdominal.",
+      "e": "Incorreta. A arteria mesenterica inferior origina-se em L3, ACIMA da bifurcacao aortica em L4."
+    },
+    "difficulty": "media",
+    "subspecialty": "Sistema Circulatorio",
+    "subject": "Aorta Abdominal",
+    "tags": ["aorta abdominal", "sindrome de leriche", "anatomia vascular"]
+  },
+  {
+    "enunciado": "Paciente de 72 anos, feminino, em investigacao de sangramento digestivo baixo. Colonoscopia revela diverticulos no colon sigmoide. Cirurgiao explica o territorio de suprimento arterial do colon e os pontos criticos de anastomose vascular. Sobre o suprimento arterial do intestino grosso, assinale a afirmativa CORRETA:",
+    "options": {
+      "a": "O colon direito (ceco, ascendente e flexura hepatica) e irrigado pela arteria mesenterica inferior e seus ramos",
+      "b": "A arteria mesenterica superior irriga ate o colon transverso medio, e a inferior irriga o restante; a margem colic de Drummond e a anastomose entre seus territorios",
+      "c": "O colon sigmoide e irrigado exclusivamente pela arteria mesenterica superior atraves da arteria colica direita",
+      "d": "A arteria mesenterica inferior nao emite ramos para o reto; ele e irrigado apenas pelas arterias retais medias e inferiores",
+      "e": "O ponto de Sudeck (entre sigmoide e reto superior) e ricamente anastomosado e nunca representa risco cirurgico"
+    },
+    "answer": "b",
+    "rationale": "A arteria mesenterica superior irriga o intestino delgado, ceco, colon ascendente e dois tercos direitos do transverso. A arteria mesenterica inferior irriga o terco esquerdo do transverso, colon descendente, sigmoide e reto superior. A arteria marginal de Drummond e a anastomose que corre paralela ao mesocolon conectando esses dois territorios. O ponto de Sudeck e a zona de transicao entre a arteria colica esquerda e as arterias sigmoideas, com anastomose variavel.",
+    "option_rationales": {
+      "a": "Incorreta. O colon direito e irrigado pela arteria MESENTERICA SUPERIOR, nao pela inferior.",
+      "b": "CORRETA. Descricao anatomica precisa do territorio de cada arteria mesenterica e da margem colica.",
+      "c": "Incorreta. O colon sigmoide e irrigado pelas arterias sigmoideas, ramos da arteria MESENTERICA INFERIOR.",
+      "d": "Incorreta. A arteria mesentérica inferior emite a arteria retal superior (o principal suprimento do reto proximal).",
+      "e": "Incorreta. O ponto de Sudeck pode ter anastomose pobre, representando risco de isquemia na cirurgia colorretal."
+    },
+    "difficulty": "dificil",
+    "subspecialty": "Sistema Circulatorio",
+    "subject": "Suprimento Arterial do Colon",
+    "tags": ["mesenterica superior", "mesenterica inferior", "colon", "margem de Drummond"]
+  },
+  {
+    "enunciado": "Paciente de 44 anos, masculino, motorista de caminhao, com varicocele grau III a esquerda diagnosticada por exame clinico e confirmada por Doppler escrotal. Urologista explica ao paciente que a assimetria na drenagem venosa gonadal e responsavel pela maior prevalencia de varicocele a esquerda. Durante abordagem cirurgica retroperitoneal, o cirurgiao liga a veia espermatica interna esquerda. Sobre a anatomia do sistema venoso gonadal, assinale a alternativa correta:",
+    "options": {
+      "a": "A veia gonadal esquerda drena diretamente na veia cava inferior em angulo reto, o que facilita o fluxo",
+      "b": "A veia gonadal direita drena na veia renal direita em angulo obtuso, predispondo ao refluxo",
+      "c": "A veia gonadal esquerda drena na veia renal esquerda em angulo quase reto, o que predispoem ao aumento de pressao e refluxo",
+      "d": "A veia gonadal esquerda e mais curta que a direita",
+      "e": "As veias gonadais direita e esquerda drenam simetricamente na veia cava inferior"
+    },
+    "answer": "c",
+    "rationale": "A veia gonadal esquerda drena na veia renal esquerda em angulo quase reto (90 graus), o que dificulta o escoamento venoso e predispoem ao refluxo, especialmente com a veia renal esquerda anastomosada dentro do angulo aortomesenterico. A veia gonadal direita drena diretamente na VCI em angulo obliquo, facilitando o fluxo laminar. Isso explica a incidencia muito maior de varicocele a esquerda (90% dos casos).",
+    "option_rationales": {
+      "a": "Incorreta. A veia gonadal ESQUERDA drena na veia renal esquerda (nao diretamente na VCI). A direita que drena na VCI.",
+      "b": "Incorreta. A veia gonadal DIREITA drena na VCI em angulo obliquo. A descricao de angulo obtuso para a direita esta errada.",
+      "c": "CORRETA. Veia gonadal esquerda na renal esquerda em angulo quase reto = maior pressao e refluxo = varicocele.",
+      "d": "Incorreta. A veia gonadal esquerda e mais longa que a direita, pois percorre maior distancia ate a veia renal esquerda.",
+      "e": "Incorreta. Existe assimetria marcante: a gonadal direita drena na VCI e a esquerda na veia renal esquerda."
+    },
+    "difficulty": "dificil",
+    "subspecialty": "Sistema Circulatorio",
+    "subject": "Veias Gonadais",
+    "tags": ["varicocele", "veia gonadal", "anatomia venosa", "urologia"]
+  },
+  {
+    "enunciado": "Paciente de 63 anos, feminino, admitida na UTI com sepse de foco pulmonar e em choque septico. Equipe decide realizar cateterizacao de veia central pela via jugular interna direita. Para evitar complicacoes, medico deve conhecer as relacoes anatomicas da veia jugular interna direita no pescoco. Sobre a anatomia da veia jugular interna e suas relacoes, assinale a alternativa INCORRETA:",
+    "options": {
+      "a": "A veia jugular interna direita desce lateralmente a arteria carotida interna e depois a arteria carotida comum, dentro da bainha carotidea",
+      "b": "A bainha carotidea contem a arteria carotida (medialmente), a veia jugular interna (lateralmente) e o nervo vago (posteriormente, entre os dois vasos)",
+      "c": "O ducto toracico drena no angulo venoso esquerdo, justificando a preferencia pelo acesso venoso central pelo lado direito para reduzir lesao do ducto",
+      "d": "A veia jugular interna une-se a veia subclavica para formar a veia braquiocefalica na articulacao esternoclavicular",
+      "e": "A veia jugular interna direita e a arteria carotida comum direita sao contidas no mesmo compartimento mioapeurotico do pescoco"
+    },
+    "answer": "e",
+    "rationale": "A veia jugular interna e a arteria carotida comum nao sao simplesmente contidas em um compartimento mioapeurotico do pescoco; elas estao especificamente dentro da BAINHA CAROTIDEA (capsula fibrosa condensada da fascia do pescoco), junto com o nervo vago. A descricao como 'compartimento mioapeurotico' e imprecisa e pode levar a confusao com os compartimentos musculares.",
+    "option_rationales": {
+      "a": "Correta. A jugular interna desce lateral a carotida dentro da bainha carotidea.",
+      "b": "Correta. Conteudo da bainha carotidea descrito corretamente: carotida medial, jugular lateral, vago posterior.",
+      "c": "Correta. O ducto toracico drena no angulo venoso esquerdo (juncao subclavia-jugular esquerda), justificando preferencia pelo lado direito.",
+      "d": "Correta. A formacao da veia braquiocefalica ocorre atras da articulacao esternoclavicular.",
+      "e": "INCORRETA (resposta da questao). A descricao como 'compartimento mioapeurotico' e imprecisa; a estrutura correta e a bainha carotidea."
+    },
+    "difficulty": "dificil",
+    "subspecialty": "Sistema Circulatorio",
+    "subject": "Veia Jugular Interna",
+    "tags": ["jugular interna", "acesso venoso central", "bainha carotidea", "anatomia do pescoco"]
+  },
+  {
+    "enunciado": "Paciente de 58 anos, masculino, portador de DPOC grave em avaliacao pre-operatoria de cirurgia de reducao de volume pulmonar. Radiografia de torax revela cardiomegalia e eletrocardiograma mostra sinais de hipertrofia ventricular direita. Ecocardiograma confirma cor pulmonale com dilatacao grave do ventriculo direito. Sobre a anatomia do ventriculo direito e suas relacoes com as estruturas adjacentes, e INCORRETO afirmar:",
+    "options": {
+      "a": "O ventriculo direito e anterior e constitui a maior parte da face esternocostal do coracao",
+      "b": "A valvula pulmonar localiza-se na via de saida do ventriculo direito (infundibulo), anteriormente e superiormente a valvula tricuspide",
+      "c": "A trabecola septomarginale (banda moderadora) conecta o septo interventricular a musculo papilar anterior do VD, conduzindo o ramo direito do feixe de His",
+      "d": "O ventriculo direito e suprido principalmente pela arteria coronaria esquerda e seus ramos",
+      "e": "A parede livre do VD e muito mais delgada que a do ventriculo esquerdo, refletindo a menor pressao do sistema pulmonar"
+    },
+    "answer": "d",
+    "rationale": "O ventriculo direito e suprido principalmente pela ARTERIA CORONARIA DIREITA (ACD) e seus ramos (arteria marginal direita, ramos do VD). A arteria coronaria esquerda irriga principalmente o ventriculo esquerdo, embora o ramo interventricular anterior (descendente anterior) irriga parte do septo e a porcao anterior do VD.",
+    "option_rationales": {
+      "a": "Correta. O VD e anterior e forma a maior parte da face esternocostal do coracao.",
+      "b": "Correta. A valvula pulmonar fica no infundibulo do VD, anteriormente e superiormente a tricuspide.",
+      "c": "Correta. A trabecola septomarginale conduz o ramo direito do feixe de His ao musculo papilar anterior.",
+      "d": "INCORRETA (resposta da questao). O VD e suprido principalmente pela ARTERIA CORONARIA DIREITA, nao pela esquerda.",
+      "e": "Correta. A parede do VD e mais delgada (3-5 mm vs 8-12 mm do VE) devido a menor pressao pulmonar."
+    },
+    "difficulty": "media",
+    "subspecialty": "Sistema Circulatorio",
+    "subject": "Anatomia do Ventriculo Direito",
+    "tags": ["ventriculo direito", "cor pulmonale", "DPOC", "anatomia cardiaca"]
+  }
+]

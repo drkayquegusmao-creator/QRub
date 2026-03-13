@@ -13,13 +13,23 @@ import {
     Flame,
     Zap,
     LayoutGrid,
-    CalendarDays
+    CalendarDays,
+    List,
+    Search,
+    ChevronDown,
+    ChevronRight,
+    Loader2,
+    Check
 } from 'lucide-react'
 import { useAuth } from '@/store/use-auth'
 import { useQuestions } from '@/store/use-questions'
 import { SessaoModal } from './sessao-modal'
 import { CalendarView } from './calendar-view'
 import srsRules from '@/lib/srs-rules.json'
+import { calculateCurrentMemoryScore } from '@/lib/srs-service'
+import { useRouter, useSearchParams } from 'next/navigation'
+import { MemoryMapView } from './memory-map-view'
+import { HierarchyNode } from '@/lib/taxonomy-service'
 
 interface DashboardData {
     success: boolean
@@ -66,13 +76,27 @@ interface ErroItem {
 
 export function DashboardDiario() {
     const { user } = useAuth()
+    const router = useRouter()
     const { questions } = useQuestions()
     const [dashboard, setDashboard] = useState<DashboardData | null>(null)
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState<string | null>(null)
 
-    // View Mode State
-    const [viewMode, setViewMode] = useState<'AGENDA' | 'CALENDARIO'>('AGENDA')
+    const searchParams = useSearchParams()
+    
+    // View Mode State - Initialized from URL if present
+    const [viewMode, setViewMode] = useState<'AGENDA' | 'CALENDARIO' | 'MAPA'>('AGENDA')
+    const [hierarchy, setHierarchy] = useState<HierarchyNode[]>([])
+    const [expandedSpecialty, setExpandedSpecialty] = useState<string | null>(null)
+    const [searchLeveling, setSearchLeveling] = useState('')
+    const [userProgress, setUserProgress] = useState<Record<string, any>>({})
+
+    useEffect(() => {
+        const tab = searchParams.get('tab')
+        if (tab === 'MAPA') setViewMode('MAPA')
+        else if (tab === 'CALENDARIO') setViewMode('CALENDARIO')
+        else setViewMode('AGENDA')
+    }, [searchParams])
 
     const [sessaoAberta, setSessaoAberta] = useState(false)
     const [sessaoAssuntoId, setSessaoAssuntoId] = useState<string>('')
@@ -95,6 +119,7 @@ export function DashboardDiario() {
                     const { MEDICAL_HIERARCHY: staticHier } = require('@/lib/medical-specialties')
                     hierarchyData = staticHier
                 }
+                setHierarchy(hierarchyData)
 
                 const today = new Date()
                 today.setHours(0, 0, 0, 0)
@@ -105,6 +130,10 @@ export function DashboardDiario() {
                     .from('assunto_progresso')
                     .select('*')
                     .eq('user_id', user.id)
+
+                const progMap: Record<string, any> = {}
+                progressos?.forEach(p => { progMap[p.assunto_id] = p })
+                setUserProgress(progMap)
 
                 // 2. Buscar Agenda de Revisões
                 const { data: agenda } = await supabase
@@ -197,7 +226,20 @@ export function DashboardDiario() {
                             dias_atrasado: 0,
                             nivel_atual: progressoRelacionado?.nivel_atual || 0,
                             ultima_nota: progressoRelacionado?.ultima_nota || 0,
-                            estado_cognitivo: progressoRelacionado?.estado_cognitivo
+                            estado_cognitivo: progressoRelacionado?.estado_cognitivo,
+                            memory_score: progressoRelacionado?.memory_score,
+                            data_ultima_sessao: progressoRelacionado?.data_ultima_sessao
+                        }
+
+                        // Aplicar Decay em tempo real para o Score
+                        if (revisaoItem.memory_score) {
+                            const { score } = calculateCurrentMemoryScore(
+                                Number(revisaoItem.memory_score),
+                                new Date(revisaoItem.data_ultima_sessao || item.created_at),
+                                progressoRelacionado?.revisoes_concluidas || 0,
+                                dataLocal < today
+                            )
+                            revisaoItem.ultima_nota = score // Usar score decaído como "nota" visual momentânea
                         }
 
                         let calendarStatus = 'PENDENTE'
@@ -358,42 +400,40 @@ export function DashboardDiario() {
     return (
         <>
             <div className="space-y-8">
-                {/* Header & Tabs */}
-                <div className="flex flex-col gap-2">
-                    <div>
-                        <h2 className="text-3xl md:text-4xl font-black italic uppercase tracking-tighter text-foreground leading-none">
-                            Sua Central de <span className="text-primary">Estudos</span>
-                        </h2>
-                        <p className="text-sm text-muted-foreground font-medium mt-1">
-                            {new Date(dashboard.data_hoje).toLocaleDateString('pt-BR', {
-                                weekday: 'long',
-                                day: 'numeric',
-                                month: 'long'
-                            })}
-                        </p>
-                    </div>
-
-                    {/* View Switcher Tabs */}
-                    <div className="bg-slate-100/50 p-1.5 rounded-2xl flex items-center gap-1 self-start w-full md:w-auto mt-2">
+                {/* Tabs Switcher - Improved Spacing and Responsiveness */}
+                <div className="flex flex-col gap-4">
+                    <div className="bg-slate-100 p-2 rounded-3xl flex flex-wrap items-center gap-2 self-start w-full md:w-auto">
                         <button
                             onClick={() => setViewMode('AGENDA')}
-                            className={`flex-1 md:flex-none flex justify-center items-center gap-2 px-6 py-3 rounded-xl text-sm font-black uppercase tracking-wider transition-all ${viewMode === 'AGENDA'
-                                ? 'bg-white shadow-md text-[#1A1033] ring-1 ring-black/5'
+                            className={`flex-1 md:flex-none flex justify-center items-center gap-3 px-8 py-4 rounded-2xl text-xs font-black uppercase tracking-widest transition-all ${viewMode === 'AGENDA'
+                                ? 'bg-white shadow-xl text-[#1A1033] ring-1 ring-black/5'
                                 : 'text-slate-400 hover:text-slate-600 hover:bg-slate-200/50'
                                 }`}
                         >
                             <LayoutGrid className="w-4 h-4" />
                             Agenda Ativa
                             {(resumo.total_atrasadas + resumo.total_erros) > 0 && (
-                                <span className="flex items-center justify-center w-5 h-5 bg-destructive text-white text-[10px] rounded-full">
+                                <span className="flex items-center justify-center min-w-[20px] h-5 px-1 bg-destructive text-white text-[10px] rounded-full scale-110">
                                     {resumo.total_atrasadas + resumo.total_erros}
                                 </span>
                             )}
                         </button>
+                        
+                        <button
+                            onClick={() => setViewMode('MAPA')}
+                            className={`flex-1 md:flex-none flex justify-center items-center gap-3 px-8 py-4 rounded-2xl text-xs font-black uppercase tracking-widest transition-all ${viewMode === 'MAPA'
+                                ? 'bg-white shadow-xl text-[#1A1033] ring-1 ring-black/5'
+                                : 'text-slate-400 hover:text-slate-600 hover:bg-slate-200/50'
+                                }`}
+                        >
+                            <LayoutGrid className="w-4 h-4" />
+                            Mapa de Memória
+                        </button>
+
                         <button
                             onClick={() => setViewMode('CALENDARIO')}
-                            className={`flex-1 md:flex-none flex justify-center items-center gap-2 px-6 py-3 rounded-xl text-sm font-black uppercase tracking-wider transition-all ${viewMode === 'CALENDARIO'
-                                ? 'bg-white shadow-md text-[#1A1033] ring-1 ring-black/5'
+                            className={`flex-1 md:flex-none flex justify-center items-center gap-3 px-8 py-4 rounded-2xl text-xs font-black uppercase tracking-widest transition-all ${viewMode === 'CALENDARIO'
+                                ? 'bg-white shadow-xl text-[#1A1033] ring-1 ring-black/5'
                                 : 'text-slate-400 hover:text-slate-600 hover:bg-slate-200/50'
                                 }`}
                         >
@@ -509,6 +549,128 @@ export function DashboardDiario() {
                                     ))}
                                 </div>
                             )}
+
+                            {/* 4. Explorar outros assuntos - Corrigido para Termo Nivelamento */}
+                            <div className="pt-8 border-t border-slate-100 mt-12 pb-12">
+                                <div className="flex items-center justify-between mb-6">
+                                    <h3 className="text-xl font-black italic uppercase tracking-tighter text-[#1A1033] flex items-center gap-3">
+                                        <Sparkles className="w-6 h-6 text-orange-500" /> Nivelar novo assunto
+                                    </h3>
+                                </div>
+                                <p className="text-slate-500 font-medium mb-6">Deseja dominar um novo tópico? Escolha qualquer assunto para realizar o nivelamento inicial.</p>
+                                 <div className="space-y-6">
+                                    <div className="relative">
+                                        <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+                                        <input 
+                                            type="text"
+                                            placeholder="BUSCAR ASSUNTO PARA NIVELAR..."
+                                            className="w-full bg-slate-50 border border-slate-100 rounded-2xl py-4 pl-12 pr-4 font-bold text-xs uppercase tracking-widest outline-none focus:ring-2 ring-primary/20 transition-all"
+                                            value={searchLeveling}
+                                            onChange={(e) => setSearchLeveling(e.target.value)}
+                                        />
+                                    </div>
+
+                                    {/* Hierarchy List - Scrollable Container */}
+                                    <div className="max-h-[500px] overflow-y-auto pr-2 custom-scrollbar space-y-4" style={{ scrollbarWidth: 'thin', scrollbarColor: 'rgba(219, 234, 254, 0.8) transparent' }}>
+                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pb-4">
+                                            {hierarchy.length > 0 && hierarchy[0].specialties?.filter(spec => {
+                                                const hasSubjects = spec.subspecialties?.some(sub => (sub.subjects || []).length > 0);
+                                                const matchesSearch = searchLeveling === '' || 
+                                                    spec.name.toLowerCase().includes(searchLeveling.toLowerCase()) ||
+                                                    spec.subspecialties?.some(sub => sub.name.toLowerCase().includes(searchLeveling.toLowerCase())) ||
+                                                    spec.subspecialties?.some(sub => sub.subjects?.some(s => s.name.toLowerCase().includes(searchLeveling.toLowerCase())));
+                                                
+                                                return hasSubjects && matchesSearch;
+                                            }).map((spec) => (
+                                                <div key={spec.id} className="space-y-2">
+                                                    <button 
+                                                        onClick={() => setExpandedSpecialty(expandedSpecialty === spec.id ? null : spec.id)}
+                                                        className={`w-full bg-white border-2 p-4 rounded-[25px] flex items-center justify-between transition-all text-left ${expandedSpecialty === spec.id ? 'border-primary shadow-lg ring-4 ring-primary/5' : 'border-slate-100 hover:border-slate-200'}`}
+                                                    >
+                                                        <div className="flex items-center gap-4">
+                                                            <div className={`w-10 h-10 rounded-2xl flex items-center justify-center transition-colors ${expandedSpecialty === spec.id ? 'bg-primary text-white' : 'bg-slate-50 text-slate-400'}`}>
+                                                                <List className="w-4 h-4" />
+                                                            </div>
+                                                            <div>
+                                                                <p className="font-black italic uppercase text-xs text-[#1A1033] tracking-tight leading-tight">{spec.name}</p>
+                                                                <p className="text-[9px] font-bold text-slate-400 uppercase tracking-widest mt-0.5">
+                                                                    {spec.subspecialties?.length || 0} Subáreas
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                        <ChevronDown className={`w-4 h-4 text-slate-300 transition-transform ${expandedSpecialty === spec.id ? 'rotate-180 text-primary' : ''}`} />
+                                                    </button>
+
+                                                    <AnimatePresence>
+                                                        {expandedSpecialty === spec.id && (
+                                                            <motion.div 
+                                                                initial={{ opacity: 0, height: 0 }}
+                                                                animate={{ opacity: 1, height: 'auto' }}
+                                                                exit={{ opacity: 0, height: 0 }}
+                                                                className="overflow-hidden px-2"
+                                                            >
+                                                                <div className="max-h-[300px] overflow-y-auto pr-1 custom-scrollbar space-y-2 py-2">
+                                                                    {spec.subspecialties?.map(sub => (
+                                                                        <div key={sub.id} className="space-y-1">
+                                                                            <div className="px-3 py-1.5 text-[9px] font-black uppercase text-slate-400 tracking-[0.2em] border-l-2 border-slate-100 ml-5 bg-slate-50/50 rounded-r-lg">
+                                                                                {sub.name}
+                                                                            </div>
+                                                                            <div className="ml-8 space-y-1">
+                                                                                {(sub.subjects || []).map(subject => {
+                                                                                    const prog = userProgress[subject.id]
+                                                                                    const isLeveled = prog && prog.estado_cognitivo !== 'NAO_NIVELADO'
+                                                                                    
+                                                                                    return (
+                                                                                        <button 
+                                                                                            key={subject.id}
+                                                                                            onClick={() => !isLeveled && handleIniciarSessao(subject.id, 'NIVELAMENTO')}
+                                                                                            disabled={isLeveled}
+                                                                                            className={`w-full text-left p-3 rounded-xl group flex items-center justify-between transition-all ${isLeveled ? 'opacity-50 cursor-not-allowed bg-slate-50' : 'hover:bg-primary/5 hover:translate-x-1 border border-transparent hover:border-primary/10'}`}
+                                                                                        >
+                                                                                            <div className="flex items-center gap-2">
+                                                                                                <span className={`text-[11px] font-bold transition-colors ${isLeveled ? 'text-slate-400' : 'text-slate-600 group-hover:text-primary'}`}>
+                                                                                                    {subject.name}
+                                                                                                </span>
+                                                                                                {isLeveled && (
+                                                                                                    <div className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-500 text-[7px] font-black uppercase">
+                                                                                                        <Check className="w-1.5 h-1.5" />
+                                                                                                        Nivelado
+                                                                                                    </div>
+                                                                                                )}
+                                                                                            </div>
+                                                                                            {!isLeveled && <ArrowRight className="w-3 h-3 text-slate-200 group-hover:text-primary" />}
+                                                                                        </button>
+                                                                                    )
+                                                                                })}
+                                                                            </div>
+                                                                        </div>
+                                                                    ))}
+                                                                    {(!spec.subspecialties || spec.subspecialties.length === 0) && (
+                                                                        <div className="p-4 text-center text-[10px] font-bold text-slate-400 uppercase">
+                                                                            Nenhum assunto disponível
+                                                                        </div>
+                                                                    )}
+                                                                </div>
+                                                            </motion.div>
+                                                        )}
+                                                    </AnimatePresence>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </motion.div>
+                    ) : viewMode === 'MAPA' ? (
+                        <motion.div
+                            key="mapa"
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0, scale: 0.95 }}
+                            transition={{ duration: 0.2 }}
+                            className="pt-4"
+                        >
+                            <MemoryMapView />
                         </motion.div>
                     ) : (
                         <motion.div

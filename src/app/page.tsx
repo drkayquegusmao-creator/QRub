@@ -12,11 +12,12 @@ import { useEffect } from 'react'
 import { useAuth } from '@/store/use-auth'
 import { useSettings } from '@/store/use-settings'
 import { useTheme } from 'next-themes'
+import { isMasterEmail } from '@/lib/auth-constants'
 
 export default function Home() {
   const { setTheme } = useTheme()
   const [isAuthOpen, setIsAuthOpen] = useState(false)
-  const { isAuthenticated } = useAuth()
+  const { isAuthenticated, user } = useAuth()
   // const { prices } = useSettings()
   const router = useRouter()
   const [isHydrated, setIsHydrated] = useState(false)
@@ -28,9 +29,13 @@ export default function Home() {
 
   useEffect(() => {
     if (isHydrated && isAuthenticated) {
-      router.push('/dashboard')
+      if (user && isMasterEmail(user.email)) {
+        router.push('/select-environment')
+      } else {
+        router.push('/dashboard')
+      }
     }
-  }, [isHydrated, isAuthenticated, router])
+  }, [isHydrated, isAuthenticated, user, router])
 
   if (!isHydrated) return null
 

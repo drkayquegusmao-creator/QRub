@@ -39,8 +39,8 @@ interface DashboardState {
 
 const DEFAULT_WIDGETS: WidgetConfig[] = [
     { id: 'UPGRADE_BANNER', title: 'Banner de Upgrade', visible: true, width: 'full', status: 'active' },
-    { id: 'INTELLIGENT_AGENDA', title: 'Agenda Inteligente', visible: true, width: 'half', status: 'active' },
-    { id: 'FAST_PRACTICE', title: 'Treino por Área', visible: true, width: 'half', status: 'active' },
+    { id: 'INTELLIGENT_AGENDA', title: 'Agenda Inteligente', visible: true, width: 'full', status: 'active' },
+    { id: 'FAST_PRACTICE', title: 'Treino por Área', visible: true, width: 'full', status: 'active' },
     { id: 'PENDING_CRITICAL', title: 'Pendentes & Atenção', visible: true, width: 'full', status: 'active' },
     { id: 'EVOLUTION_STATS', title: 'Evolução Global', visible: true, width: 'full', status: 'active' },
     { id: 'PERFORMANCE_BY_AREA', title: 'Performance por Área', visible: true, width: 'half', status: 'active' },
