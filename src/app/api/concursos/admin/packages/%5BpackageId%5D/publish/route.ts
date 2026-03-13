@@ -1,15 +1,16 @@
-import { NextResponse } from 'next/server'
+import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@supabase/supabase-js'
 
 export async function POST(
-    request: Request,
-    { params }: { params: Promise<{ packageId: string }> }
+    request: NextRequest,
+    context: any
 ) {
+    const params = await context.params;
     let supabaseWithToken: any = null;
     let packageId: string = '';
 
     try {
-        packageId = (await params).packageId
+        packageId = params.packageId
 
         // 1) Auth via Bearer token
         const authHeader = request.headers.get('Authorization') || ''

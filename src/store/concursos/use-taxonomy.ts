@@ -21,9 +21,12 @@ interface ConcursoTaxonomyState {
     updateNode: (id: string, updates: Partial<ConcursoTaxonomyNode>) => Promise<{ success: boolean; message: string }>
     deleteNode: (id: string) => Promise<{ success: boolean; message: string }>
     getAreas: () => ConcursoTaxonomyNode[]
+    getDisciplinasByArea: (areaId: string) => ConcursoTaxonomyNode[]
+    getSubdisciplinasByDisciplina: (disciplinaId: string) => ConcursoTaxonomyNode[]
+    getAssuntosBySubdisciplina: (subdisciplinaId: string) => ConcursoTaxonomyNode[]
 }
 
-const buildTree = (nodes: ConcursoTaxonomyNode[]): ConcursoTaxonomyNode[] => {
+const buildTree = (nodes: any[]): ConcursoTaxonomyNode[] => {
     const map = new Map<string, ConcursoTaxonomyNode>()
     const roots: ConcursoTaxonomyNode[] = []
 
@@ -98,5 +101,34 @@ export const useConcursoTaxonomy = create<ConcursoTaxonomyState>()((set, get) =>
         return { success: true, message: 'Excluído com sucesso' }
     },
 
-    getAreas: () => get().taxonomy.filter(t => t.level === 'area'),
+    getAreas: () => get().taxonomy.flatMap(env => env.children || []).filter(t => t.level === 'area'),
+    
+    getDisciplinasByArea: (areaId) => {
+        if (!areaId) return []
+        const areas = get().getAreas()
+        const area = areas.find(a => a.id === areaId)
+        return area?.children || []
+    },
+
+    getSubdisciplinasByDisciplina: (disciplinaId) => {
+        if (!disciplinaId) return []
+        const areas = get().getAreas()
+        for (const area of areas) {
+            const disc = area.children?.find(d => d.id === disciplinaId)
+            if (disc) return disc.children || []
+        }
+        return []
+    },
+
+    getAssuntosBySubdisciplina: (subId) => {
+        if (!subId) return []
+        const areas = get().getAreas()
+        for (const area of areas) {
+            for (const disc of (area.children || [])) {
+                const sub = disc.children?.find(s => s.id === subId)
+                if (sub) return sub.children || []
+            }
+        }
+        return []
+    }
 }))

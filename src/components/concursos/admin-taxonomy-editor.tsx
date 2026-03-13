@@ -135,7 +135,7 @@ export default function ConcursoTaxonomyEditor() {
         if (draggedNode.id === targetNode.id) return
 
         // Validation
-        const levelOrder = ['environment', 'area', 'discipline', 'subdiscipline', 'subject']
+        const levelOrder = ['environment', 'area', 'disciplina', 'subdisciplina', 'assunto']
         const draggedIdx = levelOrder.indexOf(draggedNode.level)
         const targetIdx = levelOrder.indexOf(targetNode.level)
 
@@ -177,9 +177,9 @@ export default function ConcursoTaxonomyEditor() {
 
         const childLevelMap: Record<string, string> = {
             'environment': 'area',
-            'area': 'discipline',
-            'discipline': 'subdiscipline',
-            'subdiscipline': 'subject'
+            'area': 'disciplina',
+            'disciplina': 'subdisciplina',
+            'subdisciplina': 'assunto'
         }
 
         const childLevel = childLevelMap[selectedNode.level]
@@ -371,7 +371,7 @@ export default function ConcursoTaxonomyEditor() {
                             </div>
 
                             {/* ADD CHILD BUTTON */}
-                            {selectedNode.level !== 'subject' && (
+                            {selectedNode.level !== 'assunto' && (
                                 <div className="mt-8">
                                     {!isAdding ? (
                                         <button
@@ -379,7 +379,7 @@ export default function ConcursoTaxonomyEditor() {
                                             className="w-full border-2 border-dashed border-slate-200 py-4 rounded-2xl text-slate-400 hover:border-indigo-500/50 hover:text-indigo-600 hover:bg-indigo-50 transition-all flex items-center justify-center gap-2 font-black uppercase text-[10px] tracking-widest"
                                         >
                                             <Plus size={16} />
-                                            Adicionar Novo {selectedNode.level === 'environment' ? 'Área' : selectedNode.level === 'area' ? 'Disciplina' : selectedNode.level === 'discipline' ? 'Subdisciplina' : 'Assunto'}
+                                            Adicionar Novo {selectedNode.level === 'environment' ? 'Área' : selectedNode.level === 'area' ? 'Disciplina' : selectedNode.level === 'disciplina' ? 'Subdisciplina' : 'Assunto'}
                                         </button>
                                     ) : (
                                         <motion.div

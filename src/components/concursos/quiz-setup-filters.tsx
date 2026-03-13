@@ -156,7 +156,7 @@ export function ConcursoQuizSetupFilters() {
                             className="w-full bg-white border-2 border-slate-100 rounded-[30px] p-6 font-black italic uppercase tracking-tighter text-lg focus:border-indigo-500 outline-none transition-all appearance-none cursor-pointer"
                         >
                             <option value="">Selecionar Área...</option>
-                            {areas.map(a => <option key={a.id} value={a.id}>{a.name}</option>)}
+                            {areas.map((a: any) => <option key={a.id} value={a.id}>{a.name}</option>)}
                         </select>
                     </div>
 
@@ -173,7 +173,7 @@ export function ConcursoQuizSetupFilters() {
                             className="w-full bg-white border-2 border-slate-100 rounded-[30px] p-6 font-black italic uppercase tracking-tighter text-lg focus:border-indigo-500 outline-none transition-all appearance-none cursor-pointer disabled:opacity-30"
                         >
                             <option value="">Selecionar Disciplina...</option>
-                            {disciplinas.map(d => <option key={d.id} value={d.id}>{d.name}</option>)}
+                            {disciplinas.map((d: any) => <option key={d.id} value={d.id}>{d.name}</option>)}
                         </select>
                     </div>
 
@@ -185,7 +185,7 @@ export function ConcursoQuizSetupFilters() {
                             className="w-full bg-white border-2 border-slate-100 rounded-[30px] p-6 font-black italic uppercase tracking-tighter text-lg focus:border-indigo-500 outline-none transition-all appearance-none cursor-pointer"
                         >
                             <option value="">Todas as Bancas</option>
-                            {bancaIds.map(b => <option key={b} value={b}>{b}</option>)}
+                            {bancaIds.map((b: any) => <option key={b} value={b}>{b}</option>)}
                         </select>
                     </div>
                 </div>
