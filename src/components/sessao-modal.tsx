@@ -11,6 +11,7 @@ import { supabase } from '@/lib/supabase'
 import { MEDICAL_HIERARCHY } from '@/lib/medical-specialties'
 import srsRules from '@/lib/srs-rules.json'
 import { calculateNextSRSState, updateSubjectMemoryScore } from '@/lib/srs-service'
+import { completePlacementSession, ScopeConfig } from '@/lib/nivelamento-service'
 
 interface SessaoModalProps {
     isOpen: boolean
@@ -18,6 +19,9 @@ interface SessaoModalProps {
     assunto_id: string
     tipo: 'NIVELAMENTO' | 'REVISAO' | 'CADERNO_ERROS'
     onComplete?: () => void
+    isNewSRS?: boolean
+    agendaId?: string
+    scope?: ScopeConfig
 }
 
 interface Questao {
@@ -48,7 +52,7 @@ interface Resposta {
     tempo_segundos: number
 }
 
-export function SessaoModal({ isOpen, onClose, assunto_id, tipo, onComplete }: SessaoModalProps) {
+export function SessaoModal({ isOpen, onClose, assunto_id, tipo, onComplete, isNewSRS, agendaId, scope }: SessaoModalProps) {
     const { user } = useAuth()
     const [sessao, setSessao] = useState<SessaoData | null>(null)
     const [loading, setLoading] = useState(true)
@@ -591,7 +595,40 @@ export function SessaoModal({ isOpen, onClose, assunto_id, tipo, onComplete }: S
 
             await supabase.from('assunto_progresso').upsert(updateData, { onConflict: 'user_id,assunto_id' })
 
-            // 8. Atualizar Agenda
+            // 8.1 NEW SRS SYNC (If applicable)
+            if (isNewSRS && user?.id) {
+                try {
+                    // Se for uma revisão de um plano SRS novo, atualizamos o evento e a memória
+                    const avgTime = todasRespostas.length > 0
+                        ? todasRespostas.reduce((a, b) => a + (b.tempo_segundos || 0), 0) / todasRespostas.length
+                        : 0
+                    
+                    // Se temos o scope configurado, usamos ele
+                    if (scope) {
+                        await completePlacementSession(
+                            agendaId || sessao.sessao_id, 
+                            user.id, 
+                            scope, 
+                            acertos, 
+                            sessao.total_questoes, 
+                            avgTime
+                        )
+                    }
+
+                    // Se for um evento de agenda nova, marcamos como concluído
+                    if (agendaId && isNewSRS) {
+                        await supabase.from('spaced_review_events').update({
+                            status: 'concluida',
+                            resulting_score: percentual,
+                            completed_at: new Date().toISOString()
+                        }).eq('id', agendaId)
+                    }
+                } catch (e) {
+                    console.error('Error syncing new SRS completion:', e)
+                }
+            }
+
+            // 8. Atualizar Agenda Antiga
             await supabase.from('agenda_revisoes')
                 .delete()
                 .eq('user_id', user.id)

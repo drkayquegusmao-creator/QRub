@@ -26,10 +26,12 @@ import { useQuestions } from '@/store/use-questions'
 import { SessaoModal } from './sessao-modal'
 import { CalendarView } from './calendar-view'
 import srsRules from '@/lib/srs-rules.json'
+import NivelamentoModule from './nivelamento-module'
 import { calculateCurrentMemoryScore } from '@/lib/srs-service'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { MemoryMapView } from './memory-map-view'
 import { HierarchyNode } from '@/lib/taxonomy-service'
+import { ScopeConfig } from '@/lib/nivelamento-service'
 
 interface DashboardData {
     success: boolean
@@ -58,6 +60,7 @@ interface RevisaoItem {
     nivel_atual: number
     ultima_nota: number
     estado_cognitivo?: string
+    is_new_srs?: boolean
 }
 
 interface SugestaoNivelamento {
@@ -85,7 +88,7 @@ export function DashboardDiario() {
     const searchParams = useSearchParams()
     
     // View Mode State - Initialized from URL if present
-    const [viewMode, setViewMode] = useState<'AGENDA' | 'CALENDARIO' | 'MAPA'>('AGENDA')
+    const [viewMode, setViewMode] = useState<'AGENDA' | 'CALENDARIO' | 'MAPA' | 'NIVELAMENTO'>('AGENDA')
     const [hierarchy, setHierarchy] = useState<HierarchyNode[]>([])
     const [expandedSpecialty, setExpandedSpecialty] = useState<string | null>(null)
     const [searchLeveling, setSearchLeveling] = useState('')
@@ -95,12 +98,14 @@ export function DashboardDiario() {
         const tab = searchParams.get('tab')
         if (tab === 'MAPA') setViewMode('MAPA')
         else if (tab === 'CALENDARIO') setViewMode('CALENDARIO')
+        else if (tab === 'NIVELAMENTO') setViewMode('NIVELAMENTO')
         else setViewMode('AGENDA')
     }, [searchParams])
 
     const [sessaoAberta, setSessaoAberta] = useState(false)
     const [sessaoAssuntoId, setSessaoAssuntoId] = useState<string>('')
     const [sessaoTipo, setSessaoTipo] = useState<'NIVELAMENTO' | 'REVISAO' | 'CADERNO_ERROS'>('NIVELAMENTO')
+    const [sessaoSRS, setSessaoSRS] = useState<{ isNew: boolean, agendaId?: string, scope?: ScopeConfig }>({ isNew: false })
 
     useEffect(() => {
         if (!user?.id) return
@@ -135,12 +140,32 @@ export function DashboardDiario() {
                 progressos?.forEach(p => { progMap[p.assunto_id] = p })
                 setUserProgress(progMap)
 
-                // 2. Buscar Agenda de Revisões
-                const { data: agenda } = await supabase
+                // 2. Buscar Agenda de Revisões (Antiga + Nova)
+                const { data: agendaAntiga } = await supabase
                     .from('agenda_revisoes')
                     .select('*')
                     .eq('user_id', user.id)
                     .in('status', ['PENDENTE', 'ATRASADA'])
+
+                const { data: agendaNova } = await supabase
+                    .from('spaced_review_events')
+                    .select('*')
+                    .eq('user_id', user.id)
+                    .in('status', ['agendada', 'atrasada', 'disponivel'])
+                    .lte('scheduled_date', todayStr)
+
+                // 2.1 Mapear agenda nova para o formato legível pelo dashboard
+                const revisoesNovaFormatada: RevisaoItem[] = (agendaNova || []).map(ev => ({
+                    agenda_id: ev.id,
+                    assunto_id: ev.subject_id || ev.subspecialty_id || ev.specialty_id || '',
+                    nome: ev.scope_label || 'Revisão',
+                    specialty_id: ev.specialty_id || '',
+                    data_programada: ev.scheduled_date,
+                    dias_atrasado: ev.status === 'atrasada' ? 1 : 0, // Simplificado para reflete status DB
+                    nivel_atual: 0,
+                    ultima_nota: ev.source_score || 0,
+                    is_new_srs: true
+                }))
 
                 // 3. Buscar Caderno de Erros (ATIVOS)
                 let errosAtivos: ErroItem[] = []
@@ -194,12 +219,12 @@ export function DashboardDiario() {
                     }).sort((a, b) => b.quantidade - a.quantidade)
                 }
 
-                const atrasadas: any[] = []
-                const doDia: any[] = []
+                const atrasadas: RevisaoItem[] = [...revisoesNovaFormatada.filter(r => r.dias_atrasado! > 0)]
+                const doDia: RevisaoItem[] = [...revisoesNovaFormatada.filter(r => r.dias_atrasado === 0)]
                 const eventosCalendario: any[] = []
 
-                if (agenda) {
-                    agenda.forEach((item: any) => {
+                if (agendaAntiga) {
+                    agendaAntiga.forEach((item: any) => {
                         const dataProg = new Date(item.data_programada)
                         const dataParts = item.data_programada.split('-')
                         const dataLocal = new Date(Number(dataParts[0]), Number(dataParts[1]) - 1, Number(dataParts[2]))
@@ -355,9 +380,10 @@ export function DashboardDiario() {
         fetchDashboardLocal()
     }, [user?.id, questions.length])
 
-    const handleIniciarSessao = (assunto_id: string, tipo: 'NIVELAMENTO' | 'REVISAO' | 'CADERNO_ERROS') => {
+    const handleIniciarSessao = (assunto_id: string, tipo: 'NIVELAMENTO' | 'REVISAO' | 'CADERNO_ERROS', srsInfo?: { isNew: boolean, agendaId?: string, scope?: ScopeConfig }) => {
         setSessaoAssuntoId(assunto_id)
         setSessaoTipo(tipo)
+        setSessaoSRS(srsInfo || { isNew: false })
         setSessaoAberta(true)
     }
 
@@ -440,6 +466,17 @@ export function DashboardDiario() {
                             <CalendarDays className="w-4 h-4" />
                             Calendário
                         </button>
+
+                        <button
+                            onClick={() => setViewMode('NIVELAMENTO')}
+                            className={`flex-1 md:flex-none flex justify-center items-center gap-3 px-8 py-4 rounded-2xl text-xs font-black uppercase tracking-widest transition-all ${viewMode === 'NIVELAMENTO'
+                                ? 'bg-white shadow-xl text-[#1A1033] ring-1 ring-black/5'
+                                : 'text-slate-400 hover:text-slate-600 hover:bg-slate-200/50'
+                                }`}
+                        >
+                            <Zap className="w-4 h-4" />
+                            Nivelamento
+                        </button>
                     </div>
                 </div>
 
@@ -473,7 +510,7 @@ export function DashboardDiario() {
                                 <div className="pt-2">
                                     <CardNivelamento
                                         sugestao={sugestao_nivelamento}
-                                        onIniciar={() => handleIniciarSessao(sugestao_nivelamento.assunto_id, 'NIVELAMENTO')}
+                                        onIniciar={() => setViewMode('NIVELAMENTO')}
                                     />
                                 </div>
                             )}
@@ -518,35 +555,39 @@ export function DashboardDiario() {
 
                             {/* 2. Revisões Atrasadas */}
                             {revisoes_atrasadas.length > 0 && (
-                                <div className="space-y-4 pt-2">
+                                <div className="space-y-6">
                                     <h3 className="text-xl font-black italic uppercase tracking-tighter text-destructive flex items-center gap-3 px-2">
-                                        <Flame className="w-6 h-6" /> Itens em Atraso
+                                        <Clock className="w-6 h-6" /> Itens em Atraso
                                     </h3>
-                                    {revisoes_atrasadas.map((revisao, index) => (
-                                        <CardRevisaoAtrasada
-                                            key={revisao.agenda_id}
-                                            revisao={revisao}
-                                            index={index}
-                                            onIniciar={() => handleIniciarSessao(revisao.assunto_id, 'REVISAO')}
-                                        />
-                                    ))}
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        {revisoes_atrasadas.map((revisao, index) => (
+                                            <CardRevisaoAtrasada
+                                                key={revisao.agenda_id}
+                                                revisao={revisao}
+                                                index={index}
+                                                onIniciar={() => handleIniciarSessao(revisao.assunto_id, 'REVISAO', { isNew: revisao.is_new_srs || false, agendaId: revisao.agenda_id })}
+                                            />
+                                        ))}
+                                    </div>
                                 </div>
                             )}
 
                             {/* 3. Revisões do Dia */}
                             {revisoes_do_dia.length > 0 && (
-                                <div className="space-y-4 pt-2">
+                                <div className="space-y-6">
                                     <h3 className="text-xl font-black italic uppercase tracking-tighter text-primary flex items-center gap-3 px-2">
-                                        <Calendar className="w-6 h-6" /> Meta Diária
+                                        <Calendar className="w-6 h-6 text-primary" /> Meta Diária
                                     </h3>
-                                    {revisoes_do_dia.map((revisao, index) => (
-                                        <CardRevisaoDoDia
-                                            key={revisao.agenda_id}
-                                            revisao={revisao}
-                                            index={index}
-                                            onIniciar={() => handleIniciarSessao(revisao.assunto_id, 'REVISAO')}
-                                        />
-                                    ))}
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        {revisoes_do_dia.map((revisao, index) => (
+                                            <CardRevisaoDoDia
+                                                key={revisao.agenda_id}
+                                                revisao={revisao}
+                                                index={index}
+                                                onIniciar={() => handleIniciarSessao(revisao.assunto_id, 'REVISAO', { isNew: revisao.is_new_srs || false, agendaId: revisao.agenda_id })}
+                                            />
+                                        ))}
+                                    </div>
                                 </div>
                             )}
 
@@ -672,6 +713,17 @@ export function DashboardDiario() {
                         >
                             <MemoryMapView />
                         </motion.div>
+                    ) : viewMode === 'NIVELAMENTO' ? (
+                        <motion.div
+                            key="nivelamento"
+                            initial={{ opacity: 0, y: 16 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: 8 }}
+                            transition={{ duration: 0.2 }}
+                            className="pt-2"
+                        >
+                            <NivelamentoModule />
+                        </motion.div>
                     ) : (
                         <motion.div
                             key="calendario"
@@ -697,6 +749,9 @@ export function DashboardDiario() {
                 assunto_id={sessaoAssuntoId}
                 tipo={sessaoTipo}
                 onComplete={handleSessaoComplete}
+                isNewSRS={sessaoSRS.isNew}
+                agendaId={sessaoSRS.agendaId}
+                scope={sessaoSRS.scope}
             />
         </>
     )
