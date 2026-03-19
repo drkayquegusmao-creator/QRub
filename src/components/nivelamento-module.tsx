@@ -7,7 +7,7 @@ import {
     Star, AlertTriangle, Trophy, ArrowRight, RotateCcw,
     Zap, Brain, Flame, ChevronLeft, BarChart3, Loader2, Settings, ShieldCheck, RefreshCw, Save
 } from 'lucide-react'
-import { createClient } from '@supabase/supabase-js'
+import { supabase } from '@/lib/supabase'
 import {
     fetchQuestionCounts, fetchQuestionsForNivelamento, createPlacementSession,
     completePlacementSession, getUserNivelamentoStats, getUpcomingReviews,

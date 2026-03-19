@@ -16,6 +16,8 @@ import {
 } from '@/lib/duo-service'
 import { DuoRealtimeEngine } from '@/lib/duo-realtime'
 
+type DuoView = 'home' | 'waiting_room' | 'configuring' | 'session_active' | 'results'
+
 // ==========================================
 // ERROR BOUNDARY
 // ==========================================
