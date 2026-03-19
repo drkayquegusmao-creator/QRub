@@ -4,7 +4,8 @@ import React, { useState, useEffect, useCallback, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { 
     Users, Copy, Check, LogIn, Plus, BookOpen,
-    ArrowRight, Loader2, AlertCircle, WifiOff, MessageSquare, CheckCircle2, XCircle, LayoutGrid
+    ArrowRight, Loader2, AlertCircle, WifiOff, MessageSquare, CheckCircle2, XCircle, LayoutGrid,
+    Video, VideoOff, Mic, MicOff, Maximize2, Minimize2
 } from 'lucide-react'
 import { toast } from 'react-hot-toast'
 
@@ -269,11 +270,129 @@ function DuoSessionActive({ session, user, engine }: { session: DuoSession, user
     const [answers, setAnswers] = useState<DuoAnswer[]>([])
     const [submitting, setSubmitting] = useState(false)
     const [myAnswer, setMyAnswer] = useState<string | null>(null)
+    const [messages, setMessages] = useState<{text: string, userId: string}[]>([])
+    const [chatOpen, setChatOpen] = useState(false)
+    const [chatInput, setChatInput] = useState('')
+    
+    // MEDIA STATE
+    const [mediaState, setMediaState] = useState({ video: false, audio: false })
+    const localVideoRef = useRef<HTMLVideoElement>(null)
+    const remoteVideoRef = useRef<HTMLVideoElement>(null)
+    const peerRef = useRef<RTCPeerConnection | null>(null)
+    const localStreamRef = useRef<MediaStream | null>(null)
 
     const currentIndex = session.current_question_index
     const isHost = session.host_user_id === user.id
+    const partnerId = isHost ? session.guest_user_id : session.host_user_id
 
-    // Load full question objects and sync answers on mount or index change
+    // WEBRTC SIGNALING & SETUP
+    const setupPeerConnection = useCallback(async (isInitiator: boolean, targetId: string) => {
+        if (peerRef.current) return
+        
+        const pc = new RTCPeerConnection({
+            iceServers: [{ urls: 'stun:stun.l.google.com:19302' }]
+        })
+
+        pc.onicecandidate = (e) => {
+            if (e.candidate) engine?.sendWebRTCSignal(targetId, 'ice', e.candidate)
+        }
+
+        pc.ontrack = (e) => {
+            if (remoteVideoRef.current) remoteVideoRef.current.srcObject = e.streams[0]
+        }
+
+        if (localStreamRef.current) {
+            localStreamRef.current.getTracks().forEach(track => {
+                pc.addTrack(track, localStreamRef.current!)
+            })
+        }
+
+        if (isInitiator) {
+            const offer = await pc.createOffer()
+            await pc.setLocalDescription(offer)
+            engine?.sendWebRTCSignal(targetId, 'offer', offer)
+        }
+
+        peerRef.current = pc
+    }, [engine])
+
+    useEffect(() => {
+        if (!engine) return
+        
+        // Listen for signals from partner
+        engine.onWebRTCSignal = async (signal) => {
+            if (signal.type === 'offer') {
+                const pc = new RTCPeerConnection({
+                    iceServers: [{ urls: 'stun:stun.l.google.com:19302' }]
+                })
+                pc.onicecandidate = (e) => {
+                    if (e.candidate) engine.sendWebRTCSignal(signal.from, 'ice', e.candidate)
+                }
+                pc.ontrack = (e) => {
+                    if (remoteVideoRef.current) remoteVideoRef.current.srcObject = e.streams[0]
+                }
+                if (localStreamRef.current) {
+                    localStreamRef.current.getTracks().forEach(track => pc.addTrack(track, localStreamRef.current!))
+                }
+                await pc.setRemoteDescription(new RTCSessionDescription(signal.data))
+                const answer = await pc.createAnswer()
+                await pc.setLocalDescription(answer)
+                engine.sendWebRTCSignal(signal.from, 'answer', answer)
+                peerRef.current = pc
+            } else if (signal.type === 'answer') {
+                await peerRef.current?.setRemoteDescription(new RTCSessionDescription(signal.data))
+            } else if (signal.type === 'ice') {
+                await peerRef.current?.addIceCandidate(new RTCIceCandidate(signal.data))
+            }
+        }
+
+        // Listen for chat messages
+        engine.onChatReceived = (msg) => {
+            setMessages(prev => [...prev.slice(-10), msg]) // Keep last 10 for lightweight
+            if (!chatOpen) toast((t) => (
+                <div onClick={() => { setChatOpen(true); toast.dismiss(t.id) }} className="flex gap-2 items-center cursor-pointer">
+                    <MessageSquare className="w-4 h-4 text-emerald-500" />
+                    <span className="text-xs font-bold text-slate-800">Nova mensagem na dupla</span>
+                </div>
+            ))
+        }
+    }, [engine, chatOpen])
+
+    const toggleMedia = async (type: 'video' | 'audio') => {
+        const newState = { ...mediaState, [type]: !mediaState[type] }
+        setMediaState(newState)
+
+        try {
+            if (newState.video || newState.audio) {
+                if (!localStreamRef.current) {
+                    const stream = await navigator.mediaDevices.getUserMedia({ 
+                        video: newState.video || true, // Need at least one to get stream if toggling just one
+                        audio: newState.audio || true 
+                    })
+                    // Set correct enable/disable based on actual state
+                    stream.getVideoTracks().forEach(t => t.enabled = newState.video)
+                    stream.getAudioTracks().forEach(t => t.enabled = newState.audio)
+                    
+                    localStreamRef.current = stream
+                    if (localVideoRef.current) localVideoRef.current.srcObject = stream
+                } else {
+                    if (type === 'video') localStreamRef.current.getVideoTracks().forEach(t => t.enabled = newState.video)
+                    if (type === 'audio') localStreamRef.current.getAudioTracks().forEach(t => t.enabled = newState.audio)
+                }
+
+                // If partner is online and we don't have a peer yet, try to connect
+                if (partnerId && !peerRef.current) {
+                    setupPeerConnection(isHost, partnerId)
+                }
+            }
+        } catch (err) {
+            console.error("Media Error:", err)
+            toast.error("Erro ao acessar mídia.")
+            setMediaState(prev => ({ ...prev, [type]: false }))
+        }
+    }
+
+    // SESSION LOGIC
     useEffect(() => {
         const load = async () => {
              setLoading(true)
@@ -282,7 +401,6 @@ function DuoSessionActive({ session, user, engine }: { session: DuoSession, user
                  setQuestions(qs)
              }
              
-             // Check if I already answered this index (in case of reconnect)
              const ansList = await getAnswersForCurrentIndex(session.id, currentIndex)
              setAnswers(ansList)
              const mine = ansList.find(a => a.user_id === user.id)
@@ -294,36 +412,31 @@ function DuoSessionActive({ session, user, engine }: { session: DuoSession, user
         load()
     }, [currentIndex, session.question_ids_json])
 
-    // Re-check answers when sync ping arrives
     useEffect(() => {
         if (!engine) return
-        engine.onSessionUpdated = async () => {
-            const ansList = await getAnswersForCurrentIndex(session.id, currentIndex)
+        engine.onSessionUpdated = async (updated) => {
+            const ansList = await getAnswersForCurrentIndex(updated.id, updated.current_question_index)
             setAnswers(ansList)
         }
     }, [engine, currentIndex])
 
     const currentQuestion = questions[currentIndex]
-    
-    // Derived state
     const iHaveAnswered = myAnswer !== null
-    const partnerId = session.host_user_id === user.id ? session.guest_user_id : session.host_user_id
     const partnerAnswered = answers.some(a => a.user_id === partnerId)
     const bothAnswered = iHaveAnswered && partnerAnswered
 
     const handleAnswerClick = async (altKey: string) => {
         if (iHaveAnswered || !currentQuestion) return
         setSubmitting(true)
-        setMyAnswer(altKey) // optimistic
+        setMyAnswer(altKey)
         
         const isCorrect = altKey === currentQuestion.resposta_correta
         try {
             await submitDuoAnswer(session.id, currentQuestion.id, currentIndex, user.id, altKey, isCorrect)
-            // Trigger manual update to ensure DB hook broadcasts it or just update directly
             engine?.triggerSyncPing()
         } catch(e) {
             toast.error("Falha ao computar resposta.")
-            setMyAnswer(null) // rollback
+            setMyAnswer(null)
         } finally {
             setSubmitting(false)
         }
@@ -340,11 +453,54 @@ function DuoSessionActive({ session, user, engine }: { session: DuoSession, user
         setSubmitting(false)
     }
 
+    const sendChat = () => {
+        if (!chatInput.trim() || !engine) return
+        engine.sendChatMessage(chatInput)
+        setMessages(prev => [...prev.slice(-10), { text: chatInput, userId: user.id }])
+        setChatInput('')
+    }
+
     if (loading) return <div className="p-12 text-center text-white"><Loader2 className="w-10 h-10 animate-spin mx-auto"/> Montando ringue...</div>
     if (!currentQuestion) return <div className="p-12 text-center text-red-500 font-bold">Questão indisponível!</div>
 
     return (
-        <div className="max-w-4xl mx-auto py-8 text-white relative">
+        <div className="relative min-h-[600px]">
+            {/* Media Bar Controls */}
+            <div className="fixed top-24 right-6 flex flex-col gap-3 z-50">
+                <motion.button 
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    onClick={() => toggleMedia('video')}
+                    className={`p-4 rounded-2xl shadow-2xl backdrop-blur-md border transition-all ${mediaState.video ? 'bg-emerald-500 border-emerald-400 text-white' : 'bg-slate-800/80 border-white/10 text-slate-400'}`}
+                >
+                    {mediaState.video ? <Video className="w-6 h-6" /> : <VideoOff className="w-6 h-6" />}
+                </motion.button>
+                <motion.button 
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    onClick={() => toggleMedia('audio')}
+                    className={`p-4 rounded-2xl shadow-2xl backdrop-blur-md border transition-all ${mediaState.audio ? 'bg-emerald-500 border-emerald-400 text-white' : 'bg-slate-800/80 border-white/10 text-slate-400'}`}
+                >
+                    {mediaState.audio ? <Mic className="w-6 h-6" /> : <MicOff className="w-6 h-6" />}
+                </motion.button>
+            </div>
+
+            {/* Video Streams */}
+            <div className="fixed bottom-24 right-6 flex flex-col gap-4 z-40 pointer-events-none">
+                <div className={`relative w-48 h-32 bg-slate-900 rounded-2xl overflow-hidden border-2 border-white/10 shadow-2xl pointer-events-auto transition-all ${mediaState.video ? 'opacity-100 scale-100' : 'opacity-0 scale-90 h-0 overflow-hidden'}`}>
+                    <video ref={localVideoRef} autoPlay playsInline muted className="w-full h-full object-cover rounded-2xl" />
+                    <div className="absolute bottom-2 left-2 px-2 py-0.5 bg-black/50 rounded-lg text-[10px] font-bold text-white uppercase">Você</div>
+                </div>
+                <div className={`relative w-48 h-32 bg-slate-900 rounded-2xl overflow-hidden border-2 border-emerald-500/30 shadow-2xl pointer-events-auto transition-all`}>
+                    <video ref={remoteVideoRef} autoPlay playsInline className="w-full h-full object-cover rounded-2xl" />
+                    <div className="absolute bottom-2 left-2 px-2 py-0.5 bg-emerald-500/50 rounded-lg text-[10px] font-bold text-white uppercase">Parceiro</div>
+                    {!remoteVideoRef.current?.srcObject && (
+                        <div className="absolute inset-0 flex items-center justify-center text-[10px] font-bold text-slate-500 uppercase">Aguardando...</div>
+                    )}
+                </div>
+            </div>
+
+            <div className="max-w-4xl mx-auto py-8 text-white">
             
             {/* Status Header */}
             <div className="flex items-center justify-between bg-white/5 border border-white/10 px-6 py-4 rounded-2xl mb-6">
@@ -409,12 +565,53 @@ function DuoSessionActive({ session, user, engine }: { session: DuoSession, user
                  </motion.div>
             )}
 
-            {/* Chat Float Placeholder */}
-            {/* O chat leve será um componente suspenso, não polui a questão */}
-            <div className="fixed bottom-6 left-6 opacity-30 hover:opacity-100 transition-opacity bg-black/60 backdrop-blur border border-white/10 p-3 rounded-2xl cursor-pointer">
+            {/* Chat Float Drawer */}
+            <AnimatePresence>
+                {chatOpen && (
+                    <motion.div 
+                        initial={{ opacity: 0, x: -100 }} 
+                        animate={{ opacity: 1, x: 0 }} 
+                        exit={{ opacity: 0, x: -100 }}
+                        className="fixed bottom-24 left-6 w-72 bg-[#1A1033]/90 backdrop-blur-xl border border-white/10 rounded-3xl overflow-hidden shadow-2xl z-50"
+                    >
+                        <div className="p-4 border-b border-white/10 flex justify-between items-center bg-white/5">
+                            <span className="font-black text-[10px] uppercase tracking-widest text-[#f59e0b]">Chat Dupla</span>
+                            <button onClick={() => setChatOpen(false)} className="opacity-50 hover:opacity-100"><XCircle className="w-4 h-4" /></button>
+                        </div>
+                        <div className="h-64 overflow-y-auto p-4 space-y-3 flex flex-col">
+                            {messages.map((m, i) => {
+                                const isMe = m.userId === user.id
+                                return (
+                                    <div key={i} className={`max-w-[80%] p-3 rounded-2xl text-xs ${isMe ? 'bg-emerald-500 text-white self-end rounded-tr-none' : 'bg-white/10 text-slate-200 self-start rounded-tl-none'}`}>
+                                        {m.text}
+                                    </div>
+                                )
+                            })}
+                            {messages.length === 0 && <p className="text-[10px] text-slate-500 text-center py-10 italic uppercase">Sem mensagens ainda...</p>}
+                        </div>
+                        <div className="p-3 border-t border-white/10 flex items-center gap-2">
+                            <input 
+                                type="text" 
+                                value={chatInput} 
+                                onChange={e => setChatInput(e.target.value)} 
+                                onKeyDown={e => e.key === 'Enter' && sendChat()}
+                                placeholder="Diga algo..." 
+                                className="flex-1 bg-white/5 border border-white/5 rounded-xl px-3 py-2 text-xs outline-none focus:border-emerald-500"
+                            />
+                            <button onClick={sendChat} className="p-2 bg-emerald-500 rounded-xl text-white"><ArrowRight className="w-4 h-4" /></button>
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+
+            <div 
+                onClick={() => setChatOpen(!chatOpen)}
+                className={`fixed bottom-6 left-6 transition-all bg-black/60 backdrop-blur border p-3 rounded-2xl cursor-pointer z-50 ${chatOpen ? 'border-emerald-500 opacity-100' : 'border-white/10 opacity-30 hover:opacity-100'}`}
+            >
                  <MessageSquare className="w-6 h-6 text-white"/>
             </div>
 
+            </div>
         </div>
     )
 }

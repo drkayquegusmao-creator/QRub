@@ -18,6 +18,7 @@ export class DuoRealtimeEngine {
     public onSessionUpdated?: (payload: any) => void
     public onParticipantPresence?: (onlineUsers: string[]) => void
     public onChatReceived?: (message: {text: string, userId: string}) => void
+    public onWebRTCSignal?: (signal: any) => void
 
     constructor(sessionId: string, userId: string) {
         this.sessionId = sessionId
@@ -61,6 +62,13 @@ export class DuoRealtimeEngine {
             })
         })
 
+        // 4. WebRTC Signaling (OFFER, ANSWER, ICE)
+        this.channel.on('broadcast', { event: 'webrtc_signal' }, (payload) => {
+            if (this.onWebRTCSignal && payload.payload.to === this.userId) {
+                this.onWebRTCSignal(payload.payload)
+            }
+        })
+
         // Finally Subscribe
         this.channel.subscribe(async (status) => {
             if (status === 'SUBSCRIBED') {
@@ -69,6 +77,18 @@ export class DuoRealtimeEngine {
                     online_at: new Date().toISOString(),
                 })
             }
+        })
+    }
+
+    /**
+     * Send signaling data to a specific peer
+     */
+    public sendWebRTCSignal(to: string, type: 'offer' | 'answer' | 'ice', data: any) {
+        if (!this.channel) return
+        this.channel.send({
+            type: 'broadcast',
+            event: 'webrtc_signal',
+            payload: { to, from: this.userId, type, data }
         })
     }
 
