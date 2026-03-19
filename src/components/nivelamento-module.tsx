@@ -15,8 +15,8 @@ import {
     ScopeConfig, ScopeType, MasteryLevel, QuestionCountMap
 } from '@/lib/nivelamento-service'
 import { toast } from 'react-hot-toast'
+import { isMasterEmail } from '@/lib/auth-constants'
 import { motion } from 'framer-motion'
-
 
 
 // ─── Types ────────────────────────────────────────────────────────────────────
@@ -149,7 +149,7 @@ export default function NivelamentoModule() {
     const [savingAdmin, setSavingAdmin] = useState(false)
 
     useEffect(() => {
-        if (user?.email === 'kayquegusmao@hotmail.com') {
+        if (user?.email && isMasterEmail(user.email)) {
             setIsAdmin(true)
         }
     }, [user])
