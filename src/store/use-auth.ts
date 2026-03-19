@@ -1,6 +1,7 @@
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 import { isMasterEmail } from '@/lib/auth-constants'
+import { supabase, isSupabaseConfigured } from '@/lib/supabase'
 
 export const DAILY_QUESTION_LIMIT_FREE = 10
 
@@ -64,7 +65,6 @@ export const useAuth = create<AuthState>()(
             incrementDailyCount: () => set((state) => ({ dailyQuestionCount: state.dailyQuestionCount + 1 })),
 
             logout: async () => {
-                const { supabase, isSupabaseConfigured } = require('@/lib/supabase')
                 if (isSupabaseConfigured()) {
                     await supabase.auth.signOut()
                 }
@@ -75,7 +75,6 @@ export const useAuth = create<AuthState>()(
                 const state = get()
                 if (!state.user) return
 
-                const { supabase, isSupabaseConfigured } = require('@/lib/supabase')
                 if (!isSupabaseConfigured()) return
 
                 try {
@@ -109,7 +108,6 @@ export const useAuth = create<AuthState>()(
             completeProfile: async (data) => {
                 const state = get()
                 if (state.user) {
-                    const { supabase, isSupabaseConfigured } = require('@/lib/supabase')
 
                     // Optimistic update
                     const isMaster = isMasterEmail(state.user.email)
@@ -124,7 +122,7 @@ export const useAuth = create<AuthState>()(
                     set({ user: updatedUser as User })
 
                     if (isSupabaseConfigured()) {
-                        await supabase
+                        const { error } = await supabase
                             .from('users')
                             .update({
                                 ...data,
@@ -133,6 +131,11 @@ export const useAuth = create<AuthState>()(
                                 ...(isMaster ? { role: 'MASTER' } : {})
                             })
                             .eq('id', state.user.id)
+                        
+                        if (error) {
+                            console.error('Error in completeProfile DB update:', error)
+                            throw error
+                        }
                     }
                 }
             },
@@ -143,7 +146,6 @@ export const useAuth = create<AuthState>()(
                     const updatedUser = { ...state.user, plan_level: plan }
                     set({ user: updatedUser })
 
-                    const { supabase, isSupabaseConfigured } = require('@/lib/supabase')
                     if (isSupabaseConfigured()) {
                         await supabase
                             .from('users')

@@ -1,0 +1,44 @@
+[
+  {
+    "enunciado": "Certo servidor público do Poder Executivo federal, inconformado com a morosidade no trâmite de procedimentos administrativos que afetavam diretamente familiares de sua esposa, valeu-se do acesso privilegiado a sistemas internos e da prerrogativa de seu cargo para impulsionar e dar prioridade à análise de tais pleitos, mesmo não havendo previsão legal para esse benefício. O servidor não exigiu nem recebeu qualquer vantagem financeira, justificando sua conduta sob o prisma do princípio constitucional da eficiência e da solidariedade familiar. Considerando essa situação hipotética e os preceitos do Código de Ética Profissional do Servidor Público Civil do Poder Executivo Federal (Decreto nº 1.171/1994), assinale a opção correta.",
+    "options": {
+      "a": "A conduta do servidor não configura infração ética, uma vez que o princípio da eficiência autoriza o agente público a buscar o resultado mais rápido para as demandas, desde que inexista vantagem econômica indevida.",
+      "b": "O Código de Ética estabelece que a solidariedade e a empatia devem pautar a relação do servidor com o público, de modo que priorizar trâmites de conhecidos é conduta tolerada, exceto se houver manifesto prejuízo ao erário.",
+      "c": "O servidor violou as regras éticas, pois é vedado ao servidor público valer-se do cargo para lograr proveito pessoal ou de outrem, configurando desvio ético a priorização indevida de processos devido a laços afetivos.",
+      "d": "A ausência de recebimento de vantagem financeira afasta a incidência de penalidade ética, restando a conduta enquadrada apenas como infração disciplinar leve, sujeita à advertência verbal informal.",
+      "e": "Por se tratar de parentes por afinidade, o servidor atuou na esfera da vida privada, o que afasta a competência da Comissão de Ética do órgão, cabendo a análise do caso exclusivamente à corregedoria correcional."
+    },
+    "answer": "c",
+    "rationale": "O Decreto nº 1.171/1994 estabelece expressamente que é vedado ao servidor público \"valer-se de sua função... para obter qualquer favorecimento para si ou para outrem\" (Seção III, inciso XV, \"c\"). A priorização de processos fere a impessoalidade e a moralidade administrativa, caracterizando infração ética passível de censura, não dependendo de vantagem financeira. Princípios constitucionais como o da eficiência não podem ser subvertidos para encobrir favoritismos amparados em solidariedade familiar.",
+    "option_rationales": {
+      "a": "Falso. O princípio da eficiência não chancela o atropelamento do princípio da impessoalidade nem legitima o favorecimento pessoal.",
+      "b": "Falso. A priorização de processos baseada em laços pessoais é descrita textualmente como vedação ética, independentemente de prejuízo mensurável ao patrimônio estatal.",
+      "c": "Correto. Trata-se da violação direta ao inciso XV, alínea 'c', do Código de Ética.",
+      "d": "Falso. A infração ética se consuma pelo simples favorecimento ilícito a outrem, e a penalidade prevista na esfera ética é a de censura.",
+      "e": "Falso. O uso de facilidades do cargo público atrai plenamente a competência da Comissão de Ética respectiva à investidura do servidor."
+    },
+    "difficulty": "dificil",
+    "tags": ["Código de Ética", "Decreto 1.171", "Vedações", "Impessoalidade"]
+  },
+  {
+    "enunciado": "Durante a instrução de um processo concessório de pensões, determinado servidor auditor de um tribunal, percebendo obscuridades nas normas previdenciárias vigentes, procedeu à interpretação sistemática do arcabouço normativo isoladamente, de forma não refletida nos atos internos. Em sua análise, subverteu a interpretação firmada nos normativos daquele tribunal e aprovada por seus instigadores consulares para proferir uma manifestação que reputava, de foro íntimo, como a mais 'justa e adequada' ao jurisdicionado, em nome da justiça social, embora contrária à estrita legalidade procedimental orientada pelo órgão central. A respeito dessa conduta sob a perspectiva da moralidade e ética no serviço público, assinale a opção correta.",
+    "options": {
+      "a": "Sua atitude é eticamente reprovável, pois o servidor deixou de ponderar o postulado de que a moralidade administrativa consubstancia o equilíbrio vitalico entre o conteúdo da legalidade estabelecida e a finalidade visando ao bem comum, ao afastar a ordem jurídica a pretexto de justiça pessoal.",
+      "b": "A conduta demonstra alinhamento incondicional ao postulado de que os fins de promoção dos direitos fundamentais da pessoa humana prevalecem sobre resoluções burocráticas, descaracterizando qualquer sanção ética ou funcional.",
+      "c": "É prerrogativa inalienável do servidor efetivo promover a interpretação divergente contra regulamentos institucionais sob fundamento de justitia ex aequo, desde que produza o fato benéfico ao particular, não restando ofendida a ética pública.",
+      "d": "A ética do serviço público ampara o afastamento de entendimentos sumulados de instituições de controle quando configurada a hipossuficiência flagrante do requerente, com suporte no princípio da razoabilidade e moralidade solidária.",
+      "e": "Estando configurada a obscuridade normativa, qualquer preceito normativo inferior que oriente a atuação deve ser peremptoriamente desconsiderado na busca pelo direito do cidadão, uma vez que a administração não possui poder vinculante sob a mente analítica do servidor."
+    },
+    "answer": "a",
+    "rationale": "A moralidade da Administração Pública, como preconiza as regras deontológicas (Notadamente a incidência base, como as do Dec. 1.171/94 aplicadas simetricamente à administração), não advém do subjetivismo do bem e do mal, mas do imperativo equilíbrio substancial entre a LEGALIDADE e a FINALIDADE para a concretização do bem comum. O servidor que desconsidera regulamentos do seu órgão e a estrita legalidade baseado na sua visão íntima e exclusiva do que é 'justo', afronta o princípio da legalidade administrativa e, via reflexa, a própria ética da função estatal baseada no dever institucional.",
+    "option_rationales": {
+      "a": "Correta. Traduz com perfeição a regra conceitual matriz de que a moralidade administrativa se atinge ao equilibrar a lei e a finalidade pública, distanciando interpretações ativistas desconectadas dos preceitos jurídicos que o agente deve observar.",
+      "b": "Incorreta. Convicções íntimas acerca da justiça social não isentam o servidor de atuar dentro dos limites da legalidade.",
+      "c": "Incorreta. Subverter regramentos validamente firmados pelo órgão no exercício rotineiro com o pretexto de justiça individual fere a ética.",
+      "d": "Incorreta. Não há previsão ou suporte normativo ético para o descumprimento incondicionado de súmulas com fundamento exclusivo na moralidade supostamente solidária do agente local.",
+      "e": "Incorreta. A obscuridade é sanada mediante instâncias analíticas da cúpula ou pela interpretação dentro da legalidade (inclusive hermenêutica), e não pelo afastamento arbitrário impulsionado pelo servidor autônomo."
+    },
+    "difficulty": "dificil",
+    "tags": ["Deontologia", "Equilíbrio", "Legalidade e Finalidade"]
+  }
+]

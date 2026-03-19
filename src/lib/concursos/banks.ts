@@ -49,7 +49,7 @@ export interface ConcursoQuestionPackage {
     updated_at?: string
     // Joined
     banks?: ConcursoBank
-    question_blueprints?: ConcursoQuestionBlueprint
+    blueprint?: ConcursoQuestionBlueprint | ConcursoQuestionBlueprint[]
 }
 
 export interface ConcursoPackageQuestion {
@@ -245,7 +245,7 @@ export async function getConcursoPackages(filters?: { status?: string; bank_id?:
     try {
         let query = supabase
             .from('concurso_question_packages')
-            .select(`*, banks:concurso_banks(name, slug), question_blueprints:concurso_question_blueprints(name, format)`)
+            .select(`*, banks:concurso_banks(name, slug), blueprint:concurso_question_blueprints(name, format, blueprint_rules)`)
             .order('created_at', { ascending: false })
 
         if (filters?.status) query = query.eq('status', filters.status)
@@ -386,25 +386,36 @@ export async function publishConcursoQuestion(packageQuestionId: string): Promis
 
         if (fetchErr) throw fetchErr
         const qj = pq.question_json as any
+        // Extract and format options
+        const rawOpts = qj.options || {}
+        const optionsArray = Object.keys(rawOpts).map(k => ({
+            id: k,
+            text: rawOpts[k]
+        }))
+
+        const questionId = pq.question_id || (typeof crypto !== 'undefined' && crypto.randomUUID ? crypto.randomUUID() : (Math.random().toString(36).substring(2) + Date.now().toString(36)))
 
         // Upsert into concurso_questao_base
         const { error: upsertErr } = await supabase
             .from('concurso_questao_base')
-            .insert({
-                enunciado: qj.enunciado,
-                options: qj.options,
+            .upsert({
+                id: questionId,
+                enunciado: qj.enunciado || qj.stem || '',
+                options: optionsArray,
                 correct_option_id: qj.answer,
                 explanation: qj.rationale,
                 difficulty: qj.difficulty || 'media',
-                hash: pq.hash_logico,
                 status: 'active',
-                source: pq.package?.banks?.name,
+                banca_id: pq.package?.bank_id,
+                source: pq.package?.banks?.name || 'Manual',
                 taxonomy_path: pq.package?.taxonomy_path,
                 metadata: {
-                    tags: qj.tags,
-                    package_id: pq.package_id
+                    tags: qj.tags || [],
+                    package_id: pq.package_id,
+                    hash: pq.hash_logico,
+                    published_at: new Date().toISOString()
                 }
-            })
+            }, { onConflict: 'id' })
 
         if (upsertErr) throw upsertErr
 
@@ -434,12 +445,59 @@ export interface ConcursoPromptPayload {
 }
 
 export function generateConcursoPrompt(payload: ConcursoPromptPayload): string {
+    // VERSION: 2026-03-17-V2 (FIXED CERTO_ERRADO)
     const { bank, profile, blueprint, taxonomyPath, difficulty, count, packageId } = payload
     
+    console.log('--- GENERATING PROMPT V2 ---')
+    console.log('Format from blueprint:', blueprint?.format)
+    
+    // Determine structural format
+    // Handle potential array from Supabase join
+    const bp = Array.isArray(blueprint) ? blueprint[0] : blueprint
+    const format = bp?.format?.toLowerCase() || 'multipla_escolha'
+    const isTrueFalse = format === 'certo_errado' || format === 'c_e' || format === 'cebraspe' || format === 'v_f' || format === 'verdadeiro_falso'
+
     // Default blueprint structure if none provided
-    const blueprintText = blueprint?.blueprint_rules 
-        ? JSON.stringify(blueprint.blueprint_rules, null, 2)
-        : `Utilize o formato de 5 alternativas (A-E), sendo apenas uma correta.`
+    const blueprintText = bp?.blueprint_rules 
+        ? JSON.stringify(bp.blueprint_rules, null, 2)
+        : isTrueFalse 
+            ? `Utilize o formato CERTO/ERRADO (Estilo Cebraspe padrão). O enunciado deve ser uma afirmação assertiva para julgamento.`
+            : `Utilize o formato de 5 alternativas (A-E), sendo apenas uma correta.`
+
+    const formatInstructions = isTrueFalse
+        ? `Cada questão deve ser uma afirmação para julgamento como CERTO ou ERRADO.
+           No campo "options", use: {"c": "Certo", "e": "Errado"}.
+           No campo "answer", use "c" ou "e".`
+        : `Cada questão deve ter 5 alternativas (A-E).
+           No campo "options", use as chaves "a", "b", "c", "d", "e".
+           No campo "answer", use a letra da alternativa correta.`
+
+    const jsonFormat = isTrueFalse
+        ? `{
+    "enunciado": "Afirmação para julgamento...",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "c ou e",
+    "rationale": "Justificativa completa...",
+    "difficulty": "${difficulty}",
+    "tags": ["Tag1", "Tag2"]
+  }`
+        : `{
+    "enunciado": "Texto da questão...",
+    "options": {
+      "a": "Texto da opção A",
+      "b": "Texto da opção B",
+      "c": "Texto da opção C",
+      "d": "Texto da opção D",
+      "e": "Texto da opção E"
+    },
+    "answer": "letra da correta",
+    "rationale": "Justificativa completa...",
+    "difficulty": "${difficulty}",
+    "tags": ["Tag1", "Tag2"]
+  }`
 
     return `
 # PROTOCOLO DE GERAÇÃO MASTER • QRUB CONCURSOS
@@ -450,7 +508,7 @@ SUA MISSÃO É GERAR UM LOTE DE ${count} QUESTÕES INÉDITAS NO ESTILO DA BANCA 
 
 ---
 ## 1. PERFIL DA BANCA (DNA)
-${profile?.profile_text || 'Siga o estilo padrão de questões de concursos de nível superior, com foco em jurisprudência, doutrina e legislação seca conforme o cargo.'}
+${profile?.profile_text || 'Siga o estilo padrão de questões de concursos de nível superior.'}
 
 ---
 ## 2. ESCOPO TAXONÔMICO
@@ -458,41 +516,22 @@ ${profile?.profile_text || 'Siga o estilo padrão de questões de concursos de n
 DIFICULDADE ALVO: ${difficulty.toUpperCase()}
 
 ---
-## 3. DIRETRIZES TÉCNICAS (BLUEPRINT)
+## 3. DIRETRIZES TÉCNICAS (FORMATO: ${format.toUpperCase()})
 ${blueprintText}
+
+${formatInstructions}
 
 ---
 ## 4. REGRAS DE OURO
 - NUNCA repita enunciados ou conceitos idênticos no mesmo lote.
-- As alternativas incorretas (distratores) devem ser plausíveis e baseadas em erros comuns.
+- ${isTrueFalse ? 'As afirmações devem ser precisas, permitindo um julgamento objetivo.' : 'As alternativas incorretas (distratores) devem ser plausíveis.'}
 - A justificativa deve ser didática, citando a base legal/jurisprudencial quando aplicável.
-- O campo "tags" deve conter palavras-chave para busca direta.
 
 ---
 ## 5. FORMATO DE SAÍDA (JSON OBRIGATÓRIO)
 Retorne APENAS um array JSON válido no formato:
 [
-  {
-    "enunciado": "Texto da questão...",
-    "options": {
-      "a": "Texto da opção A",
-      "b": "Texto da opção B",
-      "c": "Texto da opção C",
-      "d": "Texto da opção D",
-      "e": "Texto da opção E"
-    },
-    "answer": "letra da correta (a, b, c, d ou e)",
-    "rationale": "Justificativa completa da questão...",
-    "option_rationales": {
-      "a": "Por que a A está certa ou errada...",
-      "b": "...",
-      "c": "...",
-      "d": "...",
-      "e": "..."
-    },
-    "difficulty": "${difficulty}",
-    "tags": ["Tag1", "Tag2"]
-  }
+  ${jsonFormat}
 ]
 `.trim()
 }

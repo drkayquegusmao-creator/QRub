@@ -125,8 +125,9 @@ export default function OnboardingPage() {
                 address: fullAddress
             })
             router.push('/dashboard')
-        } catch (err) {
+        } catch (err: any) {
             console.error(err)
+            alert('Falha ao salvar seu perfil. Verifique os dados e tente novamente.')
         } finally {
             setLoading(false)
         }

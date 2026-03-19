@@ -843,9 +843,31 @@ export default function AdminPackagesManager() {
                                         {promptData}
                                     </div>
                                     <button
-                                        onClick={() => {
-                                            navigator.clipboard.writeText(promptData)
-                                            toast.success('Protocolo copiado para área de transferência!')
+                                        onClick={async () => {
+                                            try {
+                                                if (navigator.clipboard && window.isSecureContext) {
+                                                    await navigator.clipboard.writeText(promptData);
+                                                    toast.success('Protocolo copiado!');
+                                                    return;
+                                                }
+                                                throw new Error('Clipboard API indisponível');
+                                            } catch (err) {
+                                                const textArea = document.createElement("textarea");
+                                                textArea.value = promptData;
+                                                textArea.style.position = "absolute";
+                                                textArea.style.left = "-999999px";
+                                                document.body.appendChild(textArea);
+                                                textArea.select();
+                                                try {
+                                                    document.execCommand('copy');
+                                                    toast.success('Protocolo copiado!');
+                                                } catch (fallbackErr) {
+                                                    console.error('Fallback copy error', fallbackErr);
+                                                    toast.error('Erro ao copiar protocolo.');
+                                                } finally {
+                                                    textArea.remove();
+                                                }
+                                            }
                                         }}
                                         className="w-full py-6 bg-blue-600 hover:bg-blue-700 text-white rounded-[1.5rem] font-black uppercase text-xs tracking-[0.2em] shadow-2xl shadow-blue-500/30 hover:scale-[1.01] active:scale-[0.98] transition-all flex items-center justify-center gap-4"
                                     >

@@ -25,7 +25,7 @@ export const usePreferences = create<PreferencesState>()(
                         .from('user_preferences')
                         .select('questions_font')
                         .eq('user_id', userId)
-                        .single()
+                        .maybeSingle()
 
                     if (error) {
                         // Silent fail for missing table (PGRST205) or missing row (PGRST116)

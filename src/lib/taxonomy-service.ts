@@ -1,4 +1,4 @@
-import { createClient } from '@supabase/supabase-js'
+import { supabase } from '@/lib/supabase'
 
 export interface TaxonomyNode {
     id: string
@@ -16,12 +16,6 @@ export interface TaxonomyNode {
     questions_count_direct?: number
     questions_count_recursive?: number
 }
-
-// Instantiate Supabase local to the service
-const supabase = createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-)
 
 /**
  * Returns all taxonomy nodes flat, often useful for memory-caching

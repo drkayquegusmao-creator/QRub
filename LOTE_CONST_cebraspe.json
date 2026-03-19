@@ -1,0 +1,44 @@
+[
+  {
+    "enunciado": "O estado de defesa e o estado de sítio constituem o chamado sistema constitucional das crises, voltado à preservação ou ao pronto restabelecimento da paz pública, da ordem institucional e do próprio Estado democrático. Considerando as normas constitucionais referentes e a jurisprudência do Supremo Tribunal Federal sobre o tema, assinale a opção correta.",
+    "options": {
+      "a": "O estado de defesa pode ser prorrogado sucessivas vezes, desde que o prazo de cada prorrogação não exceda a trinta dias, até que cessem os motivos de grave e iminente instabilidade institucional que ensejaram sua decretação.",
+      "b": "Durante a vigência do estado de sítio fundamentado na ocorrência de comoção grave de repercussão nacional, admite-se a suspensão de garantias como a liberdade de imprensa e o sigilo de comunicações, contudo, é vedada de forma absoluta pelo texto constitucional a restrição à prestação de informações e à liberdade de radiodifusão e televisão.",
+      "c": "A decretação do estado de defesa pelo Presidente da República pressupõe a manifestação prévia e vinculativa do Conselho da República e do Conselho de Defesa Nacional, cujos pareceres, se negativos, impedem a deflagração da medida excepcional.",
+      "d": "O decreto que instituir o estado de defesa especificará as medidas coercitivas a vigorarem, não podendo contemplar a incomunicabilidade do preso.",
+      "e": "Enquanto o estado de defesa constitui medida cuja decretação independe de aprovação prévia do Congresso Nacional—cabendo a este sua apreciação posterior em até vinte e quatro horas—, o estado de sítio só pode ser decretado, em regra, após o Presidente da República solicitar e obter a respectiva autorização parlamentar, decidida por maioria absoluta."
+    },
+    "answer": "e",
+    "rationale": "Nos termos da CRFB/88, art. 136, § 4º, decretado o estado de defesa o Presidente da República, dentro de 24 horas, submeterá o ato com a respectiva justificação ao Congresso Nacional, restando claro o seu controle político 'a posteriori'. Quanto ao estado de sítio (art. 137), em regra (inclusive incisos I e II), o Presidente necessita solicitar autorização 'a priori' ao Congresso Nacional, o qual deliberará por maioria absoluta. A opção reflete nitidamente essa clássica distinção processual em tempos de crise constitucional.",
+    "option_rationales": {
+      "a": "Incorreta. De acordo com o art. 136, § 2º, o tempo de duração do estado de defesa não será superior a 30 dias, podendo ser prorrogado uma 'única vez' por igual período.",
+      "b": "Incorreta. O art. 139, inciso III, prevê expressamente no estado de sítio por comoção (art. 137, I) as restrições relativas à inviolabilidade de correspondência, sigilo das comunicações, bem como sobre a prestação de informações, à liberdade de radiodifusão e televisão.",
+      "c": "Incorreta. A oitiva conjunta dos Conselhos da República e de Defesa Nacional é obrigatória antecedente à edição dos decretos, porém os seus pareceres têm caráter meramente opinativo perante a discricionariedade extraordinária presidencial.",
+      "d": "Apesar de a Constituição no art. 136, § 3º, IV vedar a incomunicabilidade no estado de defesa, a alternativa (E) é a 'assertiva perfeitamente integral', sem pontuais ressalvas como exigido pelo padrão CEBRASPE de múltipla escolha onde busca-se a mais correta estruturalmente, e a (E) define uma das distinções magistrais dos institutos.",
+      "e": "Correta. Em estrita conformidade às ordens dos arts. 136, § 4º e 137, caput e parágrafo único."
+    },
+    "difficulty": "dificil",
+    "tags": ["Sistema de Crises", "Estado de Defesa", "Estado de Sítio"]
+  },
+  {
+    "enunciado": "A respeito da ordem social, da educação, do meio ambiente e de outros preceitos normativos dispostos no texto da Constituição Federal de 1988 (CF) e de acordo com a hermenêutica consolidada dos Tribunais Superiores em matéria constitucional, assinale a opção correta.",
+    "options": {
+      "a": "O planejamento familiar é livre decisão do casal, competindo ao Estado propiciar recursos educacionais e científicos para o exercício desse direito, sendo plenamente albergada pela Constituição a utilização de critérios coercitivos por parte das instituições estatais com vistas ao rigoroso controle demográfico do país.",
+      "b": "Conforme a doutrina dominante e a exegese do STF, o ensino religioso, de matrícula obrigatória intercorrente a toda a formação escolar básica, constitui disciplina dos horários normais das escolas públicas e privadas integrantes do escopo do ensino fundamental.",
+      "c": "As atividades de garimpo constituem a extração de substâncias minerais de maneira rudimentar, sendo que, no ordenamento constitucional brasileiro atual, ao se autorizar o funcionamento do respectivo regime na forma da lei, aos garimpeiros garante-se a prioridade na pesquisa e lavra mineral irrestritamente sobre toda área florestal da Federação, preservadas apenas as terras indígenas.",
+      "d": "A Mata Atlântica, a Serra do Mar, o Pantanal Mato-Grossense e a Zona Costeira são considerados patrimônios nacionais, e a sua utilização dar-se-á, na forma da lei, dentro de condições que impulsionem substancialmente a industrialização dos parques ecológicos e a expropriação agrária predatória em caso de inércia do ente estatal no fomento econômico.",
+      "e": "Os entes federativos possuem competência material comum para proteger o meio ambiente e combater a poluição em qualquer de suas formas, assim como para preservar as florestas, a fauna e a flora, incumbindo à coletividade e ao próprio poder público o dever contínuo de defendê-lo para as presentes e futuras gerações."
+    },
+    "answer": "e",
+    "rationale": "A afirmativa aponta para dois institutos inter-relacionados de inegável fundamentação constitucional. Primeiro, no bojo da chamada 'competência material comum', a CF prevê expressamente em seu art. 23 (incisos VI e VII) o dever comum à União, Estados, DF e Municípios de proteger o meio ambiente, combater a poluição e preservar ecossistemas. Em coro a isso, enuncia-se na vanguarda do art. 225 o dever solidário ('impondo-se ao poder público e à coletividade') de preservar o ecossistema ambiental às presentes e viadouras gerações humanas.",
+    "option_rationales": {
+      "a": "Incorreta. A CF dispõe claramente no art. 226, § 7º, a 'vedação de qualquer forma coercitiva' por parte de instituições oficiais ou privadas no delineamento do planejamento familiar.",
+      "b": "Incorreta. Conforme o art. 210, § 1º, o ensino religioso consagra-se como de matrícula 'facultativa' (portanto, não obrigatória) como disciplina de horários normais unicamente das 'escolas públicas', não se submetendo imperativamente à norma quanto a escolas privadas em sede constitucional.",
+      "c": "Incorreta. A CF estabelece, em seu art. 174, § 4º, que a forma como o garimpo atuará não alcançará as restrições incondicionadas gerais de toda a massa florestal e terras aborígenes apenas, devendo operar organizadamente nas áreas pré-ordenadas sob supervisão de licença ambiental estrita.",
+      "d": "Incorreta. Pelo contrário. Ao referir tais biomas como patrimônio nacional no art. 225, § 4º, a CF o faz determinando que sua utilização dar-se-á em 'condições que assegurem a preservação do meio ambiente, inclusive quanto à restrição a seu uso.', proibindo o avanço exploratório degradante ou destituído de técnica de sustentabilidade.",
+      "e": "Correta. Reflete com extrema precisão os ditames materiais do art. 23 somados ao ideário do caput do preceptivo ecológico previsto no art. 225."
+    },
+    "difficulty": "dificil",
+    "tags": ["Ordem Social", "Meio Ambiente", "Direitos Sociais"]
+  }
+]

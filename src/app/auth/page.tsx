@@ -88,7 +88,7 @@ export default function AuthPage() {
                         profile_completed: isMaster
                     })
                     setSuccess('Cadastro realizado com sucesso! Redirecionando...')
-                    setTimeout(() => window.location.assign(isMaster ? '/select-environment' : '/dashboard'), 1500)
+                    setTimeout(() => window.location.assign(isMaster ? '/select-environment' : '/onboarding'), 1500)
                 } else {
                     setSuccess('Cadastro realizado! Verifique seu e-mail para confirmar.')
                 }
@@ -171,7 +171,16 @@ export default function AuthPage() {
             }
         } catch (err: any) {
             console.error('Auth Error:', err)
-            setError(err.message || 'Erro inesperado na autenticação')
+            const msg = err.message || 'Erro inesperado na autenticação'
+            if (msg.includes('Password should be at least')) {
+                setError('A senha deve ter no mínimo 6 caracteres.')
+            } else if (msg.includes('User already registered') || msg.includes('already been registered')) {
+                setError('Este e-mail já possui conta. Por favor, faça login.')
+            } else if (msg.includes('Invalid login credentials')) {
+                setError('E-mail ou senha incorretos.')
+            } else {
+                setError(msg)
+            }
         } finally {
             setLoading(false)
         }

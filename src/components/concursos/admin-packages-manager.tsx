@@ -50,7 +50,12 @@ export default function ConcursoAdminPackagesManager() {
         taxonomy_path: '',
         difficulty: 'media' as any,
         requested_count: 10,
-        notes: ''
+        notes: '',
+        // Taxon IDs for cascading selection
+        area_id: '',
+        disciplina_id: '',
+        subdisciplina_id: '',
+        assunto_id: ''
     })
 
     // Import Form
@@ -60,6 +65,7 @@ export default function ConcursoAdminPackagesManager() {
 
     // Prompt Data
     const [promptData, setPromptData] = useState<string>('')
+    const [isCopying, setIsCopying] = useState(false)
 
     // Single Question Edit
     const [editingQuestion, setEditingQuestion] = useState<ConcursoPackageQuestion | null>(null)
@@ -133,7 +139,7 @@ export default function ConcursoAdminPackagesManager() {
     }
 
     const taxonomyOptions = useMemo(() => {
-        const result: { id: string; path: string; level: string; displayName: string; count: number }[] = []
+        const result: { id: string; name: string; path: string; level: string; displayName: string; count: number; depth: number }[] = []
         
         function countDescendants(node: ConcursoTaxonomyNode): number {
             let total = questionCounts[node.id] || 0
@@ -147,15 +153,16 @@ export default function ConcursoAdminPackagesManager() {
         
         function flattenTree(nodes: ConcursoTaxonomyNode[], depth: number = 0) {
             for (const node of nodes) {
-                const indent = depth === 0 ? '' : depth === 1 ? '── ' : depth === 2 ? '──── ' : '────── '
                 const totalCount = countDescendants(node)
-                const countLabel = totalCount > 0 ? ` [${totalCount}Q]` : ' [0]'
+                const countLabel = totalCount > 0 ? ` [${totalCount}Q]` : ''
                 result.push({
                     id: node.id,
+                    name: node.name,
                     path: node.name,
                     level: node.level,
-                    displayName: `${indent}${node.name}${countLabel}`,
-                    count: totalCount
+                    displayName: `${node.name}${countLabel}`,
+                    count: totalCount,
+                    depth: depth
                 })
                 if (node.children && node.children.length > 0) {
                     flattenTree(node.children, depth + 1)
@@ -202,7 +209,11 @@ export default function ConcursoAdminPackagesManager() {
                 taxonomy_path: '',
                 difficulty: 'media',
                 requested_count: 10,
-                notes: ''
+                notes: '',
+                area_id: '',
+                disciplina_id: '',
+                subdisciplina_id: '',
+                assunto_id: ''
             })
             refreshPackages()
         }
@@ -215,8 +226,25 @@ export default function ConcursoAdminPackagesManager() {
         if (!selectedPackage || !selectedPackage.bank_id) return
         const bank = banks.find(b => b.id === selectedPackage.bank_id)
         if (!bank) return
+
+        setLoading(true)
         const { data: profile } = await getConcursoCurrentProfile(selectedPackage.bank_id)
-        const blueprint = blueprints.find(b => b.id === selectedPackage.blueprint_id) || null
+        
+        // Ensure we have the blueprint with format
+        let blueprint = (selectedPackage as any).blueprint || null
+        
+        // Fallback: If joined data is missing or missing format, fetch it explicitly
+        if (!blueprint || !blueprint.format) {
+            const { data: bpss } = await supabase
+                .from('concurso_question_blueprints')
+                .select('*')
+                .eq('id', selectedPackage.blueprint_id)
+                .single()
+            if (bpss) blueprint = bpss
+        }
+        
+        console.log('Generating Prompt with Blueprint:', blueprint)
+
         const prompt = generateConcursoPrompt({
             bank,
             profile: profile as ConcursoBankProfile,
@@ -228,6 +256,7 @@ export default function ConcursoAdminPackagesManager() {
         })
         setPromptData(prompt)
         setIsPromptModalOpen(true)
+        setLoading(false)
     }
 
     async function handleImportJson() {
@@ -259,6 +288,40 @@ export default function ConcursoAdminPackagesManager() {
         } finally {
             setIsImporting(false)
         }
+    }
+
+    async function handlePublishPackage() {
+        if (!selectedPackage || pkgQuestions.length === 0) return
+        
+        setLoading(true)
+        let successCount = 0
+        let errorCount = 0
+
+        for (const pq of pkgQuestions) {
+            if (pq.status === 'approved') {
+                successCount++
+                continue
+            }
+            const res = await publishConcursoQuestion(pq.id)
+            if (res.success) successCount++
+            else errorCount++
+        }
+
+        // Update package status to approved if all questions are processed
+        if (errorCount === 0) {
+            await updateConcursoPackage(selectedPackage.id, { status: 'approved' })
+        }
+
+        if (errorCount > 0) {
+            toast.error(`${errorCount} questões falharam ao publicar.`)
+        } else {
+            toast.success(`${successCount} questões publicadas com sucesso!`)
+        }
+        
+        // Refresh data
+        handleSelectPackage(selectedPackage)
+        refreshPackages()
+        setLoading(false)
     }
 
     async function handleArchivePackage() {
@@ -379,6 +442,14 @@ export default function ConcursoAdminPackagesManager() {
                             Importar JSON
                         </button>
                         <button
+                            disabled={loading || pkgQuestions.length === 0 || selectedPackage.status === 'approved'}
+                            onClick={handlePublishPackage}
+                            className="flex items-center gap-2 px-8 py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-2xl text-[10px] font-black uppercase tracking-widest shadow-xl shadow-emerald-500/10 hover:scale-105 transition-all disabled:opacity-50 disabled:hover:scale-100"
+                        >
+                            <Send className="w-4 h-4" />
+                            Publicar Pacote
+                        </button>
+                        <button
                             onClick={handleArchivePackage}
                             className="flex items-center gap-2 px-8 py-3 bg-rose-50 text-rose-600 hover:bg-rose-600 hover:text-white border border-rose-100 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all"
                         >
@@ -497,13 +568,63 @@ export default function ConcursoAdminPackagesManager() {
                                         {promptData}
                                     </div>
                                     <button
-                                        onClick={() => {
-                                            navigator.clipboard.writeText(promptData)
-                                            toast.success('Protocolo copiado!')
+                                        onClick={async () => {
+                                            if (!promptData || isCopying) return;
+                                            
+                                            const copyToClipboard = async (text: string) => {
+                                                try {
+                                                    if (navigator.clipboard && window.isSecureContext) {
+                                                        await navigator.clipboard.writeText(text);
+                                                        return true;
+                                                    }
+                                                } catch (err) {
+                                                    console.error('Clipboard API failed', err);
+                                                }
+                                                
+                                                // Fallback to execCommand
+                                                try {
+                                                    const textArea = document.createElement("textarea");
+                                                    textArea.value = text;
+                                                    textArea.style.position = "fixed";
+                                                    textArea.style.left = "-9999px";
+                                                    textArea.style.top = "0";
+                                                    textArea.style.opacity = "0";
+                                                    document.body.appendChild(textArea);
+                                                    textArea.focus();
+                                                    textArea.select();
+                                                    const successful = document.execCommand('copy');
+                                                    document.body.removeChild(textArea);
+                                                    return successful;
+                                                } catch (err) {
+                                                    console.error('execCommand fallback failed', err);
+                                                    return false;
+                                                }
+                                            };
+
+                                            const success = await copyToClipboard(promptData);
+                                            if (success) {
+                                                setIsCopying(true);
+                                                toast.success('Protocolo copiado!');
+                                                setTimeout(() => setIsCopying(false), 2000);
+                                            } else {
+                                                toast.error('Erro ao copiar. Tente selecionar e copiar manualmente.');
+                                            }
                                         }}
-                                        className="w-full py-5 bg-indigo-600 text-white rounded-[2rem] font-black uppercase text-xs tracking-widest shadow-2xl"
+                                        className={`w-full py-5 rounded-[2rem] font-black uppercase text-xs tracking-widest shadow-2xl transition-all duration-300 flex items-center justify-center gap-3 ${
+                                            isCopying ? 'bg-emerald-600 text-white' : 'bg-indigo-600 text-white hover:bg-indigo-700'
+                                        }`}
                                     >
-                                        Copiar Protocolo de Geração
+                                        {isCopying ? (
+                                            <>
+                                                <CheckCircle2 className="w-5 h-5" />
+                                                Copiado com Sucesso!
+                                            </>
+                                        ) : (
+                                            <>
+                                                <Copy className="w-5 h-5" />
+                                                Copiar Protocolo de Geração
+                                            </>
+                                        )}
                                     </button>
                                 </div>
                             </motion.div>
@@ -672,7 +793,11 @@ export default function ConcursoAdminPackagesManager() {
                                     <td className="px-10 py-8">
                                         <div className="flex flex-col">
                                             <span className="text-[10px] font-black uppercase text-slate-900">{(pkg as any).banks?.name || 'PADRÃO'}</span>
-                                            <span className="text-[9px] font-bold text-slate-400 uppercase">{(pkg as any).question_blueprints?.name || 'MANUAL'}</span>
+                                            <span className="text-[9px] font-bold text-slate-400 uppercase">
+                                                {Array.isArray((pkg as any).blueprint) 
+                                                    ? (pkg as any).blueprint[0]?.name 
+                                                    : (pkg as any).blueprint?.name || 'MANUAL'}
+                                            </span>
                                         </div>
                                     </td>
                                     <td className="px-10 py-8 text-center text-sm font-black italic text-slate-900">
@@ -706,7 +831,7 @@ export default function ConcursoAdminPackagesManager() {
             <AnimatePresence>
                 {isCreateModalOpen && (
                     <div className="fixed inset-0 z-[100] flex items-center justify-center p-6 backdrop-blur-md bg-slate-900/60">
-                        <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="bg-white w-full max-w-4xl rounded-[3rem] border border-slate-200 overflow-hidden shadow-2xl relative">
+                        <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="bg-white w-full max-w-4xl rounded-[3rem] border border-slate-200 shadow-2xl relative">
                             <div className="absolute top-0 left-0 w-full h-1.5 bg-indigo-600" />
                             <div className="p-10 border-b border-slate-100 flex justify-between items-center bg-slate-50/50">
                                 <div>
@@ -718,7 +843,7 @@ export default function ConcursoAdminPackagesManager() {
                                 </button>
                             </div>
 
-                            <div className="p-12 grid grid-cols-1 lg:grid-cols-2 gap-10">
+                            <div className="p-12 pb-96 grid grid-cols-1 lg:grid-cols-2 gap-10 overflow-y-auto max-h-[70vh]">
                                 <div className="space-y-6">
                                     <div className="space-y-2">
                                         <label className="text-[10px] font-black uppercase text-slate-400 tracking-widest ml-1">1. Banca</label>
@@ -731,16 +856,14 @@ export default function ConcursoAdminPackagesManager() {
                                             {banks.map(b => <option key={b.id} value={b.id}>{b.name.toUpperCase()}</option>)}
                                         </select>
                                     </div>
-                                    <div className="space-y-2">
-                                        <label className="text-[10px] font-black uppercase text-slate-400 tracking-widest ml-1">2. Taxonomia (Área/Assunto)</label>
-                                        <select
-                                            value={createForm.taxonomy_path}
-                                            onChange={e => setCreateForm({ ...createForm, taxonomy_path: e.target.value })}
-                                            className="w-full h-14 bg-slate-50 border border-slate-200 rounded-2xl px-6 outline-none font-bold text-slate-900"
-                                        >
-                                            <option value="">Selecione o Item</option>
-                                            {taxonomyOptions.map(t => <option key={t.id} value={t.path}>{t.displayName.toUpperCase()}</option>)}
-                                        </select>
+                                    <div className="space-y-4">
+                                        <label className="text-[10px] font-black uppercase text-slate-400 tracking-widest ml-1">2. Taxonomia Estruturada</label>
+                                        <CascadingTaxonomySelector 
+                                            taxonomy={taxonomy}
+                                            form={createForm}
+                                            setForm={(updates) => setCreateForm(prev => ({ ...prev, ...updates }))}
+                                            questionCounts={questionCounts}
+                                        />
                                     </div>
                                     <div className="space-y-2">
                                         <label className="text-[10px] font-black uppercase text-slate-400 tracking-widest ml-1">3. Blueprint (Opcional)</label>
@@ -928,4 +1051,196 @@ function TaxonomyCoveragePanel({ taxonomy, questionCounts }: { taxonomy: Concurs
             )}
         </section>
     )
+}
+
+// --- Cascading Taxonomy Selector ---
+function CascadingTaxonomySelector({ 
+    taxonomy, 
+    form, 
+    setForm,
+    questionCounts 
+}: { 
+    taxonomy: ConcursoTaxonomyNode[], 
+    form: any, 
+    setForm: (updates: any) => void,
+    questionCounts: Record<string, number> 
+}) {
+    // Area -> Disciplina -> Subdisciplina -> Assunto
+    const areas = useMemo(() => taxonomy, [taxonomy])
+    
+    const disciplinas = useMemo(() => {
+        const area = areas.find(a => a.id === form.area_id)
+        return area?.children || []
+    }, [areas, form.area_id])
+
+    const subdisciplinas = useMemo(() => {
+        const disc = disciplinas.find(d => d.id === form.disciplina_id)
+        return disc?.children || []
+    }, [disciplinas, form.disciplina_id])
+
+    const assuntos = useMemo(() => {
+        const sub = subdisciplinas.find(s => s.id === form.subdisciplina_id)
+        return sub?.children || []
+    }, [subdisciplinas, form.subdisciplina_id])
+
+    function countNode(node: ConcursoTaxonomyNode): number {
+        let total = questionCounts[node.id] || 0
+        if (node.children) {
+            for (const child of node.children) {
+                total += countNode(child)
+            }
+        }
+        return total
+    }
+
+    return (
+        <div className="space-y-3">
+            {/* Level 1: AREA */}
+            <LevelSelect 
+                label="Área"
+                items={areas.map(a => ({ id: a.id, name: a.name, count: countNode(a) }))}
+                value={form.area_id}
+                onSelect={(node) => setForm({ 
+                    area_id: node.id, 
+                    disciplina_id: '', 
+                    subdisciplina_id: '', 
+                    assunto_id: '',
+                    taxonomy_path: node.name
+                })}
+            />
+
+            {/* Level 2: DISCIPLINA */}
+            {disciplinas.length > 0 && (
+                <LevelSelect 
+                    label="Disciplina"
+                    items={disciplinas.map(d => ({ id: d.id, name: d.name, count: countNode(d) }))}
+                    value={form.disciplina_id}
+                    onSelect={(node) => setForm({ 
+                        disciplina_id: node.id, 
+                        subdisciplina_id: '', 
+                        assunto_id: '',
+                        taxonomy_path: node.name
+                    })}
+                />
+            )}
+
+            {/* Level 3: SUBDISCIPLINA / ASSUNTO MAIOR */}
+            {subdisciplinas.length > 0 && (
+                <LevelSelect 
+                    label="Subdiretório"
+                    items={subdisciplinas.map(s => ({ id: s.id, name: s.name, count: countNode(s) }))}
+                    value={form.subdisciplina_id}
+                    onSelect={(node) => setForm({ 
+                        subdisciplina_id: node.id, 
+                        assunto_id: '',
+                        taxonomy_path: node.name
+                    })}
+                />
+            )}
+
+            {/* Level 4: ASSUNTO ESPECÍFICO */}
+            {assuntos.length > 0 && (
+                <LevelSelect 
+                    label="Assunto Específico"
+                    items={assuntos.map(a => ({ id: a.id, name: a.name, count: questionCounts[a.id] || 0 }))}
+                    value={form.assunto_id}
+                    onSelect={(node) => setForm({ 
+                        assunto_id: node.id,
+                        taxonomy_path: node.name
+                    })}
+                />
+            )}
+        </div>
+    )
+}
+
+function LevelSelect({ label, items, value, onSelect }: { label: string, items: any[], value: string, onSelect: (node: any) => void }) {
+    const [isOpen, setIsOpen] = useState(false)
+    const [search, setSearch] = useState('')
+    
+    const selected = items.find(i => i.id === value)
+    const filtered = items.filter(i => i.name.toLowerCase().includes(search.toLowerCase()))
+
+    return (
+        <div className="relative z-[140]">
+            <button
+                type="button"
+                onClick={() => setIsOpen(!isOpen)}
+                className={`w-full flex items-center justify-between px-5 py-3.5 rounded-2xl border transition-all ${
+                    value ? 'bg-white border-indigo-100 shadow-sm' : 'bg-slate-50 border-slate-200 opacity-60'
+                }`}
+            >
+                <div className="flex flex-col items-start min-w-0">
+                    <span className="text-[8px] font-black uppercase text-slate-400 tracking-widest">{label}</span>
+                    <span className="text-[11px] font-bold text-slate-900 truncate">
+                        {selected ? selected.name.toUpperCase() : `Selecione ${label}...`}
+                    </span>
+                </div>
+                <div className="flex items-center gap-2">
+                    {selected?.count > 0 && (
+                        <span className="px-2 py-0.5 bg-emerald-50 text-emerald-600 rounded-md text-[8px] font-black">
+                            {selected.count}Q
+                        </span>
+                    )}
+                    <ChevronRight className={`w-4 h-4 text-slate-400 transition-transform ${isOpen ? 'rotate-90' : ''}`} />
+                </div>
+            </button>
+
+            <AnimatePresence>
+                {isOpen && (
+                    <>
+                        <div className="fixed inset-0 z-[120]" onClick={() => setIsOpen(false)} />
+                        <motion.div
+                            initial={{ opacity: 0, y: 5, scale: 0.98 }}
+                            animate={{ opacity: 1, y: 0, scale: 1 }}
+                            className="absolute mt-2 w-full bg-white border border-slate-200 rounded-2xl shadow-2xl z-[130] overflow-hidden flex flex-col max-h-[250px]"
+                        >
+                            {items.length > 5 && (
+                                <div className="p-3 bg-slate-50 border-b border-slate-100">
+                                    <input 
+                                        autoFocus
+                                        placeholder="Buscar..."
+                                        value={search}
+                                        onChange={e => setSearch(e.target.value)}
+                                        className="w-full h-8 px-3 rounded-lg border border-slate-200 text-[10px] font-bold outline-none focus:border-indigo-400"
+                                    />
+                                </div>
+                            )}
+                            <div className="overflow-y-auto p-1.5 space-y-0.5">
+                                {filtered.map(i => (
+                                    <button
+                                        key={i.id}
+                                        onClick={() => {
+                                            onSelect(i)
+                                            setIsOpen(false)
+                                            setSearch('')
+                                        }}
+                                        className={`w-full flex items-center justify-between px-4 py-2.5 rounded-xl transition-all hover:bg-indigo-50 ${
+                                            value === i.id ? 'bg-indigo-50/50 text-indigo-600 font-black' : 'text-slate-600'
+                                        }`}
+                                    >
+                                        <span className="text-[10px] uppercase font-bold text-left">{i.name}</span>
+                                        {i.count > 0 && <span className="text-[8px] font-black opacity-40">{i.count}Q</span>}
+                                    </button>
+                                ))}
+                            </div>
+                        </motion.div>
+                    </>
+                )}
+            </AnimatePresence>
+        </div>
+    )
+}
+
+function TaxonomySearchableSelect({ 
+    options, 
+    value, 
+    onSelect 
+}: { 
+    options: any[], 
+    value: string, 
+    onSelect: (val: string) => void 
+}) {
+    // Keep this for backward compat or other places if needed, but we used Cascading above
+    return null; 
 }

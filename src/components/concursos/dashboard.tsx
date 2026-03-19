@@ -17,7 +17,8 @@ import {
     ArrowRight,
     Trophy,
     Target,
-    FileText
+    FileText,
+    Users
 } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { useState, useMemo, useEffect } from 'react'
@@ -141,6 +142,31 @@ export function ConcursoDashboard() {
         </div>
     )
 
+    const renderDuplaCard = () => (
+        <div key="dupla-card" className="bg-emerald-500/10 border-2 border-emerald-500/20 rounded-[40px] p-8 md:p-10 text-emerald-950 relative overflow-hidden group mb-8 md:col-span-2">
+            <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:scale-110 group-hover:-rotate-12 transition-transform duration-700">
+                <Users className="w-40 h-40 text-emerald-500" />
+            </div>
+            <div className="relative z-10 space-y-6">
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/20 text-emerald-700 text-[10px] font-black uppercase tracking-widest">
+                    <Sparkles className="w-3 h-3" /> NOVO
+                </div>
+                <h3 className="text-3xl md:text-5xl font-black italic uppercase tracking-tighter leading-none text-[#1A1033]">
+                    Módulo <br /> <span className="text-emerald-500">Dupla</span>
+                </h3>
+                <p className="text-slate-600 font-medium text-sm max-w-xs">
+                    Estude ao vivo com outro usuário no mesmo simulado, sincronizados em tempo real.
+                </p>
+                <button 
+                    onClick={() => router.push('/dupla')}
+                    className="flex items-center gap-3 bg-emerald-500 text-white px-8 py-4 rounded-2xl font-black text-xs uppercase tracking-widest shadow-xl shadow-emerald-500/20 hover:bg-emerald-600 transition-all"
+                >
+                    Entrar no QRub Dupla <ArrowRight className="w-4 h-4" />
+                </button>
+            </div>
+        </div>
+    )
+
     const WIDGET_MAP: Record<string, () => React.ReactNode> = {
         'CONCURSO_STATS_CARD': renderStatsCard,
         'CONCURSO_AREAS_GRID': renderAreasGrid,
@@ -170,6 +196,7 @@ export function ConcursoDashboard() {
                         {WIDGET_MAP[widget.id]?.()}
                     </div>
                 ))}
+                {renderDuplaCard()}
             </div>
             
             {/* Disclaimer for Admin Master */}
