@@ -1,4 +1,5 @@
 import { RealtimeChannel, createClient } from '@supabase/supabase-js'
+import { fetchDuoSession } from './duo-service'
 
 // Assume that the user will implement their own singleton or use an existing one
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || ''
@@ -17,6 +18,7 @@ export class DuoRealtimeEngine {
     // Callbacks
     public onSessionUpdated?: (payload: any) => void
     public onParticipantPresence?: (onlineUsers: string[]) => void
+    public onParticipantsChanged?: () => void
     public onChatReceived?: (message: {text: string, userId: string}) => void
     public onWebRTCSignal?: (signal: any) => void
 
@@ -28,7 +30,7 @@ export class DuoRealtimeEngine {
     /**
      * Connects to Supabase Channel, Presence & DB Changes
      */
-    public subscribe() {
+    public subscribe(onSubscribed?: () => void) {
         if (this.channel) return // already subscribed
 
         this.channel = supabase.channel(`duo_session:${this.sessionId}`, {
@@ -45,6 +47,16 @@ export class DuoRealtimeEngine {
             filter: `id=eq.${this.sessionId}`
         }, (payload) => {
             if (this.onSessionUpdated) this.onSessionUpdated(payload.new)
+        })
+
+        // 1.1 Listen to DB changes on 'duo_session_participants' (Insertion and Updates)
+        this.channel.on('postgres_changes', {
+            event: '*',
+            schema: 'public',
+            table: 'duo_session_participants',
+            filter: `session_id=eq.${this.sessionId}`
+        }, () => {
+            if (this.onParticipantsChanged) this.onParticipantsChanged()
         })
 
         // 2. Listen to Presence Sync (who is online in the room)
@@ -69,6 +81,12 @@ export class DuoRealtimeEngine {
             }
         })
 
+        // 5. Sync Ping (Fallback for manual refreshing)
+        this.channel.on('broadcast', { event: 'sync_ping' }, () => {
+             if (this.onParticipantsChanged) this.onParticipantsChanged()
+             if (this.onSessionUpdated) fetchDuoSession(this.sessionId).then(res => this.onSessionUpdated!(res.session))
+        })
+
         // Finally Subscribe
         this.channel.subscribe(async (status) => {
             if (status === 'SUBSCRIBED') {
@@ -76,6 +94,7 @@ export class DuoRealtimeEngine {
                 await this.channel!.track({
                     online_at: new Date().toISOString(),
                 })
+                if (onSubscribed) onSubscribed()
             }
         })
     }

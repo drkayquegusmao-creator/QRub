@@ -126,7 +126,7 @@ function DuoModuleHome({ user, onSessionJoined }: { user: any, onSessionJoined: 
 // WAITING ROOM VIEW
 // ==========================================
 
-function DuoWaitingRoom({ user, session, participants, onlineUsers }: { user: any, session: DuoSession, participants: DuoParticipant[], onlineUsers: string[] }) {
+function DuoWaitingRoom({ user, session, participants, onlineUsers, engine }: { user: any, session: DuoSession, participants: DuoParticipant[], onlineUsers: string[], engine: DuoRealtimeEngine | null }) {
     const [copied, setCopied] = useState(false)
     const [loading, setLoading] = useState(false)
 
@@ -143,6 +143,7 @@ function DuoWaitingRoom({ user, session, participants, onlineUsers }: { user: an
         setLoading(true)
         try {
             await markAsReady(session.id, user.id)
+            engine?.triggerSyncPing()
             toast.success("Pronto!")
         } catch (e: any) {
             toast.error("Erro ao aplicar pronto")
@@ -156,6 +157,7 @@ function DuoWaitingRoom({ user, session, participants, onlineUsers }: { user: an
     const handleConfigure = async () => {
         setLoading(true)
         await advanceSessionStatus(session.id, 'configuring')
+        engine?.triggerSyncPing()
         setLoading(false)
     }
 
@@ -671,6 +673,10 @@ export default function DuplaModule() {
         const newEngine = new DuoRealtimeEngine(s.id, usr.id)
         
         newEngine.onParticipantPresence = (users) => setState(p => ({ ...p, onlineUsers: users }))
+        newEngine.onParticipantsChanged = async () => {
+            const { participants } = await fetchDuoSession(s.id)
+            setState(p => ({ ...p, participants }))
+        }
         newEngine.onSessionUpdated = async (updated) => {
             const { participants } = await fetchDuoSession(updated.id)
             setState(p => {
@@ -682,7 +688,7 @@ export default function DuplaModule() {
             })
         }
 
-        newEngine.subscribe()
+        newEngine.subscribe(() => newEngine.triggerSyncPing())
         setEngine(newEngine)
     }, [engine])
 
@@ -712,7 +718,7 @@ export default function DuplaModule() {
                 )}
                 <AnimatePresence mode="wait">
                     {state.view === 'home' && <motion.div key="home" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}><DuoModuleHome user={user} onSessionJoined={handleJoin} /></motion.div>}
-                    {state.view === 'waiting_room' && state.session && <motion.div key="waiting" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}><DuoWaitingRoom user={user} session={state.session} participants={state.participants} onlineUsers={state.onlineUsers} /></motion.div>}
+                    {state.view === 'waiting_room' && state.session && <motion.div key="waiting" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}><DuoWaitingRoom user={user} session={state.session} participants={state.participants} onlineUsers={state.onlineUsers} engine={engine} /></motion.div>}
                     {state.view === 'configuring' && state.session && <motion.div key="config" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}><DuoConfiguring session={state.session} user={user} /></motion.div>}
                     {state.view === 'session_active' && state.session && <motion.div key="active" initial={{opacity:0, scale:0.95}} animate={{opacity:1, scale:1}} exit={{opacity:0}}><DuoSessionActive session={state.session} user={user} engine={engine} /></motion.div>}
                     {state.view === 'results' && state.session && <motion.div key="res" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}><DuoResults session={state.session} engine={engine} /></motion.div>}
