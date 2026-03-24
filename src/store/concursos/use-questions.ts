@@ -31,6 +31,8 @@ interface ConcursoQuestionsState {
     loadQuestions: (filters?: {
         area_id?: string,
         disciplina_id?: string,
+        subdisciplina_id?: string,
+        assunto_id?: string,
         difficulty?: string,
         banca_id?: string,
         searchTerm?: string,
@@ -61,12 +63,17 @@ export const useConcursoQuestions = create<ConcursoQuestionsState>()((set) => ({
 
             if (filters?.area_id) query = query.eq('area_id', filters.area_id)
             if (filters?.disciplina_id) query = query.eq('disciplina_id', filters.disciplina_id)
+            if (filters?.subdisciplina_id) query = query.eq('subdisciplina_id', filters.subdisciplina_id)
+            if (filters?.assunto_id) query = query.eq('assunto_id', filters.assunto_id)
             if (filters?.difficulty) query = query.eq('difficulty', filters.difficulty)
             if (filters?.banca_id) query = query.eq('banca_id', filters.banca_id)
             if (filters?.searchTerm) query = query.ilike('enunciado', `%${filters.searchTerm}%`)
 
+            if (pageSize > 0) {
+                query = query.range(from, to)
+            }
+            
             const { data, error, count } = await query
-                .range(from, to)
                 .order('created_at', { ascending: false })
 
             if (error) throw error

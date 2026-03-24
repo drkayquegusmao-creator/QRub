@@ -101,34 +101,68 @@ export const useConcursoTaxonomy = create<ConcursoTaxonomyState>()((set, get) =>
         return { success: true, message: 'Excluído com sucesso' }
     },
 
-    getAreas: () => get().taxonomy.flatMap(env => env.children || []).filter(t => t.level === 'area'),
+    getAreas: () => {
+        const taxonomy = get().taxonomy
+        // Se houver nós de nível 'area' na raiz, retornamos eles
+        const rootAreas = taxonomy.filter(t => t.level === 'area')
+        if (rootAreas.length > 0) return rootAreas
+
+        // Caso exista um nível environment acima (futuro), buscamos seus filhos
+        return taxonomy.flatMap(env => env.children || []).filter(t => t.level === 'area')
+    },
     
     getDisciplinasByArea: (areaId) => {
         if (!areaId) return []
-        const areas = get().getAreas()
-        const area = areas.find(a => a.id === areaId)
+        
+        // Procuramos a área em qualquer lugar da árvore (raiz ou filhos de env)
+        const findArea = (nodes: ConcursoTaxonomyNode[]): ConcursoTaxonomyNode | undefined => {
+            for (const node of nodes) {
+                if (node.id === areaId) return node
+                if (node.children) {
+                    const found = findArea(node.children)
+                    if (found) return found
+                }
+            }
+            return undefined
+        }
+
+        const area = findArea(get().taxonomy)
         return area?.children || []
     },
 
     getSubdisciplinasByDisciplina: (disciplinaId) => {
         if (!disciplinaId) return []
-        const areas = get().getAreas()
-        for (const area of areas) {
-            const disc = area.children?.find(d => d.id === disciplinaId)
-            if (disc) return disc.children || []
+        
+        const findNode = (nodes: ConcursoTaxonomyNode[]): ConcursoTaxonomyNode | undefined => {
+            for (const node of nodes) {
+                if (node.id === disciplinaId) return node
+                if (node.children) {
+                    const found = findNode(node.children)
+                    if (found) return found
+                }
+            }
+            return undefined
         }
-        return []
+
+        const disc = findNode(get().taxonomy)
+        return disc?.children || []
     },
 
     getAssuntosBySubdisciplina: (subId) => {
         if (!subId) return []
-        const areas = get().getAreas()
-        for (const area of areas) {
-            for (const disc of (area.children || [])) {
-                const sub = disc.children?.find(s => s.id === subId)
-                if (sub) return sub.children || []
+        
+        const findNode = (nodes: ConcursoTaxonomyNode[]): ConcursoTaxonomyNode | undefined => {
+            for (const node of nodes) {
+                if (node.id === subId) return node
+                if (node.children) {
+                    const found = findNode(node.children)
+                    if (found) return found
+                }
             }
+            return undefined
         }
-        return []
+
+        const sub = findNode(get().taxonomy)
+        return sub?.children || []
     }
 }))

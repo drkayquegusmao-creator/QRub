@@ -193,11 +193,13 @@ export default function ConcursoAdminPackagesManager() {
             return
         }
         setLoading(true)
+
         const { data, error } = await createConcursoPackage({
             ...createForm,
             status: 'draft'
         })
         if (error) {
+            console.error(error)
             toast.error('Erro ao criar pacote')
         } else {
             toast.success('Pacote criado!')
@@ -293,15 +295,15 @@ export default function ConcursoAdminPackagesManager() {
     async function handlePublishPackage() {
         if (!selectedPackage || pkgQuestions.length === 0) return
         
+        const confirmMsg = `Deseja publicar/atualizar ${pkgQuestions.length} questões no banco de dados ativo?`
+        if (!confirm(confirmMsg)) return
+
+        const loadingToast = toast.loading(`Publicando ${pkgQuestions.length} questões...`)
         setLoading(true)
         let successCount = 0
         let errorCount = 0
 
         for (const pq of pkgQuestions) {
-            if (pq.status === 'approved') {
-                successCount++
-                continue
-            }
             const res = await publishConcursoQuestion(pq.id)
             if (res.success) successCount++
             else errorCount++
@@ -312,10 +314,18 @@ export default function ConcursoAdminPackagesManager() {
             await updateConcursoPackage(selectedPackage.id, { status: 'approved' })
         }
 
+        toast.dismiss(loadingToast)
         if (errorCount > 0) {
-            toast.error(`${errorCount} questões falharam ao publicar.`)
+            toast.error(`${successCount} publicadas, ${errorCount} falharam. Verifique o console.`)
         } else {
-            toast.success(`${successCount} questões publicadas com sucesso!`)
+            toast.success(`${successCount} QUESTÕES SINCRONIZADAS COM SUCESSO! 🚀`, {
+                duration: 5000,
+                style: {
+                    background: '#10b981',
+                    color: '#fff',
+                    fontWeight: 'bold',
+                }
+            })
         }
         
         // Refresh data
@@ -442,7 +452,7 @@ export default function ConcursoAdminPackagesManager() {
                             Importar JSON
                         </button>
                         <button
-                            disabled={loading || pkgQuestions.length === 0 || selectedPackage.status === 'approved'}
+                            disabled={loading || pkgQuestions.length === 0}
                             onClick={handlePublishPackage}
                             className="flex items-center gap-2 px-8 py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-2xl text-[10px] font-black uppercase tracking-widest shadow-xl shadow-emerald-500/10 hover:scale-105 transition-all disabled:opacity-50 disabled:hover:scale-100"
                         >

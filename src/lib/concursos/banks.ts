@@ -45,6 +45,10 @@ export interface ConcursoQuestionPackage {
     status: 'draft' | 'reviewing' | 'approved' | 'published' | 'archived'
     generation_prompt_snapshot?: string
     notes?: string
+    area_id?: string
+    disciplina_id?: string
+    subdisciplina_id?: string
+    assunto_id?: string
     created_at?: string
     updated_at?: string
     // Joined
@@ -380,7 +384,7 @@ export async function publishConcursoQuestion(packageQuestionId: string): Promis
     try {
         const { data: pq, error: fetchErr } = await supabase
             .from('concurso_package_questions')
-            .select('*, package:concurso_question_packages(taxonomy_path, bank_id, banks:concurso_banks(name))')
+            .select('*, package:concurso_question_packages(taxonomy_path, bank_id, area_id, disciplina_id, subdisciplina_id, assunto_id, banks:concurso_banks(name))')
             .eq('id', packageQuestionId)
             .single()
 
@@ -407,6 +411,10 @@ export async function publishConcursoQuestion(packageQuestionId: string): Promis
                 difficulty: qj.difficulty || 'media',
                 status: 'active',
                 banca_id: pq.package?.bank_id,
+                area_id: pq.package?.area_id,
+                disciplina_id: pq.package?.disciplina_id,
+                subdisciplina_id: pq.package?.subdisciplina_id,
+                assunto_id: pq.package?.assunto_id,
                 source: pq.package?.banks?.name || 'Manual',
                 taxonomy_path: pq.package?.taxonomy_path,
                 metadata: {

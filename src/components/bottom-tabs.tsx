@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { LayoutDashboard, BookOpen, BarChart2, User, History, Settings, LayoutGrid } from 'lucide-react'
+import { LayoutDashboard, BookOpen, BarChart2, User, History, Settings, LayoutGrid, Calendar, Sparkles } from 'lucide-react'
 import { clsx, type ClassValue } from 'clsx'
 import { twMerge } from 'tailwind-merge'
 import { motion } from 'framer-motion'
@@ -20,12 +20,18 @@ export function BottomTabs() {
     const isConcursos = pathname?.startsWith('/concursos')
     const basePath = isConcursos ? '/concursos' : '/dashboard'
 
-    const finalTabs = [
-        { label: 'Início', icon: LayoutDashboard, href: basePath },
-        { label: 'Praticar', icon: BookOpen, href: `${basePath}/setup` },
-        { label: 'Mapa', icon: LayoutGrid, href: `${basePath}?tab=MAPA` },
-        { label: 'Caderno', icon: History, href: `${basePath}/errors` },
-        { label: 'Métricas', icon: BarChart2, href: `${basePath}/stats` },
+    const finalTabs = isConcursos ? [
+        { label: 'Início', icon: LayoutDashboard, href: '/concursos' },
+        { label: 'Agenda', icon: Calendar, href: '/concursos/agenda' },
+        { label: 'Praticar', icon: BookOpen, href: '/concursos/setup' },
+        { label: 'Revisão', icon: Sparkles, href: '/concursos/revisao' },
+        { label: 'Métricas', icon: BarChart2, href: '/concursos/estatisticas' },
+    ] : [
+        { label: 'Início', icon: LayoutDashboard, href: '/dashboard' },
+        { label: 'Praticar', icon: BookOpen, href: '/dashboard/setup' },
+        { label: 'Mapa', icon: LayoutGrid, href: '/dashboard?tab=MAPA' },
+        { label: 'Caderno', icon: History, href: '/dashboard/errors' },
+        { label: 'Métricas', icon: BarChart2, href: '/dashboard/stats' },
     ]
 
     if (user?.role === 'MASTER') {

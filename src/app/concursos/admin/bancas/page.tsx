@@ -327,6 +327,7 @@ export default function ConcursoBancasPage() {
     const [error, setError] = useState<string | null>(null)
     const [selectedBank, setSelectedBank] = useState<ConcursoBank | null>(null)
     const [isCreateModalOpen, setIsCreateModalOpen] = useState(false)
+    const [editingBank, setEditingBank] = useState<ConcursoBank | null>(null)
     const [newBank, setNewBank] = useState({ name: '', slug: '', description: '' })
     const [searchTerm, setSearchTerm] = useState('')
 
@@ -340,14 +341,24 @@ export default function ConcursoBancasPage() {
 
     useEffect(() => { loadBanks() }, [loadBanks])
 
-    async function handleCreate() {
+    async function handleSaveBank() {
         if (!newBank.name.trim()) return
-        const { data, error: err } = await createConcursoBank(newBank)
-        if (err) {
-            toast.error('Erro ao criar banca')
+        
+        const payload = { ...newBank }
+        let res;
+        
+        if (editingBank) {
+            res = await updateConcursoBank(editingBank.id, payload)
         } else {
-            toast.success('Banca integrada com sucesso!')
+            res = await createConcursoBank(payload)
+        }
+        
+        if (res.error) {
+            toast.error(`Erro ao ${editingBank ? 'atualizar' : 'criar'} banca`)
+        } else {
+            toast.success(`Banca ${editingBank ? 'atualizada' : 'integrada'} com sucesso!`)
             setNewBank({ name: '', slug: '', description: '' })
+            setEditingBank(null)
             setIsCreateModalOpen(false)
             loadBanks()
         }
@@ -438,6 +449,16 @@ export default function ConcursoBancasPage() {
                                 Configurar IA
                             </button>
                             <button
+                                onClick={() => {
+                                    setEditingBank(bank)
+                                    setNewBank({ name: bank.name, slug: bank.slug, description: bank.description || '' })
+                                    setIsCreateModalOpen(true)
+                                }}
+                                className="w-14 h-14 flex items-center justify-center rounded-2xl transition-all border bg-slate-50 text-slate-400 border-slate-100 hover:bg-indigo-50 hover:text-indigo-600 hover:border-indigo-100"
+                            >
+                                <Edit2 size={20} />
+                            </button>
+                            <button
                                 onClick={() => handleToggleActive(bank)}
                                 className={`w-14 h-14 flex items-center justify-center rounded-2xl transition-all border ${bank.is_active ? 'bg-white text-slate-200 border-slate-100 hover:bg-rose-50 hover:text-rose-600 hover:border-rose-100' : 'bg-emerald-50 text-emerald-600 border-emerald-100 hover:bg-emerald-600 hover:text-white'}`}
                             >
@@ -455,7 +476,9 @@ export default function ConcursoBancasPage() {
                         <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="bg-white w-full max-w-xl rounded-[3rem] p-12 space-y-10 shadow-2xl relative overflow-hidden">
                             <div className="absolute top-0 right-0 w-48 h-48 bg-indigo-50 rounded-full blur-3xl -mr-24 -mt-24 opacity-50" />
                             <div className="relative">
-                                <h3 className="text-3xl font-black italic uppercase tracking-tighter text-slate-900 leading-none">Nova Banca no Hub</h3>
+                                <h3 className="text-3xl font-black italic uppercase tracking-tighter text-slate-900 leading-none">
+                                    {editingBank ? 'Editar Banca' : 'Nova Banca no Hub'}
+                                </h3>
                                 <p className="text-slate-400 text-[10px] font-black uppercase tracking-widest mt-2 opacity-60">Ambiente Concursos Master</p>
                             </div>
 
@@ -481,10 +504,10 @@ export default function ConcursoBancasPage() {
                             </div>
 
                             <div className="flex gap-6 justify-end relative">
-                                <button onClick={() => setIsCreateModalOpen(false)} className="px-8 py-4 text-slate-400 font-black uppercase text-[10px] tracking-widest hover:text-slate-900 transition-colors">Voltar</button>
-                                <button onClick={handleCreate} disabled={!newBank.name}
+                                <button onClick={() => { setIsCreateModalOpen(false); setEditingBank(null); setNewBank({ name: '', slug: '', description: '' }); }} className="px-8 py-4 text-slate-400 font-black uppercase text-[10px] tracking-widest hover:text-slate-900 transition-colors">Voltar</button>
+                                <button onClick={handleSaveBank} disabled={!newBank.name}
                                     className="flex-1 py-5 bg-indigo-600 hover:bg-indigo-700 text-white text-[11px] font-black uppercase tracking-widest rounded-3xl shadow-2xl shadow-indigo-600/20 transition-all hover:scale-105 active:scale-95">
-                                    Confirmar Cadastro
+                                    {editingBank ? 'Salvar Alterações' : 'Confirmar Cadastro'}
                                 </button>
                             </div>
                         </motion.div>

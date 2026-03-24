@@ -3,10 +3,12 @@
 import { useEffect, useState, useCallback } from 'react'
 import {
     getConcursoEditais,
+    getConcursoEditalById,
     publishConcursoEdital,
     archiveConcursoEdital,
     deleteConcursoEdital,
     type Edital,
+    type EditalWithDetails,
     formatDate_BR,
     formatCurrency,
 } from '@/lib/concursos/editais'
@@ -140,7 +142,7 @@ export default function ConcursoEditaisAdminPage() {
     const [filterStatus, setFilterStatus] = useState<string>('')
 
     const [showForm, setShowForm] = useState(false)
-    const [editingEdital, setEditingEdital] = useState<Edital | null>(null)
+    const [editingEdital, setEditingEdital] = useState<EditalWithDetails | null>(null)
     const [importingEditalId, setImportingEditalId] = useState<string | null>(null)
     const [filtersEdital, setFiltersEdital] = useState<Edital | null>(null)
 
@@ -287,7 +289,15 @@ export default function ConcursoEditaisAdminPage() {
                                     <EditalRow
                                         key={edital.id}
                                         edital={edital}
-                                        onEdit={() => { setEditingEdital(edital); setShowForm(true) }}
+                                        onEdit={async () => { 
+                                            const { data, error } = await getConcursoEditalById(edital.id);
+                                            if (error || !data) {
+                                                toast.error('Erro ao carregar detalhes do edital');
+                                                return;
+                                            }
+                                            setEditingEdital(data); 
+                                            setShowForm(true); 
+                                        }}
                                         onPublish={() => handlePublish(edital.id)}
                                         onArchive={() => handleArchive(edital.id)}
                                         onDelete={() => handleDelete(edital.id)}
@@ -305,7 +315,7 @@ export default function ConcursoEditaisAdminPage() {
             <AnimatePresence>
                 {showForm && (
                     <ConcursoEditalFormModal
-                        edital={editingEdital as any}
+                        edital={editingEdital || undefined}
                         onClose={() => { setShowForm(false); setEditingEdital(null) }}
                         onSuccess={() => { setShowForm(false); setEditingEdital(null); loadEditais() }}
                     />

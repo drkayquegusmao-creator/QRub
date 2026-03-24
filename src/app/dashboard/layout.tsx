@@ -6,32 +6,27 @@ import { useEffect, useState } from 'react'
 import { BottomTabs } from '@/components/bottom-tabs'
 import { UserProfileModal } from '@/components/user-profile-modal'
 import { SettingsModal } from '@/components/settings-modal'
-import { SupportChatWidget } from '@/components/support-chat-widget'
-import { Hexagon, LogOut, Moon, Sun, Shield, User, Share2, Settings, ArrowLeftRight } from 'lucide-react'
+import { SaudeSidebar } from '@/components/saude/sidebar'
+import { Menu, X, Hexagon, LogOut, User as UserIcon } from 'lucide-react'
 import { useTheme } from 'next-themes'
 import Link from 'next/link'
-import { clsx, type ClassValue } from 'clsx'
-import { twMerge } from 'tailwind-merge'
+import { cn } from '@/lib/utils'
 import { usePreferences } from '@/store/use-preferences'
-import { isMasterEmail } from '@/lib/auth-constants'
+import { motion, AnimatePresence } from 'framer-motion'
 
-function cn(...inputs: ClassValue[]) {
-    return twMerge(clsx(inputs))
-}
-
-export default function DashboardLayout({ children }: { children: React.ReactNode }) {
+export default function SaudeLayout({ children }: { children: React.ReactNode }) {
     const { user, isAuthenticated, logout } = useAuth()
     const router = useRouter()
     const pathname = usePathname()
-    // ... rest of the code
     const { theme, setTheme } = useTheme()
+    
+    const [isLoaded, setIsLoaded] = useState(false)
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
     const [showProfileModal, setShowProfileModal] = useState(false)
     const [showSettingsModal, setShowSettingsModal] = useState(false)
-    const [isLoaded, setIsLoaded] = useState(false)
     const { loadPreferences } = usePreferences()
 
     useEffect(() => {
-        // Pequeno delay para garantir que o Zustand carregou o localStorage
         const timer = setTimeout(() => {
             setIsLoaded(true)
             if (user?.id) {
@@ -48,174 +43,142 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                 return
             }
 
-            // Se for Master, nunca redireciona pro onboarding
-            if (user?.role === 'MASTER') return
-
-            if (user && !user.profile_completed) {
+            if (user && !user.profile_completed && user.role !== 'MASTER') {
                 router.push('/onboarding')
             }
         }
     }, [isLoaded, isAuthenticated, user, router])
 
+    // Close mobile menu on path change
+    useEffect(() => {
+        setMobileMenuOpen(false)
+    }, [pathname])
+
     if (!isLoaded || !isAuthenticated) {
-        return <div className="min-h-screen bg-background flex items-center justify-center">
-            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
-        </div>
+        return (
+            <div className="min-h-screen bg-[#111827] flex items-center justify-center">
+                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-emerald-500"></div>
+            </div>
+        )
     }
 
-    const isConcursos = pathname?.startsWith('/concursos')
-    const homePath = isConcursos ? '/concursos' : '/dashboard'
-    const adminPath = isConcursos ? '/concursos/admin' : '/admin'
-
-    const isQuizPage = pathname?.includes('/dashboard/quiz') || pathname?.includes('/concursos/quiz')
-    const isErrorPage = pathname?.includes('/dashboard/errors') || pathname?.includes('/concursos/errors')
-    const hideNav = isQuizPage || isErrorPage
+    const isQuizPage = pathname?.includes('/dashboard/quiz') || pathname?.includes('/dashboard/setup')
+    const hideNav = isQuizPage
 
     return (
-        <div className={cn(
-            "min-h-screen bg-background transition-all",
-            hideNav ? "pb-0" : "pb-32 md:pb-0"
-        )}>
-            {/* Minimal Top Navigation */}
+        <div className="min-h-screen bg-[#F8FAFC] dark:bg-[#0B0F1A] text-slate-900 dark:text-slate-100 selection:bg-emerald-500/30">
+            {/* Desktop Sidebar */}
+            {!hideNav && <SaudeSidebar />}
+
+            {/* Mobile Header */}
             {!hideNav && (
-                <header className="fixed top-0 z-40 w-full bg-background/50 backdrop-blur-xl border-b border-white/5 [[data-banner-active=true]_&]:translate-y-10 transition-transform duration-200">
-                    <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-                        <div className="flex items-center gap-4">
-                            <Link href={homePath} className="flex items-center gap-3 group transition-all">
-                                <div className={cn(
-                                    "p-2 rounded-xl shadow-lg transition-transform group-hover:scale-110",
-                                    isConcursos ? "bg-indigo-500 shadow-indigo-500/20" : "bg-primary shadow-primary/20"
-                                )}>
-                                    <Hexagon className="w-5 h-5 text-white fill-white/20" />
-                                </div>
-                                <div className="flex flex-col leading-none">
-                                    <span className="text-2xl font-black italic uppercase tracking-tighter">QRub</span>
-                                    {isConcursos && <span className="text-[8px] font-black uppercase tracking-[0.2em] text-indigo-500">Concursos</span>}
-                                </div>
-                            </Link>
-
-                            {isMasterEmail(user?.email) && (
-                                <Link href={isConcursos ? '/dashboard' : '/concursos'}>
-                                    <button
-                                        className={cn(
-                                            "hidden sm:flex items-center gap-2 px-4 py-2 rounded-2xl transition-all text-[10px] font-black uppercase tracking-widest border shadow-sm group/switch",
-                                            isConcursos 
-                                                ? "bg-primary/10 text-primary border-primary/20 hover:bg-primary hover:text-white shadow-primary/10" 
-                                                : "bg-indigo-500/10 text-indigo-600 border-indigo-500/20 hover:bg-indigo-500 hover:text-white shadow-indigo-500/10"
-                                        )}
-                                        title={isConcursos ? "Mudar para Saúde" : "Mudar para Concursos"}
-                                    >
-                                        <ArrowLeftRight className="w-3.5 h-3.5 group-hover/switch:rotate-180 transition-transform duration-500" />
-                                        <span className="hidden lg:inline">{isConcursos ? "Saúde" : "Concursos"}</span>
-                                    </button>
-                                </Link>
-                            )}
-
-                            <button
-                                onClick={async () => {
-                                    const shareData = {
-                                        title: 'QRub | Plataforma de Questões de Alta Performance',
-                                        text: `🚀 QRub${isConcursos ? ' Concursos' : ''}: Sua Aprovação Começa Aqui!\n\nA plataforma definitiva para ${isConcursos ? 'concursos públicos' : 'residência médica'}.\n\n✅ Questões comentadas por especialistas\n✅ Agenda inteligente\n✅ Métricas detalhadas\n\nAcesse agora:`,
-                                        url: 'https://qrub.com.br'
-                                    };
-
-                                    if (navigator.share && /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-                                        try {
-                                            await navigator.share(shareData);
-                                        } catch (err) {
-                                            const waText = encodeURIComponent(`${shareData.text} ${shareData.url}`);
-                                            window.open(`https://wa.me/?text=${waText}`, '_blank');
-                                        }
-                                    } else {
-                                        const waText = encodeURIComponent(`${shareData.text} ${shareData.url}`);
-                                        window.open(`https://wa.me/?text=${waText}`, '_blank');
-                                    }
-                                }}
-                                className="hidden sm:flex items-center gap-2 px-4 py-2 rounded-2xl bg-emerald-500/10 text-emerald-600 hover:bg-emerald-500 hover:text-white transition-all text-[10px] font-black uppercase tracking-widest border border-emerald-500/20 shadow-sm group/share"
-                                title="Compartilhar QRub"
-                            >
-                                <Share2 className="w-3.5 h-3.5" />
-                                <span className="hidden lg:inline">Compartilhar</span>
-                            </button>
+                <header className="md:hidden fixed top-0 z-[60] w-full bg-white dark:bg-[#111827] border-b border-slate-200 dark:border-white/5 px-4 h-16 flex items-center justify-between">
+                    <Link href="/dashboard" className="flex items-center gap-2.5">
+                        <div className="p-1.5 rounded-lg bg-emerald-500 shadow-md shadow-emerald-500/10">
+                            <Hexagon className="w-4 h-4 text-white fill-white/20" />
                         </div>
-
-                        <div className="flex items-center gap-3">
-
-
-                            <button
-                                onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-                                className="p-3 rounded-2xl bg-muted/50 text-muted-foreground hover:text-primary transition-all hover:bg-primary/5"
-                            >
-                                {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-                            </button>
-
-                            <button
-                                onClick={() => setShowSettingsModal(true)}
-                                className="p-3 rounded-2xl bg-muted/50 text-muted-foreground hover:text-primary transition-all hover:bg-primary/5"
-                            >
-                                <Settings className="w-5 h-5" />
-                            </button>
-
-                            {/* Mobile Logout (Visible on small screens) */}
-                            <button
-                                onClick={() => { logout(); router.push('/') }}
-                                className="md:hidden p-3 rounded-2xl bg-destructive/5 text-destructive hover:bg-destructive hover:text-white transition-all flex items-center justify-center"
-                            >
-                                <LogOut className="w-5 h-5" />
-                            </button>
-
-                            <div className="hidden md:flex items-center gap-3 pl-3 border-l border-white/10">
-                                {user?.role === 'MASTER' && (
-                                    <Link href={adminPath}>
-                                        <button className={cn(
-                                            "flex items-center gap-2 px-5 py-2.5 rounded-2xl font-black uppercase text-[10px] tracking-widest transition-all border",
-                                            isConcursos 
-                                                ? "bg-indigo-500/10 text-indigo-500 border-indigo-500/20 hover:bg-indigo-500/20"
-                                                : "bg-primary/10 text-primary border-primary/20 hover:bg-primary/20"
-                                        )}>
-                                            <Shield className="w-4 h-4" />
-                                            Painel Admin
-                                        </button>
-                                    </Link>
-                                )}
-
-                                <button
-                                    onClick={() => setShowProfileModal(true)}
-                                    className="flex items-center gap-3 pl-2 pr-4 py-1.5 rounded-2xl bg-muted/30 border border-white/5 hover:bg-muted/50 transition-all"
-                                >
-                                    <div className="w-9 h-9 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
-                                        <User className="w-5 h-5" />
-                                    </div>
-                                    <div className="text-left leading-none">
-                                        <p className="text-xs font-black uppercase tracking-tight">{user?.name?.split(' ')[0]}</p>
-                                        <p className="text-[9px] text-muted-foreground font-bold uppercase tracking-widest">{user?.plan_level}</p>
-                                    </div>
-                                </button>
-
-                                <button
-                                    onClick={() => { logout(); router.push('/') }}
-                                    className="p-3 rounded-2xl bg-destructive/5 text-destructive hover:bg-destructive hover:text-white transition-all"
-                                >
-                                    <LogOut className="w-5 h-5" />
-                                </button>
-                            </div>
+                        <div className="flex flex-col leading-none">
+                            <span className="text-lg font-black italic uppercase tracking-tighter dark:text-white text-[#111827]">QRub</span>
+                            <span className="text-[7px] font-black uppercase tracking-[0.2em] text-emerald-500">Saúde</span>
                         </div>
-                    </div>
+                    </Link>
+
+                    <button 
+                        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                        className="p-2.5 rounded-xl bg-slate-100 dark:bg-white/5 text-slate-600 dark:text-white/60"
+                    >
+                        {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+                    </button>
                 </header>
             )}
 
-            {/* Content Area with Top Padding for Fixed Header */}
+            {/* Main Content Area */}
             <main className={cn(
-                "max-w-7xl mx-auto px-6 pb-12 md:pb-24 transition-all",
-                hideNav
-                    ? "pt-6 [[data-banner-active=true]_&]:pt-16"
-                    : "pt-24 [[data-banner-active=true]_&]:pt-[136px]"
+                "transition-all duration-500 ease-in-out pb-24 md:pb-12 min-h-screen",
+                !hideNav && "md:pl-64", // Space for desktop sidebar
+                !hideNav && "pt-20 md:pt-8", // Space for mobile header or top padding
+                hideNav && "pt-0"
             )}>
-                {children}
+                <div className="max-w-7xl mx-auto px-4 md:px-10">
+                    {children}
+                </div>
             </main>
 
+            {/* Mobile Sidebar Overlay / Drawer */}
+            <AnimatePresence>
+                {mobileMenuOpen && (
+                    <>
+                        <motion.div 
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            onClick={() => setMobileMenuOpen(false)}
+                            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[70] md:hidden"
+                        />
+                        <motion.div 
+                            initial={{ x: '-100%' }}
+                            animate={{ x: 0 }}
+                            exit={{ x: '-100%' }}
+                            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+                            className="fixed left-0 top-0 h-full w-[80%] max-w-sm bg-[#111827] z-[80] md:hidden shadow-2xl overflow-y-auto no-scrollbar"
+                        >
+                            <div className="p-8">
+                                <Link href="/dashboard" className="flex items-center gap-3 mb-12">
+                                    <div className="p-2.5 rounded-2xl bg-emerald-500 shadow-lg shadow-emerald-500/20">
+                                        <Hexagon className="w-6 h-6 text-white fill-white/20" />
+                                    </div>
+                                    <div className="flex flex-col leading-none">
+                                        <span className="text-2xl font-black italic uppercase tracking-tighter text-white">QRub</span>
+                                        <span className="text-[9px] font-black uppercase tracking-[0.2em] text-emerald-400">Saúde</span>
+                                    </div>
+                                </Link>
+
+                                <div className="space-y-8">
+                                    <nav className="space-y-4">
+                                        {[
+                                            { name: 'Dashboard', icon: HomeIcon, href: '/dashboard' },
+                                            { name: 'Praticar', icon: StethoscopeIcon, href: '/dashboard/setup' },
+                                            { name: 'Simulados', icon: LayersIcon, href: '/dashboard/simulados' },
+                                            { name: 'Métricas', icon: BarChart3Icon, href: '/dashboard/stats' },
+                                        ].map((item) => (
+                                            <Link 
+                                                key={item.name} 
+                                                href={item.href}
+                                                className="flex items-center gap-4 text-white/60 hover:text-white py-2"
+                                            >
+                                                <item.icon className="w-5 h-5" />
+                                                <span className="text-xs font-black uppercase tracking-widest">{item.name}</span>
+                                            </Link>
+                                        ))}
+                                    </nav>
+                                    
+                                    <div className="pt-8 border-t border-white/5 space-y-6">
+                                        <button 
+                                            onClick={() => { setShowProfileModal(true); setMobileMenuOpen(false); }}
+                                            className="flex items-center gap-4 text-white/60"
+                                        >
+                                            <UserIcon className="w-5 h-5" />
+                                            <span className="text-xs font-black uppercase tracking-widest">Meu Perfil</span>
+                                        </button>
+                                        <button 
+                                            onClick={() => { logout(); router.push('/'); }}
+                                            className="flex items-center gap-4 text-red-400"
+                                        >
+                                            <LogOut className="w-5 h-5" />
+                                            <span className="text-xs font-black uppercase tracking-widest">Sair da Conta</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </motion.div>
+                    </>
+                )}
+            </AnimatePresence>
+
+            {/* Bottom Tabs */}
             <BottomTabs />
 
+            {/* Modals */}
             <UserProfileModal
                 isOpen={showProfileModal}
                 onClose={() => setShowProfileModal(false)}
@@ -224,7 +187,11 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                 isOpen={showSettingsModal}
                 onClose={() => setShowSettingsModal(false)}
             />
-            {pathname === '/dashboard' && <SupportChatWidget />}
         </div>
     )
 }
+
+function HomeIcon(props: any) { return <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> }
+function StethoscopeIcon(props: any) { return <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4.8 2.3A.3.3 0 1 0 5 2a.3.3 0 0 0-.2.3Z"/><path d="M3.3 7a4.9 4.9 0 0 0 .1 3 4.1 4.1 0 0 0 2.4 2.3 4.8 4.8 0 0 0 5.6-1.1 4.1 4.1 0 0 0 1-2.9 4.4 4.4 0 0 0-1-2.8 3.3 3.3 0 0 0-4.8 0 4.4 4.4 0 0 0-1 2.8 4.1 4.1 0 0 0 1 2.9 4.8 4.8 0 0 0 5.6 1.1 4.1 4.1 0 0 0 2.4-2.3 4.9 4.9 0 0 0 .1-3"/><path d="M19 6.7v3.1a4.2 4.2 0 0 1-4.2 4.2h-3.1"/><path d="M14.8 14H19"/><path d="M10.8 14H14.8"/><path d="M19 14v5a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3v-5"/></svg> }
+function LayersIcon(props: any) { return <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg> }
+function BarChart3Icon(props: any) { return <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg> }
