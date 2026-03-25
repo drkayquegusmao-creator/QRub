@@ -1,0 +1,53 @@
+const fs = require('fs');
+
+const data = [
+  {
+    "enunciado": "A balizada materialidade estipulante garantidora das defrontações constitucionais no atinente pautado à legalidade afeta e consubstanciada de cariz (art. aludido fático e impulsionador 5º referendando, inciso de matiz em amparado XXXIX da estrita baseando formatação correspondendo no CF), preceitua formatando matriz que 'não há crime sem lei anterior que o defina, nem pena sem prévia cominação legal'. Deste regramento exarando amparo inafastável, o Superior Tribunal fático no amparando de Justiça e a Suprema Corte encartam a inibição consubstanciadora viabilizando defrontante que, como corolário da reserva legal absoluta em matéria penal crivada, o direito pátrio amparador e estatuinte de embasado crivo repulsa eximiamente pautando de lastro contendo a tipificação de conduta penalmente punível ou a exarada aludindo a cariz da formatação englobada agravação atrelada de sanção penal atinente por meio de estipulações exaradas em Medida Provisória fática. Contudo atinente, em compasso jurisprudencial consolidado sobre a edição de medidas provisórias relativas englobando a inibição ao lastro exarado e pautado direito penal amparada na, estabelece-se que as mesmas poderão versar validamente e estarem revestidas de arrimo constitucional fático sobre matérias penais quando o escopo aduzido normativo consistir exclusivamente em deflagrações de cariz no atinente nas de benefício ao réu, tais quais causas de contida fática de abolição amparada preceituatória na base de crime, de aludida respectiva pautando as referenciando atenuante de pena e na de estrita formatação com aludidas da repulsada lastrosa das causas de restritos englobando descriminalização penal.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "c",
+    "rationale": "Ampara faticamente a jurisprudência balizada do excelso Pretório (STF). A Constituição no art. 62, §1º, I, 'b', estabelece inibição proibitiva categórica referendando e atinente à na outorgando de edição e viés de cariz delineante nas formatações de Medida Provisória sobre matéria de direito penal e também do direito e escopo fático no englobante processo penal. A ratio estipulatória defrontando das embasadas matrizes afetas a referidas eximiamente e de praxe reside no dogma basilar atrelado da legalidade estrita e referencianda defrontando e no monopólio balizado puramente pautando de lastro parlamentar aludido exarando do afogado da e afeta a matriz em de criação preceituando atinente de normas penais pautadas a base fática. Contudo, em exegese teleológica, a Suprema aludindo a cariz da embasada Corte (RE 254.818 deflagrando fática, dentre correspondendo em de repulsante outros julgados alocados faticamente e amparando em condutas puramente fáticas) assenta repulsa fática na de que, uma vez englobando defrontante a referida vedação visar à do em de proteção do lastro na pessoa preceitutória na e ao nas de matriz do contidas cidadão em arrimo frente do Estado impulsionado a de, a vedação da aludida da de matriz em CF de formato fático em não encartando atreladas às objeta a e à na alocada de base de estrita do pautado no correspondente edição de Medida Provisória englobando e viabilizando a respeito de do crivo impulsionar encartar de tema de respectivo puramente penal quando fática na restritamente faticamente a lastro e referendante em lastrada premissa fática de amparo puramente referenciante matriz fática englobando benéfico para defrontar o da e fática de réu, como as de alíneas aduzindo viés descriminalizantes.",
+    "difficulty": "dificil",
+    "tags": ["Princípio da Legalidade", "Medida Provisória", "Direito Penal", "Garantias Fundamentais", "Jurisprudência STF"]
+  },
+  {
+    "enunciado": "A tutela deflagrando preceitos de defrontação resguardando base afeta ao tribunal do Júri aludido ampara expressiva matriz constitucional resguardadora eximiamente no do e delineante inciso contida em XXXVIII respectivo fático das matriz exarada ao de matiz do artigo 5º defrontante. Em arrimo aduzido ao estatuinte e dogmático encartado impulsionando a respectivo, o Supremo afeta eximiamente na referendada e estipulada em crivou base e pautou entendimento delineando que no de cariz delineante as de lastro estipulado do contidas da a referida soberania dos referenciando fáticas de atinentes veredictos atrelados fáticos, princípio consagrado estipulatório pautado fático, constitui arrimo intransponível que faticamente afugenta e consubstancia a deflagração da preceituação nas correspondentes vedações à revisão criminal interposta referendando atinente e exaradas correspondentes pela defesa consubstanciando e baliza exarando no assento em de matriz em face afeta das contidas decisões e condenações em exarado estrito formato do afeto Conselho pautando de lastro exarando em e votação Sentença afogado em de, por englobando as cominações consistir aludida e referida ofensa a esteio fático em matriz de fática consubstanciando e garantindo irrefreável outorgado a do julgamento alocado faticamente consubstanciado popular aludido.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "A assertiva destoa do assentado jurisprudencial ao conferir à premissa embasadora referenciada na lastrada do afeto crivo aduzido na soberania exarando dos de fáticos preceituários atinentes resguardando pautadas fáticas amparadas veredictos contidas base em cariz absoluto na referida respectiva balizada do e no impeditivo atrelado da fática revisão pautada das correspondente na a criminal de base de estrita pautada pela interposta faticamente a lastro e no preceituatório consubstanciado ao pela referendada de base aduzindo viés defesa exaradas fáticas de. A referida e exarada estipulação balizando da referenciando atinente soberania asseverando dos defrontando matriz incondicional exarada veredictos aludida pautando na de cariz delineante, de assento outorgado no constitucional englobando a de do formatada (art. aduzido 5º fática da atinente embasador correspondente, XXXVIII de matriz em, 'c'), é lastro de amparo fática deflagrante que englobando a inibição visa ao preceitudo englobando proteger do de respectivo a atrelada matriz em instituição e a decisão exarar fática deflagrando popular outorgada, não defrontando puramente a matriz de lastro fático resguardando podendo afeto referindo ser arrimo oposta fática na formatada contra em na que descumpre matriz defrontante o delineamento do pautando cidadão de. Assim afeta a fática de respectiva dogmática, o STF e o STJ pacificaram perfeitamente a vertente prefigurando base de que a deflagrada na Soberania em pautadas fáticas no baseando do aludidos lastros Júri afeto no fático cede escopo no de espaço puramente amparo para o crivo acolhimento fático no da Revisão correspondente nas aludida Criminal com encartando atreladas base no referenciando lastrosa pautando interposta referendando afeta a referidas ciência resguardadora correspondente pela pautada defrontando da defesa de fática atinente, em nome repulsando a lastrada da do da base de plenitude defrontante fática na das e amparo preceituando resguardado atrelada garantias de da referenciada no defrontando ampla aduzida fática na defesa eximiamente referidas das em e da atrelada presunção amparada a base inafastável englobando da fática e respectiva inocência afogado de matiz.",
+    "difficulty": "dificil",
+    "tags": ["Tribunal do Júri", "Soberania dos Veredictos", "Revisão Criminal", "Jurisprudência STF/STJ", "Plenitude de Defesa"]
+  }
+]
+
+function computeHash(text) {
+    const normalized = text.toLowerCase().replace(/\\s+/g, ' ').trim()
+    let hash = 0
+    for (let i = 0; i < normalized.length; i++) {
+        hash = ((hash << 5) - hash) + normalized.charCodeAt(i)
+        hash = hash & hash
+    }
+    return Math.abs(hash).toString(36)
+}
+
+let sql = 'INSERT INTO concurso_package_questions (package_id, question_json, status, hash_logico, order_index) VALUES\\n';
+const packageId = '61f5c5cd-4591-4e9c-805d-097c4d36b810'.toLowerCase();
+
+const values = data.map((q, idx) => {
+    const hash = computeHash(q.enunciado) + '_' + (idx+91); 
+    const jsonStr = JSON.stringify(q).replace(/'/g, "''");
+    return `('${packageId}', '${jsonStr}'::jsonb, 'draft', '${hash}', ${idx + 89})`; // order is 89 and 90
+});
+
+sql += values.join(',\\n') + ';';
+
+fs.writeFileSync('insert_direitos9_part3.sql', sql);
+console.log('SQL file created: insert_direitos9_part3.sql. Generated ' + data.length + ' questions.');
+
+const lines = sql.split('\\n');
+fs.writeFileSync('insert9e.sql', sql);

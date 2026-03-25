@@ -595,97 +595,95 @@ export function generatePrompt(opts: {
     taxonomyPath: string
     difficulty: string
     count: number
-    subTopics?: string[] // New field for balanced distribution
+    subTopics?: string[]
     packageId?: string
 }): string {
     const { bank, profile, blueprint, taxonomyPath, difficulty, count, subTopics, packageId } = opts
 
     const diffLabel: Record<string, string> = {
-        facil: 'FÁCIL (básico, conceitual)',
-        media: 'MÉDIA (aplicação clínica/prática)',
-        dificil: 'DIFÍCIL (raciocínio clínico complexo)',
-        mista: 'MISTA (variar entre fácil, média e difícil)',
+        facil: 'FÁCIL (Conceitual/Básico)',
+        media: 'MÉDIA (Aplicação Clínica/Casos simples)',
+        dificil: 'DIFÍCIL (Raciocínio Diagnóstico/Condutas Complexas)',
+        mista: 'MISTA (Variar entre fundamentos e condutas)',
     }
 
-    const profileSection = profile
-        ? `## PERFIL DA BANCA\n\n${profile.profile_text}\n\n### Regras estruturadas (JSON):\n${JSON.stringify(profile.profile_json, null, 2)}\n\n### Exemplos modelo:\n${JSON.stringify(profile.examples_json, null, 2)}`
-        : '## PERFIL DA BANCA\n\n[Nenhum perfil cadastrado para esta banca. Use o estilo padrão do concurso público brasileiro.]'
+    const format = blueprint?.format || 'mcq_5'
+    const isTrueFalse = format === 'certo_errado'
 
-    const blueprintSection = blueprint
-        ? `## BLUEPRINT / MODELO DE QUESTÃO\n\nNome: ${blueprint.name}\nFormato: ${blueprint.format}\nRegras:\n${JSON.stringify(blueprint.blueprint_rules, null, 2)}`
-        : ''
-
-    return `# INSTRUÇÕES DE GERAÇÃO DE QUESTÕES — QRub
-
-## ID DO PACOTE (OBRIGATÓRIO)
-${packageId || 'Não informado'}
-
-## BANCA
-${bank.name}
-
-## TAXONOMIA / ASSUNTO
-${taxonomyPath || 'Definido pelo admin'}
-
-## DIFICULDADE
-${diffLabel[difficulty] || difficulty}
-
-## QUANTIDADE
-Gere exatamente **${count} questões**.
-
-${profileSection}
-
-${blueprintSection}
-
-${subTopics && subTopics.length > 0 ? `## DISTRIBUIÇÃO EQUITATIVA (OBRIGATÓRIO)
-O pacote é de nível GERAL. Você deve distribuir as ${count} questões de forma igualitária entre os seguintes sub-assuntos:
-${subTopics.map(s => `- ${s}`).join('\n')}
-
-IMPORTANTE: Para cada questão, preencha obrigatoriamente os campos "subspecialty" e "subject" baseando-se na lista acima.` : ''}
-
----
-
-## FORMATO DE SAÍDA OBRIGATÓRIO
-
-Retorne APENAS um JSON array válido no seguinte formato (sem texto antes ou depois):
-
-\`\`\`json
-[
-  {
-    "enunciado": "Texto completo do enunciado da questão...",
+    const jsonFormat = isTrueFalse
+        ? `{
+    "enunciado": "Afirmação clínica para julgamento...",
+    "options": { "c": "Certo", "e": "Errado" },
+    "answer": "c ou e",
+    "rationale": "Justificativa médica baseada em evidências...",
+    "difficulty": "${difficulty}",
+    "subspecialty": "Nome da Subespecialidade (Especialidade > Subespecialidade)",
+    "subject": "Nome do Tema Específico",
+    "tags": ["Medicina", "Eixo Temático"]
+  }`
+        : `{
+    "enunciado": "Contexto clínico ou pergunta direta...",
     "options": {
-      "a": "Texto da alternativa A",
-      "b": "Texto da alternativa B",
-      "c": "Texto da alternativa C",
-      "d": "Texto da alternativa D",
-      "e": "Texto da alternativa E"
+      "a": "Texto da opção A",
+      "b": "Texto da opção B",
+      "c": "Texto da opção C",
+      "d": "Texto da opção D",
+      "e": "Texto da opção E"
     },
-    "answer": "a",
+    "answer": "letra da correta",
     "rationale": "Justificativa detalhada do gabarito...",
     "option_rationales": {
-      "a": "Por que A está correta...",
-      "b": "Por que B está errada...",
-      "c": "Por que C está errada...",
-      "d": "Por que D está errada...",
-      "e": "Por que E está errada..."
+      "a": "Explicação para A...",
+      "b": "Explicação para B...",
+      "c": "Explicação para C...",
+      "d": "Explicação para D...",
+      "e": "Explicação para E..."
     },
     "difficulty": "${difficulty}",
-    "subspecialty": "Nome da Subespecialidade (se aplicável)",
-    "subject": "Nome do Assunto/Tema específico",
-    "tags": ["tag1", "tag2"]
-  }
-]
-\`\`\`
+    "subspecialty": "Nome da Subespecialidade",
+    "subject": "Nome do Tema Específico",
+    "tags": ["Tag Clínica", "Semiologia", "Conduta"]
+  }`
 
-## REGRAS OBRIGATÓRIAS
-- Distribuição balanceada: se for um tema GERAL, não repita o mesmo sub-assunto em todas as questões.
-- Use os nomes de sub-assuntos fornecidos na seção "DISTRIBUIÇÃO EQUITATIVA".
-- Todas as ${blueprint?.format === 'mcq_4' ? '4' : '5'} alternativas presentes
-- Gabarito em letra minúscula (a, b, c, d ou e)
-- Enunciado sem nome de banca ou ano
-- Justificativas completas para TODAS as alternativas
-- Conteúdo 100% em português brasileiro
-- Sem repetição de conteúdo entre questões
-- JSON válido sem comentários ou texto extra`
+    return `# PROTOCOLO DE GERAÇÃO MASTER • QRUB SAÚDE 🧬
+# IDENTIFICADOR DO LOTE: ${String(packageId || 'ADMIN-DIRECT').toUpperCase()}
+
+VOCÊ É UM MÉDICO PRECEPTOR E ESPECIALISTA EM PROVAS DE RESIDÊNCIA MÉDICA E REVALIDAÇÃO.
+SUA MISSÃO É GERAR UM LOTE DE ${count} QUESTÕES DE ALTA QUALIDADE CLÍNICA NO ESTILO DA BANCA ${bank.name.toUpperCase()}.
+
+---
+## 1. DNA DA BANCA (ESTILO)
+${profile?.profile_text || 'Siga o estilo padrão de concursos médicos (Residência/Revalida). Foco em raciocínio clínico e condutas atualizadas.'}
+
+---
+## 2. ESCOPO TAXONÔMICO (SAÚDE)
+EIXO / ESPECIALIDADE: ${taxonomyPath}
+NÍVEL DE COMPLEXIDADE: ${diffLabel[difficulty] || difficulty.toUpperCase()}
+
+---
+## 3. DIRETRIZES TÉCNICAS (FORMATO: ${format.toUpperCase()})
+- Formato: ${isTrueFalse ? 'Afirmação (CERTO/ERRADO)' : 'Múltipla Escolha (A-E/A-D)'}
+${blueprint?.blueprint_rules ? `Regras específicas do modelo:\n${JSON.stringify(blueprint.blueprint_rules, null, 2)}` : ''}
+
+---
+## 4. REGRAS DE OURO (MANDATÓRIO)
+- **Raciocínio Clínico:** Priorize casos clínicos (anamnese, exame físico, exames complementares) em vez de decoreba pura.
+- **Evidências:** As questões devem refletir protocolos clínicos e consensos atuais das sociedades brasileiras de especialidade.
+- **Distratores:** As alternativas incorretas devem ser erros comuns de prática médica ou diagnósticos diferenciais plausíveis.
+- **Justificativas:** Forneça uma explicação pedagógica que ensine o conteúdo, indicando por que a correta é a conduta ideal.
+- **Diferenciação:** Nunca gere questões idênticas. Varie os cenários clínicos.
+
+---
+## 5. DISTRIBUIÇÃO TAXONOMIA
+${subTopics && subTopics.length > 0 ? `Distribua as ${count} questões entre os seguintes temas:\n${subTopics.map(s => `- ${s}`).join('\n')}` : 'Mantenha o equilíbrio dentro do assunto selecionado.'}
+
+---
+## 6. FORMATO DE SAÍDA (JSON)
+Retorne APENAS o JSON array (sem comentários ou texto extra):
+
+[
+  ${jsonFormat}
+]`
 }
 
 // ─── Helpers ───────────────────────────────────────────────────────────────

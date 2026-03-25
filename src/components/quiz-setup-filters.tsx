@@ -14,7 +14,7 @@ import { ProfileModal } from '@/components/profile-modal'
 export function QuizSetupFilters() {
     const { user } = useAuth()
     const { taxonomy, loadTaxonomy } = useTaxonomy()
-    const { questions, loadQuestions } = useQuestions()
+    const { questions, totalCount, loadQuestions } = useQuestions()
     
     const [selectedCourseId, setSelectedCourseId] = useState<string>("")
     const [selectedSpecialtyId, setSelectedSpecialtyId] = useState<string>("")
@@ -53,14 +53,13 @@ export function QuizSetupFilters() {
         return subspecialties.find(s => s.id === selectedSubspecialtyId)?.children || []
     }, [selectedSubspecialtyId, subspecialties])
 
-    const filteredQuestions = useMemo(() => {
-        let filtered = questions.filter(q => q.status_validacao === 'APROVADA')
-        if (selectedCourseId) filtered = filtered.filter(q => q.course_id === selectedCourseId)
-        if (selectedSpecialtyId) filtered = filtered.filter(q => q.specialty_id === selectedSpecialtyId)
-        if (selectedSubspecialtyId) filtered = filtered.filter(q => q.subspecialty_id === selectedSubspecialtyId)
-        if (selectedSubjectId) filtered = filtered.filter(q => q.subject_id === selectedSubjectId)
-        return filtered
-    }, [questions, selectedCourseId, selectedSpecialtyId, selectedSubspecialtyId, selectedSubjectId])
+    const filteredQuestionsCount = useMemo(() => {
+        if (selectedSubjectId) return subjects.find(s => s.id === selectedSubjectId)?.questionCount || 0
+        if (selectedSubspecialtyId) return subspecialties.find(s => s.id === selectedSubspecialtyId)?.questionCount || 0
+        if (selectedSpecialtyId) return specialties.find(s => s.id === selectedSpecialtyId)?.questionCount || 0
+        if (selectedCourseId) return courses.find(s => s.id === selectedCourseId)?.questionCount || 0
+        return totalCount
+    }, [totalCount, courses, specialties, subspecialties, subjects, selectedCourseId, selectedSpecialtyId, selectedSubspecialtyId, selectedSubjectId])
 
     const handleStart = () => {
         if (isFree && !user?.profile_completed) {
@@ -92,7 +91,7 @@ export function QuizSetupFilters() {
     }
 
     // Determine disabled states functionally
-    const isStartDisabled = !selectedCourseId || filteredQuestions.length === 0
+    const isStartDisabled = !selectedCourseId || filteredQuestionsCount === 0
 
     return (
         <div className="max-w-6xl mx-auto space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-700">
@@ -168,7 +167,7 @@ export function QuizSetupFilters() {
                         <Database className="w-8 h-8" />
                     </div>
                     <h3 className="text-5xl font-black italic tracking-tighter text-white mb-2 relative z-10">
-                        {questions.filter(q => q.status_validacao === 'APROVADA').length.toLocaleString('pt-BR')}
+                        {totalCount.toLocaleString('pt-BR')}
                     </h3>
                     <p className="text-[10px] uppercase font-black tracking-widest text-white/50 relative z-10">Questões Ativas</p>
                 </div>
@@ -192,7 +191,7 @@ export function QuizSetupFilters() {
                         label="Curso Principal"
                         options={courses}
                         value={selectedCourseId}
-                        getOptionCount={(id) => questions.filter(q => q.course_id === id && q.status_validacao === 'APROVADA').length}
+                        getOptionCount={(id) => courses.find(c => c.id === id)?.questionCount || 0}
                         onChange={(id) => {
                             setSelectedCourseId(id)
                             setSelectedSpecialtyId("")
@@ -207,7 +206,7 @@ export function QuizSetupFilters() {
                         options={specialties}
                         value={selectedSpecialtyId}
                         disabled={!selectedCourseId}
-                        getOptionCount={(id) => questions.filter(q => q.specialty_id === id && q.status_validacao === 'APROVADA').length}
+                        getOptionCount={(id) => specialties.find(s => s.id === id)?.questionCount || 0}
                         onChange={(id) => {
                             setSelectedSpecialtyId(id)
                             setSelectedSubspecialtyId("")
@@ -222,7 +221,7 @@ export function QuizSetupFilters() {
                         value={selectedSubspecialtyId}
                         disabled={!selectedSpecialtyId}
                         isLocked={isFree}
-                        getOptionCount={(id) => questions.filter(q => q.subspecialty_id === id && q.status_validacao === 'APROVADA').length}
+                        getOptionCount={(id) => subspecialties.find(s => s.id === id)?.questionCount || 0}
                         onChange={(id) => {
                             if (checkLock()) return
                             setSelectedSubspecialtyId(id)
@@ -237,7 +236,7 @@ export function QuizSetupFilters() {
                         value={selectedSubjectId}
                         disabled={!selectedSubspecialtyId}
                         isLocked={isFree}
-                        getOptionCount={(id) => questions.filter(q => q.subject_id === id && q.status_validacao === 'APROVADA').length}
+                        getOptionCount={(id) => subjects.find(s => s.id === id)?.questionCount || 0}
                         onChange={(id) => {
                             if (checkLock()) return
                             setSelectedSubjectId(id)
@@ -254,7 +253,7 @@ export function QuizSetupFilters() {
                     {/* Filter Summary Circle */}
                     <div className="flex flex-col items-center justify-center bg-white/5 border border-white/10 rounded-2xl p-4 min-w-[140px]">
                         <span className="text-4xl font-black italic text-white tracking-tighter">
-                            {filteredQuestions.length.toLocaleString('pt-BR')}
+                            {filteredQuestionsCount.toLocaleString('pt-BR')}
                         </span>
                         <span className="text-[9px] font-bold uppercase tracking-widest text-white/50 text-center mt-1">
                             Disponíveis com<br/>estes filtros
@@ -304,7 +303,7 @@ export function QuizSetupFilters() {
                         <Play className="w-7 h-7 fill-current group-hover:translate-x-2 transition-transform" />
                     </motion.button>
                     
-                    {filteredQuestions.length === 0 && selectedCourseId && (
+                    {filteredQuestionsCount === 0 && selectedCourseId && (
                         <p className="text-rose-400 text-[10px] font-bold text-center uppercase tracking-widest animate-pulse">
                             🚨 Zero questões ativas nestes filtros.
                         </p>

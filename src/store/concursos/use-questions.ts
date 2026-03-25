@@ -52,8 +52,8 @@ export const useConcursoQuestions = create<ConcursoQuestionsState>()((set) => ({
         set({ loading: true, error: null })
 
         try {
-            const page = filters?.page || 1
-            const pageSize = filters?.pageSize || 20
+            const page = filters?.page ?? 1
+            const pageSize = filters?.pageSize ?? 20
             const from = (page - 1) * pageSize
             const to = from + pageSize - 1
 

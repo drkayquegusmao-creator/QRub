@@ -13,9 +13,9 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { toast } from 'react-hot-toast'
 import {
     getConcursoBanks, getConcursoBlueprints, getConcursoCurrentProfile,
-    getConcursoPackages, createConcursoPackage, updateConcursoPackage,
-    deleteConcursoPackage, getConcursoPackageQuestions, importQuestionsToConcursoPackage,
-    updateConcursoPackageQuestion, publishConcursoQuestion, generateConcursoPrompt,
+    getConcursoPackages, createConcursoPackage,    updateConcursoPackage, deleteConcursoPackage, getConcursoPackageQuestions,
+    importQuestionsToConcursoPackage, updateConcursoPackageQuestion,
+    publishConcursoQuestion, publishBatchConcursoQuestions, generateConcursoPrompt,
     ConcursoBank, ConcursoQuestionBlueprint, ConcursoQuestionPackage, ConcursoPackageQuestion,
     ConcursoBankProfile
 } from '@/lib/concursos/banks'
@@ -295,43 +295,40 @@ export default function ConcursoAdminPackagesManager() {
     async function handlePublishPackage() {
         if (!selectedPackage || pkgQuestions.length === 0) return
         
-        const confirmMsg = `Deseja publicar/atualizar ${pkgQuestions.length} questões no banco de dados ativo?`
+        const confirmMsg = `Deseja publicar/atualizar ${pkgQuestions.length} questões no banco de dados ativo de forma robusta e atômica?`
         if (!confirm(confirmMsg)) return
 
-        const loadingToast = toast.loading(`Publicando ${pkgQuestions.length} questões...`)
+        const loadingToast = toast.loading(`Sincronizando lote de ${pkgQuestions.length} questões...`)
         setLoading(true)
-        let successCount = 0
-        let errorCount = 0
 
-        for (const pq of pkgQuestions) {
-            const res = await publishConcursoQuestion(pq.id)
-            if (res.success) successCount++
-            else errorCount++
-        }
+        try {
+            const unpublishedIds = pkgQuestions.map(q => q.id)
+            const res = await publishBatchConcursoQuestions(unpublishedIds)
 
-        // Update package status to approved if all questions are processed
-        if (errorCount === 0) {
-            await updateConcursoPackage(selectedPackage.id, { status: 'approved' })
+            if (res.success) {
+                // Update package status to approved
+                await updateConcursoPackage(selectedPackage.id, { status: 'approved' })
+                
+                toast.success(`${res.count} QUESTÕES SINCRONIZADAS COM SUCESSO EM LOTE! 🚀`, {
+                    duration: 5000,
+                    style: {
+                        background: '#10b981',
+                        color: '#fff',
+                        fontWeight: 'bold',
+                    }
+                })
+            } else {
+                throw res.error || new Error('Falha na sincronização em lote')
+            }
+        } catch (err: any) {
+            console.error('Batch publish error:', err)
+            toast.error(`Erro na publicação: ${err.message || 'Erro desconhecido'}`)
+        } finally {
+            toast.dismiss(loadingToast)
+            handleSelectPackage(selectedPackage)
+            refreshPackages()
+            setLoading(false)
         }
-
-        toast.dismiss(loadingToast)
-        if (errorCount > 0) {
-            toast.error(`${successCount} publicadas, ${errorCount} falharam. Verifique o console.`)
-        } else {
-            toast.success(`${successCount} QUESTÕES SINCRONIZADAS COM SUCESSO! 🚀`, {
-                duration: 5000,
-                style: {
-                    background: '#10b981',
-                    color: '#fff',
-                    fontWeight: 'bold',
-                }
-            })
-        }
-        
-        // Refresh data
-        handleSelectPackage(selectedPackage)
-        refreshPackages()
-        setLoading(false)
     }
 
     async function handleArchivePackage() {

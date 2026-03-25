@@ -1,0 +1,162 @@
+[
+  {
+    "enunciado": "No que concerne à intervenção federal, a Constituição da República de 1988 estabelece que a União não intervirá nos Estados nem no Distrito Federal, exceto para manter a integridade nacional, repelir invasão estrangeira ou de uma unidade da Federação em outra. Caso ocorra desrespeito a ordem ou decisão judicial, a intervenção dependerá de requisição do Supremo Tribunal Federal, do Superior Tribunal de Justiça ou do Tribunal Superior Eleitoral, conforme a matéria em discussão.",
+    "options": { "c": "Certo", "e": "Errado" },
+    "answer": "c",
+    "rationale": "Certo. Conforme o Art. 36, II, da CF/88, a intervenção federal para prover a execução de ordem ou decisão judicial dependerá de requisição do STF, do STJ ou do TSE, dependendo da competência relativa à decisão que está sendo descumprida.",
+    "difficulty": "dificil",
+    "tags": ["Organização do Estado", "Intervenção Federal", "Art. 36 CF"]
+  },
+  {
+    "enunciado": "A respeito do regime jurídico dos congressistas, a Constituição Federal prevê que, desde a expedição do diploma, os membros do Congresso Nacional não poderão ser presos, salvo em flagrante de crime inafiançável. Nessa hipótese, os autos deverão ser remetidos dentro de vinte e quatro horas à Casa respectiva, para que, pelo voto da maioria absoluta de seus membros, resolva sobre a prisão.",
+    "options": { "c": "Certo", "e": "Errado" },
+    "answer": "c",
+    "rationale": "Certo. Trata-se da literalidade do Art. 53, § 2º, da CF/88. Os parlamentares federais possuem imunidade prisional (não podem ser presos senão em flagrante de crime inafiançável), e cabe à respectiva Casa Legislativa decidir, por maioria absoluta, sobre a manutenção ou não da custódia.",
+    "difficulty": "dificil",
+    "tags": ["Poder Legislativo", "Imunidades Parlamentares", "Art. 53 CF"]
+  },
+  {
+    "enunciado": "No tocante ao controle de constitucionalidade por omissão, a Ação Direta de Inconstitucionalidade por Omissão (ADO) e o Mandado de Injunção (MI) visam à proteção de direitos obstaculizados pela ausência de norma regulamentadora. Enquanto a ADO possui natureza objetiva e efeitos erga omnes, o Mandado de Injunção, segundo a evolução da jurisprudência do STF, admite a aplicação da 'teoria concretista' para assegurar o exercício do direito apenas ao impetrante e em casos específicos.",
+    "options": { "c": "Certo", "e": "Errado" },
+    "answer": "c",
+    "rationale": "Certo. A ADO é um instrumento de controle abstrato (objetivo) com efeitos gerais. Já o Mandado de Injunção é controle subjetivo (concreto). A Lei 13.300/2016 e a jurisprudência do STF consolidaram a teoria concretista, permitindo que o Poder Judiciário viabilize o exercício do direito ante a inércia legislativa.",
+    "difficulty": "dificil",
+    "tags": ["Controle de Constitucionalidade", "ADO", "Mandado de Injunção", "Teoria Concretista"]
+  },
+  {
+    "enunciado": "Segundo o texto constitucional, a competência para julgar o Presidente da República em crimes de responsabilidade é do Senado Federal. No entanto, o processo só pode ser instaurado se houver a autorização de dois terços da Câmara dos Deputados, sendo que a decisão do Senado pela condenação exige o voto de dois terços de seus membros e acarreta a perda do cargo, acompanhada obrigatoriamente da inabilitação por oito anos para o exercício de função pública.",
+    "options": { "c": "Certo", "e": "Errado" },
+    "answer": "e",
+    "rationale": "Errado. Embora o texto do Art. 52, parágrafo único, refira-se à inabilitação como consequência da condenação, o precedente do caso Dilma Rousseff (embora polêmico juridicamente) e a interpretação posterior em alguns contextos admitem a possibilidade de 'fatiamento' da pena, embora a questão técnica CEBRASPE se apegue ao texto expresso: 'limitando-se a condenação à perda do cargo, COM inabilitação'. Contudo, o erro mais sutil e frequentemente cobrado é se a inabilitação é 'automática' ou 'limitada'. No STF, o fatiamento foi admitido em 2016, mas para fins de prova, a pegadinha reside no fato de que o julgamento no Senado é presidido pelo Presidente do STF.",
+    "difficulty": "dificil",
+    "tags": ["Poder Executivo", "Impeachment", "Crimes de Responsabilidade"]
+  },
+  {
+    "enunciado": "A respeito do Conselho Nacional de Justiça (CNJ), a Constituição Federal define que compete a este órgão a fiscalização administrativa, financeira e disciplinar do Poder Judiciário. Todavia, conforme entendimento do STF, o CNJ não possui competência para anular atos jurisdicionais, ainda que eivados de erro grosseiro, limitando-se sua atuação ao controle de legalidade dos atos administrativos praticados por membros ou órgãos do Judiciário.",
+    "options": { "c": "Certo", "e": "Errado" },
+    "answer": "c",
+    "rationale": "Certo. O CNJ é um órgão de natureza puramente administrativa. Ele não tem competência jurisdicional. Portanto, não pode rever, reformar ou anular sentenças ou decisões judiciais. Sua atuação restringe-se ao controle administrativo e disciplinar (Art. 103-B, § 4º, CF).",
+    "difficulty": "dificil",
+    "tags": ["Poder Judiciário", "CNJ", "Competência Administrativa"]
+  },
+  {
+    "enunciado": "No que tange aos direitos sociais, a Constituição Federal assegura como direito dos trabalhadores a proteção contra despedida arbitrária ou sem justa causa, nos termos de lei complementar que preverá indenização compensatória. Diante da ausência de tal lei complementar até os dias atuais, a jurisprudência do STF veda qualquer tentativa de o empregador realizar dispensas coletivas sem a prévia negociação com o sindicato da categoria profissional.",
+    "options": { "c": "Certo", "e": "Errado" },
+    "answer": "c",
+    "rationale": "Certo. No julgamento do Tema 638 de Repercussão Geral, o STF fixou a tese de que a intervenção sindical é imprescindível para a dispensa em massa de trabalhadores, embora não seja necessária autorização prévia ou celebração de acordo coletivo, mas sim a tentativa de negociação.",
+    "difficulty": "dificil",
+    "tags": ["Direitos Sociais", "Dispensa Coletiva", "Jurisprudência STF"]
+  },
+  {
+    "enunciado": "Acerca da Defensoria Pública, a Emenda Constitucional nº 80/2014 fixou o prazo de oito anos para que a União, os Estados e o Distrito Federal dotem todas as comarcas de defensores públicos. No entanto, o descumprimento desse prazo programático não gera dever de indenizar por parte do Estado ao cidadão que fique desprovido de assistência jurídica gratuita, dada a natureza de norma de eficácia limitada deste dispositivo.",
+    "options": { "c": "Certo", "e": "Errado" },
+    "answer": "c",
+    "rationale": "Certo. O STF entende que dispositivos que estabelecem metas programáticas (normas de eficácia limitada ou programática) não geram direito subjetivo automático à indenização por danos morais ou materiais em razão do não cumprimento imediato, devido à reserva do possível e à necessidade de implementação gradual de políticas públicas.",
+    "difficulty": "dificil",
+    "tags": ["Funções Essenciais à Justiça", "Defensoria Pública", "Normas Programáticas"]
+  },
+  {
+    "enunciado": "Em sede de controle concentrado de constitucionalidade, a Ação Direta de Inconstitucionalidade por Omissão (ADO) pode ser utilizada para combater a inércia do Poder Legislativo em regulamentar norma constitucional de eficácia limitada. Caso o STF reconheça a mora legislativa, ele deverá dar ciência ao poder competente para a adoção das providências necessárias, e, em se tratando de órgão administrativo, deve fazê-lo para que a providência seja adotada em trinta dias.",
+    "options": { "c": "Certo", "e": "Errado" },
+    "answer": "c",
+    "rationale": "Certo. Trata-se da regra contida no Art. 103, § 2º da CF/88. Para órgãos administrativos, a Constituição fixa o prazo de 30 dias para as providências. Para o Poder Legislativo, apenas 'dá-se ciência', sem fixação de prazo peremptório passível de sanção direta pelo tribunal.",
+    "difficulty": "dificil",
+    "tags": ["Controle de Constitucionalidade", "ADO", "Art. 103 CF"]
+  },
+  {
+    "enunciado": "A respeito da segurança pública, a Constituição Federal de 1988 elenca os órgãos responsáveis por sua manutenção em rol considerado taxativo pela jurisprudência do STF. Nesse sentido, as guardas municipais, embora possuam atribuições de proteção de bens, serviços e instalações dos municípios, não integram formalmente o elenco dos órgãos de segurança pública previstos no caput do art. 144 da CF/88.",
+    "options": { "c": "Certo", "e": "Errado" },
+    "answer": "e",
+    "rationale": "Errado. Embora as guardas municipais estejam previstas no § 8º do Art. 144, em julgamentos recentes (ex: ADPF 995), o STF reafirmou que as Guardas Municipais integram, sim, o Sistema Único de Segurança Pública (SUSP) e possuem natureza de órgão de segurança pública, afastando a interpretação estrita que as excluía do rol por não estarem listadas no caput.",
+    "difficulty": "dificil",
+    "tags": ["Segurança Pública", "Guarda Municipal", "Jurisprudência STF"]
+  },
+  {
+    "enunciado": "Considerando o princípio da separação de poderes, é vedado ao Poder Judiciário determinar que o Poder Executivo realize obras em estabelecimentos prisionais, visando garantir a integridade física e moral dos detentos, sob o fundamento de que tal ingerência violaria a discricionariedade administrativa e a separação funcional dos poderes.",
+    "options": { "c": "Certo", "e": "Errado" },
+    "answer": "e",
+    "rationale": "Errado. O STF, em sede de repercussão geral (Tema 220), firmou o entendimento de que é lícito ao Judiciário impor à Administração Pública a obrigação de realizar obras em presídios para garantir os direitos fundamentais dos detentos, não havendo violação à separação de poderes nesses casos de omissão estatal injustificada (Estado de Coisas Inconstitucional).",
+    "difficulty": "dificil",
+    "tags": ["Poder Judiciário", "Separação de Poderes", "Dignidade da Pessoa Humana"]
+  },
+  {
+    "enunciado": "No que concerne ao Poder Legislativo, a fiscalização contábil, financeira e orçamentária da União será exercida pelo Congresso Nacional, mediante controle externo, e pelo sistema de controle interno de cada Poder. O auxílio do Tribunal de Contas da União (TCU) no controle externo confere a este órgão status de órgão auxiliar do Legislativo, não possuindo o TCU autonomia orçamentária própria, pois depende da dotação da Câmara dos Deputados.",
+    "options": { "c": "Certo", "e": "Errado" },
+    "answer": "e",
+    "rationale": "Errado. Embora o TCU auxilie o Congresso no controle externo, ele possui autonomia administrativa e financeira (Art. 73, CF/88). Ele não depende da dotação da Câmara, mas sim de orçamento próprio previsto na Lei Orçamentária Anual (LOA).",
+    "difficulty": "dificil",
+    "tags": ["Tribunal de Contas", "Controle Externo", "Fiscalização Financeira"]
+  },
+  {
+    "enunciado": "Acerca dos direitos políticos, a Constituição prescreve que são inelegíveis, no território de jurisdição do titular, o cônjuge e os parentes consanguíneos ou afins, até o segundo grau ou por adoção, do Presidente da República, de Governador de Estado ou Território, do Distrito Federal, de Prefeito ou de quem os haja substituído dentro dos seis meses anteriores ao pleito, salvo se já titular de mandato eletivo e candidato à reeleição.",
+    "options": { "c": "Certo", "e": "Errado" },
+    "answer": "c",
+    "rationale": "Certo. Trata-se da denominada inelegibilidade reflexiva prevista no Art. 14, § 7º da CF/88. A exceção é apenas para quem já detém mandato e busca a reeleição para o mesmo cargo ou outro em disputa.",
+    "difficulty": "dificil",
+    "tags": ["Direitos Políticos", "Inelegibilidade Reflexiva", "Art. 14 CF"]
+  },
+  {
+    "enunciado": "No âmbito do Poder Executivo, o Presidente da República poderá delegar aos Ministros de Estado, ao Procurador-Geral da República ou ao Advogado-Geral da União a competência para prover cargos públicos federais, na forma da lei, bem como para extinguir tais cargos quando estiverem vagos.",
+    "options": { "c": "Certo", "e": "Errado" },
+    "answer": "c",
+    "rationale": "Certo. O parágrafo único do Art. 84 da CF permite a delegação das atribuições mencionadas nos incisos VI, XII e XXV (primeira parte) ao PGR, AGU e Ministros de Estado.",
+    "difficulty": "dificil",
+    "tags": ["Poder Executivo", "Delegação de Competência", "Art. 84 CF"]
+  },
+  {
+    "enunciado": "Em relação à administração pública, o teto remuneratório constitucional aplica-se genericamente a todos os servidores públicos, ativos e inativos. Contudo, as parcelas de natureza indenizatória, previstas em lei, não são computadas para efeito dos limites remuneratórios de que trata o inciso XI do art. 37 da Constituição.",
+    "options": { "c": "Certo", "e": "Errado" },
+    "answer": "c",
+    "rationale": "Certo. Conforme o Art. 37, § 11 da CF/88, as verbas indenizatórias não entram no cálculo do teto constitucional, sendo pagas além do limite fixado para o subsídio dos Ministros do STF ou outros subtetos.",
+    "difficulty": "dificil",
+    "tags": ["Administração Pública", "Teto Remuneratório", "Verbas Indenizatórias"]
+  },
+  {
+    "enunciado": "Conforme a disciplina constitucional da ordem econômica, a exploração direta de atividade econômica pelo Estado só será permitida quando necessária aos imperativos da segurança nacional ou a relevante interesse coletivo, conforme definidos em lei. Nesse caso, a empresa pública ou sociedade de economia mista que explorar tal atividade sujeitar-se-á ao regime jurídico próprio das empresas privadas, inclusive quanto aos direitos e obrigações civis, comerciais, trabalhistas e tributários.",
+    "options": { "c": "Certo", "e": "Errado" },
+    "answer": "c",
+    "rationale": "Certo. Reflete as regras do Art. 173 da CF/88. O Estado não deve atuar como empresário regra geral, e quando o faz, deve competir em igualdade de condições com a iniciativa privada, sem privilégios fiscais não extensivos ao setor privado.",
+    "difficulty": "dificil",
+    "tags": ["Ordem Econômica", "Empresa Pública", "Sociedade de Economia Mista"]
+  },
+  {
+    "enunciado": "A respeito da Advocacia Pública, a Constituição Federal assegura aos Procuradores dos Estados e do Distrito Federal a estabilidade após três anos de efetivo exercício, mediante avaliação de desempenho. Diferentemente dos membros do Ministério Público, os integrantes da Advocacia Pública não possuem a garantia da vitaliciedade, estando sujeitos ao regime estatutário comum de perda do cargo.",
+    "options": { "c": "Certo", "e": "Errado" },
+    "answer": "c",
+    "rationale": "Certo. Membros da Advocacia Pública (AGU e PGEs) são servidores estáveis, mas não vitalícios. A vitaliciedade é restrita à Magistratura e ao Ministério Público (Art. 128, § 5º, I, 'a').",
+    "difficulty": "dificil",
+    "tags": ["Funções Essenciais à Justiça", "Advocacia Pública", "Vitaliciedade"]
+  },
+  {
+    "enunciado": "No sistema de repartição de rendas tributárias, pertence aos Municípios o produto da arrecadação do imposto da União sobre a renda e proventos de qualquer natureza, incidente na fonte, sobre rendimentos pagos, a qualquer título, por eles, suas autarquias e pelas fundações que instituírem e mantiverem.",
+    "options": { "c": "Certo", "e": "Errado" },
+    "answer": "c",
+    "rationale": "Certo. Trata-se da literalidade do Art. 158, I, da CF/88. O IR retido na fonte pelos municípios sobre seus pagamentos pertence ao próprio município.",
+    "difficulty": "dificil",
+    "tags": ["Direito Tributário", "Repartição de Receitas", "Art. 158 CF"]
+  },
+  {
+    "enunciado": "Considerando as normas constitucionais sobre educação, o ensino é livre à iniciativa privada, atendidas as condições de cumprimento das normas gerais da educação nacional e autorização e avaliação de qualidade pelo Poder Público. No entanto, é vedada a participação de capital estrangeiro nas instituições de ensino nacionais, salvo nos casos de instituições destinadas à pesquisa científica ou tecnológica.",
+    "options": { "c": "Certo", "e": "Errado" },
+    "answer": "e",
+    "rationale": "Errado. Não há vedação constitucional genérica à participação de capital estrangeiro no ensino privado de forma absoluta conforme descrito. A Constituição exige apenas o cumprimento de normas de qualidade e autorização. O que existe é restrição em relação a empresas de radiodifusão e jornalismo (Art. 222), mas não para educação de forma geral.",
+    "difficulty": "dificil",
+    "tags": ["Ordem Social", "Educação", "Iniciativa Privada"]
+  },
+  {
+    "enunciado": "Acerca da competência suplementar dos Estados, a Constituição Federal faculta a estes suplementar a legislação federal e a municipal no que couber, visando ao preenchimento de lacunas normativas e à adaptação de normas gerais às peculiaridades locais.",
+    "options": { "c": "Certo", "e": "Errado" },
+    "answer": "e",
+    "rationale": "Errado. O erro está na parte de 'suplementar a legislação municipal'. Os Estados suplementam a legislação federal (normas gerais) no que couber (Art. 24, § 2º). Quem suplementa a legislação federal e a ESTADUAL no que couber são os MUNICÍPIOS (Art. 30, II).",
+    "difficulty": "dificil",
+    "tags": ["Organização do Estado", "Competência Suplementar", "Art. 30 CF"]
+  },
+  {
+    "enunciado": "No regime da propriedade urbana, as diretrizes gerais de fixação pelo Poder Público federal devem observar o plano diretor, aprovado pela Assembleia Legislativa estadual, sendo obrigatório para cidades com mais de vinte mil habitantes.",
+    "options": { "c": "Certo", "e": "Errado" },
+    "answer": "e",
+    "rationale": "Errado. O Plano Diretor é aprovado pela CÂMARA MUNICIPAL (Legislativo municipal), e não pela Assembleia Legislativa estadual (Art. 182, § 1º, CF).",
+    "difficulty": "dificil",
+    "tags": ["Ordem Social", "Política Urbana", "Plano Diretor"]
+  }
+]

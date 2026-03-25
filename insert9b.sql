@@ -1,0 +1,1 @@
+INSERT INTO concurso_package_questions (package_id, question_json, status, hash_logico, order_index) VALUES\n

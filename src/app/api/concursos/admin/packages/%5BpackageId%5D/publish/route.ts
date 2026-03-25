@@ -78,23 +78,38 @@ export async function POST(
                 const qj = pq.question_json as any
                 const hash = pq.hash_logico || crypto.randomUUID().substring(0, 8)
 
+                // Normalize difficulty for check constraint: facil, media, dificil
+                const rawDiff = (qj.difficulty || 'media').toLowerCase()
+                const normalizedDifficulty = 
+                    rawDiff.includes('faci') ? 'facil' :
+                    rawDiff.includes('dific') ? 'dificil' :
+                    'media'
+
                 const { error: upsertErr } = await supabaseWithToken
                     .from('concurso_questao_base')
                     .insert({
+                        id: crypto.randomUUID(),
                         enunciado: qj.enunciado,
                         options: qj.options,
                         correct_option_id: qj.answer,
                         explanation: qj.rationale,
                         alternative_explanations: qj.option_rationales,
-                        difficulty: qj.difficulty || 'media',
+                        difficulty: normalizedDifficulty,
                         hash: hash,
                         status: 'active',
                         source: pkg.banks?.name || 'Geral',
                         taxonomy_path: pkg.taxonomy_path,
+                        // NEW fields inherited from package for filtering
+                        area_id: pkg.area_id,
+                        disciplina_id: pkg.disciplina_id,
+                        subdisciplina_id: pkg.subdisciplina_id,
+                        assunto_id: pkg.assunto_id,
+                        banca_id: pkg.bank_id,
                         metadata: {
                             tags: qj.tags || [],
                             package_id: packageId,
-                            source_pq_id: pq.id
+                            source_pq_id: pq.id,
+                            source_pq_hash: hash
                         }
                     })
 

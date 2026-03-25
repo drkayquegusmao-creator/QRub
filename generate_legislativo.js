@@ -1,0 +1,138 @@
+const fs = require('fs');
+
+const data = [
+  {
+    "enunciado": "A jurisprudência do Supremo Tribunal Federal consolidou o entendimento de que a imunidade parlamentar material, também denominada inviolabilidade, abrange as palavras e opiniões proferidas por deputados e senadores fora do recinto parlamentar, ainda que o conteúdo das manifestações não guarde qualquer nexo de implicação teleológica com o exercício do mandato, desde que o parlamentar esteja agindo dentro de sua jurisdição eleitoral.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "A assertiva está errada. O STF entende que a inviolabilidade parlamentar (imunidade material) por opiniões, palavras e votos proferidos fora do recinto do Congresso Nacional exige, necessariamente, que a manifestação tenha o chamado 'nexo de implicação teleológica' com o exercício do mandato. Sem essa conexão estrita com a função parlamentar, não há incidência da garantia constitucional, respondendo o parlamentar comum e civilmente por eventuais abusos.",
+    "difficulty": "dificil",
+    "tags": ["Poder Legislativo", "Imunidades Parlamentares", "Inviolabilidade Material"]
+  },
+  {
+    "enunciado": "Segundo o reiterado entendimento do Supremo Tribunal Federal, as comissões parlamentares de inquérito, muito embora sejam detentoras de poderes de investigação próprios das autoridades judiciais, não possuem competência constitucional autônoma para determinar a quebra de sigilo fiscal, bancário e telefônico de investigados sem prévia autorização judicial motivada.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "A assertiva está errada. O STF reconhece que as CPIs federais e estaduais possuem poderes investigatórios próprios das autoridades judiciais (art. 58, § 3º, da CF), o que abrange, mediante fundamentação adequada, decretar diretamente a quebra dos sigilos bancário, fiscal e de dados telefônicos dos investigados, prescindindo de prévia autorização judicial neste ponto. Apenas a interceptação telefônica (escuta), a busca e apreensão domiciliar e a decretação de prisões (salvo flagrante) encontram-se fora da alçada das CPIs.",
+    "difficulty": "dificil",
+    "tags": ["Poder Legislativo", "Comissões Parlamentares de Inquérito (CPI)", "Quebra de Sigilo"]
+  },
+  {
+    "enunciado": "A Constituição Federal impõe limitações circunstanciais, formais e materiais ao poder constituinte derivado reformador. Dentre as limitações materiais – denominadas cláusulas pétreas –, consagra-se que a forma federativa de Estado e a separação dos Poderes não poderão ser objeto de deliberação de proposta de emenda que tenda a aboli-las, inviabilizando, por conseguinte, a tramitação legislativa de qualquer PEC que intente a adoção de um Estado estruturalmente unitário.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "c",
+    "rationale": "A assertiva está correta. A conformação definida no art. 60, § 4º da Constituição expressamente arrola como limites materiais (cláusulas pétreas) a forma federativa de Estado, o voto direto, secreto, universal e periódico, a separação dos Poderes e os direitos e garantias individuais. Assim, o próprio sistema obsta a via legislativa para abolição da forma de Estado ou dos Poderes, sob pena de agressão frontal ao texto constitucional.",
+    "difficulty": "dificil",
+    "tags": ["Processo Legislativo", "Emendas Constitucionais", "Cláusulas Pétreas"]
+  },
+  {
+    "enunciado": "Consoante a jurisprudência dominante do STF aplicável ao foro por prerrogativa de função, a renúncia ao mandato parlamentar efetivada nas vésperas do julgamento de eventual ação penal originária no Supremo, caso revele o indisfarçável propósito de deslocar a competência processual para a primeira instância, não gera a translação do juízo julgador caso já tenha ocorrido o encerramento da fase de instrução processual com a prolação do despacho outorgando a apresentação de alegações finais.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "c",
+    "rationale": "A assertiva está rigorosamente correta. O STF, ao fixar os parâmetros restritivos para o foro por prerrogativa de função, estabeleceu ao julgar a QO na AP 937 que, proferido o despacho ordenando as alegações finais por encerramento da instrução, a competência se firma. Daí por diante, a renúncia do parlamentar ao cargo não desloca mais a competência fática para as instâncias inferiores.",
+    "difficulty": "dificil",
+    "tags": ["Poder Legislativo", "Foro por Prerrogativa de Função", "STF"]
+  },
+  {
+    "enunciado": "No âmbito do controle repressivo de constitucionalidade e legalidade conferido às Casas Legislativas, compete privativamente ao Congresso Nacional sustar os atos normativos oriundos do Poder Executivo que exorbitem o escopo do poder regulamentar ou os balizamentos da respectiva delegação legislativa. Tratando-se de delegação de cunho legislativo, esse controle se consubstancia por meio de decreto legislativo, dispensando-se a sanção presidencial.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "c",
+    "rationale": "A assertiva está correta em sua completude material. De acordo com o art. 49, inciso V, da Lei Fundamental, é da competência exclusiva (a Constituição trata como privativa do Congresso Nacional, não cabendo ao Presidente) sustar atos do Executivo que extrapolem as amarras delineadas pela delegação prévia ou pelo próprio campo de abrangência do poder normativo autônomo. O instrumento adequado é o decreto legislativo, imune a veto ou sanção do Executivo.",
+    "difficulty": "dificil",
+    "tags": ["Poder Legislativo", "Competências do Congresso Nacional", "Controle de Legalidade"]
+  },
+  {
+    "enunciado": "As medidas provisórias representam espécie normativa de competência privativa do Chefe do Executivo Federal. Devido à sua natureza peculiar, a sua votação nas vias constituintes se inicia de forma obrigatória no Senado Federal. Caso o texto perca sua eficácia em razão de decurso de prazo sem prévia resolução, restará terminantemente vedada a sua reedição superveniente em qualquer hipótese, constituindo nulidade material caso feita na mesma sessão legislativa.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "A assertiva está errada por duas distorções técnicas notáveis. Primeiramente, o art. 62, § 8º, determina que a votação das medidas provisórias terá sempre seu início efetuado perante a Câmara dos Deputados (e não no Senado Federal). Adicionalmente, a reedição é vedada tão-somente na MESMA sessão legislativa em que tenha sido rejeitada ou que tenha perdido a eficácia (art. 62, § 10), além de se constituir em vício de inconstitucionalidade formal (não material).",
+    "difficulty": "dificil",
+    "tags": ["Processo Legislativo", "Medidas Provisórias"]
+  },
+  {
+    "enunciado": "Apreciado um respectivo projeto de lei pelo Poder Executivo e havendo justificada aposição de veto jurídico ou consubstanciado sob matiz político e parcial, a regra constitucional adverte que ele deve forçosamente abranger o texto integral de artigo, de parágrafo, de inciso ou de alínea. Paralelamente, a rejeição fundamentada desse veto procedida em decorrência do voto de maioria absoluta conjunta no Congresso obrigará o Presidente da República a promulgar a lei no exíguo prazo de 48 horas, deslocando-se em caso de inércia a competência recôndita sucessiva ao Presidente da Câmara dos Deputados.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "A assertiva contém grave erro residual em sua fase de deliberação conclusiva. Realmente, o veto parcial não deve desvincular palavras soltas, obedecendo ao mandamento de se vetar apenas texto integral da formatação da norma (art. 66, § 2º). Todavia, no caso de superada inércia da Presidência da República em face do prazo de 48h de promulgação após rejeição, a competência promulgatória é transferida sucessivamente, em escopo subsidiário, não ao Presidente da Câmara, e sim ao Presidente do Senado Federal, consoante art. 66, § 7º da Constituição.",
+    "difficulty": "dificil",
+    "tags": ["Processo Legislativo", "Fases do Processo", "Veto Presidencial"]
+  },
+  {
+    "enunciado": "O provimento originário atinente aos cargos de Ministro do Tribunal de Contas da União sujeita-se a um modelo misto e fracionado. Neste diapasão, a Constituição Federal estipula categoricamente que a indicação de um terço destas cobiçadas vagas incumbe isoladamente ao Presidente da República (aprovadas pelo escrutínio do Senado Federal e com posterior nomeação), reservando-se compulsoriamente duas destas vagas ao trânsito alternado entre auditores e membros componentes do Ministério Público estruturado junto ao TCU.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "c",
+    "rationale": "A assertiva está estruturalmente correta de acordo com a preceituação exata contida na Carta Magna (art. 73, § 2º). Com efeito, o modelo constitucional do TCU (composto por 9 Ministros) estabelece que 1/3 (ou seja, 3 Ministros) dos membros devem ser indicados pelo Presidente da República, sendo que dentre esses 3, 2 (dois) deverão ser escolhidos obrigatoriamente alternando-se a indicação entre auditores de carreira e os membros do MP junto à respectiva Corte Superior.",
+    "difficulty": "dificil",
+    "tags": ["TCU", "Tribunal de Contas da União", "Fiscalização Financeira", "Poder Legislativo"]
+  },
+  {
+    "enunciado": "O Supremo Tribunal Federal, ao debruçar-se no Tema de Repercussão Geral, firmou baliza jurisprudencial declarando que as decisões consolidadas do Tribunal de Contas da União que impliquem sanções de ressarcimento por dano ao Erário e decorrentes do julgamento de improbidade não se assemelham a meras multas administrativas que decaem com o tempo em conformidade ao direito comum, sendo consequentemente consideradas imprescritíveis e insuscetíveis à caducidade material de cobrança.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "A assertiva está errada porque deturpa a abrangência material atual do entendimento do STF. Embora inicialmente o STF defendesse certa abrangência na imprescritibilidade no tema do ressarcimento das decisões oriundas do TCU, o entendimento superveniente delineado no julgamento do RE 636.886 (Tema 899 com Recurso Extraordinário) consolidou expressamente que: 'É prescritível a pretensão de ressarcimento ao erário fundada em decisão de Tribunal de Contas'. Diferem as sanções de reparo cível advindas de ação específica de ressarcimento e de improbidade dolosa (aí sim alvos da regra da imprescritibilidade por força do Art 37 §5º).",
+    "difficulty": "dificil",
+    "tags": ["STF", "Imprescritibilidade", "TCU", "Contas da União"]
+  },
+  {
+    "enunciado": "Atualmente, segundo a linha dominante assentada na jurisprudência qualificada dos Tribunais Superiores, o poder investigativo atrelado à prerrogativa de quebra imediata de sigilo bancário, fiscal e de intrincados dados cibernéticos e telefônicos exorbita da esfera federal, estendendo-se por estrita simetria orgânica e federativa em favor das prerrogativas conferidas às Comissões Parlamentares de Inquérito formadas restritamente dentro das Câmaras Municipais para condução procedimental inquiridora.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "A assertiva está perfeitamente errada. Embora exista enorme leque protetivo inerente às atividades apuratórias, o Supremo Tribunal Federal entende repetidas vezes (ACO 730) de forma consubstanciada e vinculante que as Comissões Parlamentares de Inquérito de matiz estritamente MUNICIPAL (câmaras de vereadores) não detêm competência ou prerrogativa constitucional em nível próprio para decretar a quebra do sigilo fiscal, bancário ou sequer acesso aos dados de conexões telemáticas telefônicas, providência que requer indubitavelmente intervenção e autorização em nível jurisdicional, ao revés das CPIs de natureza Federal e Estadual.",
+    "difficulty": "dificil",
+    "tags": ["CPI", "Poder Legislativo Municipal", "Competências de quebra de sigilo", "STF"]
+  }
+];
+
+function computeHash(text) {
+    const normalized = text.toLowerCase().replace(/\\s+/g, ' ').trim()
+    let hash = 0
+    for (let i = 0; i < normalized.length; i++) {
+        hash = ((hash << 5) - hash) + normalized.charCodeAt(i)
+        hash = hash & hash
+    }
+    return Math.abs(hash).toString(36)
+}
+
+let sql = 'INSERT INTO concurso_package_questions (package_id, question_json, status, hash_logico, order_index) VALUES\\n';
+const packageId = '1100064E-14A0-422E-A74A-BD67A02308FD'.toLowerCase();
+
+const values = data.map((q, idx) => {
+    const hash = computeHash(q.enunciado);
+    const jsonStr = JSON.stringify(q).replace(/'/g, "''");
+    return `('${packageId}', '${jsonStr}'::jsonb, 'draft', '${hash}', ${idx})`;
+});
+
+sql += values.join(',\\n') + ';';
+
+fs.writeFileSync('insert_legislativo.sql', sql);
+console.log('SQL file created: insert_legislativo.sql');

@@ -390,6 +390,7 @@ export async function publishConcursoQuestion(packageQuestionId: string): Promis
 
         if (fetchErr) throw fetchErr
         const qj = pq.question_json as any
+        
         // Extract and format options
         const rawOpts = qj.options || {}
         const optionsArray = Object.keys(rawOpts).map(k => ({
@@ -435,6 +436,79 @@ export async function publishConcursoQuestion(packageQuestionId: string): Promis
         return { success: true }
     } catch (err) {
         return { success: false, error: err }
+    }
+}
+
+/**
+ * Publishes/Synchronizes multiple questions at once for higher performance and atomicity.
+ */
+export async function publishBatchConcursoQuestions(packageQuestionIds: string[]): Promise<{ success: boolean; count: number; error?: any }> {
+    try {
+        if (!packageQuestionIds.length) return { success: true, count: 0 }
+
+        // Fetch all questions and their package context
+        const { data: pqs, error: fetchErr } = await supabase
+            .from('concurso_package_questions')
+            .select('*, package:concurso_question_packages(taxonomy_path, bank_id, area_id, disciplina_id, subdisciplina_id, assunto_id, banks:concurso_banks(name))')
+            .in('id', packageQuestionIds)
+
+        if (fetchErr) throw fetchErr
+        if (!pqs || pqs.length === 0) return { success: true, count: 0 }
+
+        // Prepare bulk upsert payload
+        const upsertData = pqs.map(pq => {
+            const qj = pq.question_json as any
+            const rawOpts = qj.options || {}
+            const optionsArray = Object.keys(rawOpts).map(k => ({
+                id: k,
+                text: rawOpts[k]
+            }))
+
+            const questionId = pq.question_id || (typeof crypto !== 'undefined' && crypto.randomUUID ? crypto.randomUUID() : (Math.random().toString(36).substring(2) + Date.now().toString(36)))
+
+            return {
+                id: questionId,
+                enunciado: qj.enunciado || qj.stem || '',
+                options: optionsArray,
+                correct_option_id: qj.answer,
+                explanation: qj.rationale,
+                difficulty: qj.difficulty || 'media',
+                status: 'active',
+                banca_id: pq.package?.bank_id,
+                area_id: pq.package?.area_id,
+                disciplina_id: pq.package?.disciplina_id,
+                subdisciplina_id: pq.package?.subdisciplina_id,
+                assunto_id: pq.package?.assunto_id,
+                source: pq.package?.banks?.name || 'Manual',
+                taxonomy_path: pq.package?.taxonomy_path,
+                metadata: {
+                    tags: qj.tags || [],
+                    package_id: pq.package_id,
+                    hash: pq.hash_logico,
+                    published_at: new Date().toISOString()
+                }
+            }
+        })
+
+        // Execute bulk upsert
+        const { error: upsertErr } = await supabase
+            .from('concurso_questao_base')
+            .upsert(upsertData, { onConflict: 'id' })
+
+        if (upsertErr) throw upsertErr
+
+        // Mark all as approved
+        const { error: updateErr } = await supabase
+            .from('concurso_package_questions')
+            .update({ status: 'approved' })
+            .in('id', packageQuestionIds)
+
+        if (updateErr) throw updateErr
+
+        return { success: true, count: pqs.length }
+    } catch (err) {
+        console.error('[concursos-banks] publishBatch:', err)
+        return { success: false, count: 0, error: err }
     }
 }
 

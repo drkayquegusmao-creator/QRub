@@ -62,7 +62,7 @@ export default function SaudeLayout({ children }: { children: React.ReactNode })
         )
     }
 
-    const isQuizPage = pathname?.includes('/dashboard/quiz') || pathname?.includes('/dashboard/setup')
+    const isQuizPage = pathname?.includes('/dashboard/quiz')
     const hideNav = isQuizPage
 
     return (
@@ -140,6 +140,7 @@ export default function SaudeLayout({ children }: { children: React.ReactNode })
                                             { name: 'Praticar', icon: StethoscopeIcon, href: '/dashboard/setup' },
                                             { name: 'Simulados', icon: LayersIcon, href: '/dashboard/simulados' },
                                             { name: 'Métricas', icon: BarChart3Icon, href: '/dashboard/stats' },
+                                            { name: 'Administrativo', icon: ShieldIcon, href: '/dashboard/admin' },
                                         ].map((item) => (
                                             <Link 
                                                 key={item.name} 
@@ -195,3 +196,4 @@ function HomeIcon(props: any) { return <svg {...props} xmlns="http://www.w3.org/
 function StethoscopeIcon(props: any) { return <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4.8 2.3A.3.3 0 1 0 5 2a.3.3 0 0 0-.2.3Z"/><path d="M3.3 7a4.9 4.9 0 0 0 .1 3 4.1 4.1 0 0 0 2.4 2.3 4.8 4.8 0 0 0 5.6-1.1 4.1 4.1 0 0 0 1-2.9 4.4 4.4 0 0 0-1-2.8 3.3 3.3 0 0 0-4.8 0 4.4 4.4 0 0 0-1 2.8 4.1 4.1 0 0 0 1 2.9 4.8 4.8 0 0 0 5.6 1.1 4.1 4.1 0 0 0 2.4-2.3 4.9 4.9 0 0 0 .1-3"/><path d="M19 6.7v3.1a4.2 4.2 0 0 1-4.2 4.2h-3.1"/><path d="M14.8 14H19"/><path d="M10.8 14H14.8"/><path d="M19 14v5a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3v-5"/></svg> }
 function LayersIcon(props: any) { return <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg> }
 function BarChart3Icon(props: any) { return <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg> }
+function ShieldIcon(props: any) { return <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 9.7a1 1 0 0 1-.68 0C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1 2 2 0 0 0 2-2 1 1 0 0 1 1-1h8a1 1 0 0 1 1 1 2 2 0 0 0 2 2 1 1 0 0 1 1 1v7Z"/></svg> }

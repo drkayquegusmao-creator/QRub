@@ -1,0 +1,162 @@
+[
+  {
+    "enunciado": "No que concerne ao estado de sítio, a Constituição Federal autoriza o Presidente da República a solicitá-lo ao Congresso Nacional em casos de comoção grave de repercussão nacional ou de ocorrência de fatos que comprovem a ineficácia de medida tomada durante o estado de defesa. Decretado o estado de sítio, o Congresso Nacional permanecerá em funcionamento até o término das medidas coercitivas, não podendo ser dissolvido ou ter suas atividades suspensas.",
+    "options": { "c": "Certo", "e": "Errado" },
+    "answer": "c",
+    "rationale": "Certo. Conforme o Art. 138, § 2º, a Mesa do Congresso Nacional, ouvidos os líderes partidários, designará Comissão composta de cinco de seus membros para acompanhar e fiscalizar a execução das medidas referentes ao estado de defesa e ao estado de sítio. As instituições democráticas devem ser preservadas, e o Legislativo atua como fiscal.",
+    "difficulty": "dificil",
+    "tags": ["Defesa do Estado", "Estado de Sítio", "Controle Parlamentar"]
+  },
+  {
+    "enunciado": "A respeito das Forças Armadas, a Constituição estabelece que estas se destinam à defesa da Pátria, à garantia dos poderes constitucionais e, por iniciativa de qualquer destes, da lei e da ordem. Conforme entendimento do STF, o art. 142 da CF/88 não autoriza uma 'intervenção militar' moderadora em caso de conflito entre os Poderes da República, sendo tal interpretação considerada inconstitucional.",
+    "options": { "c": "Certo", "e": "Errado" },
+    "answer": "c",
+    "rationale": "Certo. O STF, na ADI 6457, consolidou o entendimento de que a missão das Forças Armadas é de Estado, sob autoridade soberana da Constituição, e não lhes confere o papel de 'poder moderador' acima do Legislativo, Executivo ou Judiciário.",
+    "difficulty": "dificil",
+    "tags": ["Defesa do Estado", "Forças Armadas", "Jurisprudência STF"]
+  },
+  {
+    "enunciado": "No âmbito do sistema tributário nacional, a Constituição Federal veda à União, aos Estados, ao Distrito Federal e aos Municípios instituir impostos sobre templos de qualquer culto. Segundo a jurisprudência prospectiva do STF, tal imunidade alcança inclusive os imóveis de propriedade das entidades religiosas que estejam locados a terceiros, desde que o valor dos aluguéis seja integralmente aplicado nas finalidades essenciais da entidade.",
+    "options": { "c": "Certo", "e": "Errado" },
+    "answer": "c",
+    "rationale": "Certo. Súmula Vinculante 52 do STF: 'A imunidade tributária subjetiva das instituições de assistência social e de educação somente obsta a cobrança de impostos sobre bens imóveis de sua propriedade alugados a terceiros, se o valor dos aluguéis for aplicado nas atividades para as quais tais entidades foram constituídas'. O mesmo raciocínio se aplica às entidades religiosas (Art. 150, VI, 'b').",
+    "difficulty": "dificil",
+    "tags": ["Direito Tributário", "Imunidade Religiosa", "Súmula Vinculante 52"]
+  },
+  {
+    "enunciado": "A fiscalização do Município será exercida pelo Poder Legislativo Municipal, mediante controle externo, e pelos sistemas de controle interno do Poder Executivo Municipal, na forma da lei. O controle externo da Câmara Municipal será exercido com o auxílio dos Tribunais de Contas dos Estados ou do Município ou dos Conselhos ou Tribunais de Contas dos Municípios, onde houver. Diante da vedação constante no Art. 31, § 4º, da CF/88, é inconstitucional a criação de novos Tribunais de Contas Municipais, mantendo-se apenas aqueles já existentes à época da promulgação da Constituição.",
+    "options": { "c": "Certo", "e": "Errado" },
+    "answer": "c",
+    "rationale": "Certo. A CF/88 vedou a criação de novos Tribunais, Conselhos ou órgãos de Contas Municipais. Atualmente, apenas os municípios de São Paulo e Rio de Janeiro possuem tribunais de contas próprios (TCM-SP e TCM-RJ) por serem anteriores a 1988.",
+    "difficulty": "dificil",
+    "tags": ["Organização do Estado", "Tribunal de Contas", "Municípios"]
+  },
+  {
+    "enunciado": "Acerca da ordem social e dos direitos dos índios, a Constituição Federal estabelece que as terras tradicionalmente ocupadas pelos índios destinam-se a sua posse permanente, cabendo-lhes o usufruto exclusivo das riquezas do solo, dos rios e dos lagos nelas existentes. No entanto, a exploração de recursos hídricos e a pesquisa e lavra de riquezas minerais em terras indígenas dependem de autorização do Congresso Nacional, ouvidas as comunidades afetadas, sendo-lhes assegurada participação nos resultados da lavra.",
+    "options": { "c": "Certo", "e": "Errado" },
+    "answer": "c",
+    "rationale": "Certo. Trata-se da regra do Art. 231, § 3º da CF/88. A mineração em terras indígenas exige o aval do Congresso e a oitiva dos povos interessados.",
+    "difficulty": "dificil",
+    "tags": ["Ordem Social", "Direitos Indígenas", "Art. 231 CF"]
+  },
+  {
+    "enunciado": "No que tange às finanças públicas, a lei que instituir o plano plurianual (PPA) estabelecerá, de forma regionalizada, as diretrizes, objetivos e metas da administração pública federal para as despesas de capital e outras delas decorrentes e para as relativas aos programas de duração continuada. O PPA possui vigência de quatro anos, coincidindo exatamente com o mandato do Presidente da República.",
+    "options": { "c": "Certo", "e": "Errado" },
+    "answer": "e",
+    "rationale": "Errado. O PPA tem vigência de 4 anos, mas NÃO coincide com o mandato presidencial. Ele começa no segundo ano do mandato e termina no final do primeiro ano do mandato seguinte, visando garantir a continuidade das políticas públicas no período de transição política.",
+    "difficulty": "dificil",
+    "tags": ["Finanças Públicas", "PPA", "Ciclo Orçamentário"]
+  },
+  {
+    "enunciado": "A respeito do controle de constitucionalidade, o efeito vinculante e a eficácia erga omnes das decisões definitivas de mérito proferidas pelo STF em sede de ADI e ADC aplicam-se aos demais órgãos do Poder Judiciário e à Administração Pública direta e indireta, nas esferas federal, estadual e municipal. No entanto, tal efeito vinculante não alcança o próprio STF nem o Poder Legislativo em sua função típica de legislar.",
+    "options": { "c": "Certo", "e": "Errado" },
+    "answer": "c",
+    "rationale": "Certo. O efeito vinculante não impede que o Legislativo edite nova lei com conteúdo idêntico ou similar à declarada inconstitucional (reiteração legislativa), para evitar a 'fossilização' do ordenamento jurídico (frequentemente cobrado em provas como 'não vinculação do legislador'). O STF também pode rever sua jurisprudência (superação/overruling).",
+    "difficulty": "dificil",
+    "tags": ["Controle de Constitucionalidade", "Efeito Vinculante", "Fossilização Constitucional"]
+  },
+  {
+    "enunciado": "Considere que lei estadual condicione a nomeação de dirigentes de autarquias e fundações públicas à prévia aprovação da Assembleia Legislativa. Segundo a jurisprudência consolidada do STF, tal exigência não padece de inconstitucionalidade, por configurar legítimo exercício do controle parlamentar sobre o Poder Executivo, respeitados os limites da razoabilidade.",
+    "options": { "c": "Certo", "e": "Errado" },
+    "answer": "e",
+    "rationale": "Errado. O STF entende que a exigência de aprovação prévia da Assembleia Legislativa para a nomeação de dirigentes de autarquias e fundações é inconstitucional (salvo se para cargos específicos previstos na CF por simetria, como conselheiros de contas), pois interfere indevidamente na prerrogativa do Chefe do Executivo para gerir a administração pública e prover cargos.",
+    "difficulty": "dificil",
+    "tags": ["Separação de Poderes", "Poder Executivo", "Controle Parlamentar"]
+  },
+  {
+    "enunciado": "Em relação aos direitos e garantias individuais, a Constituição Federal assegura que é livre a expressão da atividade intelectual, artística, científica e de comunicação, independentemente de censura ou licença. Todavia, a própria Constituição admite a fixação de classificação indicativa para fins de exibição pública de diversões e espetáculos, sendo esta de natureza impositiva, vinculando obrigatoriamente horários e faixas etárias sob pena de interdição administrativa.",
+    "options": { "c": "Certo", "e": "Errado" },
+    "answer": "e",
+    "rationale": "Errado. O STF, na ADI 2404, declarou a inconstitucionalidade da obrigatoriedade de vinculação horária à classificação indicativa. Atualmente, a classificação tem natureza informativa e pedagógica, cabendo aos pais a decisão final e ao Estado apenas a informação sobre o conteúdo, sem proibição horária absoluta por lei.",
+    "difficulty": "dificil",
+    "tags": ["Direitos Fundamentais", "Liberdade de Expressão", "Classificação Indicativa"]
+  },
+  {
+    "enunciado": "No âmbito da repartição de competências legislativas, a União tem competência privativa para legislar sobre populações indígenas. Contudo, os Estados e o Município possuem competência concorrente para legislar sobre a proteção e integração social das pessoas com deficiência, competindo-lhes suplementar as normas gerais editadas pela União.",
+    "options": { "c": "Certo", "e": "Errado" },
+    "answer": "c",
+    "rationale": "Certo. A competência para legislar sobre populações indígenas é privativa da União (Art. 22, XIV). Já a proteção e integração social de pessoas com deficiência é competência concorrente (Art. 24, XIV) entre União, Estados e Distrito Federal. Os municípios possuem competência para legislar sobre assuntos de interesse local e suplementar a legislação federal/estadual (Art. 30).",
+    "difficulty": "dificil",
+    "tags": ["Organização do Estado", "Repartição de Competências", "PCD", "Indígenas"]
+  },
+  {
+    "enunciado": "Considerando o sistema constitucional de crises, durante a vigência do estado de defesa, podem ser tomadas contra pessoas medidas de restrição aos direitos de sigilo de correspondência e sigilo de comunicação telefônica e telemática, prescindindo, nessas hipóteses excepcionais, de autorização judicial prévia.",
+    "options": { "c": "Certo", "e": "Errado" },
+    "answer": "c",
+    "rationale": "Certo. No estado de defesa (Art. 136, § 1º, I, 'b' e 'c'), o decreto presidencial pode restringir o sigilo de correspondência e de comunicação telegráfica e telefônica, o que constitui uma exceção temporária à exigência de reserva de jurisdição ordinária.",
+    "difficulty": "dificil",
+    "tags": ["Defesas do Estado", "Estado de Defesa", "Direitos Fundamentais"]
+  },
+  {
+    "enunciado": "No tocante ao Poder Judiciário, a Constituição veda aos juízes exercer, ainda que em disponibilidade, outro cargo ou função, salvo uma de magistério. Também é vedado receber, a qualquer título ou pretexto, custas ou participação em processo, bem como dedicar-se à atividade político-partidária.",
+    "options": { "c": "Certo", "e": "Errado" },
+    "answer": "c",
+    "rationale": "Certo. Trata-se das vedações impostas pelo Art. 95, parágrafo único, inciso I a III da CF/88. São garantias para manter a imparcialidade e a dedicação exclusiva (ressalvado o magistério).",
+    "difficulty": "dificil",
+    "tags": ["Poder Judiciário", "Estatuto da Magistratura", "Vedações"]
+  },
+  {
+    "enunciado": "Acerca da segurança social, a Constituição Federal consagra os princípios da universalidade da cobertura e do atendimento, da uniformidade e equivalência dos benefícios e serviços às populações urbanas e rurais, e da seletividade e distributividade na prestação dos benefícios e serviços.",
+    "options": { "c": "Certo", "e": "Errado" },
+    "answer": "c",
+    "rationale": "Certo. Reflete os objetivos da Seguridade Social previstos no parágrafo único do Art. 194 da CF/88.",
+    "difficulty": "dificil",
+    "tags": ["Ordem Social", "Seguridade Social", "Princípios Constitucionais"]
+  },
+  {
+    "enunciado": "A respeito do Ministério Público, a Constituição assegura aos seus membros as garantias da vitaliciedade, adquirida após dois anos de exercício; da inamovibilidade, salvo por motivo de interesse público; e da irredutibilidade de subsídio.",
+    "options": { "c": "Certo", "e": "Errado" },
+    "answer": "c",
+    "rationale": "Certo. Literalidade do Art. 128, § 5º, I, da CF/88. As garantias são análogas às da magistratura para assegurar a independência funcional do parquet.",
+    "difficulty": "dificil",
+    "tags": ["Funções Essenciais à Justiça", "Ministério Público", "Garantias"]
+  },
+  {
+    "enunciado": "Em relação à administração pública, a investidura em cargo ou emprego público depende de aprovação prévia em concurso público de provas ou de provas e títulos, ressalvadas as nomeações para cargo em comissão declarado em lei de livre nomeação e exoneração, os quais destinam-se apenas às atribuições de direção, chefia e assessoramento.",
+    "options": { "c": "Certo", "e": "Errado" },
+    "answer": "c",
+    "rationale": "Certo. Regra geral do Art. 37, II e V. O STF rechaça a criação de cargos em comissão para funções técnicas ou operacionais que não envolvam confiança política/administrativa em postos de comando ou auxílio direto.",
+    "difficulty": "dificil",
+    "tags": ["Administração Pública", "Concurso Público", "Cargos em Comissão"]
+  },
+  {
+    "enunciado": "Segundo a Constituição Federal, compete aos tribunais de contas apreciar as contas prestadas anualmente pelo Chefe do Poder Executivo e julgar as contas dos demais administradores e responsáveis por dinheiros, bens e valores públicos da administração direta e indireta.",
+    "options": { "c": "Certo", "e": "Errado" },
+    "answer": "c",
+    "rationale": "Certo. Diferença técnica importante: Contas do Chefe do Executivo (Presidente, Governador, Prefeito) são APRECIADAS (parecer prévio) e julgadas pelo Legislativo. Contas dos demais administradores são JULGADAS diretamente pelo Tribunal de Contas (Art. 71, I e II).",
+    "difficulty": "dificil",
+    "tags": ["Tribunal de Contas", "Fiscalização Financeira", "Julgamento de Contas"]
+  },
+  {
+    "enunciado": "No processo legislativo, a sanção do Presidente da República a um projeto de lei convalida qualquer vício de inconstitucionalidade formal por usurpação de iniciativa, impedindo que tal vício seja objeto de questionamento posterior em sede de controle concentrado.",
+    "options": { "c": "Certo", "e": "Errado" },
+    "answer": "e",
+    "rationale": "Errado. Súmula 5 do STF: 'A sanção do projeto de lei não convalida o defeito de iniciativa'. O vício formal de iniciativa é insanável e pode ser declarado inconstitucional pelo Judiciário mesmo após a sanção e promulgação da lei.",
+    "difficulty": "dificil",
+    "tags": ["Processo Legislativo", "Inconstitucionalidade Formal", "Súmula STF"]
+  },
+  {
+    "enunciado": "No âmbito dos direitos fundamentais, o sigilo da correspondência e das comunicações telegrafas, de dados e das comunicações telefônicas é inviolável, salvo, no último caso, por ordem judicial, nas hipóteses e na forma que a lei estabelecer para fins de investigação criminal ou instrução processual penal.",
+    "options": { "c": "Certo", "e": "Errado" },
+    "answer": "c",
+    "rationale": "Certo. Trata-se da regra do Art. 5º, XII, da CF/88. A exceção expressa à reserva de jurisdição refere-se apenas à comunicação telefônica propriamente dita. No entanto, o STF/STJ estenderam a necessidade de ordem judicial para o acesso a dados armazenados (nuvem, celular, e-mail).",
+    "difficulty": "dificil",
+    "tags": ["Direitos Fundamentais", "Sigilo de Dados", "Art. 5 CF"]
+  },
+  {
+    "enunciado": "Acerca das emendas à Constituição, a proposta de emenda deve ser discutida e votada em cada Casa do Congresso Nacional, em dois turnos, considerando-se aprovada se obtiver, em ambos, três quintos dos votos dos respectivos membros. Uma vez aprovada, a emenda será promulgada pelo Presidente da República em cerimônia solene no Palácio do Planalto.",
+    "options": { "c": "Certo", "e": "Errado" },
+    "answer": "e",
+    "rationale": "Errado. A Emenda Constitucional NÃO é promulgada pelo Presidente da República. Ela é promulgada pelas MESAS da Câmara dos Deputados e do Senado Federal, com o respectivo número de ordem (Art. 60, § 3º). O Presidente não intervém no ato de promulgação nem possui poder de veto sobre PECs.",
+    "difficulty": "dificil",
+    "tags": ["Processo Legislativo", "Emenda Constitucional", "Promulgação"]
+  },
+  {
+    "enunciado": "Considere que determinado Estado da Federação crie, por meio de lei estadual, um novo imposto incidente sobre a prestação de serviços de transporte intermunicipal. À luz da repartição de competências tributárias, tal lei é inconstitucional, uma vez que a competência para instituir impostos sobre serviços de qualquer natureza, inclusive transporte, é privativa dos Municípios.",
+    "options": { "c": "Certo", "e": "Errado" },
+    "answer": "e",
+    "rationale": "Errado. O transporte INTERMUNICIPAL e interestadual está sujeito ao ICMS (imposto Estadual - Art. 155, II). O imposto municipal (ISS) incide apenas sobre serviços de transporte estritamente INTRAMUNICIPAL. Logo, o Estado tem competência para tal imposto, mas a base de cálculo seria o ICMS, não um 'novo imposto'. Contudo, o erro da assertiva é atribuir exclusividade municipal ao transporte intermunicipal.",
+    "difficulty": "dificil",
+    "tags": ["Direito Tributário", "Competência Tributária", "ICMS x ISS"]
+  }
+]

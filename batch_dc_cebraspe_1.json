@@ -1,0 +1,112 @@
+[
+  {
+    "enunciado": "No âmbito dos direitos e garantias fundamentais, a Constituição Federal de 1988 assegura que todos são iguais perante a lei, sem distinção de qualquer natureza. Contudo, considerando o entendimento consolidado do Supremo Tribunal Federal (STF), a literalidade do preceito de igualdade impede a instituição de políticas de ação afirmativa que utilizem critérios raciais para o ingresso em instituições de ensino superior, sob pena de violação do princípio republicano.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "Errado. O STF, na ADPF 186, consolidou o entendimento de que as políticas de ação afirmativa (como as cotas raciais) são constitucionais. A Corte interpretou o princípio da igualdade sob a ótica material (substancial), e não puramente formal, admitindo distinções que visem à redução de desigualdades históricas e à promoção da justiça social.",
+    "difficulty": "dificil",
+    "tags": ["Direitos Fundamentais", "Igualdade Material", "Jurisprudência STF"]
+  },
+  {
+    "enunciado": "Considerando a disciplina constitucional relativa aos remédios constitucionais, o mandado de segurança coletivo pode ser impetrado por partido político com representação no Congresso Nacional, por organização sindical, entidade de classe ou associação legalmente constituída e em funcionamento há pelo menos um ano. Nesse contexto, a atuação das associações em sede de mandado de segurança coletivo prescinde de autorização especial de seus membros, uma vez que a entidade atua como substituta processual.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "c",
+    "rationale": "Certo. De acordo com a Súmula 629 do STF e a jurisprudência pacífica, na impetração de mandado de segurança coletivo, a entidade atua na qualidade de substituta processual (legitimação extraordinária), o que dispensa a autorização individual ou em assembleia dos substituídos, diversamente do que ocorre na representação processual ordinária.",
+    "difficulty": "dificil",
+    "tags": ["Remédios Constitucionais", "Mandado de Segurança Coletivo", "Substituição Processual"]
+  },
+  {
+    "enunciado": "A respeito do controle de constitucionalidade e da cláusula de reserva de plenário (Art. 97 da CF/88), a jurisprudência do STF estabelece que a decisão de órgão fracionário de tribunal que, embora não declare expressamente a inconstitucionalidade de lei ou ato normativo do Poder Público, afaste a sua incidência, no todo ou em parte, viola a referida cláusula constitucional.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "c",
+    "rationale": "Certo. Esta questão reflete o teor da Súmula Vinculante nº 10 do STF. A cláusula de reserva de plenário exige que a inconstitucionalidade seja declarada pela maioria absoluta dos membros do tribunal ou do respectivo órgão especial. O afastamento da incidência da norma por órgão fracionário (turmas/câmaras), mesmo sem declaração expressa, é considerado 'declaração implícita', o que afronta a Constituição.",
+    "difficulty": "dificil",
+    "tags": ["Controle de Constitucionalidade", "Reserva de Plenário", "Súmula Vinculante 10"]
+  },
+  {
+    "enunciado": "No que tange à organização do Estado e à repartição de competências, a Constituição Federal de 1988 atribui à União a competência privativa para legislar sobre direito civil, comercial, penal, processual, eleitoral, agrário, marítimo, aeronáutico, espacial e do trabalho. No entanto, lei complementar poderá autorizar os Estados a legislar sobre questões específicas das matérias mencionadas, desde que tal autorização seja concedida de forma genérica a todos os entes federados simultaneamente.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "Errado. Embora o parágrafo único do art. 22 permita que Lei Complementar autorize os Estados a legislar sobre questões específicas de competência privativa da União, a jurisprudência e a doutrina (embora haja debate) e a prática legislativa indicam que a autorização deve ser específica e não necessariamente 'genérica e simultânea' no sentido de uma obrigação constitucional de igualdade absoluta de tratamento em toda e qualquer situação, embora o princípio federativo sugira isonomia. Contudo, o erro principal da assertiva reside na sutileza: a autorização via LC deve ser para *questões específicas*, mas a exigência de ser 'simultânea e genérica' como condição *sine qua non* de validade não está expressa no texto constitucional, e a norma foca na delegação de competência legislativa pontual.",
+    "difficulty": "dificil",
+    "tags": ["Organização do Estado", "Competência Legislativa", "Art. 22 CF"]
+  },
+  {
+    "enunciado": "Acerca do Poder Judiciário e das garantias de seus membros, a Constituição Federal assegura aos juízes a vitaliciedade, que, no primeiro grau, só será adquirida após dois anos de exercício. Após a aquisição da vitaliciedade, a perda do cargo só poderá ocorrer por sentença judicial transitada em julgado, o que impede que o magistrado seja demitido por processo administrativo disciplinar, independentemente da gravidade da infração cometida.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "c",
+    "rationale": "Certo. A vitaliciedade é uma garantia que assegura que o magistrado só perca o cargo mediante sentença judicial transitada em julgado (Art. 95, I, CF/88). Diferente da estabilidade dos servidores civis (que permite perda por processo administrativo), a vitaliciedade do juiz exige a via judicial. Infrações graves no âmbito administrativo podem gerar aposentadoria compulsória ou disponibilidade, mas a perda do cargo (demissão/exoneração punitiva) exige o trânsito em julgado judicial.",
+    "difficulty": "dificil",
+    "tags": ["Poder Judiciário", "Vitaliciedade", "Garantias da Magistratura"]
+  },
+  {
+    "enunciado": "Em relação ao processo legislativo brasileiro, a Constituição veda a reedição, na mesma sessão legislativa, de medida provisória que tenha sido rejeitada ou que tenha perdido sua eficácia por decurso de prazo. Tal vedação, contudo, não se aplica às propostas de emenda à Constituição (PEC) ou aos projetos de lei que tenham sido rejeitados, os quais podem ser reapresentados no mesmo período legislativo mediante requerimento da maioria absoluta dos membros de qualquer das Casas do Congresso Nacional.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "Errado. A assertiva confunde as regras para Projetos de Lei e PECs. Para Projetos de Lei (Art. 67, CF), a reapresentação na mesma sessão legislativa é possível mediante proposta da maioria absoluta. No entanto, para Propostas de Emenda à Constituição (PEC), o Art. 60, § 5º, estabelece que a matéria constante de proposta de emenda rejeitada ou havida por prejudicada NÃO pode ser objeto de nova proposta na mesma sessão legislativa, sem a ressalva da maioria absoluta (princípio da irrepetibilidade absoluta das PECs na mesma sessão).",
+    "difficulty": "dificil",
+    "tags": ["Processo Legislativo", "Medidas Provisórias", "Irrepetibilidade", "PEC"]
+  },
+  {
+    "enunciado": "No âmbito do controle abstrato de constitucionalidade, o Governador de Estado e a Mesa de Assembleia Legislativa possuem legitimidade ativa para a propositura de Ação Direta de Inconstitucionalidade (ADI). De acordo com a jurisprudência dominante do STF, esses legitimados devem demonstrar a pertinência temática entre a norma impugnada e os interesses do estado ou da categoria, sendo considerados, por isso, legitimados especiais.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "c",
+    "rationale": "Certo. Conforme o entendimento consolidado do STF, o rol do art. 103 da CF divide-se entre legitimados universais (que não precisam demonstrar pertinência temática, ex: Presidente, PGR, Mesas da Câmara e Senado) e legitimados especiais (que devem demonstrar o interesse direto na invalidação da norma, ex: Governadores, Mesas de Assembleias e Confederações Sindicais).",
+    "difficulty": "dificil",
+    "tags": ["Controle de Constitucionalidade", "ADI", "Legitimidade Ativa", "Pertinência Temática"]
+  },
+  {
+    "enunciado": "Determinada lei estadual que disponha sobre a obrigatoriedade de instalação de câmeras de segurança em agências bancárias situadas no território do estado não padece de vício de inconstitucionalidade formal, uma vez que a matéria se insere na competência legislativa concorrente dos Estados para legislar sobre segurança pública e proteção ao consumidor.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "c",
+    "rationale": "Certo. O STF entende que leis estaduais ou municipais que tratam de segurança em agências bancárias (como instalação de câmeras, biombos ou tempo de espera) versam sobre segurança do consumidor e interesse local, não invadindo a competência da União para legislar sobre sistema financeiro ou diretrizes de segurança nacional. Trata-se de exercício da competência suplementar/concorrente.",
+    "difficulty": "dificil",
+    "tags": ["Repartição de Competências", "Direito do Consumidor", "Jurisprudência STF"]
+  },
+  {
+    "enunciado": "O princípio da anterioridade tributária, que veda a cobrança de tributos no mesmo exercício financeiro em que haja sido publicada a lei que os instituiu ou aumentou, aplica-se integralmente às contribuições para a seguridade social, as quais devem observar tanto a anterioridade anual quanto a anterioridade nonagesimal.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "Errado. As contribuições para a seguridade social (Art. 195, § 6º, CF) são exceção à anterioridade anual. Elas devem observar apenas a anterioridade mitigada ou nonagesimal (90 dias), podendo ser cobradas no mesmo exercício financeiro em que foram instituídas, desde que respeitado o prazo de noventa dias da publicação da lei.",
+    "difficulty": "dificil",
+    "tags": ["Direito Tributário", "Anterioridade", "Contribuições Sociais"]
+  },
+  {
+    "enunciado": "Considere a situação em que o Presidente da República edita um decreto para extinguir cargos públicos que se encontram ocupados, visando à redução de gastos e à reorganização administrativa sob o argumento de eficiência. À luz da Constituição Federal, tal ato é juridicamente hígido, pois o Chefe do Poder Executivo dispõe de competência privativa para dispor, mediante decreto autônomo, sobre a organização e o funcionamento da administração federal, inclusive sobre a extinção de cargos.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "Errado. O erro reside no fato de os cargos estarem *ocupados*. O Art. 84, VI, 'b', da CF permite ao Presidente extinguir funções ou cargos públicos mediante decreto APENAS quando estiverem VAGOS. Se estiverem ocupados, a extinção exige Lei em sentido estrito, respeitadas as garantias de estabilidade dos servidores.",
+    "difficulty": "dificil",
+    "tags": ["Poder Executivo", "Decreto Autônomo", "Art. 84 CF"]
+  }
+]

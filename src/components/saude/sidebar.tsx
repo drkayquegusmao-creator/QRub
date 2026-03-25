@@ -1,7 +1,7 @@
 "use client"
 
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import { 
     Home, 
     BookOpen, 
@@ -25,7 +25,9 @@ import {
     Shield,
     Stethoscope,
     Activity,
-    HeartPulse
+    HeartPulse,
+    ArrowLeftRight,
+    ShieldAlert
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { useState } from 'react'
@@ -37,125 +39,91 @@ const SIDEBAR_GROUPS = [
         name: 'Principal',
         items: [
             { name: 'Dashboard', icon: Home, href: '/dashboard' },
-            { name: 'Questões', icon: Stethoscope, href: '/dashboard/setup' },
+            { name: 'Praticar', icon: Stethoscope, href: '/dashboard/setup' },
             { name: 'Simulados', icon: Layers, href: '/dashboard/simulados' },
-            { name: 'Revisão Médica', icon: Sparkles, icon_override: true, href: '/dashboard/revisao' },
-            { name: 'Agenda Saúde', icon: Calendar, href: '/dashboard/agenda' },
+            { name: 'Resumo IA', icon: Activity, href: '/dashboard/summary' },
         ]
     },
     {
-        name: 'Organização',
+        name: 'Aprendizado',
         items: [
-            { name: 'Especialidades', icon: HeartPulse, href: '/dashboard/especialidades' },
-            { name: 'Temas', icon: Hash, href: '/dashboard/temas' },
-            { name: 'Caderno de Erros', icon: BookMarked, href: '/dashboard/errors' },
-            { name: 'Favoritos', icon: Star, href: '/dashboard/favoritos' },
-            { name: 'Administrativo', icon: Shield, href: '/saude/admin' },
+            { name: 'Minha Agenda', icon: Calendar, href: '/dashboard/agenda' },
+            { name: 'Cadernos', icon: BookMarked, href: '/dashboard/cadernos' },
+            { name: 'Desempenho', icon: BarChart3, href: '/dashboard/stats' },
         ]
     },
     {
-        name: 'Análise',
+        name: 'Suporte',
         items: [
-            { name: 'Métricas', icon: BarChart3, href: '/dashboard/stats' },
-            { name: 'Desempenho', icon: TrendingUp, href: '/dashboard/desempenho' },
+            { name: 'Central de Ajuda', icon: Shield, href: '/dashboard/support' },
+            { name: 'Configurações', icon: Settings, href: '/dashboard/settings' },
         ]
     }
 ]
 
-// Custom icon for Sparkles to match the "didactic" theme
-function Sparkles(props: any) {
-    return (
-        <svg
-            {...props}
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-        >
-            <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" />
-            <path d="M5 3v4" />
-            <path d="M19 17v4" />
-            <path d="M3 5h4" />
-            <path d="M17 19h4" />
-        </svg>
-    )
-}
-
 export function SaudeSidebar() {
     const pathname = usePathname()
+    const router = useRouter()
+    const { user, logout } = useAuth()
     const [collapsed, setCollapsed] = useState(false)
-    const { logout } = useAuth()
 
     return (
         <aside 
             className={cn(
-                "hidden md:flex flex-col fixed left-0 top-0 h-screen bg-[#111827] text-white border-r border-white/5 transition-all duration-500 ease-in-out z-50 overflow-hidden",
+                "hidden md:flex flex-col fixed left-0 top-0 h-full bg-white dark:bg-[#0B0F1A] border-r border-slate-200 dark:border-white/5 transition-all duration-500 z-[50]",
                 collapsed ? "w-20" : "w-64"
             )}
         >
             {/* Header / Logo */}
-            <div className="p-8 pb-4 flex items-center justify-between">
-                <Link href="/dashboard" className="flex items-center gap-3">
-                    <div className="p-2.5 rounded-2xl bg-emerald-500 shadow-lg shadow-emerald-500/20">
-                        <Hexagon className="w-6 h-6 text-white fill-white/20" />
+            <div className="p-6 flex items-center justify-between">
+                <Link href="/dashboard" className="flex items-center gap-3 overflow-hidden">
+                    <div className="p-2 rounded-xl bg-emerald-500 shadow-lg shadow-emerald-500/20 shrink-0">
+                        <Hexagon className="w-5 h-5 text-white fill-white/20" />
                     </div>
                     {!collapsed && (
-                        <motion.div 
-                            initial={{ opacity: 0, x: -10 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            className="flex flex-col leading-none"
-                        >
-                            <span className="text-2xl font-black italic uppercase tracking-tighter">QRub</span>
-                            <span className="text-[9px] font-black uppercase tracking-[0.2em] text-emerald-400">Saúde</span>
-                        </motion.div>
+                        <div className="flex flex-col leading-none">
+                            <span className="text-xl font-black italic uppercase tracking-tighter dark:text-white text-[#111827]">QRub</span>
+                            <span className="text-[8px] font-black uppercase tracking-[0.2em] text-emerald-500">Saúde</span>
+                        </div>
                     )}
                 </Link>
+                <button 
+                    onClick={() => setCollapsed(!collapsed)}
+                    className="p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-white/5 text-slate-400"
+                >
+                    {collapsed ? <ChevronRight size={18} /> : <ChevronLeft size={18} />}
+                </button>
             </div>
 
-            {/* Nav Groups */}
-            <nav className="flex-1 px-4 py-8 space-y-8 overflow-y-auto no-scrollbar">
+            {/* Navigation */}
+            <nav className="flex-1 px-3 space-y-8 overflow-y-auto no-scrollbar scroll-smooth pt-4">
                 {SIDEBAR_GROUPS.map((group) => (
                     <div key={group.name} className="space-y-1">
                         {!collapsed && (
-                            <h3 className="px-4 text-[8px] font-black uppercase tracking-[0.2em] text-white/20 truncate">
+                            <p className="px-4 text-[9px] font-black uppercase tracking-[0.3em] text-slate-400 dark:text-slate-600 mb-4">
                                 {group.name}
-                            </h3>
+                            </p>
                         )}
-                        <div className="space-y-0.5">
+                        <div className="space-y-1">
                             {group.items.map((item) => {
-                                const isActive = pathname === item.href || (item.href !== '/dashboard' && pathname.startsWith(item.href))
-                                const Icon = item.icon_override ? Sparkles : item.icon
+                                const active = pathname === item.href
                                 return (
                                     <Link 
                                         key={item.name} 
                                         href={item.href}
                                         className={cn(
-                                            "flex items-center gap-2.5 px-4 py-2.5 rounded-xl transition-all group relative",
-                                            isActive 
-                                                ? "bg-emerald-500 text-white shadow-lg shadow-emerald-500/10 font-bold" 
-                                                : "text-white/40 hover:text-white hover:bg-white/5"
+                                            "flex items-center gap-4 px-4 py-3 rounded-2xl transition-all duration-300 group relative truncate",
+                                            active 
+                                                ? "bg-emerald-500 text-white shadow-lg shadow-emerald-500/20" 
+                                                : "text-slate-500 hover:bg-slate-50 dark:hover:bg-white/5 hover:text-[#111827] dark:hover:text-white"
                                         )}
-                                        title={collapsed ? item.name : undefined}
                                     >
-                                        <Icon className={cn(
-                                            "w-4 h-4 shrink-0 transition-transform group-hover:scale-110",
-                                            isActive ? "text-white" : "text-white/40"
-                                        )} />
+                                        <item.icon className={cn("w-5 h-5 shrink-0 transition-transform duration-300", !active && "group-hover:scale-110")} />
                                         {!collapsed && (
-                                            <span className="text-xs uppercase tracking-widest font-black truncate">
-                                                {item.name}
-                                            </span>
+                                            <span className="text-xs font-black uppercase tracking-widest">{item.name}</span>
                                         )}
-                                        {isActive && !collapsed && (
-                                            <motion.div 
-                                                layoutId="active-nav-indicator-saude"
-                                                className="absolute right-2 w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.8)]"
-                                            />
+                                        {active && !collapsed && (
+                                            <motion.div layoutId="active-pill" className="absolute right-3 w-1.5 h-1.5 rounded-full bg-white shadow-sm" />
                                         )}
                                     </Link>
                                 )
@@ -163,24 +131,56 @@ export function SaudeSidebar() {
                         </div>
                     </div>
                 ))}
+
+                {/* MASTER SECTION */}
+                {user?.role === 'MASTER' && (
+                    <div className="pt-6 border-t border-slate-100 dark:border-white/5 space-y-2">
+                        {!collapsed && (
+                            <p className="px-4 text-[9px] font-black uppercase tracking-[0.3em] text-indigo-500 dark:text-indigo-400 mb-4">
+                                Master Authority
+                            </p>
+                        )}
+                        <Link 
+                            href="/dashboard/admin"
+                            className={cn(
+                                "flex items-center gap-4 px-4 py-3 rounded-2xl transition-all group",
+                                pathname === '/dashboard/admin' 
+                                    ? "bg-[#1A1033] dark:bg-white text-white dark:text-[#1A1033] shadow-xl" 
+                                    : "text-slate-400 hover:bg-indigo-50/50 dark:hover:bg-white/5 hover:text-indigo-600 dark:hover:text-indigo-400"
+                            )}
+                        >
+                            <ShieldAlert className="w-5 h-5 shrink-0" />
+                            {!collapsed && <span className="text-[10px] font-black italic uppercase tracking-tighter">Administrativo</span>}
+                        </Link>
+
+                        <button 
+                            onClick={() => {
+                                localStorage.setItem('qrub_last_environment', 'CONCURSOS')
+                                window.location.href = '/select-environment'
+                            }}
+                            className={cn(
+                                "flex items-center gap-4 px-4 py-3 rounded-2xl bg-indigo-600/5 dark:bg-indigo-500/5 text-indigo-600 dark:text-indigo-400 border border-indigo-600/10 dark:border-indigo-400/10 group overflow-hidden transition-all hover:bg-indigo-600 hover:text-white",
+                                collapsed && "justify-center"
+                            )}
+                        >
+                            <ArrowLeftRight className="w-5 h-5 shrink-0 group-hover:rotate-180 duration-500 transition-transform" />
+                            {!collapsed && <span className="text-[10px] font-black italic uppercase tracking-tighter">Permutar Concursos</span>}
+                        </button>
+                    </div>
+                )}
             </nav>
 
-            {/* Footer / User / Collapse */}
-            <div className="p-3 bg-black/10 border-t border-white/5 space-y-2">
+            {/* Footer */}
+            <div className="p-6 border-t border-slate-200 dark:border-white/5 space-y-4 bg-white dark:bg-[#0B0F1A]">
                 <button 
-                    onClick={() => logout()}
-                    className="flex items-center gap-2.5 w-full px-4 py-2 rounded-xl hover:bg-red-500/10 text-white/30 hover:text-red-400 transition-all group"
+                    onClick={() => { logout(); router.push('/'); }}
+                    className={cn(
+                        "flex items-center gap-4 w-full px-4 py-3 rounded-xl border border-rose-500/10 text-rose-500 hover:bg-rose-500 hover:text-white transition-all duration-300",
+                        collapsed && "justify-center px-0"
+                    )}
                 >
-                    <LogOut className="w-4 h-4 group-hover:rotate-12 transition-transform" />
-                    {!collapsed && <span className="text-[9px] font-black uppercase tracking-widest group-hover:translate-x-1 transition-transform">Sair</span>}
-                </button>
-
-                <button 
-                    onClick={() => setCollapsed(!collapsed)}
-                    className="flex items-center justify-center gap-2 w-full p-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-white/30 hover:text-white transition-all"
-                >
-                    {collapsed ? <ChevronRight className="w-4 h-4" /> : <ChevronLeft className="w-4 h-4" />}
-                    {!collapsed && <span className="text-[8px] font-black uppercase tracking-widest">Recolher</span>}
+                    <LogOut className="w-5 h-5 shrink-0" />
+                    {!collapsed && <span className="text-[10px] font-black uppercase tracking-widest">Encerrar Sessão</span>}
                 </button>
             </div>
         </aside>
