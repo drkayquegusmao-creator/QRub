@@ -20,7 +20,7 @@ export function ConcursoQuizSetupFilters() {
         getSubdisciplinasByDisciplina,
         getAssuntosBySubdisciplina
     } = useConcursoTaxonomy()
-    const { questions, loadQuestions } = useConcursoQuestions()
+    const { questionsMeta: questions, loadAllQuestionsMeta, loadingMeta } = useConcursoQuestions()
     
     const [selectedAreaId, setSelectedAreaId] = useState<string>("")
     const [selectedDisciplinaId, setSelectedDisciplinaId] = useState<string>("")
@@ -37,7 +37,7 @@ export function ConcursoQuizSetupFilters() {
     
     useEffect(() => {
         loadTaxonomy()
-        loadQuestions({ pageSize: 0 })
+        loadAllQuestionsMeta()
         async function loadBancas() {
             const { data } = await supabase.from('concurso_bancas').select('id, name')
             if (data) setBancas(data)
@@ -45,25 +45,99 @@ export function ConcursoQuizSetupFilters() {
         loadBancas()
     }, [])
 
-    const areas = useMemo(() => getAreas(), [taxonomy])
-    const disciplinas = useMemo(() => getDisciplinasByArea(selectedAreaId), [selectedAreaId, taxonomy])
-    const subdisciplinas = useMemo(() => getSubdisciplinasByDisciplina(selectedDisciplinaId), [selectedDisciplinaId, taxonomy])
-    const assuntos = useMemo(() => getAssuntosBySubdisciplina(selectedSubdisciplinaId), [selectedSubdisciplinaId, taxonomy])
+    const areas = useMemo(() => {
+        const fromTaxonomy = getAreas()
+        const knownIds = new Set(fromTaxonomy.map(a => a.id))
+        const hasUnmapped = questions.some(q => !q.area_id || !knownIds.has(q.area_id))
+        return hasUnmapped ? [...fromTaxonomy, { id: 'unmapped-area', name: 'Geral / Outras Áreas' } as any] : fromTaxonomy
+    }, [taxonomy, questions])
+    
+    const disciplinas = useMemo(() => {
+        const fromTaxonomy = getDisciplinasByArea(selectedAreaId)
+        if (!selectedAreaId) return []
+        const knownIds = new Set(fromTaxonomy.map(d => d.id))
+        const areaQuestions = questions.filter(q => q.area_id === selectedAreaId)
+        const hasUnmapped = areaQuestions.some(q => !q.disciplina_id || !knownIds.has(q.disciplina_id))
+        return hasUnmapped ? [...fromTaxonomy, { id: 'unmapped-disciplina', name: 'Geral / Outros' } as any] : fromTaxonomy
+    }, [selectedAreaId, taxonomy, questions])
+
+    const subdisciplinas = useMemo(() => {
+        const fromTaxonomy = getSubdisciplinasByDisciplina(selectedDisciplinaId)
+        if (!selectedDisciplinaId || selectedDisciplinaId === 'unmapped-disciplina') return []
+        const knownIds = new Set(fromTaxonomy.map(s => s.id))
+        const discQuestions = questions.filter(q => q.disciplina_id === selectedDisciplinaId)
+        const hasUnmapped = discQuestions.some(q => !q.subdisciplina_id || !knownIds.has(q.subdisciplina_id))
+        return hasUnmapped ? [...fromTaxonomy, { id: 'unmapped-sub', name: 'Geral / Outros' } as any] : fromTaxonomy
+    }, [selectedDisciplinaId, taxonomy, questions])
+
+    const assuntos = useMemo(() => {
+        const fromTaxonomy = getAssuntosBySubdisciplina(selectedSubdisciplinaId)
+        if (!selectedSubdisciplinaId || selectedSubdisciplinaId === 'unmapped-sub') return []
+        const knownIds = new Set(fromTaxonomy.map(s => s.id))
+        const subQuestions = questions.filter(q => q.subdisciplina_id === selectedSubdisciplinaId)
+        const hasUnmapped = subQuestions.some(q => !q.assunto_id || !knownIds.has(q.assunto_id))
+        return hasUnmapped ? [...fromTaxonomy, { id: 'unmapped-assunto', name: 'Geral / Outros' } as any] : fromTaxonomy
+    }, [selectedSubdisciplinaId, taxonomy, questions])
 
     const bancaIds = useMemo(() => {
         const unique = Array.from(new Set(questions.map(q => q.banca_id).filter(Boolean)))
         return unique.sort()
     }, [questions])
 
+    const displayBancas = useMemo(() => {
+        const knownIds = new Set(bancas.map(b => b.id))
+        const hasUnmapped = questions.some(q => !q.banca_id || !knownIds.has(q.banca_id))
+        return hasUnmapped ? [...bancas, { id: 'unmapped-banca', name: 'Geral / Sem Banca' }] : bancas
+    }, [bancas, questions])
+
     const filteredCount = useMemo(() => {
         let filtered = questions
-        if (selectedAreaId) filtered = filtered.filter(q => q.area_id === selectedAreaId)
-        if (selectedDisciplinaId) filtered = filtered.filter(q => q.disciplina_id === selectedDisciplinaId)
-        if (selectedSubdisciplinaId) filtered = filtered.filter(q => q.subdisciplina_id === selectedSubdisciplinaId)
-        if (selectedAssuntoId) filtered = filtered.filter(q => q.assunto_id === selectedAssuntoId)
-        if (selectedBancaId) filtered = filtered.filter(q => q.banca_id === selectedBancaId)
+        if (selectedAreaId) {
+            if (selectedAreaId === 'unmapped-area') {
+                const knownIds = new Set(getAreas().map(a => a.id))
+                filtered = filtered.filter(q => !q.area_id || !knownIds.has(q.area_id))
+            } else {
+                filtered = filtered.filter(q => q.area_id === selectedAreaId)
+            }
+        }
+        
+        if (selectedDisciplinaId) {
+            if (selectedDisciplinaId === 'unmapped-disciplina') {
+                const knownIds = new Set(getDisciplinasByArea(selectedAreaId).map(d => d.id))
+                filtered = filtered.filter(q => !q.disciplina_id || !knownIds.has(q.disciplina_id))
+            } else {
+                filtered = filtered.filter(q => q.disciplina_id === selectedDisciplinaId)
+            }
+        }
+        
+        if (selectedSubdisciplinaId) {
+            if (selectedSubdisciplinaId === 'unmapped-sub') {
+                const knownIds = new Set(getSubdisciplinasByDisciplina(selectedDisciplinaId).map(s => s.id))
+                filtered = filtered.filter(q => !q.subdisciplina_id || !knownIds.has(q.subdisciplina_id))
+            } else {
+                filtered = filtered.filter(q => q.subdisciplina_id === selectedSubdisciplinaId)
+            }
+        }
+        
+        if (selectedAssuntoId) {
+            if (selectedAssuntoId === 'unmapped-assunto') {
+                const knownIds = new Set(getAssuntosBySubdisciplina(selectedSubdisciplinaId).map(s => s.id))
+                filtered = filtered.filter(q => !q.assunto_id || !knownIds.has(q.assunto_id))
+            } else {
+                filtered = filtered.filter(q => q.assunto_id === selectedAssuntoId)
+            }
+        }
+        
+        if (selectedBancaId) {
+            if (selectedBancaId === 'unmapped-banca') {
+                const knownIds = new Set(bancas.map(b => b.id))
+                filtered = filtered.filter(q => !q.banca_id || !knownIds.has(q.banca_id))
+            } else {
+                filtered = filtered.filter(q => q.banca_id === selectedBancaId)
+            }
+        }
         return filtered.length
-    }, [questions, selectedAreaId, selectedDisciplinaId, selectedSubdisciplinaId, selectedAssuntoId, selectedBancaId])
+    }, [questions, selectedAreaId, selectedDisciplinaId, selectedSubdisciplinaId, selectedAssuntoId, selectedBancaId, taxonomy, bancas])
 
     const handleStart = () => {
         if (!selectedAreaId) return
@@ -146,7 +220,7 @@ export function ConcursoQuizSetupFilters() {
                         <Database className="w-8 h-8" />
                     </div>
                     <h3 className="text-5xl font-black italic tracking-tighter text-white mb-2 relative z-10">
-                        {questions.length.toLocaleString('pt-BR')}
+                        {questions.length}
                     </h3>
                     <p className="text-[10px] uppercase font-black tracking-widest text-indigo-400/50 relative z-10">Questões Ativas</p>
                 </div>
@@ -171,7 +245,13 @@ export function ConcursoQuizSetupFilters() {
                         label="Área"
                         options={areas}
                         value={selectedAreaId}
-                        getOptionCount={(id) => questions.filter(q => q.area_id === id).length}
+                        getOptionCount={(id) => {
+                            if (id === 'unmapped-area') {
+                                const knownIds = new Set(getAreas().map(a => a.id))
+                                return questions.filter(q => !q.area_id || !knownIds.has(q.area_id)).length
+                            }
+                            return questions.filter(q => q.area_id === id).length
+                        }}
                         onChange={(id) => {
                             setSelectedAreaId(id)
                             setSelectedDisciplinaId("")
@@ -186,7 +266,13 @@ export function ConcursoQuizSetupFilters() {
                         options={disciplinas}
                         value={selectedDisciplinaId}
                         disabled={!selectedAreaId}
-                        getOptionCount={(id) => questions.filter(q => q.disciplina_id === id).length}
+                        getOptionCount={(id) => {
+                            if (id === 'unmapped-disciplina') {
+                                const knownIds = new Set(getDisciplinasByArea(selectedAreaId).map(d => d.id))
+                                return questions.filter(q => q.area_id === selectedAreaId && (!q.disciplina_id || !knownIds.has(q.disciplina_id))).length
+                            }
+                            return questions.filter(q => q.disciplina_id === id && q.area_id === selectedAreaId).length
+                        }}
                         onChange={(id) => {
                             setSelectedDisciplinaId(id)
                             setSelectedSubdisciplinaId("")
@@ -200,7 +286,13 @@ export function ConcursoQuizSetupFilters() {
                         options={subdisciplinas}
                         value={selectedSubdisciplinaId}
                         disabled={!selectedDisciplinaId}
-                        getOptionCount={(id) => questions.filter(q => q.subdisciplina_id === id).length}
+                        getOptionCount={(id) => {
+                            if (id === 'unmapped-sub') {
+                                const knownIds = new Set(getSubdisciplinasByDisciplina(selectedDisciplinaId).map(s => s.id))
+                                return questions.filter(q => q.disciplina_id === selectedDisciplinaId && (!q.subdisciplina_id || !knownIds.has(q.subdisciplina_id))).length
+                            }
+                            return questions.filter(q => q.subdisciplina_id === id && q.disciplina_id === selectedDisciplinaId).length
+                        }}
                         onChange={(id) => {
                             setSelectedSubdisciplinaId(id)
                             setSelectedAssuntoId("")
@@ -213,16 +305,30 @@ export function ConcursoQuizSetupFilters() {
                         options={assuntos}
                         value={selectedAssuntoId}
                         disabled={!selectedSubdisciplinaId}
-                        getOptionCount={(id) => questions.filter(q => q.assunto_id === id).length}
+                        getOptionCount={(id) => {
+                            if (id === 'unmapped-assunto') {
+                                const knownIds = new Set(getAssuntosBySubdisciplina(selectedSubdisciplinaId).map(s => s.id))
+                                return questions.filter(q => q.subdisciplina_id === selectedSubdisciplinaId && (!q.assunto_id || !knownIds.has(q.assunto_id))).length
+                            }
+                            return questions.filter(q => q.assunto_id === id && q.subdisciplina_id === selectedSubdisciplinaId).length
+                        }}
                         onChange={(id) => setSelectedAssuntoId(id)}
                     />
 
                     <FilterItem
                         step="05"
                         label="Banca"
-                        options={bancas}
+                        options={displayBancas}
                         value={selectedBancaId}
-                        getOptionCount={(id) => questions.filter(q => q.banca_id === id).length}
+                        getOptionCount={(id) => {
+                            if (id === 'unmapped-banca') {
+                                const knownIds = new Set(bancas.map(b => b.id))
+                                return questions.filter(q => !q.banca_id || !knownIds.has(q.banca_id)).length
+                            }
+                            // Bancas should not cascade down from Assunto/Subdisciplina rigidly, 
+                            // but filtering by Area/Disciplina helps accuracy. For now, count globally.
+                            return questions.filter(q => q.banca_id === id).length
+                        }}
                         onChange={(id) => setSelectedBancaId(id)}
                     />
                 </div>
@@ -236,7 +342,7 @@ export function ConcursoQuizSetupFilters() {
                     {/* Filter Summary Circle */}
                     <div className="flex flex-col items-center justify-center bg-white/5 border border-white/10 rounded-2xl p-4 min-w-[140px]">
                         <span className="text-4xl font-black italic text-white tracking-tighter">
-                            {filteredCount.toLocaleString('pt-BR')}
+                            {filteredCount}
                         </span>
                         <span className="text-[9px] font-bold uppercase tracking-widest text-white/50 text-center mt-1">
                             Disponíveis com<br/>estes filtros

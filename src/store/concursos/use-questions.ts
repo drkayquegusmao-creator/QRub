@@ -23,10 +23,21 @@ export interface ConcursoQuestion {
     status: 'active' | 'archived'
 }
 
+export interface QuestionMeta {
+    id: string
+    area_id: string | null
+    disciplina_id: string | null
+    subdisciplina_id: string | null
+    assunto_id: string | null
+    banca_id: string | null
+}
+
 interface ConcursoQuestionsState {
     questions: ConcursoQuestion[]
+    questionsMeta: QuestionMeta[]
     totalCount: number
     loading: boolean
+    loadingMeta: boolean
     error: string | null
     loadQuestions: (filters?: {
         area_id?: string,
@@ -39,13 +50,52 @@ interface ConcursoQuestionsState {
         page?: number,
         pageSize?: number
     }) => Promise<void>
+    loadAllQuestionsMeta: () => Promise<void>
 }
 
-export const useConcursoQuestions = create<ConcursoQuestionsState>()((set) => ({
+export const useConcursoQuestions = create<ConcursoQuestionsState>()((set, get) => ({
     questions: [],
+    questionsMeta: [],
     totalCount: 0,
     loading: false,
+    loadingMeta: false,
     error: null,
+
+    loadAllQuestionsMeta: async () => {
+        if (!isSupabaseConfigured()) return
+        if (get().loadingMeta) return
+        set({ loadingMeta: true })
+
+        try {
+            const BATCH = 1000
+            const allMeta: QuestionMeta[] = []
+            let from = 0
+            let keepGoing = true
+
+            while (keepGoing) {
+                const { data, error } = await supabase
+                    .from('concurso_questao_base')
+                    .select('id, area_id, disciplina_id, subdisciplina_id, assunto_id, banca_id')
+                    .eq('status', 'active')
+                    .range(from, from + BATCH - 1)
+
+                if (error) throw error
+
+                if (data && data.length > 0) {
+                    allMeta.push(...(data as QuestionMeta[]))
+                    from += BATCH
+                    if (data.length < BATCH) keepGoing = false
+                } else {
+                    keepGoing = false
+                }
+            }
+
+            set({ questionsMeta: allMeta, totalCount: allMeta.length, loadingMeta: false })
+        } catch (err: any) {
+            console.error('Error loading questions meta:', err)
+            set({ loadingMeta: false })
+        }
+    },
 
     loadQuestions: async (filters) => {
         if (!isSupabaseConfigured()) return

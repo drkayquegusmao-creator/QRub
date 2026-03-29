@@ -421,11 +421,16 @@ function PremiumTaskCard({
     const isLate = task.status === 'atrasado'
     const isDone = task.status === 'concluido'
 
-    const config = {
+    const config: Record<string, { icon: any, color: string, bg: string, label: string }> = {
         teoria: { icon: BookOpen, color: 'text-blue-500', bg: 'bg-blue-500/10', label: 'Estudo Teórico' },
         revisao: { icon: Zap, color: 'text-amber-500', bg: 'bg-amber-500/10', label: 'Revisão SRS' },
         questoes: { icon: FileText, color: 'text-emerald-500', bg: 'bg-emerald-500/10', label: 'Ciclo de Questões' },
         caderno: { icon: NotebookPen, color: 'text-rose-400', bg: 'bg-rose-400/10', label: 'Caderno de Erros' },
+        nivelamento: { icon: Target, color: 'text-indigo-500', bg: 'bg-indigo-500/10', label: 'Nivelamento' },
+        simulado: { icon: TrendingUp, color: 'text-purple-500', bg: 'bg-purple-500/10', label: 'Simulado' },
+        lembrete: { icon: AlertCircle, color: 'text-slate-500', bg: 'bg-slate-500/10', label: 'Lembrete' },
+        nota: { icon: NotebookPen, color: 'text-slate-400', bg: 'bg-slate-400/10', label: 'Nota Livre' },
+        recuperacao: { icon: RefreshCw, color: 'text-rose-500', bg: 'bg-rose-500/10', label: 'Recuperação' },
     }
 
     const { icon: Icon, color, bg, label } = config[task.type]
@@ -621,13 +626,18 @@ function FocusModeView({
     onNext: () => void
     onFinish: (taskId: string) => void
 }) {
-    const iconMap = {
+    const iconMap: Record<string, any> = {
         revisao: Zap,
         questoes: FileText,
         teoria: BookOpen,
         caderno: NotebookPen,
+        nivelamento: Target,
+        simulado: TrendingUp,
+        lembrete: AlertCircle,
+        nota: NotebookPen,
+        recuperacao: RefreshCw,
     }
-    const Icon = iconMap[task.type]
+    const Icon = iconMap[task.type] || Zap
 
     return (
         <motion.div

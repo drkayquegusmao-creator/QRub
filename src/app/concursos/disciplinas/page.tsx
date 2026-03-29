@@ -16,19 +16,38 @@ import {
     Zap
 } from 'lucide-react'
 import { useConcursoTaxonomy } from '@/store/concursos/use-taxonomy'
+import { useAuth } from '@/store/use-auth'
+import { getDisciplinasPerformance, UserPerformanceStats } from '@/lib/concursos/performance-service'
 import { ConcursoCard } from '@/components/concursos/concurso-card'
 import { cn } from '@/lib/utils'
 import { useRouter } from 'next/navigation'
 
 export default function DisciplinasPage() {
     const router = useRouter()
+    const { user } = useAuth()
     const { taxonomy, loadTaxonomy, getAreas } = useConcursoTaxonomy()
     const [searchTerm, setSearchTerm] = useState('')
     const [selectedAreaId, setSelectedAreaId] = useState<string | 'all'>('all')
+    const [stats, setStats] = useState<Record<string, UserPerformanceStats>>({})
+    const [loadingStats, setLoadingStats] = useState(true)
 
     useEffect(() => {
         loadTaxonomy()
     }, [])
+
+    useEffect(() => {
+        async function fetchStats() {
+            if (!user?.id) return
+            setLoadingStats(true)
+            try {
+                const data = await getDisciplinasPerformance(user.id)
+                setStats(data)
+            } finally {
+                setLoadingStats(false)
+            }
+        }
+        fetchStats()
+    }, [user?.id])
 
     const areas = useMemo(() => getAreas(), [taxonomy])
 
@@ -107,6 +126,8 @@ export default function DisciplinasPage() {
                                 <DisciplinaCard 
                                     key={disc.id} 
                                     disciplina={disc} 
+                                    stats={stats[disc.id]}
+                                    loading={loadingStats}
                                     onClick={() => router.push(`/concursos/setup?disciplinaId=${disc.id}&areaId=${area.id}`)}
                                 />
                             ))}
@@ -127,11 +148,15 @@ export default function DisciplinasPage() {
     )
 }
 
-function DisciplinaCard({ disciplina, onClick }: { disciplina: any, onClick: () => void }) {
-    // Simulated data for the example
-    const completion = Math.floor(Math.random() * 80) + 10
-    const accuracy = Math.floor(Math.random() * 30) + 60
-    const totalQuestions = Math.floor(Math.random() * 500) + 100
+function DisciplinaCard({ disciplina, stats, loading, onClick }: { 
+    disciplina: any, 
+    stats?: UserPerformanceStats, 
+    loading: boolean,
+    onClick: () => void 
+}) {
+    const completion = stats?.completude || 0
+    const accuracy = stats?.precisao_media || 0
+    const totalQuestions = stats?.total_vistas || 0
 
     return (
         <ConcursoCard className="group cursor-pointer hover:-translate-y-1 transition-all">
@@ -152,7 +177,7 @@ function DisciplinaCard({ disciplina, onClick }: { disciplina: any, onClick: () 
                 </div>
 
                 {/* Progress */}
-                <div className="space-y-4">
+                <div className={cn("space-y-4 transition-opacity", loading ? "opacity-40 animate-pulse" : "opacity-100")}>
                     <div className="space-y-1.5">
                         <div className="flex justify-between items-center text-[9px] font-black uppercase tracking-widest">
                             <span className="text-slate-400">Completude</span>

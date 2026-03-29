@@ -18,21 +18,40 @@ import {
     BarChart3
 } from 'lucide-react'
 import { useConcursoTaxonomy } from '@/store/concursos/use-taxonomy'
+import { useAuth } from '@/store/use-auth'
+import { getAssuntosPerformance, UserPerformanceStats } from '@/lib/concursos/performance-service'
 import { ConcursoCard } from '@/components/concursos/concurso-card'
 import { cn } from '@/lib/utils'
 import { useRouter } from 'next/navigation'
 
 export default function AssuntosPage() {
     const router = useRouter()
+    const { user } = useAuth()
     const { taxonomy, loadTaxonomy, getAreas } = useConcursoTaxonomy()
     
     const [searchTerm, setSearchTerm] = useState('')
     const [selectedAreaId, setSelectedAreaId] = useState<string>('')
     const [selectedDisciplinaId, setSelectedDisciplinaId] = useState<string>('')
+    const [stats, setStats] = useState<Record<string, UserPerformanceStats>>({})
+    const [loadingStats, setLoadingStats] = useState(true)
 
     useEffect(() => {
         loadTaxonomy()
     }, [])
+
+    useEffect(() => {
+        async function fetchStats() {
+            if (!user?.id) return
+            setLoadingStats(true)
+            try {
+                const data = await getAssuntosPerformance(user.id)
+                setStats(data)
+            } finally {
+                setLoadingStats(false)
+            }
+        }
+        fetchStats()
+    }, [user?.id])
 
     const areas = useMemo(() => getAreas(), [taxonomy])
     const disciplinas = useMemo(() => {
@@ -147,7 +166,13 @@ export default function AssuntosPage() {
                         </thead>
                         <tbody className="divide-y divide-slate-100 dark:divide-white/5">
                             {filteredAssuntos.map((assunto, idx) => (
-                                <SubjectRow key={assunto.id} subject={assunto} onClick={() => router.push(`/concursos/setup?assuntoId=${assunto.id}`)} />
+                                <SubjectRow 
+                                    key={assunto.id} 
+                                    subject={assunto} 
+                                    stats={stats[assunto.id]}
+                                    loading={loadingStats}
+                                    onClick={() => router.push(`/concursos/setup?assuntoId=${assunto.id}`)} 
+                                />
                             ))}
                         </tbody>
                     </table>
@@ -164,12 +189,17 @@ export default function AssuntosPage() {
     )
 }
 
-function SubjectRow({ subject, onClick }: { subject: any, onClick: () => void }) {
-    const accuracy = Math.floor(Math.random() * 40) + 50
-    const count = Math.floor(Math.random() * 200) + 10
+function SubjectRow({ subject, stats, loading, onClick }: { 
+    subject: any, 
+    stats?: UserPerformanceStats,
+    loading: boolean,
+    onClick: () => void 
+}) {
+    const accuracy = stats?.precisao_media || 0
+    const count = stats?.total_vistas || 0
 
     return (
-        <tr className="group hover:bg-slate-50 dark:hover:bg-white/5 transition-all">
+        <tr className={cn("group hover:bg-slate-50 dark:hover:bg-white/5 transition-all", loading && "opacity-40 animate-pulse")}>
             <td className="py-8 px-10">
                 <div className="space-y-1">
                     <p className="text-sm font-black italic uppercase tracking-tighter text-[#1A1033] dark:text-white group-hover:text-indigo-600 transition-colors">

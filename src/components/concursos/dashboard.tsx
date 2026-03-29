@@ -34,7 +34,7 @@ export function ConcursoDashboard() {
     const router = useRouter()
     const { user } = useAuth()
     const { stats, loadStats } = useUserStats()
-    const { get_weekly_accuracy, load_responses } = useQuiz()
+    const { get_weekly_accuracy, load_responses, responses } = useQuiz()
     const { taxonomy, loadTaxonomy, getAreas } = useConcursoTaxonomy()
 
     useEffect(() => {
@@ -46,6 +46,31 @@ export function ConcursoDashboard() {
     }, [user?.id, loadStats, load_responses, loadTaxonomy])
 
     const areas = useMemo(() => getAreas(), [taxonomy])
+    
+    // Calculate Today's Stats and Overall
+    const { todayTotal, todayCorrect, todayWrong, todayAccuracy, overallTotal, overallCorrect, overallWrong, overallAccuracy } = useMemo(() => {
+        const todayStr = new Date().toDateString()
+        const targetRes = responses.filter(r => !!r.is_concursos)
+        
+        // Today
+        const todayRes = targetRes.filter(r => new Date(r.timestamp).toDateString() === todayStr)
+        const tTotal = todayRes.length
+        const tCorrect = todayRes.filter(r => r.is_correct).length
+        const tWrong = tTotal - tCorrect
+        const tAccuracy = tTotal > 0 ? Math.round((tCorrect / tTotal) * 100) : 0
+
+        // Overall
+        const oTotal = targetRes.length
+        const oCorrect = targetRes.filter(r => r.is_correct).length
+        const oWrong = oTotal - oCorrect
+        const oAccuracy = oTotal > 0 ? Math.round((oCorrect / oTotal) * 100) : 0
+
+        return { 
+            todayTotal: tTotal, todayCorrect: tCorrect, todayWrong: tWrong, todayAccuracy: tAccuracy,
+            overallTotal: oTotal, overallCorrect: oCorrect, overallWrong: oWrong, overallAccuracy: oAccuracy
+        }
+    }, [responses])
+
     const evolutionData = get_weekly_accuracy().map(d => ({ name: d.day, val: d.accuracy }))
 
     // Animation Variants
@@ -265,7 +290,7 @@ export function ConcursoDashboard() {
                                 <div className="flex items-end justify-between">
                                     <div className="space-y-0.5">
                                         <p className="text-[9px] font-bold text-slate-400 uppercase tracking-widest">Taxa de Acerto</p>
-                                        <p className="text-4xl font-black italic text-[#1A1033] dark:text-white leading-none">{stats?.media_geral || 0}%</p>
+                                        <p className="text-4xl font-black italic text-[#1A1033] dark:text-white leading-none">{overallAccuracy}%</p>
                                     </div>
                                     <div className="text-right">
                                         <div className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 rounded-full text-[8px] font-black uppercase tracking-tighter border border-emerald-500/20">
@@ -290,13 +315,47 @@ export function ConcursoDashboard() {
                                 </div>
 
                                 <div className="grid grid-cols-2 gap-4 pt-4 border-t border-slate-100 dark:border-white/5">
-                                    <div className="space-y-0.5">
-                                        <p className="text-[7px] font-black text-slate-400 uppercase tracking-[0.2em]">Total</p>
-                                        <p className="text-lg font-black italic text-[#1A1033] dark:text-white tracking-tighter">{stats?.total_questoes || 0}</p>
+                                    <div className="space-y-3">
+                                        <p className="text-[9px] font-black text-slate-400 uppercase tracking-[0.2em] mb-2 border-b border-slate-100 dark:border-white/5 pb-1">Desempenho Hoje</p>
+                                        <div className="grid grid-cols-2 gap-2">
+                                            <div>
+                                                <p className="text-[7px] font-black text-slate-400 uppercase tracking-widest">Total</p>
+                                                <p className="text-sm font-black italic text-[#1A1033] dark:text-white tracking-tighter">{todayTotal}</p>
+                                            </div>
+                                            <div>
+                                                <p className="text-[7px] font-black text-slate-400 uppercase tracking-widest">Acerto</p>
+                                                <p className="text-sm font-black italic text-emerald-500 tracking-tighter">{todayAccuracy}%</p>
+                                            </div>
+                                            <div>
+                                                <p className="text-[7px] font-black text-slate-400 uppercase tracking-widest">Certas</p>
+                                                <p className="text-sm font-black italic text-[#1A1033] dark:text-white tracking-tighter">{todayCorrect}</p>
+                                            </div>
+                                            <div>
+                                                <p className="text-[7px] font-black text-slate-400 uppercase tracking-widest">Erradas</p>
+                                                <p className="text-sm font-black italic text-rose-500 tracking-tighter">{todayWrong}</p>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div className="space-y-0.5">
-                                        <p className="text-[7px] font-black text-slate-400 uppercase tracking-[0.2em]">Acertos</p>
-                                        <p className="text-lg font-black italic text-[#1A1033] dark:text-white tracking-tighter">{(stats?.total_questoes || 0) * ((stats?.media_geral || 0) / 100) | 0}</p>
+                                    <div className="space-y-3 border-l border-slate-100 dark:border-white/5 pl-4">
+                                        <p className="text-[9px] font-black text-slate-400 uppercase tracking-[0.2em] mb-2 border-b border-slate-100 dark:border-white/5 pb-1">Geral</p>
+                                        <div className="grid grid-cols-2 gap-2">
+                                            <div>
+                                                <p className="text-[7px] font-black text-slate-400 uppercase tracking-widest">Total</p>
+                                                <p className="text-sm font-black italic text-[#1A1033] dark:text-white tracking-tighter">{overallTotal}</p>
+                                            </div>
+                                            <div>
+                                                <p className="text-[7px] font-black text-slate-400 uppercase tracking-widest">Acerto</p>
+                                                <p className="text-sm font-black italic text-emerald-500 tracking-tighter">{overallAccuracy}%</p>
+                                            </div>
+                                            <div>
+                                                <p className="text-[7px] font-black text-slate-400 uppercase tracking-widest">Certas</p>
+                                                <p className="text-sm font-black italic text-[#1A1033] dark:text-white tracking-tighter">{overallCorrect}</p>
+                                            </div>
+                                            <div>
+                                                <p className="text-[7px] font-black text-slate-400 uppercase tracking-widest">Erradas</p>
+                                                <p className="text-sm font-black italic text-rose-500 tracking-tighter">{overallWrong}</p>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

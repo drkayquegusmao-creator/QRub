@@ -10,6 +10,7 @@ export interface ConcursoUserResponse {
     user_id: string
     question_id: string
     disciplina_id: string
+    assunto_id?: string
     is_correct: boolean
     tempo_resposta_segundos?: number
     timestamp: string
@@ -62,6 +63,11 @@ export const useConcursoQuiz = create<ConcursoQuizState>()(
             },
 
             add_response: async (response) => {
+                const { useUserStats } = await import('../use-user-stats')
+                if (response.user_id) {
+                    useUserStats.getState().updateStats(response.user_id, response.is_correct, true)
+                }
+
                 if (isSupabaseConfigured()) {
                     try {
                         await supabase
@@ -70,6 +76,7 @@ export const useConcursoQuiz = create<ConcursoQuizState>()(
                                 user_id: response.user_id,
                                 question_id: response.question_id,
                                 disciplina_id: response.disciplina_id,
+                                assunto_id: response.assunto_id,
                                 is_correct: response.is_correct,
                                 tempo_resposta_segundos: response.tempo_resposta_segundos,
                                 timestamp: response.timestamp

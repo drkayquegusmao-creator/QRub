@@ -27,6 +27,7 @@ import { useConcursoQuestions } from "@/store/concursos/use-questions"
 import { ConcursoCard } from "@/components/concursos/concurso-card"
 import { cn } from "@/lib/utils"
 import * as srsService from "@/lib/nivelamento-service"
+import * as revisaoService from "@/lib/revisao-service"
 import { toast } from "react-hot-toast"
 
 // ─── TOWER 1: DASHBOARD DE REVISÃO ───────────────────────────────────────────
@@ -52,10 +53,22 @@ export function ConcursoRevisaoDashboard() {
     } | null>(null)
     
     const [lastResult, setLastResult] = useState<srsService.PlacementResult | null>(null)
+    
+    // Real Stats
+    const [srsStats, setSrsStats] = useState<revisaoService.SRSStats | null>(null)
+    const [disciplines, setDisciplines] = useState<revisaoService.TopicRetention[]>([])
 
     useEffect(() => {
         loadTaxonomy()
+        loadRealStats()
     }, [])
+
+    const loadRealStats = async () => {
+        const stats = await revisaoService.fetchSRSOverview()
+        const topics = await revisaoService.fetchDisciplinesRetention()
+        setSrsStats(stats)
+        setDisciplines(topics)
+    }
 
     const handleStartSession = async (disciplina: ConcursoTaxonomyNode, area: ConcursoTaxonomyNode) => {
         if (!user) return
@@ -210,7 +223,7 @@ export function ConcursoRevisaoDashboard() {
                                         Prioridade
                                     </span>
                                 </div>
-                                <h3 className="text-4xl font-black italic text-white mb-1 leading-none">12</h3>
+                                <h3 className="text-4xl font-black italic text-white mb-1 leading-none">{srsStats?.urgentCount ?? '--'}</h3>
                                 <p className="text-[10px] font-black text-indigo-200 uppercase tracking-widest">
                                     Revisões Urgentes
                                 </p>
@@ -225,7 +238,7 @@ export function ConcursoRevisaoDashboard() {
                                         Consolidado
                                     </span>
                                 </div>
-                                <h3 className="text-4xl font-black italic text-white mb-1 leading-none">84%</h3>
+                                <h3 className="text-4xl font-black italic text-white mb-1 leading-none">{srsStats?.retentionLevel ?? '84'}%</h3>
                                 <p className="text-[10px] font-black text-emerald-100 uppercase tracking-widest">
                                     Nível de Retenção
                                 </p>
@@ -243,7 +256,7 @@ export function ConcursoRevisaoDashboard() {
                                         Meta
                                     </span>
                                 </div>
-                                <h3 className="text-4xl font-black italic text-white mb-1 leading-none relative z-10">158</h3>
+                                <h3 className="text-4xl font-black italic text-white mb-1 leading-none relative z-10">{srsStats?.monthlyTotal ?? '--'}</h3>
                                 <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest relative z-10">
                                     Revisões no Mês
                                 </p>
@@ -261,10 +274,10 @@ export function ConcursoRevisaoDashboard() {
                                     Prioridade
                                 </div>
                                 <h2 className="text-3xl md:text-4xl font-black italic uppercase tracking-tighter text-[#1A1033] mb-2 leading-none">
-                                    Direito Constitucional <span className="text-orange-500">em Risco</span>
+                                    {srsStats?.criticalTopic?.name ?? 'Direito Constitucional'} <span className="text-orange-500">em Risco</span>
                                 </h2>
                                 <p className="text-slate-500 font-medium text-sm md:text-base leading-relaxed">
-                                    A curva de esquecimento está acelerando em <span className="text-[#1A1033] font-bold">Controle de Constitucionalidade</span>. Retome a revisão agora.
+                                    A curva de esquecimento está acelerando em <span className="text-[#1A1033] font-bold">{srsStats?.criticalTopic?.subName ?? 'Controle de Constitucionalidade'}</span>. Retome a revisão agora.
                                 </p>
                             </div>
                             <button className="bg-orange-500 text-white px-10 py-5 rounded-2xl font-black uppercase text-xs tracking-widest hover:scale-105 active:scale-95 transition-all shadow-xl shadow-orange-500/10 flex items-center gap-3 shrink-0">
@@ -538,12 +551,7 @@ export function ConcursoRevisaoDashboard() {
                                     <Shield className="w-5 h-5 text-indigo-600" /> Disciplinas
                                 </h3>
                                 <div className="space-y-6">
-                                    {[
-                                        { name: 'Direito Constitucional', score: 85, color: 'bg-emerald-500' },
-                                        { name: 'Direito Administrativo', score: 62, color: 'bg-indigo-500' },
-                                        { name: 'Direito Penal', score: 45, color: 'bg-orange-500' },
-                                        { name: 'Língua Portuguesa', score: 92, color: 'bg-emerald-500' }
-                                    ].map((item, i) => (
+                                    {disciplines.length > 0 ? disciplines.map((item, i) => (
                                         <div key={i} className="space-y-2">
                                             <div className="flex justify-between items-center text-xs font-black uppercase tracking-widest">
                                                 <span className="text-[#1A1033]">{item.name}</span>
@@ -557,7 +565,11 @@ export function ConcursoRevisaoDashboard() {
                                                 />
                                             </div>
                                         </div>
-                                    ))}
+                                    )) : (
+                                        <div className="py-10 text-center text-slate-400 font-bold uppercase text-[10px]">
+                                            Nenhum dado de retenção ainda.
+                                        </div>
+                                    )}
                                 </div>
                             </ConcursoCard>
                         </div>

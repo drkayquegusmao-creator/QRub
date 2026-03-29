@@ -1,7 +1,8 @@
 "use client"
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { fetchPlanHealth, PlanHealth } from '@/lib/revisao-service'
 import { 
     Calendar, 
     Zap, 
@@ -12,12 +13,16 @@ import {
     ArrowRight,
     Target,
     Clock,
-    Sparkles,
     BarChart3,
     TrendingUp,
     CheckCircle2,
     RotateCcw,
     Sliders,
+    History,
+    Shield,
+    Heart,
+    Trophy,
+    Sparkles,
     Brain,
     Info
 } from 'lucide-react'
@@ -33,6 +38,15 @@ export default function StudyPlanPage() {
         focus: 'administrativo',
         goal: 'pcdf'
     })
+    const [healthMetrics, setHealthMetrics] = useState<PlanHealth | null>(null)
+
+    useEffect(() => {
+        const load = async () => {
+            const data = await fetchPlanHealth()
+            setHealthMetrics(data)
+        }
+        load()
+    }, [])
 
     return (
         <div className="space-y-6 pb-20">
@@ -73,10 +87,14 @@ export default function StudyPlanPage() {
                     >
                         {/* 1. Status Cards */}
                         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-                            <SummaryCard label="Saúde do Plano" value="84%" icon={<CheckCircle2 className="text-emerald-500" />} />
-                            <SummaryCard label="Média Diária" value="5.2h" icon={<Clock className="text-indigo-500" />} />
-                            <SummaryCard label="Consistência" value="92%" icon={<TrendingUp className="text-emerald-500" />} />
-                            <SummaryCard label="Revisões" value="128" icon={<Zap className="text-amber-500" />} />
+                            {[
+                                { label: 'Saúde do Plano', value: `${healthMetrics?.health ?? '--'}%`, icon: Heart, trend: '+2.1%', color: 'text-rose-500' },
+                                { label: 'Média Diária', value: `${healthMetrics?.dailyAvg ?? '--'}H`, icon: Zap, trend: '-0.4H', color: 'text-amber-500' },
+                                { label: 'Consistência', value: `${healthMetrics?.consistency ?? '--'}%`, icon: Trophy, trend: '+5%', color: 'text-emerald-500' },
+                                { label: 'Revisões Hoje', value: String(healthMetrics?.pendingReviews ?? '--'), icon: History, trend: 'Urgente', color: 'text-indigo-500' },
+                            ].map((stat, i) => (
+                                <SummaryCard key={i} label={stat.label} value={stat.value} icon={<stat.icon className={cn("w-4 h-4", stat.color)} />} />
+                            ))}
                         </div>
 
                         {/* 2. Planejamento e Controle Body */}

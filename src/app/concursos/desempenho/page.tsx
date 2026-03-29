@@ -18,19 +18,64 @@ import {
 } from 'lucide-react'
 import { ConcursoCard } from '@/components/concursos/concurso-card'
 import { cn } from '@/lib/utils'
+import { useQuiz } from '@/store/use-quiz'
+import { useConcursoTaxonomy, ConcursoTaxonomyNode } from '@/store/concursos/use-taxonomy'
+import { useEffect, useMemo } from 'react'
 
 export default function ConcursoDesempenhoPage() {
     const { user } = useAuth()
-    const { stats } = useUserStats()
+    const { stats, loadStats } = useUserStats()
+    const { responses, load_responses } = useQuiz()
+    const { taxonomy, loadTaxonomy } = useConcursoTaxonomy()
 
-    const disciplines = [
-        { name: 'Direito Constitucional', mastery: 85, accuracy: 92, trend: 'up', color: 'indigo' },
-        { name: 'Direito Administrativo', mastery: 64, accuracy: 78, trend: 'stable', color: 'indigo' },
-        { name: 'Língua Portuguesa', mastery: 92, accuracy: 95, trend: 'up', color: 'emerald' },
-        { name: 'Direito Penal', mastery: 45, accuracy: 52, trend: 'down', color: 'rose' },
-        { name: 'Direito Processual Penal', mastery: 58, accuracy: 65, trend: 'up', color: 'indigo' },
-        { name: 'Informática', mastery: 72, accuracy: 80, trend: 'up', color: 'indigo' },
-    ]
+    useEffect(() => {
+        if (user?.id) {
+            loadStats(user.id, true)
+            load_responses(user.id, true)
+            loadTaxonomy()
+        }
+    }, [user?.id, loadStats, load_responses, loadTaxonomy])
+
+    const findNodeName = (id: string, nodes: ConcursoTaxonomyNode[]): string => {
+        if (!nodes) return id
+        for (const node of nodes) {
+            if (node.id === id) return node.name
+            if (node.children) {
+                const found = findNodeName(id, node.children)
+                if (found) return found
+            }
+        }
+        return id
+    }
+
+    const disciplines = useMemo(() => {
+        const targetRes = responses.filter(r => !!r.is_concursos)
+        if (targetRes.length === 0) return []
+
+        const map = new Map<string, { total: number, correct: number }>()
+
+        targetRes.forEach(r => {
+            const discId = r.specialty_id || (r as any).disciplina_id || 'unknown'
+            if (!map.has(discId)) map.set(discId, { total: 0, correct: 0 })
+            const entry = map.get(discId)!
+            entry.total++
+            if (r.is_correct) entry.correct++
+        })
+
+        return Array.from(map.entries()).map(([id, metrics]) => {
+            const mastery = Math.round((metrics.correct / metrics.total) * 100)
+            const name = findNodeName(id, taxonomy)
+            
+            return {
+                id,
+                name: name !== id ? name : 'Disciplina Sem Nome',
+                mastery,
+                accuracy: mastery,
+                trend: mastery >= 80 ? 'up' : mastery >= 50 ? 'stable' : 'down',
+                color: mastery >= 80 ? 'emerald' : mastery >= 50 ? 'indigo' : 'rose'
+            }
+        }).sort((a, b) => b.mastery - a.mastery)
+    }, [responses, taxonomy])
 
     return (
         <div className="space-y-8 pb-24">
@@ -62,7 +107,14 @@ export default function ConcursoDesempenhoPage() {
 
             {/* Mastery Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-2">
-                {disciplines.map((item, idx) => (
+                {disciplines.length === 0 ? (
+                    <div className="col-span-1 md:col-span-2 lg:col-span-3 min-h-[40vh] flex flex-col items-center justify-center p-8 bg-white dark:bg-slate-800/20 border-2 border-dashed border-slate-200 dark:border-white/10 rounded-3xl text-center">
+                        <Brain className="w-12 h-12 text-slate-300 mb-4" />
+                        <h3 className="text-xl font-black italic uppercase tracking-tighter text-[#1A1033] dark:text-white">Nenhum Domínio Mapeado</h3>
+                        <p className="text-slate-400 font-bold text-xs uppercase tracking-widest mt-2 max-w-sm">Resolva questões para mapear seu nível de proficiência técnica e visualizar quais disciplinas constam no seu perfil.</p>
+                    </div>
+                ) : (
+                    disciplines.map((item, idx) => (
                     <motion.div
                         key={item.name}
                         initial={{ opacity: 0, y: 20 }}
@@ -108,7 +160,8 @@ export default function ConcursoDesempenhoPage() {
                             </button>
                         </ConcursoCard>
                     </motion.div>
-                ))}
+                    ))
+                )}
             </div>
 
             {/* Bottom Insights */}

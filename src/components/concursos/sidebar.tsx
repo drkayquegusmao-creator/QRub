@@ -48,14 +48,6 @@ const SIDEBAR_GROUPS = [
             { name: 'Assuntos', icon: Hash, href: '/concursos/assuntos' },
             { name: 'Caderno de Erros', icon: BookMarked, href: '/concursos/cadernos' },
             { name: 'Favoritos', icon: Star, href: '/concursos/favoritos' },
-            { name: 'Administrativo', icon: Shield, href: '/concursos/admin' },
-        ]
-    },
-    {
-        name: 'Análise',
-        items: [
-            { name: 'Métricas', icon: BarChart3, href: '/concursos/estatisticas' },
-            { name: 'Desempenho', icon: TrendingUp, href: '/concursos/desempenho' },
         ]
     }
 ]

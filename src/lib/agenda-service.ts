@@ -1,16 +1,19 @@
 /**
- * Agenda Service — QRub Concursos
- * Aggregates daily tasks from multiple sources:
- * 1. agenda_revisoes (SRS scheduled reviews)
- * 2. caderno_erros (overdue error-notebook items)
- * 3. assunto_progresso (subjects needing practice via questão)
+ * Agenda Service — QRub Concursos (Motor Inteligente)
+ * Aggregates daily tasks from:
+ * 1. SRS (Risco, Atrasadas, Hoje)
+ * 2. Caderno de Erros
+ * 3. Nivelamentos pendentes
+ * 4. Lembretes manuais
+ * 5. Notas livres
  */
 
 import { supabase } from './supabase'
 
-export type AgendaTaskType = 'revisao' | 'caderno' | 'questoes' | 'teoria'
-export type AgendaTaskStatus = 'pendente' | 'em-andamento' | 'concluido' | 'atrasado'
+export type AgendaTaskType = 'revisao' | 'caderno' | 'questoes' | 'teoria' | 'nivelamento' | 'simulado' | 'lembrete' | 'nota' | 'recuperacao'
+export type AgendaTaskStatus = 'pendente' | 'em_execucao' | 'concluido' | 'atrasado'
 export type AgendaPriority = 'baixa' | 'media' | 'alta' | 'urgente'
+export type AgendaOrigin = 'sistema' | 'usuario'
 
 export interface AgendaTask {
   id: string
@@ -21,8 +24,14 @@ export interface AgendaTask {
   estimatedTime: string
   priority: AgendaPriority
   status: AgendaTaskStatus
-  sourceId?: string // assunto_id, error notebook id, etc.
+  sourceId?: string
   daysLate?: number
+  origin: AgendaOrigin
+  observacao?: string
+  postponeCount?: number
+  scheduledDate?: string
+  scheduledTime?: string
+  questionIds?: string[]
 }
 
 export interface AgendaDayStats {
@@ -34,20 +43,37 @@ export interface AgendaDayStats {
   percentComplete: number
 }
 
-// Maps memory state / level to priority
-function scoreToPriority(daysLate: number, memoryScore?: number | null): AgendaPriority {
-  if (daysLate > 3) return 'urgente'
-  if (daysLate > 0) return 'alta'
-  if (memoryScore !== undefined && memoryScore !== null && memoryScore < 40) return 'alta'
-  if (memoryScore !== undefined && memoryScore !== null && memoryScore < 60) return 'media'
-  return 'baixa'
+export interface ManualTask {
+  type: 'lembrete' | 'nota' | 'nivelamento'
+  title: string
+  description?: string
+  date: string
+  time?: string
+  discipline?: string
+  subject?: string
 }
 
-function estimateTime(type: AgendaTaskType, quantity?: number): string {
-  if (type === 'revisao') return quantity ? `${Math.ceil(quantity * 1.2)} min` : '15 min'
-  if (type === 'caderno') return quantity ? `${Math.ceil(quantity * 2)} min` : '20 min'
-  if (type === 'questoes') return quantity ? `${Math.ceil(quantity * 1.5)} min` : '30 min'
-  return '45 min'
+/** Priority sort weight */
+const PRIORITY_WEIGHT: Record<AgendaPriority, number> = {
+  urgente: 0,
+  alta: 1,
+  media: 2,
+  baixa: 3,
+}
+
+const STATUS_WEIGHT: Record<AgendaTaskStatus, number> = {
+  atrasado: 0,
+  em_execucao: 1,
+  pendente: 2,
+  concluido: 9,
+}
+
+function sortTasks(tasks: AgendaTask[]): AgendaTask[] {
+  return tasks.sort((a, b) => {
+    const statusDiff = STATUS_WEIGHT[a.status] - STATUS_WEIGHT[b.status]
+    if (statusDiff !== 0) return statusDiff
+    return PRIORITY_WEIGHT[a.priority] - PRIORITY_WEIGHT[b.priority]
+  })
 }
 
 /** Fetch today's Agenda for the authenticated user */
@@ -62,163 +88,192 @@ export async function fetchDailyAgenda(): Promise<{
     return { tasks: [], stats: emptyStats(), userName: 'Candidato', streak: 0 }
   }
 
-  const today = new Date().toISOString().split('T')[0]
+  const { data: userData } = await supabase
+    .from('users')
+    .select('name, streak')
+    .eq('id', user.id)
+    .single()
 
-  // Parallel fetching
-  const [revisoesRes, cadernoRes, userRes, progressoRes] = await Promise.all([
-    // 1. SRS scheduled reviews due today or overdue (status PENDENTE = uppercase in DB)
-    supabase
-      .from('agenda_revisoes')
-      .select('id, assunto_id, data_programada, status')
-      .eq('user_id', user.id)
-      .lte('data_programada', today)
-      .neq('status', 'CONCLUIDO')
-      .order('data_programada', { ascending: true })
-      .limit(15),
-
-    // 2. Error notebook items due for review (status 'ativo' = lowercase in DB)
-    supabase
-      .from('caderno_erros')
-      .select('id, assunto_id, nivel_de_gravidade, contador_de_repeticao, proxima_revisao, status, tema')
-      .eq('user_id', user.id)
-      .eq('status', 'ativo')
-      .or('proxima_revisao.is.null,proxima_revisao.lte.' + new Date().toISOString())
-      .order('proxima_revisao', { ascending: true })
-      .limit(10),
-
-    // 3. User profile for name + streak
-    supabase
-      .from('users')
-      .select('name, streak')
-      .eq('id', user.id)
-      .single(),
-
-    // 4. Subjects with progress (to find low memory scores → questões)
-    supabase
-      .from('assunto_progresso')
-      .select('assunto_id, memory_score, data_proxima_revisao, percentual_acerto, revisoes_atrasadas')
-      .eq('user_id', user.id)
-      .lt('memory_score', 50)
-      .order('memory_score', { ascending: true })
-      .limit(5),
-  ])
-
-  // Fetch assunto names for both revisoes and progresso
-  const assuntoIds = [
-    ...(revisoesRes.data?.map(r => r.assunto_id) ?? []),
-    ...(progressoRes.data?.map(p => p.assunto_id) ?? []),
-    ...(cadernoRes.data?.filter(c => c.assunto_id).map(c => c.assunto_id) ?? []),
-  ].filter(Boolean)
-
-  const uniqueIds = [...new Set(assuntoIds)]
-  let assuntoMap: Record<string, string> = {}
-
-  if (uniqueIds.length > 0) {
-    const { data: assuntos } = await supabase
-      .from('assuntos')
-      .select('id, nome, specialty_id')
-      .in('id', uniqueIds)
-
-    assuntos?.forEach(a => {
-      assuntoMap[a.id] = a.nome
-    })
-  }
+  const userName = userData?.name?.split(' ')[0] ?? 'Candidato'
+  const streak = userData?.streak ?? 0
 
   const tasks: AgendaTask[] = []
 
-  // --- Build tasks from agenda_revisoes ---
-  for (const rev of revisoesRes.data ?? []) {
-    const scheduledDate = new Date(rev.data_programada)
-    const todayDate = new Date(today)
-    const daysLate = Math.max(0, Math.floor((todayDate.getTime() - scheduledDate.getTime()) / 86400000))
-    const assuntoNome = assuntoMap[rev.assunto_id] ?? rev.assunto_id
+  // ─── 1. SRS Engine ─────────────────────────────────────────────
+  const now = new Date()
+  const todayEnd = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59)
 
+  const { data: srsData } = await supabase
+    .from('concurso_user_srs')
+    .select('id, question_id, disciplina_id, next_review, memory_strength, interval_days, repetitions')
+    .eq('user_id', user.id)
+    .lte('next_review', todayEnd.toISOString())
+
+  if (!srsData || srsData.length === 0) {
     tasks.push({
-      id: `rev-${rev.id}`,
-      type: 'revisao',
-      discipline: 'Revisão Espaçada',
-      subject: assuntoNome,
-      quantity: '10–15 cards',
+      id: 'niv-global',
+      type: 'nivelamento',
+      discipline: 'Geral',
+      subject: 'Nivelamento Obrigatório',
+      quantity: '10 questões',
       estimatedTime: '15 min',
-      priority: scoreToPriority(daysLate),
-      status: daysLate > 0 ? 'atrasado' : 'pendente',
-      sourceId: rev.assunto_id,
-      daysLate,
-    })
-  }
-
-  // --- Build tasks from caderno_erros ---
-  for (const err of cadernoRes.data ?? []) {
-    const dueDate = err.proxima_revisao ? new Date(err.proxima_revisao) : new Date()
-    const daysLate = Math.max(0, Math.floor((Date.now() - dueDate.getTime()) / 86400000))
-    const qty = err.contador_de_repeticao ?? 1
-    const label = err.tema ?? (err.assunto_id ? assuntoMap[err.assunto_id] : undefined) ?? 'Item do Caderno'
-
-    tasks.push({
-      id: `err-${err.id}`,
-      type: 'caderno',
-      discipline: 'Caderno de Erros',
-      subject: label,
-      quantity: `${qty} erro${qty !== 1 ? 's' : ''}`,
-      estimatedTime: estimateTime('caderno', qty),
-      priority: err.nivel_de_gravidade === 'critico' ? 'urgente' : scoreToPriority(daysLate),
-      status: daysLate > 0 ? 'atrasado' : 'pendente',
-      sourceId: err.id,
-      daysLate,
-    })
-  }
-
-  // --- Build tasks from low-memory subjects → questões ---
-  for (const prog of progressoRes.data ?? []) {
-    const assuntoNome = assuntoMap[prog.assunto_id] ?? prog.assunto_id
-    const memScore = prog.memory_score ?? 0
-    const qty = 20
-
-    tasks.push({
-      id: `q-${prog.assunto_id}`,
-      type: 'questoes',
-      discipline: 'Ciclo de Questões',
-      subject: assuntoNome,
-      quantity: `${qty} questões`,
-      estimatedTime: estimateTime('questoes', qty),
-      priority: scoreToPriority(0, memScore),
+      priority: 'urgente',
       status: 'pendente',
-      sourceId: prog.assunto_id,
+      origin: 'sistema',
     })
+  } else {
+    const yesterday = new Date(now.getTime() - 86400000)
+
+    const riskItems = srsData.filter(t => (t.memory_strength ?? 1) < 0.3)
+    const lateItems = srsData.filter(t =>
+      (t.memory_strength ?? 1) >= 0.3 && new Date(t.next_review).getTime() < yesterday.getTime()
+    )
+    const todayItems = srsData.filter(t =>
+      (t.memory_strength ?? 1) >= 0.3 && new Date(t.next_review).getTime() >= yesterday.getTime()
+    )
+
+    if (riskItems.length > 0) {
+      tasks.push({
+        id: 'srs-risco',
+        type: 'recuperacao',
+        discipline: riskItems[0].disciplina_id || 'Múltiplas Disciplinas',
+        subject: 'Recuperação de Memória',
+        quantity: `${Math.min(10, riskItems.length)} questões`,
+        estimatedTime: `${Math.min(10, riskItems.length) * 1.5} min`,
+        priority: 'urgente',
+        status: 'atrasado',
+        origin: 'sistema',
+        daysLate: Math.max(1, Math.floor((now.getTime() - new Date(riskItems[0].next_review).getTime()) / 86400000)),
+        questionIds: riskItems.slice(0, 10).map(r => r.question_id),
+      })
+    }
+
+    if (lateItems.length > 0) {
+      tasks.push({
+        id: 'srs-atrasadas',
+        type: 'revisao',
+        discipline: lateItems[0].disciplina_id || 'Revisão Acumulada',
+        subject: 'Ciclo Espaçado (Atrasadas)',
+        quantity: `${Math.min(10, lateItems.length)} questões`,
+        estimatedTime: `${Math.min(10, lateItems.length) * 1.5} min`,
+        priority: 'alta',
+        status: 'atrasado',
+        origin: 'sistema',
+        daysLate: Math.max(1, Math.floor((now.getTime() - new Date(lateItems[0].next_review).getTime()) / 86400000)),
+        questionIds: lateItems.slice(0, 10).map(r => r.question_id),
+      })
+    }
+
+    if (todayItems.length > 0) {
+      tasks.push({
+        id: 'srs-hoje',
+        type: 'revisao',
+        discipline: todayItems[0].disciplina_id || 'Treino do Dia',
+        subject: 'Manutenção de Retenção',
+        quantity: `${Math.min(10, todayItems.length)} questões`,
+        estimatedTime: `${Math.min(10, todayItems.length) * 1.5} min`,
+        priority: 'media',
+        status: 'pendente',
+        origin: 'sistema',
+        questionIds: todayItems.slice(0, 10).map(r => r.question_id),
+      })
+    }
   }
 
-  // Sort: atrasado > urgente > alta > media > baixa
-  const priorityOrder: Record<AgendaPriority, number> = { urgente: 0, alta: 1, media: 2, baixa: 3 }
-  const statusOrder: Record<AgendaTaskStatus, number> = { atrasado: 0, 'em-andamento': 1, pendente: 2, concluido: 3 }
+  // ─── 2. Manual Tasks (localStorage for now) ────────────────────
+  if (typeof window !== 'undefined') {
+    try {
+      const stored = localStorage.getItem('qrub-agenda-manual-tasks')
+      if (stored) {
+        const manual: AgendaTask[] = JSON.parse(stored)
+        const today = new Date().toISOString().split('T')[0]
+        manual.forEach(t => {
+          if (t.scheduledDate === today || t.status === 'atrasado') {
+            tasks.push(t)
+          }
+        })
+      }
+    } catch { /* noop */ }
+  }
 
-  tasks.sort((a, b) => {
-    const statusDiff = statusOrder[a.status] - statusOrder[b.status]
-    if (statusDiff !== 0) return statusDiff
-    return priorityOrder[a.priority] - priorityOrder[b.priority]
-  })
+  const sorted = sortTasks(tasks)
 
-  // Stats
-  const completed = tasks.filter(t => t.status === 'concluido').length
-  const late = tasks.filter(t => t.status === 'atrasado').length
-  const pending = tasks.filter(t => t.status !== 'concluido').length
-  const totalMin = tasks.reduce((acc, t) => {
-    const mins = parseInt(t.estimatedTime) || 20
-    return acc + mins
-  }, 0)
+  const completed = sorted.filter(t => t.status === 'concluido').length
+  const late = sorted.filter(t => t.status === 'atrasado').length
+  const pending = sorted.filter(t => t.status !== 'concluido').length
+  const totalMin = sorted.reduce((acc, t) => acc + parseInt(t.estimatedTime) || 15, 0)
 
   return {
-    tasks,
+    tasks: sorted,
     stats: {
-      total: tasks.length,
+      total: sorted.length,
       completed,
       pending,
       late,
       totalEstimatedMinutes: totalMin,
-      percentComplete: tasks.length > 0 ? Math.round((completed / tasks.length) * 100) : 0,
+      percentComplete: sorted.length > 0 ? Math.round((completed / sorted.length) * 100) : 0,
     },
-    userName: userRes.data?.name?.split(' ')[0] ?? 'Candidato',
-    streak: userRes.data?.streak ?? 0,
+    userName,
+    streak,
   }
+}
+
+/** Save a manual task to localStorage */
+export function saveManualTask(task: ManualTask): AgendaTask {
+  const newTask: AgendaTask = {
+    id: `manual-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+    type: task.type,
+    discipline: task.discipline || '',
+    subject: task.title,
+    estimatedTime: task.type === 'nota' ? '5 min' : '15 min',
+    priority: 'media',
+    status: 'pendente',
+    origin: 'usuario',
+    observacao: task.description,
+    scheduledDate: task.date,
+    scheduledTime: task.time,
+    postponeCount: 0,
+  }
+
+  if (typeof window !== 'undefined') {
+    try {
+      const stored = localStorage.getItem('qrub-agenda-manual-tasks')
+      const existing: AgendaTask[] = stored ? JSON.parse(stored) : []
+      existing.push(newTask)
+      localStorage.setItem('qrub-agenda-manual-tasks', JSON.stringify(existing))
+    } catch { /* noop */ }
+  }
+
+  return newTask
+}
+
+/** Postpone a task (max 3x) */
+export function postponeTask(taskId: string): { success: boolean; newCount: number } {
+  if (typeof window === 'undefined') return { success: false, newCount: 0 }
+
+  try {
+    const stored = localStorage.getItem('qrub-agenda-postponed')
+    const map: Record<string, number> = stored ? JSON.parse(stored) : {}
+    const current = map[taskId] || 0
+
+    if (current >= 3) return { success: false, newCount: current }
+
+    map[taskId] = current + 1
+    localStorage.setItem('qrub-agenda-postponed', JSON.stringify(map))
+    return { success: true, newCount: current + 1 }
+  } catch {
+    return { success: false, newCount: 0 }
+  }
+}
+
+/** Get postpone count for a task */
+export function getPostponeCount(taskId: string): number {
+  if (typeof window === 'undefined') return 0
+  try {
+    const stored = localStorage.getItem('qrub-agenda-postponed')
+    const map: Record<string, number> = stored ? JSON.parse(stored) : {}
+    return map[taskId] || 0
+  } catch { return 0 }
 }
 
 /** Get the last 7 days study activity for the weekly heatmap */
@@ -229,16 +284,16 @@ export async function fetchWeeklyActivity(): Promise<{ date: string; count: numb
   const sevenDaysAgo = new Date()
   sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 6)
 
+  // Try concurso_user_respostas first (more reliable)
   const { data } = await supabase
-    .from('sessoes')
-    .select('finalized_at')
+    .from('concurso_user_respostas')
+    .select('timestamp')
     .eq('user_id', user.id)
-    .gte('finalized_at', sevenDaysAgo.toISOString())
-    .not('finalized_at', 'is', null)
+    .gte('timestamp', sevenDaysAgo.toISOString())
 
   const countMap: Record<string, number> = {}
   data?.forEach(s => {
-    const d = new Date(s.finalized_at!).toISOString().split('T')[0]
+    const d = new Date(s.timestamp).toISOString().split('T')[0]
     countMap[d] = (countMap[d] ?? 0) + 1
   })
 
