@@ -40,24 +40,24 @@ export function QuizSetupFilters() {
     
     const specialties = useMemo(() => {
         if (!selectedCourseId) return []
-        return courses.find(c => c.id === selectedCourseId)?.children || []
+        return courses.find(c => c.slug === selectedCourseId)?.children || []
     }, [selectedCourseId, courses])
 
     const subspecialties = useMemo(() => {
         if (!selectedSpecialtyId) return []
-        return specialties.find(s => s.id === selectedSpecialtyId)?.children || []
+        return specialties.find(s => s.slug === selectedSpecialtyId)?.children || []
     }, [selectedSpecialtyId, specialties])
 
     const subjects = useMemo(() => {
         if (!selectedSubspecialtyId) return []
-        return subspecialties.find(s => s.id === selectedSubspecialtyId)?.children || []
+        return subspecialties.find(s => s.slug === selectedSubspecialtyId)?.children || []
     }, [selectedSubspecialtyId, subspecialties])
 
     const filteredQuestionsCount = useMemo(() => {
-        if (selectedSubjectId) return subjects.find(s => s.id === selectedSubjectId)?.questionCount || 0
-        if (selectedSubspecialtyId) return subspecialties.find(s => s.id === selectedSubspecialtyId)?.questionCount || 0
-        if (selectedSpecialtyId) return specialties.find(s => s.id === selectedSpecialtyId)?.questionCount || 0
-        if (selectedCourseId) return courses.find(s => s.id === selectedCourseId)?.questionCount || 0
+        if (selectedSubjectId) return subjects.find(s => s.slug === selectedSubjectId)?.questionCount || 0
+        if (selectedSubspecialtyId) return subspecialties.find(s => s.slug === selectedSubspecialtyId)?.questionCount || 0
+        if (selectedSpecialtyId) return specialties.find(s => s.slug === selectedSpecialtyId)?.questionCount || 0
+        if (selectedCourseId) return courses.find(s => s.slug === selectedCourseId)?.questionCount || 0
         return totalCount
     }, [totalCount, courses, specialties, subspecialties, subjects, selectedCourseId, selectedSpecialtyId, selectedSubspecialtyId, selectedSubjectId])
 
@@ -191,9 +191,9 @@ export function QuizSetupFilters() {
                         label="Curso Principal"
                         options={courses}
                         value={selectedCourseId}
-                        getOptionCount={(id) => courses.find(c => c.id === id)?.questionCount || 0}
-                        onChange={(id) => {
-                            setSelectedCourseId(id)
+                        getOptionCount={(val) => courses.find(c => c.slug === val)?.questionCount || 0}
+                        onChange={(val) => {
+                            setSelectedCourseId(val)
                             setSelectedSpecialtyId("")
                             setSelectedSubspecialtyId("")
                             setSelectedSubjectId("")
@@ -206,9 +206,9 @@ export function QuizSetupFilters() {
                         options={specialties}
                         value={selectedSpecialtyId}
                         disabled={!selectedCourseId}
-                        getOptionCount={(id) => specialties.find(s => s.id === id)?.questionCount || 0}
-                        onChange={(id) => {
-                            setSelectedSpecialtyId(id)
+                        getOptionCount={(val) => specialties.find(s => s.slug === val)?.questionCount || 0}
+                        onChange={(val) => {
+                            setSelectedSpecialtyId(val)
                             setSelectedSubspecialtyId("")
                             setSelectedSubjectId("")
                         }}
@@ -221,10 +221,10 @@ export function QuizSetupFilters() {
                         value={selectedSubspecialtyId}
                         disabled={!selectedSpecialtyId}
                         isLocked={isFree}
-                        getOptionCount={(id) => subspecialties.find(s => s.id === id)?.questionCount || 0}
-                        onChange={(id) => {
+                        getOptionCount={(val) => subspecialties.find(s => s.slug === val)?.questionCount || 0}
+                        onChange={(val) => {
                             if (checkLock()) return
-                            setSelectedSubspecialtyId(id)
+                            setSelectedSubspecialtyId(val)
                             setSelectedSubjectId("")
                         }}
                     />
@@ -236,10 +236,10 @@ export function QuizSetupFilters() {
                         value={selectedSubjectId}
                         disabled={!selectedSubspecialtyId}
                         isLocked={isFree}
-                        getOptionCount={(id) => subjects.find(s => s.id === id)?.questionCount || 0}
-                        onChange={(id) => {
+                        getOptionCount={(val) => subjects.find(s => s.slug === val)?.questionCount || 0}
+                        onChange={(val) => {
                             if (checkLock()) return
-                            setSelectedSubjectId(id)
+                            setSelectedSubjectId(val)
                         }}
                     />
                 </div>
@@ -317,9 +317,9 @@ export function QuizSetupFilters() {
 function FilterItem({ 
     step, label, options, value, onChange, disabled, isLocked, getOptionCount 
 }: {
-    step: string, label: string, options: { id: string, name: string }[], value: string, onChange: (id: string) => void, disabled?: boolean, isLocked?: boolean, getOptionCount?: (id: string) => number
+    step: string, label: string, options: { id: string, slug?: string, name: string }[], value: string, onChange: (val: string) => void, disabled?: boolean, isLocked?: boolean, getOptionCount?: (val: string) => number
 }) {
-    const selectedName = options.find(o => o.id === value)?.name
+    const selectedName = options.find(o => (o.slug || o.id) === value)?.name
     const selectedCount = value && getOptionCount ? getOptionCount(value) : null
 
     return (
@@ -337,8 +337,8 @@ function FilterItem({
             >
                 <option value="">{isLocked ? '🔒 Bloqueado' : 'Todos'}</option>
                 {!isLocked && options.map((opt) => (
-                    <option key={opt.id} value={opt.id}>
-                        {opt.name} {getOptionCount ? `(${getOptionCount(opt.id)})` : ''}
+                    <option key={opt.id} value={opt.slug || opt.id}>
+                        {opt.name} {getOptionCount ? `(${getOptionCount(opt.slug || opt.id)})` : ''}
                     </option>
                 ))}
             </select>
