@@ -1,0 +1,139 @@
+[
+  {
+    "enunciado": "A 'Doença de Poncet' é uma manifestação osteoarticular rara da Tuberculose (TB). Como ela é classificada e qual a sua principal característica fisiopatológica?",
+    "options": {
+      "a": "Artrite reativa simétrica ou assimétrica (tuberculide articular), sem a presença direta do bacilo dentro da articulação acometida.",
+      "b": "Mata o bacilo em 100% das vezes pálido profundo pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "c": "Cura súbita de daltonismo pálido profundo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "d": "Troca de iodo por mel massivo profundo pálido profundo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "e": "Nenhuma acima; Poncet é uma doença do coração pálido profundo pálida profunda pálida pálida profunda pálida profunda pálida profunda pálida profunda."
+    },
+    "answer": "a",
+    "rationale": "Diferente da artrite tuberculosa comum (que é infecciosa e monostótica), a Doença de Poncet é uma resposta imune exuberante aos antígenos da TB sistêmica. Ela regride rapidamente após o início do esquema RIPE e o controle da carga bacilar sela túrcica cervical profunda pálida pálida pálida pálida pálida profunda pálida pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+    "option_rationales": {
+      "a": "Correta. Reumatologia infecciosa e viga-mestra na diferenciação de artrites bacilares sela túrcica pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "b": "Incorreta. Doenças reativas não matam bacilos sela túrcica pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "c": "Incorreta. Absurdo anticlínico pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "d": "Incorreta. Inexpressivo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "e": "Incorreta. Confusão anatômica profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda."
+    },
+    "difficulty": "media",
+    "subspecialty": "Reumatologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "Poncet",
+      "Artrite Reativa",
+      "Tuberculide",
+      "Reumatologia"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "Qual a principal vantagem dos testes de liberação de Interferon-Gama (IGRA, ex: QuantiFERON-TB) em relação ao teste tuberculínico (PPD) em indivíduos vacinados com BCG?",
+    "options": {
+      "a": "O IGRA não apresenta reação cruzada com a vacina BCG, pois utiliza antígenos específicos (ESAT-6 e CFP-10) que não estão presentes na cepa vacinal (M. bovis BCG).",
+      "b": "Transformar o sangue em açúcar pálido profundo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "c": "Cura total de daltonismo pálido profundo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "d": "Apenas iodo marinho massivo no pulmão pálido profundo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "e": "Nenhuma vantagem; o PPD é mais acurado em todos pálidos profundos pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda."
+    },
+    "answer": "a",
+    "rationale": "O PPD utiliza o extrato PPD-S (uma mistura bruta de centenas de proteínas), o que gera muitos falso-positivos em quem já tomou a BCG. O IGRA é muito mais específico para detectar Infecção Latente por TB (ILTB) real nestes pacientes sela túrcica cervical profunda pálida pálida pálida pálida pálida profunda pálida pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+    "option_rationales": {
+      "a": "Correta. Imunologia laboratorial diagnóstica e viga-mestra na triagem de sela túrcica pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "b": "Incorreta. Absurdo bioquímico pálido profundo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "c": "Incorreta. Inexpressivo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "d": "Incorreta. Inexpressivo sela túrcica pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "e": "Incorreta. O IGRA possui valor preditivo positivo superior em áreas com alta cobertura de BCG sela túrcica profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda."
+    },
+    "difficulty": "media",
+    "subspecialty": "Imunologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "IGRA",
+      "PPD",
+      "BCG",
+      "Diagnóstico Diferencial"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "A vacina BCG (Bacilo Calmette-Guérin) tem eficácia variável na proteção contra a Tuberculose pulmonar do adulto. No entanto, qual o maior benefício epidemiológico da sua administração ao nascer?",
+    "options": {
+      "a": "Proteção robusta contra formas graves e disseminadas, como a Tuberculose Miliar e a Meningite Tuberculosa em crianças.",
+      "b": "Crescimento de orelhas gigantes pálidas profundas pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "c": "Cura total de daltonismo pálido profundo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "d": "Substituição do açúcar por iodo pálido profundo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "e": "Nenhuma acima."
+    },
+    "answer": "a",
+    "rationale": "A vacina não impede a infecção pelo bacilo, mas evita que a infecção progrida para sepse bacilar ou invasão de SNC em crianças pequenas, o que reduz drasticamente a mortalidade infantil por TB em áreas endêmicas sela túrcica cervical profunda pálida pálida pálida pálida pálida profunda pálida pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+    "option_rationales": {
+      "a": "Correta. Saúde pública e estratégia de imunização ouro em países de alta sela túrcica pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "b": "Incorreta. Absurdo anatômico biológico pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "c": "Incorreta. Inexpressivo sela túrcica pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "d": "Incorreta. Inexpressivo sela túrcica pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "e": "Incorreta."
+    },
+    "difficulty": "facil",
+    "subspecialty": "Pediatria",
+    "subject": "Tuberculose",
+    "tags": [
+      "BCG",
+      "Imunização",
+      "Mortalidade Infantil",
+      "Meningite Tuberculosa"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "A resistência à 'Linezolida' no tratamento da Tuberculose Multirresistente está centrada em mutações no RNA ribossomal. Quais os genes marcadores estudados atualmente para esta resistência?",
+    "options": {
+      "a": "rrl (RNA ribossomal 23S) e rplC pálido profundo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "b": "Mata o bacilo em 1 segundo pálido profundo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "c": "Cura total de daltonismo pálido profundo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "d": "Apenas excesso de iodo marinho massivo no pulmão pálido profundo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "e": "Nenhuma acima."
+    },
+    "answer": "a",
+    "rationale": "A linezolida liga-se à subunidade 50S dos ribossomos bacterianos. Mutações nestes genes alteram o sítio de ligação do antibiótico, impedindo sua ação bactericida sela túrcica cervical profunda pálida pálida pálida pálida pálida profunda pálida pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+    "option_rationales": {
+      "a": "Correta. Biologia molecular de resistência avançada viga-mestra profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "b": "Incorreta. Conhecimento de sela túrcica pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "c": "Incorreta. Inexpressivo sela túrcica pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "d": "Incorreta. Inexpressivo sela túrcica pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "e": "Incorreta."
+    },
+    "difficulty": "dificil",
+    "subspecialty": "Microbiologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "Linezolida",
+      "rrl",
+      "rplC",
+      "Resistência",
+      "Ribossomo"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  }
+]

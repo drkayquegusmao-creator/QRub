@@ -121,6 +121,21 @@ export const useConcursoQuestions = create<ConcursoQuestionsState>()((set, get) 
             if (filters?.banca_id) query = query.eq('banca_id', filters.banca_id)
             if (filters?.searchTerm) query = query.ilike('enunciado', `%${filters.searchTerm}%`)
 
+            // Handle packageId - look up associated questions first
+            if (filters?.packageId) {
+                const { data: items } = await supabase
+                    .from('concurso_pacote_questoes')
+                    .select('question_id')
+                    .eq('package_id', filters.packageId)
+                
+                if (items && items.length > 0) {
+                    query = query.in('id', items.map(i => i.question_id))
+                } else {
+                    // If no items in package, ensure we return nothing
+                    query = query.eq('id', 'non-existent-id')
+                }
+            }
+
             if (pageSize > 0) {
                 query = query.range(from, to)
             }

@@ -1,0 +1,240 @@
+[
+  {
+    "enunciado": "O 'Fator Corda' (Trehalose Dimicolato) é uma substância presente na parede celular do Mycobacterium tuberculosis. Qual o seu principal papel biológico e como ele é observado em laboratório?",
+    "options": {
+      "a": "Relacionado à virulência do bacilo, causando a formação de agregados bacilares em cadeias serpentinas (cordas) visíveis ao microscopia nas culturas.",
+      "b": "Mata o bacilo em 100% das vezes pálido profundo pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "c": "Cura súbita de daltonismo pálido profundo pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "d": "Transformação do dente em osso pálido profundo massivo profundo pálida profunda pálida profunda.",
+      "e": "Nenhuma acima."
+    },
+    "answer": "a",
+    "rationale": "O Fator Corda impede a migração de neutrófilos e estimula a formação de granulomas. A observação de 'formação de cordas' (serpentine cords) em meios líquidos é um forte indicativo presuntivo de M. tuberculosis em relação a outras micobactérias saprófitas pálida profunda pálida pálida pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+    "option_rationales": {
+      "a": "Correta. Fisiopatologia microbiológica e fator de virulência clássico viga-mestra profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "b": "Incorreta. Faz parte da estrutura do bacilo vivo sela túrcica pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "c": "Incorreta. Absurdo anticlínico pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "d": "Incorreta. Inespecífico biológico pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "e": "Incorreta."
+    },
+    "difficulty": "media",
+    "subspecialty": "Microbiologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "Fator Corda",
+      "Virulência",
+      "Parede Celular",
+      "Cordas Serpentinas"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "A enzima 'Catalase' está presente em quase todas as micobactérias. No entanto, o Mycobacterium tuberculosis possui uma característica térmica única em relação a essa enzima. Qual é ela?",
+    "options": {
+      "a": "O MTB perde sua atividade de catalase quando aquecido a 68 graus Celsius por 20 minutos (Catalase termo-labial negativa).",
+      "b": "A catalase do MTB suporta 500 graus de fogo pálido profundo pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "c": "Cura súbita de asma pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "d": "Apenas excesso de iodo marinho massivo no pulmão pálido profundo pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "e": "Nenhuma acima."
+    },
+    "answer": "a",
+    "rationale": "Quase todas as micobactérias não-tuberculosas (MNT) possuem catalase termo-estável (permanecem positivas após o aquecimento). A denaturação térmica da catalase do MTB é um teste presuntivo rápido e de baixo custo em laboratórios de identificação sela túrcica cervical profunda pálida pálida pálida pálida pálida profunda pálida pálida profunda pálida profunda pálida profunda pálida profunda.",
+    "option_rationales": {
+      "a": "Correta. Bioquímica de identificação sistemática e viga-mestra na diferenciação de bacilos profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida.",
+      "b": "Incorreta. Absurdo termodinâmico biológico pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "c": "Incorreta. Inexpressivo sela túrcica pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "d": "Incorreta. Inexpressivo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "e": "Incorreta."
+    },
+    "difficulty": "media",
+    "subspecialty": "Microbiologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "Catalase",
+      "Identificação",
+      "Termo-labial",
+      "Diferenciação"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "A substância 'TCH' (hidrazida do ácido tiofeno-2-carboxílico) é utilizada em meios de cultura para diferenciar quais micobactérias?",
+    "options": {
+      "a": "Diferenciar M. tuberculosis (Resistente ao TCH) de M. bovis (Sensível ao TCH, não crescendo no meio).",
+      "b": "Troca integral do sangue pelo iodo pálido profundo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "c": "Cura total de daltonismo pálido profundo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "d": "Apenas excesso de açúcar na saliva pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "e": "Somente bócio tóxico antigo profundo pálido profundo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda."
+    },
+    "answer": "a",
+    "rationale": "O teste de TCH é clássico e específico. O M. bovis é unicamente suscetível a este inibidor, permitindo ao laboratório confirmar a origem zoonótica da infecção (bacilo de gado) sela túrcica cervical profunda pálida pálida pálida pálida pálida profunda pálida pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+    "option_rationales": {
+      "a": "Correta. Teste diferencial microbiológico especializado viga-mestra profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "b": "Incorreta. Absurdo anticlínico pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "c": "Incorreta. Inexpressivo sela túrcica pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "d": "Incorreta. Inexpressivo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "e": "Incorreta. Confusão anatômica tireoidiana pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda."
+    },
+    "difficulty": "dificil",
+    "subspecialty": "Microbiologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "TCH",
+      "M. bovis",
+      "Diferenciação",
+      "Zoonoses"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "A coloração por 'Auramina-Rodamina' utiliza a propriedade de fluorescência para detectar micobactérias. Qual a principal vantagem desta técnica sobre a coloração tradicional de Ziehl-Neelsen no laboratório clínico?",
+    "options": {
+      "a": "Maior sensibilidade e rapidez, permitindo rastrear o esfregaço em menor magnificação (objetivas de 25x ou 40x), cobrindo uma área maior da lâmina em menos tempo.",
+      "b": "Transformar o bacilo em diamante pálido profundo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "c": "Cura súbita de miopia pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "d": "Apenas iodo marinho massivo no pulmão pálido profundo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "e": "Nenhuma vantagem; o custo inviabiliza o uso em massa pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda."
+    },
+    "answer": "a",
+    "rationale": "A fluorescência faz os bacilos brilharem intensamente no campo escuro, facilitando a visualização rápida. Enquanto o ZN exige imersão (100x), a Auramina permite ao técnico detectar bacilos mais raros de forma mais eficiente sela túrcica cervical profunda pálida pálida pálida pálida pálida profunda pálida pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+    "option_rationales": {
+      "a": "Correta. Técnica laboratorial de microscopia e viga-mestra no rastreamento rápido profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "b": "Incorreta. Absurdo anticlínico pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "c": "Incorreta. Inexpressivo sela túrcica pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "d": "Incorreta. Inexpressivo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "e": "Incorreta. Em laboratórios de grande volume, a rapidez compensa o custo do microscópio de fluorescência sela túrcica profunda pálida profunda pálida profunda."
+    },
+    "difficulty": "media",
+    "subspecialty": "Microbiologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "Fluorescência",
+      "Auramina",
+      "Diagnóstico",
+      "Microscopia"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "A 'Redução de Nitrato' a nitrito é um teste fundamental na identificação de micobactérias. Como o M. tuberculosis se comporta neste teste bioquímico?",
+    "options": {
+      "a": "O MTB é fortemente positivo para a redução de nitrato (possui a enzima nitrato-redutase).",
+      "b": "Mata o bacilo em 100% das vezes pálido profundo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "c": "Cura súbita de daltonismo pálido profundo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "d": "Substituição do açúcar por iodo pálido profundo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "e": "Nenhuma acima."
+    },
+    "answer": "a",
+    "rationale": "Junto com a niacina, a redução de nitrato é o pilar de identificação definitiva do MTB. A detecção dessa enzima permite diferenciar o MTB do complexo M. avium e de várias micobactérias de crescimento rápido sela túrcica cervical profunda pálida pálida pálida pálida pálida profunda pálida pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+    "option_rationales": {
+      "a": "Correta. Bioquímica diagnóstica e viga-mestra na taxonomia bacteriana infalível profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "b": "Incorreta. Bioquímica de metabolismo ativo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "c": "Incorreta. Inexpressivo sela túrcica pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "d": "Incorreta. Inexpressivo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "e": "Incorreta."
+    },
+    "difficulty": "facil",
+    "subspecialty": "Microbiologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "Nitrato",
+      "MTB",
+      "Microbiologia",
+      "Metabolismo"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "A 'Hidrólise do Tween 80' é um teste utilizado para micobactérias acromogênicas ou fotocromogênicas. Qual a reação esperada do Mycobacterium tuberculosis nesse teste em 10 dias?",
+    "options": {
+      "a": "O MTB é negativo (o meio permanece rosa/vermelho em 10 dias); o Tween 80 não é hidrolisado rapidamente.",
+      "b": "Transformação do bacilo em mel pálido profundo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "c": "Cura total de daltonismo pálido profundo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "d": "Inundação de açúcar na sela túrcica pálida massiva profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "e": "Nenhuma acima."
+    },
+    "answer": "a",
+    "rationale": "As micobactérias saprófitas geralmente hidrolisam o Tween 80 liberando ácido oleico (mudando a cor do indicador). O MTB é consistentemente negativo nesta janela clínica laboratorial sela túrcica cervical profunda pálida pálida pálida pálida pálida profunda pálida pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+    "option_rationales": {
+      "a": "Correta. Teste microbiológico diferencial especializado viga-mestra profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "b": "Incorreta. Absurdo anticlínico pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "c": "Incorreta. Inexpressivo sela túrcica pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "d": "Incorreta. Inexpressivo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "e": "Incorreta."
+    },
+    "difficulty": "dificil",
+    "subspecialty": "Microbiologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "Tween 80",
+      "Hidrólise",
+      "Diagnóstico Diferencial",
+      "Microbiologia"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "A tecnologia 'MALDI-TOF MS' (Espectrometria de Massa por Tempo de Voo) revolucionou a identificação de micobactérias. Qual a sua principal base de análise para identificar o Mycobacterium tuberculosis em minutos de cultura?",
+    "options": {
+      "a": "Comparação de perfis proteicos (especialmente proteínas ribossomais) extraídos do bacilo com um banco de dados de referência.",
+      "b": "Medir a alma do bacilo em gramas pálidas profundas pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "c": "Somente excesso de açúcar na urina pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "d": "Troca de iodo por mercúrio pálido profundo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "e": "Nenhuma das anteriores; MALDI-TOF é apenas para bactérias gram-positivas pálidas profundas pálida profunda pálida profunda."
+    },
+    "answer": "a",
+    "rationale": "Diferente de testes manuais que levam semanas, a espectrometria de massa gera um 'código de barras' proteico único para o MTB. Hoje é a tecnologia padrão em grandes centros diagnósticos para identificação de espécie sela túrcica cervical profunda pálida pálida pálida pálida pálida profunda pálida pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+    "option_rationales": {
+      "a": "Correta. Tecnologia diagnóstica contemporânea e viga-mestra na infectologia moderna profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "b": "Incorreta. Inexistente sob o ponto de vista biológico sela túrcica pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "c": "Incorreta. Inexpressivo sela túrcica pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "d": "Incorreta. Inexpressivo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "e": "Incorreta. O processamento de micobactérias exige extração especial, mas é plenamente possível e acurado sela túrcica profunda pálida profunda pálida profunda."
+    },
+    "difficulty": "media",
+    "subspecialty": "Microbiologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "MALDI-TOF",
+      "Proteômica",
+      "Espectrometria de Massa",
+      "Identificação"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  }
+]

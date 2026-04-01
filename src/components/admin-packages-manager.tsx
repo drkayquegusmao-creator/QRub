@@ -9,6 +9,7 @@ import {
 } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { toast } from 'react-hot-toast'
+import { supabase } from '@/lib/supabase'
 import {
     getBanks, getBlueprints, getCurrentProfile,
     getPackages, createPackage, updatePackage,
@@ -20,6 +21,7 @@ import {
 } from '@/lib/banks'
 import { useTaxonomy, TaxonomyNode } from '@/store/use-taxonomy'
 import { useAuth } from '@/store/use-auth'
+import { cn } from '@/lib/utils'
 
 export default function AdminPackagesManager() {
     const { user } = useAuth()
@@ -70,6 +72,58 @@ export default function AdminPackagesManager() {
     const [editingQuestion, setEditingQuestion] = useState<PackageQuestion | null>(null)
     const [editData, setEditData] = useState<any>(null)
     const [isSavingQuestion, setIsSavingQuestion] = useState(false)
+    const [isExporting, setIsExporting] = useState(false)
+
+    const handleExportMasterBank = async (format: 'json' | 'pdf') => {
+        try {
+            setIsExporting(true)
+            toast.loading('Preparando banco de dados para exportação...')
+
+            const { data: questions, error } = await supabase
+                .from('questao_base')
+                .select(`
+                    id,
+                    enunciado,
+                    options,
+                    correct_option_id,
+                    explanation,
+                    alternative_explanations,
+                    difficulty,
+                    taxonomy_path,
+                    metadata,
+                    fonte,
+                    source
+                `)
+                .order('created_at', { ascending: false })
+
+            if (error) throw error
+
+            if (format === 'json') {
+                const blob = new Blob([JSON.stringify(questions, null, 2)], { type: 'application/json' })
+                const url = URL.createObjectURL(blob)
+                const a = document.createElement('a')
+                a.href = url
+                a.download = `qrub_master_bank_${new Date().toISOString().split('T')[0]}.json`
+                document.body.appendChild(a)
+                a.click()
+                document.body.removeChild(a)
+                URL.revokeObjectURL(url)
+                toast.dismiss()
+                toast.success('Banco JSON exportado com sucesso!')
+            } else {
+                // PDF Placeholder or simple print window for now as per instructions
+                toast.dismiss()
+                toast.success('Geração de PDF master iniciada. O layout será otimizado para impressão.')
+                setTimeout(() => window.print(), 1000)
+            }
+        } catch (err: any) {
+            console.error('Export error:', err)
+            toast.dismiss()
+            toast.error('Erro ao exportar banco: ' + err.message)
+        } finally {
+            setIsExporting(false)
+        }
+    }
 
     useEffect(() => {
         refreshPackages()
@@ -993,6 +1047,14 @@ export default function AdminPackagesManager() {
                         <Plus className="w-4 h-4" />
                         Gerar Lote Master
                     </button>
+                    <button
+                        disabled={isExporting}
+                        onClick={() => handleExportMasterBank('json')}
+                        className="flex items-center gap-2 px-8 py-4 bg-white border border-slate-200 text-slate-900 rounded-[24px] text-[10px] font-black uppercase tracking-widest shadow-sm hover:bg-slate-50 active:scale-95 transition-all disabled:opacity-50"
+                    >
+                        <Download className="w-4 h-4" />
+                        Exportar JSON
+                    </button>
                 </div>
             </div>
 
@@ -1030,7 +1092,10 @@ export default function AdminPackagesManager() {
                                 <tr
                                     key={pkg.id}
                                     onClick={() => handleSelectPackage(pkg)}
-                                    className="group hover:bg-slate-50 cursor-pointer transition-all active:scale-[0.99]"
+                                    className={cn(
+                                        "group hover:bg-slate-50 cursor-pointer transition-all active:scale-[0.99]",
+                                        (pkg.status === 'published' || pkg.status === 'approved') && "opacity-60 grayscale-[0.4] hover:opacity-100 hover:grayscale-0"
+                                    )}
                                 >
                                     <td className="px-10 py-8">
                                         <div className="flex items-center gap-5">
@@ -1056,11 +1121,14 @@ export default function AdminPackagesManager() {
                                         </div>
                                     </td>
                                     <td className="px-10 py-8">
-                                        <span className={`px-5 py-2 rounded-full text-[9px] font-black uppercase tracking-widest shadow-sm ${pkg.status === 'approved' ? 'bg-emerald-50 text-emerald-600 border border-emerald-100' :
-                                            pkg.status === 'draft' ? 'bg-amber-50 text-amber-600 border border-amber-100' :
-                                                'bg-slate-50 text-slate-400'
-                                            }`}>
-                                            {pkg.status}
+                                        <span className={cn(
+                                            "px-5 py-2 rounded-full text-[9px] font-black uppercase tracking-widest shadow-sm border",
+                                            pkg.status === 'approved' && "bg-emerald-50 text-emerald-600 border-emerald-100",
+                                            pkg.status === 'published' && "bg-blue-50 text-blue-600 border-blue-100",
+                                            pkg.status === 'draft' && "bg-amber-50 text-amber-600 border-amber-100",
+                                            !pkg.status && "bg-slate-50 text-slate-400 border-slate-100"
+                                        )}>
+                                            {pkg.status || 'PENDENTE'}
                                         </span>
                                     </td>
                                     <td className="px-10 py-8 text-right font-mono text-[10px] text-slate-400 font-bold">

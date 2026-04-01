@@ -1,0 +1,542 @@
+[
+  {
+    "enunciado": "Um paciente cirrótico com ascite apresenta febre e dor abdominal. A paracentese mostra PMN de 1.200/mm³. Para diferenciar uma Peritonite Bacteriana Espontânea (PBE) de uma Peritonite Secundária (por perfuração intestinal), utilizam-se os Critérios de Runyon. Qual achado no líquido ascite sugere fortemente PERITONITE SECUNDÁRIA?",
+    "options": {
+      "a": "Proteínas Totais < 1,0 g/dL e Glicose > 100 mg/dL.",
+      "b": "Presença de pelo menos dois dos seguintes critérios: Glicose < 50 mg/dL, Proteínas Totais > 1,0 g/dL e LDH > limite superior do normal do soro.",
+      "c": "Ausência total de bactérias na cultura.",
+      "d": "Líquido citrino e transparente.",
+      "e": "GASA < 1,1 g/dL."
+    },
+    "answer": "b",
+    "rationale": "A PBE é monomicrobiana e possui baixa celularidade/proteína. Já a peritonite secundária (perfuração) é polimicrobiana e gera uma resposta inflamatória mais intensa no líquido ascite. Os critérios de Runyon (Proteína alta, Glicose baixa e LDH alto) possuem alta sensibilidade para indicar um foco cirúrgico intra-abdominal que exige laparotomia ou drenagem de urgência, em vez de apenas antibióticos endovenosos isolados.",
+    "option_rationales": {
+      "a": "Sugere PBE clássica.",
+      "b": "Correta. Define o critério diagnóstico diferencial vital para salvar o paciente de uma perfuração intestinal não diagnosticada.",
+      "c": "Culturas podem ser negativas na PBE, mas na secundária costumam ser polimicrobianas positivas.",
+      "d": "Líquido de peritonite secundária costuma ser turvo ou purulento.",
+      "e": "O GASA reflete hipertensão portal, não a causa da infecção em si."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["PBE", "Runyon", "Peritonite Secundária"]
+  },
+  {
+    "enunciado": "A Encefalopatia Hepática Mínima (EHM) caracteriza-se por alterações cognitivas sutis em cirróticos que parecem clinicamente normais. Qual o teste psicométrico simples e de baixo custo, realizado com papel e caneta, considerado o padrão para o diagnóstico de EHM na prática ambulatorial?",
+    "options": {
+      "a": "Ressonância Magnética de Crânio.",
+      "b": "Teste de Conexão Numérica (Trail Making Test) - Partes A e B.",
+      "c": "Exame de fundo de olho.",
+      "d": "Dosagem de amônia arterial.",
+      "e": "Teste de caminhada de 6 minutos."
+    },
+    "answer": "b",
+    "rationale": "A EHM não é detectada pelo exame neurológico comum. O Teste de Conexão Numérica avalia a atenção, velocidade psicomotora e função executiva. O paciente deve ligar números e letras em sequência no menor tempo possível. Tempos elevados sugerem distúrbio cognitivo hepático subclínico, que está associado a maior risco de quedas, acidentes de trânsito e progressão para encefalopatia clínica evidente.",
+    "option_rationales": {
+      "a": "A RM pode mostrar depósitos de manganês nos núcleos da base, mas não é um teste funcional cognitivo de triagem.",
+      "b": "Correta. Identifica a ferramenta de triagem cognitiva validada para o estágio subclínico da encefalopatia.",
+      "c": "Útil para Doença de Wilson, não para EHM.",
+      "d": "A amônia tem baixa correlação com o grau de EHM.",
+      "e": "Avalia reserva funcional física, não cognição."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["EHM", "Psicometria", "Hepatologia"]
+  },
+  {
+    "enunciado": "Um paciente cirrótico CHILD C com mestre-ascite volumosa e insuficiência hepática severa desenvolve quadro de tosse e dispneia. O Raio-X de tórax mostra derrame pleural à direita. A pleurocentese diagnóstica revela: Glicose 60, Proteína 1,5, e contagem de Neutrófilos (PMN) de 450/mm³. Como se classifica esta condição e qual a conduta indicada?",
+    "options": {
+      "a": "Câncer de Pulmão; Biópsia pleural.",
+      "b": "Empiema Bacteriano Espontâneo (SBEM); Iniciar antibioticoterapia sistêmica (ex: Ceftriaxona) semelhante ao tratamento da PBE.",
+      "c": "Hidrotórax Hepático Transudato puro; Aumentar apenas o diurético.",
+      "d": "Pneumonia aspirativa; Fisioterapia.",
+      "e": "Tuberculose pleural; Esquema RIPE."
+    },
+    "answer": "b",
+    "rationale": "O SBEM ocorre devido à infecção direta de um hidrotórax hepático preexistente, podendo ocorrer sem PBE associada. O diagnóstico é dado pela contagem de PMN no líquido pleural > 250/mm³ (excluindo-se pneumonia ou causa local). O tratamento é com antibióticos sistêmicos. Deve-se EVITAR colocar drenos de tórax em pacientes cirróticos com hidrotórax ou SBEM, pelo risco de perda maciça de proteínas e eletrólitos e fístulas pleuro-cutâneas fatais.",
+    "option_rationales": {
+      "a": "A citologia e os neutrófilos orientam para infecção espontânea do líquido asfítico transladado.",
+      "b": "Correta. Define o critério diagnóstico pleural e o manejo medicamentoso da variante respiratória da infecção espontânea.",
+      "c": "O PMN > 250 confirma infecção (empiema bacteriano), deixando de ser um hidrotórax simples.",
+      "d": "A pneumonia daria infiltrado no parênquima.",
+      "e": "A tuberculose teria predomínio linfocitário e ADA elevado no líquido pleural."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["SBEM", "Hidrotórax", "Empiema"]
+  },
+  {
+    "enunciado": "No contexto da Falência Hepática Aguda Fulminante (ex: por vírus A ou Paracetamol), os Critérios de King's College são usados para indicar transplante hepático de urgência absoluta. Qual marcador laboratorial é isoladamente suficiente para indicar transplante na intoxicação por PARACETAMOL, segundo este critério, independente de outros parâmetros?",
+    "options": {
+      "a": "Bilirrubina Total > 10 mg/dL.",
+      "b": "pH arterial < 7,30 (após reidratação volêmica adequada).",
+      "c": "Contagem de Plaquetas < 20.000.",
+      "d": "Glico-hemoglobina > 10%.",
+      "e": "Sódio < 120 mEq/L."
+    },
+    "answer": "b",
+    "rationale": "Na intoxicação por paracetamol, o pH arterial < 7,30 é o preditor de mortalidade mais forte no critério de King's College. Se o paciente permanecer acidótico apesar do volume, a chance de sobrevida sem transplante é mínima. Alternativamente, a tríade INR > 6,5 + Creatinina > 3,4 + Encefalopatia Grau III ou IV também indica o transplante.",
+    "option_rationales": {
+      "a": "A bilirrubina é critério nas causas NÃO-paracetamol da insuficiência fulminante.",
+      "b": "Correta. Identifica o ponto de corte gasométrico de indicação cirúrgica curativa prioritária.",
+      "c": "Trombocitopenia não faz parte dos critérios de King's College.",
+      "d": "Avalia diabetes.",
+      "e": "A hiponatremia piora a encefalopatia mas não é critério de listagem de urgência absoluta sozinho."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["King's College", "Paracetamol", "Transplante"]
+  },
+  {
+    "enunciado": "Qual técnica cirúrgica inovadora de hepatectomia é realizada em dois estágios (ALPPS) para permitir a rápida hipertrofia do Lobo Hepático Remanescente (FLR) em pacientes com tumores volumosos e fígados limítrofes?",
+    "options": {
+      "a": "Colecistectomia simples.",
+      "b": "Associating Liver Partition and Portal Vein Ligation for Staged Hepatectomy (ALPPS).",
+      "c": "Transplante de Medula Óssea associado.",
+      "d": "Ligadura de artéria mesentérica apenas.",
+      "e": "Colocação de balão intragástrico."
+    },
+    "answer": "b",
+    "rationale": "O ALPPS consiste em ligar a veia porta do lado tumoral e literalmente 'cortar' o parênquima conectando os dois lobos hepáticos (partição), mas mantendo o órgão vascularizado. Isso induz uma hipertrofia acelerada do lobo saudável remanescente (FLR) em apenas 1 ou 2 semanas, permitindo a retirada segura do lobo tumoral no segundo tempo cirúrgico, reduzindo a falência hepática pós-operatória.",
+    "option_rationales": {
+      "a": "Procedimento trivial de baixo impacto metabólico-regenerativo.",
+      "b": "Correta. Nomeia a técnica cirúrgica complexa de regeneração hepática induzida acelerada.",
+      "c": "Não faz parte do protocolo cirúrgico de ressecção de tumores sólidos hepáticos.",
+      "d": "Causaria isquemia intestinal maciça.",
+      "e": "Tratamento de obesidade."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["ALPPS", "Cirurgia Hepática", "Regeneração"]
+  },
+  {
+    "enunciado": "No pós-transplante tardio, a ocorrência de icterícia obstrutiva com estenoses filiformes múltiplas da via biliar do enxerto (aspecto em 'contas de rosário'), na ausência de trombose vascular, sugere qual complicação imunológica ou isquêmica crônica?",
+    "options": {
+      "a": "Colangite Biliar Primária recorrente.",
+      "b": "Colangiopatia Isquêmica (ou Estenoses Biliares Não Anastomóticas - NAS).",
+      "c": "Hepatite A.",
+      "d": "Cálculo de vesícula do doador.",
+      "e": "Infestação por Ascaris lumbricoides."
+    },
+    "answer": "b",
+    "rationale": "A via biliar do fígado transplantado depende exclusivamente da microcirculação da artéria hepática. Se houver microtromboses ou episódios de rejeição crônica, ocorrem estenoses isquêmicas difusas no interior do enxerto (NAS). Tem prognóstico sombrio, muitas vezes progredindo para cirrose biliar secundária do enxerto e necessidade de re-transplante.",
+    "option_rationales": {
+      "a": "A CBP recorrente cursa com ductopenia microscópica, não estenoses macroscópicas em rosário na colangiografia.",
+      "b": "Correta. Identifica a complicação biliar difusa mais grave após o transplante.",
+      "c": "Doença aguda anictérica em sua maioria.",
+      "d": "Transplantados não costumam ter vesícula no enxerto (ela é retirada na cirurgia de banco).",
+      "e": "Pode ocorrer obstrução biliar pontual, mas não difusa e crônica desta forma."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Biliar", "NAS", "Transplante"]
+  },
+  {
+    "enunciado": "Sobre o manejo da Insuficiência Renal Aguda (IRA) no cirrótico descompensado, qual o parâmetro laboratorial de 'Clearance de Creatinina' (TFG) estimado pelo MELD que costuma subestimar a função renal real desses pacientes devido à baixa produção de creatinina muscular?",
+    "options": {
+      "a": "MELD não avalia o rim.",
+      "b": "Subestimação da função renal; A creatinina plasmática no cirrótico desnutrido/sarcopênico é baixa, o que pode dar uma falsa impressão de bom funcionamento renal (o paciente pode ter um clearance de 30 mL/min com creatinina de apenas 1,1 mg/dL).",
+      "c": "Superestimação; O rim do cirrótico é superior ao normal.",
+      "d": "Apenas em pacientes obesos.",
+      "e": "A creatinina é secretada pelo baço."
+    },
+    "answer": "b",
+    "rationale": "A creatinina vem da desintegração da creatina no músculo. Como cirróticos avançados são sarcopênicos, eles produzem pouca creatinina. Assim, um valor de creatinina discretamente elevado (ex: 1,5) já representa uma perda funcional renal muito severa na cirrose, muitas vezes equivalente a uma creatinina de 3,0 ou 4,0 em um indivíduo sadio. Isso motivou a criação de scores renais alternativos como a Cistatina C.",
+    "option_rationales": {
+      "a": "A creatinina é um dos 3 pilares do escore MELD.",
+      "b": "Correta. Explica a armadilha laboratorial da creatinina no paciente com atrofia muscular sistêmica.",
+      "c": "O erro é inverso (a função é pior do que parece).",
+      "d": "Em obesos há o inverso (excesso de produção), mas no cirrótico o problema é a desnutrição.",
+      "e": "A creatinina é filtrada pelo rim e produzida nos músculos."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["IRA", "Creatinina", "Sarcopenia"]
+  },
+  {
+    "enunciado": "A 'Gastropatia Hipertensiva Portal' severa e as varizes esofágicas são consequências da descompressão espontânea do sistema porta. Qual o valor do Gradiente de Pressão Venosa Hepática (GPVH) acima do qual se define Hipertensão Portal Clinicamente Significativa (HPCS)?",
+    "options": {
+      "a": "GPVH > 2 mmHg.",
+      "b": "GPVH > 10 mmHg.",
+      "c": "GPVH > 50 mmHg.",
+      "d": "GPVH apenas se houver coágulo.",
+      "e": "Gradiente zero."
+    },
+    "answer": "b",
+    "rationale": "Embora o gradiente normal seja até 5 mmHg, o limiar de 10 mmHg é o ponto crítico (HPCS) onde começam a surgir as descompensações clínicas (formação de ascite e aparecimento de varizes). Se o gradiente ultrapassar 12 mmHg, o risco de ruptura de varizes torna-se iminente.",
+    "option_rationales": {
+      "a": "Valor normal.",
+      "b": "Correta. Define o parâmetro hemodinâmico de corte para o surgimento de complicações sistêmicas da cirrose.",
+      "c": "Valor raramente atingido e indicativo de obstrução portal maciça.",
+      "d": "O gradiente é uma medida pressórica, não dependente de imagem direta do coágulo.",
+      "e": "Significaria ausência de resistência intra-hepática."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["HPCS", "GPVH", "Hemodinâmica"]
+  },
+  {
+    "enunciado": "No contexto da Doença de Wilson pediátrica, qual a manifestação inicial mais comum que precede as alterações neurológicas?",
+    "options": {
+      "a": "Tremores de intenção.",
+      "b": "Hepatite Aguda Autoimune-like ou Insuficiência Hepática Fulminante associada a Anemia Hemolítica Coombs-negativo.",
+      "c": "Perda de visão súbita.",
+      "d": "Diabetes mellitus.",
+      "e": "Infarto do miocárdio."
+    },
+    "answer": "b",
+    "rationale": "Crianças com Wilson costumam apresentar doença hepática pura (hepatites recorrentes ou cirrose precoce). Uma forma dramática é a falência fulminante onde o cobre maciço liberado na corrente sanguínea causa hemólise aguda por estresse oxidativo direto nas hemácias. A combinação de hepatite aguda + anemia hemolítica com Coombs direto negativo é altamente sugestiva de Wilson.",
+    "option_rationales": {
+      "a": "Alteração neurológica comum no adulto jovem com Wilson.",
+      "b": "Correta. Alerta para a apresentação sindrômica mista (fígado + sangue) da doença metabólica do cobre.",
+      "c": "O Wilson causa anéis oculares mas raramente perda visual central.",
+      "d": "Sem nexo.",
+      "e": "Sem nexo."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Wilson", "Hepatologia Pediátrica", "Anemia"]
+  },
+  {
+    "enunciado": "Um paciente cirrótico CHILD C com ascite volumosa necessita de tratamento dentário (extração). O laboratório mostra: Plaquetas 38.000, RNI 1,9, Creatinina 1,8. Qual a recomendação pré-procedimento para minimizar o risco de sangramento excessivo e nefropatia agudizada?",
+    "options": {
+      "a": "Não realizar o procedimento dentário.",
+      "b": "Transfusão de plaquetas visando nível > 50.000, infusão cuidadosa de plasma fresco (se necessário) e hidratação adequada peroperatória.",
+      "c": "Apenas bochecho com água.",
+      "d": "Extrair todos os dentes de uma vez sem suporte.",
+      "e": "Fazer apenas se o paciente estiver em coma."
+    },
+    "answer": "b",
+    "rationale": "Procedimentos semi-invasivos no cirrótico CHILD C devem ser feitos com reserva de hemocomponentes. Níveis de plaqueta acima de 50.000 são considerados seguros para a maioria das intervenções dentárias. A creatinina elevada exige cuidado com o uso de anestésicos locais e analgésicos nefrotóxicos (AINEs contraindicados).",
+    "option_rationales": {
+      "a": "Focos infecciosos dentários podem precipitar EH e PBE; devem ser tratados.",
+      "b": "Correta. Define o alvo hematológico de segurança para procedimentos cirúrgicos menores.",
+      "c": "Ineficaz para o tratamento odontológico necessário.",
+      "d": "Risco de hemorragia incontrolável e sepse odontogênica.",
+      "e": "O estado neurológico não justifica o procedimento; o suporte hemodinâmico e hematológico sim."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Cirurgia Odontológica", "Procedimentos", "Plaquetopenia"]
+  },
+  {
+    "enunciado": "A 'Tamponeamento com Balão de Sengstaken-Blakemore' é uma manobra de resgate na hemorragia varicosa incontrolável por EDA. Qual o tempo máximo recomendado para permanência deste balão inflado visando evitar a necrose por pressão da mucosa esofágica?",
+    "options": {
+      "a": "Até 1 mês.",
+      "b": "24 a 48 horas.",
+      "c": "Apenas 10 minutos.",
+      "d": "Indeterminado.",
+      "e": "1 semana."
+    },
+    "answer": "b",
+    "rationale": "O balão comprime mecanicamente as varizes. No entanto, a pressão exercida pelo balão esofágico obstrui a microcirculação da mucosa, podendo levar à isquemia e necrose se mantido por muito tempo. Ele é estritamente uma ponte temporária (bridge) até a realização de TIPS ou tratamento endoscópico definitivo em melhores condições, devendo ser desinsuflado idealmente antes de 24h.",
+    "option_rationales": {
+      "a": "Causaria óbito por mediastinite secundária à necrose esofágica.",
+      "b": "Correta. Define o tempo de 'janela terapêutica' da manobra de compressão mecânica de emergência.",
+      "c": "Tempo insuficiente para estabilização hemodinâmica e preparo logístico.",
+      "d": "Pernicioso; exige monitorização em CTI.",
+      "e": "Risco inaceitável de perfuração esofágica isquêmica."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Sengstaken", "Balão", "HDA"]
+  },
+  {
+    "enunciado": "Sobre o metabolismo da amônia na cirrose, quais os órgãos (além do fígado) que possuem capacidade de depurar amônia, e qual deles assume papel protagonista compensatório na insuficiência hepática severa?",
+    "options": {
+      "a": "Rim e Baço.",
+      "b": "Músculo Estriado Skeletal e Cérebro (via síntese de glutamina).",
+      "c": "Coração e Pulmão.",
+      "d": "Ossos e Unhas.",
+      "e": "Pâncreas apenas."
+    },
+    "answer": "b",
+    "rationale": "Quando o fígado falha em converter amônia em ureia no ciclo da ureia, o músculo estriado torna-se o principal local de depuração alternativa, convertendo glutamato + amônia em glutamina (via enzima glutamina sintetase). É por isso que a perda de massa muscular (sarcopenia) no cirrótico é tão grave, pois remove o 'segundo fígado' na detoxificação nitrogenada, facilitando a encefalopatia.",
+    "option_rationales": {
+      "a": "O rim produz amônia em certas condições, não é o depurador primário de massa.",
+      "b": "Correta. Explica o papel metabólico vital do músculo estriado na homeostase da amônia.",
+      "c": "Não possuem vias metabólicas significativas de eliminação de NH3.",
+      "d": "Sem papel metabólico nitrogenado.",
+      "e": "Órgão exócrino/endócrino sem papel na síntese de glutamina periférica compensatória."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Amônia", "Metabolismo", "Fisiologia"]
+  },
+  {
+    "enunciado": "Um paciente cirrótico apresenta febre, dispneia e Raio-X de tórax normal. É solicitada gasometria arterial que mostra PaO2 de 65 mmHg e gradiente alvéolo-arterial de O2 aumentado. O que o achado de 'Platipneia' e 'Ortodeoxia' (melhora da hipoxemia ao deitar) sugere clinicamente neste contexto?",
+    "options": {
+      "a": "Pneumonia bacteriana atípica.",
+      "b": "Síndrome Hepatopulmonar (SHP).",
+      "c": "Asma brônquica.",
+      "d": "Insuficiência ventricular esquerda (edema agudo).",
+      "e": "Apneia do sono."
+    },
+    "answer": "b",
+    "rationale": "A platipneia (dispneia ao ficar ereto) e ortodeoxia (queda de oxigenação ao ficar ereto) ocorrem porque a dilatação vascular intrapulmonar na SHP é maior nas bases pulmonares. Ao levantar, o fluxo sanguíneo prioriza as bases dilatadas onde a troca é pobre, agravando a hipoxemia. Ao deitar, o fluxo é mais uniforme e a saturação melhora. É um sinal semiológico quase único da SHP em cirróticos.",
+    "option_rationales": {
+      "a": "A pneumonia piora independentemente da posição tão rápida.",
+      "b": "Correta. Identifica o par semiológico respiratório clássico da vasodilatação pulmonar do cirrótico.",
+      "c": "Cursa com sibilância e dispneia independente do decúbito desta forma.",
+      "d": "A IVE piora ao deitar (ortopneia), o oposto da SHP.",
+      "e": "Sintomas noturnos e relacionados ao sono, não à mudança postural ativa diaurna."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["SHP", "Ortodeoxia", "Pneumologia"]
+  },
+  {
+    "enunciado": "A 'Fascite Necrotizante' no paciente cirrótico apresenta características de evolução muito mais rápida e letal do que no hospedeiro normal. Quais as bactérias marinhas gram-negativas envolvidas neste quadro após exposição a águas salobras ou ferimentos por peixes?",
+    "options": {
+      "a": "Streptococcus pyogenes apenas.",
+      "b": "Vibrio vulnificus e Vibrio alginolyticus.",
+      "c": "Clostridium tetani.",
+      "d": "Mycobacterium leprae.",
+      "e": "Bordetella pertussis."
+    },
+    "answer": "b",
+    "rationale": "O Vibrio vulnificus é extremamente virulento no cirrótico devido à disponibilidade de ferro (siderofilicidade). Causa celulite hemorrágica e fascite necrosante em poucas horas após exposição na pele. A mortalidade sem desbridamento agressivo e antibióticos (Ceftriaxona + Doxiciclina) chega a 50-70%.",
+    "option_rationales": {
+      "a": "Causa comum de erisipela, mas o quadro marinho aponta para Vibrio.",
+      "b": "Correta. Identifica o patógeno oportunista de alta letalidade no contexto da exposição marinha em hepatopatas.",
+      "c": "Causa tétano (espasmos musculares).",
+      "d": "Causa hanseníase (doença granulomatosa crônica).",
+      "e": "Causa coqueluche."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Vibrio", "Infectologia", "Fascite"]
+  },
+  {
+    "enunciado": "No diagnóstico endoscópico das varizes de esôfago, o achado de 'Sinais de Cor Vermelha' (red color signs ou marcas vermelhas como 'cherry red spots') sobre o cordão varicoso indica qual parâmetro clínico?",
+    "options": {
+      "a": "O paciente está curado.",
+      "b": "Alto risco de ruptura iminente da variz (as marcas vermelhas representam áreas de adelgaçamento extremo da parede do vaso e pressão intra-varicosa elevada).",
+      "c": "As varizes são na verdade tumores.",
+      "d": "Uso de corante alimentar pelo paciente.",
+      "e": "Presença de gordura na variz."
+    },
+    "answer": "b",
+    "rationale": "As marcas vermelhas (red wales, cherry red spots) são sinais de alerta na EDA. Elas indicam que a parede da veia está tão esticada e fina que o sangramento pode ocorrer a qualquer momento, mesmo que a variz ainda não seja de grande calibre. Indicam necessidade imediata de profilaxia primária com betabloqueador ou ligadura elástica.",
+    "option_rationales": {
+      "a": "Sinais de vermelhidão são indicativos de doença ativa e perigosa.",
+      "b": "Correta. Define o critério endoscópico de risco hemorrágico iminente.",
+      "c": "Varizes são condutos venosos, não neoplasias sólidas nesta fase.",
+      "d": "Alteração estrutural vascular intrínseca.",
+      "e": "Não há depósito lipídico nestas colaterais."
+    },
+    "difficulty": "facil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["EDA", "Varizes", "Risco Hemorrágico"]
+  },
+  {
+    "enunciado": "Sobre o manejo nutricional do cirrótico, qual a orientação moderna sobre a restrição de proteínas na dieta de um paciente com encefalopatia hepática crônica?",
+    "options": {
+      "a": "Restrição proteica rigorosa (< 0,5 g/kg/dia) para evitar produção de amônia.",
+      "b": "A restrição proteica deve ser evitada; pacientes devem receber dieta hiperproteica (1,2-1,5 g/kg/dia) associada a fibras para prevenir a sarcopenia e manter a capacidade de depuração muscular da amônia.",
+      "c": "Dar apenas gordura na dieta.",
+      "d": "Mudar a dieta para apenas água.",
+      "e": "O aporte de proteína não interfere na evolução."
+    },
+    "answer": "b",
+    "rationale": "A ideia antiga de restringir carne para tratar encefalopatia caiu em desuso. A restrição proteica agrava a sarcopenia, o que piora a longo prazo a capacidade do corpo de gerenciar o nitrogênio. A prioridade é manter o aporte proteico adequado, preferindo proteínas vegetais ou laticínios (que têm maior teor de fibras e reduzem o tempo de trânsito intestinal) se o paciente não tolerar bem a carne vermelha.",
+    "option_rationales": {
+      "a": "Conduta obsoleta que aumenta a mortalidade por desnutrição e fraqueza muscular.",
+      "b": "Correta. Reflete o consenso nutricional moderno de suporte metabólico ao cirrótico.",
+      "c": "Leva à esteatose e desequilíbrio metabólico severo.",
+      "d": "Inanição.",
+      "e": "A nutrição é um dos pilares da sobrevida em lista de transplante."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Nutrição", "Encefalopatia", "Consenso"]
+  },
+  {
+    "enunciado": "A 'Hepatite por radiação' ou 'Radiation-induced liver disease' (RILD) manifesta-se tipicamente após radioterapia abdominal. Qual o achado histológico clássico observado nas biópsias hepáticas desta condição?",
+    "options": {
+      "a": "Invasão por linfócitos T CD8+.",
+      "b": "Hialina de Mallory-Denk exuberante.",
+      "c": "Veno-oclusão das vênulas hepáticas terminais ( SOS-like) com congestão intensa na zona 1 de Rappaport.",
+      "d": "Infiltração gordurosa maciça.",
+      "e": "Obliteração fibrinoide de pequenos vasos sinusodais e vênulas eferentes na zona 3.",
+    },
+    "answer": "e",
+    "rationale": "O fígado é um órgão radiossensível. A radiação lesa as células endoteliais das vênulas do trato de saída (zona 3), gerando um quadro similar ao SOS (Síndrome de Obstrução Sinusoidal). Clinicamente cursa com ascite anictérica e dor em hipocôndrio direito algumas semanas após a terapia.",
+    "option_rationales": {
+      "a": "Padrão de rejeição celular aguda ou hepatite viral.",
+      "b": "Padrão de hepatite alcoólica ou esteato-hepatite severa.",
+      "c": "A lesão SOS ocorre na zona 3 (perivenular), não na zona 1 (periportal).",
+      "d": "Não é o mecanismo primário da actinicidade hepática.",
+      "e": "Correta. Detalha a fisiopatologia microvascular terminal da agressão actínica hepática."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Actinicidade", "Fisiopatologia", "Oncologia"]
+  },
+  {
+    "enunciated":"Sobre o teste de estímulo com Glucagon para as doenças de armazenamento de glicogênio (Glicogenoses) com manifestação hepática, qual o resultado esperado em um paciente com deficiência de Glicose-6-Fosfatase (Tipo 1a)?",
+    "options": {
+      "a": "Elevação rápida e sustentada da glicemia.",
+      "b": "Ausência de resposta glicêmica (a glicose não sobe) associada a um aumento drástico de ácido láctico sérico.",
+      "c": "Cura imediata da doença.",
+      "d": "Aumento do baço durante o teste.",
+      "e": "Eritema generalizado."
+    },
+    "answer": "b",
+    "rationale": "Na Glicogenose tipo 1a (von Gierke), o fígado não consegue converter glicose-6-fosfato em glicose livre. Ao dar glucagon (que deveria mobilizar glicogênio), o corpo tenta quebrar o glicogênio mas para no passo final, desviando o metabolismo para a via glicolítica anaeróbia, gerando lactato. O resultado é a manutenção da hipoglicemia com 'acidose láctica induzida' pelo glucagon.",
+    "option_rationales": {
+      "a": "Resposta normal de um indivíduo sadio.",
+      "b": "Correta. Define o teste bioquímico funcional clássico para erro inato do metabolismo hepático.",
+      "c": "Teste diagnóstico, não curativo.",
+      "d": "Sem nexo.",
+      "e": "Pode ser efeito colateral, mas não é o critério metabólico buscado no teste."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Glicogenose", "Metabolismo", "Hepatologia Pediátrica"]
+  },
+  {
+    "enunciado": "A 'Técnica de Pringle' no trauma abdominal visa o controle do sangramento hepático. Se após a realização desta técnica (clampeamento de veia porta e artéria hepática) o sangramento persistir de forma volumosa 'por trás' do fígado, qual estrutura vascular está provavelmente lesada?",
+    "options": {
+      "a": "Artéria Esplênica.",
+      "b": "Veias Supra-hepáticas ou Veia Cava Inferior Retro-hepática.",
+      "c": "Ducto Cístico.",
+      "d": "Artéria Mesentérica Superior.",
+      "e": "Veia Renal Esquerda."
+    },
+    "answer": "b",
+    "rationale": "A manobra de Pringle bloqueia apenas o fluxo de entrada (aferente). Sangramentos que persistem após o Pringle originam-se do fluxo de saída do fígado (eferente) ou da grande veia que passa atrás dele. Estas lesões (retro-hepáticas) são as de maior mortalidade técnica no trauma abdominal.",
+    "option_rationales": {
+      "a": "Sangraria no hipocôndrio esquerdo.",
+      "b": "Correta. Identifica a limitação diagnóstica/terapêutica da manobra de Pringle e as lesões vasculares profundas.",
+      "c": "Sangramento biliar ou venoso pequeno de fossa cística.",
+      "d": "Sangramento central mesentérico, não oculto por trás do parênquima hepático.",
+      "e": "Retroperitoneal, sem relação com os sinusóides hepáticos bloqueados pelo Pringle."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Trauma", "Pringle", "Vascular"]
+  },
+  {
+    "enunciado": "Qual o valor da contagem absoluta de neutrófilos (PMN) no líquido pleural que define o diagnóstico de Empiema Bacteriano Espontâneo (SBEM) em um cirrótico com ascite e derrame pleural, excluindo-se foco pulmonar?",
+    "options": {
+      "a": "> 50/mm³.",
+      "b": "> 250/mm³.",
+      "c": "> 10.000/mm³.",
+      "d": "Presença apenas de hemácias.",
+      "e": "Zero."
+    },
+    "answer": "b",
+    "rationale": "O critério para SBEM é o mesmo da PBE: > 250 PMN por milímetro cúbico. É fundamental a punção pleural (pleurocentese) para diagnóstico diferencial, especialmente se houver deterioração clínica inexplicada apenas pela paracentese abdominal.",
+    "option_rationales": {
+      "a": "Abaixo do limiar inflamatório bacteriano infeccioso definido.",
+      "b": "Correta. Estabiliza o parâmetro laboratorial de contagem celular diagnóstica para infecção pleural espontânea.",
+      "c": "Sugere empiema secundário a pneumonia grave ou infecção pleural fustigante local (não espontânea).",
+      "d": "Hidrotórax hemorrágico.",
+      "e": "Incompatível com estado inflamatório."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["SBEM", "Neutrófilos", "Critérios"]
+  }
+]

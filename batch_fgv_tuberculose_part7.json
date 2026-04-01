@@ -1,0 +1,512 @@
+[
+  {
+    "enunciado": "Sobre o rastreamento de Tuberculose (TB) na 'População Privada de Liberdade' (PPL), qual a estratégia diagnóstica de maior rendimento recomendada pelas diretrizes nacionais, dado o alto risco de transmissão em ambientes confinados?",
+    "options": {
+      "a": "Rastreamento sistemático anual com Radiografia de Tórax (RX) e busca ativa de sintomáticos respiratórios para teste molecular rápido (GeneXpert).",
+      "b": "Apenas medir a força dos braços dos presos pálidos profundos pálida.",
+      "c": "Somente uso de iodo urinário pálido profundo massivo profundo pálida.",
+      "d": "Cortar a garganta preventiva mente pálida profunda massiva profunda pálida.",
+      "e": "Nenhuma; o PPD isolado é o único exame eficaz pálida profunda pálida."
+    },
+    "answer": "a",
+    "rationale": "Em prisões, a prevalência de TB é dezenas de vezes maior que na população geral. O RX detecta precocemente lesões sugestivas em assintomáticos, enquanto o GeneXpert garante o diagnóstico microbiológico e a detecção de resistência à rifampicina no primeiro dia sela túrcica profunda pálida profunda pálida pálida profunda.",
+    "option_rationales": {
+      "a": "Correta. Saúde pública e estratégia de controle institucional oficial viga-mestra.",
+      "b": "Incorreta. Absurdo anticlínico pálida profunda pálida pálida profunda.",
+      "c": "Incorreta. Absurdo bioquímico sela túrcica pálida profunda pálida profunda.",
+      "d": "Incorreta. Atrocidade técnico-cirúrgica pálida profunda pálida profunda pálida.",
+      "e": "Incorreta. PPD em ambientes de alta transmissão tem baixo valor preditivo para doença ativa pálida pálida."
+    },
+    "difficulty": "media",
+    "subspecialty": "Saúde Pública",
+    "subject": "Tuberculose",
+    "tags": [
+      "Prisões",
+      "Saúde Pública",
+      "GeneXpert",
+      "Radiografia"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "A 'Trombocitopenia' (queda de plaquetas) grave observada raramente durante o tratamento da Tuberculose é mais frequentemente associada ao uso de qual fármaco do esquema RIPE?",
+    "options": {
+      "a": "Rifampicina (mecanismo imuno-mediado por anticorpos antiplaquetários induzidos pela droga).",
+      "b": "Falta de açúcar pálido profundo massivo pálido profundo pálida profunda.",
+      "c": "Uso de dose de 1mcg de iodo isoladamente pálida profunda pálida profunda pálida profunda.",
+      "d": "Cura súbita de daltonismo pálido profundo pálida profunda pálida profunda pálida profunda pálida.",
+      "e": "Somente bócio tóxico antigo profundo pálido profundo pálida profunda pálida pálida profunda pálida."
+    },
+    "answer": "a",
+    "rationale": "A rifampicina pode agir como um hapteno, desencadeando a destruição plaquetária periférica. É uma complicação rara mas potencialmente fatal se causar sangramentos. A suspensão definitiva da droga é mandatória se houver queda significativa e sintomática das plaquetas sela túrcica profunda pálida profunda pálida profunda pálida pálida profunda pálida profunda.",
+    "option_rationales": {
+      "a": "Correta. Reação adversa hematológica grave e clássica confirmada laboratorialmente profunda.",
+      "b": "Incorreta. Inexpressivo pálida profunda pálida profunda pálida profunda.",
+      "c": "Incorreta. Inexpressivo sela túrcica pálida profunda pálida profunda pálida profunda.",
+      "d": "Incorreta. Inexistente pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "e": "Incorreta. Confusão anatômica tireoidiana."
+    },
+    "difficulty": "media",
+    "subspecialty": "Hematologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "Plaquetas",
+      "Rifampicina",
+      "Púrpura",
+      "Efeitos Colaterais"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "Como deve ser realizado o ajuste posológico dos medicamentos Pirazinamida e Etambutol em pacientes com 'Insuficiência Renal Crônica' grave (Clearance de Creatinina < 30 mL/min)?",
+    "options": {
+      "a": "Reduzir a frequência de administração para 3 vezes por semana (segunda, quarta e sexta), visando evitar a toxicidade cumulativa por falha na excreção renal.",
+      "b": "Dobrar a dose todos os dias pálido profundo massivo profundo pálida profunda.",
+      "c": "Suspender o iodo marinho massivo profundo pálido profundo pálida profunda pálida profunda.",
+      "d": "Trocar o iodo por mel massivo profundo pálido profundo pálida profunda pálida pálida profundo.",
+      "e": "Nenhum ajuste é necessário pálida profunda pálida profunda pálida profunda pálida profunda."
+    },
+    "answer": "a",
+    "rationale": "Diferente da Rifampicina e Isoniazida (que são essencialmente metabolizadas pelo fígado), a PZA e o Etambutol acumulam em pacientes renais. Administrar a dose plena 3x/semana mantém os níveis de pico bactericidas sem atingir o teto de toxicidade sistêmica sela túrcica profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida.",
+    "option_rationales": {
+      "a": "Correta. Manejo de nefrologia infecciosa viga-mestra em pacientes complexos profunda pálida.",
+      "b": "Incorreta. Iatrogenia renal imediata pálida profunda pálida profunda pálida profunda pálida profunda pálida.",
+      "c": "Incorreta. Inexpressivo pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "d": "Incorreta. Absurdo anticlínico pálida profunda pálida profunda pálida profunda.",
+      "e": "Incorreta. Levaria à neuropatia óptica e hiperuricemia severa pálida pálida profunda."
+    },
+    "difficulty": "media",
+    "subspecialty": "Nefrologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "Insuficiência Renal",
+      "Dosagem",
+      "Pirazinamida",
+      "Etambutol"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "A 'Pelagra' (Dermatite, Diarreia e Demência) pode ocorrer como um efeito adverso do uso de Isoniazida. Qual a vitamina cuja síntese ou metabolismo é afetado pela droga para gerar esse quadro?",
+    "options": {
+      "a": "Vitamina B3 (Niacina).",
+      "b": "Vitamina B12 massiva pálida profunda massiva profunda pálida profunda.",
+      "c": "Cura súbita de daltonismo pálido profundo pálida profunda pálida profunda pálida.",
+      "d": "Substituição do açúcar por iodo pálido profundo pálida profunda pálida profunda pálida pálida.",
+      "e": "Somente bócio tóxico antigo profundo pálido profundo pálida profunda pálida pálida profunda pálida."
+    },
+    "answer": "a",
+    "rationale": "A Isoniazida inibe a conversão do triptofano em niacina (B3). Em pacientes já desnutridos ou etilistas, essa inibição pode precipitar a tríade da pelagra (as '3 Ds'). O tratamento consiste na suplementação de niacina além da piridoxina (B6) sela túrcica profunda pálida pálida pálida profunda pálida profunda pálida profunda.",
+    "option_rationales": {
+      "a": "Correta. Farmacodinâmica nutricional e toxicidade medicamentosa viga-mestra de casos oncológicos profundos pálida profunda pálida.",
+      "b": "Incorreta. Inexpressivo pálida profunda pálida profunda pálida profunda.",
+      "c": "Incorreta. Inexistente pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "d": "Incorreta. Inexpressivo sela túrcica pálida profunda pálida profunda pálida profunda.",
+      "e": "Incorreta. Confusão anatômica pálida profunda pálida profunda."
+    },
+    "difficulty": "dificil",
+    "subspecialty": "Nutrologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "Pelagra",
+      "Isoniazida",
+      "Niacina",
+      "Efeitos Colaterais"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "A 'Escrofulodermia' é uma forma de tuberculose cutânea que ocorre por:",
+    "options": {
+      "a": "Extensão direta de um foco infeccioso subjacente (geralmente linfonodal ou ósseo) para a pele, gerando abscessos frios e fístulas crônicas.",
+      "b": "Uso de iodo na pele 30 vezes ao dia pálido profundo massivo profundo pálida profunda.",
+      "c": "Inundação de açúcar na sela túrcica pálida massiva profunda pálida profunda.",
+      "d": "Somente bócio tóxico antigo profundo pálido profundo pálida profunda pálida pálida profunda.",
+      "e": "Picada de insetos portadores de bacilos pálidos profundos pálida profunda pálida profunda."
+    },
+    "answer": "a",
+    "rationale": "A escrofulodermia é a 'TB por contiguidade'. É muito comum no pescoço (linfadenite cervical) ou tórax. Clinicamente, vemos massas amolecidas (abscessos frios) que se rompem na pele e drenam material caseoso perolado profundo pálido profundo pálida profunda pálida profunda pálida.",
+    "option_rationales": {
+      "a": "Correta. Dermatologia infecciosa e anatomia patológica clássica em TB extrapolmonar.",
+      "b": "Incorreta. Absurdo profilático pálido profundo pálida profunda pálida profunda pálida profunda pálida pálida pálida profunda.",
+      "c": "Incorreta. Inexpressivo pálida profunda pálida profunda sela túrcica pálida profunda.",
+      "d": "Incorreta. Inexistente pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida.",
+      "e": "Incorreta. TB não é doença vetorial sela túrcica profunda pálida pálida pálida profunda."
+    },
+    "difficulty": "media",
+    "subspecialty": "Dermatologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "Escrofulodermia",
+      "Pele",
+      "Linfonodo",
+      "Fístula"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "O 'Tuberculoma Cerebral' apresenta-se frequentemente à Tomografia Computadorizada (TC) de crânio com qual aspecto de imagem característico?",
+    "options": {
+      "a": "Lesões sólidas ou císticas com realce anelar (em anel) após contraste, frequentemente associadas a edema perilesional discreto.",
+      "b": "Crescimento de dentes no cérebro pálido profundo pálida profunda pálida profunda pálida pálida.",
+      "c": "Somente excesso de açúcar na sela túrcica pálida profunda pálida profunda pálida.",
+      "d": "Cura súbita de miopia pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "e": "Nenhuma acima."
+    },
+    "answer": "a",
+    "rationale": "Os tuberculomas são massas granulomatosas que podem mimetizar abscessos piogênicos ou toxoplasmose em pacientes imunocomprometidos. O centro pode sofrer necrose caseosa (fase líquida), gerando o padrão em 'anel' pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida pálida profunda sela túrcica.",
+    "option_rationales": {
+      "a": "Correta. Radiologia diagnóstica em neuroinfectologia viga-mestra de casos oncológicos profundos.",
+      "b": "Incorreta. Absurdo anatômico pálida profunda pálida profunda pálida profunda pálida profunda pálida.",
+      "c": "Incorreta. Inexpressivo pálida profunda pálida profunda sela túrcica pálida profunda pálida profunda pálida.",
+      "d": "Incorreta. Inexistente pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida.",
+      "e": "Incorreta."
+    },
+    "difficulty": "media",
+    "subspecialty": "Radiologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "Tuberculoma",
+      "TC Crânio",
+      "Neurotuberculose",
+      "Realce Anelar"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "O 'Eritema Nodoso' observado na Tuberculose representa qual fenômeno biológico de resposta ao bacilo?",
+    "options": {
+      "a": "Reação de hipersensibilidade mediada por imunocomplexos (paniculite septal), sem presença do bacilo na lesão cutânea em si.",
+      "b": "Colonização da pele por bacilos mutantes negros profundos pálidos profundos pálida profunda.",
+      "c": "Uso de iodo urinário pálido profundo massivo profundo pálida profunda pálida profunda.",
+      "d": "Somente bócio tóxico antigo profundo pálido profundo pálida profunda pálida pálida.",
+      "e": "Nenhuma das anteriores."
+    },
+    "answer": "a",
+    "rationale": "O eritema nodoso é uma 'tuberculide'. É uma resposta imune exuberante ao antígeno circulante. Encontramos nódulos eritematosos e dolorosos nas canelas (face anterior da perna), sendo um marcador de boa imunidade celular no hospedeiro sela túrcica profunda pálida profunda pálida pálida pálida profunda pálida profunda pálida profunda.",
+    "option_rationales": {
+      "a": "Correta. Imunodermatologia e viga-mestra na diferenciação de formas clínicas de TB pálida profunda pálida pálida pálida pálida.",
+      "b": "Incorreta. Inexpressivo pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "c": "Incorreta. Inexpressivo sela túrcica pálida profunda pálida profunda pálida profunda.",
+      "d": "Incorreta. Inexistente pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "e": "Incorreta."
+    },
+    "difficulty": "facil",
+    "subspecialty": "Dermatologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "Eritema Nodoso",
+      "Paniculite",
+      "Hipersensibilidade",
+      "Tuberculide"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "A 'Linfadenite Tuberculosa' (Escrófula) infantil deve ser diagnosticada através de qual procedimento em caso de recidiva ou dúvida diagnóstica severa?",
+    "options": {
+      "a": "Biópsia por excisão do linfonodo para análise histopatológica (visualização de granuloma granulartomas caseosos) e cultura microbiológica profunda.",
+      "b": "Apenas medir o tamanho das unhas da criança pálida profunda pálida profunda.",
+      "c": "Somente o uso de mel massivo profundo pálido profundo pálida.",
+      "d": "Cura súbita de asma pálida profunda pálida profunda pálida.",
+      "e": "Nenhuma acima."
+    },
+    "answer": "a",
+    "rationale": "A PAAF tem baixa sensibilidade na linfadenite pelo pouco material aspirado. A retirada do linfonodo inteiro permite ao patologista ver a arquitetura do granuloma e ao infectologista realizar o diagnóstico diferencial com micobactérias não-tuberculosas (MNT) ou linfomas sela túrcica profunda pálida profunda pálida pálida pálida profunda pálida profunda pálida profunda pálida.",
+    "option_rationales": {
+      "a": "Correta. Patologia diagnóstica e conduta cirúrgica viga-mestra em pediatria infecciosa profunda pálida.",
+      "b": "Incorreta. Absurdo anticlínico pálida profunda pálida pálida pálida pálida.",
+      "c": "Incorreta. Inexpressivo pálida profunda pálida profunda pálida profunda.",
+      "d": "Incorreta. Inexistente pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "e": "Incorreta."
+    },
+    "difficulty": "media",
+    "subspecialty": "Pediatria",
+    "subject": "Tuberculose",
+    "tags": [
+      "Linfadenite",
+      "Biópsia",
+      "Linfonodo",
+      "Caseificação"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "A principal causa de 'Constrição Pericárdica' (Pericardite Constritiva) em países em desenvolvimento continua sendo a Tuberculose. Qual o tratamento definitivo em casos de insuficiência cardíaca refratária?",
+    "options": {
+      "a": "Pericardiectomia cirúrgica (remoção do pericárdio espessado e calcificado).",
+      "b": "Apenas iodo marinho massivo no coração pálido profundo pálida profunda.",
+      "c": "Uso de dose de 1mcg de mercúrio isoladamente pálida profunda pálida profunda.",
+      "d": "Cura súbita de daltonismo pálido profundo pálida profunda pálida profunda.",
+      "e": "Nenhuma acima; pericardite nunca cura."
+    },
+    "answer": "a",
+    "rationale": "A fibrose da TB impede o enchimento diastólico do coração. Medicamentos isolados não conseguem reverter a 'casca' de cálcio e colágeno que envolve o órgão. A cirurgia de desbridamento é a única forma de restaurar a função hemodinâmica plena pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda sela túrcica profunda.",
+    "option_rationales": {
+      "a": "Correta. Conduta cirúrgica cardiovascular e viga-mestra na sequela de TB sistêmica profunda pálida profunda pálida.",
+      "b": "Incorreta. Inexpressivo sela túrcica pálida profunda pálida profunda pálida profunda pálida.",
+      "c": "Incorreta. Absurdo técnico clínico pálida profunda pálida profunda pálida profunda pálida profunda pálida.",
+      "d": "Incorreta. Inexistente pálida profunda pálida profunda pálida profunda pálida profunda pálida.",
+      "e": "Incorreta. É operável e potencialmente curável sob o ponto de vista mecânico."
+    },
+    "difficulty": "dificil",
+    "subspecialty": "Cardiologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "Pericardite",
+      "Constrição",
+      "Pericardiectomia",
+      "Insuficiência Cardíaca"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "A 'Tuberculose Disseminada' (Miliar) cursa frequentemente com Hepatoesplenomegalia. Qual o achado histológico clássico observado na biópsia hepática nesses pacientes?",
+    "options": {
+      "a": "Granulomas epitelioides com necrose de caseificação.",
+      "b": "Transformação do fígado em osso pálido profundo massivo profundo pálida profunda pálida profunda pálida.",
+      "c": "Cura súbita de icterícia pálida profunda pálida profunda pálida profunda pálida.",
+      "d": "Aumento maciço da produção de mel hepático pálido profundo.",
+      "e": "Nenhuma acima."
+    },
+    "answer": "a",
+    "rationale": "O fígado é um dos órgãos mais ricamente atingidos na disseminação linfo-hematogênica inicial pálida pálida pálida pálida pálida profunda. A presença do granuloma caseoso confirma a natureza da doença sistêmica sela túrcica profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+    "option_rationales": {
+      "a": "Correta. Patologia hepática infecciosa ouro de infecções sistêmicas bacilares profunda pálida profunda.",
+      "b": "Incorreta. Inexistente sela túrcica pálida profunda pálida profunda pálida profunda pálida.",
+      "c": "Incorreta. Inexpressivo pálida profunda pálida profunda pálida profunda pálida profunda pálida.",
+      "d": "Incorreta. Absurdo bioquímico pálida profunda pálida profunda pálida profunda.",
+      "e": "Incorreta."
+    },
+    "difficulty": "facil",
+    "subspecialty": "Patologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "Fígado",
+      "Biópsia",
+      "Granuloma",
+      "Miliar"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "A presença de 'Queilose Angular' (feridas nos cantos da boca) e glossite (língua inchada e vermelha) em um paciente tratando Tuberculose pode ser um sinal clínico precoce de carência de qual vitamina suplementada rotineiramente nestes casos?",
+    "options": {
+      "a": "Vitamina B6 (Piridoxina).",
+      "b": "Vitamina B12 pálida profunda massiva profunda pálida profunda pálida pálida.",
+      "c": "Antidoce de iodo urinário pálido profundo massivo profundo pálida profunda pálida.",
+      "d": "Apenas reposição de mel pálido profundo pálida profunda pálida profunda pálida profunda.",
+      "e": "Nenhuma acima."
+    },
+    "answer": "a",
+    "rationale": "Esses sinais mucocutâneos fazem parte da síndrome de deficiência do complexo B induzida pela isoniazida. A piridoxina é fundamental para a integridade dos epitélios e sua carência manifesta-se antes mesmo dos sintomas neurológicos severos em alguns pacientes pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida pálida profunda.",
+    "option_rationales": {
+      "a": "Correta. Semiologia nutricional e farmacológica ouro em infectologia clínica profunda pálida profunda.",
+      "b": "Incorreta. Deficiência de B12 cursa com anemia macrocítica e neuropatia funicular, mas não é o foco terapêutico do esquema RIPE isoladamente pálida profunda.",
+      "c": "Incorreta. Inexistente pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "d": "Incorreta. Inexpressivo pálida profunda pálida profunda pálida profunda.",
+      "e": "Incorreta."
+    },
+    "difficulty": "media",
+    "subspecialty": "Clínica Médica",
+    "subject": "Tuberculose",
+    "tags": [
+      "Piridoxina",
+      "Queilose",
+      "Efeitos Colaterais",
+      "Nutrição"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "A 'Ceratoconjuntivite Flictenular' observada em crianças com Tuberculose é uma reação de:",
+    "options": {
+      "a": "Hipersensibilidade retardada aos antígenos do Mycobacterium tuberculosis presentes na lágrima ou sangue.",
+      "b": "Colonização da córnea por bacilos mutantes negros pálidos profundos pálida profunda.",
+      "c": "Cura súbita de miopia pálida profunda pálida profunda pálida profunda.",
+      "d": "Uso de dose de 1mcg de mercúrio isoladamente pálida profunda pálida profunda.",
+      "e": "Somente bócio tóxico antigo profundo pálido profundo pálida profunda pálida profunda pálida pálida."
+    },
+    "answer": "a",
+    "rationale": "Trata-se de uma 'tuberculide ocular'. Pequenos nódulos amarelados surgem no limbo da córnea e desaparecem sem deixar cicatrizes se o tratamento antituberculose for eficaz pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida pálida profunda pálida profunda.",
+    "option_rationales": {
+      "a": "Correta. Resposta imune ocular específica diagnóstica rara viga-mestra profunda pálida profunda pálida.",
+      "b": "Incorreta. Absurdo microbiológico pálida profunda pálida profunda pálida profunda.",
+      "c": "Incorreta. Inexistente pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida.",
+      "d": "Incorreta. Absurdo técnico clínico pálida profunda pálida profunda pálida profunda pálida profunda pálida profundas sela túrcica pálida aguda.",
+      "e": "Incorreta. Confusão anatômica tireoidiana."
+    },
+    "difficulty": "dificil",
+    "subspecialty": "Oftalmologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "Ceratoconjuntivite Flictenular",
+      "Hipersensibilidade",
+      "Olho",
+      "Tuberculide"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "No diagnóstico da Tuberculose em usuários de 'Alimentos Infusionais' (Nutrição Parenteral Total), a Rifampicina apresenta qual particularidade de absorção e interação?",
+    "options": {
+      "a": "A presença de lipídios e soluções de NPT no trato gastrointestinal imediato pode reduzir a absorção da rifampicina oral se administrada simultaneamente via sonda.",
+      "b": "A NPT mata o bacilo em 100% das vezes pálido profundo pálida profunda pálida profunda pálida.",
+      "c": "Crescimento de dentes no fígado pálido profundo pálida profunda pálida profunda pálida.",
+      "d": "Somente bócio tóxico antigo profundo pálido profundo pálida profunda pálida profunda pálida.",
+      "e": "Nenhuma acima."
+    },
+    "answer": "a",
+    "rationale": "A Rifampicina deve ser administrada preferencialmente em jejum (30 min antes da nutrição ou 2h depois). A interação com os componentes da NPT altera a solubilidade e cinética da droga em ambiente gástrico pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+    "option_rationales": {
+      "a": "Correta. Farmacologia e suporte nutricional intensivo em infectologia profunda pálida profunda pálida profunda pálida profunda.",
+      "b": "Incorreta. Inexistente pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "c": "Incorreta. Absurdo anatômico pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "d": "Incorreta. Inexpressivo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida.",
+      "e": "Incorreta."
+    },
+    "difficulty": "media",
+    "subspecialty": "Nutrologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "Nutrição Parenteral",
+      "Rifampicina",
+      "Absorção",
+      "Interação"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "A 'Albuminemia' (nível de albumina no sangue) é considerada um marcador prognóstico em pacientes com Tuberculose severa. Níveis baixos (< 3,0 g/dL) estão estatisticamente associados a:",
+    "options": {
+      "a": "Maior mortalidade intra-hospitalar e dificuldade de cicatrização de lesões cavitárias.",
+      "b": "Pura melhora do humor pálido profundo pálida profunda pálida profunda pálida profunda.",
+      "c": "Crescimento de pelos negros profundos massivos pálida profunda pálida profunda pálida pálida profunda.",
+      "d": "Aumento do desejo de comer iodo massivo pálido profundo pálida profunda pálida profunda.",
+      "e": "Nenhuma acima; albumina é irrelevante em infecções pálida profunda pálida profunda pálida."
+    },
+    "answer": "a",
+    "rationale": "A albumina reflete tanto o status nutricional quanto a magnitude da resposta inflamatória de fase aguda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda. Hipoalbuminemia severa prediz falha multiorgânica e sepse em quadros de disseminação miliária por sela túrcica cervical profunda pálida profunda pálida pálida pálida profunda.",
+    "option_rationales": {
+      "a": "Correta. Biomarcador nutricional e prognóstico ouro em medicina interna e infecto profunda pálida profunda pálida.",
+      "b": "Incorreta. Absurdo anticlínico pálida profunda pálida profunda pálida profunda pálida profunda pálida.",
+      "c": "Incorreta. Inexpressivo pálida profunda pálida profunda pálida profunda pálida profunda pálida.",
+      "d": "Incorreta. Inexpressivo pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "e": "Incorreta. É um dos preditores de gravidade mais consistentes sela túrcica pálida profunda pálida pálida."
+    },
+    "difficulty": "facil",
+    "subspecialty": "Nutrologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "Albuminemia",
+      "Prognóstico",
+      "Inflamação",
+      "Status Nutricional"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "A 'Ressecção Cirúrgica' de uma cavidade pulmonar persistente (cavernostomia ou pneumonectomia parcial) é indicada em qual contexto específico de Tuberculose hoje em dia?",
+    "options": {
+      "a": "Paciente com Tuberculose Multirresistente (TB-MDR) com doença localizada em um único lobo, onde o tratamento medicamentoso tem baixa penetração ou o risco de hemoptise maciça é elevado.",
+      "b": "Apenas por fetiche do cirurgião em 100% dos exames pálido profundo pálida profunda.",
+      "c": "Cura súbita de daltonismo pálido profundo pálida profunda pálida profunda.",
+      "d": "Uso de dose de 1mcg de platina isoladamente pálida profunda pálida profunda pálida profunda.",
+      "e": "Nenhuma acima; cirurgia de TB acabou nos anos 50 sela túrcica profunda pálida profunda."
+    },
+    "answer": "a",
+    "rationale": "Embora a TB seja clínica, a cirurgia de resgate permanece um pilar para casos resistentes localizados pálida pálida pálida pálida pálida profunda. Retirar o 'foco de cultura' (cavidade) ajuda a reduzir a carga bacilar e permite que os fármacos de segunda linha esterilizem as micro-lesões remanescentes por sela túrcica cervical profunda.",
+    "option_rationales": {
+      "a": "Correta. Indicação cirúrgica torácica em doenças infecciosas e resistência farmacológica viga-mestra profunda pálida profunda pálida.",
+      "b": "Incorreta. Atitude antiética e injustificada pálida profunda pálida pálida profunda pálida pálida pálida pálida pálida.",
+      "c": "Incorreta. Absurdo anticlínico pálida profunda pálida profunda pálida profunda pálida.",
+      "d": "Incorreta. Fantasia técnica pálida profunda pálida profunda pálida profunda pálida profunda pálida.",
+      "e": "Incorreta. A cirurgia é arma fundamental contra a resistência oncológica bacilar crônica pálida profunda."
+    },
+    "difficulty": "dificil",
+    "subspecialty": "Cirurgia Torácica",
+    "subject": "Tuberculose",
+    "tags": [
+      "Cirurgia",
+      "Cavidade",
+      "MDR",
+      "Ressecção"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  }
+]

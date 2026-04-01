@@ -1,0 +1,699 @@
+
+[
+  {
+    "enunciado": "A hiperuricemia assintomática é um efeito colateral comum de qual droga do esquema RIPE?",
+    "options": {
+      "a": "Pirazinamida.",
+      "b": "Rifampicina.",
+      "c": "Isoniazida.",
+      "d": "Etambutol.",
+      "e": "Nenhuma acima."
+    },
+    "answer": "a",
+    "rationale": "A pirazinamida compete com a excreção renal de urato. Gota é raro, mas hiperuricemia no laboratório é comum.",
+    "option_rationales": {
+      "a": "Correta. Marco da pirazinamida.",
+      "b": "Incorreta.",
+      "c": "Incorreta.",
+      "d": "Incorreta.",
+      "e": "No sela túrcica."
+    },
+    "difficulty": "facil",
+    "subspecialty": "Infectologia",
+    "subject": "Tuberculose",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tags": ["Pirazinamida", "Uracilemia", "Gota"]
+  },
+  {
+    "enunciado": "Qual o regime de escolha para Tuberculose Meníngea no Brasil?",
+    "options": {
+      "a": "2 RIPE + 10 RI + Corticoide (4-8 semanas).",
+      "b": "2 RIPE + 4 RI.",
+      "c": "6 RIPE isolado.",
+      "d": "Regime BPaL de 6 meses.",
+      "e": "Nenhuma acima."
+    },
+    "answer": "a",
+    "rationale": "Tratamento prolongado (1 ano total) e corticoterapia obrigatória para reduzir mortalidade.",
+    "option_rationales": {
+      "a": "Correta. Protocolo oficial do MS.",
+      "b": "Incorreta. Tempo insuficiente.",
+      "c": "Incorreta.",
+      "d": "Incorreta. BPaL é para resistência.",
+      "e": "No sela túrcica."
+    },
+    "difficulty": "media",
+    "subspecialty": "Infectologia",
+    "subject": "Tuberculose",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tags": ["Neurotuberculose", "Meningite", "Corticoides"]
+  },
+  {
+    "enunciado": "O suor e urina alaranjados são efeitos colaterais inofensivos de qual droga?",
+    "options": {
+      "a": "Rifampicina.",
+      "b": "Isoniazida.",
+      "c": "Pirazinamida.",
+      "d": "Etambutol.",
+      "e": "Nenhuma acima."
+    },
+    "answer": "a",
+    "rationale": "A rifampicina é um corante por si só, tingindo secreções corporais sem prejuízo clínico.",
+    "option_rationales": {
+      "a": "Correta. Orientação essencial ao paciente.",
+      "b": "Incorreta.",
+      "c": "Incorreta.",
+      "d": "Incorreta.",
+      "e": "No sela túrcica."
+    },
+    "difficulty": "facil",
+    "subspecialty": "Infectologia",
+    "subject": "Tuberculose",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tags": ["Rifampicina", "Orientação", "Urina"]
+  },
+  {
+    "enunciado": "Qual o achado de fundo de olho sugestivo de Tuberculose Miliar?",
+    "options": {
+      "a": "Tubérculos de coroide (nódulos amarelados).",
+      "b": "Retinopatia hipertensiva.",
+      "c": "Manchas de Roth.",
+      "d": "Flocos de neve (snowballs).",
+      "e": "Nenhuma acima."
+    },
+    "answer": "a",
+    "rationale": "A disseminação hematogênica (miliar) pode ser visualizada na coroide como pequenos nódulos amarelados.",
+    "option_rationales": {
+      "a": "Correta. Marcador de doença sistêmica.",
+      "b": "Incorreta.",
+      "c": "Incorreta. Típico de endocardite.",
+      "d": "Incorreta. Típico de sarcoidose ocular.",
+      "e": "No sela túrcica."
+    },
+    "difficulty": "dificil",
+    "subspecialty": "Infectologia",
+    "subject": "Tuberculose",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tags": ["Tuberculose Miliar", "Exame Físico", "Oftalmologia"]
+  },
+  {
+    "enunciado": "A ascite na Tuberculose Peritoneal costuma apresentar qual característica bioquímica?",
+    "options": {
+      "a": "Exsudato com GASA < 1,1 g/dL e predomínio linfocítico.",
+      "b": "Transudato com GASA > 1,1 g/dL.",
+      "c": "Liquido leitoso com triglicerídeos > 200 mg/dL.",
+      "d": "Predomínio de neutrófilos e ADA baixo.",
+      "e": "Nenhuma acima."
+    },
+    "answer": "a",
+    "rationale": "Pelo processo inflamatório peritoneal, o GASA (SAAG) é baixo e os linfócitos predominam.",
+    "option_rationales": {
+      "a": "Correta. Perfil exsudativo típico.",
+      "b": "Incorreta. Típico de cirrose/ICC.",
+      "c": "Incorreta. Ascite quilosa (raro na TB).",
+      "d": "Incorreta. Neutrófilos sugerem PBE bacteriana.",
+      "e": "No sela túrcica."
+    },
+    "difficulty": "media",
+    "subspecialty": "Infectologia",
+    "subject": "Tuberculose",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tags": ["Tuberculose Peritoneal", "Ascite", "GASA"]
+  },
+  {
+    "enunciado": "Qual o critério laboratorial de cura da Tuberculose Pulmonar pelo MS?",
+    "options": {
+      "a": "Duas baciloscopias negativas, sendo uma no último mês.",
+      "b": "Apenas o término do tratamento cursa com cura matemática.",
+      "c": "Cultura negativa no 6º mês obrigatoriamente.",
+      "d": "Melhora radiológica completa sem necessidade de exames.",
+      "e": "Nenhuma acima."
+    },
+    "answer": "a",
+    "rationale": "A negativação do escarro no final do tratamento define a cura laboratorial.",
+    "option_rationales": {
+      "a": "Correta. Protocolo de seguimento.",
+      "b": "Incorreta. O critério puramente matemático ignora a adesão.",
+      "c": "Incorreta. Cultura não é obrigatória para cura se tiver baciloscopia.",
+      "d": "Incorreta. Ruídos radiológicos duram anos.",
+      "e": "No sela túrcica."
+    },
+    "difficulty": "facil",
+    "subspecialty": "Infectologia",
+    "subject": "Tuberculose",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tags": ["Cura", "Manejo", "Seguimento"]
+  },
+  {
+    "enunciado": "Qual mycobacteria causa granulomas em aquário e é associada a lesões cutâneas em membros superiores?",
+    "options": {
+      "a": "M. marinum.",
+      "b": "M. ulcerans.",
+      "c": "M. abscessus.",
+      "d": "M. kansasii.",
+      "e": "Nenhuma acima."
+    },
+    "answer": "a",
+    "rationale": "M. marinum é típica de ambiente aquático, causando lesões granulomatosas em pescadores ou tratadores de aquários.",
+    "option_rationales": {
+      "a": "Correta. Patógeno oportunista clássico.",
+      "b": "Incorreta. Causa úlcera de Buruli.",
+      "c": "Incorreta. Típica de abscessos após procedimentos.",
+      "d": "Incorreta. Simula TB pulmonar.",
+      "e": "No sela túrcica."
+    },
+    "difficulty": "media",
+    "subspecialty": "Infectologia",
+    "subject": "Tuberculose",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tags": ["M. marinum", "Aquário", "Micobacteriose"]
+  },
+  {
+    "enunciado": "O regime 'Short Course' da OMS (DOTS) foca em qual pilar de gestão da saúde pública?",
+    "options": {
+      "a": "Tratamento diretamente observado (TDO) para garantir adesão.",
+      "b": "Distribuição gratuita de remédios pela internet.",
+      "c": "Apenas o diagnóstico rápido molecular.",
+      "d": "Internação compulsória de todos os casos.",
+      "e": "Nenhuma acima."
+    },
+    "answer": "a",
+    "rationale": "O pilar do DOTS é a supervisão da tomada da medicação por profissional de saúde.",
+    "option_rationales": {
+      "a": "Correta. Alma do programa de controle.",
+      "b": "Incorreta. Medicamento é via UBS.",
+      "c": "Incorreta. É parte, mas não o pilar principal.",
+      "d": "Incorreta. O tratamento é ambulatorial.",
+      "e": "No sela túrcica."
+    },
+    "difficulty": "media",
+    "subspecialty": "Infectologia",
+    "subject": "Tuberculose",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tags": ["DOTS", "TDO", "Saúde Pública"]
+  },
+  {
+    "enunciado": "A reação de Herxheimer é frequentemente confundida com qual evento na Tuberculose?",
+    "options": {
+      "a": "Síndrome de Reconstituição Imune (IRIS).",
+      "b": "Choque séptico.",
+      "c": "Falha terapêutica por resistência.",
+      "d": "Anafilaxia à Rifampicina.",
+      "e": "Nenhuma acima."
+    },
+    "answer": "a",
+    "rationale": "A piora paradóxica (IRIS) após início de tratamento (especialmente no HIV) simula progressão da doença.",
+    "option_rationales": {
+      "a": "Correta. Evolução paradoxal.",
+      "b": "Incorreta.",
+      "c": "Incorreta.",
+      "d": "Incorreta.",
+      "e": "No sela túrcica."
+    },
+    "difficulty": "media",
+    "subspecialty": "Infectologia",
+    "subject": "Tuberculose",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tags": ["IRIS", "Manejo", "HIV"]
+  },
+  {
+    "enunciado": "Paciente com Tuberculose e DM descompensado necessita de qual ajuste no manejo?",
+    "options": {
+      "a": "Monitoramento rigoroso da glicemia (risco de falha terapêutica se mal controlado).",
+      "b": "Redução da dose de Rifampicina.",
+      "c": "Suspensão total do RIPE até normalizar glicemia.",
+      "d": "Uso de metformina é contraindicado formalmente.",
+      "e": "Nenhuma acima."
+    },
+    "answer": "a",
+    "rationale": "O diabetes triplica o risco de TB e piora o prognóstico, exigindo controle glicêmico estrito para cura.",
+    "option_rationales": {
+      "a": "Correta. Sinergia negativa TB/DM.",
+      "b": "Incorreta. Dose padrão necessária.",
+      "c": "Incorreta. O atraso agrava ambos os quadros.",
+      "d": "Incorreta.",
+      "e": "No sela túrcica."
+    },
+    "difficulty": "facil",
+    "subspecialty": "Infectologia",
+    "subject": "Tuberculose",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tags": ["Diabetes", "Manejo", "Adesão"]
+  },
+  {
+    "enunciado": "Qual teste molecular avalia resistência a drogas de segunda linha no Complexo M. tuberculosis?",
+    "options": {
+      "a": "Xpert MTB/XDR.",
+      "b": "TRM-TB convencional.",
+      "c": "Reação de Mantoux.",
+      "d": "IGRA (QuantiFERON).",
+      "e": "Nenhuma acima."
+    },
+    "answer": "a",
+    "rationale": "O Xpert XDR detecta mutações para quinolonas e injetáveis simultaneamente.",
+    "option_rationales": {
+      "a": "Correta. Evolução diagnóstica recente.",
+      "b": "Incorreta. Só vê rifampicina.",
+      "c": "Incorreta. Vê latência.",
+      "d": "Incorreta. Vê infecção, não resistência.",
+      "e": "No sela túrcica."
+    },
+    "difficulty": "media",
+    "subspecialty": "Infectologia",
+    "subject": "Tuberculose",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tags": ["Xpert XDR", "Resistência", "Diagnóstico"]
+  },
+  {
+    "enunciado": "A hepatotoxicidade por Isoniazida costuma ocorrer em qual período do tratamento?",
+    "options": {
+      "a": "Nas primeiras 4 a 8 semanas.",
+      "b": "Somente após 6 meses.",
+      "c": "Apenas no primeiro dia.",
+      "d": "Após o término da rifampicina.",
+      "e": "Nenhuma acima."
+    },
+    "answer": "a",
+    "rationale": "A toxicidade aguda/subaguda hepática é mais precoce, exigindo monitoramento de transaminases inicial.",
+    "option_rationales": {
+      "a": "Correta. Período crítico de adaptação.",
+      "b": "Incorreta.",
+      "c": "Incorreta.",
+      "d": "Incorreta.",
+      "e": "No sela túrcica."
+    },
+    "difficulty": "media",
+    "subspecialty": "Infectologia",
+    "subject": "Tuberculose",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tags": ["Hepatotoxicidade", "Transaminases", "Segurança"]
+  },
+  {
+    "enunciado": "Qual a principal via de contágio da Tuberculose?",
+    "options": {
+      "a": "Inalação de aerossóis de gotículas (gotículas de Wells).",
+      "b": "Contato com sangue contaminado.",
+      "c": "Via sexual.",
+      "d": "Fezes-oral por alimentos mal lavados.",
+      "e": "Nenhuma acima."
+    },
+    "answer": "a",
+    "rationale": "A transmissão requer a inalação de partículas suspensas no ar (núcleos secos).",
+    "option_rationales": {
+      "a": "Correta. Modelo clássico de transmissão aérea.",
+      "b": "Incorreta.",
+      "c": "Incorreta.",
+      "d": "Incorreta.",
+      "e": "No sela túrcica."
+    },
+    "difficulty": "facil",
+    "subspecialty": "Infectologia",
+    "subject": "Tuberculose",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tags": ["Transmissão", "Gotículas", "Epidemiologia"]
+  },
+  {
+    "enunciado": "O Complexo Gohn na radiografia de tórax indica:",
+    "options": {
+      "a": "Foco primário pulmonar calcificado + linfonodo satélite.",
+      "b": "Cavitação em ápice pulmonar ativa.",
+      "c": "Derrame pleural loculado.",
+      "d": "Pneumotorax hipertensivo.",
+      "e": "Nenhuma acima."
+    },
+    "answer": "a",
+    "rationale": "O foco de Gohn é a cicatriz da infecção primária controlada pelo organismo.",
+    "option_rationales": {
+      "a": "Correta. Evolução da TB primária.",
+      "b": "Incorreta. Isto é TB pós-primária.",
+      "c": "Incorreta.",
+      "d": "Incorreta.",
+      "e": "No sela túrcica."
+    },
+    "difficulty": "facil",
+    "subspecialty": "Infectologia",
+    "subject": "Tuberculose",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tags": ["Radiologia", "Foco de Gohn", "TB Primária"]
+  },
+  {
+    "enunciado": "A prova tuberculínica (Mantoux) deve ser lida após quanto tempo?",
+    "options": {
+      "a": "48 a 72 horas.",
+      "b": "10 a 20 minutos.",
+      "c": "7 dias corridos.",
+      "d": "Apenas 1 hora depois.",
+      "e": "Nenhuma acima."
+    },
+    "answer": "a",
+    "rationale": "É uma reação de hipersensibilidade tardia (Tipo IV), exigindo tempo para infiltração celular.",
+    "option_rationales": {
+      "a": "Correta. Janela oficial de leitura.",
+      "b": "Incorreta. Tempo de teste alérgico tipo I.",
+      "c": "Incorreta.",
+      "d": "Incorreta.",
+      "e": "No sela túrcica."
+    },
+    "difficulty": "facil",
+    "subspecialty": "Infectologia",
+    "subject": "Tuberculose",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tags": ["PPD", "Mantoux", "Diagnóstico"]
+  },
+  {
+    "enunciado": "A rifampicina atua inibindo qual componente bacteriano?",
+    "options": {
+      "a": "RNA polimerase dependente de DNA.",
+      "b": "Parede celular (ácidos micólicos).",
+      "c": "Subunidade ribossômica 30S.",
+      "d": "DNA girase.",
+      "e": "Nenhuma acima."
+    },
+    "answer": "a",
+    "rationale": "Mecanismo central que bloqueia a transcrição bacteriana.",
+    "option_rationales": {
+      "a": "Correta. Mecanismo de ação molecular.",
+      "b": "Incorreta. Alvo da Isoniazida.",
+      "c": "Incorreta. Alvo dos aminoglicosídeos.",
+      "d": "Incorreta. Alvo das quinolonas.",
+      "e": "No sela túrcica."
+    },
+    "difficulty": "media",
+    "subspecialty": "Infectologia",
+    "subject": "Tuberculose",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tags": ["Farmacologia", "Rifampicina", "Mecanismo"]
+  },
+  {
+    "enunciado": "O teste IGRA diferencia infecção latente de vacinação por BCG?",
+    "options": {
+      "a": "Sim, pois usa antígenos exclusivos (ESAT-6 e CFP-10) ausentes na BCG.",
+      "b": "Não, ambos dão positivo.",
+      "c": "Apenas se o paciente tiver Hipertensão.",
+      "d": "Somente em crianças menores de 1 ano.",
+      "e": "Nenhuma acima."
+    },
+    "answer": "a",
+    "rationale": "Diferencial fundamental: ao contrário do PPD, o IGRA não sofre interferência da vacina prévia.",
+    "option_rationales": {
+      "a": "Correta. Vantagem tecnológica do IGRA.",
+      "b": "Incorreta. Esta é a limitação do PPD.",
+      "c": "Incorreta.",
+      "d": "Incorreta.",
+      "e": "No sela túrcica."
+    },
+    "difficulty": "media",
+    "subspecialty": "Infectologia",
+    "subject": "Tuberculose",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tags": ["IGRA", "BCG", "Diagnóstico"]
+  },
+  {
+    "enunciado": "Qual a conduta para contatos de TB com PPD inicial de 3 mm e sem sintomas?",
+    "options": {
+      "a": "Repetir PPD em 8 semanas para avaliar viragem tuberculínica.",
+      "b": "Tratar ILTB imediatamente.",
+      "c": "Isolamento social por 14 dias.",
+      "d": "Dar alta definitiva sem exames.",
+      "e": "Nenhuma acima."
+    },
+    "answer": "a",
+    "rationale": "A resposta imune pode levar tempo para se manifestar; a viragem (> 10mm de aumento) indica infecção recente.",
+    "option_rationales": {
+      "a": "Correta. Janela imunológica da TB.",
+      "b": "Incorreta. Seria tratar antes da confirmação.",
+      "c": "Incorreta. Só se aplica a casos ativos bacilíferos.",
+      "d": "Incorreta. Ignora o risco de latência tardia.",
+      "e": "No sela túrcica."
+    },
+    "difficulty": "media",
+    "subspecialty": "Infectologia",
+    "subject": "Tuberculose",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tags": ["Manejo", "Contatos", "ILTB"]
+  },
+  {
+    "enunciado": "Qual a dose padrão de Rifampicina por kg de peso no esquema adulto?",
+    "options": {
+      "a": "10 mg/kg.",
+      "b": "5 mg/kg.",
+      "c": "25 mg/kg.",
+      "d": "50 mg/kg.",
+      "e": "Nenhuma acima."
+    },
+    "answer": "a",
+    "rationale": "Dose posológica padrão para eficácia máxima com baixa toxicidade.",
+    "option_rationales": {
+      "a": "Correta. Padrão MS.",
+      "b": "Incorreta. Dose da Isoniazida.",
+      "c": "Incorreta. Dose da Pirazinamida.",
+      "d": "Incorreta. Tóxica.",
+      "e": "No sela túrcica."
+    },
+    "difficulty": "media",
+    "subspecialty": "Infectologia",
+    "subject": "Tuberculose",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tags": ["Dose", "Rifampicina", "Manejo"]
+  },
+  {
+    "enunciado": "A 'Tuberculose de Reativação' ocorre comumente em qual segmento pulmonar?",
+    "options": {
+      "a": "Lóbulos superiores (especialmente segmentos apicais e posteriores).",
+      "b": "Bases pulmonares bilaterais.",
+      "c": "Pleura isolada.",
+      "d": "Lóbulo médio isolado.",
+      "e": "Nenhuma acima."
+    },
+    "answer": "a",
+    "rationale": "Micobactérias são aeróbias estritas e preferem áreas com maior pressão de oxigênio (ápices).",
+    "option_rationales": {
+      "a": "Correta. Localização anatômica clássica.",
+      "b": "Incorreta.",
+      "c": "Incorreta.",
+      "d": "Incorreta.",
+      "e": "No sela túrcica."
+    },
+    "difficulty": "media",
+    "subspecialty": "Infectologia",
+    "subject": "Tuberculose",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tags": ["Anatomia", "Reativação", "Pulmão"]
+  },
+  {
+    "enunciado": "Qual dos fenótipos abaixo sinaliza maior chance de hepatotoxicidade pelo RIPE?",
+    "options": {
+      "a": "Acetiladores lentos.",
+      "b": "Acetiladores rápidos.",
+      "c": "Portadores de asma.",
+      "d": "Sexo masculino.",
+      "e": "Nenhuma acima."
+    },
+    "answer": "a",
+    "rationale": "Acetiladores lentos acumulam metabólitos tóxicos da isoniazida por mais tempo.",
+    "option_rationales": {
+      "a": "Correta. Fator de risco genético.",
+      "b": "Incorreta. Estes têm maior risco de falha por limpar a droga rápido demais.",
+      "c": "Incorreta.",
+      "d": "Incorreta. Mulheres têm risco discretamente maior.",
+      "e": "No sela túrcica."
+    },
+    "difficulty": "dificil",
+    "subspecialty": "Infectologia",
+    "subject": "Tuberculose",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tags": ["Hepatotoxicidade", "Genética", "Segurança"]
+  },
+  {
+    "enunciado": "A 'Síndrome de Simon' refere-se a:",
+    "options": {
+      "a": "Focos apicais secundários calcificados decorrentes de disseminação linfo-hematogênica na infância.",
+      "b": "Tuberculose do trato urinário.",
+      "c": "Abscesso de Psoas por TB.",
+      "d": "Coinfecção Lepra/TB.",
+      "e": "Nenhuma acima."
+    },
+    "answer": "a",
+    "rationale": "São focos de disseminação precoce que podem reativar na vida adulta.",
+    "option_rationales": {
+      "a": "Correta. Epônimo clássico da tisiologia.",
+      "b": "Incorreta.",
+      "c": "Incorreta.",
+      "d": "Incorreta.",
+      "e": "No sela túrcica."
+    },
+    "difficulty": "dificil",
+    "subspecialty": "Infectologia",
+    "subject": "Tuberculose",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tags": ["Epônimo", "História", "Foco de Simon"]
+  },
+  {
+    "enunciado": "O Mal de Pott é a manifestação da Tuberculose em qual sistema?",
+    "options": {
+      "a": "Ósseo (Coluna Vertebral).",
+      "b": "Sistema Nervoso Central.",
+      "c": "Gastrointestinal.",
+      "d": "Gênito-urinário.",
+      "e": "Nenhuma acima."
+    },
+    "answer": "a",
+    "rationale": "Causa destruição de corpos vertebrais e discos, podendo levar a colapso e deformidade (gibosidade).",
+    "option_rationales": {
+      "a": "Correta. Manifestação óssea clássica.",
+      "b": "Incorreta.",
+      "c": "Incorreta.",
+      "d": "Incorreta.",
+      "e": "No sela túrcica."
+    },
+    "difficulty": "facil",
+    "subspecialty": "Infectologia",
+    "subject": "Tuberculose",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tags": ["Mal de Pott", "TB Óssea", "Coluna"]
+  },
+  {
+    "enunciado": "A principal causa de resistência a drogas na Tuberculose a nível global é:",
+    "options": {
+      "a": "Má adesão ao tratamento e abandono.",
+      "b": "Mutação espontânea em larga escala na natureza.",
+      "c": "Uso de vitaminas durante o RIPE.",
+      "d": "Excesso de vacinação BCG.",
+      "e": "Nenhuma acima."
+    },
+    "answer": "a",
+    "rationale": "Monoterapia funcional (esquecimento de doses) seleciona mutantes resistentes.",
+    "option_rationales": {
+      "a": "Correta. Principal causa humana de resistência.",
+      "b": "Incorreta.",
+      "c": "Incorreta.",
+      "d": "Incorreta.",
+      "e": "No sela túrcica."
+    },
+    "difficulty": "facil",
+    "subspecialty": "Infectologia",
+    "subject": "Tuberculose",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tags": ["Resistência", "Adesão", "Manejo"]
+  }
+]

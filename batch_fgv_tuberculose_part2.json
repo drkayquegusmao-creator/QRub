@@ -1,0 +1,509 @@
+[
+  {
+    "enunciado": "Paciente de 48 anos, soropositivo para o HIV há 5 anos, em uso irregular de Terapia Antirretroviral (TARV), procura o serviço de urgência com história de febre intermitente, tosse seca e cansaço aos esforços habituais há 3 semanas. Relata também aumento progressivo de volume em região axilar esquerda. Ao exame físico: descorado (2+/4+), febril (38,2°C), presença de linfonodomegalia axilar de 3 cm, indolor e aderida a planos profundos. Ausculta pulmonar com estertores esparsos. Radiografia de tórax evidencia infiltrado intersticial difuso e linfonodomegalia hilar bilateral. Realizada biópsia de linfonodo axilar cujo exame histopatológico revelou granulomas mal formados, com raros linfócitos e abundantes bacilos álcool-ácido resistentes (BAAR) na coloração de Ziehl-Neelsen. Sobre a apresentação da tuberculose em pacientes com imunodepressão grave (CD4 < 200 células/mm³), como no caso descrito, é correto afirmar:",
+    "options": {
+      "a": "A apresentação costuma ser atípica, com maior frequência de formas extrapulmonares, disseminadas e exames histopatológicos com granulomas paucibacilares e bem definidos.",
+      "b": "A radiografia de tórax frequentemente apresenta cavitações apicais típicas, semelhantes às encontradas em pacientes imunocompetentes.",
+      "c": "O quadro clínico tende a ser mais grave, com maior probabilidade de anergia aos testes cutâneos (PPD negativo) e achados radiológicos atípicos, como infiltrados em bases pulmonares e linfonodomegalias hilares.",
+      "d": "O tratamento para este paciente deve ser iniciado apenas com Rifampicina e Etambutol para evitar a síndrome inflamatória de reconstituição imune (IRIS).",
+      "e": "A presença de abundantes BAAR no linfonodo é um achado inesperado e sugere erro laboratorial, dado o caráter paucibacilar da TB ganglionar."
+    },
+    "answer": "c",
+    "rationale": "Em pacientes com infecção avançada pelo HIV e contagem baixa de linfócitos T-CD4, a imunidade celular está severamente comprometida. Isso altera a apresentação da tuberculose: 1) A formação de granulomas é deficiente (granulomas 'frouxos' ou mal formados); 2) Há maior carga bacilar nas lesões (multibacilaridade paradoxal em tecidos); 3) A radiografia frequentemente não mostra cavitações (que dependem da resposta inflamatória do hospedeiro) e apresenta infiltrados intersticiais ou em campos médios/inferiores; 4) A disseminação hematogênica e o acometimento extrapulmonar são a regra. A anergia ao PPD é comum devido à falta de células para reagir ao antígeno.",
+    "option_rationales": {
+      "a": "Incorreta. Embora a forma seja disseminada, os granulomas em imunodeprimidos são tipicamente mal definidos e ricos em bacilos (multibacilares).",
+      "b": "Incorreta. Cavitações são raras na imunodepressão grave pois exigem uma resposta imune exuberante para ocorrer a necrose e expulsão do caseum para a via aérea.",
+      "c": "Correta. Resume precisamente a fisiopatologia da interação TB-HIV em estágios avançados.",
+      "d": "Incorreta. O tratamento é o esquema RIPE padrão; o tempo de início da TARV é que deve ser manejado para evitar IRIS.",
+      "e": "Incorreta. Como explicado, a falta de controle imunológico permite a proliferação desenfreada dos bacilos no tecido, tornando a lesão multibacilar."
+    },
+    "difficulty": "media",
+    "subspecialty": "Infectologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "TB-HIV",
+      "Imunoproficiência",
+      "Fisiopatologia",
+      "Infectologia"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "Um homem de 30 anos, natural da Bolívia e residente em regime de coabitação com outros 10 imigrantes em um dormitório no centro de São Paulo, apresenta febre vespertina e tosse produtiva há 6 semanas. O Teste Rápido Molecular (TRM-TB) detectou M. tuberculosis com resistência à rifampicina. De acordo com os protocolos vigentes para o tratamento da Tuberculose Resistente à Rifampicina (TB-RR) ou Multirresistente (TB-MDR) no Brasil, qual o esquema terapêutico inicial de escolha, desde que não haja contraindicações?",
+    "options": {
+      "a": "Esquema contendo Bedaquilina, Levofloxacino, Linezolida e Clofazimina por 6 a 9 meses (esquema curto oral).",
+      "b": "Esquema RIPE estendido por 12 meses com adição de Estreptomicina nos primeiros 2 meses.",
+      "c": "Substituição da Rifampicina pela Rifabutina, mantendo os demais fármacos do esquema primário.",
+      "d": "Tratamento com esquema contendo Amicacina injetável diária por 6 meses associada a Etambutol e Pirazinamida.",
+      "e": "Uso isolado de Levofloxacino e Etionamida até a realização do teste de sensibilidade genotípico completo."
+    },
+    "answer": "a",
+    "rationale": "Recentemente, o Brasil e a OMS passaram a priorizar esquemas totalmente orais e mais curtos para TB-MDR/RR. O esquema padrão atual para casos sem resistência prévia documentada a fluoroquinolonas envolve o uso de Bedaquilina, Levofloxacino, Linezolida e Clofazimina. Este esquema substituiu os antigos protocolos que exigiam drogas injetáveis (como Amicacina/Estreptomicina), apresentando maior adesão e menores taxas de efeitos colaterais graves (como ototoxicidade e nefrotoxicidade).",
+    "option_rationales": {
+      "a": "Correta. É o esquema oral 'all-oral' preconizado atualmente para resistência à rifampicina.",
+      "b": "Incorreta. Se há resistência à rifampicina (viga mestra do RIPE), o esquema primário perde sua eficácia fundamental.",
+      "c": "Incorreta. Há resistência cruzada quase total entre Rifampicina e Rifabutina; esta última é usada para evitar interações (ex: HIV), não para tratar resistência.",
+      "d": "Incorreta. Drogas injetáveis (aminoglicosídeos) caíram para segunda linha devido à toxicidade.",
+      "e": "Incorreta. O tratamento de resistência nunca deve ser feito com apenas duas drogas por risco de ampliação da resistência."
+    },
+    "difficulty": "dificil",
+    "subspecialty": "Infectologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "TB-MDR",
+      "Resistência à Rifampicina",
+      "Terapêutica Atualizada",
+      "Bolívia/Imigração"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "Paciente de 25 anos, sem comorbidades, é diagnosticada com Tuberculose Peritoneal após investigação de ascite de início insidioso, associada a perda de peso e febre. Foi submetida a laparoscopia que demonstrou múltiplos 'implantes granulares' esbranquiçados em peritônio parietal e visceral. A análise do líquido ascítico revelou exsudato linfocítico com ADA de 50 U/L. Durante o tratamento com o esquema RIPE, a paciente informa que deseja engravidar ou se há risco de falha do seu método contraceptivo atual (anticoncepcional oral combinado). Qual a orientação correta a ser fornecida pelo médico?",
+    "options": {
+      "a": "A Rifampicina acelera o metabolismo dos hormônios anticoncepcionais, reduzindo sua eficácia; deve-se recomendar o uso de métodos de barreira (camisinha) ou DIU durante o tratamento.",
+      "b": "A Isoniazida inibe a absorção intestinal de estrogênios; recomenda-se dobrar a dose do anticoncepcional.",
+      "c": "O esquema RIPE não interfere na eficácia dos anticoncepcionais orais.",
+      "d": "A tuberculose peritoneal causa infertilidade definitiva por salpingite associada, tornando a anticoncepção desnecessária.",
+      "e": "A Pirazinamida aumenta o risco de trombose em usuárias de anticoncepcionais, contraindicando o uso de ambos simultaneamente."
+    },
+    "answer": "a",
+    "rationale": "A Rifampicina é um potente indutor das enzimas do sistema citocromo P450 no fígado (especialmente CYP3A4). Isso aumenta a taxa de degradação da maioria dos esteroides contraceptivos (estrógenos e progestágenos), levando a níveis subestimados no sangue e risco real de gravidez indesejada. A orientação clássica no tratamento da TB é a substituição por métodos não hormonais ou de barreira.",
+    "option_rationales": {
+      "a": "Correta. É uma das interações medicamentosas mais importantes no manejo prático da tuberculose em mulheres no menacme.",
+      "b": "Incorreta. O mecanismo da Isoniazida não é esse e 'dobrar a dose' não é uma conduta validada e segura.",
+      "c": "Incorreta. A interação é real e clinicamente significativa.",
+      "d": "Incorreta. Embora a TB possa atingir as trompas (salpingite tuberculosa), a infertilidade não é garantidamente definitiva e não justifica suspender a proteção.",
+      "e": "Incorreta. Não há essa associação direta de risco trombótico sinérgico descrita para a Pirazinamida."
+    },
+    "difficulty": "media",
+    "subspecialty": "Infectologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "Farmacologia",
+      "Saúde da Mulher",
+      "Interações",
+      "Rifampicina"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "Em uma maternidade pública, uma puérpera é diagnosticada com Tuberculose Pulmonar bacilífera logo após o parto. Ela está muito preocupada com o bem-estar do seu recém-nascido (RN). Sobre o aleitamento materno e a prevenção da Tuberculose no RN neste cenário, qual a recomendação correta do Ministério da Saúde?",
+    "options": {
+      "a": "A amamentação deve ser mantida (com uso de máscara cirúrgica pela mãe), mas a vacinação com BCG no RN deve ser adiada e iniciada a quimioprofilaxia primária com Isoniazida ou Rifampicina por 3 meses.",
+      "b": "A amamentação está estritamente contraindicada até que a mãe complete 2 meses de tratamento e tenha baciloscopia negativa.",
+      "c": "O RN deve ser vacinado com BCG imediatamente ao nascer e afastado do contato com a mãe por 15 dias.",
+      "d": "A mãe deve amamentar sem restrições, pois os anticorpos passados pelo leite protegem o bebê contra a TB.",
+      "e": "Deve-se realizar o TRM-TB no mecônio do bebê para diagnosticar TB congênita antes de qualquer medida."
+    },
+    "answer": "a",
+    "rationale": "Em filhos de mães bacilíferas ao parto: 1) Não se vacina com BCG ao nascer (para não interferir com o PPD/IGRA posterior); 2) Inicia-se quimioprofilaxia primária (Isoniazida ou Rifampicina) por 3 meses; 3) Após 3 meses, realiza-se o PPD/IGRA. Se negativo, suspende-se a droga e vacina-se com BCG. Se positivo, mantém-se a droga por mais 3 meses (totalizando 6) e não vacina com BCG. O aleitamento é mantido com máscara e cuidados de higiene.",
+    "option_rationales": {
+      "a": "Correta. Reflete o protocolo nacional de proteção ao RN exposto.",
+      "b": "Incorreta. A amamentação é incentivada devido aos benefícios nutricionais e imunológicos, com o uso de máscara pela mãe.",
+      "c": "Incorreta. A vacinação precoce com BCG atrapalharia o seguimento diagnóstico posterior da criança e a proteção da quimioprofilaxia é superior no curto prazo.",
+      "d": "Incorreta. O leite não transmite anticorpos protetores contra a TB (que exige imunidade celular), mas a proximidade física transmite o bacilo por via aérea.",
+      "e": "Incorreta. Investigação no mecônio não faz parte do rastreio de TB no RN exposto pós-parto."
+    },
+    "difficulty": "dificil",
+    "subspecialty": "Infectologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "Pediatria",
+      "Maternidade",
+      "BCG",
+      "Profilaxia Primária"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "Um paciente de 40 anos, com história de alcoolismo pesado, está no 2º mês de tratamento para tuberculose e apresenta quadro de fraqueza muscular nas pernas, 'queimação' e formigamento nos pés. Refere que a sensação começou de forma insidiosa e é pior à noite. Ao exame físico, nota-se diminuição da sensibilidade vibratória e dolorosa em botas (membros inferiores). Qual o diagnóstico mais provável e a medida terapêutica para manejo desse efeito colateral?",
+    "options": {
+      "a": "Neuropatia periférica induzida pela Isoniazida; administrar Piridoxina (Vitamina B6).",
+      "b": "Hepatotoxicidade oculta; solicitar dosagem de magnésio e potássio.",
+      "c": "Síndrome de Guillain-Barré parainfecciosa; realizar punção lombar.",
+      "d": "Mielotoxicidade pela Rifampicina; solicitar hemograma urgente.",
+      "e": "Insuficiência venosa crônica; prescrever meias de compressão."
+    },
+    "answer": "a",
+    "rationale": "A Isoniazida interfere no metabolismo da Piridoxina (Vitamina B6), o que pode levar a um quadro de neuropatia periférica sensitiva, especialmente em grupos de risco (alcoólatras, diabéticos, gestantes, idosos e desnutridos). A suplementação profilática ou terapêutica com B6 é a conduta de escolha.",
+    "option_rationales": {
+      "a": "Correta. A neuropatia por isoniazida é um efeito colateral clássico e evitável com a reposição de B6.",
+      "b": "Incorreta. Distúrbios eletrolíticos podem causar cãibras, mas o padrão 'em botas' e a queimação são neuropáticos.",
+      "c": "Incorreta. O Guillain-Barré é uma polirradiculoneuropatia aguda ascendente, predominantemente motora, diferente deste quadro crônico sensitivo.",
+      "d": "Incorreta. A Rifampicina causa anemia hemolítica ou plaquetopenia, não sintomas sensitivos periféricos.",
+      "e": "Incorreta. A insuficiência venosa causa edema e peso nas pernas, sem déficits sensitivos objetivos em botas."
+    },
+    "difficulty": "facil",
+    "subspecialty": "Infectologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "Efeitos Adversos",
+      "Isoniazida",
+      "Vitamina B6",
+      "Sistema Nervoso"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "Um homem de 52 anos apresenta-se com artralgia intensa, acompanhada de edema e calor em primeira articulação metatarsofajângica (podagra) à direita. O paciente está no primeiro mês de tratamento para tuberculose. Qual fármaco do esquema RIPE está mais associado a este quadro clínico e por qual mecanismo?",
+    "options": {
+      "a": "Pirazinamida; por reduzir a excreção renal de ácido úrico, levando à hiperuricemia.",
+      "b": "Etambutol; por induzir a produção endógena de cristais de pirofosfato de cálcio.",
+      "c": "Isoniazida; por causar vasculite de pequenos vasos (pseudo-gota).",
+      "d": "Rifampicina; pela ativação direta de macrófagos sinoviais.",
+      "e": "Estreptomicina; por toxicidade direta na cartilagem articular."
+    },
+    "answer": "a",
+    "rationale": "A Pirazinamida inibe competitivamente a excreção tubular de ácido úrico, o que frequentemente causa hiperuricemia assintomática durante o tratamento. Em pacientes susceptíveis, pode desencadear crises agudas de gota (artrite gotosa). Se as dores forem leves e suportáveis, mantém-se a medicação com uso de analgésicos/anti-inflamatórios. Se a crise for grave ou persistente, a droga pode precisar de suspensão ou ajuste.",
+    "option_rationales": {
+      "a": "Correta. A gota induzida pela pirazinamida é um efeito secundário metabólico bem conhecido.",
+      "b": "Incorreta. O Etambutol atinge o nervo óptico, não o metabolismo de cristais.",
+      "c": "Incorreta. A isoniazida não causa esse tipo de reação inflamatória articular.",
+      "d": "Incorreta. A Rifampicina não interfere fisiologicamente na sinóvia desta forma.",
+      "e": "Incorreta. A estreptomicina atinge o sistema auditivo e renal."
+    },
+    "difficulty": "media",
+    "subspecialty": "Infectologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "Reumatologia",
+      "Efeitos Adversos",
+      "Pirazinamida",
+      "Gota"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "Paciente de 65 anos, institucionalizada em asilo, apresenta quadro de confusão mental aguda e queda do estado geral. A investigação inicial com RX de tórax demonstrou opacidade em lobo inferior direito, inicialmente tratada como pneumonia bacteriana típica sem melhora após 7 dias de levofloxacino. Foi realizado TRM-TB em escarro induzido, que foi positivo. Sobre a tuberculose no idoso, é correto afirmar:",
+    "options": {
+      "a": "A apresentação clínica costuma ser insidiosa, podendo simular outras doenças crônicas ou demenciais, e os achados radiológicos frequentemente localizam-se em campos pulmonares médios e inferiores (típico de reativação no idoso).",
+      "b": "O diagnóstico é facilitado pela presença constante de febre alta e sudorese noturna exuberante.",
+      "c": "A prova tuberculínica (PPD) é invariavelmente positiva devido ao efeito 'booster' da vacinação na infância.",
+      "d": "O tratamento deve ser feito com doses reduzidas (meia dose) de Rifampicina em todos os pacientes acima de 60 anos.",
+      "e": "A forma miliar é proibitiva nesta faixa etária devido à involução tímica."
+    },
+    "answer": "a",
+    "rationale": "Idosos frequentemente apresentam sintomas inespecíficos para TB (astenia, anorexia, confusão mental) em vez da tríade clássica de tosse/febre/sudorese. Radiologicamente, a reativação da infecção latente no idoso pode assumir padrões 'não cavitários' e localizar-se em regiões inferiores do pulmão, o que muitas vezes leva ao diagnóstico errôneo de pneumonia bacteriana aspirativa ou comunitária comum.",
+    "option_rationales": {
+      "a": "Correta. O idoso é um grupo com 'máscara clínica' para TB, exigindo alta suspeição.",
+      "b": "Incorreta. Sintomas constitucionais clássicos podem estar ausentes ou atenuados.",
+      "c": "Incorreta. A anergia cutânea é frequente no idoso pela imunossenescência.",
+      "d": "Incorreta. O tratamento segue as doses padrão baseadas no peso; apenas se monitora mais rigorosamente a hepatotoxicidade.",
+      "e": "Incorreta. A forma miliar pode ocorrer em qualquer idade, especialmente em indivíduos com imunidade celular reduzida como o idoso."
+    },
+    "difficulty": "dificil",
+    "subspecialty": "Infectologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "Geriatria",
+      "Infectologia",
+      "Diagnóstico Diferencial"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "Qual a principal justificativa epidemiológica para o uso do 'Tratamento Diretamente Observado' (TDO) na estratégia de controle da tuberculose no sistema de saúde brasileiro?",
+    "options": {
+      "a": "Garantir a adesão do paciente ao tratamento, visando alcançar a cura e interromper a cadeia de transmissão na comunidade, além de evitar o surgimento de cepas resistentes.",
+      "b": "Reduzir o custo do tratamento, ao permitir o fracionamento das doses na unidade de saúde.",
+      "c": "Evitar que o paciente compartilhe seus medicamentos com seus contatos intradomiciliares.",
+      "d": "Permitir a realização de exames de sangue diários para monitorar a função hepática durante a tomada da dose.",
+      "e": "O TDO é apenas obrigatório para pacientes com diagnóstico de Tuberculose Multirresistente."
+    },
+    "answer": "a",
+    "rationale": "O TDO é a base da estratégia DOTS (Directly Observed Treatment Short-course) recomendada pela OMS. O objetivo é assegurar que o paciente tome a medicação corretamente, pois o uso irregular é o maior vilão do controle da TB no mundo: causa falha de cura, mantém a transmissibilidade e favorece a seleção natural de bacilos resistentes às drogas disponíveis.",
+    "option_rationales": {
+      "a": "Correta. O TDO é uma medida de saúde pública e não apenas um cuidado individual.",
+      "b": "Incorreta. O TDO pode até ser mais caro logisticamente (exige profissional), mas o custo da 'não cura' e da multirresistência é infinitamente maior.",
+      "c": "Incorreta. O objetivo não é o controle de 'estoque', mas a garantia da ingestão pelo paciente índice.",
+      "d": "Incorreta. Não se faz controle laboratorial diário no TDO.",
+      "e": "Incorreta. O TDO é recomendado para TODOS os casos de tuberculose, sensível ou resistente, na atenção primária."
+    },
+    "difficulty": "facil",
+    "subspecialty": "Infectologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "Saúde Pública",
+      "TDO",
+      "Estratégia de Controle",
+      "Adesão"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "Um paciente de 44 anos está tratando Tuberculose em esquema RIPE. Ele conta ao médico que seu suor, suas lágrimas e sua urina estão apresentando uma coloração 'laranja-avermelhada' há alguns dias. De acordo com o conhecimento farmacológico, qual fármaco causa essa alteração e qual a orientação correta?",
+    "options": {
+      "a": "Rifampicina; orientar que é um efeito inofensivo esperado da eliminação da droga e não exige suspensão.",
+      "b": "Isoniazida; suspender o tratamento por risco de hemólise intravascular aguda.",
+      "c": "Pirazinamida; solicitar exames de função renal pois indica acúmulo de metabólitos.",
+      "d": "Etambutol; indica toxicidade ocular iminente e exige consulta com oftalmologista.",
+      "e": "Não é um efeito esperado; investigar sangramento oculto em vias urinárias e glândulas lacrimais."
+    },
+    "answer": "a",
+    "rationale": "A Rifampicina e seus metabólitos possuem uma coloração natural avermelhada. Por ser eliminada por diversas secreções corporais (urina, suor, lágrimas, saliva), é comum que o paciente note essa alteração. É fundamental avisar o paciente no início do tratamento para evitar pânico ou interrupção do uso.",
+    "option_rationales": {
+      "a": "Correta. Orientação clássica de educação em saúde no tratamento da TB.",
+      "b": "Incorreta. A Isoniazida não causa alteração de cor de fluidos.",
+      "c": "Incorreta. Não há relação com falha renal ou metabólitos coloridos da pirazinamida.",
+      "d": "Incorreta. A toxicidade ocular do etambutol não se manifesta por lágrimas coloridas.",
+      "e": "Incorreta. É um efeito fisiológico esperado da droga."
+    },
+    "difficulty": "facil",
+    "subspecialty": "Infectologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "Farmacocinética",
+      "Rifampicina",
+      "Educação em Saúde"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "Paciente de 37 anos, portador de insuficiência renal crônica (clearance de creatinina de 20 mL/min/1,73m²), inicia tratamento para TB. Sobre o ajuste de dose do esquema convencional para pacientes com disfunção renal severa, qual a recomendação atual?",
+    "options": {
+      "a": "Manter Rifampicina e Isoniazida em doses normais (eliminação predominantemente hepática) e aumentar o intervalo de administração da Pirazinamida e do Etambutol (ex: 3 vezes por semana).",
+      "b": "Reduzir a dose de todos os fármacos em 50% de forma proporcional.",
+      "c": "Suspender o Etambutol e substituí-lo por Estreptomicina.",
+      "d": "Não são necessários ajustes pois as micobactérias possuem metabolismo independente da filtração glomerular.",
+      "e": "Indicar apenas Rifampicina e Isoniazida por 12 meses."
+    },
+    "answer": "a",
+    "rationale": "Rifampicina e Isoniazida são metabolizadas e excretadas principalmente pelo fígado e bile, não exigindo ajuste em renais crônicos. Já o Etambutol e a Pirazinamida (ou seus metabólitos ativos) dependem da excreção renal; em pacientes com ClCr < 30 mL/min, a recomendação brasileira é de ajustar o intervalo para 3 vezes por semana (em vez de diário), visando evitar toxicidade acumulada.",
+    "option_rationales": {
+      "a": "Correta. Reflete o manejo técnico do paciente renal na TB.",
+      "b": "Incorreta. A redução proporcional não considera a via de eliminação distinta de cada droga.",
+      "c": "Incorreta. A Estreptomicina é nefrotóxica e estritamente contraindicada ou usada com extremo cautela em renais crônicos.",
+      "d": "Incorreta. Os ajustes são cruciais para a segurança do hospedeiro, não pelo efeito na bactéria.",
+      "e": "Incorreta. O esquema seria insuficiente para garantir a cura e evitar resistência sem as outras drogas."
+    },
+    "difficulty": "media",
+    "subspecialty": "Infectologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "Nefrologia",
+      "Farmacologia Aplicada",
+      "Insuficiência Renal"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "Homem de 41 anos, sabidamente portador de HIV (CD4: 350 células/mm³), descobre tuberculose e inicia o esquema RIPE. Ele já utiliza TARV com o esquema Tenofovir, Lamivudina e Dolutegravir (TDF/3TC/DTG). Devido à potente indução enzimática da Rifampicina sobre o Dolutegravir, qual o ajuste laboratorial e medicamentoso obrigatório neste paciente?",
+    "options": {
+      "a": "Aumentar a dose do Dolutegravir para 50 mg de 12 em 12 horas.",
+      "b": "Substituir o Dolutegravir por Efavirenz (600 mg ao dia).",
+      "c": "Substituir a Rifampicina pela Rifabutina, mantendo o Dolutegravir 50 mg uma vez ao dia.",
+      "d": "Apenas monitorar a carga viral do HIV mensalmente; não são necessários ajustes iniciais.",
+      "e": "Suspender a TARV durante a fase de ataque da tuberculose (primeiros 2 meses)."
+    },
+    "answer": "a",
+    "rationale": "A Rifampicina induz o metabolismo do Dolutegravir (um inibidor de integrase), reduzindo significativamente seu nível terapêutico. Para compensar essa indução em pacientes usando Rifampicina, a dose do DTG deve ser dobrada (50 mg BID - 12/12h). A opção de trocar por Rifabutina (C) também existe, mas exige que o serviço tenha o medicamento disponível (que é mais caro e menos acessível que o ajuste de dose do DTG no SUS).",
+    "option_rationales": {
+      "a": "Correta. É a conduta operacional padrão no protocolo de co-infecção TB-HIV no Brasil de 2024.",
+      "b": "Incorreta. O Dolutegravir é superior ao Efavirenz em eficácia e menos tóxico; o ajuste de dose permite mantê-lo.",
+      "c": "Incorreta. Embora a Rifabutina tenha menos interação, o ajuste do DTG é a conduta primária mais comum no sistema público pelo custo.",
+      "d": "Incorreta. O paciente sofreria falha virológica do HIV rapidamente sem o ajuste.",
+      "e": "Incorreta. A suspensão da TARV em quem já a utiliza aumenta a mortalidade e o risco de doenças oportunistas."
+    },
+    "difficulty": "media",
+    "subspecialty": "Infectologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "TB-HIV",
+      "Infectologia",
+      "Farmacodinâmica",
+      "Dolutegravir"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "Sobre o manejo da Infecção Latente por Tuberculose (ILTB) em pacientes que iniciarão uso de drogas imunobiológicas (como Anti-TNF, ex: Infliximabe), qual a conduta correta no Brasil?",
+    "options": {
+      "a": "Realizar PPD ou IGRA para todos; se PPD ≥ 5 mm (ou IGRA positivo), deve-se iniciar o tratamento preventivo da TB (TPTB) e aguardar, preferencialmente, pelo menos 1 mês de tratamento antes de iniciar o biológico.",
+      "b": "O tratamento preventivo só deve ser iniciado se o PPD for superior a 15 mm, devido ao baixo risco dos Anti-TNF.",
+      "c": "Se o paciente for vacinado com BCG, o PPD deve ser ignorado e o tratamento preventivo iniciado para todos os pacientes independente do teste.",
+      "d": "Biológicos não exigem triagem para TB pois agem apenas na inflamação articular/intestinal.",
+      "e": "O tratamento da ILTB nesses pacientes deve ser feito obrigatoriamente com o esquema RIPE completo por 6 meses."
+    },
+    "answer": "a",
+    "rationale": "Os inibidores de TNF-alfa bloqueiam uma citocina crucial para a manutenção do granuloma que 'aprisiona' o bacilo da TB. O início dessas drogas em portadores de ILTB causa reativação explosiva, frequentemente com formas disseminadas. A triagem com PPD (ponto de corte 5 mm) ou IGRA é obrigatória, e o TPTB deve idealmente ser iniciado 1 mês antes da primeira dose do biológico.",
+    "option_rationales": {
+      "a": "Correta. É o protocolo de segurança para uso de imunobiológicos.",
+      "b": "Incorreta. O risco com Anti-TNF é altíssimo; o corte de 5 mm visa não perder casos de infecção silenciosa.",
+      "c": "Incorreta. O protocolo prevê a realização do teste; o tratamento 'cego' não é preconizado.",
+      "d": "Incorreta. Como explicado, o TNF é essencial para conter o M. tuberculosis.",
+      "e": "Incorreta. O tratamento de infecção LATENTE é feito com monoterapia (Isoniazida) ou Rifampicina, não com RIPE."
+    },
+    "difficulty": "media",
+    "subspecialty": "Infectologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "ILTB",
+      "Imunobiológicos",
+      "SEGURANÇA",
+      "Protocolo"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "A Tuberculose Osteoarticular (Mal de Pott) atinge frequentemente a coluna vertebral. Qual o mecanismo de dor e a deformidade clássica esperada no exame físico deste paciente?",
+    "options": {
+      "a": "Dor nas costas insidiosa e deformidade em gibosidade (cifose angular) por colapso dos corpos vertebrais anteriores.",
+      "b": "Dor súbita e escoliose severa por espasmo da musculatura paravertebral.",
+      "c": "Pseudoartrose cervical e pescoço rígido por fusão atlanto-axial.",
+      "d": "Lombalgia puramente mecânica sem alterações na inspeção estática.",
+      "e": "Hiperlordose lombar compensatória por fraqueza dos glúteos."
+    },
+    "answer": "a",
+    "rationale": "O Mal de Pott é a tuberculose vertebral. O bacilo causa necrose caseosa e destruição do tecido ósseo, geralmente começando na parte anterior do corpo vertebral e se espalhando para o disco intervertebral. O colapso da porção anterior das vértebras leva à deformidade em cifose angular, chamada de 'giba', que é o marco visual da doença avançada ou sequelar.",
+    "option_rationales": {
+      "a": "Correta. A gibosidade é o achado clássico do Mal de Pott.",
+      "b": "Incorreta. A instalação é tipicamente lenta (meses), não súbita.",
+      "c": "Incorreta. A TB vertebral atinge mais frequentemente a transição toracolombar, não a região cervical alta.",
+      "d": "Incorreta. Em fases avançadas, a deformidade é evidente.",
+      "e": "Incorreta. Como há colapso vertebral anterior, a deformidade é em flexão (cifose), não em extensão (lordose)."
+    },
+    "difficulty": "media",
+    "subspecialty": "Infectologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "Tuberculose Óssea",
+      "Mal de Pott",
+      "Ortopedia",
+      "Infectologia"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "Um paciente de 46 anos, diagnosticado com tuberculose pulmonar há 2 meses, apresenta melhora total da tosse e da febre. Ele está muito feliz com o resultado e pergunta se já pode parar de tomar os remédios. Qual a justificativa científica correta para completar os 6 meses de tratamento?",
+    "options": {
+      "a": "O bacilo da TB possui diferentes populações metabólicas; os remédios matam rapidamente os bacilos em replicação ativa (fase de ataque), mas os bacilos 'persistentes' ou dormentes exigem tempo prolongado (fase de manutenção) para serem eliminados e evitar recidivas.",
+      "b": "É necessário esse tempo para que o corpo crie anticorpos (IgG) protetores contra novas infecções.",
+      "c": "A medicação precisa se acumular no tecido gorduroso para ter efeito residual por 5 anos.",
+      "d": "Se parar agora, ele desenvolverá alergia grave aos fármacos caso precise usá-los novamente no futuro.",
+      "e": "Os 6 meses são um critério administrativo da OMS para facilitar a contagem de estatísticas de cura."
+    },
+    "answer": "a",
+    "rationale": "O M. tuberculosis cresce em diferentes nichos e velocidades. A fase de ataque (2 meses) elimina os bacilos de crescimento rápido (reduzindo a carga bacilar e a transmissibilidade). No entanto, existem populações de bacilos em 'semidormência' (crescimento lento ou intermitente) dentro dos granulomas ou macrófagos. Somente a fase de manutenção prolongada consegue erradicar esses 'persisters', garantindo a cura esterilizante e prevenindo que a doença retorne após o fim do tratamento (recidiva).",
+    "option_rationales": {
+      "a": "Correta. Explica a fundamentação biológica do tempo de tratamento.",
+      "b": "Incorreta. A proteção contra a TB não é mediada por anticorpos circulantes (imunidade humoral).",
+      "c": "Incorreta. O fármaco não funciona por acúmulo em gordura, mas por ação bactericida/bacteriostática direta nas populações bacilares.",
+      "d": "Incorreta. O risco principal não é a alergia, mas a falha de cura e a resistência.",
+      "e": "Incorreta. Os 6 meses foram definidos por rigorosos estudos clínicos (estudos de Madras, etc.) para minimizar recidivas."
+    },
+    "difficulty": "media",
+    "subspecialty": "Infectologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "Fisiopatologia",
+      "Manejo Clínico",
+      "Aderência",
+      "Microbiologia"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "Qual a conduta recomendada para um profissional de saúde que apresenta um PPD inicial negativo ao ser admitido em um hospital de referência para tuberculose, mas que após 1 ano de trabalho apresenta conversão para PPD positivo (12 mm)? O profissional está totalmente assintomático e tem RX de tórax normal.",
+    "options": {
+      "a": "Realizar diagnóstico de Infecção Latente por Tuberculose (conversão tuberculínica recente) e iniciar tratamento preventivo da TB (TPTB).",
+      "b": "Apenas afastar o profissional do contato com pacientes até que o PPD negative.",
+      "c": "Internação imediata para isolamento respiratório em quarto com pressão negativa.",
+      "d": "Repetir o PPD em 15 dias; se mantiver 12 mm, realizar broncoscopia.",
+      "e": "Considerar portador de TB-MDR e iniciar esquema especial com bedaquilina."
+    },
+    "answer": "a",
+    "rationale": "A 'conversão tuberculínica' (um PPD que era negativo e passa a ser positivo, com incremento de pelo menos 10 mm em relação ao teste anterior num intervalo de até 2 anos) indica uma infecção RECENTE. Em profissionais de saúde, isso implica um altíssimo risco de progressão para doença ativa no curto prazo. Como os sintomas e o RX são negativos, o diagnóstico é ILTB e o tratamento preventivo é mandatório para proteção do trabalhador.",
+    "option_rationales": {
+      "a": "Correta. Conversão em profissional exposto é indicação formal de TPTB.",
+      "b": "Incorreta. O PPD raramente negativa; o afastamento não trata a infecção já estabelecida.",
+      "c": "Incorreta. Ele não tem doença ativa (é assintomático com RX normal) e não transmite o bacilo.",
+      "d": "Incorreta. Não há sentido em repetir em 15 dias e a broncoscopia é desnecessária em assintomático com RX normal.",
+      "e": "Incorreta. Não se assume resistência sem evidência genotípica ou falha de tratamento prévio."
+    },
+    "difficulty": "media",
+    "subspecialty": "Infectologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "Vigilância Ocupacional",
+      "ILTB",
+      "Infectologia",
+      "PPD"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  }
+]

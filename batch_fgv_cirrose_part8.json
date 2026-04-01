@@ -1,0 +1,542 @@
+[
+  {
+    "enunciado": "Um paciente cirrótico com mestre-ascite e dispneia apresenta melhora da falta de ar ao deitar-se (platipneia) e piora da saturação de oxigênio ao sentar ou ficar em pé (ortodeoxia). Suspeita-se de Síndrome Hepatopulmonar (SHP). Qual o mecanismo fisiopatológico fundamental e qual o achado padrão-ouro no Ecocardiograma com Contraste (Microbolhas) para confirmar o diagnóstico?",
+    "options": {
+      "a": "Fibrose pulmonar intersticial; Microbolhas no átrio direito apenas.",
+      "b": "Vasodilatação intrapulmonar capilar com shunt direita-esquerda funcional; Opacificação do átrio esquerdo após 3 a 6 ciclos cardíacos da injeção de microbolhas no átrio direito.",
+      "c": "Tromboembolismo Pulmonar de repetição; Ausência de microbolhas no pulmão.",
+      "d": "Pneumonia de base direita por ascite; Microbolhas na veia cava inferior.",
+      "e": "Insuficiência mitral severa; Refluxo de microbolhas para a aorta."
+    },
+    "answer": "b",
+    "rationale": "A SHP ocorre devido à vasodilatação excessiva dos capilares pulmonares (especialmente nas bases) em cirróticos. Ao ficar em pé, a gravidade desvia o sangue para esses vasos dilatados, onde o O2 não consegue difundir até o centro do vaso (efeito shunt), causando hipoxemia. O Ecocardiograma com microbolhas confirma o shunt intrapulmonar quando as bolhas (injetadas na veia) atravessam o leito pulmonar dilatado e aparecem nas câmaras esquerdas após um pequeno atraso (3-6 batimentos), diferenciando do shunt intracardíaco (que é imediato).",
+    "option_rationales": {
+      "a": "Na fibrose, não há o aparecimento retardado das bolhas nas câmaras esquerdas.",
+      "b": "Correta. Define o mecanismo de vasodilatação capilar e o critério diagnóstico ecocardiográfico fundamental.",
+      "c": "TEP cursa com hipoxemia mas não com a positividade do teste de contraste desta forma.",
+      "d": "A pneumonia é uma doença alveolar, não vascular capilar.",
+      "e": "Sem relação estabelecida com a propedêutica de microbolhas para shunt."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["SHP", "Ecodoppler", "Pneumo-hepatologia"]
+  },
+  {
+    "enunciado": "Para alocação de fígados no Brasil via sistema MELD, certas patologias recebem uma pontuação 'extra' (especial) por apresentarem alto risco de mortalidade ou perda de janela terapêutica mesmo com MELD laboratorial baixo. Qual valor fixo o paciente com Carcinoma Hepatocelular (CHC) dentro dos Critérios de Milão recebe após o período de espera inicial?",
+    "options": {
+      "a": "20 pontos fixos.",
+      "b": "24 pontos fixos (ou uma pontuação simplificada conforme a portaria vigente, visando prioridade sobre cirróticos estáveis).",
+      "c": "40 pontos fixos (pula para o primeiro da lista geral).",
+      "d": "Não recebe pontos extras.",
+      "e": "Recebe 1 ponto extra por mês."
+    },
+    "answer": "b",
+    "rationale": "Pacientes com CHC dentro dos critérios de Milão (nódulo único < 5cm ou até 3 nódulos < 3cm) recebem uma 'Situação Especial' no MELD. No Brasil, para garantir que o tumor não cresça além dos critérios de cura (drop-out), concede-se uma pontuação fixa elevada (inicialmente 20, progredindo para 24 e depois estabilizando) que garante prioridade no transplante em relação a cirróticos com MELD laboratorial menor.",
+    "option_rationales": {
+      "a": "Valor de base para algumas situações, mas a pontuação alvo para transplante efetivo costuma ser maior.",
+      "b": "Correta. Reflete a política de alocação de órgãos para oncologia hepática precoce.",
+      "c": "Valor excessivo; o primeiro da lista geralmente é reservado para 'Prioridade Absoluta' (Falência Fulminante).",
+      "d": "Sem prioridade, a maioria dos oncológicos perderia a chance de cura pelo crescimento tumoral.",
+      "e": "Antigamente era assim, mas hoje o sistema usa valores fixos mais altos desde o início da situação especial."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["MELD", "CHC", "Legislação"]
+  },
+  {
+    "enunciado": "A 'Situação Especial' de Hipertensão Portopulmonar (HPP) no transplante de fígado exige que a Pressão Média de Artéria Pulmonar (PmAP) esteja em qual faixa após tratamento vasodilatador para que o paciente receba prioridade com segurança?",
+    "options": {
+      "a": "PmAP > 60 mmHg.",
+      "b": "PmAP < 35 mmHg e Resistência Vascular Pulmonar < 240 dynes/sec/cm⁻⁵ (3 Woods).",
+      "c": "PmAP de 50 mmHg sem tratamento.",
+      "d": "Apenas se o paciente estiver entubado.",
+      "e": "Pressão de artéria pulmonar negativa."
+    },
+    "answer": "b",
+    "rationale": "A HPP grave é uma contraindicação para transplante. No entanto, se o paciente responder ao tratamento (com sildenafil, bosentana ou epoprostenol) e reduzir a PmAP para valores seguros (< 35 mmHg) e a resistência vascular pulmonar for baixa, ele pode receber um MELD especial para transplantar, pois o transplante é a cura definitiva para a hipertensão pulmonar associada à cirrose.",
+    "option_rationales": {
+      "a": "Valor de extrema gravidade com mortalidade peroperatória proibitiva (contraindicação absoluta).",
+      "b": "Correta. Define o critério de segurança hemodinâmica para transplantar pacientes com hipertensão pulmonar secundária à cirrose.",
+      "c": "Não garante segurança para o desclampeamento.",
+      "d": "O estado ventilatório não é o critério de situação especial hemodinâmica.",
+      "e": "Fisicamente absurdo."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["HPP", "MELD Especial", "Hemodinâmica"]
+  },
+  {
+    "enunciado": "No transplante de fígado intervivos (Living Donor), o doador costuma doar qual parte da sua anatomia hepática para um receptor ADULTO?",
+    "options": {
+      "a": "Lobo Esquerdo (Segmentos II, III, IV).",
+      "b": "Lobo Direito (Segmentos V, VI, VII, VIII).",
+      "c": "Apenas o Lobo Caudado (Segmento I).",
+      "d": "Fígado inteiro (e o doador recebe um transplante auxiliar).",
+      "e": "Ducto colédoco apenas."
+    },
+    "answer": "b",
+    "rationale": "Para um receptor adulto, a massa metabólica necessária é elevada. Assim, o doador saudável costuma doar o seu lobo direito (aprox. 60-70% do volume hepático total), pois o lobo esquerdo remanescente no doador tem alta capacidade de regeneração em poucas semanas. Em receptores pediátricos, o doador (geralmente pai/mãe) doa apenas o lobo esquerdo ou o segmento lateral esquerdo (II e III).",
+    "option_rationales": {
+      "a": "Massas geralmente insuficientes para o metabolismo de um adulto de tamanho médio.",
+      "b": "Correta. Identifica a técnica cirúrgica de transplante intervivos entre adultos.",
+      "c": "Volume desprezível para sustentação de vida de um adulto.",
+      "d": "O doador deve permanecer com seu fígado original funcional; não há doação de órgão total de pessoa viva.",
+      "e": "Sem nexo."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Intervivos", "Transplante", "Anatomia"]
+  },
+  {
+    "enunciado": "Após o transplante intervivos, se o enxerto for funcionalmente insuficiente para a massa corpórea do receptor, este pode evoluir com icterícia persistente, ascite volumosa e coagulopatia. Qual o nome desta síndrome?",
+    "options": {
+      "a": "Síndrome de Large-for-Size.",
+      "b": "Síndrome de Small-for-Size (SFSS).",
+      "c": "Hepatite B recorrente.",
+      "d": "Síndrome de Meigs.",
+      "e": "Colecistite Alitiásica aguda."
+    },
+    "answer": "b",
+    "rationale": "A SFSS ocorre quando o volume do enxerto é menor que o 'mínimo funcional' necessário para o receptor (geralmente < 0,8% do peso corporal do receptor ou < 30-40% do volume hepático total esperado do receptor). O excesso de fluxo portal (hiperperfusão) em um leito vascular pequeno causa estresse endotelial, colestase e falência do enxerto.",
+    "option_rationales": {
+      "a": "Disfunção por compressão mecânica de um órgão muito grande em um abdome pequeno.",
+      "b": "Correta. Define a principal complicação técnica/volumétrica do transplante com enxerto parcial em adultos.",
+      "c": "Cursa com inflamação crônica, não falência mecânica volumétrica precoce.",
+      "d": "Tumor de ovário com ascite.",
+      "e": "Patologia biliar sem relação com a massa funcional do parênquima."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["SFSS", "Transplante", "Hepatologia"]
+  },
+  {
+    "enunciado": "Um paciente cirrótico apresenta telangiectasias (spider angiomas) no tórax e abdome superior. Qual a base hormonal clássica sugerida para o aparecimento desta circulação colateral cutânea e de outras alterações como eritema palmar e ginecomastia?",
+    "options": {
+      "a": "Deficiência de Insulina.",
+      "b": "Hiperestrogenismo (devido à menor depuração hepática de estrogênio e à aromatização periférica aumentada de androgênios).",
+      "c": "Excesso de Adrenalina.",
+      "d": "Deficiência de Cortisol.",
+      "e": "Excesso de Vitamina B12."
+    },
+    "answer": "b",
+    "rationale": "A cirrose leva a um desequilíbrio hormonal progressivo. O fígado doente falha em metabolizar hormônios sexuais, resultando em níveis elevados de estradiol circulante. Este excesso causa vasodilatação capilar periférica (aranhas vasculares e eritema palmar), além de atrofia testicular e ginecomastia no homem devido à feminização relativa.",
+    "option_rationales": {
+      "a": "Leva ao diabetes, não a estigmas vasculares periféricos deste tipo.",
+      "b": "Correta. Identifica o distúrbio endócrino basal responsável pelos sinais semiológicos clássicos da doença.",
+      "c": "Causa taquicardia e hipertensão, mas não aranhas vasculares permanentes.",
+      "d": "Característica da Doença de Addison.",
+      "e": "Causa neuropatia se faltar, mas o excesso não gera telangiectasias."
+    },
+    "difficulty": "facil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Semiologia", "Ginecomastia", "Endocrinologia"]
+  },
+  {
+    "enunciado": "Um paciente de 30 anos apresenta dor em quadrante superior direito do abdome, febre alta com calafrios e icterícia leve. A USG mostra lesão hipoecoica de 4 cm com parede irregular em lobo direito. O hemograma revela leucocitose importante (22.000). O paciente é portador de doença de Crohn com atividade fistulizante. Qual o diagnóstico provável e a conduta imediata padrão?",
+    "options": {
+      "a": "Hepatocarcinoma; Iniciar Sorafenibe.",
+      "b": "Abscesso Hepático Piogênico; Internação, antibioticoterapia de amplo espectro (cobertura para gram-negativos e anaeróbios) e drenagem percutânea ou aspiração.",
+      "c": "Hemangioma Gigante; Observação.",
+      "d": "Gordura no fígado; Dieta.",
+      "e": "Hepatite A; Repouso."
+    },
+    "answer": "b",
+    "rationale": "Quadro de 'Tríade de Charcot' (dor, febre e icterícia - embora aqui o foco seja a coleção) com leucocitose sugere infecção supurativa intra-hepática. Doenças inflamatórias intestinais são fatores de risco para abscesso hepático piogênico via disseminação portal (pileflebite). O manejo exige antibióticos e esvaziamento da coleção para identificação do agente e controle do foco infeccioso.",
+    "option_rationales": {
+      "a": "O CHC raramente cursa com febre alta e leucocitose aguda desta forma.",
+      "b": "Correta. Identifica a patologia infecciosa hepática grave e o binômio terapêutico (ATB + Drenagem).",
+      "c": "Hemangiomas são achados incidentais assintomáticos, não febris.",
+      "d": "Não cursa com leucocitose e febre.",
+      "e": "Hepatite viral cursa com transaminases muito elevadas, não com coleção líquida radiológica."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Abscesso Hepático", "Infectologia", "Gastroenterologia"]
+  },
+  {
+    "enunciado": "No diagnóstico diferencial de abscessos hepáticos, como distinguir um Abscesso Amebiano (Entamoeba histolytica) de um Piogênico bacteriano na prática clínica antes da cultura?",
+    "options": {
+      "a": "Não há diferença.",
+      "b": "O abscesso amebiano costuma ser único, em lobo direito, em homens jovens, com história de viagem para áreas endêmicas e um aspirado característico em 'pasta de anchova'.",
+      "c": "O amebiano cursa com glicose alta no sangue.",
+      "d": "O piogênico não causa febre.",
+      "e": "O amebiano é causado por vírus."
+    },
+    "answer": "b",
+    "rationale": "Abscessos amebianos têm características epidemiológicas e de aparência úteis: acometem mais homens (7-10:1), costumam ser solitários e o conteúdo é um pus achocolatado (pasta de anchova). O tratamento preferencial é medicamentoso (Metronidazol), com drenagem reservada apenas para coleções gigantes com risco de ruptura ou falha terapêutica, ao contrário do piogênico onde a drenagem precoce é regra.",
+    "option_rationales": {
+      "a": "Existem diferenças cruciais na abordagem terapêutica (ATB vs Antiparasitário).",
+      "b": "Correta. Define o perfil clínico-epidemiológico clássico da amebíase hepática.",
+      "c": "Sem relação estabelecida.",
+      "d": "Ambos causam febre de origem hepática por citocinas inflamatórias.",
+      "e": "A amebíase é causada por um protozoário."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Amebíase", "Hepatologia", "Diferencial"]
+  },
+  {
+    "enunciado": "Um paciente cirrótico apresenta nódulo de 40 mm sugestivo de CHC em exames de imagem, mas está fora dos Critérios de Milão por apresentar outro nódulo de 35 mm (Total 2 nódulos, um deles > 3cm). É realizado um tratamento com Quimioembolização (TACE) que reduz os nódulos para 2,5 cm cada. Como se denomina este processo de redução tumoral para permitir o transplante hepático?",
+    "options": {
+      "a": "Upstaging.",
+      "b": "Downstaging.",
+      "c": "Resgate Paliativo.",
+      "d": "Desbridamento biológico.",
+      "e": "Quimioterapia Adjuvante."
+    },
+    "answer": "b",
+    "rationale": "Downstaging é a estratégia de utilizar terapias loco-regionais (como TACE, RFA ou cirurgia) para reduzir o volume tumoral de um CHC que estava inicialmente fora dos critérios de transplante (Milão), trazendo-o para dentro desses limites. Se o tumor responder e estabilizar dentro dos critérios por um período determinado (ex: 3 a 6 meses), o paciente pode então ser listado para transplante de fígado com bons resultados de sobrevida.",
+    "option_rationales": {
+      "a": "Termo usado quando a doença progride na classificação.",
+      "b": "Correta. Define o conceito terapêutico de redução de carga tumoral visando elegibilidade para transplante.",
+      "c": "O downstaging tem intuito curativo secundário ao transplante seguinte.",
+      "d": "Refere-se à limpeza de feridas infectadas.",
+      "e": "Adjuvante é dada APÓS o tratamento principal curativo para evitar recidiva."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["CHC", "Downstaging", "Transplante"]
+  },
+  {
+    "enunciado": "Qual a principal complicação metabólica óssea no paciente cirrótico e qual a recomendação de triagem conforme diretrizes internacionais?",
+    "options": {
+      "a": "Gota; Medir Ácido Úrico mensal.",
+      "b": "Osteodystrophia Hepática (Osteopenia/Osteoporose); Realizar Densitometria Óssea (DEXA) em candidatos a transplante ou pacientes com fatores de risco (ex: uso de corticoides, CBP).",
+      "c": "Raquitismo infantil apenas.",
+      "d": "Excesso de formação óssea (exostose).",
+      "e": "Não há alterações ósseas na cirrose."
+    },
+    "answer": "b",
+    "rationale": "Pacientes com cirrose cronica, especialmente mulheres e portadores de doenças colestáticas (como CBP), têm elevado risco de osteoporose devido à desnutrição, hipogonadismo, deficiência de vitamina D e efeitos inflamatórios sistêmicos. A triagem com densitometria é essencial, pois fraturas patológicas no pré ou pós-transplante aumentam severamente a morbimortalidade.",
+    "option_rationales": {
+      "a": "Pode ocorrer mas não é a patologia óssea definidora do hepatopata.",
+      "b": "Correta. Alerta para a fragilidade óssea como componente da síndrome de falência orgânica crônica.",
+      "c": "A preocupação clínica maior é com a osteoporose no adulto cirrótico.",
+      "d": "A doença hepática é predominantemente reabsortiva (perda de massa óssea).",
+      "e": "Falso; a osteodistrofia hepática é um problema clínico negligenciado e importante."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Osteoporose", "DEXA", "Endocrinologia"]
+  },
+  {
+    "enunciado": "A encefalopatia hepática pode ser precipitada por distúrbios hidroeletrolíticos. Qual o principal mecanismo pelo qual a HIPOKALEMIA (potássio baixo) induzida por diuréticos favorece o acúmulo de amônia sanguínea e piora do estado mental?",
+    "options": {
+      "a": "O potássio baixo faz o coração parar.",
+      "b": "A hipocalemia induz alcalose metabólica e estimula a amonigênese renal (produção de amônia pelo rim) como mecanismo de poupar íons H+.",
+      "c": "O potássio atua diretamente no cérebro matando neurônios.",
+      "d": "Faz o paciente beber muita água.",
+      "e": "Reduz o tamanho do fígado."
+    },
+    "answer": "b",
+    "rationale": "A queda de potássio leva ao movimento de íons H+ para dentro das células renais em troca de K+. Isso gera uma alcalose extracelular, o que favorece a conversão de amônio (NH4+) em amônia (NH3), que é a forma lipossolúvel que atravessa facilmente a barreira hematoencefálica. Além disso, o rim produz mais amônia para excretar o excesso de bicarbonato gerado na alcalose hipocalêmica.",
+    "option_rationales": {
+      "a": "Causa arritmias, mas o foco neuro-metabólico da pergunta é a amônia.",
+      "b": "Correta. Explica o link fisiopatológico sutil entre eletrólitos renais e consciência neurológica no cirrótico.",
+      "c": "O efeito é indireto via metabolismo nitrogenado.",
+      "d": "Causa sede, mas o risco imediato é a neurotoxicidade da amônia.",
+      "e": "Sem efeito anátomo-volumétrico imediato."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["EH", "Potássio", "Fisiologia Renal"]
+  },
+  {
+    "enunciado": "A 'Vesícula de Porcelana' (calcificação da parede da vesícula biliar) é frequentemente um achado incidental em exames de imagem. Qual a principal preocupação clínica/cirúrgica associada a este achado que justifica a colecistectomia profilática em muitos protocolos?",
+    "options": {
+      "a": "Risco de ruptura e ascite biliar.",
+      "b": "Elevado risco de Carcinoma de Vesícula Biliar (incidência relatada historicamente entre 12% a 25%).",
+      "c": "Formação de fístula gástrica.",
+      "d": "Aumento excessivo do colesterol.",
+      "e": "Não tem importância clínica."
+    },
+    "answer": "b",
+    "rationale": "Embora estudos recentes sugiram que o risco de câncer possa ser menor do que o estimado originalmente, a associação entre vesícula de porcelana e neoplasia de vesícula permanece significativa. A presença de calcificação descontínua da mucosa é particularmente preocupante, tornando a recomendação de retirada cirúrgica padrão em pacientes com boa condição clínica para prevenir um tumor de prognóstico sombrio.",
+    "option_rationales": {
+      "a": "Vesícula calcificada é rígida e menos suscetível a rupturas agudas inflamatórias do que a inflamada simples.",
+      "b": "Correta. Identifica a lesão precursora oncológica clássica da via biliar.",
+      "c": "Fístulas ocorrem mais na colelitíase inflamatória crônica agudizada.",
+      "d": "O colesterol pode causar a pedra, mas a porcelana é o estágio final de inflamação/calcificação crônica.",
+      "e": "Achado com alta relevância para prevenção de câncer."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Vesícula", "Oncologia", "Cirurgia"]
+  },
+  {
+    "enunciado": "Um paciente cirrótico apresenta hemocromatose secundária a múltiplas transfusões por talassemia. Com o acúmulo de ferro, qual a cor clássica da pele e qual o nome da condição endócrina pancreática associada?",
+    "options": {
+      "a": "Pele Azul; Hipotireoidismo.",
+      "b": "Pele Bronzeada; Diabetes Mellitus (Diabetes Bronzeado).",
+      "c": "Pele Vermelha; Acromegalia.",
+      "d": "Pele Verde; Raquitismo.",
+      "e": "Pele Pálida; Doença de Cushing."
+    },
+    "answer": "b",
+    "rationale": "O depósito de ferro nos tecidos causa hiperpigmentação melânica e hemossiderótica, conferindo um tom bronzeado/metálico à pele. Simultaneamente, o ferro lesa as células beta das ilhotas de Langerhans no pâncreas, provocando diabetes secundário. Daí o termo clássico 'Diabetes Bronzeado'.",
+    "option_rationales": {
+      "a": "Sugere argiria ou cianose severa.",
+      "b": "Correta. Define o estigma dermatológico e metabólico da sobrecarga sistêmica de ferro.",
+      "c": "Eritema é comum em outras patologias, mas no ferro o tom é metálico escuro.",
+      "d": "Icterícia esverdeada ocorre na colestase severa, não na hemocromatose.",
+      "e": "Pele pálida é sinal de anemia, o oposto do acúmulo de ferro."
+    },
+    "difficulty": "facil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Hemocromatose", "Endocrinologia", "Semiologia"]
+  },
+  {
+    "enunciado": "A paracentese diagnóstica é mandatória em todo cirrótico admitido no hospital com ascite. Qual a complicação relacionada à parede abdominal que, embora rara, é mais frequente no cirrótico com ascite volumosa pelo estiramento da derme e epiderme?",
+    "options": {
+      "a": "Infarto agudo de miocárdio.",
+      "b": "Fístula asfítica cutânea persistente ou vazamento de líquido pelo orifício da punção.",
+      "c": "Hérnia de hiato súbita.",
+      "d": "Queda de cabelo.",
+      "e": "Unhas de Terry."
+    },
+    "answer": "b",
+    "rationale": "Em pacientes com ascite tensa, a pressão hidrostática intracavitária é grande e a pele está adelgaçada. Após a paracentese, o líquido pode continuar a 'vazar' pelo trajeto da agulha. A técnica em 'Z' (tracionar a pele antes de puncionar) visa prevenir esta fístula ao criar um trajeto não retilíneo na parede após a retirada da agulha.",
+    "option_rationales": {
+      "a": "Complicação extra-abdominal.",
+      "b": "Correta. Enfoca a complicação local mecânica mais comum do procedimento de punção no asfítico.",
+      "c": "Patologia anatômica interna sem relação com o trajeto da agulha.",
+      "d": "Alteração trófica crônica, não aguda do procedimento.",
+      "e": "Sinal ungueal clássico da cirrose, não relacionado à paracentese."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Paracentese", "Técnica", "Fístula"]
+  },
+  {
+    "enunciado": "No tratamento da Peritonite Bacteriana Espontânea (PBE), após o término dos 5 a 7 dias de antibioticoterapia aguda, qual a conduta recomendada para a prevenção de novos episódios em pacientes que sobreviveram a um episódio de PBE?",
+    "options": {
+      "a": "Nenhuma conduta adicicional.",
+      "b": "Profilaxia Secundária vitalícia (ou até o transplante) com Norfloxacino 400mg/dia VO.",
+      "c": "Repetir o ciclo de antibioticoterapia IV a cada mês.",
+      "d": "Retirar o baço do paciente.",
+      "e": "Internar o paciente para sempre."
+    },
+    "answer": "b",
+    "rationale": "O risco de recorrência da PBE dentro de um ano é de 70%. Devido a esta altíssima taxa, a profilaxia secundária com antibiótico oral (Norfloxacino ou Sulfametoxazol-Trimetoprima) é mandatória para todos os sobreviventes do primeiro episódio de PBE, visando reduzir a contaminação portal por translocação bacteriana.",
+    "option_rationales": {
+      "a": "Deixar sem profilaxia levaria à morte por reinfecção em curto prazo.",
+      "b": "Correta. Define o protocolo de manutenção de longo prazo de extrema importância na hepatologia.",
+      "c": "Induz resistência bacteriana maciça e não é superior à profilaxia oral diária.",
+      "d": "A esplenectomia aumentaria ainda mais o risco de infecções por bactérias encapsuladas.",
+      "e": "Inviável e desnecessário se houver adesão ambulatorial."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["PBE", "Profilaxia", "Norfloxacino"]
+  },
+  {
+    "enunciado": "A 'Gastropatia Hipertensiva Portal' na endoscopia apresenta um aspecto característico da mucosa gástrica com mosaico/rendilhado que lembra qual animal?",
+    "options": {
+      "a": "Zebra.",
+      "b": "Pele de Cobra (Snake-skin).",
+      "c": "Lobo.",
+      "d": "Águia.",
+      "e": "Tubarão."
+    },
+    "answer": "b",
+    "rationale": "A gastropatia hipertensiva portal é causada pela congestão venosa crônica dos vasos da mucosa e submucosa do estômago. O aspecto endoscópico clássico é o de 'pele de cobra' (mosaic pattern), podendo apresentar pontos avermelhados (focos de sangramento petequial). É uma causa comum de anemia crônica por perda oculta de sangue no cirrótico.",
+    "option_rationales": {
+      "a": "Termo não utilizado na semiologia endoscópica gástrica.",
+      "b": "Correta. Identifica o termo descritivo semiológico padrão para a gastropatia da cirrose.",
+      "c": "Sem correlação.",
+      "d": "Sem correlação.",
+      "e": "Sem correlação."
+    },
+    "difficulty": "facil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["EDA", "Gastropatia", "Semiologia"]
+  },
+  {
+    "enunciado": "Um paciente cirrótico alcoólico apresenta 'Contratura de Dupuytren'. Em qual local do corpo esta alteração se manifesta e o que ela representa?",
+    "options": {
+      "a": "Fibrose da fáscia palmar com retração dos dedos (especialmente 4º e 5º).",
+      "b": "Retração da pálpebra superior.",
+      "c": "Contratura permanente do joelho.",
+      "d": "Inflamação do mamilo.",
+      "e": "Encurtamento da língua."
+    },
+    "answer": "a",
+    "rationale": "A contratura de Dupuytren é caracterizada por espessamento e fibrose da fáscia palmar, levando à incapacidade de extensão completa dos dedos, comumente o anular e o mínimo. Embora possa ser idiopática ou genética, é muito mais frequente em pacientes com cirrose alcoólica crônica e tabagistas.",
+    "option_rationales": {
+      "a": "Correta. Identifica a alteração musculoesquelética palmar clássica associada ao etilismo crônico e cirrose.",
+      "b": "Sinal de Graefe (tireoide).",
+      "c": "Não é o local da contratura de Dupuytren.",
+      "d": "Ginecomastia é o sinal mamário, não contratura.",
+      "e": "Sem nexo."
+    },
+    "difficulty": "facil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Dupuytren", "Cirrose Alcoólica", "Semiologia"]
+  },
+  {
+    "enunciado": "A 'Amnésia Retrógrada' e a 'Confabulação' em um paciente alcoólico crônico com cirrose sugerem qual diagnóstico clínico-neurológico específico decorrente da deficiência de Tiamina (Vit B1)?",
+    "options": {
+      "a": "Derrame Pleural.",
+      "b": "Síndrome de Korsakoff (fase crônica da Encefalopatia de Wernicke).",
+      "c": "Esclerose Múltipla.",
+      "d": "Doença de Alzheimer precoce.",
+      "e": "Cefaleia em Salvas."
+    },
+    "answer": "b",
+    "rationale": "A Síndrome de Korsakoff é a manifestação neuropsiquiátrica crônica da falta de tiamina, comum em etilistas que desenvolvem cirrose devido à má nutrição e má absorção. Caracteriza-se por perda de memória recente severa e a necessidade do paciente de 'inventar' (confabular) histórias para preencher as lacunas de memória.",
+    "option_rationales": {
+      "a": "Inadequado; é uma alteração física torácica.",
+      "b": "Correta. Define a sequela neurológica por avitaminose central no contexto do etilismo e doença hepática.",
+      "c": "Doença autoimune desmielinizante inflamátoria.",
+      "d": "Cursa com perda cognitiva global, mas a tríade amnésia+confabulação+etilismo é Korsakoff.",
+      "e": "Distúrbio doloroso vascular sem amnésia."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Korsakoff", "Tiamina", "Etilismo"]
+  },
+  {
+    "enunciado": "Sobre o uso do Lactulona na Encefalopatia Hepática, além do efeito laxante e da acidificação do meio intestinal (convertendo NH3 em NH4+), qual outro mecanismo celular contribui para a melhora do quadro?",
+    "options": {
+      "a": "Redução do fluxo de bactérias ureolíticas e aumento da incorporação de nitrogênio pelas bactérias intestinais para sua própria síntese proteica (efeito prebiótico).",
+      "b": "Aumento da pressão arterial.",
+      "c": "Redução da temperatura corporal.",
+      "d": "Aumento do colesterol.",
+      "e": "Bloqueio do canal de cálcio no cérebro."
+    },
+    "answer": "a",
+    "rationale": "A lactulona é um dissacarídeo não absorvível. Ao ser fermentada pela microbiota, ela diminui o pH (prendendo a amônia como amônio ionizado no lúmen) e fornece carbono para as bactérias, que passam a usar a amônia do meio como fonte de nitrogênio para crescerem, reduzindo a absorção sistêmica desse composto tóxico.",
+    "option_rationales": {
+      "a": "Correta. Detalha o mecanismo multilinear da ação do padrão-ouro no manejo clínico da EH.",
+      "b": "Pode causar desidratação e hipotensão se usada em excesso (diarreia).",
+      "c": "Não tem efeito antitérmico comprovador central.",
+      "d": "Sem nexo.",
+      "e": "Não possui efeito farmacocinético em canais iônicos neuronais."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Lactulona", "EH", "Microbiota"]
+  },
+  {
+    "enunciado": "A 'Hepatite por Herpes Simplex' (HSV) em adultos é uma causa rara de insuficiência hepática aguda fulminante. Qual o perfil laboratorial característico que deve acender a suspeita diagnóstica, especialmente em pacientes imunodeprimidos ou gestantes?",
+    "options": {
+      "a": "Bilirrubinas extremamente altas (> 30) e transaminases normais.",
+      "b": "Hepatite anictérica (Bilirrubina normal ou baixa) associada a elevações brutais de transaminases (> 5.000 a 10.000 U/L) e febre.",
+      "c": "Aumento apenas da Amilase.",
+      "d": "Plaquetas de 500.000.",
+      "e": "Urina azul."
+    },
+    "answer": "b",
+    "rationale": "A hepatite herpética é traiçoeira por ser frequentemente anictérica (Bilirrubina normal ou levemente aumentada) apesar de haver necrose hepática maciça, evidenciada por transaminases extremamente elevadas. O diagnóstico precoce com início de Aciclovir EV é a única chance de evitar o óbito ou transplante urgente.",
+    "option_rationales": {
+      "a": "Isso sugeriria obstrução biliar total ou hemólise maciça, não necrose viral por herpes.",
+      "b": "Correta. Alerta para a dissociação bilirrubina-transaminase típica desta urgência viral infectológica.",
+      "c": "Indica pancreatite.",
+      "d": "Disfunção hepática cursa com plaquetopenia ou plaquetas normais.",
+      "e": "Sinal impossível no contexto clínico viral sugerido."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Herpes", "Hepatite Fulminante", "Diagnóstico Diferencial"]
+  }
+]

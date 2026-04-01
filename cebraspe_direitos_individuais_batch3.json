@@ -1,0 +1,57 @@
+[
+  {
+    "enunciado": "A respeito dos direitos e deveres individuais e coletivos contidos na CF/88 e sob a ótica da consolidação jurisprudencial em matéria penal: A prisão civil por dívida no Brasil, sob a imposição dos Tratados de Direitos Humanos incorporados ao ordenamento pátrio, sofreu decréscimo drástico em seu rol de hipóteses validas, subsistindo de forma exclusiva ao devedor inescusável de prestação alimentícia de urgência perene, sendo expressamente banida e vedada, sumuladamente, a prisão coercitiva do falido devedor solidário de obrigações tributárias, mas permitida a prisão do depositário infiel apenas por convenção em juízo civil.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "Errado. Segundo a Súmula Vinculante 25 do STF ('É ilícita a prisão civil de depositário infiel, qualquer que seja a modalidade do depósito'), a prisão civil do depositário infiel é totalmente banida do ordenamento jurídico brasileiro, independentemente se prevista em lei, convenção ou pacto anterior. Após a incorporação do Pacto de San José da Costa Rica (que tem status supralegal), a única hipótese remanescente e constitucionalmente válida de prisão civil no Brasil é a do devedor inescusável e voluntário de obrigação alimentícia.",
+    "difficulty": "medio",
+    "tags": ["Prisão Civil", "Depositário Infiel", "Súmula Vinculante 25"]
+  },
+  {
+    "enunciado": "Em conformidade com a salvaguarda do Júri preconizada no art. 5º, inciso XXXVIII da Constituição, sob o crivo de tribunais superiores: O princípio institucional da soberania dos veredictos impossibilita, em regra formal de exceção preclusiva, a revisão criminal de julgamentos absolutórios operados pelos jurados após a ocorrência de trânsito em julgado material mesmo sob prova inconteste do cometimento do dolo letal. Todavia, esse mesmo princípio constitui limite vertical intransponível para a aplicação reformatória integral de um acórdão de segundo grau perante veredicto condenatório injusto, restando vedada a anulação para novo júri salvo prova cabal técnica flagrante.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "Errado. O STF e STJ firmaram entendimento que a 'soberania dos veredictos' cede e mitiga perante o direito pátrio favorável ao réu. Assim, é perfeitamente cabível a 'Revisão Criminal' para desfazer um veredicto condenatório do Júri transitado em julgado, podendo o próprio juízo monocrático ou colégio revisor, caso encontre prova inconteste de inocência e manifesta injustiça (decisão manifestamente contrária às provas), promover a absolvição ou novo júri em benefício do réu. Já em julgamento absolutório, por força de proteção à coisa julgada em prol do réu (vedação a revisão pro societate), este não pode ser submetido à revisão penal condenatória após o trânsito.",
+    "difficulty": "dificil",
+    "tags": ["Tribunal do Júri", "Soberania dos Veredictos", "Revisão Criminal"]
+  },
+  {
+    "enunciado": "Julgue a proposição sobre as excludentes e escusas protetivas às penalidades: A Constituição Federal assegura, como direito inato irrestrito de proteção à família, que o acusado penal de um delito detém o direito imutável de escusa desobrigatória judicial de depor incisivamente debaixo de compromisso legal perante inquéritos policiais federais caso o indiciado sob apuração constitutiva seja seu próprio cônjuge (esposo/esposa), salvo se a omissão da tipicidade for elemento de conivência primária da fraude criminosa ou infração letal dolosa aos menores.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "c",
+    "rationale": "Certo. O direito ao silêncio mitigado se expande ao amparo às relações familiares (art. 206 do CPP e derivação protetiva constitucional). Ninguém (cônjuge, pais, filhos) é forçosamente compelido a depor sob compromisso de dizer a verdade contra seu próprio e íntimo familiar-parceiro caso esse decida por se escusar do testemunho. No entanto, se não houver outra de aferir o crime cabal e eles não forem os alvos secundários da fraude/crimes violentos contra vulneráveis protegidos da mesma teia, a lei prevê que o Estado poderá colher as informações sob o status apenas de 'declarante', sem a obrigação formal tipificada de falso testemunho.",
+    "difficulty": "medio",
+    "tags": ["Escusa de Testemunho", "Relações Familiares", "Não Autoincriminação"]
+  },
+  {
+    "enunciado": "No contexto da interceptação das telecomunicações: Segundo o delineamento da Corte Suprema em tema de repercussão, é prescindível e abdicável a emissão de prévia notificação mandamental assinada e circunstanciada em papel estrito por Magistrado de primeiro grau, podendo ser deferida ou convalidada verbalmente a interceptação telefônica e dos dados e-mailísticas em situações singulares e flagrantes criminosas de premente celeridade como a ocorrência fática de extorsão mediante sequestro da liberdade corporal em zona de conflito e isolada jurisdição criminal.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "Errado. A quebra de sigilo das comunicações telefônicas é instituto abrangido pela Cláusula de Reserva de Jurisdição absoluta (art. 5º, XII, da CF). A lei nº 9.296/96 (art. 5º. Parágrafo único) obriga expressamente, até mesmo em casos de máxima urgência extremada, a necessidade de representação material e decisão MÍNIMA do juiz competente. Embora excepcionalmente o juiz possa deferir ou expedir a quebra em regime de plantão extraoficial via comunicação em ofícios (eletrônicos ou congêneres) por extrema urgência/risco humanitário e validando na formalização consecutiva até 24h depois, a quebra de comunicações JAMAIS pode nascer originariamente 'abdicada ou não escrita formalmente' pelo próprio juiz investido ou ser convalidada a posteriori por autoridade policial.",
+    "difficulty": "dificil",
+    "tags": ["Interceptação Telefônica", "Reserva de Jurisdição", "Ordem Judicial"]
+  },
+  {
+    "enunciado": "Julgue em face dos direitos individuais na Constituição: A interceptação de comunicações estabelecida por determinação judicial exara em restrito cunho as comunicações de voz sobre redes ativas de telefonia comutada de espectro eletromagnético estrito de fala; enquanto que o simples tráfego, rastreamento físico de antenas e o registro do conteúdo pré-visualizável contido na modalidade de aplicativos de mensagens instantâneas abertos pela interface do aparelho (tipo Whatsapp e aplicativos homólogos textuais armazenados no interior) são tipificados inequivocamente como quebra de dados no âmbito das comunicações lícitas do direito de telemática da internet penal, também sujeitos a ordem de magistratura prévia.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "c",
+    "rationale": "Certo. Conforme jurisprudência do STJ e STF, o acesso a dados contidos em aplicativos de mensagens (WhatsApp, Telegram) não se confunde com 'escuta' ou 'interceptação' síncrona/ao vivo stricto sensu de voz da Lei 9.296. Enquadra-se tecnicamente como 'quebra de dados telemáticos/informáticos' ou apreensão e extração de dados contidos na memória do aparelho. Entretanto, justamente por violar a intimidade das comunicações gravadas e os dados de fluxo da interface (MCI - Marco Civil da Internet), é categoricamente imprescindível e necessária a prévia autorização judicial específica para o devassamento dessas caixas diretas em apreensões policiais, sem fito de flagrante imediato ou perigo inescusável da prova.",
+    "difficulty": "dificil",
+    "tags": ["Sigilo de Dados Telemáticos", "WhatsApp", "STF", "Ordem Judicial"]
+  }
+]

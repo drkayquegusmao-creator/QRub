@@ -1,0 +1,1023 @@
+[
+  {
+    "enunciado": "Um paciente de 35 anos apresenta hipogonadismo secundário, diminuição do campo visual (hemianopsia bitemporal) e um microadenoma hipofisário produtor de TSH (TSHoma) diagnosticado por ressonância magnética e perfil hormonal. Qual o achado laboratorial tireoidiano que confirma o TSHoma em detrimento da Síndrome de Resistência ao Hormônio Tireoidiano?",
+    "options": {
+      "a": "Níveis elevados de subunidade Alfa (alfa-GSU) e aumento da Tireoglobulina.",
+      "b": "TSH baixo com T4 livre alto.",
+      "c": "Somatomedina C (IGF-1) reduzida.",
+      "d": "Prolactina indetectável.",
+      "e": "Resposta exagerada do TSH após teste do TRH."
+    },
+    "answer": "a",
+    "rationale": "Ambas as condições apresentam TSH normal/alto com T4 livre alto. O TSHoma se diferencia pela produção autônoma da subunidade alfa das glicoproteínas (alfa-GSU) e pela ausência de resposta adequada no teste do TRH (o tumor é autônomo). Na resistência, o TSH costuma responder vigorosamente ao TRH e a relação alfa-GSU/TSH é normal.",
+    "option_rationales": {
+      "a": "Correta. Marcador bioquímico diferencial chave.",
+      "b": "Incorreta. Perfil de hipertireoidismo primário.",
+      "c": "Incorreta. Relacionado à deficiência de GH ou acromegalia.",
+      "d": "Incorreta. Adenomas hipofisários podem cursar com hiperprolactinemia por compressão da haste.",
+      "e": "Incorreta. Na resistência há resposta, no TSHoma geralmente não.",
+      "f": "Incorreta. Outra característica do TSHoma é o aumento de SHBG devido ao excesso de hormônio tireoidiano periférico."
+    },
+    "difficulty": "dificil",
+    "subspecialty": "Endocrinologia",
+    "subject": "Tireoide",
+    "tags": [
+      "TSHoma",
+      "Neuroendocrinologia",
+      "Diagnóstico Diferencial",
+      "Hipófise"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "A cintilografia de tireoide com captação de 24 horas está extremamente reduzida (< 2%) nos seguintes quadros clínicos, EXCETO:",
+    "options": {
+      "a": "Doença de Graves em atividade severa.",
+      "b": "Tireoidite Subaguda de Quervain (fase inicial).",
+      "c": "Uso excessivo de iodo exógeno (amiodarona, contraste).",
+      "d": "Tireotoxicose factícia (ingestão inadvertida de Levotiroxina).",
+      "e": "Tireoidite Silenciosa (indolor)."
+    },
+    "answer": "a",
+    "rationale": "Na Doença de Graves, a glândula está hiperestimulada e hiperativa, apresentando CAPTAÇÃO ELEVADA de iodo (geralmente > 30-40% em 24h). Em todas as outras opções (inflamação destrutiva, excesso de iodo saturando a glândula ou ingestão exógena de hormônio que suprime o TSH), a captação de iodo pela glândula nativa é suprimida ou bloqueada.",
+    "option_rationales": {
+      "a": "Correta. Graves é a exceção (captação alta).",
+      "b": "Incorreta. A captação é baixa por destruição folicular.",
+      "c": "Incorreta. Bloqueio por saturação (Wolff-Chaikoff).",
+      "d": "Incorreta. O excesso de T4 suprime o TSH, que por sua vez não estimula a captação na glândula.",
+      "e": "Incorreta. Similar à Quervain (inflamação destrutiva)."
+    },
+    "difficulty": "media",
+    "subspecialty": "Endocrinologia",
+    "subject": "Tireoide",
+    "tags": [
+      "Cintilografia",
+      "Captação de Iodo",
+      "Diferencial",
+      "Exames"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "Qual o achado histológico patognomônico do Carcinoma Papilífero de Tireoide (CPT) que representa a formação de pequenos depósitos de cálcio concêntricos e laminados?",
+    "options": {
+      "a": "Corpos Psamomatosos (Psammoma bodies).",
+      "b": "Células Claros de Askanazy.",
+      "c": "Cristais de Charcot-Leyden.",
+      "d": "Granulomas de Langhans.",
+      "e": "Ninhos de Malassezia."
+    },
+    "answer": "a",
+    "rationale": "Os corpos psamomatosos são calcificações distróficas laminadas concêntricas, frequentes no Carcinoma Papilífero (encontradas em até 50% dos casos). Sua presença no aspirado de PAAF ou na peça histológica é um sinal forte de CPT.",
+    "option_rationales": {
+      "a": "Correta. Hallmarks patológicos do papilífero.",
+      "b": "Incorreta. São células oncofílicas comuns no Hashimoto.",
+      "c": "Incorreta. Presentes em asma/eosinofilia.",
+      "d": "Incorreta. Típicos de tuberculose.",
+      "e": "Incorreta. Fungo da pele."
+    },
+    "difficulty": "facil",
+    "subspecialty": "Patologia",
+    "subject": "Tireoide",
+    "tags": [
+      "Psammoma",
+      "CPT",
+      "Histologia",
+      "Patologia"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "Mulher de 42 anos queixa-se de bócio indolor e fadiga. Exames: TSH = 10,2 mUI/L (VR: 0,4-4,5) e T4 Livre = 0,9 ng/dL (VR: 0,8-1,8). Anti-TPO positivo em altos títulos. Qual a conduta recomendada para este quadro de Hipotireoidismo Subclínico se a paciente desejar engravidar?",
+    "options": {
+      "a": "Iniciar Levotiroxina imediatamente, visando TSH < 2,5 mUI/L no período pré-concepcional.",
+      "b": "Apenas observar e repetir TSH após o parto.",
+      "c": "Realizar tireoidectomia profilática para evitar bócio fetal.",
+      "d": "Iniciar Metimazol para suprimir a produção de anticorpos.",
+      "e": "Prescrever apenas selênio e zinco, sem hormônios."
+    },
+    "answer": "a",
+    "rationale": "No hipotireoidismo subclínico, a recomendação de tratamento torna-se mais forte quando o TSH > 10, presença de anticorpos positivos ou planos de gestação. Em pacientes que desejam engravidar, o consenso é tratar para evitar complicações obstétricas (aborto, descolamento de placenta) e garantir o neurodesenvolvimento fetal, mantendo o TSH idealmente abaixo de 2,5.",
+    "option_rationales": {
+      "a": "Correta. Recomendação obstétrica endócrina clara.",
+      "b": "Incorreta. Conduta de alto risco para o feto.",
+      "c": "Incorreta. Totalmente desnecessária.",
+      "d": "Incorreta. Antitireoidianos piorariam o hipotireoidismo.",
+      "e": "Incorreta. A reposição hormonal é o tratamento definitivo e seguro."
+    },
+    "difficulty": "media",
+    "subspecialty": "Ginecologia e Obstetrícia",
+    "subject": "Tireoide",
+    "tags": [
+      "Hipotireoidismo Subclínico",
+      "Gestação",
+      "Anti-TPO",
+      "Meta Terapêutica"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "O Carcinoma Anaplásico de Tireoide (CAT) é um dos tumores mais agressivos da medicina. Qual a mutação detectada em cerca de 40-50% desses casos e que pode estar associada à progressão a partir de um carcinoma diferenciado pré-existente?",
+    "options": {
+      "a": "Mutação do gene p53 acompanhada de mutação BRAF V600E.",
+      "b": "Mutações do gene BRCA1 e BRCA2.",
+      "c": "Deleção do cromossomo 21.",
+      "d": "Rearranjo RET/PTC3 apenas.",
+      "e": "Mutação do receptor de estrogênio Beta."
+    },
+    "answer": "a",
+    "rationale": "O CAT frequentemente surge pela 'desdiferenciação' de um carcinoma papilífero ou folicular prévio. Para que ocorra essa agressividade extrema, mutações de 'driver' iniciais (como BRAF ou RAS) são acompanhadas de mutações de perda de função do gene supressor de tumor p53. É um tumor de crescimento rápido, invasivo e com péssimo prognóstico.",
+    "option_rationales": {
+      "a": "Correta. Mecanismo genético da desdiferenciação anaplásica.",
+      "b": "Incorreta. Relacionado a câncer de mama e ovário.",
+      "c": "Incorreta. Síndrome de Down.",
+      "d": "Incorreta. RET/PTC é clássico do papilífero.",
+      "e": "Incorreta. Sem papel causal importante no CAT."
+    },
+    "difficulty": "dificil",
+    "subspecialty": "Oncologia",
+    "subject": "Tireoide",
+    "tags": [
+      "Carcinoma Anaplásico",
+      "p53",
+      "BRAF",
+      "Genética Tumoral"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "Um paciente de 40 anos apresenta bócio nodular e bócio tóxico. Ao exame físico, apresenta hiperpigmentação cutânea nas áreas de exposição solar e fraqueza muscular proximal. Esta associação de hipertireoidismo com hiperpigmentação secundária à doença autoimune polidlandular deve levantar suspeita de:",
+    "options": {
+      "a": "Insuficiência Adrenal Primária associada (Doença de Addison na Síndrome Poliglandular Autoimune tipo 2).",
+      "b": "Tumor de Wilms primário.",
+      "c": "Acromegalia descompensada.",
+      "d": "Hepatite B viral ativa.",
+      "e": "Sifilis Secundária."
+    },
+    "answer": "a",
+    "rationale": "A Doença de Graves pode vir acompanhada de outras doenças autoimunes (Síndrome de Schmidt ou SPA Tipo 2). A hiperpigmentação (pelo excesso de ACTH e MSH) associada à fraqueza e hipotensão (sugerida no contexto de bócio) deve alertar para falha adrenal. O tratamento da tireoide sem tratar a adrenal pode matar o paciente (Crise de Addison).",
+    "option_rationales": {
+      "a": "Correta. Associação clássica e perigosa na clínica médica.",
+      "b": "Incorreta. Tumor renal infantil.",
+      "c": "Incorreta. Causa traços grosseiros e bócio, mas não hiperpigmentação cutânea melânica típica.",
+      "d": "Incorreta. Causa icterícia, não hiperpigmentação adrenal.",
+      "e": "Incorreta. Manifesta-se com roséolas, não pigmentação persistente."
+    },
+    "difficulty": "media",
+    "subspecialty": "Clínica Médica",
+    "subject": "Tireoide",
+    "tags": [
+      "SPA Tipo 2",
+      "Addison",
+      "Graves",
+      "Poliglandular"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "Qual a principal limitação do uso da cintilografia com Tecnécio-99m (Tc99m) em relação ao Iodo-131 na avaliação funcional de nódulos tireoidianos?",
+    "options": {
+      "a": "O Tecnécio avalia apenas a captação (trapping) e não a organificação, podendo resultar em 'nódulos quentes' falso-positivos que são na verdade frios/malignos.",
+      "b": "O Tecnécio tem meia-vida de 30 dias, sendo perigoso para o ambiente.",
+      "c": "O Tecnécio é mais caro que o Iodo.",
+      "d": "O Tecnécio não permite visualizar a tiróide.",
+      "e": "Não existem limitações; o Tecnécio é superior em todos os aspectos."
+    },
+    "answer": "a",
+    "rationale": "Enquanto o Iodo é captado e organificado (incorporado à tireoglobulina), o Tecnécio entra na célula pelo mesmo transportador (NIS) mas não é organificado. Alguns tumores (como carcinomas papilíferos) podem manter a capacidade de captar (trapping) mas perder a de organificar. Assim, podem aparecer 'quentes' no Tecnécio mas serem 'frios' (não funcionais) na realidade biológica.",
+    "option_rationales": {
+      "a": "Correta. Fato técnico fundamental na medicina nuclear.",
+      "b": "Incorreta. Tem meia-vida curta (6 horas).",
+      "c": "Incorreta. É muito mais barato devido aos geradores hospitalares.",
+      "d": "Incorreta. Visualiza muito bem devido à radiação gama ideal.",
+      "e": "Incorreta. Existe a limitação biológica citada."
+    },
+    "difficulty": "dificil",
+    "subspecialty": "Medicina Nuclear",
+    "subject": "Tireoide",
+    "tags": [
+      "Tecnécio",
+      "Iodo-131",
+      "Cintilografia",
+      "Nódulo Quente"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "Paciente feminina, 30 anos, procura emergência com palpitações e bócio doloroso há 3 dias. Refere gripe há 1 semana. Exames: TSH < 0,05 mUI/L, T4 livre = 3,5 ng/dL, VHS = 105 mm/h. Ela deve receber qual das seguintes medicações como tratamento inicial dos sintomas adrenérgicos?",
+    "options": {
+      "a": "Propranolol e Anti-inflamatórios não esteroides (AINEs).",
+      "b": "Metimazol em altas doses associado a iodo.",
+      "c": "Levotiroxina de urgência.",
+      "d": "Heparina de baixo peso molecular.",
+      "e": "Antibioticoterapia de amplo espectro por 14 dias."
+    },
+    "answer": "a",
+    "rationale": "Trata-se de Tireoidite de Quervain (Subaguda). O hipertireoidismo é por 'escape' (destruição glandular), não por excesso de síntese. Logo, antitireoidianos (Metimazol) NÃO FUNCIONAM. O tratamento foca no controle da dor (AINEs ou Corticoides se severa) e dos sintomas de tireotoxicose (Betabloqueadores como Propranolol).",
+    "option_rationales": {
+      "a": "Correta. Manejo sintomático da fase aguda.",
+      "b": "Incorreta. Metimazol inibe a síntese, que já está baixa/normal na tireoidite.",
+      "c": "Incorreta. Faria sentido apenas na fase posterior de hipotireoidismo.",
+      "d": "Incorreta. Não há trombose envolvida.",
+      "e": "Incorreta. A causa é viral/imune pós-viral, não bacteriana (exceto na rara tireoidite aguda supurativa)."
+    },
+    "difficulty": "media",
+    "subspecialty": "Clínica Médica",
+    "subject": "Tireoide",
+    "tags": [
+      "Tireoidite Subaguda",
+      "Quervain",
+      "Manejo Clínico",
+      "VHS"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "Em pacientes com hipotireoidismo severo ou mixedema, a ocorrência de hiponatremia (sódio baixo) é atribuída principalmente a:",
+    "options": {
+      "a": "Diminuição da depuração de água livre devido ao excesso de secreção de ADH (vasopressina) e redução do débito cardíaco.",
+      "b": "Perda urinária massiva de sal por resistência à aldosterona.",
+      "c": "Ingestão compulsiva de água pura (polidipsia primária mixedematosa).",
+      "d": "Sudorese profusa induzida pelo coma.",
+      "e": "Hiperuricemia interferindo com o túbulo coletor."
+    },
+    "answer": "a",
+    "rationale": "O hipotireoidismo grave causa redução do débito cardíaco e do fluxo plasmático renal, estimulando a liberação barorreflexa de ADH (hormônio antidiurético). Além disso, a carência de tiroxina reduz a capacidade de diluição urinária. Isso leva à retenção de água livre desproporcional ao sódio, gerando hiponatremia dilucional.",
+    "option_rationales": {
+      "a": "Correta. Mecanismo fisiopatológico endocrinológico clássico.",
+      "b": "Incorreta. Addison causa isso, o hipotireoidismo não.",
+      "c": "Incorreta. Mixedema causa bradipneumia/letargia, não polidipsia ativa.",
+      "d": "Incorreta. Mixedematosos têm pele seca e anidrose (não suam).",
+      "e": "Incorreta. Explicação sem nexo fisiopatológico."
+    },
+    "difficulty": "dificil",
+    "subspecialty": "Nefrologia",
+    "subject": "Tireoide",
+    "tags": [
+      "Hiponatremia",
+      "Mixedema",
+      "ADH",
+      "Fisiopatologia"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "Qual o principal parâmetro de ultrassonografia que define um nódulo como TI-RADS 5 (Altamente Suspeito) de acordo com o ACR (American College of Radiology)?",
+    "options": {
+      "a": "Soma de pontos (7 ou mais) decorrentes de: sólido, hipoecoico, mais alto que largo, margens irregulares e microcalcificações.",
+      "b": "Apenas o bócio mergulhante.",
+      "c": "Nódulo puramente cístico.",
+      "d": "Nódulo isoeico com halo fino.",
+      "e": "Nódulo maior que 5 cm sem atipias."
+    },
+    "answer": "a",
+    "rationale": "O sistema TI-RADS do ACR atribui pontos a características ecográficas. A pontuação máxima e a categoria 5 (sugerindo malignidade > 80%) ocorrem quando o nódulo acumula achados como hipoecogenicidade acentuada, orientação vertical (taller-than-wide), focos ecogênicos pontuados (microcalcificações) e margens extratireoidianas ou irregulares.",
+    "option_rationales": {
+      "a": "Correta. Critérios diagnósticos radiológicos atuais.",
+      "b": "Incorreta. Bócio mergulhante é posição anatômica.",
+      "c": "Incorreta. Cistos simples são TI-RADS 1/2 (benignos).",
+      "d": "Incorreta. Sugere benignidade (nódulo coloide ou adenoma).",
+      "e": "Incorreta. Tamanho isolado não define TI-RADS 5."
+    },
+    "difficulty": "media",
+    "subspecialty": "Radiologia",
+    "subject": "Tireoide",
+    "tags": [
+      "TI-RADS",
+      "Ultrassonografia",
+      "Câncer de Tireoide",
+      "Critérios"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "Um paciente de 25 anos apresenta hipertireoidismo clínico severo. Além do TSH suprimido e T4 livre elevado, apresenta anticorpos anti-receptor de TSH (TRAb) positivos. Qual o sinal oftálmico patognomônico da Doença de Graves que permite o diagnóstico clínico mesmo sem o bócio?",
+    "options": {
+      "a": "Exoftalmia (proptose) associada a edema palpebral e retração palpebral (Sinal de Dalrymple).",
+      "b": "Cegueira noturna (nictalopia).",
+      "c": "Arco senil bilateral.",
+      "d": "Hifema pós-traumático.",
+      "e": "Anisocoria pupilar fixa."
+    },
+    "answer": "a",
+    "rationale": "A Orbitopatia de Graves é a manifestação extratireoidiana mais específica da doença. A retração palpebral e a proptose (devido ao aumento dos músculos extraoculares e gordura retro-orbitária por inflamação mediada por linfócitos e TRAb) são sinais que fecham o diagnóstico clínico da síndrome de Graves.",
+    "option_rationales": {
+      "a": "Correta. Sinal clínico autoritativo.",
+      "b": "Incorreta. Falta de Vitamina A.",
+      "c": "Incorreta. Dislipidemia.",
+      "d": "Incorreta. Sangue na câmara anterior do olho por trauma.",
+      "e": "Incorreta. Neurologia/Síndrome de Horner ou Horner."
+    },
+    "difficulty": "facil",
+    "subspecialty": "Endocrinologia",
+    "subject": "Tireoide",
+    "tags": [
+      "Graves",
+      "Exoftalmia",
+      "Semiologia",
+      "Oftalmopatia"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "Anticorpos Monoclonais como o Teprotumumabe foram recentemente aprovados pelo FDA (embora ainda de difícil acesso no Brasil) para o tratamento de qual complicação tireoidiana?",
+    "options": {
+      "a": "Orbitopatia de Graves moderada a grave e ativa.",
+      "b": "Carcinoma Anaplásico de Tireoide.",
+      "c": "Tireoidite de Hashimoto resistente a reposição.",
+      "d": "Mixedema congênito tardio.",
+      "e": "Bócio intratorácico recidivante."
+    },
+    "answer": "a",
+    "rationale": "O Teprotumumabe é um anticorpo bloqueador do receptor do fator de crescimento semelhante à insulina 1 (IGF-IR). Ele demonstrou reduzir significativamente a proptose e a inflamação na orbitopatia de Graves, atuando diretamente no mecanismo patogênico da gordura e tecidos retro-orbitários.",
+    "option_rationales": {
+      "a": "Correta. Novidade terapêutica de ponta na endocrino-oftalmologia.",
+      "b": "Incorreta. CAT exige ITKs ou BRAF-inhibitors.",
+      "c": "Incorreta. Hashimoto não exige anticorpos monoclonais.",
+      "d": "Incorreta. Tratado com L-T4.",
+      "e": "Incorreta. Manejo cirúrgico."
+    },
+    "difficulty": "dificil",
+    "subspecialty": "Farmacologia Clínica",
+    "subject": "Tireoide",
+    "tags": [
+      "Teprotumumabe",
+      "Graves",
+      "Imunobiológicos",
+      "Tratamento"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "Ao realizar uma dosagem laboratorial, o clínico percebe que o paciente tem T3 e T4 TOTAIS muito elevados, porém o T4 e T3 LIVRES e o TSH são perfeitamente normais. O paciente está assintomático. Qual a causa provável?",
+    "options": {
+      "a": "Aumento da concentração de Proteína Transportadora de Tiroxina (TBG), geralmente por uso de estrogênios ou gravidez.",
+      "b": "Hipertireoidismo subclínico severo.",
+      "c": "Erro laboratorial por hemólise.",
+      "d": "Câncer de Tireoide hiperprodutor de TBG.",
+      "e": "Consumo excessivo de iodo na dieta (dieta japonesa)."
+    },
+    "answer": "a",
+    "rationale": "Hormônios 'totais' medem a soma do hormônio livre (ativo) com o hormônio ligado às proteínas (inativo). Condições que aumentam a TBG (como anticoncepcionais orais, reposição de estrogênio ou excesso de produção hepática na gravidez) elevam o T4 Total, mas o feedback hipofisário regula apenas o T4 Livre. O paciente é eutireoidiano.",
+    "option_rationales": {
+      "a": "Correta. Armadilha diagnóstica clássica na interpretação de exames.",
+      "b": "Incorreta. Subclínico teria TSH alterado e livres normais.",
+      "c": "Incorreta. Hemólise não altera TBG seletivamente desta forma.",
+      "d": "Incorreta. TBG é produzida no fígado, não na tireoide.",
+      "e": "Incorreta. Alteraria o metabolismo hormonal, mas não a proteína de transporte de forma isolada."
+    },
+    "difficulty": "media",
+    "subspecialty": "Endocrinologia",
+    "subject": "Tireoide",
+    "tags": [
+      "TBG",
+      "Hormônios Totais",
+      "Estrogênio",
+      "Laboratório"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "O linfonodo pré-laríngeo, localizado sobre a membrana cricotireóidea e frequentemente envolvido em metástases de câncer de tireoide, é conhecido como:",
+    "options": {
+      "a": "Linfonodo de Delphian.",
+      "b": "Linfonodo de Virchow.",
+      "c": "Linfonodo da Irmã Maria José.",
+      "d": "Linfonodo de Cloquet.",
+      "e": "Linfonodo Sentinela Axilar."
+    },
+    "answer": "a",
+    "rationale": "O linfonodo de Delphian (nível VI cervical) situa-se anteriormente à laringe. No contexto de nódulo tireoidiano, sua palpação ou visualização por imagem como aumentado sugere fortemente cúpula para carcinoma papilífero ou câncer de laringe.",
+    "option_rationales": {
+      "a": "Correta. Anatomia cirúrgica e oncológica cervical.",
+      "b": "Incorreta. Supraclavicular esquerdo (metástase abdominal).",
+      "c": "Incorreta. Nódulo umbilical (carcinomatose peritoneal).",
+      "d": "Incorreta. Canal inguinal/femoral.",
+      "e": "Incorreta. Relacionado a mama/MMSS."
+    },
+    "difficulty": "media",
+    "subspecialty": "Anatomia Cirúrgica",
+    "subject": "Tireoide",
+    "tags": [
+      "Delphian",
+      "Metástase",
+      "Cirurgia",
+      "Anatomia"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "Um paciente de 18 anos apresenta nódulo tireoidiano Bethesda II (Benigno) e solicita a ablação do nódulo por razões estéticas, pois ele é protuberante. Além da cirurgia convencional, qual técnica minimamente invasiva pode ser utilizada, especialmente se o nódulo for predominantemente sólido?",
+    "options": {
+      "a": "Ablação por Radiofrequência (RFA) ou Laser.",
+      "b": "Radioterapia externa holocraniana.",
+      "c": "Lipoaspiração cervical focada.",
+      "d": "Uso de gelo seco local por 30 dias.",
+      "e": "Aplicação de Toxina Botulínica intraglândular."
+    },
+    "answer": "a",
+    "rationale": "Para nódulos benignos (confirmados por 2 PAAFs) que causam sintomas compressivos ou estéticos, a radiofrequência é uma alternativa segura à cirurgia, permitindo a redução térmica do nódulo sem cicatriz cervical significativa e preservando a função tireoidiana residual.",
+    "option_rationales": {
+      "a": "Correta. Técnica moderna e eficaz para nódulos benignos.",
+      "b": "Incorreta. Proibida pelo risco de câncer induzido por radiação.",
+      "c": "Incorreta. Não remove tecido glandular/nodular.",
+      "d": "Incorreta. Ineficaz e perigoso para a pele.",
+      "e": "Incorreta. Botox paralisa músculos, não reduz volume nodular."
+    },
+    "difficulty": "media",
+    "subspecialty": "Radiologia Intervencionista",
+    "subject": "Tireoide",
+    "tags": [
+      "Radiofrequência",
+      "RFA",
+      "Nódulo Benigno",
+      "Tratamento"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "A principal indicação de cirurgia de urgência em um bócio multinodular não-tóxico é:",
+    "options": {
+      "a": "Instalação de sinais de insuficiência respiratória obstrutiva aguda por compressão traqueal.",
+      "b": "Ganho de 2 kg de peso no último mês.",
+      "c": "Desejo do paciente de remover o nódulo antes de uma viagem.",
+      "d": "Aumento leve da Tireoglobulina isolado.",
+      "e": "Presença de rouquidão antiga estável."
+    },
+    "answer": "a",
+    "rationale": "Bócios volumosos ou intratorácicos podem crescer de forma a desviar ou comprimir a traqueia (traqueomalácia), reduzindo o lúmen respiratório. A ocorrência de estridor ou dispneia de decúbito configura indicação absoluta e urgente para descompressão cirúrgica.",
+    "option_rationales": {
+      "a": "Correta. Única urgência real dentre as opções.",
+      "b": "Incorreta. Inespecífico.",
+      "c": "Incorreta. Motivação eletiva.",
+      "d": "Incorreta. TG não é marcador de urgência.",
+      "e": "Incorreta. Rouquidão estável deve ser investigada para câncer, mas não é urgência imediata."
+    },
+    "difficulty": "facil",
+    "subspecialty": "Cirurgia Geral",
+    "subject": "Tireoide",
+    "tags": [
+      "Bócio",
+      "Urgência",
+      "Compressão Traqueal",
+      "Manejo"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "No hipotireoidismo agudo severo (Coma Mixedematoso), além da reposição hormonal, qual suporte hematológico ou metabólico deve ser avaliado devido à diminuição do estímulo da eritropoiese e lentidão medular?",
+    "options": {
+      "a": "Avaliação de Anemia Normocítica (pela falta de hormônio tireoidiano) e Hipoglicemia.",
+      "b": "Tratamento de Poliglobulia severa.",
+      "c": "Reposição de Ferro endovenoso profilático em todos os casos.",
+      "d": "Uso de anticoagulantes para tratar anemia falciforme associada.",
+      "e": "Transfusão de granulócitos."
+    },
+    "answer": "a",
+    "rationale": "Hormônios tireoidianos são necessários para a eritropoiese adequada e para o metabolismo da glicose. O coma mixedematoso frequentemente cursa com anemia e hipoglicemia, que devem ser corrigidas juntamente com a hipotermia e o hipotireoidismo severo.",
+    "option_rationales": {
+      "a": "Correta. Suporte metabólico/hematológico no coma.",
+      "b": "Incorreta. Mixedema causa anemia, não poliglobulia.",
+      "c": "Incorreta. Deve-se diagnosticar a causa da anemia antes; a causa hormonal resolve com L-T4.",
+      "d": "Incorreta. Não existe essa associação patogênica direta.",
+      "e": "Incorreta. Despropositado."
+    },
+    "difficulty": "dificil",
+    "subspecialty": "Clínica Médica",
+    "subject": "Tireoide",
+    "tags": [
+      "Coma Mixedematoso",
+      "Hematologia",
+      "Anemia",
+      "Metabolismo"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "Um paciente de 48 anos com Doença de Graves apresenta agranulocitose (neutrófilos < 500/mm³) após 20 dias de uso de Metimazol. Qual a conduta correta?",
+    "options": {
+      "a": "Suspender o Metimazol permanentemente, internar o paciente para vigilância de sepse e contraindicar o uso de Propiltiomacil.",
+      "b": "Reduzir a dose pela metade e repetir o hemograma.",
+      "c": "Trocar por Propiltiomacil em dose dobrada.",
+      "d": "Manter a medicação e associar fator estimulador de colônias de granulócitos (G-CSF) ambulatorialmente.",
+      "e": "Suspender apenas se houver febre persistente por mais de 10 dias."
+    },
+    "answer": "a",
+    "rationale": "A agranulocitose é o efeito colateral mais temido e grave das tionamidas (Metimazol/PTU). Ocorre por mecanismo imune e geralmente é cross-reactive (se ocorreu com um, pode ocorrer com o outro). A suspensão deve ser definitiva e absoluta; o tratamento agora deve ser focado em iodo radioativo ou cirurgia após estabilização.",
+    "option_rationales": {
+      "a": "Correta. Condutda padrão de segurança absoluta.",
+      "b": "Incorreta. Risco de óbito por sepse neutropênica.",
+      "c": "Incorreta. Prática perigosa devido à reatividade cruzada.",
+      "d": "Incorreta. O fármaco deve ser retirado imediatamente da circulação.",
+      "e": "Incorreta. A presença de agranulocitose laboratorial já exige interrupção."
+    },
+    "difficulty": "media",
+    "subspecialty": "Endocrinologia",
+    "subject": "Tireoide",
+    "tags": [
+      "Agranulocitose",
+      "Metimazol",
+      "Segurança Farmacológica",
+      "Hematologia"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "A maioria dos guias recomenda que a PAAF de tireoide não seja realizada em nódulos menores que:",
+    "options": {
+      "a": "1,0 cm, a menos que existam características ecográficas de alta suspeição ou fatores de risco (ex: história familiar ou radiação).",
+      "b": "0,5 cm em qualquer circunstância.",
+      "c": "3,0 cm, devido ao baixo risco de metástases.",
+      "d": "Qualquer tamanho; PAAF deve ser feita em todos os nódulos detectáveis.",
+      "e": "Apenas se o nódulo for palpável no exame físico."
+    },
+    "answer": "a",
+    "rationale": "O diagnóstico de microcarcinomas papilíferos (< 1cm) frequentemente não altera o prognóstico ou a conduta (muitos podem ser apenas observados). Diretrizes da ATA e da SBEM sugerem o corte de 1 cm para indicação de PAAF na maioria dos nódulos, visando evitar sobrediagnóstico e sobretratamento.",
+    "option_rationales": {
+      "a": "Correta. Regra geral baseada em evidência e custo-efetividade.",
+      "b": "Incorreta. Nódulos < 1cm geralmente são seguidos e não puncionados.",
+      "c": "Incorreta. Nódulos entre 1 e 3 cm devem ser investigados.",
+      "d": "Incorreta. Geraria excesso de procedimentos desnecessários.",
+      "e": "Incorreta. Muitos nódulos não palpáveis são detectados pelo USG e exigem PAAF."
+    },
+    "difficulty": "facil",
+    "subspecialty": "Radiologia",
+    "subject": "Tireoide",
+    "tags": [
+      "PAAF",
+      "Diretrizes",
+      "Nódulo de Tireoide",
+      "Microcarcinoma"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "Na vigência do 'Fenômeno de Jod-Basedow', o hipertireoidismo é desencadeado por qual fator?",
+    "options": {
+      "a": "Pelo excesso de oferta de iodo em uma glândula que já possui autonomia funcional (ex: bócio multinodular ou adenoma autônomo).",
+      "b": "Pela destruição autoimune aguda dos folículos.",
+      "c": "Pela falta absoluta de selênio.",
+      "d": "Por estresse psicológico extremo.",
+      "e": "Por picada de insetos em áreas endêmicas."
+    },
+    "answer": "a",
+    "rationale": "O Jod-Basedow ocorre quando um aporte súbito de iodo (contraste radiological, amiodarona ou suplementos) 'alimenta' zonas da tireoide que não estão sob controle do TSH (nódulos autônomos), resultando na síntese e liberação excessiva de hormônios. Diferencia-se do Wolff-Chaikoff que é o oposto (bloqueio por excesso).",
+    "option_rationales": {
+      "a": "Correta. Fisiopatologia da tireotoxicose induzida por iodo.",
+      "b": "Incorreta. Descreve tireoidites.",
+      "c": "Incorreta. Selênio atua na conversão periférica e proteção oxidativa, não no Jod-Basedow.",
+      "d": "Incorreta. O fator é químico (iodo).",
+      "e": "Incorreta. Sem relação."
+    },
+    "difficulty": "media",
+    "subspecialty": "Endocrinologia",
+    "subject": "Tireoide",
+    "tags": [
+      "Jod-Basedow",
+      "Iodo",
+      "Hipertireoidismo",
+      "Fisiologia"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "Qual a principal vantagem da realização da PAAF guiada por ultrassonografia em comparação à técnica manual (palpatória)?",
+    "options": {
+      "a": "Aumenta a acurácia diagnóstica ao garantir que o material foi coletado da área sólida de maior suspeição e reduz a taxa de amostras inadequadas.",
+      "b": "Elimina a dor do procedimento.",
+      "c": "Permite que qualquer pessoa realize o exame sem treinamento.",
+      "d": "Substitui a necessidade de biópsia cirúrgica em todos os casos de Bethesda IV.",
+      "e": "Nenhuma; a técnica manual é superior pela sensibilidade tátil."
+    },
+    "answer": "a",
+    "rationale": "A USG permite visualizar a ponta da agulha dentro do nódulo, focando em componentes sólidos e suspeitos de nódulos mistos, além de permitir o acesso a nódulos profundos ou não palpáveis. Reduz significativamente a taxa de material insuficiente.",
+    "option_rationales": {
+      "a": "Correta. Fundamento da prática radiológica/endocrinológica moderna.",
+      "b": "Incorreta. A agulha ainda penetra os tecidos, gerando desconforto similar.",
+      "c": "Incorreta. Exige treinamento em ultrassonografia e punção.",
+      "d": "Incorreta. Bethesda IV continua exigindo cirurgia/molecular.",
+      "e": "Incorreta. A manual tem taxas de erro e insuficiência muito maiores."
+    },
+    "difficulty": "facil",
+    "subspecialty": "Radiologia",
+    "subject": "Tireoide",
+    "tags": [
+      "PAAF",
+      "Ultrassonografia",
+      "Diagnóstico",
+      "Tireoide"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "Uma paciente de 34 anos apresenta TSH = 0,02 mUI/L e T4 livre = 1,4 ng/dL (normal). Refere bócio volumoso diagnosticado há 5 anos. Ela apresenta hipertireoidismo:",
+    "options": {
+      "a": "Subclínico.",
+      "b": "Central.",
+      "c": "Factício.",
+      "d": "Franco.",
+      "e": "Terciário."
+    },
+    "answer": "a",
+    "rationale": "Define-se hipertireoidismo subclínico pela presença de TSH suprimido (abaixo do limite inferior da referência) associado a níveis normais de hormônios tireoidianos livres (T4 e T3). É comum em bócio multinodular antigo por autonomia de alguns nódulos.",
+    "option_rationales": {
+      "a": "Correta. Definição bioquímica laboratorial.",
+      "b": "Incorreta. Central teria TSH baixo com T4 livre também baixo.",
+      "c": "Incorreta. Factício resultaria no mesmo perfil, mas a história de bócio volumoso sugere causa endógena.",
+      "d": "Incorreta. Franco exigiria T4 ou T3 livres elevados.",
+      "e": "Incorreta. Terciário refere-se à falha hipotalâmica (hipotireoidismo)."
+    },
+    "difficulty": "facil",
+    "subspecialty": "Endocrinologia",
+    "subject": "Tireoide",
+    "tags": [
+      "Hipertireoidismo Subclínico",
+      "TSH",
+      "Laboratório",
+      "Endocrinologia"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "A deficiência de iodo, embora rara em áreas com sal iodado, continua sendo a causa mais comum de bócio no mundo. Qual o mecanismo de formação do bócio nesta situação?",
+    "options": {
+      "a": "Aumento mantido do TSH em resposta aos níveis baixos de T4, levando à hiperplasia e hipertrofia dos tireócitos.",
+      "b": "Acúmulo de gordura intraglandular.",
+      "c": "Infiltração por macrófagos gigantes.",
+      "d": "Hipercalcemia mimetizando bócio.",
+      "e": "Infeção por parasitas que consomem iodo no duodeno."
+    },
+    "answer": "a",
+    "rationale": "Com pouco iodo, a tireoide produz menos T4. A hipófise detecta isso e aumenta o TSH para tentar estimular a glândula. O TSH crônico atua como fator de crescimento, causando o aumento de volume glandular (bócio) para otimizar a extração do pouco iodo disponível no sangue.",
+    "option_rationales": {
+      "a": "Correta. Mecanismo fisiológico adaptativo/patológico básico.",
+      "b": "Incorreta. É hiperplasia de células foliculares, não gordura.",
+      "c": "Incorreta. Padrão de tireoidites, não de bócio carencial.",
+      "d": "Incorreta. Hipotira não causa hipercalcemia.",
+      "e": "Incorreta. Totalmente sem fundamento."
+    },
+    "difficulty": "facil",
+    "subspecialty": "Clínica Médica",
+    "subject": "Tireoide",
+    "tags": [
+      "Bócio Endêmico",
+      "Iodo",
+      "TSH",
+      "Fisiologia"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "Qual dos seguintes tumores de tireoide não se origina das células foliculares?",
+    "options": {
+      "a": "Carcinoma Medular.",
+      "b": "Carcinoma Papilífero.",
+      "c": "Carcinoma Folicular.",
+      "d": "Adenoma Folicular.",
+      "e": "Carcinoma de Células de Hürthle."
+    },
+    "answer": "a",
+    "rationale": "O Carcinoma Medular de Tireoide (CMT) origina-se das células C (ou parafoliculares), que produzem calcitonia. Todos os outros citados derivam do epitélio folicular tireoidiano.",
+    "option_rationales": {
+      "a": "Correta. Origem citológica distinta (Células C).",
+      "b": "Incorreta. Célula folicular.",
+      "c": "Incorreta. Célula folicular.",
+      "d": "Incorreta. Célula folicular.",
+      "e": "Incorreta. Célula folicular (variante oncocítica)."
+    },
+    "difficulty": "media",
+    "subspecialty": "Oncologia",
+    "subject": "Tireoide",
+    "tags": [
+      "Câncer de Tireoide",
+      "Carcinoma Medular",
+      "Células C",
+      "Oncologia"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "Um achado de macroglossia em um recém-nascido, associado a choro rouco, hérnia umbilical e icterícia neonatal prolongada, é sugestivo de:",
+    "options": {
+      "a": "Hipotireoidismo Congênito.",
+      "b": "Hipertrofia de piloro.",
+      "c": "Fibrose Cística.",
+      "d": "Encefalite Viral.",
+      "e": "Infecção por Citomegalovírus."
+    },
+    "answer": "a",
+    "rationale": "Essas são as manifestações clássicas do hipotireoidismo congênito severo (cretinismo) em neonatos. A macroglossia ocorre pelo acúmulo de glicosaminoglicanos (mixedema) na língua.",
+    "option_rationales": {
+      "a": "Correta. Clínica pediátrica viga-mestra.",
+      "b": "Incorreta. Causa vômitos em jato.",
+      "c": "Incorreta. Causa íleo meconial.",
+      "d": "Incorreta. Causa convulsões e febre.",
+      "e": "Incorreta. Causa microcefalia e calcificações cerebrais."
+    },
+    "difficulty": "facil",
+    "subspecialty": "Pediatria",
+    "subject": "Tireoide",
+    "tags": [
+      "Hipotireoidismo Congênito",
+      "Semiologia Pediátrica",
+      "Pediatria",
+      "Saúde Infantil"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "A dosagem de anticorpos contra o receptor de TSH (TRAb) é útil em qual situação clínica?",
+    "options": {
+      "a": "No diagnóstico da Doença de Graves e na avaliação do risco de hipertireoidismo neonatal em gestantes com Graves.",
+      "b": "Para diferenciar câncer papilífero de folicular.",
+      "c": "Somente após a retirada total da tireoide em casos de bócio amiloide.",
+      "d": "Para monitorar o uso de Amiodarona.",
+      "e": "Para rastrear depressão em adolescentes."
+    },
+    "answer": "a",
+    "rationale": "O TRAb é o anticorpo estimulador patogênico da Doença de Graves. Sua dosagem confirma o diagnóstico etiológico do hipertireoidismo. Em gestantes, níveis muito elevados de TRAb (IgG que atravessa a placenta) indicam risco de o feto nascer com tireotoxicose neonatal transitória.",
+    "option_rationales": {
+      "a": "Correta. Indicação clínica principal do marcador.",
+      "b": "Incorreta. Sem papel no câncer Diferenciado.",
+      "c": "Incorreta. Sem relação.",
+      "d": "Incorreta. Amiodarona monitora-se com TSH/L-T4/T3.",
+      "e": "Incorreta. Sem nexo."
+    },
+    "difficulty": "media",
+    "subspecialty": "Hepatologia",
+    "subject": "Tireoide",
+    "tags": [
+      "TRAb",
+      "Graves",
+      "Gestação",
+      "Hipertireoidismo Neonatal"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "Qual dos seguintes medicamentos não interfere na absorção de Levotiroxina (L-T4) se tomados simultaneamente?",
+    "options": {
+      "a": "Vitamina C (em doses normais).",
+      "b": "Sulfato Ferroso.",
+      "c": "Carbonato de Cálcio.",
+      "d": "Inibidores de Bomba de Prótons (Omeprazol).",
+      "e": "Colestiramina."
+    },
+    "answer": "a",
+    "rationale": "A Vitamina C na verdade cria um ambiente ácido que pode ajudar na absorção da L-T4. Ferro, Cálcio, Omeprazol (que reduz a acidez gástrica) e resinas de troca (Colestiramina) prejudicam significativamente a absorção da medicação, exigindo intervalo de pelo menos 4 horas.",
+    "option_rationales": {
+      "a": "Correta. Não interfere negativamente; pode até favorecer.",
+      "b": "Incorreta. Grande interferente gástrico.",
+      "c": "Incorreta. Grande interferente gástrico.",
+      "d": "Incorreta. A hipocloridria reduz a solubilização do comprimido de L-T4.",
+      "e": "Incorreta. Sequestrante de ácidos biliares que prende o hormônio no lúmen intestinal."
+    },
+    "difficulty": "media",
+    "subspecialty": "Farmacologia Clínica",
+    "subject": "Tireoide",
+    "tags": [
+      "Interação Medicamentosa",
+      "Levotiroxina",
+      "Absorção",
+      "Hipotireoidismo"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "Em pacientes com Carcinoma Medular de Tireoide hereditário (NEM 2), qual a conduta profilática recomendada para crianças que portam mutações de alto risco no proto-oncogene RET?",
+    "options": {
+      "a": "Tireoidectomia total profilática (muitas vezes antes dos 5 anos ou até no primeiro ano de vida, dependendo do codon mutado).",
+      "b": "Apenas observação semestral com ultrassonografia.",
+      "c": "Uso de iodo radioativo preventivo.",
+      "d": "Dieta pobre em cálcio.",
+      "e": "Realizar apenas biópsias anuais de pele."
+    },
+    "answer": "a",
+    "rationale": "Devido à penetrância quase completa do Carcinoma Medular na NEM 2 e ao seu comportamento agressivo em crianças, a tireoidectomia profilática é o padrão de cuidado. O momento exato da cirurgia é guiado pelo risco específico associado à mutação do gene RET identificada no rastreio genético familiar.",
+    "option_rationales": {
+      "a": "Correta. Conduta preventiva viga-mestra na oncogenética.",
+      "b": "Incorreta. Risco de metástases precoces é inaceitável.",
+      "c": "Incorreta. O carcinoma medular não capta iodo radioativo.",
+      "d": "Incorreta. Sem efeito no câncer.",
+      "e": "Incorreta. Sem relação com a tireoide."
+    },
+    "difficulty": "dificil",
+    "subspecialty": "Genética Médica",
+    "subject": "Tireoide",
+    "tags": [
+      "RET",
+      "Carcinoma Medular",
+      "Tireoidectomia Profilática",
+      "NEM 2"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "A cintilografia com Sestamibi (MIBI) é frequentemente utilizada em qual contexto de doença tireoidiana/paratireoidiana?",
+    "options": {
+      "a": "Localização de glândulas paratireoides hiperfuncionantes (adenomas de paratireoide).",
+      "b": "Avaliação de bócio lingual apenas.",
+      "c": "Tratamento de câncer anaplásico.",
+      "d": "Mapeamento de linfonodos axilares.",
+      "e": "Rastreio de feocromocitoma."
+    },
+    "answer": "a",
+    "rationale": "O MIBI é captado tanto pela tireoide quanto pelas paratireoides, mas o wash-out (lavagem) é mais lento nas paratireoides hiperativas. Assim, imagens tardias de cintilografia com MIBI permitem localizar adenomas de paratireoide em pacientes com hiperparatireoidismo primário.",
+    "option_rationales": {
+      "a": "Correta. Principal uso desta técnica de imagem.",
+      "b": "Incorreta. Iodo ou Tecnécio são melhores.",
+      "c": "Incorreta. Não é terapia.",
+      "d": "Incorreta. Linfoscintilografia usa outros radiotraçadores.",
+      "e": "Incorreta. Usa-se MIBG para feocromocitoma."
+    },
+    "difficulty": "media",
+    "subspecialty": "Medicina Nuclear",
+    "subject": "Tireoide",
+    "tags": [
+      "Sestamibi",
+      "Paratireoide",
+      "Hiperparatireoidismo",
+      "Imagem"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "O hormônio T3 (triiodotironina) é aproximadamente quantas vezes mais potente que o T4 (tiroxina) no receptor nuclear?",
+    "options": {
+      "a": "3 a 4 vezes.",
+      "b": "100 vezes.",
+      "c": "Igual potência.",
+      "d": "Meia potência do T4.",
+      "e": "O T3 não tem potência; é inativo."
+    },
+    "answer": "a",
+    "rationale": "O T4 é considerado um pro-hormônio. A maior parte das ações biológicas ocorre via T3, que possui uma afinidade pelo receptor nuclear tireoidiano cerca de 3 a 4 vezes maior que a do T4 e age de forma muito mais rápida. Por isso a conversão periférica por deiodinases é tão crucial.",
+    "option_rationales": {
+      "a": "Correta. Fundamento da fisiologia tireoidiana.",
+      "b": "Incorreta. Excesso sugerido.",
+      "c": "Incorreta. T3 é muito mais ativo.",
+      "d": "Incorreta. Contradição biológica.",
+      "e": "Incorreta. O T3 reverso que é inativo."
+    },
+    "difficulty": "facil",
+    "subspecialty": "Fisiologia",
+    "subject": "Tireoide",
+    "tags": [
+      "Fisiologia",
+      "T3",
+      "T4",
+      "Receptores"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  }
+]

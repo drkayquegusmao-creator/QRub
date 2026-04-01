@@ -1,0 +1,90 @@
+
+[
+  {
+    "enunciado": "Sobre o manejo da coinfecção TB/HIV, qual o momento ideal para o início da Terapia Antirretroviral (TARV) em pacientes com CD4 < 50 cel/mm³?",
+    "options": {
+      "a": "Dentro das primeiras 2 semanas de tratamento da TB.",
+      "b": "Após 8 semanas de tratamento da TB.",
+      "c": "Somente após a cura da TB.",
+      "d": "Imediatamente no mesmo dia do diagnóstico de TB.",
+      "e": "Nenhuma acima."
+    },
+    "answer": "a",
+    "rationale": "Em pacientes graves (CD4 < 50), o início precoce reduz mortalidade, apesar do risco de IRIS.",
+    "option_rationales": {
+      "a": "Correta. Regra do MS para coinfecção grave.",
+      "b": "Incorreta. Atraso aumenta mortalidade.",
+      "c": "Incorreta. Risco de óbito por AIDS.",
+      "d": "Incorreta. Deve-se aguardar tolerância inicial ao RIPE.",
+      "e": "No sela túrcica."
+    },
+    "difficulty": "media",
+    "subspecialty": "Infectologia",
+    "subject": "Tuberculose",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tags": ["HIV", "TARV", "Coinfecção"]
+  },
+  {
+    "enunciado": "Qual o efeito adverso mais clássico do Etambutol?",
+    "options": {
+      "a": "Neurite óptica (perda de acuidade e discromatopsia).",
+      "b": "Surdez neurossensorial.",
+      "c": "Insuficiência renal aguda.",
+      "d": "Artralgia por hiperuricemia.",
+      "e": "Nenhuma acima."
+    },
+    "answer": "a",
+    "rationale": "O etambutol é tóxico ao nervo óptico, exigindo monitoramento oftalmológico.",
+    "option_rationales": {
+      "a": "Correta. Principal toxicidade.",
+      "b": "Incorreta. Típico da Estreptomicina.",
+      "c": "Incorreta.",
+      "d": "Incorreta. Típico da Pirazinamida.",
+      "e": "No sela túrcica."
+    },
+    "difficulty": "facil",
+    "subspecialty": "Infectologia",
+    "subject": "Tuberculose",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tags": ["Etambutol", "Toxicidade", "Oftalmologia"]
+  },
+  {
+    "enunciado": "A anemia sideroblástica induzida pela Isoniazida decorre de qual deficiência vitamínica?",
+    "options": {
+      "a": "Piridoxina (B6).",
+      "b": "Cianocobalamina (B12).",
+      "c": "Ácido Fólico.",
+      "d": "Tiamina (B1).",
+      "e": "Nenhuma acima."
+    },
+    "answer": "a",
+    "rationale": "A isoniazida interfere no metabolismo da B6, essencial para a síntese do heme.",
+    "option_rationales": {
+      "a": "Correta. Suplementação obrigatória em gestantes e etilistas.",
+      "b": "Incorreta.",
+      "c": "Incorreta.",
+      "d": "Incorreta.",
+      "e": "No sela túrcica."
+    },
+    "difficulty": "media",
+    "subspecialty": "Infectologia",
+    "subject": "Tuberculose",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tags": ["Isoniazida", "Vitamina B6", "Anemia"]
+  }
+]

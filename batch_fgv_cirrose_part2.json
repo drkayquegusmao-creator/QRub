@@ -1,0 +1,407 @@
+[
+  {
+    "enunciado": "Um homem de 59 anos, com cirrose Child-Pugh B por vírus C, apresenta quadro súbito de distensão abdominal progressiva e dor nos flancos há 48 horas. Ao exame: ascite volumosa hipertensiva e circulação colateral visível lateralmente. Doppler das veias hepáticas revela ausência de fluxo nas veias supra-hepáticas direita e média, com aspecto hiperecoico em seu trajeto. A veia cava inferior apresenta leve compressão extrínseca. A urina tem sódio de 8 mEq/L. Qual a tríade clínica clássica esperada nesta síndrome e qual o fator de risco trombofílico mais comum para esta condição em adultos?",
+    "options": {
+      "a": "Ascite, Dor Abdominal e Hepatomegalia; Mutação do Fator V de Leiden.",
+      "b": "Icterícia, Febre e Dor no hipocôndrio direito; Anemia Falciforme.",
+      "c": "Dispneia, Platipneia e Cianose; Deficiência de Vitamina B12.",
+      "d": "Confusão Mental, Asterixe e Fetor Hepaticus; Uso de AINEs.",
+      "e": "Sinal de Murphy, Vômitos e Icterícia; Colelitíase Crônica."
+    },
+    "answer": "a",
+    "rationale": "O quadro descreve a Síndrome de Budd-Chiari (obstrução do fluxo de saída venoso hepático), cuja tríade clínica clássica é composta por ascite, dor abdominal e hepatomegalia. Em adultos, após exclusão de causas mecânicas (tumores), as desordens mieloproliferativas e estados pró-trombóticos hereditários, como a mutação do Fator V de Leiden, são os principais gatilhos para a trombose das veias supra-hepáticas.",
+    "option_rationales": {
+      "a": "Correta. Define a tríade clínica e o principal fator de risco genético associado à obstrução venosa supra-hepática.",
+      "b": "Refere-se à Tríade de Charcot (colangite), incompatível com o Doppler de supra-hepáticas.",
+      "c": "Padrão de Síndrome Hepatopulmonar.",
+      "d": "Padrão de Encefalopatia Hepática.",
+      "e": "Padrão de Colecistite ou obstrução biliar."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Budd-Chiari", "Trombofilia", "Gastroenterologia"]
+  },
+  {
+    "enunciado": "Uma mulher de 45 anos com Síndrome de Sjögren apresenta prurido cutâneo persistente há 1 ano. Laboratório revela Fosfatase Alcalina de 500 U/L e Anticorpo Antimitocôndria (AMA) positivo 1:640. Realizada biópsia hepática que demonstrou 'lesão de ducto biliar florido' com granulomas não caseificantes e infiltrado linfocitário. Qual a classificação de estadiamento histológico desta Colangite Biliar Primária (CBP) baseada no achado de fibrose em pontes e qual a droga de segunda linha aprovada para pacientes que não respondem ao Ácido Ursodesoxicólico?",
+    "options": {
+      "a": "Estádio II (Proliferação ductular); Ciclosporina.",
+      "b": "Estádio III (Fibrose septal); Ácido Obeticólico.",
+      "c": "Estádio IV (Cirrose); Azatioprina.",
+      "d": "Estádio I (Hepatite portal); Prednisona.",
+      "e": "Estádio II (Ductopenia); Metotrexato."
+    },
+    "answer": "b",
+    "rationale": "A CBP é estadiada de I a IV; o Estádio III é caracterizado pela presença de fibrose septal ou em pontes (bridging fibrosis). Pacientes que não atingem resposta bioquímica satisfatória com UDCA após 1 ano (critérios de Toronto ou Paris) têm indicação de terapia de segunda linha com o Ácido Obeticólico, um agonista do receptor farnezoide X (FXR), que reduz a síntese de ácidos biliares tóxicos.",
+    "option_rationales": {
+      "a": "A droga de segunda linha não é a ciclosporina.",
+      "b": "Correta. Identifica o estágio histológico de fibrose avançada e a nova terapia alvo aprovada.",
+      "c": "Estádio IV é cirrose franca (nódulos de regeneração).",
+      "d": "Estádio I é limitado ao trato portal, sem fibrose septal.",
+      "e": "Ductopenia severa é característica do estágio II/III, mas metotrexato não é a segunda linha padrão recomendada."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["CBP", "Histologia", "Ácido Obeticólico"]
+  },
+  {
+    "enunciado": "Um paciente de 64 anos com cirrose Child-Pugh A por álcool e tabagista (40 anos/maço) apresenta nódulo de 2,8 cm em segmento VIII hepático, diagnosticado por métodos de imagem como Carcinoma Hepatocelular (CHC). Apresenta Sódio 140 mEq/L, Creatinina 0,9 mg/dL e Plaquetas 105.000/mm³. Não há evidência de ascite ou encefalopatia. A endoscopia mostra varizes de fino calibre. Sobre a aplicabilidade dos Critérios de Milão para este paciente caso ele estivesse em fila de transplante, e qual a melhor conduta curativa imediata para este caso específico (BCLC A)?",
+    "options": {
+      "a": "Fora dos Critérios de Milão; Quimioterapia sistêmica com Sorafenibe.",
+      "b": "Dentro dos Critérios de Milão; Ressecção cirúrgica (Hepatectomia segmental).",
+      "c": "Dentro dos Critérios de Milão; Radiofrequência isolada por ser nódulo único.",
+      "d": "Fora dos Critérios de Milão; Transplante Hepático prioritário (Especial Score).",
+      "e": "Critérios de Milão não se aplicam a nódulos únicos > 2 cm."
+    },
+    "answer": "b",
+    "rationale": "Os Critérios de Milão são: nódulo único ≤ 5 cm OU até 3 nódulos ≤ 3 cm cada, sem invasão vascular. O nódulo de 2,8 cm está DENTRO dos critérios. No sistema BCLC, este é um estágio A (precoce). Em pacientes Child A, com boa função renal e plaquetas aceitáveis, a ressecção cirúrgica é a primeira opção por oferecer cura sem necessidade de transplante imediato e com excelente sobrevida.",
+    "option_rationales": {
+      "a": "Sorafenibe é para BCLC C (estágio avançado).",
+      "b": "Correta. Reconhece que o paciente está nos critérios de Milão e que a cirurgia é a opção preferencial pela boa reserva funcional.",
+      "c": "Radiofrequência é opção se a cirurgia for contraindicada (ex: hipertensão portal grave).",
+      "d": "Estar dentro de Milão permite transplante, mas o nódulo único de 2,8cm em Child A favorece a cirurgia primária.",
+      "e": "Incorreta. Milão engloba nódulo único até 5cm."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["CHC", "Milão", "Cirurgia Hepática"]
+  },
+  {
+    "enunciado": "Um cirrótico de 50 anos dá entrada com febre e agitação psicomotora. Paracentese diagnóstica confirma PBE. Iniciado Ceftriaxona. No 3º dia de internação, o débito urinário cai para 250ml em 24h e a creatinina sobe de 1,0 para 2,1 mg/dL. Após expansão com albumina e infusão de noradrenalina, o paciente não apresenta melhora da função renal, mantendo sódio urinário de 5 mEq/L. Baseado nos novos critérios do International Club of Ascites (ICA-AKI), como é classificada esta insuficiência renal e qual a principal alteração hemodinâmica sistêmica que a sustenta?",
+    "options": {
+      "a": "IRA estágio 1A; Vasoconstrição esplâncnica maciça.",
+      "b": "Síndrome Hepatorrenal (IRA-SHR) estágio 2; Vasodilatação arterial esplâncnica com redução da volemia arterial efetiva.",
+      "c": "Necrose Tubular Aguda; Obstrução ureteral extrínseca por ascite.",
+      "d": "Glomerulopatia Hepática; Aumento do débito cardíaco com congestão renal.",
+      "e": "IRA pré-renal simples; Aumento da resistência vascular periférica sistêmica."
+    },
+    "answer": "b",
+    "rationale": "A piora aguda da função renal em cirróticos com ascite que não responde à expansão volêmica é definida como IRA-SHR (Síndrome Hepatorrenal). O mecanismo fisiopatológico central é a vasodilatação arterial esplâncnica (pela liberação de óxido nítrico e outros mediadores na hipertensão portal), o que leva a uma redução da volemia arterial efetiva e ativação compensatória desproporcional de sistemas vasoconstritores (Renina-Angiotensina-Aldosterona e Simpático), resultando em isquemia renal funcional.",
+    "option_rationales": {
+      "a": "A alteração não é vasoconstrição nas vísceras, mas sim vasodilatação nelas, que 'rouba' sangue do rim.",
+      "b": "Correta. Estadiamento clínico adequado e descrição fisiopatológica precisa.",
+      "c": "A ascite não causa obstrução mecânica renal crônica desta forma aguda.",
+      "d": "A falha é de perfusão por baixa pressão sistêmica efetiva, não por congestão.",
+      "e": "A resistência vascular sistêmica no cirrótico está tipicamente BAIXA, não alta."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["SHR", "Fisiopatologia", "Renal"]
+  },
+  {
+    "enunciado": "Paciente de 42 anos, com diagnóstico de cirrose por Hepatite Autoimune, apresenta hematêmese volumosa. Endoscopia revela varize em fundo gástrico (GOV2) com sangramento ativo. A tentativa de escleroterapia falha. Conforme o consenso de Baveno VII, qual a conduta de resgate mais indicada para o controle definitivo desta hemorragia gástrica, preferencialmente à colocação de balão de Sengstaken-Blakemore?",
+    "options": {
+      "a": "Ligadura elástica repetida a cada 5 minutos.",
+      "b": "Injeção de Cianoacrilato ou uso de Cola de Fibrina.",
+      "c": "Injeção de Soro Fisiológico gelado no fundo gástrico.",
+      "d": "Gastrectomia subtotal de urgência.",
+      "e": "Vagotomia e piloroplastia."
+    },
+    "answer": "b",
+    "rationale": "Para varizes gástricas (especialmente GOV2 e IGV1), a ligadura elástica é menos eficaz do que nas esofágicas devido à espessura da parede gástrica. O tratamento de escolha, segundo as diretrizes internacionais, é a injeção intra-varicosa de adesivos teciduais, como o N-butil-2-cianoacrilato, que promove a hemostasia imediata por polimerização ao contato com o sangue.",
+    "option_rationales": {
+      "a": "Ligadura em fundo gástrico tem alto índice de insucesso e complicações (ulceração severa).",
+      "b": "Correta. Opção padrão para varizes fúndicas conforme Baveno.",
+      "c": "Soro gelado não controla sangramento varicoso de alto fluxo.",
+      "d": "Conduta cirúrgica extrema com mortalidade proibitiva no cirrótico.",
+      "e": "Inadequado para o quadro hemodinâmico de hipertensão portal."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Varizes Gástricas", "Cianoacrilato", "Endoscopia"]
+  },
+  {
+    "enunciado": "Um homem de 55 anos, cirrótico compensado, realiza biópsia hepática que mostra 'cirrose micronodular e infiltrado neutrofílico periductular'. O paciente nega consumo exagerado de álcool, mas sua esposa relata episódios frequentes de colúria e febre. A colangiografia por ressonância mostra múltiplos estreitamentos e dilatações saculares das vias biliares intra e extra-hepáticas ('aspecto em contas de rosário'). Qual a associação clássica com doença inflamatória intestinal (DII) e qual o risco neoplásico biliar aumentado nestes pacientes?",
+    "options": {
+      "a": "Retocolite Ulcerativa (RCU); Colangiocarcinoma.",
+      "b": "Doença de Crohn; Carcinoma Hepatocelular.",
+      "c": "Colite Pseudomembranosa; Insulinoma.",
+      "d": "Poliarterite Nodosa; Angiossarcoma de Fígado.",
+      "e": "Doença Celíaca; Tumor de Klatskin."
+    },
+    "answer": "a",
+    "rationale": "As descrição de estreitamentos em 'contas de rosário' é típica da Colangite Esclerosante Primária (CEP). Esta doença está fortemente associada (em até 70% dos casos) à Retocolite Ulcerativa. Pacientes com CEP possuem um risco significativamente elevado de desenvolver Colangiocarcinoma, exigindo monitoramento rigoroso com exames de imagem e marcadores como CA 19-9.",
+    "option_rationales": {
+      "a": "Correta. Define a associação sindrômica clássica e o principal risco neoplásico.",
+      "b": "A associação principal é com RCU, não Crohn (embora possa ocorrer).",
+      "c": "Incompatível com a fisiopatologia biliar autoimune.",
+      "d": "Não há associação direta nestes moldes.",
+      "e": "O tumor de Klatskin é um tipo de colangiocarcinoma hilar, mas a associação básica solicitada é RCU."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["CEP", "RCU", "Gastroenterologia"]
+  },
+  {
+    "enunciado": "Cirrótico de 60 anos, Child B, apresenta-se estável com quadro de ascite controlada com espironolactona 100mg. Realiza ultrassonografia de vigilância que mostra ascite leve e trombose parcial da veia porta (preenchendo 40% do lume). Plaquetas 80.000, RNI 1,4. O paciente não tem varizes esofágicas na EDA recente. Qual a recomendação atual para o início de anticoagulação neste cenário de trombose de veia porta (TVP) em cirrótico?",
+    "options": {
+      "a": "Não iniciar anticoagulante, pois o risco de sangramento supera o benefício em trombose parcial < 50%.",
+      "b": "Iniciar Warfarina imediatamente visando RNI entre 2,5 e 3,5.",
+      "c": "Iniciar Heparina de Baixo Peso Molecular ou Novos Anticoagulantes Orais (DOACs), visando prevenir progressão da trombose e facilitar futuro transplante.",
+      "d": "Realizar Shunt esplenorrenal cirúrgico distal.",
+      "e": "Aspirina 100mg é suficiente para recanalização espontânea."
+    },
+    "answer": "c",
+    "rationale": "A trombose de veia porta em cirróticos pode agravar a hipertensão portal e dificultar tecnicamente o transplante hepático futuro. Diretrizes recentes sugerem que a anticoagulação (preferencialmente DOACs como Rivaroxabana ou Edoxabana, ou HBPM) deve ser considerada se a trombose for maior que 50%, progressiva ou em candidatos a transplante, desde que o risco de sangramento varicoso esteja controlado. Em casos de TVP recente/aguda, o benefício da recanalização é alto.",
+    "option_rationales": {
+      "a": "Embora a conduta possa ser conservadora em casos muito pequenos, o risco de progressão em candidatos a transplante favorece o tratamento.",
+      "b": "Warfarina é difícil de manejar no cirrótico devido ao RNI basal já alterado.",
+      "c": "Correta. Reflete as evidências atuais de segurança e benefício dos DOACs no cirrótico Child A/B.",
+      "d": "Conduta cirúrgica invasiva desnecessária para trombose parcial.",
+      "e": "Antiagregantes plaquetários não têm eficácia comprovada na recanalização venosa portal."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Trombose Portal", "Anticoagulação", "DOACs"]
+  },
+  {
+    "enunciado": "Um paciente de 48 anos com cirrose por álcool apresenta quadro de dor abdominal intensa e choque séptico. Paracentese mostra: 1.200 neutrófilos, Glicose 25 mg/dL, Proteína total 2,8 g/dL e LDH 450 U/L (LDH plasmático 180 U/L). De acordo com os critérios de Runyon, qual o diagnóstico diferencial de PBE que deve ser investigado e qual a conduta imediata complementar?",
+    "options": {
+      "a": "Síndrome de Fitz-Hugh-Curtis; Iniciar ceftriaxona.",
+      "b": "Peritonite Bacteriana Secundária (Perfuração de víscera oca); Solicitar Tomografia de Abdome e avaliação cirúrgica urgente.",
+      "c": "Ascite Hemorrágica; Transfusão de plaquetas.",
+      "d": "PBE refratária; Trocar para Vancomicina.",
+      "e": "Tuberculose Peritoneal; Iniciar esquema RIPE."
+    },
+    "answer": "b",
+    "rationale": "A Peritonite Bacteriana Secundária (PBS) em cirróticos simula a PBE, mas é causada por perfuração ou foco inflamatório intra-abdominal (ex: apendicite, colecistite). Os critérios de Runyon sugerem PBS se houver pelo menos 2 dos 3: Proteína > 1g/dL, Glicose < 50mg/dL e LDH acima do limite superior do soro. A PBE clássica costuma ter baixa proteína e glicose normal. A conduta é diagnóstico por imagem e cirurgia, pois a mortalidade com tratamento clínico isolado é de quase 100%.",
+    "option_rationales": {
+      "a": "Síndrome associada a DIP, com quadro clínico e laboratorial distinto.",
+      "b": "Correta. Aplica os critérios de Runyon para diferenciar infecção espontânea de cirrose de emergência cirúrgica.",
+      "c": "O laboratório descreve um quadro inflamado/infectado, não hemorrágico.",
+      "d": "A resistência antibiótica não explica proteína alta e glicose baixa no líquido.",
+      "e": "Tuberculose teria discreto predomínio linfocitário e ADA elevado no líquido."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["PBS", "Runyon", "Cirurgia"]
+  },
+  {
+    "enunciado": "Um homem de 52 anos com cirrose Child-Pugh B por vírus C está em uso de Propranolol 40mg 12/12h para profilaxia primária de varizes. Durante internação por descompensação asfítica severa, o paciente apresenta PA 85/55 mmHg e Creatinina de 1,7 mg/dL (basal 0,9 mg/dL). Qual conduta deve ser adotada em relação ao betabloqueador (BBNS) conforme a 'teoria da janela terapêutica' no cirrótico?",
+    "options": {
+      "a": "Aumentar a dose para garantir o controle da hipertensão portal.",
+      "b": "Manter a dose atual, pois a suspensão aumenta o risco de sangramento varicoso agudo.",
+      "c": "Suspender o betabloqueador temporariamente devido à hipotensão arterial e risco de agravamento da síndrome hepatorrenal.",
+      "d": "Substituir por Carvedilol imediato por sua ação vasodilatadora.",
+      "e": "Trocar por Isossorbida intravenosa."
+    },
+    "answer": "c",
+    "rationale": "A 'janela terapêutica' dos betabloqueadores não seletivos (BBNS) na cirrose sugere que eles são benéficos na cirrose compensada, mas podem ser prejudiciais na cirrose muito avançada/descompensada em vigência de hipotensão arterial (PAS < 90 mmHg), insuficiência renal aguda ou PBE severa. Nessas situações, o BBNS pode reduzir o débito cardíaco de forma a comprometer criticamente a perfusão renal, devendo ser suspenso até a estabilização.",
+    "option_rationales": {
+      "a": "Aumentar a dose pioraria a perfusão renal e a pressão sistêmica.",
+      "b": "O risco de falência renal aguda aguda nesta fase supera o benefício profilático momentâneo do BBNS.",
+      "c": "Correta. Aplica o conceito moderno de segurança do uso de BBNS em cirróticos hipotensos/críticos.",
+      "d": "Carvedilol é ainda mais potente em baixar a PA sistêmica.",
+      "e": "Nitratos não têm lugar definido no manejo agudo do cirrótico descompensado."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Betabloqueadores", "Janela Terapêutica", "Rim"]
+  },
+  {
+    "enunciado": "Um paciente cirrótico Child C com mestre-ascite refratária queixa-se de sonolência excessiva e desorientação. Descarta-se infecção, hemorragia ou constipação. O paciente faz uso de Furosemida e toma 12 comprimidos de Lactulona por dia, apresentando 4 a 5 evacuações pastosas/líquidas por dia. Sódio 130 mEq/L, Potássio 2,9 mEq/L, Alcalose Metabólica leve. Qual a provável causa da manutenção da encefalopatia e a conduta recomendada?",
+    "options": {
+      "a": "Insuficiência de Lactulona; Dobrar a dose para garantir 8 evacuações.",
+      "b": "Sobretratamento com diuréticos/lactulona levando a distúrbios eletrolíticos; Reduzir doses e corrigir potássio sérico.",
+      "c": "Trombose de veia esplênica; Iniciar Varfarina.",
+      "d": "Meningite bacteriana; Realizar punção lombar.",
+      "e": "Depressão maior; Iniciar Fluoxetina."
+    },
+    "answer": "b",
+    "rationale": "O excesso de diuréticos e de lactulona pode causar desidratação e, mais especificamente, hipocalemia e alcalose metabólica. A hipocalemia estimula a produção renal de amônia, agravando a encefalopatia. A alcalose metabólica favorece a conversão de amônia (NH4+) em amoníaco (NH3), que atravessa mais facilmente a barreira hematoencefálica. O ajuste deve ser para baixo nessas doses visando 2-3 evacuações pastosas/dia e repor potássio.",
+    "option_rationales": {
+      "a": "O alvo são 2 a 3 evacuações; 4 a 5 já indica excesso que pode gerar desequilíbrio eletrolítico.",
+      "b": "Correta. Identifica o erro no manejo medicamentoso que perpetua a disfunção neurológica.",
+      "c": "O quadro é metabólico funcional claro pelo laboratório.",
+      "d": "A ausência de sinais meníngeos e o contexto metabólico tornam a meningite improvável.",
+      "e": "A sonolência no cirrótico é EH até que se prove o contrário."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["EH", "Eletrolíticos", "Iatrogenia"]
+  },
+  {
+    "enunciado": "Uma mulher de 35 anos, com cirrose por hepatite autoimune, em uso de 40 mg de prednisona, apresenta quadro de dor abdominal em hipocôndrio direito e febre. Ultrassom mostra ascite leve e 'esessamento fusoiforme' da parede da artéria hepática com fluxo turbulento. A angio-TC confirma aneurisma de artéria hepática roto para via biliar (hemobilia). Qual a tríade diagnóstica clássica da hemobilia (Tríade de Sandblom) e a conduta de escolha?",
+    "options": {
+      "a": "Dor abdominal, Icterícia e Melena (ou HDA); Angiotomografia com Embolização por radiologia intervencionista.",
+      "b": "Febre, Calafrios e Choque; Cirurgia de abertura biliar.",
+      "c": "Massa palpável, Icterícia e Perda de peso; CPRE repetidas.",
+      "d": "Anemia, Vômitos e Diarreia; Iniciar quelante de ferro.",
+      "e": "Sinal de Blumberg, Febre e Vômitos; Colecistectomia."
+    },
+    "answer": "a",
+    "rationale": "A hemobilia decorre da comunicação entre vasos sanguíneos e a via biliar. A tríade de Sandblom caracteriza-se por dor em HD (cólica biliar por coágulos), icterícia obstrutiva (por coágulos na via biliar) e hemorragia digestiva (melena ou hematêmese). O tratamento de escolha atual é a embolização arterial seletiva por angiografia, que possui alta taxa de sucesso e menor morbidade que a cirurgia aberta em cirróticos.",
+    "option_rationales": {
+      "a": "Correta. Define a tríade clínica histórica e a moderna abordagem terapêutica minimamente invasiva.",
+      "b": "Refere-se à Pêntade de Reynolds (colangite grave).",
+      "c": "Características de neoplasia periampular.",
+      "d": "Sem qualquer correlação com a fisiopatologia do sangramento biliar agudo.",
+      "e": "Indica peritonite aguda, não hemobilia."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Hemobilia", "Gastroenterologia", "Intervenção"]
+  },
+  {
+    "enunciado": "Sobre a Síndrome de Hipertensão Portal na cirrose, onde se situa o 'bloco' pressórico na cirrose alcoólica ou viral, e qual o nível de gradiente de pressão venosa hepática (GPVH) necessário para definir Hipertensão Portal Clinicamente Significativa (HPCS)?",
+    "options": {
+      "a": "Bloco Pré-hepático; GPVH > 5 mmHg.",
+      "b": "Bloco Intra-hepático Sinusoidal; GPVH ≥ 10 mmHg.",
+      "c": "Bloco Pós-hepático; GPVH > 15 mmHg.",
+      "d": "Bloco Supra-hepático; GPVH > 12 mmHg.",
+      "e": "Bloco Pré-sinusoidal; GPVH > 20 mmHg."
+    },
+    "answer": "b",
+    "rationale": "A cirrose causa um bloco intra-hepático sinusoidal devido ao depósito de colágeno no espaço de Disse e à contração das células esteladas. Um GPVH ≥ 10 mmHg define a Hipertensão Portal Clinicamente Significativa (HPCS), pois a partir desse limiar surge o risco de desenvolvimento de varizes, ascite e descompensação hepática. O sangramento por varizes propriamente dito geralmente ocorre em GPVH ≥ 12 mmHg.",
+    "option_rationales": {
+      "a": "Bloco pré-hepático ocorre na trombose de veia porta ou esplênica.",
+      "b": "Correta. Localiza a anatomia da resistência vascular na cirrose e define o limiar crítico de pressão venosa.",
+      "c": "Pós-hepático seria Budd-Chiari ou causas cardíacas.",
+      "d": "Semelhante ao pós-hepático.",
+      "e": "Pré-sinusoidal ocorre na Esquistossomose ou Fibrose Hepática Congênita."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["GPVH", "Hemodinâmica", "Hipertensão Portal"]
+  },
+  {
+    "enunciado": "Paciente masculino, 45 anos, com cirrose por Álcool Child-Pugh B. Realiza triagem por endoscopia digestiva que não visualiza varizes. Qual o intervalo recomendado para a repetição da endoscopia preventiva segundo as diretrizes atuais, caso o paciente mantenha a abstinência alcoólica?",
+    "options": {
+      "a": "A cada 6 meses, obrigatoriamente.",
+      "b": "Anualmente, se o paciente for obeso.",
+      "c": "A cada 2 a 3 anos, se a cirrose estiver compensada e não houver insulto hepático ativo.",
+      "d": "Nunca mais precisa repetir, pois ele já é cirrótico e não tem varizes.",
+      "e": "Apenas se as plaquetas caírem abaixo de 50.000."
+    },
+    "answer": "c",
+    "rationale": "Para pacientes cirróticos compensados nos quais a causa base foi removida ou tratada (ex: abstinência no álcool ou tratamento do vírus) e que não apresentavam varizes na primeira endoscopia, o intervalo seguro e custo-efetivo para repetição do exame é a cada 2 a 3 anos. Se houver descompensação (ex: ascite), uma nova EDA deve ser realizada prontamente.",
+    "option_rationales": {
+      "a": "Intervalo muito curto e desnecessário para pacientes compensados sem varizes prévias.",
+      "b": "A obesidade não é o critério de tempo, mas sim a estabilidade da fibrose.",
+      "c": "Correta. Reflete as recomendações de vigilância de baixo risco baseadas em diretrizes.",
+      "d": "A hipertensão portal é dinâmica e pode evoluir com o tempo mesmo com a causa removida.",
+      "e": "As plaquetas são preditoras (Critérios de Baveno VI), mas o intervalo fixo de triagem é baseado no tempo."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Triagem", "Vigilância", "Endoscopia"]
+  },
+  {
+    "enunciado": "Um paciente de 52 anos com cirrose compensada apresenta nódulo de 1,5 cm em ultrassonografia. A tomografia e a ressonância magnética realizadas em centros de excelência são 'indeterminadas' (sem o padrão washout típico). Qual a conduta indicada para o diagnóstico definitivo?",
+    "options": {
+      "a": "Apenas repetir a ultrassonografia em 12 meses.",
+      "b": "Biópsia hepática percutânea do nódulo guiada por imagem.",
+      "c": "Iniciar Sorafenibe empírico pelo risco de malignidade.",
+      "d": "Repetição de exames de imagem de alta qualidade (TC ou RM) em 3 a 6 meses.",
+      "e": "Dosar Alfafetoproteína a cada 15 dias."
+    },
+    "answer": "d",
+    "rationale": "Nódulos entre 1 e 2 cm em cirróticos que não apresentam o padrão radiológico típico ('wash-in' e 'wash-out') em duas modalidades de imagem contrastada (TC e RM) permanecem indeterminados. A recomendação é a repetição do rastreamento com imagem contrastada em intervalos curtos (3 a 6 meses) para avaliar o crescimento ou surgimento de critérios invasivos. A biópsia é reservada para casos onde a imagem repetidamente falha e o diagnóstico é crítico para conduta, mas possui risco de 'seeding' e falsos negativos.",
+    "option_rationales": {
+      "a": "12 meses é um intervalo muito longo e perigoso para nódulos de 1,5cm.",
+      "b": "A biópsia em nódulos menores que 2cm tem eficácia reduzida e é reservada quando a vigilância por imagem falha persistentemente.",
+      "c": "Iatrogenia grave; nunca se inicia quimioterapia empírica em CHC.",
+      "d": "Correta. Conduta de vigilância ativa para nódulos pequenos indeterminados conforme BCLC.",
+      "e": "A alfafetoproteína tem baixa sensibilidade diagnóstica isolada para nódulos pequenos."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["CHC", "Rastreamento", "Gastroenterologia"]
+  },
+  {
+    "enunciado": "No tratamento da Síndrome Hepatorrenal Tipo 1 (IRA-SHR), qual o objetivo principal da utilização da Albumina em conjunto com a Terlipressina?",
+    "options": {
+      "a": "Apenas aumentar a pressão oncótica para reduzir a ascite periférica.",
+      "b": "Aumentar a volemia arterial efetiva e potencializar o efeito vasoconstritor esplâncnico da terlipressina via preenchimento vascular.",
+      "c": "Funcionar como transportador para a terlipressina chegar ao rim.",
+      "d": "Evitar a queda do cálcio sérico induzida pela noradrenalina.",
+      "e": "Reduzir o risco de encefalopatia induzida pela ureia alta."
+    },
+    "answer": "b",
+    "rationale": "A albumina humana na SHR age como um expansor plasmático que aumenta o volume arterial circulante efetivo. Isso suprime a ativação barorreflexa dos sistemas vasoconstritores (RAA) e trabalha em sinergia com os análogos da vasopressina (terlipressina), que contraem a circulação esplâncnica dilatada, redirecionando o fluxo sanguíneo para o rim e melhorando a taxa de filtração glomerular.",
+    "option_rationales": {
+      "a": "O objetivo na SHR é hemodinâmico renal, não apenas estético-volumétrico abdominal.",
+      "b": "Correta. Explica o sinergismo fisiopatológico essencial para a reversão da falência renal funcional.",
+      "c": "A albumina transporta muitas drogas, mas este não é o mecanismo terapêutico na SHR.",
+      "d": "Não possui relação com o metabolismo do cálcio neste contexto.",
+      "e": "Albumina não interfere diretamente no metabolismo da amônia ou ureia para EH."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["SHR", "Albumina", "Hemodinâmica"]
+  }
+]

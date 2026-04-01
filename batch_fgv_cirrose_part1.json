@@ -1,0 +1,542 @@
+[
+  {
+    "enunciado": "Um homem de 58 anos, alcóolico abstêmio há 6 meses, procura atendimento com queixa de aumento do volume abdominal e edema de membros inferiores há cerca de 3 semanas. Ao exame físico, apresenta-se ictérico (+/4+), afebril, com presença de aranhas vasculares no tórax e abdome globoso, com sinal do piparote presente e espaço de Traube ocupado. Não há sinais de asterixe ou desorientação. Exames complementares revelam: Hemoglobina 10,5 g/dL; Plaquetas 82.000/mm³; Bilirrubina Total 3,2 mg/dL; Albumina 2,4 g/dL; RNI 1,8. A paracentese diagnóstica mostra líquido citrino, com contagem de polimorfonucleares (PMN) de 120/mm³ e gradiente de albumina soro-ascite (GASA) de 1,4 g/dL. Com base no quadro clínico e laboratorial apresentado, qual a classificação de Child-Pugh deste paciente e a conduta inicial mais adequada para o manejo da ascite?",
+    "options": {
+      "a": "Child-Pugh B; Dieta hipossódica isolada.",
+      "b": "Child-Pugh C; Restrição hídrica rigorosa (800ml/dia) e Furosemida 40mg/dia.",
+      "c": "Child-Pugh B; Dieta hipossódica e Espironolactona 100mg/dia.",
+      "d": "Child-Pugh C; Dieta hipossódica e associação de Espironolactona 100mg com Furosemida 40mg.",
+      "e": "Child-Pugh B; Paracentese de alívio imediata seguida de reposição de albumina."
+    },
+    "answer": "d",
+    "rationale": "O paciente apresenta pontuação no escore de Child-Pugh de 11 pontos (Bilirrubina 3mg/dL = 3; Albumina 2.4mg/dL = 3; RNI 1.8 = 2; Ascite moderada = 2; Encefalopatia ausente = 1), o que o classifica como Child-Pugh C (≥ 10 pontos). Para o manejo da ascite em paciente cirrótico com GASA ≥ 1,1 (indicativo de hipertensão portal), a conduta inicial padrão envolve dieta hipossódica (2g de sódio/dia) e terapia diurética. Em casos de ascite moderada/tensa ou Child C, a associação de Espironolactona e Furosemida é preferível para garantir natriurese mais eficaz e balanço de potássio.",
+    "option_rationales": {
+      "a": "O paciente é Child C, não B, e a dieta isolada é insuficiente para ascite moderada em Child C.",
+      "b": "A restrição hídrica só é indicada se o sódio sérico for < 125 mEq/L, o que não foi relatado.",
+      "c": "A pontuação de Child-Pugh está incorreta (é 11 pontos, Child C).",
+      "d": "Correta. Classificação correta de Child C e manejo inicial padrão com dupla terapia diurética e restrição de sódio.",
+      "e": "A paracentese de alívio é para ascite tensa/sintomática; o quadro descreve ascite moderada manejável com diuréticos inicialmente."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Ascite", "Child-Pugh", "Gastroenterologia"]
+  },
+  {
+    "enunciado": "Paciente feminina, 52 anos, portadora de cirrose por Hepatite C, é levada à emergência por familiares devido a quadro de confusão mental, sonolência e inversão do ciclo sono-vigília nas últimas 48 horas. Refere obstipação intestinal há 5 dias. Ao exame físico, apresenta-se sonolenta, mas responsiva a comandos simples, com presença de flapping/asterixe evidente ao estender os punhos. Não há sinais de irritação meníngea ou déficits focais. Exames laboratoriais mostram: Potássio 3,1 mEq/L; Sódio 138 mEq/L; Creatinina 1,1 mg/dL. Após estabilização inicial, qual o diagnóstico estadiado da encefalopatia hepática segundo os critérios de West-Haven e qual a medida terapêutica de primeira linha para este caso?",
+    "options": {
+      "a": "Grau I; Neomicina oral e correção de distúrbios hidroeletrolíticos.",
+      "b": "Grau II; Lactulona via oral e identificação/tratamento do fator precipitante.",
+      "c": "Grau III; Flumazenil endovenoso e profilaxia secundária com Rifaximina.",
+      "d": "Grau II; Metronidazol oral e restrição proteica rigorosa (0,8g/kg).",
+      "e": "Grau IV; Lactulona via sonda nasogástrica e monitorização em UTI."
+    },
+    "answer": "b",
+    "rationale": "A paciente apresenta sonolência, confusão mental e asterixe, o que caracteriza a Encefalopatia Hepática Grau II de West-Haven. O flapping é o marco do Grau II (o Grau I apresenta apenas alterações sutis de humor/atenção, sem flapping). O fator precipitante identificado foi a obstipação intestinal e a hipocalemia (K 3.1). A terapia de primeira linha é a Lactulona (dissacarídeo não absorvível) visando acidificação do cólon e redução da absorção de amônia, além da correção dos fatores precipitantes.",
+    "option_rationales": {
+      "a": "A paciente é Grau II pelo flapping e sonolência; neomicina é terapia de segunda linha.",
+      "b": "Correta. Estadiamento clínico adequado e terapia de primeira linha com lactulona focada na causa base.",
+      "c": "Flumazenil só teria lugar se houvesse intoxicação por benzodiazepínicos; a paciente é Grau II, não III.",
+      "d": "A restrição proteica não é mais recomendada rotineiramente na encefalopatia hepática, podendo agravar a sarcopenia.",
+      "e": "Grau IV corresponde ao coma (não responsiva); a paciente está sonolenta mas responsiva."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Encefalopatia Hepática", "West-Haven", "Conduta"]
+  },
+  {
+    "enunciado": "Um homem de 45 anos com cirrose Child-Pugh B por Doença Hepática Alcoólica desenvolve quadro súbito de hematêmese volumosa e melena. À chegada no setor de urgência: PA 90/50 mmHg, FC 115 bpm, sudoreico e pálido. Após ressuscitação volêmica inicial com cristaloides e início de proteção de via aérea, a endoscopia digestiva alta (EDA) revela varizes esofágicas de grosso calibre com sinal de 'red spots' e sangramento ativo em jato. Além da ligadura elástica das varizes, qual o regime farmacológico adjuvante e a profilaxia antibiótica que devem ser iniciados imediatamente, segundo o Consenso de Baveno VII?",
+    "options": {
+      "a": "Propranolol 40mg/dia e Ciprofloxacino 400mg EV 12/12h por 7 dias.",
+      "b": "Somatostatina ou Terlipressina e Ceftriaxona 1g EV/dia por 7 dias.",
+      "c": "Carvedilol 6,25mg/dia e Norfloxacino 400mg VO 12/12h por 3 dias.",
+      "d": "Vasopressina isolada e Amoxicilina/Clavulanato por 10 dias.",
+      "e": "Octreotide e profilaxia antibiótica apenas se houver ascite concomitante."
+    },
+    "answer": "b",
+    "rationale": "No manejo da hemorragia digestiva alta varicosa, as diretrizes de Baveno reconhecem a tríade fundamental: Estabilização hemodinâmica, terapia endoscópica e farmacoterapia vasoativa imediata. Além disso, todos os pacientes cirróticos com HDA varicosa devem receber antibioticoterapia profilática para reduzir a reincidência de sangramento e mortalidade, sendo a Ceftriaxona o fármaco de escolha em cirróticos avançados para cobertura de translocação bacteriana intestinal.",
+    "option_rationales": {
+      "a": "Betabloqueadores não são usados no quadro de sangramento ativo/instabilidade hemodinâmica.",
+      "b": "Correta. Segue rigorosamente o consenso de manejo agudo de varizes.",
+      "c": "Carvedilol é para profilaxia primária; norfloxacino é opção oral em casos selecionados não graves.",
+      "d": "A vasopressina tem muitos efeitos colaterais isquêmicos; antibiótico inadequado para o contexto de cirrose.",
+      "e": "A antibioticoterapia é obrigatória para todos com HDA varicosa, independentemente de ascite."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["HDA Varicosa", "Baveno VII", "Emergência Médica"]
+  },
+  {
+    "enunciado": "Paciente de 65 anos, portador de cirrose por Hepatite B, apresenta quadro de febre baixa (37,9°C) e dor abdominal difusa leve há 24 horas. Exame físico: abdome tenso, ascite moderada. Paracentese diagnóstica realizada imediatamente exibe líquido levemente turvo, com 650 células/mm³, sendo 85% de neutrófilos, glicose de 53 mg/dL e proteínas totais de 0,7 g/dL. Com base nestes dados, qual o diagnóstico correto e qual intervenção adjuvante está indicada para reduzir o risco de desenvolvimento de insuficiência renal aguda?",
+    "options": {
+      "a": "Ascite Neutrocítica; Iniciar apenas antibioticoterapia empírica com cefalosporina.",
+      "b": "Peritonite Bacteriana Espontânea (PBE); Iniciar Cefotaxima e Albuminoterapia (1,5g/kg no 1º dia e 1,0g/kg no 3º dia).",
+      "c": "Peritonite Bacteriana Secundária; Solicitar TC de abdome e associar metronidazol.",
+      "d": "PBE; Iniciar Ciprofloxacino e restrição hídrica vigorosa.",
+      "e": "Ascite de baixa densidade; Observação e nova paracentese em 48 horas."
+    },
+    "answer": "b",
+    "rationale": "A presença de > 250 neutrófilos/mm³ no líquido ascítico confirma o diagnóstico de Peritonite Bacteriana Espontânea (PBE). A intervenção fundamental para prevenir a Síndrome Hepatorrenal em pacientes com PBE, especialmente aqueles com alto risco (como proteínas totais no líquido ascite < 1,0 g/dL ou bilirrubina total > 4 mg/dL), é a administração endovenosa de albumina humana nos dias 1 e 3 do tratamento antibiótico.",
+    "option_rationales": {
+      "a": "Falta a proteção renal com albumina, mandatória em pacientes com risco de falha renal.",
+      "b": "Correta. Diagnóstico e conduta baseada em diretrizes para redução de mortalidade na PBE.",
+      "c": "Os critérios de Runyon para peritonite secundária não estão presentes (Glicose < 50, LDH > LSN).",
+      "d": "O tratamento de escolha inicial na suspeita clínica é cefalosporina de 3ª geração.",
+      "e": "Retardar o tratamento da PBE aumenta drasticamente o risco de sepse e insuficiência multiorgânica."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["PBE", "Albumina", "Gastroenterologia"]
+  },
+  {
+    "enunciado": "Um homem de 54 anos, portador de cirrose Child-Pugh B, apresenta quadro de ascite de grande volume. Após a realização de paracentese de alívio de 7 litros, o paciente evolui nas 48 horas seguintes com oligúria e aumento da creatinina de 0,9 mg/dL para 1,8 mg/dL. Foi realizada a reposição de 40g de albumina humana após o procedimento. Baseado nas diretrizes para prevenção da disfunção circulatória pós-paracentese (PPCD), qual o erro na conduta de reposição de albumina e a dose correta recomendada para este volume drenado?",
+    "options": {
+      "a": "Não houve erro; a dose de 40g é suficiente para proteger a volemia efetiva.",
+      "b": "Dose insuficiente; deve-se repor 6 a 8g de albumina por litro de ascite removido em paracenteses > 5 litros.",
+      "c": "Dose excessiva; a reposição de albumina só é necessária em volumes > 10 litros.",
+      "d": "Erro na via de administração; a albumina deveria ter sido administrada por via intraperitoneal.",
+      "e": "Frequência incorreta; a albumina deve ser feita apenas no 3º dia após a paracentese."
+    },
+    "answer": "b",
+    "rationale": "Em paracenteses de grande volume (> 5 litros), a reposição de albumina humana é imperativa para evitar a disfunção circulatória pós-paracentese (PPCD). A dose recomendável é de 6 a 8 gramas de albumina para cada litro drenado. Para 7 litros, a dose mínima seria de 42g. A dose de 40g está ligeiramente abaixo da mínima e bem abaixo da média recomendada para 7L (que seria ~56g), o que pode ter contribuído para a disfunção renal funcional observada.",
+    "option_rationales": {
+      "a": "A dose de 40g é insuficiente para 7 litros (o padrão é 6-8g/L).",
+      "b": "Correta. Define o critério de segurança para evitar sínrome hepatorrenal pós-procedimento.",
+      "c": "A reposição é necessária em qualquer volume acima de 5 litros.",
+      "d": "A albumina deve ser administrada por via intravenosa.",
+      "e": "A reposição deve ser feita concomitantemente ou logo após o término da paracentese."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Paracentese", "Disfunção Renal", "Conduta"]
+  },
+  {
+    "enunciado": "Um homem de 50 anos com cirrose por Doença Hepática Gordurosa Não Alcoólica (DHGNA) e Child-Pugh B queixa-se de dispneia progressiva nos últimos 4 meses, que piora significativamente ao sentar-se na cama (platipneia). Ao exame físico, apresenta cianose de extremidades e baqueteamento digital. Saturação de oxigênio em ar ambiente: 88% em pé e 93% deitado. Realizado ecocardiograma com microbolhas, que revelou aparecimento das bolhas em átrio esquerdo após 4 ciclos cardíacos do aparecimento no átrio direito. Qual o diagnóstico fisiopatológico desta complicação pulmonar e o critério gasométrico confirmatório?",
+    "options": {
+      "a": "Hipertensão Portopulmonar; Pressão média da artéria pulmonar > 25 mmHg.",
+      "b": "Síndrome Hepatopulmonar; Gradiente Alvéolo-Arterial de Oxigênio [P(A-a)O2] ≥ 15 mmHg (ou corrigido para idade).",
+      "c": "Hidrotórax Hepático; Gradiente de Albumina Soro-Pleura ≥ 1,1 g/dL.",
+      "d": "Síndrome Hepatopulmonar; pO2 arterial < 40 mmHg em ar ambiente.",
+      "e": "Ascite Volumosa com Restrição Ventilatória; pO2 < 60 mmHg em qualquer posição."
+    },
+    "answer": "b",
+    "rationale": "A Síndrome Hepatopulmonar (SHP) se caracteriza pela tríade: doença hepática, dilatações vasculares intrapulmonares e hipoxemia/gradiente alterado. A platipneia (piora da dispneia em pé) e a ortodeoxia são provocadas pelo aumento do shunt intrapulmonar na base dos pulmões devido à força da gravidade. O diagnóstico é confirmado pelo ecocardiograma com microbolhas positivo (após 3-6 ciclos) e evidência de hipoxemia com gradiente alvéolo-arterial aumentado para a idade.",
+    "option_rationales": {
+      "a": "A hipertensão portopulmonar envolve vasoconstrição e aumento pressórico, sem shunt característico da SHP.",
+      "b": "Correta. Define o diagnóstico baseado em evidências fisiopatológicas e gasométricas.",
+      "c": "O hidrotórax é um processo mecânico de translocação de líquido, não um shunt vascularintrapulmonar.",
+      "d": "O critério central é o gradiente A-a elevado (≥ 15 ou 20 conforme idade), e não um valor absoluto de pO2.",
+      "e": "Não explica os achados de platipneia e o ecocardiograma positivo para microbolhas tardias em átrio esquerdo."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Síndrome Hepatopulmonar", "Gastroenterologia", "Platipneia"]
+  },
+  {
+    "enunciado": "Um paciente cirrótico com ascite refratária e episódios recorrentes de encefalopatia hepática Grau I-II apresenta piora progressiva da função renal nos últimos 10 dias. Creatinina atual 2,4 mg/dL (estava 1,1 mg/dL). Após suspensão de diuréticos e expansão com albumina (1g/kg/dia) por 48 horas, a creatinina mantém-se em 2,3 mg/dL. O volume urinário é de 480ml/24h, o sedimento urinário é normal e o sódio urinário é < 10 mEq/L. Não há evidência de infecção ativa ou uso de nefrotóxicos. Qual o diagnóstico mais provável e a melhor opção terapêutica definitiva?",
+    "options": {
+      "a": "Necrose Tubular Aguda; Dopamina em 'dose renal' e hemodiálise.",
+      "b": "Glomerulonefrite por IgA secundária ao Álcool; Pulsoterapia com corticoides.",
+      "c": "Síndrome Hepatorrenal Tipo 1 (IRA-SHR); Terlipressina associada a Albumina e avaliação para transplante hepático.",
+      "d": "Azotemia Prerrenal persistente; Manter expansão com cristaloides até normalizar a volemia.",
+      "e": "Síndrome Hepatorrenal Tipo 2; TIPS (Shunt Portossistêmico Intra-hepático Transjugular)."
+    },
+    "answer": "c",
+    "rationale": "A Síndrome Hepatorrenal tipo 1 (hoje classicamente chamada de IRA-SHR) é uma insuficiência renal funcional em cirróticos avançados, caracterizada por rápida queda na TFG que não melhora com expansão volêmica. O sódio urinário baixo traduz a intensa vasoconstrição renal funcional. O tratamento de escolha envolve o uso de vasoconstritores esplâncnicos (como Terlipressina ou Noradrenalina) em combinação com albumina humana. O transplante hepático é a solução definitiva.",
+    "option_rationales": {
+      "a": "O sódio urinário baixo sugere um componente funcional severo, não lesão tubular estabelecida típica da NTA.",
+      "b": "O quadro é agudo e não inflamatório primário glomerular.",
+      "c": "Correta. Diagnóstico de falência renal funcional baseado na falha de resposta à albumina e conduta de suporte vasopressor.",
+      "d": "A falta de resposta à albumina por 48h exclui a causa puramente pré-renal por depleção.",
+      "e": "A SHR Tipo 2 é crônica e associada à ascite refratária; o quadro agudo/rápido de 10 dias é o Tipo 1."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Síndrome Hepatorrenal", "IRA-SHR", "Gastroenterologia"]
+  },
+  {
+    "enunciado": "Paciente masculino, 32 anos, apresenta quadro de ascite volumosa, circulação colateral infra-umbilical e icterícia leve. Refere há 1 ano tremores em membros superiores e episódios de rigidez muscular. Ao exame oftalmológico, observa-se anel acastanhado na periferia da córnea. Exames laboratoriais iniciais: Transaminases levemente elevadas (2x LSN), Fosfatase Alcalina reduzida, Ceruloplasmina 12 mg/dL (Referência: 20-40 mg/dL). A biópsia hepática demonstra cirrose micronodular com conteúdo de cobre de 300 µg/g de peso seco (Referência: < 50 µg/g). Qual a mutação gênica subjacente e o fármaco quelante de escolha para o manejo crônico?",
+    "options": {
+      "a": "HFE (C282Y); Deferoxamina subcutânea.",
+      "b": "SERPINA1; Alfa-1-antitripsina endovenosa.",
+      "c": "ATP7B; Penicilamina ou Trientina.",
+      "d": "CFTR; N-acetilcisteína e suporte dietético.",
+      "e": "ATP7A; Sulfato de Cobre endovenoso."
+    },
+    "answer": "c",
+    "rationale": "O quadro descreve a Doença de Wilson (acúmulo de cobre), causada por mutações autossômicas recessivas no gene ATP7B. Os achados motores (extra-piramidais) e o Anel de Kayser-Fleischer são marcos da doença. O acúmulo de cobre hepático maciço (> 250 µg/g) é confirmatório. O tratamento visa a quelação do cobre com Penicilamina ou Trientina (preferível por menor toxicidade), ou bloqueio de absorção intestinal com Zinco.",
+    "option_rationales": {
+      "a": "HFE é associado à hemocromatose; deferoxamina é para sobrecarga de ferro.",
+      "b": "Refere-se à deficiência de alfa-1-antitripsina.",
+      "c": "Correta. Alinha a etiologia genética típica ao tratamento quelante preconizado.",
+      "d": "Gene da fibrose cística; sem relação com cobre.",
+      "e": "A Doença de Menkes (ATP7A) é uma deficiência de cobre, tratada justamente com reposição."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Doença de Wilson", "Cirrose Hepática", "Gastroenterologia"]
+  },
+  {
+    "enunciado": "Uma mulher de 48 anos queixa-se de prurido intenso em mãos e pés que piora à noite, além de fadiga persistente há 6 meses. Nega icterícia ou ascite no momento. Exames laboratoriais revelam: Fosfatase Alcalina (FA) 420 U/L (VN: até 105 U/L); Gama-GT 310 U/L (VN: até 40 U/L); TGO/TGP normais; Bilirrubina Total 1,1 mg/dL. Ultrassonografia de abdome superior mostra fígado de dimensões normais, sem dilatação de vias biliares intra ou extra-hepáticas. Anticorpo Antimitocôndria (AMA) positivo (título 1:320). Qual a hipótese diagnóstica principal e o tratamento de escolha para retardar a progressão da fibrose?",
+    "options": {
+      "a": "Colangite Esclerosante Primária; Colangiografia retrógrada e Stent biliar.",
+      "b": "Hepatite Autoimune; Azatioprina e Corticoide.",
+      "c": "Colangite Biliar Primária (CBP); Ácido Ursodesoxicólico (UDCA).",
+      "d": "Cirrose Biliar Secundária; Drenagem biliar percutânea.",
+      "e": "Carcinoma de Cabeça de Pâncreas; Cirurgia de Whipple."
+    },
+    "answer": "c",
+    "rationale": "A Colangite Biliar Primária (CBP) é uma doença autoimune caracterizada pela destruição progressiva dos pequenos ductos biliares intra-hepáticos. O prurido é o sintoma cardinal inicial. A elevação marcada da Fosfatase Alcalina e o AMA altamente específico confirmam a suspeita diagnóstica na ausência de obstruções extra-hepáticas. O Único tratamento que altera o curso natural da doença retardando a cirrose e a necessidade de transplante é o UDCA.",
+    "option_rationales": {
+      "a": "A CEP cursa com dilatação em 'contas de rosário' e é mais comum em homens com DII.",
+      "b": "A HAI apresenta elevação de aminotransferases e anticorpos como FAN ou Anti-Músculo Liso.",
+      "c": "Correta. Aborda o diagnóstico clínico de colestase autoimune e sua terapia específica.",
+      "d": "Indica causas obstrutivas extrapulmonares mecânicas, descartadas pela ultrassom livre.",
+      "e": "O câncer de pâncreas causaria icterícia obstrutiva precoce e dilatação biliar franca."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["CBP", "Linfócitos", "Gastroenterologia"]
+  },
+  {
+    "enunciado": "Um paciente cirrótico Child-Pugh C que já apresentou um episódio prévio de Peritonite Bacteriana Espontânea (PBE) está finalizando o curso de tratamento agudo (7 dias de Cefotaxima). No momento, apresenta-se afebril, com ascite sob controle e creatinina estável de 1,1 mg/dL. Qual a estratégia de prevenção secundária mais indicada neste momento para este paciente?",
+    "options": {
+      "a": "Norfloxacino 400 mg VO uma vez ao dia, de forma contínua até o transplante hepático ou óbito.",
+      "b": "Ciprofloxacino 500 mg VO uma vez por semana por tempo indeterminado.",
+      "c": "Albuminoterapia domiciliar semanal para manter a pressão oncótica e evitar translocação.",
+      "d": "Não há necessidade de profilaxia secundária se a ascite desaparecer com diuréticos.",
+      "e": "Ceftriaxona 1g intramuscular uma vez por mês associada a probióticos."
+    },
+    "answer": "a",
+    "rationale": "Todos os pacientes cirróticos que sobreviveram a um episódio de PBE apresentam alto risco de recorrência (até 70% em um ano). Por isso, a profilaxia secundária com antibiótico oral, preferencialmente Norfloxacino 400mg uma vez ao dia, é mandatória para reduzir recidivas e mortalidade. A interrupção só ocorre em caso de transplante hepático ou evolução para o óbito.",
+    "option_rationales": {
+      "a": "Correta. Define a profilaxia padrão ouro contínua recomendada pelos consensos mundiais.",
+      "b": "O uso intermitente semanal de ciprofloxacino é menos eficaz que o norfloxacino diário na prevenção contínua.",
+      "c": "Albumina semanal não é recomendada como profilaxia primária ou secundária de PBE de forma isolada.",
+      "d": "Incorreta. O risco de PBE permanece alto mesmo com ascite compensada em pacientes que já tiveram a infecção.",
+      "e": "Esquema sem evidência e ineficaz para controle da translocação bacteriana intestinal crônica."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Profilaxia PBE", "Gastroenterologia", "Antibióticos"]
+  },
+  {
+    "enunciado": "Paciente masculino, 60 anos, portador de cirrose por vírus B. Em exame de vigilância ultrassonográfica detecta-se nódulo de 2,2 cm em lobo hepático direito. Solicitada Ressonância Magnética com gadolínio, que demonstra realce arterial exuberante seguido de 'wash-out' na fase portal e presença de pseudocápsula. Alfafetoproteína atual: 15 ng/mL. Com base no sistema LI-RADS e Barcelona (BCLC), qual o diagnóstico e o tratamento curativo para este paciente, considerando Child-Pugh A e ausência de hipertensão portal?",
+    "options": {
+      "a": "Hemangioma Gigante; Manejo expectante.",
+      "b": "Carcinoma Hepatocelular (CHC) BCLC estágio B; Quimioembolização Arterial (TACE).",
+      "c": "Carcinoma Hepatocelular (CHC) BCLC estágio A; Ressecção cirúrgica (Hepatectomia parcial).",
+      "d": "Nódulo de Regeneração; Repetir exames em 3 meses.",
+      "e": "Colangiocarcinoma Intra-hepático; Quimioterapia sistêmica."
+    },
+    "answer": "c",
+    "rationale": "O padrão dinâmico invasivo ('wash-in' seguido de 'wash-out') em RM de paciente cirrótico é diagnóstico de CHC (LI-RADS 5). Pelo algoritmo de Barcelona (BCLC), pacientes com nódulo único < 3cm e Child A sem hipertensão portal (clínica ou por gradiente pressórico) são candidatos ideais para a ressecção cirúrgica curativa.",
+    "option_rationales": {
+      "a": "Hemangiomas não apresentam o padrão dinâmico de 'wash-out'.",
+      "b": "BCLC B é para múltiplos nódulos e o tratamento sugerido não é curativo.",
+      "c": "Correta. Aplica os critérios diagnósticos e as opções terapêuticas curativas conforme estágio BCLC.",
+      "d": "Nódulos de regeneração não apresentam hiper-realce arterial precoce sistemático como o CHC.",
+      "e": "Colangiocarcinoma costuma apresentar realce centrípeto progressivo sem wash-out típico."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["CHC", "BCLC", "Onco-Hepatologia"]
+  },
+  {
+    "enunciado": "Um homem de 40 anos, etilista ativo (200g álcool/dia), é admitido com icterícia franca de início súbito, febre baixa e dor em hipocôndrio direito. Exame físico: Icterícia 3+/4+, fígado palpável a 4 cm do rebordo costal direito, doloroso à palpação. Laboratório: Bilirrubina Total 14 mg/dL; TGO 180 U/L; TGP 65 U/L; RNI 1,9. Qual o escore de gravidade deve ser calculado para decidir a terapia com corticosteroides e qual o seu ponto de corte?",
+    "options": {
+      "a": "Escore de Maddrey; Ponto de corte ≥ 32.",
+      "b": "Escore MELD-Na; Ponto de corte > 15.",
+      "c": "Escore de Child-Pugh; Ponto de corte ≥ 10.",
+      "d": "Índice de Ritis; Ponto de corte > 2,0.",
+      "e": "Escore de Lille; Ponto de corte > 0,45."
+    },
+    "answer": "a",
+    "rationale": "O paciente apresenta quadro clínico-laboratorial sugestivo de Hepatite Alcoólica Aguda (relação TGO:TGP > 2:1 e hiperbilirrubinemia aguda em etilista). A gravidade é clássicamente avaliada pela Função Discriminante de Maddrey [4,6 x (tempo protrombina paciente - controle) + bilirrubina total]. Um valor ≥ 32 indica hepatite alcoólica grave e justifica o uso inicial de Prednisolona 40mg/dia para reduzir inflamação hepática aguda e mortalidade.",
+    "option_rationales": {
+      "a": "Correta. Define o escore específico e o limiar para tratamento imunossupressor na insuficiência hepática alcóolica aguda.",
+      "b": "MELD é para priorização de transplante em hepatopatia crônica, não para guiar tratamento agudo com corticoide.",
+      "c": "Child avalia reserva hepática crônica, insuficiente para a decisão de corticoterapia aguda.",
+      "d": "Ritis é apenas a razão TGO/TGP, indicativo de etiologia alcoólica, não de gravidade para tratamento.",
+      "e": "O escore de Lille é usado após 7 dias de corticoide para avaliar se deve interromper ou manter o tratamento."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Hepatite Alcoólica", "Maddrey", "Gastroenterologia"]
+  },
+  {
+    "enunciado": "Um paciente de 45 anos portador de cirrose avançada Child C apresenta quadro de irritabilidade e distúrbio do sono. Ao exame: presença de ascite tensa. Creatinina atual 0,8 mg/dL. Em uso de Furosemida 40 mg e Espironolactona 100 mg. O sódio sérico é de 136 mEq/L e o potássio de 3,6 mEq/L. Familiares iniciaram suplementação com comprimidos de magnésio e complexo vitamínico por conta própria. Nas últimas 24h, o paciente evoluiu com 6 episódios de fezes líquidas. Qual o fator precipitante mais provável para o início da encefalopatia hepática e qual a modificação imediata no esquema de diuréticos?",
+    "options": {
+      "a": "Hiponatremia dilucional; Suspender diuréticos.",
+      "b": "Diarreia induzida por magnésio/suplementos; Suspender diuréticos temporariamente enquanto durar a diarreia.",
+      "c": "Insuficiência cardíaca direita; Aumentar dose de furosemida.",
+      "d": "Hematêmese oculta; Realizar lavagem gástrica.",
+      "e": "Diabetes Melito descompensado; Iniciar insulina NPH."
+    },
+    "answer": "b",
+    "rationale": "Encefalopatia hepática (EH) em cirróticos é frequentemente desencadeada por fatores precipitantes. A diarreia prolongada (induzida aqui por excesso de magnésio ou suplementos) causa depleção de volume e distúrbios eletrolíticos, que são disparadores comuns para EH e possível síndrome hepatorrenal. A conduta imediata envolve suspender diuréticos (furosemida e espironolactona) para evitar maior depleção volêmica enquanto o fator precipitante é corrigido.",
+    "option_rationales": {
+      "a": "O sódio está em 136 (normal), o que não caracteriza hiponatremia dilucional grave.",
+      "b": "Correta. Identifica o gatilho iatrogênico e a proteção volêmica necessária perante perdas intestinais.",
+      "c": "Não há sinais de congestão cardíaca sistêmica ou edema agudo pulmonar.",
+      "d": "Embora a HDA seja um gatilho, a diarreia iatrogênica descrita é a explicação mais direta.",
+      "e": "Causa raras situações de coma, mas não EH por amônia perante diarreia."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["EH", "Diuréticos", "Gastroenterologia"]
+  },
+  {
+    "enunciado": "Cirrótico de 56 anos com ascite compensada realiza EDA que evidencia varizes esofágicas de médio calibre (> 5mm) com presença de marcas avermelhadas (red color signs). O paciente é portador de asma brônquica moderada com uso recorrente de broncodilatadores. Qual a profilaxia primária para sangramento varicoso mais segura e indicada para este paciente específico?",
+    "options": {
+      "a": "Propranolol 40mg duas vezes ao dia.",
+      "b": "Ligadura Elástica por Endoscopia das varizes.",
+      "c": "Carvedilol 6,25mg por dia sob vigilância hospitalar.",
+      "d": "Nadolol, visto que é um betabloqueador de longa duração.",
+      "e": "Apenas vigilância semestral com EDA, pois nunca sangrou."
+    },
+    "answer": "b",
+    "rationale": "A asma brônquica é uma contraindicação formal ao uso de betabloqueadores não seletivos (Propranolol, Nadolol e mesmo Carvedilol, embora este último tenha melhor perfil sistêmico). Pacientes com varizes de médio/grosso calibre ou com sinais de alto risco de sangramento (red marks) e contraindicação ao uso de betabloqueadores devem ser submetidos à profilaxia primária com ligadura elástica endoscópica.",
+    "option_rationales": {
+      "a": "Contraindicado pela asma (broncoconstrição severa).",
+      "b": "Correta. Procedimento de escolha quando betabloqueadores são proibitivos.",
+      "c": "Apesar do maior perfil vasodilatador, o carvedilol ainda bloqueia receptores Beta e é arriscado no asmático.",
+      "d": "Betabloqueador não seletivo igualmente perigoso no paciente com doença obstrutiva pulmonar.",
+      "e": "As marcas avermelhadas e o calibre indicam alto risco, tornando a profilaxia primária mandatória."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Hipertensão Portal", "Asma", "Endoscopia"]
+  },
+  {
+    "enunciado": "Um paciente de 48 anos com cirrose por vírus C e Child-Pugh A apresenta esplenomegalia maciça e plaquetopenia persistente (60.000/mm³). A Dopplerfluxometria das veias hepáticas mostra fluxo de padrão trifásico normal nas veias supra-hepáticas, mas inversão de fluxo (hepatofugal) na veia porta, com velocidade de 8 cm/s. Qual a implicação hemodinâmica deste achado ultrassonográfico e a complicação sistêmica mais comum associada à inversão crônica do fluxo portal?",
+    "options": {
+      "a": "Hipertensão portal grave; Desenvolvimento de varizes gástricas fúndicas e shunt esplenorrenal.",
+      "b": "Trombose de veia porta; Risco iminente de infarto intestinal agudo.",
+      "c": "Insuficiência cardíaca congestiva; Edema agudo de pulmão recorrente.",
+      "d": "Hepatite Viral Aguda; Piora súbita da ascite e febre.",
+      "e": "Fisiológico; Fluxo portal não interfere na hemodinâmica cirrótica."
+    },
+    "answer": "a",
+    "rationale": "O fluxo hepatofugal (invertido) na veia porta é um sinal avançado de hipertensão portal severa. Nestas circunstâncias, o fígado oferece tanta resistência ao fluxo sanguíneo que o sangue flui para longe do fígado através de colaterais. Isso está fortemente associado à formação de shunts espontâneos (esplenorrenais) e varizes gástricas calibrosas, que possuem alto risco de rotura.",
+    "option_rationales": {
+      "a": "Correta. Interpreta adequadamente o Doppler portal e as consequências colaterais de alto risco.",
+      "b": "A trombose levaria a fluxo ausente ou 'cavernoma portal', mas a inversão sugere hipertensão funcional extrema antes da trombose total.",
+      "c": "A ICC causaria fluxo pulsátil nas veias supra-hepáticas, não inversão na porta por si só.",
+      "d": "A hepatite aguda não inverte fluxo portal habitualmente desta forma sistemática.",
+      "e": "O fluxo portal normal é obrigatoriamente hepatopetal (para dentro do fígado)."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Doppler", "Hemodinâmica Portal", "Eco"]
+  },
+  {
+    "enunciado": "Sobre a Síndrome de Budd-Chiari, caracterizada pela obstrução do fluxo de saída venoso hepático, em uma paciente jovem com uso de anticoncepcionais orais, qual o sinal clínico clássico de inspeção abdominal e qual o achado radiológico mais característico em fase de contraste arterial na TC de abdome?",
+    "options": {
+      "a": "Aranhas vasculares (telangiectasias); Hiperatrofia global do lobo direito.",
+      "b": "Circulação colateral em flancos (padrão cava-cava); Hipertrofia do lobo caudado e realce heterogêneo ('aspecto em mosaico').",
+      "c": "Caput medusae periumbilical; Calcificação das veias supra-hepáticas.",
+      "d": "Sinal de Murphy positivo; Atrofia central do parênquima.",
+      "e": "Xantelasmas palpebrais; Realce periférico nodular progressivo."
+    },
+    "answer": "b",
+    "rationale": "A Síndrome de Budd-Chiari manifesta-se tipicamente com ascite, hepatomegalia e dor. A obstrução das veias supra-hepáticas ou cava inferior gera circulação colateral visível nos flancos para drenar o abdome (cava-cava). Radiologicamente, o lobo caudado costuma estar hipertrofiado, pois possui drenagem venosa independente direta para a veia cava. Na fase arterial da TC com contraste, observa-se realce heterogêneo ('mosaico') devido à congestão venosa severa.",
+    "option_rationales": {
+      "a": "Aranhas são típicas da falência hepática crônica global, não específicas da obstrução venosa.",
+      "b": "Correta. Alinha o sinal físico de circulação colateral específico à anatomia radiológica do lobo caudado.",
+      "c": "Caput medusae (peri-umbilical) indica hipertensão portal intra-hepática clássica (reabertura de veia umbilical).",
+      "d": "Murphy é para colecistite aguda.",
+      "e": "Xantelasmas ocorrem em cirroses colestáticas como a CBP."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Budd-Chiari", "Veia Cava", "Imagem"]
+  },
+  {
+    "enunciado": "Um homem de 52 anos com cirrose estável recebe diagnóstico de pênfigo vulgar e necessita de altas doses de corticoterapia. Sobre o rastreamento prévio à imunossupressão nesta população, qual marcador de hepatite B obrigatoriamente deve ser solicitado para avaliar risco de reativação viral e qual a conduta em caso de positividade isolada apenas desse marcador (HBsAg negativo)?",
+    "options": {
+      "a": "Anti-HBs; Vacinação imediata.",
+      "b": "Anti-HBc Total; Se positivo, iniciar profilaxia com Entecavir ou Tenofovir independente de carga viral inicial.",
+      "c": "HBeAg; Iniciar tratamento apenas se as transaminases subirem.",
+      "d": "Anti-HBe; Monitoramento trimestral com carga viral VHB-DNA.",
+      "e": "Nenhum rastreio é necessário se o paciente for vacinado."
+    },
+    "answer": "b",
+    "rationale": "Pacientes com cirrose e evidência de infecção prévia (Anti-HBc Total positivo, mesmo com HBsAg negativo) correm risco de reativação viral aguda e fulminação ao serem submetidos a altas doses de corticosteroides ou quimioterapia. A diretriz de hepatologia recomenda o rastreio sistemático com HBsAg e Anti-HBc Total. Se o Anti-HBc for positivo e o risco de reativação for alto (como em altas doses de corticoide > 20mg/dia por > 4 semanas), deve-se iniciar profilaxia antiviral.",
+    "option_rationales": {
+      "a": "Anti-HBs indica imunidade, não risco de reativação sistêmica do vírus latente.",
+      "b": "Correta. Define o marcador de 'contato prévio' e a medida preventiva crítica antes da imunossupressão.",
+      "c": "Esperar a subida de transaminases pode ser fatal em um fígado já cirrótico com reserva limitada.",
+      "d": "A carga viral pode estar negativa no início, mas o vírus permanece integrado ao DNA do hepatócito.",
+      "e": "A vacina não protege contra o vírus já presente/latente no fgado do paciente."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["VHB", "Imunossupressão", "Segurança do Paciente"]
+  },
+  {
+    "enunciado": "Sobre o escore MELD (Model for End-Stage Liver Disease) utilizado para a fila de transplante hepático no Brasil e no mundo, quais são os quatro parâmetros laboratoriais básicos (além da necessidade de diálise) que compõem o cálculo atualizado (MELD-Na)?",
+    "options": {
+      "a": "Albumina, Bilirrubina, Tempo de Protrombina (RNI) e Encefalopatia.",
+      "b": "Bilirrubina, Creatinina, RNI e Sódio Sérico.",
+      "c": "Transaminases (TGO/TGP), Creatinina e Ureia.",
+      "d": "Contagem de Plaquetas, Ferritina, Bilirrubina e Proteína C Reativa.",
+      "e": "Gama-GT, Fosfatase Alcalina, Creatinina e Potássio."
+    },
+    "answer": "b",
+    "rationale": "O MELD é um modelo estatístico que prediz a mortalidade em 3 meses do paciente cirrótico. Os componentes originais são Bilirrubina Total, Creatinina e RNI. Atualmente, a variante MELD-Na (que incorpora o Sódio Sérico) é a utilizada no Brasil, pois a hiponatremia é um fator independente de pior prognóstico e risco de morte na lista de espera por transplante.",
+    "option_rationales": {
+      "a": "Álbumina e Encefalopatia fazem parte do Child-Pugh, não do MELD.",
+      "b": "Correta. Lista os componentes matemáticos objetivos usados na priorização oficial de transplantes.",
+      "c": "Transaminases não entram no cálculo de sobrevida a curto prazo no MELD.",
+      "d": "A plaquetopenia é sinal de cirrose, mas não tem peso prognóstico no MELD.",
+      "e": "GGT e Fosfatase são marcadores de canalículo biliar e não medem função remanescente no MELD."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["MELD", "Transplante Hepático", "Score Clínico"]
+  },
+  {
+    "enunciado": "Um paciente de 55 anos, diabético e com obesidade grau II, apresenta ultrassonografia com esteatose hepática intensa e elastografia hepática (FibroScan) com rigidez de 14,5 kPa (compatível com F4/Cirrose). Não apresenta ascite ou estigmas de insuficiência hepática. Qual a melhor recomendação terapêutica adjuvante com benefício cardiovascular demonstrado para este paciente com cirrose compensada por esteato-hepatite não alcoólica (MASH)?",
+    "options": {
+      "a": "Iniciar Vitamina E 800 UI/dia.",
+      "b": "Iniciar Estatinas (ex: Rosuvastatina ou Atorvastatina) de forma segura e monitorada.",
+      "c": "Dieta de exclusão de glúten e suplementação de ferro.",
+      "d": "Suspender qualquer medicação hipolipemiante pelo risco de hepatotoxicidade na cirrose.",
+      "e": "Prescrever apenas corticoides em doses baixas."
+    },
+    "answer": "b",
+    "rationale": "Pacientes com cirrose compensada (especialmente de causa metabólica) frequentemente morrem de eventos cardiovasculares antes da falência hepática. O uso de estatinas em cirróticos compensados é considerado seguro e pode reduzir a pressão portal e a mortalidade cardiovascular, contraindicando-se apenas na cirrose descompensada grave (Child C). A vitamina E só tem benefício em não-diabéticos sem cirrose comprovada histopatologicamente.",
+    "option_rationales": {
+      "a": "A vitamina E não é recomendada em diabéticos ou pacientes já cirróticos estabelecidos.",
+      "b": "Correta. Derruba o mito de que estatinas são proibidas na doença hepática estabelecida compensada.",
+      "c": "Glúten não tem relação com a patogênese da esteato-hepatite metabólica.",
+      "d": "O medo excessivo das estatinas priva o cirrótico metabólico da proteção contra infarto e AVC.",
+      "e": "Corticoides não têm indicação crônica no manejo da doença gordurosa do fígado."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["MASH", "Estatinas", "Gastroenterologia"]
+  },
+  {
+    "enunciado": "Sobre o manejo da ascite refratária em cirróticos, o que define este diagnóstico e qual a contraindicação para o uso de TIPS como modalidade terapêutica?",
+    "options": {
+      "a": "Falta de resposta a 400mg de espironolactona e 160mg de furosemida; Child-Pugh > 11 pontos.",
+      "b": "Inchaço que retorna após 1 mês; Presença de diabetes melito tipo 2.",
+      "c": "Necessidade de paracentese mensal; Ter mais de 65 anos.",
+      "d": "Fezes líquidas recorrentes; Hipertensão arterial sistêmica controlada.",
+      "e": "Elevação das plaquetas para > 150.000; Ausência de varizes esofágicas."
+    },
+    "answer": "a",
+    "rationale": "A ascite refratária é definida por dois padrões: (1) Ascite resistente a diuréticos (falta de resposta às doses máximas de 400mg de Espironolactona e 160mg de Furosemida diários e restrição de sódio) ou (2) Ascite intratável por diuréticos (quando o paciente desenvolve efeitos colaterais que impedem o uso das doses necessárias). Contraindicações para o TIPS incluem pontuação de escore Child-Pugh muito alta (especialmente > 11 ou 12), encefalopatia hepática persistente grave e falência cardíaca direita.",
+    "option_rationales": {
+      "a": "Correta. Define com precisão farmacológica o critério de refratariedade e uma contraindicação prognóstica ao TIPS.",
+      "b": "O tempo de retorno na refratariedade costuma ser muito mais rápido do que 1 mês.",
+      "c": "A idade não é por si só uma contraindicação absoluta como a falha funcional hepática grave.",
+      "d": "A HAS não contraindica o TIPS; frequentemente a pressão até melhora após controle da ascite.",
+      "e": "TIPS não é guiado pela contagem de plaquetas nesta circunstância."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Ascite Refratária", "TIPS", "Gastroenterologia"]
+  }
+]

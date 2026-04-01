@@ -409,7 +409,7 @@ export async function publishConcursoQuestion(packageQuestionId: string): Promis
                 options: optionsArray,
                 correct_option_id: qj.answer,
                 explanation: qj.rationale,
-                difficulty: qj.difficulty || 'media',
+                difficulty: normalizeDifficulty(qj.difficulty),
                 status: 'active',
                 banca_id: pq.package?.bank_id,
                 area_id: pq.package?.area_id,
@@ -472,7 +472,7 @@ export async function publishBatchConcursoQuestions(packageQuestionIds: string[]
                 options: optionsArray,
                 correct_option_id: qj.answer,
                 explanation: qj.rationale,
-                difficulty: qj.difficulty || 'media',
+                difficulty: normalizeDifficulty(qj.difficulty),
                 status: 'active',
                 banca_id: pq.package?.bank_id,
                 area_id: pq.package?.area_id,
@@ -616,6 +616,13 @@ Retorne APENAS um array JSON válido no formato:
   ${jsonFormat}
 ]
 `.trim()
+}
+
+function normalizeDifficulty(val?: string): 'facil' | 'media' | 'dificil' {
+    const v = (val || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    if (v === 'facil' || v === 'easy') return 'facil'
+    if (v === 'dificil' || v === 'hard') return 'dificil'
+    return 'media'
 }
 
 function generateSlug(name: string): string {

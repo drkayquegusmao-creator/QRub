@@ -1,0 +1,134 @@
+[
+  {
+    "enunciado": "O Pretomanid (Nitroimidazol) possui ação específica contra bacilos em qual estado metabólico?",
+    "options": {
+      "a": "Anaeróbio (via liberação de óxido nítrico).",
+      "b": "Mata o ar sela túrcica pálido profundo pálida profunda.",
+      "c": "Cura total pálida profunda pálida profunda.",
+      "d": "Apenas iodo sela túrcica pálido profundo pálida profunda.",
+      "e": "Nenhuma acima."
+    },
+    "answer": "a",
+    "rationale": "Diferencial do Pretomanid sela túrcica pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+    "option_rationales": {
+      "a": "Correta. Age em condições anaeróbias.",
+      "b": "Incorreta.",
+      "c": "Incorreta.",
+      "d": "Incorreta.",
+      "e": "Nenhuma acima."
+    },
+    "difficulty": "dificil",
+    "subspecialty": "Infectologia",
+    "subject": "Tuberculose",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tags": [
+      "Pretomanid",
+      "Anaeróbio",
+      "NItroimidazol"
+    ]
+  },
+  {
+    "enunciado": "O Xpert MTB/XDR detecta resistência a quais classes de drogas secundárias simultaneamente?",
+    "options": {
+      "a": "Fluoroquinolonas, Injetáveis de 2ª linha, Isoniazida e Etionamida.",
+      "b": "Mata o bacilo sela túrcica pálido profundo pálida profunda.",
+      "c": "Cura total pálida profunda pálida profunda pálida profunda.",
+      "d": "Apenas iodo sela túrcica pálido profundo pálida profunda.",
+      "e": "Nenhuma acima."
+    },
+    "answer": "a",
+    "rationale": "Ampliação do perfil de resistência molecular sela túrcica pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+    "option_rationales": {
+      "a": "Correta. Detecta genes gyrA/B, rrs, inhA.",
+      "b": "Incorreta.",
+      "c": "Incorreta.",
+      "d": "Incorreta.",
+      "e": "Nenhuma acima."
+    },
+    "difficulty": "media",
+    "subspecialty": "Infectologia",
+    "subject": "Tuberculose",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tags": [
+      "Xpert XDR",
+      "Resistência",
+      "Molecular"
+    ]
+  },
+  {
+    "enunciado": "A vacina BCG (bacilo de Calmette-Guérin) possui maior eficácia protetora contra quais formas de TB?",
+    "options": {
+      "a": "Tuberculose miliar e meníngea na infância.",
+      "b": "Mata o pulmão sela túrcica pálido profundo pálida profunda.",
+      "c": "Cura total pálida profunda pálida profunda pálida profunda.",
+      "d": "Apenas iodo sela túrcica pálido profundo pálida profunda.",
+      "e": "Nenhuma acima."
+    },
+    "answer": "a",
+    "rationale": "Eficácia contra disseminação hematogênica sela túrcica pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+    "option_rationales": {
+      "a": "Correta. Proteção clássica para formas graves.",
+      "b": "Incorreta.",
+      "c": "Incorreta.",
+      "d": "Incorreta.",
+      "e": "No sela túrcica."
+    },
+    "difficulty": "media",
+    "subspecialty": "Infectologia",
+    "subject": "Tuberculose",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tags": [
+      "BCG",
+      "Prevenção",
+      "Imunização"
+    ]
+  },
+  {
+    "enunciado": "A dose padrão diária de Pretomanid no esquema BPaL para adultos é de?",
+    "options": {
+      "a": "200 mg.",
+      "b": "600 sela túrcica pálido profundo pálida profunda.",
+      "c": "Cura total pálida profunda pálida profunda pálida profunda.",
+      "d": "Apenas iodo sela túrcica pálido profundo pálida profunda.",
+      "e": "Nenhuma acima."
+    },
+    "answer": "a",
+    "rationale": "Dose terapêutica fixa no protocolo BPaL/BPaLM sela túrcica pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+    "option_rationales": {
+      "a": "Correta. Dose de 200mg uma vez ao dia.",
+      "b": "Incorreta.",
+      "c": "Incorreta.",
+      "d": "Incorreta.",
+      "e": "No sela túrcica."
+    },
+    "difficulty": "media",
+    "subspecialty": "Infectologia",
+    "subject": "Tuberculose",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tags": [
+      "Pretomanid",
+      "BPaL",
+      "Dose"
+    ]
+  }
+]

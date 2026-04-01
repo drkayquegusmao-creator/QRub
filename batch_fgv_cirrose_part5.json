@@ -1,0 +1,542 @@
+[
+  {
+    "enunciado": "Um homem de 55 anos, cirrótico Child-Pugh B, é submetido a uma laparotomia exploradora por trauma abdominal. O cirurgião decide realizar a Manobra de Pringle para controle de hemorragia hepática. Quais estruturas anatômicas são clampeadas nesta manobra e em qual ligamento elas se situam?",
+    "options": {
+      "a": "Veia Cava Inferior e Aorta Abdominal; Ligamento Falciforme.",
+      "b": "Tríade Portal (Veia Porta, Artéria Hepática Própria e Ducto Biliar Comum); Ligamento Hepatoduodenal (borda livre do omento menor).",
+      "c": "Veias Supra-hepáticas e Duto Torácico; Ligamento Coronário.",
+      "d": "Artéria Mesentérica Superior e Veia Esplênica; Ligamento Gastroesplênico.",
+      "e": "Ureter direito e Veia Renal; Ligamento de Treitz."
+    },
+    "answer": "b",
+    "rationale": "A Manobra de Pringle é uma manobra cirúrgica clássica para controle de hemorragia hepática. Ela consiste na oclusão manual ou com clampe vascular da tríade portal (componentes aferentes ao fígado), que transcorre no interior do ligamento hepatoduodenal. Ao interromper o fluxo arterial e portal, o cirurgião reduz drasticamente o sangramento do parênquima hepático, permitindo a rafia ou inspeção da lesão.",
+    "option_rationales": {
+      "a": "Clampar a cava inferior sem outros controles pode levar ao colapso hemodinâmico por falta de retorno venoso.",
+      "b": "Correta. Define precisamente a anatomia da manobra e as estruturas vasculares/biliares envolvidas.",
+      "c": "Dificultaria apenas o fluxo de saída, agravando o sangramento do órgão.",
+      "d": "A veia esplênica está distante do hilo hepático principal nesta manobra.",
+      "e": "Estruturas retroperitoneais sem relação com a hemodinâmica biliar-hepática."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Cirurgia Hepática", "Pringle", "Anatomia"]
+  },
+  {
+    "enunciado": "Sobre a segmentação hepática de Couinaud, qual segmento corresponde ao Lobo Caudado e qual sua principal drenagem venosa independente?",
+    "options": {
+      "a": "Segmento I; Drena diretamente para a Veia Cava Inferior.",
+      "b": "Segmento IV; Drena via Veia Supra-hepática Média.",
+      "c": "Segmento VIII; Drena via Veia Porta Direita.",
+      "d": "Segmento III; Drena via Veia Gástrica Esquerda.",
+      "e": "Segmento VI; Drena via Veia Renal Esquerda."
+    },
+    "answer": "a",
+    "rationale": "O lobo caudado é o Segmento I de Couinaud. Sua anatomia é única por receber irrigação arterial e portal de ambos os lados (direito e esquerdo) e, crucialmente, sua drenagem venosa ocorre através de múltiplas veias pequenas que desembocam diretamente na veia cava inferior, independentemente das veias supra-hepáticas principais. Por isso, na Síndrome de Budd-Chiari, o Segmento I costuma estar hipertrofiado e preservado.",
+    "option_rationales": {
+      "a": "Correta. Identifica o segmento e sua peculiaridade vascular protetora em oclusões de supra-hepáticas.",
+      "b": "O segmento IV situa-se no lobo esquerdo medial.",
+      "c": "O oitavo é o segmento superior do lobo direito.",
+      "d": "O terceiro é o lateral do lobo esquerdo.",
+      "e": "O sexto é o inferior lateral do lobo direito."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Segmentação Hepática", "Anatomia", "Hepatologia"]
+  },
+  {
+    "enunciado": "Um paciente cirrótico Child C de 60 anos apresenta hálito com odor adocicado e amoniacal (féter hepático). Qual o composto químico acumulado que confere este odor característico ao paciente com falência hepática severa?",
+    "options": {
+      "a": "Metilsulfunilmetano.",
+      "b": "Dimetilsulfeto (Dimetil-sulfeto).",
+      "c": "Acetocetato.",
+      "d": "Cloreto de Magnésio.",
+      "e": "Ácido Úrico."
+    },
+    "answer": "b",
+    "rationale": "O fétor hepático (foetor hepaticus) é um sinal de insuficiência hepática fulminante ou cirrose avançada com shunts portossistêmicos maciços. O odor é causado pelo dimeti-sulfeto, um produto volátil derivado do metabolismo da metionina, que atinge a circulação sistêmica e é exalado pelos pulmões na ausência de filtragem hepática adequada.",
+    "option_rationales": {
+      "a": "Composto comum, mas não o responsável pelo odor do fétor.",
+      "b": "Correta. Identifica o biomarcador volátil específico da insuficiência hepática.",
+      "c": "Corpo cetônico responsável pelo hálito cetônico do diabetes melito (cetoacidose).",
+      "d": "Substância mineral sem odor característico volátil.",
+      "e": "Não possui odor volátil detectável no hálito."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Fétor Hepático", "Propedêutica", "Bioquímica"]
+  },
+  {
+    "enunciado": "No acompanhamento pós-operatório imediato (primeiras 48h) de um transplante hepático, o paciente evolui com elevação súbita de transaminases (> 5.000 U/L) e acidose metabólica. O Doppler mostra ausência de sinal na artéria intra-hepática. Qual a complicação vascular mais temida neste período e qual a conduta de urgência definitiva?",
+    "options": {
+      "a": "Trombose de Veia Porta; Cirurgia de Warren.",
+      "b": "Trombose de Artéria Hepática; Reintervenção cirúrgica imediata ou tentativa de re-transplante conforme gravidade.",
+      "c": "Estenose de Via Biliar; CPRE e prótese.",
+      "d": "Síndrome de Small-for-size; Reduzir ascite.",
+      "e": "Rejeição Hiperaguda mediada por anticorpos; Metilprednisolona."
+    },
+    "answer": "b",
+    "rationale": "A trombose de artéria hepática (TAH) no pós-operatório precoce é uma catástrofe cirúrgica. Como a via biliar do enxerto depende exclusivamente da irrigação arterial para sua viabilidade (o plexo peribiliar), a perda da artéria leva à necrose biliar maciça e gangrena do fígado transplantado. O diagnóstico por Doppler exige confirmação com angio-TC ou arteriografia e tentativa de trombectomia/revascularização cirúrgica imediata.",
+    "option_rationales": {
+      "a": "Trombose portal cursa com ascite e hipertensão, mas a isquemia parenquimatosa aguda maciça é arterial.",
+      "b": "Correta. Define a emergência vascular pós-transplante de maior gravidade.",
+      "c": "Complicação biliar crônica, não aguda com transaminases de 5.000.",
+      "d": "Ocorre quando o enxerto é muito pequeno para o receptor, cursa com colestase e ascite persistentes.",
+      "e": "Rara no fígado (órgão imunologicamente privilegiado). A isquemia pelo Doppler negativo corrobora causa mecânica vascular."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Transplante Hepático", "Trombose", "Emergência"]
+  },
+  {
+    "enunciado": "Sobre a biópsia hepática no transplante, o Escore de Banff é utilizado para graduar qual condição imunológica de agressão ao enxerto?",
+    "options": {
+      "a": "Hepatite Viral Recurrente.",
+      "b": "Rejeição Celular Aguda (RCA).",
+      "c": "Esteatose Pós-Operatória.",
+      "d": "Isquemia fria prolongada.",
+      "e": "Fibrose biliar crônica."
+    },
+    "answer": "b",
+    "rationale": "O esquema de Banff é a padronização internacional para o diagnóstico histológico de Rejeição Celular Aguda (RCA) no transplante de fígado. Avalia a tríade: (1) Inflamação do trato portal; (2) Inflamação biliar (ductulite); (3) Inflamação venular (endotelialite sub-endotelial). O escore variando de leve a acentuado guia a intensidade da imunossupressão (pulsoterapia de corticoides).",
+    "option_rationales": {
+      "a": "A recorrência viral avalia carga viral e necroinflamação crônica.",
+      "b": "Correta. Define o uso acadêmico e clínico do escore de Banff.",
+      "c": "Avalia-se por porcentagem de hepatócitos acometidos, não pelo Banff.",
+      "d": "A lesão de isquemia-reperfusão tem padrões histológicos diferentes na zona 3.",
+      "e": "Fibrose em transplante usa escores como METAVIR ou Ishak."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Banff", "Rejeição", "Transplante"]
+  },
+  {
+    "enunciado": "Um paciente cirrótico do sexo masculino apresenta ginecomastia bilateral dolorosa à palpação profunda. O paciente está em tratamento para ascite refratária. Qual medicação é sabidamente associada a este efeito colateral anti-androgênico nesta população?",
+    "options": {
+      "a": "Furosemida.",
+      "b": "Espironolactona.",
+      "c": "Propranolol.",
+      "d": "Lactulona.",
+      "e": "Norfloxacino."
+    },
+    "answer": "b",
+    "rationale": "A espironolactona é um antagonista da aldosterona, mas possui estrutura química esteroide que interage com receptores de hormônios sexuais, agindo como anti-androgênico (bloqueia o receptor de testosterona) e estimulando a aromatização excessiva. Em cirróticos, que já possuem níveis baixos de testosterona, o uso de espironolactona leva frequentemente à ginecomastia dolorosa. Em casos intoleráveis, pode ser substituída por Eplerenona ou Amilorida.",
+    "option_rationales": {
+      "a": "Diurético de alça sem atividade hormonal.",
+      "b": "Correta. Identifica o efeito adverso endócrino clássico do fármaco padrão da ascite.",
+      "c": "Betabloqueadores não causam ginecomastia (mas podem causar disfunção erétil).",
+      "d": "Ação osmótica intestinal, sem efeito sistêmico hormonal.",
+      "e": "Antibiótico quinolônico."
+    },
+    "difficulty": "facil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Espironolactona", "Endocrinologia", "Ascite"]
+  },
+  {
+    "enunciado": "Um paciente de 40 anos apresenta ascite volumosa, icterícia leve e esplenomegalia maciça. A EDA revela varizes esofágicas calibrosas. O paciente não é etilista e refere banhos em riacho de água doce durante a infância no interior de Minas Gerais. Qual o padrão histopatológico de 'fibrose' esperado na biópsia hepática caso o diagnóstico seja Esquistossomose Mansônica na fase hepatoesplênica?",
+    "options": {
+      "a": "Cirrose micronodular difusa.",
+      "b": "Fibrose periportal em 'cabo de cachimbo' (Fibrose de Symmers).",
+      "c": "Nódulos de regeneração gigantes (tipo macro).",
+      "d": "Infiltrado linfocitário ductular 'florido'.",
+      "e": "Necrose maciça da zona 3 de Rappaport."
+    },
+    "answer": "b",
+    "rationale": "A Esquistossomose causa uma forma de hipertensão portal pré-sinusoidal. Os ovos do Schistosoma mansoni ficam retidos nos espaços portais, gerando uma reação granulomatosa intensa. Isso resulta em fibrose periportal característica descrita por Symmers como em 'cabo de cachimbo'. Fundamentalmente, a função sintética do hepatócito (Albumina, RNI) é preservada por muito tempo, ao contrário da cirrose propriamente dita.",
+    "option_rationales": {
+      "a": "A esquistossomose não é uma cirrose clássica, pois preserva o parênquima.",
+      "b": "Correta. Define o padrão histológico patognomônico da parasitose hepática.",
+      "c": "Padrão de cirrose avançada viral ou alcóolica tardia.",
+      "d": "Típico da Colangite Biliar Primária.",
+      "e": "Típico de hepatite fulminante tóxica (ex: paracetamol)."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Esquistossomose", "Anatomia Patológica", "Gastroenterologia"]
+  },
+  {
+    "enunciado": "Sobre a profilaxia antibiótica no paciente cirrótico admitido com sangramento por varizes esofágicas, qual o benefício clínico demonstrado que justifica o início do Ceftriaxona ou Norfloxacino imediatamente ao diagnóstico da hemorragia?",
+    "options": {
+      "a": "Reduz apenas o tempo de internação nas enfermarias.",
+      "b": "Reduz o risco de novas infecções (como PBE e pneumonia), a reincidência precoce de sangramento e a mortalidade hospitalar.",
+      "c": "Aumenta a absorção intestinal de ferro para tratar a anemia.",
+      "d": "Evita a formação de novos cálculos de vesícula.",
+      "e": "Não há benefício comprovado em pacientes Child-Pugh A."
+    },
+    "answer": "b",
+    "rationale": "Infecções bacterianas ocorrem em até 50% dos cirróticos com HDA. A infecção aumenta a pressão portal e a falha do tratamento endoscópico. Metanálises demonstraram que o uso de antibiótico profilático por 7 dias (Ceftriaxona EV para Child B/C ou Norfloxacino VO para Child A) reduz a taxa de re-sangramento precoce e a mortalidade de forma estatisticamente significativa.",
+    "option_rationales": {
+      "a": "O impacto é muito maior que apenas logístico, afetando a sobrevida.",
+      "b": "Correta. Resume a tríade de benefícios clínicos sustentados por evidência de alto nível.",
+      "c": "Não possui relação com transporte de ferro.",
+      "d": "Nenhum antibiótico é usado profilaticamente para litíase no contexto agudo de HDA.",
+      "e": "O benefício existe mesmo em cirróticos compensados durante o estresse de uma hemorragia volumosa."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Antibióticos", "HDA", "Gastroenterologia"]
+  },
+  {
+    "enunciado": "Um paciente cirrótico apresenta circulação colateral periumbilical exuberante com sinal de 'cabeça de medusa'. Qual colateral venosa específica sofreu recanalização em resposta à hipertensão portal intra-hepática?",
+    "options": {
+      "a": "Veia Ázigos.",
+      "b": "Veia Umbilical (no ligamento falciforme).",
+      "c": "Veia Renal Direita.",
+      "d": "Veia Ilíaca Comum.",
+      "e": "Veia Gástrica Curta."
+    },
+    "answer": "b",
+    "rationale": "A circulação colateral abdominal em 'cabeça de medusa' resulta da reabertura (recanalização) da veia umbilical fetal, que se localiza no interior do ligamento falciforme. Com o aumento da pressão no sistema portal, o sangue é desviado da veia porta esquerda de volta para a veia umbilical, que drena nas veias da parede abdominal anterior.",
+    "option_rationales": {
+      "a": "Drena o sistema de varizes esofágicas para a cava superior.",
+      "b": "Correta. Identifica a anatomia patognomônica do estigma de hipertensão portal periumbilical.",
+      "c": "Envolvida em shunts esplenorrenais profundos (não visíveis na pele).",
+      "d": "Participa de colaterais inferiores em casos de obstrução de veia cava.",
+      "e": "Origina as varizes de fundo gástrico."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Propedêutica", "Hipertensão Portal", "Anatomia"]
+  },
+  {
+    "enunciado": "Sobre o manejo da Síndrome Hepatorrenal Tipo 1 (IRA-SHR) em centros especializados, qual a droga vasoconstritora considerada o padrão-ouro conforme o ensaio clínico CONFIRM?",
+    "options": {
+      "a": "Dopamina.",
+      "b": "Terlipressina.",
+      "c": "Hidralazina.",
+      "d": "Losartana.",
+      "e": "Anlodipino."
+    },
+    "answer": "b",
+    "rationale": "O ensaio clínico CONFIRM reafirmou a Terlipressina (associada à albumina) como a droga de escolha para reverter a falha renal funcional na cirrose. Ela atua como agonista seletivo dos receptores V1 da vasopressina no leito esplâncnico, revertendo a vasodilatação patológica. A noradrenalina é uma alternativa de eficácia equiparável em ambientes de UTI, mas a terlipressina é a mais estudada e recomendada em enfermaria.",
+    "option_rationales": {
+      "a": "Não tem eficácia demonstrada na reversão da SHR e pode piorar a taquicardia.",
+      "b": "Correta. Cita a evidência robusta atual para o tratamento de suporte renal funcional na cirrose.",
+      "c": "Vasodilatador; agravaria fatalmente a síndrome.",
+      "d": "Bloqueia o sistema RAA, que já está sob estresse, podendo induzir morte por falência renal.",
+      "e": "Bloqueador de canal de cálcio vasodilatador, totalmente contraindicado na fase aguda da SHR."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["SHR", "Terlipressina", "Gastroenterologia"]
+  },
+  {
+    "enunciado": "Um paciente cirrótico com mestre-ascite tensa é submetido à paracentese de alívio de 10 litros. Por um erro logístico, não foi administrada albumina humana durante o procedimento. O paciente evolui após 48h com instabilidade hemodinâmica, hiponatremia e IRA severa. Como se denomina este fenômeno circulatório e qual sua causa primária?",
+    "options": {
+      "a": "Síndrome de Lise Hepática.",
+      "b": "Disfunção Circulatória Pós-Paracentese (DCPP); Resulta da vasodilatação arterial sistêmica reflexa maciça após a descompressão abdominal.",
+      "c": "Trombose de Veia Cava de urgência.",
+      "d": "Encefalopatia por Hipóxia Global.",
+      "e": "Choque Carcinogênico por CHC."
+    },
+    "answer": "b",
+    "rationale": "A DCPP (Post-Paracentesis Circulatory Dysfunction) ocorre quando se removem grandes volumes de ascite (> 5L) sem reposição adequada de albumina. A descompressão súbita da cavidade abdominal gera uma paradoxal vasodilatação esplâncnica e sistêmica, reduzindo criticamente o volume arterial efetivo circulante, ativando severamente o sistema renina-angiotensina e levando à morte funcional do rim (SHR).",
+    "option_rationales": {
+      "a": "Termo não relacionado a esse evento mecânico/fisiológico.",
+      "b": "Correta. Define a complicação iatrogênica evitável mais grave da paracentese terapêutica.",
+      "c": "Trombose não é o mecanismo esperado pela simples drenagem de líquido ascite.",
+      "d": "A disfunção neurológica é secundária à falência renal e choque, não a causa primária.",
+      "e": "Não há evidência de câncer no enunciado."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["DCPP", "Paracentese", "Hemodinâmica"]
+  },
+  {
+    "enunciado": "Qual a principal indicação curativa para o transplante de fígado em um paciente com Amiloidose Familiar por mutação da Transtirretina (TTR)?",
+    "options": {
+      "a": "Trocar o fígado cirrótico por um saudável.",
+      "b": "Remover a fonte principal de produção da proteína anômala mutante, impedindo o depósito sistêmico da amiloide no coração e nervos.",
+      "c": "Tratar a carcinomatose amiloide primária.",
+      "d": "Curar a hemofilia associada.",
+      "e": "Reduzir o volume de ascite biliar."
+    },
+    "answer": "b",
+    "rationale": "Na Amiloidose Hereditária por TTR (doença de Corino de Andrade), o fígado é macroscopicamente e funcionalmente normal, mas produz uma transtirretina mutante que se desdobra e deposita fibrilas amiloides em tecidos (nervos periféricos e coração). O transplante de fígado é uma 'terapia gênica cirúrgica' que remove a fonte de produção da proteína defeituosa, podendo interromper a progressão da doença.",
+    "option_rationales": {
+      "a": "Nesta doença, o fígado costuma estar com função preservada; o transplante visa trocar a genética da produção proteica.",
+      "b": "Correta. Identifica o transplante como substitutivo metabólico na desordem genética sistêmica.",
+      "c": "Incorreto; amiloidose não é carcinomatose.",
+      "d": "Embora o fígado produza fatores de coagulação, o alvo aqui é a TTR.",
+      "e": "A ascite não é o sintoma guia desta polineuropatia amiloidótica."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Amiloidose", "TTR", "Transplante"]
+  },
+  {
+    "enunciado": "Um paciente de 52 anos apresenta cirrose por vírus B associada ao vírus Delta. No screening de CHC por USG, o examinador relata dificuldade técnica extrema em visualizar o fígado devido à obesidade grau III (IMC 42) e esteatose. Qual a conduta recomendada para a vigilância de Carcinoma Hepatocelular neste paciente específico?",
+    "options": {
+      "a": "Aceitar o laudo da USG limitado e manter vigilância apenas com Alfafetoproteína.",
+      "b": "Indicar Ressonância Magnética ou Tomografia Computadorizada como método de vigilância devido à baixa sensibilidade diagnóstica da USG nesta população.",
+      "c": "Realizar laparoscopia diagnóstica semestral.",
+      "d": "Encaminhar para cirurgia bariátrica antes de continuar a vigilância.",
+      "e": "Suspender a vigilância, pois obesos morrem de outras causas."
+    },
+    "answer": "b",
+    "rationale": "A ultrassonografia é o método padrão de vigilância para CHC, mas sua sensibilidade cai drasticamente em pacientes obesos, com esteatose severa ou cirrose micronodular grosseira. Se o exame for considerado tecnicamente limitado ou inadequado (classe LI-RADS US-3), as diretrizes da AASLD e EASL permitem o uso de TC ou RM como modalidades alternativas de vigilância, visando não perder diagnósticos precoces curáveis.",
+    "option_rationales": {
+      "a": "A alfafetoproteína é insuficiente como ferramenta isolada de triagem curativa.",
+      "b": "Correta. Adapta a diretriz à limitação física-tecnológica do exame de imagem padrão.",
+      "c": "Invasivo e desnecessário perante as opções de imagem seccional.",
+      "d": "A obesidade não deve impedir a triagem oncológica necessária.",
+      "e": "O cirrótico obeso tem um dos maiores riscos cumulativos de CHC simultaneamente."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["CHC", "USG", "Obesidade"]
+  },
+  {
+    "enunciado": "Em um paciente com trombose de veia porta aguda e cirrose compensada, qual a localização do trombo que confere o pior prognóstico em termos de isquemia intestinal?",
+    "options": {
+      "a": "Tronco da veia porta isolado.",
+      "b": "Extensão para a Veia Mesentérica Superior (VMS).",
+      "c": "Trombo na veia gástrica direita.",
+      "d": "Trombo na veia porta esquerda segmental.",
+      "e": "Trombo no hilo esplênico isolado."
+    },
+    "answer": "b",
+    "rationale": "A extensão da trombose venosa para a veia mesentérica superior (VMS) é o principal fator de risco para o desenvolvimento de isquemia intestinal e necrose de alças, com altíssima mortalidade. Tromboses limitadas ao tronco da porta podem ser assintomáticas ou causar apenas hipertensão portal aguda, mas a obstrução da drenagem venosa das alças (VMS) impede a perfusão capilar intestinal.",
+    "option_rationales": {
+      "a": "Causa hipertensão portal, mas colaterais podem compensar o débito.",
+      "b": "Correta. Identifica o segmento vascular crítico para a viabilidade visceral.",
+      "c": "Gera risco de sangramento gástrico, sem isquemia intestinal.",
+      "d": "Afeta apenas um segmento hepático, sem repercussão sistêmica imediata.",
+      "e": "Causa esplenomegalia e varizes gástricas fúndicas (hipertensão portal esquerda)."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Trombose Venosa", "Mesentérica", "Emergência"]
+  },
+  {
+    "enunciado": "Sobre o uso da elastografia hepática transiente (FibroScan) para avaliação da rigidez hepática, qual o valor de corte aproximado que sugere fortemente a presença de Hipertensão Portal Clinicamente Significativa (HPCS) com risco de varizes esofágicas?",
+    "options": {
+      "a": "5,0 kPa.",
+      "b": "10,0 kPa.",
+      "c": "21,0 kPa ou 25,0 kPa.",
+      "d": "Não existe correlação entre rigidez e pressão portal.",
+      "e": "Apenas se for > 70 kPa."
+    },
+    "answer": "c",
+    "rationale": "Conforme o Baveno VII, enquanto rigidez < 15 kPa e plaquetas > 150.000 sugerem ausência de HPCS, valores de Elastografia ≥ 21-25 kPa são virtualmente diagnósticos de HPCS e permitem predizer o risco de descompensação e varizes de alto risco em pacientes com cirrose compensada.",
+    "option_rationales": {
+      "a": "Valor de fígado normal.",
+      "b": "Sugere fibrose avançada, mas não necessariamente hipertensão portal clínica.",
+      "c": "Correta. Define o limiar não invasivo para diagnóstico de pressão portal elevada.",
+      "d": "A correlação é linear e muito forte em várias etiologias hepáticas.",
+      "e": "O limite máximo da escala costuma ser 75 kPa, mas a HPCS surge muito antes."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["FibroScan", "Elastografia", "HPCS"]
+  },
+  {
+    "enunciado": "Um paciente cirrótico apresenta nódulo de 2,2 cm com padrão LI-RADS 5 na tomografia. Está no estágio BCLC A (precoce). Qual o critério funcional pulmonar contraindica formalmente a hepatectomia de resgate devido ao risco de cor pulmonale no pós-operatório?",
+    "options": {
+      "a": "Volume expiratório forçado (VEF1) > 80% do previsto.",
+      "b": "Hipertensão Portopulmonar moderada a grave comprovada com PmAP > 35 mmHg no cateterismo.",
+      "c": "Escara de decúbito infectada.",
+      "d": "Plaquetas de 120.000.",
+      "e": "Saturação de O2 de 95%."
+    },
+    "answer": "b",
+    "rationale": "A Hipertensão Portopulmonar (HPP) grave é uma contraindicação relativa ou absoluta para cirurgias abdominais de grande porte ou transplantes se a pressão média arterial pulmonar (PmAP) for muito alta (> 35-40 mmHg) sem resposta a fármacos. O aumento súbito do retorno venoso após manipulação hepática ou transplante pode levar à falha ventricular direita aguda e óbito peroperatório.",
+    "option_rationales": {
+      "a": "Sinal de boa reserva ventilatória.",
+      "b": "Correta. Identifica a barreira hemodinâmica cirúrgica específica da hipertensão pulmonar.",
+      "c": "Pode ser tratada, não é contraindicação formal definitiva para ressecção oncológica local.",
+      "d": "Valor seguro para cirurgia hepática cuidadosa.",
+      "e": "Oximetria normal."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["CHC", "Contraindicações", "HPP"]
+  },
+  {
+    "enunciado": "Sobre a Encefalopatia Hepática Grau III de West-Haven, qual a característica neurológica definidora?",
+    "options": {
+      "a": "Apenas inversão do ciclo sono-vigília.",
+      "b": "Estupor ou sonolência intensa, mas o paciente ainda é responsivo a estímulos verbais grosseiros ou dolorosos.",
+      "c": "Coma não responsivo a dor (Escala de Glasgow < 8).",
+      "d": "Comportamento normal com teste de conexão numérica alterado.",
+      "e": "Cegueira súbita bilateral."
+    },
+    "answer": "b",
+    "rationale": "A gradação de West-Haven divide a EH em 4 graus clínicos. O Grau III caracteriza-se por estupor (sonolência profunda), onde o paciente está desorientado no tempo e espaço e apresenta fala incoerente, mas mantém resposta (ainda que mínima) a comandos. O Grau IV é o coma propriamente dito.",
+    "option_rationales": {
+      "a": "Característico do Grau I.",
+      "b": "Correta. Define o limite entre a sonolência intensa e o coma.",
+      "c": "Definição do Grau IV.",
+      "d": "Definição de Encefalopatia Hepática Mínima.",
+      "e": "Não é sintoma clássico de EH."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Glasgow", "West-Haven", "EH"]
+  },
+  {
+    "enunciado": "Em pacientes cirróticos com ascite refratária que desenvolvem hérnia inguinal encarcerada, qual deve ser a prioridade de manejo clínico no pré-operatório de urgência para reduzir o risco de deiscência de ferida e evisceração?",
+    "options": {
+      "a": "Reposicionamento manual vigoroso da hérnia.",
+      "b": "Paracentese de grande volume seguida de expansão com albumina e controle rigoroso da pressão intra-abdominal.",
+      "c": "Uso de cintas compressivas.",
+      "d": "Realizar hidroginástica.",
+      "e": "Manter o paciente em jejum proteico."
+    },
+    "answer": "b",
+    "rationale": "A presença de ascite volumosa no pós-operatório de hérnias é a principal causa de recidiva e deiscência da ferida com fístula asfítica. Se a cirurgia de hérnia é necessária (urgência), deve-se drenar toda a ascite antes do fechamento da parede e garantir que o líquido não se acumule de forma tensa no pós-operatório, muitas vezes exigindo o uso de drenos (não recomendados rotineiramente) ou paracenteses seriadas.",
+    "option_rationales": {
+      "a": "O encarceramento verdadeiro contraindica redução manual impetuosa pelo risco de necrose intestinal.",
+      "b": "Correta. Prioriza o controle mecânico da pressão asfítica sobre a sutura cirúrgica.",
+      "c": "Cintas aumentam a pressão pontual e podem piorar o encarceramento.",
+      "d": "Inadequado para o quadro agudo.",
+      "e": "O cirrótico precisa de aporte proteico para cicatrização."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Cirurgia", "Ascite", "Hérnia Inguinal"]
+  },
+  {
+    "enunciado": "Um paciente cirrótico com mestre-ascite apresenta o sinal de 'onda de choque' ou 'sinal do piparote' positivo. O que este sinal clínico confirma fisiopatologicamente?",
+    "options": {
+      "a": "Presença de gases no intestino delgado.",
+      "b": "Presença de líquido livre na cavidade peritoneal (ascite).",
+      "c": "Contração espástica do músculo reto abdominal.",
+      "d": "Trombose de aorta abdominal.",
+      "e": "Tumoração gigante de bexiga."
+    },
+    "answer": "b",
+    "rationale": "O sinal do piparote é positivo quando, ao percutir um flanco com o dedo, a onda de choque gerada é transmitida através da massa líquida até ser sentida pela outra mão espalmada no flanco oposto. A mão de um auxiliar deve ser pressionada na linha média do abdome para impedir a transmissão da vibração através da parede abdominal superficial, garantindo que a onda viajou pelo líquido peritoneal.",
+    "option_rationales": {
+      "a": "Gases causariam timpanismo, não propagação de onda hídrica.",
+      "b": "Correta. Define o teste clássico de semiologia para ascite de médio/grande volume.",
+      "c": "Músculo rígido impede o piparote.",
+      "d": "Sem qualquer nexo causal.",
+      "e": "Massas sólidas ou bexigoma não transmitem onda de choque hídrica clássica desta forma."
+    },
+    "difficulty": "facil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Piparete", "Semiologia", "Ascite"]
+  },
+  {
+    "enunciado": "Qual a principal intervenção comprovada para prevenir a Síndrome Hepatorrenal em pacientes cirróticos com diagnóstico de Peritonite Bacteriana Espontânea?",
+    "options": {
+      "a": "Infundir 10 litros de Soro Fisiológico.",
+      "b": "Administração intravenosa de Albumina Humana (1,5g/kg no 1º dia e 1,0g/kg no 3º dia).",
+      "c": "Drenagem cirúrgica da ascite.",
+      "d": "Uso de morfina para dor.",
+      "e": "Manter o paciente em posição de Trendelenburg."
+    },
+    "answer": "b",
+    "rationale": "Infecções sistêmicas (como a PBE) causam surtos de vasodilatação arterial esplâncnica severa, precipitando IRA. A administração de albumina conforme o protocolo de Sort reduz a incidência de insuficiência renal e mortalidade na PBE de forma drástica, sendo mandatória em pacientes com risco elevado (Creatinina > 1.0, Bilirrubina > 4.0 ou Ureia > 30).",
+    "option_rationales": {
+      "a": "O excesso de soro fisiológico piora a ascite e não protege o rim como a albumina.",
+      "b": "Correta. Aplica o protocolo clínico vital para a salvação da função renal no cirrótico infectado.",
+      "c": "Pode ser diagnóstica, mas a drenagem terapêutica não cura a inflamação peritoneal e pode desidratar ainda mais o paciente infectado.",
+      "d": "Narcóticos podem precipitar encefalopatia.",
+      "e": "Não possui evidência de benefício protetor renal."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Albumina", "PBE", "Prevenção"]
+  }
+]

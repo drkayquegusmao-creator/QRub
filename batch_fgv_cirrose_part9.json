@@ -1,0 +1,542 @@
+[
+  {
+    "enunciado": "No tratamento da Encefalopatia Hepática (EH) recorrente, qual a medicação aprovada como terapia ADJUNTA à Lactulona que demonstrou reduzir o risco de novos episódios em 50% e diminuir as hospitalizações por EH no estudo pivotal de Bass et al.?",
+    "options": {
+      "a": "Amoxicilina.",
+      "b": "Rifaximina (550mg, 12/12h).",
+      "c": "Metronidazol isolado.",
+      "d": "L-Ornitina L-Aspartato (LOLA) endovenosa apenas.",
+      "e": "Probióticos em iogurte."
+    },
+    "answer": "b",
+    "rationale": "A Rifaximina é um antibiótico não absorvível derivado da rifamicina. Ela atua na microbiota intestinal, reduzindo a produção de amônia e citocinas inflamatórias que agravam a EH. Nas diretrizes da AASLD/EASL, é indicada como profilaxia secundária em pacientes que apresentam novos episódios de EH mesmo em uso otimizado de lactulona.",
+    "option_rationales": {
+      "a": "Antibiótico sistêmico de curto espectro, sem papel na EH crônica.",
+      "b": "Correta. Define o padrão-ouro farmacológico atual para prevenção secundária da encefalopatia recorrente.",
+      "c": "Eficaz em curto prazo, mas seu uso crônico é limitado pela neurotoxicidade periférica irreversível.",
+      "d": "LOLA é útil no ambiente hospitalar agudo (fase de resgate), mas não tem recomendação nível 1 para prevenção ambulatorial de longo prazo comparada à rifaximina.",
+      "e": "O benefício dos probióticos isolados é pequeno e não substitui a terapia medicamentosa robusta.",
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["EH", "Rifaximina", "Tratamento"]
+  },
+  {
+    "enunciado": "Um paciente cirrótico com mestre-ascite apresenta o sinal de 'Caput Medusae' (Cabeça de Medusa). Qual vaso venoso fetal, normalmente obliterado na vida adulta, sofreu recanalização para permitir este desvio do sangue portal para a circulação sistêmica abdominal superficial?",
+    "options": {
+      "a": "Ducto Arterioso.",
+      "b": "Veia Umbilical (no ligamento falciforme).",
+      "c": "Ducto Venoso.",
+      "d": "Veias Supra-hepáticas.",
+      "e": "Artéria Mesentérica Inferior."
+    },
+    "answer": "b",
+    "rationale": "A hipertensão portal intra-hepática extrema pode recanalizar a veia umbilical (ou para-umbilical), que permanece no interior do ligamento falciforme. O sangue flui da veia porta esquerda de volta para a região periumbilical da parede abdominal, criando as veias tortuosas irradiando do umbigo, sinal de hipertensão portal severa.",
+    "option_rationales": {
+      "a": "Estrutura arterial cardíaca/pulmonar.",
+      "b": "Correta. Identifica a anatomia patognomônica de um dos estigmas visuais mais clássicos da cirrose.",
+      "c": "Shunt entre porta e cava inferior no feto, mas na vida adulta sua persistência gera encefalopatia por shunt porto-sistêmico, não o caput medusae visível.",
+      "d": "São os vasos de drenagem de saída do fígado.",
+      "e": "Estrutura arterial intestinal."
+    },
+    "difficulty": "facil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Anatomia", "Semiologia", "Hipertensão Portal"]
+  },
+  {
+    "enunciado": "No transplante hepático pediátrico, a técnica de 'Split Liver' (Fígado Dividido) permite que um único órgão de doador falecido beneficie dois receptores. Qual a divisão anatômica mais comum realizada nesta técnica para atender um receptor adulto e um receptor infantil simultaneamente?",
+    "options": {
+      "a": "Divisão em lobo superior e inferior.",
+      "b": "Lobo Esquerdo Lateral (Segmentos II e III) para a criança; Lobo Direito + Segmento IV para o adulto.",
+      "c": "Metade direita para a criança; Metade esquerda para o adulto.",
+      "d": "Troca de fígado com de animal.",
+      "e": "Corte longitudinal mediano exato (50/50)."
+    },
+    "answer": "b",
+    "rationale": "Para a criança, o segmento lateral esquerdo (II e III) costuma ser suficiente volumetricamente e é tecnicamente mais simples de reimplantar. O restante do fígado (Lobo direito e segmento IV) possui massa funcional adequada para sustentar a demanda metabólica do adulto receptor. Esta técnica otimiza o uso de enxertos escassos.",
+    "option_rationales": {
+      "a": "Anatomia hepática não permite divisão transversa por planos vasculares.",
+      "b": "Correta. Define a partilha segmental padrão usada na técnica de Split Liver.",
+      "c": "Inadequado; o lobo esquerdo completo (incluindo IV) costuma ser a base para doação intervivos adulto-pediátrica ou split, mas II e III são a unidade mínima.",
+      "d": "Xenotransplante (não aplicável).",
+      "e": "A divisão 50/50 é instável devido à posição irregular da via biliar e veia supra-hepática média."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Split Liver", "Pediatria", "Transplante"]
+  },
+  {
+    "enunciado": "Sobre o uso dos Aminoácidos de Cadeia Ramificada (BCAA - Leucina, Isoleucina e Valina) em pacientes cirróticos com encefalopatia e sarcopenia severa, qual a justificativa clínica para sua suplementação oral crônica?",
+    "options": {
+      "a": "Eles aumentam o apetite por doces.",
+      "b": "Eles competem com os aminoácidos aromáticos (triptofano, tirosina) pelo transporte na barreira hematoencefálica, reduzindo a formação de 'falsos neurotransmissores' e auxiliando na manutenção da massa muscular (estimulando síntese proteica).",
+      "c": "Eles substituem a necessidade de carne na dieta.",
+      "d": "Bloqueiam os rins.",
+      "e": "Ajudam a dormir melhor no período noturno."
+    },
+    "answer": "b",
+    "rationale": "A cirrose altera o perfil de aminoácidos plasmáticos (redução de BCAA e aumento de aromáticos). Os BCAAs são consumidos pelo músculo estriado em um esforço para depurar amônia e manter a integridade muscular. A suplementação oral (especialmente em 'late evening snack') melhora o balanço nitrogenado, reduz a recorrência de EH e combate a sarcopenia (um dos principais preditores de mortalidade).",
+    "option_rationales": {
+      "a": "Não possuem efeito orexígeno específico para carboidratos.",
+      "b": "Correta. Alinha a fisiopatologia metabólica da barreira hematoencefálica ao benefício clínico musculoesquelético.",
+      "c": "São suplementos, não substituem uma dieta balanceada com proteínas de alto valor biológico.",
+      "d": "Não são nefrotóxicos em doses terapêuticas.",
+      "e": "Melhoram aEH, mas não são hipnóticos diretos."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Nutrição", "BCAA", "Bioquímica"]
+  },
+  {
+    "enunciado": "Uma mulher de 35 anos, usuária de anticoncepcional oral há 10 anos, apresenta nódulo hepático sólido de 4 cm no segmento VI, achado incidentalmente em ultrassonografia. A Ressonância Magnética (RM) mostra lesão com sinal de gordura intracitoplasmática e perda de sinal na fase fora-de-fase. Não há cicatriz central. Não há CHC prévio. Qual o diagnóstico mais provável e a principal complicação temida se o nódulo ultrapassar 5 cm?",
+    "options": {
+      "a": "Hemangioma; Risco de infarto esplênico.",
+      "b": "Hiperplasia Nodular Focal; Risco de cirrose.",
+      "c": "Adenoma Hepático; Risco de ruptura com hemoperitôneo e transformação maligna para CHC.",
+      "d": "Gordura focal isolada; Sem risco.",
+      "e": "Hamartoma biliar; Risco de pancreatite."
+    },
+    "answer": "c",
+    "rationale": "Adenomas hepáticos são neoplasias benignas fortemente associadas ao uso de estrógenos (anticoncepcionais). Nódulos > 5 cm ou nódulos no sexo masculino possuem risco significativo de sangramento intratumoral/ruptura (emergência cirúrgica) ou transformação histológica em Carcinoma Hepatocelular. A gordura intracitoplasmática é comum no subtipo HNF-1alfa mutado.",
+    "option_rationales": {
+      "a": "Hemangiomas brilham muito em T2 e não possuem gordura intrínseca.",
+      "b": "HNF apresenta cicatriz central e raramente rompe ou maligniza.",
+      "c": "Correta. Identifica a patologia benigna hormônio-dependente com maior risco de complicação aguda e oncológica.",
+      "d": "A lesão é descrita como um nódulo sólido circunscrito com sinal de gordura, compatível com adenoma.",
+      "e": "Doença congênita benigna de pequenos bile ducts, sem relação com ACO."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Adenoma", "Nódulo Hepático", "Gastroenterologia"]
+  },
+  {
+    "enunciado": "No diagnóstico diferencial de nódulos benignos no fígado, qual o achado radiológico patognomônico da Hiperplasia Nodular Focal (HNF) na Ressonância Magnética contrastada?",
+    "options": {
+      "a": "Cicatriz central que apresenta captação tardia de contraste e hiper-realce arterial intenso da lesão parecendo uma 'roda de carruagem'.",
+      "b": "Calcificação central grosseira.",
+      "c": "Presença de cápsula espessa.",
+      "d": "Absorção completa de contraste em 1 segundo.",
+      "e": "Nódulo que desaparece no ultrassom."
+    },
+    "answer": "a",
+    "rationale": "A HNF é uma resposta regenerativa do fígado a uma anomalia arterial congênita. Sua estrutura é radial, em torno de uma artéria central exuberante. Por isso, apresenta a 'cicatriz central' rica em ductos biliares e vasos, que capta contraste lentamente (realce tardio), enquanto o parênquima da lesão brilha intensamente na fase arterial precocemente.",
+    "option_rationales": {
+      "a": "Correta. Define o padrão de 'roda de carruagem' e a dinâmica do contraste na cicatriz cicatricial central.",
+      "b": "Calcificações são raras na HNF.",
+      "c": "A HNF não possui cápsula verdadeira, ao contrário do CHC ou Adenoma Inflamatório.",
+      "d": "Padrão puramente arterial sem wash-out, mas o tempo é variável.",
+      "e": "Termo descritivo sem precisão radiológica."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["HNF", "RM", "Radiologia"]
+  },
+  {
+    "enunciado": "A infecção pelo Citomegalovírus (CMV) é uma preocupação constante no pós-transplante hepático. Qual o período de maior risco para o desenvolvimento desta infecção oportunista (doença pelo CMV) e qual a medicação profilática ou de tratamento preempitativo de escolha?",
+    "options": {
+      "a": "Nas primeiras 24 horas; Penicilina.",
+      "b": "Entre o 1º e o 4º mês após o transplante (quando a imunossupressão está plena e a profilaxia primária pode ser encerrada); Ganciclovir ou Valganciclovir.",
+      "c": "Após 10 anos de cirurgia; Aciclovir 200mg.",
+      "d": "Apenas durante a cirurgia; Ivermectina.",
+      "e": "Não ocorre infecção viral em transplantados."
+    },
+    "answer": "b",
+    "rationale": "O CMV é o vírus oportunista mais comum pós-transplante. Manifesta-se como síndrome febral, leucopenia ou doença de órgão (hepatite, colite, esofagite). O tratamento preventivo (profilaxia com valganciclovir) costuma ser mantido por 90 a 100 dias. Após este período, se o paciente tiver sintomas, deve ser tratado com Ganciclovir EV ou Valganciclovir VO em doses plenas ajustadas ao rim.",
+    "option_rationales": {
+      "a": "CMV exige replicação viral prolongada, não surge em 24h.",
+      "b": "Correta. Define a janela temporal epidemiológica e o manejo antiviral padrão.",
+      "c": "Aciclovir é ineficaz para o bloqueio da replicação do CMV.",
+      "d": "A ivermectina é um antiparasitário.",
+      "e": "Falso; o transplante é um estado de imunossupressão iatrogênica permanente."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["CMV", "Transplante", "Infecção"]
+  },
+  {
+    "enunciado": "A Síndrome Linfoproliferativa Pós-Transplante (PTLD) é uma complicação neoplásica grave associada à replicação de qual vírus oncológico em pacientes submetidos à imunossupressão crônica?",
+    "options": {
+      "a": "Vírus do Papiloma Humano (HPV).",
+      "b": "Vírus Epstein-Barr (EBV).",
+      "c": "Vírus da Raiva.",
+      "d": "Rinovírus.",
+      "e": "Influenzavirus A."
+    },
+    "answer": "b",
+    "rationale": "A PTLD é um espectro de doenças que varia de hiperplasia linfoide benigna a linfomas agressivos do tipo B. É impulsionada pela reativação ou infecção primária pelo EBV em hospedeiros imunodeprimidos, onde as células T falham em controlar a proliferação das células B infectadas pelo vírus. O tratamento envolve redução da imunossupressão e uso de Rituximabe ou quimioterapia.",
+    "option_rationales": {
+      "a": "Relacionado a câncer de colo uterino e anogenital.",
+      "b": "Correta. Identifica o agente viral responsável pela principal neoplasia hematológica pós-transplante.",
+      "c": "Causa encefalite raivosa aguda.",
+      "d": "Causa o resfriado comum.",
+      "e": "Causa a gripe sazonal."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["PTLD", "EBV", "Transplante"]
+  },
+  {
+    "enunciado": "Um paciente cirrótico CHILD C com ascite volumosa apresenta episódios repetidos de Encefalopatia Hepática. Ele está em uso crônico de Pantoprazol 40 mg/dia para 'proteção gástrica', mesmo sem história de úlcera ou esofagite. Qual o risco associado ao uso abusivo de Inibidores de Bomba de Prótons (IBPs) nesta população específica?",
+    "options": {
+      "a": "Aumento do risco de osteoporose profunda apenas.",
+      "b": "Aumento da translocação bacteriana e maior incidência de Peritonite Bacteriana Espontânea (PBE), infecção por Clostridioides difficile e encefalopatia hepática.",
+      "c": "Melhora das varizes de esôfago.",
+      "d": "Redução do MELD.",
+      "e": "Aumento da pressão arterial."
+    },
+    "answer": "b",
+    "rationale": "Os IBPs reduzem a acidez gástrica, uma barreira natural contra a superpopulação bacteriana intestinal. No cirrótico, o uso indiscriminado favorece o crescimento de bactérias patogênicas no intestino, aumentando a translocação de toxinas e amônia para o sistema portal, elevando as taxas de PBE e agravando a encefalopatia.",
+    "option_rationales": {
+      "a": "É um risco de longo prazo, mas os riscos agudos infectológicos no cirrótico são mais críticos.",
+      "b": "Correta. Aplica o conhecimento clínico sobre o perigo do uso desnecessário de medicamentos supressores de acidez em hepatopatas graves.",
+      "c": "IBPs não tratam pressão portal.",
+      "d": "Pelo contrário, complicações infecciosas aumentam o MELD (via creatinina/bilirrubina).",
+      "e": "Sem relação estabelecida."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["PPI", "Segurança", "PBE"]
+  },
+  {
+    "enunciado": "Paciente cirrótico alcoólico abstêmio há 3 meses apresenta quadro de icterícia intensa, febre traumática e leucocitose. O índice de Maddrey é 42 (Hepatite Alcoólica Grave). Qual a duração clássica da abstinência de álcool recomendada pela maioria dos centros mundiais (Regra dos 6 meses) para considerar o paciente elegível para transplante de fígado fora de protocolos de exceção?",
+    "options": {
+      "a": "1 semana.",
+      "b": "6 meses.",
+      "c": "2 anos.",
+      "d": "Pode transplantar bebendo.",
+      "e": "10 anos."
+    },
+    "answer": "b",
+    "rationale": "A 'regra dos 6 meses' de sobriedade visa permitir que o fígado se recupere da agressão aguda do álcool (podendo a cirurgia tornar-se desnecessária) e assegurar que o paciente tenha maior comprometimento com a abstinência pós-transplante. Embora controversa em casos de hepatite alcoólica fulminante ('Early Liver Transplant'), ela permanece como triagem padrão na maioria dos países.",
+    "option_rationales": {
+      "a": "Intervalo muito curto para avaliar risco de recidiva ou recuperação espontânea.",
+      "b": "Correta. Define o critério de sobriedade clássico da legislação de transplante de fígado.",
+      "c": "As diretrizes tendem a ser menos restritivas com o tempo, fixando em 6 meses para listagem.",
+      "d": "Totalmente contraindicado pelo risco de recidiva imediata e perda do enxerto (e desperdício de recurso público).",
+      "e": "Excessivo; o paciente muitas vezes morre antes deste prazo."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Transplante", "Álcool", "Maddrey"]
+  },
+  {
+    "enunciado": "Um paciente cirrótico com anemia crônica férrica apresenta à EDA ectasias vasculares no antro gástrico dispostas em faixas longitudinais avermelhadas (estômago em melancia). Qual o nome desta patologia e qual o tratamento endoscópico de escolha para controle dos sangramentos ocultos?",
+    "options": {
+      "a": "Pólipos de Glândulas Fúndicas; Polipectomia.",
+      "b": "GAVE (Gastric Antral Vascular Ectasia); Ablação com Plasma de Argônio (APC).",
+      "c": "Linfoma MALT; Antibioticoterapia.",
+      "d": "Esofagite de refluxo; IBP em dose dobrada.",
+      "e": "Hérnia Inguinal; Cirurgia de Lichtenstein."
+    },
+    "answer": "b",
+    "rationale": "A GAVE (estômago em melancia) é uma causa importante de perda sanguínea crônica em cirróticos e em pacientes com esclerodermia. Caracteriza-se por vasos dilatados no antro. Diferente da gastropatia hipertensiva, a GAVE pode não responder ao TIPS/Betabloqueadores, exigindo tratamento local ablativo recorrente com Plasma de Argônio.",
+    "option_rationales": {
+      "a": "São lesões benignas comuns mas não têm aspecto em melancia e não causam sangramento férrico crônico.",
+      "b": "Correta. Identifica a entidade endoscópica visual específica (estômago em melancia) e sua terapêutica de escolha.",
+      "c": "Tumor gástrico relacionado ao H. pylori, com aspecto endoscópico diferente.",
+      "d": "Afeta o esôfago distal, não o antro gástrico.",
+      "e": "Patologia da parede abdominal externa."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["GAVE", "EDA", "Anemia"]
+  },
+  {
+    "enunciado": "A 'Fisical Activity' (atividade física) no cirrótico é recomendada mas deve ser monitorada. Qual a principal preocupação aguda durante exercícios intensos que elevem a pressão abdominal em um paciente com varizes de esôfago calibrosas?",
+    "options": {
+      "a": "Síncope por hipotensão.",
+      "b": "Ruptura de varizes esofágicas por aumento súbito e excessivo da pressão portal intra-abdominal (embora o risco seja mitigado pelo uso de betabloqueadores e exercícios leves).",
+      "c": "Fratura de fêmur por osteoporose severa.",
+      "d": "Descolamento de retina.",
+      "e": "Câimbra generalizada."
+    },
+    "answer": "b",
+    "rationale": "Exercícios que envolvam manobra de Valsalva intensa ou aumentos bruscos da pressão intra-abdominal podem elevar transitoriamente a pressão portal, aumentando a tensão na parede das varizes. Por isso, orienta-se que cirróticos com varizes de alto risco realizem atividades de baixo impacto e aeróbicas moderadas, evitando esforços anaeróbios extremos (Powerlifting).",
+    "option_rationales": {
+      "a": "Pode ocorrer mas o risco de sangramento varicoso é a preocupação anatômica direta.",
+      "b": "Correta. Associa a biomecânica do exercício ao estresse hemodinâmico das colaterais portais.",
+      "c": "É um risco devido à osteodistrofia hepática mas não é uma complicação 'vascular' portal direta.",
+      "d": "Ocorre em pacientes com alta miopia ou traumas diretos.",
+      "e": "Comum em cirróticos mas sem risco de vida imediato."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Exercício", "HDA", "Hipertensão Portal"]
+  },
+  {
+    "enunciado": "Um paciente cirrótico de 65 anos apresenta 'Unhas de Terry'. Como se caracteriza este sinal semiológico e o que ele reflete?",
+    "options": {
+      "a": "Unhas com manchas pretas; Melanoníquia.",
+      "b": "Unhas quebradiças com buracos (pitting).",
+      "c": "Unhas com opacidade esbranquiçada na maior parte do leito ungueal, deixando apenas uma faixa estreita de cor normal (rosa/marrom) na borda distal; Reflete alterações vasculares e edema no leito ungueal secundários à hipoalbuminemia e vasodilatação.",
+      "d": "Unhas azuis; Cianose.",
+      "e": "Unhas extremamente longas e curvadas (baqueteamento)."
+    },
+    "answer": "c",
+    "rationale": "A unha de Terry é um marcador sistêmico de doenças graves, sendo classicamente descrita na cirrose hepática (presente em até 80% dos casos). A maior parte da unha torna-se branca ('ground glass'), poupando apenas a ponta. Deve ser distinguida das linhas de Muehrcke (faixas horizontais de hipoalbuminemia).",
+    "option_rationales": {
+      "a": "Sugere melanoma ou hematoma subungueal.",
+      "b": "Pitting ungueal é comum na psoríase.",
+      "c": "Correta. Define o aspecto visual e a fisiopatologia sugerida para o sinal trófico da cirrose.",
+      "d": "Sinal de hipoxemia (cianose).",
+      "e": "Refere-se ao baqueteamento digital (Hipocratismo digital)."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Semiologia", "Terry's Nails", "Dermatologia Hepática"]
+  },
+  {
+    "enunciado": "No tratamento da Síndrome Hepatorrenal Tipo 1 (IRA-SHR), se a Creatinina do paciente em uso de Terlipressina + Albumina dobrar de valor ou o paciente desenvolver dor torácica severa, qual a conduta recomendada?",
+    "options": {
+      "a": "Aumentar a dose de Terlipressina.",
+      "b": "Suspender a Terlipressina imediatamente pelo risco de isquemia severa e ineficácia.",
+      "c": "Trocar por Hidralazina.",
+      "d": "Fazer diálise sem suspender a medicação.",
+      "e": "Repetir a albumina em dobro."
+    },
+    "answer": "b",
+    "rationale": "O tratamento com terlipressina deve ser monitorado rigidamente. Se houver falha completa na resposta (aumento de 50% ou dobro da creatinina após o início) ou sintomas de isquemia arterial sistêmica (dor torácica, dor abdominal por isquemia mesentérica ou lesões isquêmicas de pele), a droga deve ser suspensa. Nestes casos, o paciente deve ser priorizado para transplante como 'salvação' ou suporte dialítico.",
+    "option_rationales": {
+      "a": "Agravaria a isquemia e a toxicidade.",
+      "b": "Correta. Define o 'stop-point' de segurança clínica e farmacológica no manejo da SHR.",
+      "c": "Vasodilatador gerapior da hemodinâmica renal na SHR.",
+      "d": "A diálise resolve a uremia, mas a droga isquêmica continua sendo perigosa.",
+      "e": "A albumina sozinha não reverterá a isquemia induzida por vasopressores potentes."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["SHR", "Segurança", "Hepatologia"]
+  },
+  {
+    "enunciado": "O Hemangioma Hepático é o tumor benigno mais comum do fígado. Qual o achado radiológico típico do Hemangioma no Ultrassom com Doppler?",
+    "options": {
+      "a": "Nódulo hiperecoico, homogêneo e bem delimitado, sem fluxo central importante ao Doppler (devido à baixa velocidade do sangue no interior dos lagos venosos).",
+      "b": "Nódulo preto (anecoico) que brilha muito.",
+      "c": "Fluxo arterial de altíssima velocidade.",
+      "d": "Nódulo que se move no abdome.",
+      "e": "Ausência total de imagem visível."
+    },
+    "answer": "a",
+    "rationale": "Hemangiomas são compostos por lagos vasculares venosos. Na USG aparecem como nódulos brancos (hiperecoicos) devido às múltiplas interfaces refletoras dentro da lesão. Apesar de serem 'vasculares', o fluxo é muito lento, por isso o Doppler colorido muitas vezes não mostra sinal evidente em seu interior, o que ajuda a diferenciar de tumores malignos hipervasculares.",
+    "option_rationales": {
+      "a": "Correta. Define o aspecto ultrassonográfico clássico do tumor hepático benigno mais prevalente.",
+      "b": "Anecoico é cisto líquido.",
+      "c": "Sinal de CHC ou fístula arteriovenosa.",
+      "d": "Lesões hepáticas são fixas ao parênquima.",
+      "e": "Inadequado; hemangiomas são facilmente visíveis se tiverem > 1-2 cm."
+    },
+    "difficulty": "facil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Hemangioma", "USG", "Radiologia"]
+  },
+  {
+    "enunciado": "A 'Terapia de Modulação de Fluxo Portal' no transplante de fígado (ex: ligadura de artéria esplênica ou esplenectomia) é realizada precocemente para evitar qual complicação específica do enxerto?",
+    "options": {
+      "a": "Evitar que o baço cresça.",
+      "b": "Evitar a Síndrome de Small-for-Size (SFSS) em fígados parciais, reduzindo a hiperperfusão portal que causaria lesão endotelial no enxerto pequeno.",
+      "c": "Tratar a malária.",
+      "d": "Aumentar a glicose do paciente.",
+      "e": "Reduzir o risco de pneumonia."
+    },
+    "answer": "b",
+    "rationale": "Em transplantes com fígados pequenos (split ou intervivos), a veia porta do receptor (muito larga pela cirrose) joga um volume de sangue enorme no enxerto novo. Este excesso de fluxo ('overperfusion') 'queima' os sinusóides do enxerto. Reduzir o afluxo esplênico para o sistema portal diminui esse estresse, protegendo a microcirculação do fígado transplantado.",
+    "option_rationales": {
+      "a": "É uma consequência, mas o objetivo principal é a viabilidade do enxerto.",
+      "b": "Correta. Explica a fisiopatologia cirúrgica avançada da proteção vascular do enxerto hepático parcial.",
+      "c": "Sem nexo.",
+      "d": "Não interfere na glicemia periférica.",
+      "e": "Sem nexo."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Transplante", "SFSS", "Hepatologia Cirúrgica"]
+  },
+  {
+    "enunciado": "Sobre a Síndrome de Budd-Chiari crônica, no exame físico do abdome, qual a característica da circulação colateral que a diferencia da hipertensão portal intra-hepática (como na cirrose)?",
+    "options": {
+      "a": "Circulação colateral infra-umbilical nos flancos com fluxo ascendente (tentando desviar o sangue da cava inferior obstruída para a cava superior).",
+      "b": "Apenas varizes no pescoço.",
+      "c": "Ausência de baço.",
+      "d": "Presença de mamilos extras.",
+      "e": "Unhas amarelas."
+    },
+    "answer": "a",
+    "rationale": "No Budd-Chiari, há obstrução da via de saída do fígado (veias supra-hepáticas) e, frequentemente, da veia cava inferior retro-hepática. Diferente da cirrose pura (onde o desvio é centrífugo pelo umbigo), aqui o bloqueio da cava inferior força o sangue dos membros e abdome inferior a buscar veias colaterais superficiais (epigástricas e toracoepigástricas) para subir até a cava superior. O fluxo é nitidamente de baixo para cima nos flancos.",
+    "option_rationales": {
+      "a": "Correta. Diferencia semiologicamente os tipos de bloqueio vascular abdominal (Porta vs Cava Inferior).",
+      "b": "Sugere síndrome de veia cava superior.",
+      "c": "Budd-Chiari cursa com esplenomegalia congestiva severa.",
+      "d": "Polimastia é congênita, sem relação vascular.",
+      "e": "Sinal de doenças pulmonares crônicas."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Budd-Chiari", "Semiologia", "Vascular"]
+  },
+  {
+    "enunciado": "Um paciente cirrótico apresenta nódulo de CHC de 2,5 cm e será submetido a Transplante de Fígado. Após a explantação do fígado doente, o patologista nota que o tumor já havia invadido a cápsula do órgão. Como se chama a recorrência de CHC que ocorre nos primeiros 2 anos após o transplante e qual o principal fator de risco?",
+    "options": {
+      "a": "Recorrência Tardia; Relacionada à falta de sono.",
+      "b": "Recorrência Precoce; Frequentemente resultado de micrometástases circulantes pré-existentes ou invasão vascular macroscópica ignorada.",
+      "c": "Hepatite C nova.",
+      "d": "Novo tumor gerado pelos medicamentos.",
+      "e": "Não existe câncer após transplante."
+    },
+    "answer": "b",
+    "rationale": "Recorrências precoces de CHC pós-transplante costumam ser agressivas e ocorrem por disseminação hematogênica que já existia no momento da cirurgia (fuga de células tumorais). Fatores como nódulos grandes, múltiplos (> 3), invasão microvascular no explante e níveis altos de Alfafetoproteína (> 1.000) predizem fortemente esse risco.",
+    "option_rationales": {
+      "a": "Recorrência tardia (> 2 anos) sugere doença 'de novo' ou crescimento muito lento.",
+      "b": "Correta. Define o tempo e a etiologia da falha oncológica do transplante hepático.",
+      "c": "A hepatite C pode causar novo câncer em 10-20 anos, não recorrência em 2.",
+      "d": "A imunossupressão facilita o crescimento, mas o tumor é do paciente original.",
+      "e": "O risco existe e é o principal motivo de controle rigoroso dos Critérios de Milão."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["CHC", "Recorrência", "Transplante"]
+  },
+  {
+    "enunciado": "A 'Fisical Frailty' (fragilidade física) é agora um componente preditor de morte na lista de transplante. Qual o escore prático, desenvolvido pela Dra. Jennifer Lai, que utiliza a dinamometria, equilíbrio e velocidade de sentar/levantar da cadeira?",
+    "options": {
+      "a": "Escore de Apgar.",
+      "b": "Liver Frailty Index (LFI).",
+      "c": "Escore de Glasgow.",
+      "d": "Índice de Massa Corporal (IMC).",
+      "e": "Escala de Braden."
+    },
+    "answer": "b",
+    "rationale": "O Liver Frailty Index (LFI) é uma ferramenta padronizada especificamente para candidatos a transplante de fígado. Ele quantifica a fragilidade física através de 3 testes: força de preensão manual, tempo para sentar/levantar 5 vezes da cadeira e equilíbrio estático. Pontuações elevadas (> 4,5) associam-se a maior risco de morte em lista independente do MELD.",
+    "option_rationales": {
+      "a": "Avalia recém-nascidos.",
+      "b": "Correta. Apresenta o método moderno de avaliação funcional na pré-habilitação de transplante.",
+      "c": "Avalia nível de consciência neurológica.",
+      "d": "O IMC falha em cirróticos devido à ascite e edema, mascarando a perda muscular real.",
+      "e": "Avalia risco de úlcera por pressão."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["LFI", "Fragilidade", "Hepatologia"]
+  },
+  {
+    "enunciado": "Sobre a toxicidade cutânea do Sorafenibe (inibidor de quinase usado no CHC), qual o efeito adverso dermatológico mais comum e característico que exige monitorização rigorosa?",
+    "options": {
+      "a": "Psoríase em placas.",
+      "b": "Reação Mão-Pé (HFSR - Hand-Foot Skin Reaction) com eritema doloroso e hiperceratose em áreas de pressão.",
+      "c": "Alopecia total súbita.",
+      "d": "Vitiligo.",
+      "e": "Melanoma induzido."
+    },
+    "answer": "b",
+    "rationale": "A HFSR é a toxicidade limitante do sorafenibe. Manifesta-se como áreas de calosidade dolorosa, eritema e às vezes bolhas nas palmas e plantas. O manejo envolve hidratação intensa com cremes à base de ureia, analgesia e, se grave, redução ou suspensão temporária da dose do medicamento.",
+    "option_rationales": {
+      "a": "Doença autoimune crônica distinta das reações por quimioterapia alvo.",
+      "b": "Correta. Identifica a principal queixa dermatológica que afeta a qualidade de vida e adesão ao tratamento do CHC avançado.",
+      "c": "Rara com inibidores de tirosina-quinase orais.",
+      "d": "Alteração pigmentar não relacionada ao fármaco sugerido.",
+      "e": "O fármaco é antitumoral."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["CHC", "Sorafenibe", "Dermatologia"]
+  }
+]

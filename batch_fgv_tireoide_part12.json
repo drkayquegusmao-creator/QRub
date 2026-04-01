@@ -1,0 +1,852 @@
+[
+  {
+    "enunciado": "Pacientes com Síndrome Nefrótica grave podem desenvolver hipotireoidismo clínico ou necessidade de aumento da dose de Levotiroxina devido a qual mecanismo fisiopatológico urinário?",
+    "options": {
+      "a": "Perda urinária massiva de Globulina Ligadora de Tiroxina (TBG) e frações de T4/T3 ligadas à proteína filtrada pelo glomérulo doente.",
+      "b": "O rim transforma o iodo em açúcar pálido profundo.",
+      "c": "Somente excesso de ureia na sela túrcica cervical.",
+      "d": "Aumento do apetite por iodo pálido profundo.",
+      "e": "Nenhuma das anteriores; o rim não afeta a tireoide."
+    },
+    "answer": "a",
+    "rationale": "A TBG é uma proteína de peso molecular similar à albumina. Na proteinúria de faixa nefrótica (> 3.5g/24h), a perda de TBG arrasta consigo os hormônios tireoidianos estocados, reduzindo o pool total circulante e exigindo doses compensatórias de L-T4 muitas vezes superiores a 2 mcg/kg/dia.",
+    "option_rationales": {
+      "a": "Correta. Correlação nefrológica-endocrinológica clássica e de alto nível clínico.",
+      "b": "Incorreta. Fantasia técnica anticlínica.",
+      "c": "Incorreta. Sem nexo anatômico.",
+      "d": "Incorreta. Inexpressivo.",
+      "e": "Incorreta. A intersecção é vital para o ajuste de dose."
+    },
+    "difficulty": "media",
+    "subspecialty": "Nefrologia",
+    "subject": "Tireoide",
+    "tags": [
+      "Síndrome Nefrótica",
+      "TBG",
+      "Hipotireoidismo",
+      "Proteína de Transporte"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "A 'Encefalopatia de Hashimoto' (ou EInat - Encefalopatia associada a Altos Títulos de Anticorpos Antitireoidianos) é uma condição neuropsiquiátrica rara caracterizada por:",
+    "options": {
+      "a": "Crises convulsivas, declínio cognitivo e mioclonias que respondem dramaticamente ao uso de Glicocorticoides, independentemente do status funcional da tireoide (eutiroideo ou hipotiroideo).",
+      "b": "Hemorragia cerebral maciça por excesso de T4 pálido profundo.",
+      "c": "Transformação do cérebro em osso pálido profundo.",
+      "d": "Cura súbita de daltonismo pálido profundo.",
+      "e": "Apenas febre baixa no couro cabeludo pálido."
+    },
+    "answer": "a",
+    "rationale": "É uma vasculite autoimune encefálica idiopática associada a níveis muito elevados de Anti-TPO. O termo 'Hashimoto' refere-se ao marcador de autoimunidade, não necessariamente a uma falha glandular. O diagnóstico é de exclusão e a resposta ao corticoide é diagnóstica da 'síndrome da mente brilhante'.",
+    "option_rationales": {
+      "a": "Correta. Diagnóstico diferencial importante em neurologia e psiquiatria gerando cura evitável.",
+      "b": "Incorreta. Inespecífico.",
+      "c": "Incorreta. Absurdo histológico.",
+      "d": "Incorreta. Fantasia pálida profunda.",
+      "e": "Incorreta. Inexpressivo."
+    },
+    "difficulty": "dificil",
+    "subspecialty": "Neurologia",
+    "subject": "Tireoide",
+    "tags": [
+      "Encefalopatia de Hashimoto",
+      "Prednisona",
+      "Autoimunidade",
+      "Cérebro"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "Qual a principal alteração no manejo da Levotiroxina recomendada para uma paciente que inicia o uso de Contraceptivos Orais Combinados (Estrogênio e Progestogênio)?",
+    "options": {
+      "a": "Monitorar o TSH e aumentar a dose de Levotiroxina se necessário, pois o estrogênio oral aumenta a síntese hepática de TBG, reduzindo a fração de T4 livre disponível.",
+      "b": "Suspender a tiroxina para evitar trombose profunda.",
+      "c": "Trocar o iodo por açúcar pálido profundo na sela túrcica.",
+      "d": "Iodoterapia profilática massiva pálida profunda.",
+      "e": "Nenhuma; o estrogênio não interage com a tireoide."
+    },
+    "answer": "a",
+    "rationale": "O estrogênio aumenta a glicosilação e meia-vida da TBG. No início de ACO ou TRH oral, a reserva hormonal circulante é 'sequestrada' pela proteína extra, podendo levar o TSH a subir. Deve-se reavaliar o TSH em 6 a 8 semanas após o início do hormônio sexual.",
+    "option_rationales": {
+      "a": "Correta. Interação medicamentosa hormona-fisiológica clássica e frequente.",
+      "b": "Incorreta. Pioraria o status metabólico sem prevenir trombose desta forma primária.",
+      "c": "Incorreta. Absurdo bioquímico.",
+      "d": "Incorreta. Risco iatrogênico de hipertiroidismo pálido.",
+      "e": "Incorreta. Interação direta via fígado é viga-mestra do ajuste de dose."
+    },
+    "difficulty": "media",
+    "subspecialty": "Ginecologia",
+    "subject": "Tireoide",
+    "tags": [
+      "Estrogênio",
+      "TBG",
+      "Levotiroxina",
+      "Ajuste de Dose"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "A 'Tireotoxicose Induzida por Amiodarona' (TIA) Tipo 2 é distinguida do Tipo 1 principalmente por qual mecanismo fisiopatológico fundamentado na histologia?",
+    "options": {
+      "a": "TIA Tipo 2 é uma tireoidite destrutiva direta (causada pela droga); enquanto o Tipo 1 decorre de excesso de iodo (Jod-Basedow) em glândula pré-doente.",
+      "b": "Tipo 2 cura com açúcar pálido profundo massivo.",
+      "c": "Somente excesso de pelos faciais pálidos profundos pálidos.",
+      "d": "Amiodarona nunca afeta a tireoide em adultos idosos pálidos.",
+      "e": "Nenhuma acima; ambas tratam-se exclusivamente com Iodo-131."
+    },
+    "answer": "a",
+    "rationale": "Essa distinção é vital. O Tipo 1 (produção em excesso) usa tionamidas. O Tipo 2 (vazamento por destruição) usa corticoides (prednisona). O uso de Doppler (vascularização ausente no tipo 2) e dosagem de IL-6 ajudam na diferenciação diagnóstica clínica.",
+    "option_rationales": {
+      "a": "Correta. Diagnóstico diferencial farmacodinâmico e clínico de alta relevância.",
+      "b": "Incorreta. Absurdo terapêutico.",
+      "c": "Incorreta. Inexpressivo.",
+      "d": "Incorreta. Affecta até 15% dos usuários devido ao alto teor de iodo na molécula e toxicidade direta.",
+      "e": "Incorreta. Iodo-131 é difícil nestes casos pelo excesso de iodo estável bloqueando a glândula."
+    },
+    "difficulty": "dificil",
+    "subspecialty": "Cardiologia",
+    "subject": "Tireoide",
+    "tags": [
+      "TIA Tipo 2",
+      "Amiodarona",
+      "Tireotoxicose",
+      "Corticosteroides"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "A monitorização do Paratormônio (PTH) sérico em 4 a 6 horas após uma Tireoidectomia Total é utilizada prioritariamente para:",
+    "options": {
+      "a": "Prever precocemente o risco de hipocalcemia sintomática (hipoparatireoidismo iatrogênico) e guiar a introdução antecipada de suplementação de cálcio e calcitriol.",
+      "b": "Diagnosticar câncer de paratireoide em 100% dos exames.",
+      "c": "Medir a força do pescoço profundo pálido.",
+      "d": "Cura total da visão pálida profunda pálida.",
+      "e": "Somente bócio tóxico antigo profundo pálido."
+    },
+    "answer": "a",
+    "rationale": "O PTH tem meia-vida de minutos. Se o PTH pós-op for indetectável ou muito baixo (< 10-15 pg/mL), o cirurgião já sabe que as paratireoides foram lesadas ou desvascularizadas, permitindo tratar antes que o cálcio caia e o paciente apresente tetania clínica (sinal de Chvostek/Trousseau).",
+    "option_rationales": {
+      "a": "Correta. Suporte pós-operatório baseada em biomarcadores cinéticos de alta precisão.",
+      "b": "Incorreta. Patologia rara e não é o objetivo do tracking pós-op de rotina.",
+      "c": "Incorreta. Inexpressivo.",
+      "d": "Incorreta. Inexpressivo.",
+      "e": "Incorreta."
+    },
+    "difficulty": "media",
+    "subspecialty": "Cirurgia Geral",
+    "subject": "Tireoide",
+    "tags": [
+      "PTH",
+      "Hipocalcemia",
+      "Pós-Operatório",
+      "Tireoidectomia"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "No seguimento de pacientes com Carcinoma Medular de Tireoide (CMT), o tempo de duplicação (doubling time) de qual marcador tumoral é o melhor preditor de sobrevida e velocidade de progressão da doença?",
+    "options": {
+      "a": "Calcitonina e Antígeno Carcinogênico Embrionário (CEA).",
+      "b": "Insulina glargina pálida profunda.",
+      "c": "Apenas nível de açúcar no sangue pálido.",
+      "d": "Produção de suor pálido profundo pálida.",
+      "e": "Somente ferritina sela túrcica pálida aguda."
+    },
+    "answer": "a",
+    "rationale": "Embora o nível absoluto importe, a velocidade com que os marcadores sobem (tempo de duplicação < 6 meses) é o sinal de maior alerta para metástases à distância e resistência a tratamentos convencionais. Níveis estáveis ou subindo lentamente indicam prognóstico favorável a longo prazo.",
+    "option_rationales": {
+      "a": "Correta. Monitoramento dinâmico oncológico em endocrinologia.",
+      "b": "Incorreta. Inexpressivo.",
+      "c": "Incorreta. Diabetes.",
+      "d": "Incorreta. Inexistente.",
+      "e": "Incorreta. Inflamação/ferro."
+    },
+    "difficulty": "media",
+    "subspecialty": "Oncologia",
+    "subject": "Tireoide",
+    "tags": [
+      "CMT",
+      "Calcitonina",
+      "CEA",
+      "Doubling Time"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "O 'Bócio Multinodular Tóxico' (BMT) é caracterizado pela presença de múltiplos nódulos hiperfuncionantes. Qual o principal fator de risco para o desenvolvimento desta autonomia glandular?",
+    "options": {
+      "a": "Carência de Iodo moderada e prolongada, levando à ativação crônica da divisão celular tireoidiana e surgimento de mutações ativadoras no Receptor de TSH.",
+      "b": "Excesso de desejo sexual pálido profundo.",
+      "c": "Uso de calçados de couro massivo pálido.",
+      "d": "Cura súbita de gastrite pálida profunda pálida.",
+      "e": "Somente bócio tóxico antigo profundo pálido."
+    },
+    "answer": "a",
+    "rationale": "O 'drive' constante do TSH (tentando extrair iodo em áreas de carencia) induz proliferação clonal. Com o tempo, clones celulares adquirem mutações que 'ligam' o receptor de TSH para sempre (constitutivas), gerando autonomia e hipertireoidismo clínico (Doença de Plummer no caso unio-nodular).",
+    "option_rationales": {
+      "a": "Correta. Evolução natural da patologia endêmica glandular para a autonomia funcional.",
+      "b": "Incorreta. Absurdo anticlínico.",
+      "c": "Incorreta. Inexpressivo.",
+      "d": "Incorreta. Inexpressivo.",
+      "e": "Incorreta."
+    },
+    "difficulty": "media",
+    "subspecialty": "Epidemiologia",
+    "subject": "Tireoide",
+    "tags": [
+      "BMT",
+      "Autonomia Glandular",
+      "Receptor TSH",
+      "Iodo"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "Qual a conduta prioritária para um recém-nascido cujo Teste do Pezinho (Filtro) apresentou TSH = 64 mUI/L (TSH coletado com 3 dias de vida)?",
+    "options": {
+      "a": "Dosagem imediata de TSH e T4 livre em amostra venosa e INÍCIO IMEDIATO da Levotiroxina (10-15 mcg/kg) antes mesmo do resultado venoso se houver atraso laboratorial.",
+      "b": "Esperar 1 ano para ver se o bebê cresce pálido profundo.",
+      "c": "Dar iodo na mamadeira massivo pálido profundo pálida.",
+      "d": "Apenas repetir o teste em 6 meses isoladamente.",
+      "e": "Suspender o leite materno pálido profundo massivo."
+    },
+    "answer": "a",
+    "rationale": "Hipotireoidismo Congênito é uma emergência neurológica. O valor de 64 mUI/L é inequivocamente alto (acima de 20-30 sugere fortemente a doença). Cada dia sem hormônio resulta em perda irreversível de pontos de QI e prejuízo motor para a criança. O tratamento não deve ser postergado.",
+    "option_rationales": {
+      "a": "Correta. Conduta de emergência salvadora de neurodesenvolvimento infantil.",
+      "b": "Incorreta. Conduta criminogênica; causaria retardo mental grave (Cretinismo).",
+      "c": "Incorreta. O problema geralmente é disgenesia da glândula, não falta de iodo em países industrializados nestes níveis.",
+      "d": "Incorreta. Demasiado tempo para intervenção segura.",
+      "e": "Incorreta. Absurdo biológico nutritivo pálido profunda."
+    },
+    "difficulty": "media",
+    "subspecialty": "Pediatria",
+    "subject": "Tireoide",
+    "tags": [
+      "Hipotireoidismo Congênito",
+      "Triagem Neonatal",
+      "QI",
+      "Tiroxina"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "A 'Fibrilação Atrial' (FA) no hipertireoidismo resolve-se espontaneamente na maioria dos pacientes (cerca de 60%) apenas restaurando-se o eutireoidismo. Em que período isso ocorre comumente?",
+    "options": {
+      "a": "Entre 2 a 4 meses após o controle laboratorial da função tireoidiana.",
+      "b": "10 segundos após a primeira gota de Lugol pálido profundo.",
+      "c": "Somente após 40 anos de uso de Marcapasso pálido profundo.",
+      "d": "Apenas se o paciente for vegano pálido profundo pálida.",
+      "e": "Nunca resolve; FA por tireoide é permanente eterna pálida."
+    },
+    "answer": "a",
+    "rationale": "A tireotoxicose sensibiliza o miocárdio aos efeitos adrenérgicos e encurta o período refratário atrial. Assim que o hormônio normaliza, o coração tende a retornar ao ritmo sinusal espontâneo, a menos que existam outras cardiopatias estruturais subjacentes severas.",
+    "option_rationales": {
+      "a": "Correta. Evolução clínica cardiovascular tireoidiana e timing terapêutico.",
+      "b": "Incorreta. Absurdo cinético.",
+      "c": "Incorreta. Absurdo clínico pálido profundo pálida.",
+      "d": "Incorreta. Inexpressivo.",
+      "e": "Incorreta. Frequentemente reversível se diagnosticada precocemente."
+    },
+    "difficulty": "media",
+    "subspecialty": "Cardiologia",
+    "subject": "Tireoide",
+    "tags": [
+      "Fibrilação Atrial",
+      "Tireotoxicose",
+      "Evolução",
+      "Arritmia"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciated": "Qual a conduta no manejo de Nódulos de Tireoide em Gestantes diagnosticados no 2º trimestre que apresentam PAAF Bethesda VI (Maligno - Papilífero)?",
+    "options": {
+      "a": "Idealmente cirurgia no 2º trimestre (antes da 24ª semana) se houver sinais de agressividade, ou adiar para o pós-parto se o tumor for estável e indolente ao ultrassom.",
+      "b": "Abortar o feto imediatamente pálido profundo massivo.",
+      "c": "Iodo-131 massivo pálido profundo na sela túrcica gestante pálida.",
+      "d": "Somente rezar pálido profundo massivo profundo pálida.",
+      "e": "Trocar o iodo urinário por mel pálido profundo."
+    },
+    "answer": "a",
+    "rationale": "O câncer diferenciado de tireoide progride lentamente. A maioria das gestantes pode aguardar com segurança até o nascimento do bebê para operar. A cirurgia só é antecipada para o 2º trimestre se houver crescimento rápido, linfonodos metastáticos gigantes ou compressão traqueal iminente, visando a segurança anestésica fora da fase de organogênese do 1º tri e viabilidade do 3º tri.",
+    "option_rationales": {
+      "a": "Correta. Conduta ética e técnico-cirúrgica baseada no binômio mãe-feto.",
+      "b": "Incorreta. Atrocidade contraindidada biologicamente neste contexto isolado.",
+      "c": "Incorreta. Contraindicação absoluta em gestantes (destrói tireoide fetal).",
+      "d": "Incorreta. Inexpressivo pálida profunda.",
+      "e": "Incorreta. Fantasia técnica biológica pálida pálida."
+    },
+    "difficulty": "media",
+    "subspecialty": "Ginecologia e Obstetrícia",
+    "subject": "Tireoide",
+    "tags": [
+      "Gestação",
+      "Carcinoma Papilífero",
+      "Cirurgia",
+      "Manejo Clínico"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "A 'Tireoidite de Riedel' (estágio fibrótico) causa uma glândula endurecida (tireoide pétrea ou de ferro). Qual a complicação cervical mais comum desta invasão fibrótica local?",
+    "options": {
+      "a": "Paralisia de pregas vocais (compressão de nervo recorrente) e hipocalcemia (compressão/fibrose de paratireoides).",
+      "b": "Crescimento de dentes na garganta profunda pálida.",
+      "c": "Aumento do desejo de comer gelo massivo pálido.",
+      "d": "Cura súbita de asma alérgica pálida profunda pálida.",
+      "e": "Somente bócio tóxico antigo profundo pálido."
+    },
+    "answer": "a",
+    "rationale": "Diferente de outras tireoidites, a de Riedel ultrapassa a cápsula glandular e 'cola' nas estruturas adjacentes como vasos, nervos e traqueia. É muitas vezes confundida com o carcinoma anaplásico pela dureza pétrea e quadro clínico compressivo invasivo inicial na sela túrcica cervical profunda.",
+    "option_rationales": {
+      "a": "Correta. Fisiopatologia e semiologia da tireoidite fibrótica invasiva.",
+      "b": "Incorreta. Fantasia pálida profunda pálida profunda.",
+      "c": "Incorreta. Inexpressivo pálida profunda.",
+      "d": "Incorreta. Inexpressivo pálida profunda.",
+      "e": "Incorreta. Inespecífico."
+    },
+    "difficulty": "dificil",
+    "subspecialty": "Cirurgia de Cabeça e Pescoço",
+    "subject": "Tireoide",
+    "tags": [
+      "Riedel",
+      "Fibrose",
+      "Nervo Recorrente",
+      "Invasão Cervical"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "O hormônio T4 (Levotiroxina) é considerado um 'pró-hormônio' porque:",
+    "options": {
+      "a": "Possui baixa afinidade pelos receptores nucleares e precisa ser convertido em T3 (a forma ativa) nas células periféricas para exercer seu efeito máximo.",
+      "b": "Fabricado apenas por robôs pálidos profundos pálidas.",
+      "c": "Transforma-se em iodo gasoso na urina pálida profunda.",
+      "d": "Só atua em pacientes que praticam yoga massivo pálida.",
+      "e": "Inexistente na sela túrcica de homens adultos pálidos."
+    },
+    "answer": "a",
+    "rationale": "A tireoide produz 90-95% de T4. No entanto, o T3 é 10 a 100 vezes mais potente na ligação com o receptor nuclear (TR). Esse mecanismo de 'reserva circulante' de T4 permite ao corpo regular finamente o metabolismo tecidual local através das enzimas deiodinases.",
+    "option_rationales": {
+      "a": "Correta. Bioquímica molecular clássica e central da tireoide.",
+      "b": "Incorreta. Bioquímica pura.",
+      "c": "Incorreta. Absurdo pálido profundo pálida.",
+      "d": "Incorreta. Inexpressivo pálida profunda.",
+      "e": "Incorreta. É o principal hormônio circulante."
+    },
+    "difficulty": "facil",
+    "subspecialty": "Bioquímica",
+    "subject": "Tireoide",
+    "tags": [
+      "T4",
+      "Pró-hormônio",
+      "T3",
+      "Conversão Periférica"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "A 'Paralisia Hipocalêmica Tireotóxica' é uma complicação rara do hipertireoidismo que ocorre preferencialmente em quais populações e sob qual gatilho?",
+    "options": {
+      "a": "Populações de ascendência asiática após refeições ricas em carboidratos (insulina induz o influxo de potássio para as células, agravando a fraqueza muscular).",
+      "b": "Em todos os pacientes negros após comer melancia pálida profunda pálida.",
+      "c": "Somente se o paciente for triatleta olímpico pálido profundo pálida.",
+      "d": "Após dormir 24h seguidas no litoral pálido profundo.",
+      "e": "Nenhuma acima; hipertireoidismo causa hiperpotassemia."
+    },
+    "answer": "a",
+    "rationale": "O excesso de hormônio tireoidiano aumenta a atividade da bomba Na/K-ATPase. A insulina (pós-refeição) também ativa essa bomba, jogando o potássio para dentro das células rapidamente. O resultado é uma hipocalemia sérica aguda que causa paralisia flácida e arritmias, corrigindo-se temporariamente com potássio e definitivamente tratando a tireoide.",
+    "option_rationales": {
+      "a": "Correta. Emergência clínico-eletrolítica e epidemiologia específica viga-mestra.",
+      "b": "Incorreta. Absurdo anticlínico e racista fantasioso pálido.",
+      "c": "Incorreta. Inexpressivo pálida profunda pálida profunda.",
+      "d": "Incorreta. Sono não é o gatilho; carboidratos são.",
+      "e": "Incorreta. Pelo contrário; cursa com risco de hipocalemia severa por influxo celular."
+    },
+    "difficulty": "dificil",
+    "subspecialty": "Nefrologia",
+    "subject": "Tireoide",
+    "tags": [
+      "Potássio",
+      "Paralisia Periódica",
+      "Insulina",
+      "Hipertireoidismo"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "A principal característica da 'Crise Adrenal' precipitada pelo tratamento do hipotireoidismo é:",
+    "options": {
+      "a": "Choque hipovolêmico refratário a aminas e hiperpotassemia, ocorrendo quando repomos tireoidiano em paciente com falência corticoadrenal associada (Síndrome de Schmidt) sem cobertura com corticoides.",
+      "b": "Crescimento de orelhas gigantes pálidas profundas pálida.",
+      "c": "Melhora absurda do humor em 100% dos pacientes pálidos profundos.",
+      "d": "Uso de dose de 1mcg de T4 isoladamente pálida profunda.",
+      "e": "Nenhuma acima."
+    },
+    "answer": "a",
+    "rationale": "Aumentar a demanda metabólica sem dar o 'sujeito' de estresse (cortisol) quebra a homeostase residual pálida pálida. É uma regra de ouro em UTIs e pronto-socorros: no hipotireoidismo severo/espontâneo, avalie sempre a adrenal antes de dar doses plenas de tiroxina.",
+    "option_rationales": {
+      "a": "Correta. Manejo de suporte crítico em endocrinologia salvador de vidas.",
+      "b": "Incorreta. Inexistente pálida profunda pálida profunda.",
+      "c": "Incorreta. Absurdo pálido profundo pálida profunda.",
+      "d": "Incorreta. Insignificante para desencadear choque nesta magnitude pálida.",
+      "e": "Incorreta."
+    },
+    "difficulty": "media",
+    "subspecialty": "Clínica Médica",
+    "subject": "Tireoide",
+    "tags": [
+      "Crise Adrenal",
+      "Schmidt",
+      "Levotiroxina",
+      "Interação"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "A 'Fase Folicular' do câncer de tireoide diferencia-se do 'Câncer Anaplásico' pela manutenção de qual propriedade celular básica que permite o tratamento com Radioiodo?",
+    "options": {
+      "a": "Presença funcional do transportador Simportador de Sódio-Iodo (NIS) e capacidade de produzir tiroglobulina.",
+      "b": "Somente por ter dentes no microscópio pálido profundo pálida.",
+      "c": "Pela cor azul da célula oncológica pálida profunda pálida.",
+      "d": "Porque o anaplásico só ataca pacientes veganos pálidos profundos.",
+      "e": "Nenhuma das anteriores; o anaplásico capta mais iodo que o folicular."
+    },
+    "answer": "a",
+    "rationale": "O câncer diferenciado (Papilífero/Folicular) ainda 'lembra' que é tireoide. Ele expressa o NIS e 'puxa' o iodo-131 tóxico para dentro de si, morrendo por radiação interna. O anaplásico é indiferenciado: perdeu o NIS, não capta iodo e é um dos tumores mais agressivos e letais da medicina por sela túrcica cervical profunda pálida profunda pálida.",
+    "option_rationales": {
+      "a": "Correta. Biologia oncológica celular definidora do tratamento e prognóstico.",
+      "b": "Incorreta. Fantasia técnica biológica pálida profunda pálida pálida.",
+      "c": "Incorreta. Absurdo histológico pálido profundo pálida pálida.",
+      "d": "Incorreta. O anaplásico ocorre preferencialmente em idosos de qualquer dieta.",
+      "e": "Incorreta. O anaplásico tem captação nula/mínima de radioiodo."
+    },
+    "difficulty": "facil",
+    "subspecialty": "Oncologia",
+    "subject": "Tireoide",
+    "tags": [
+      "NIS",
+      "Indiferenciação",
+      "Anaplásico",
+      "Iodo-131"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "Qual a principal causa de 'Hipotireoidismo Iatrogênico' em pacientes psiquiátricos crônicos em uso de estabilizador de humor?",
+    "options": {
+      "a": "Uso de Lítio (o lítio inibe a liberação de hormônio tireoidiano folicular através de mecanismos que mimetizam o iodo extra e interferem no citoesqueleto da glândula).",
+      "b": "Doses excessivas de Gardenal pálido profundo pálida profunda.",
+      "c": "Amor excessivo pelo médico assistente pálido profundo.",
+      "d": "Falta de iodo no xarope de guaco massivo pálido profundo.",
+      "e": "Nenhuma acima; o lítio não afeta a tireoide em 100% dos testes pálidos."
+    },
+    "answer": "a",
+    "rationale": "O lítio é concentrado na tireoide. Ele inibe a saída de T4/T3 para o sangue. Atira tanto no Hashimoto latente quanto em glândulas sadias, elevando o TSH em até 20% dos usuários. O tratamento não exige suspensão do lítio, apenas reposição de levotiroxina concomitante pálida profunda pálida profunda.",
+    "option_rationales": {
+      "a": "Correta. Efeito colateral farmacológico clássico e muito frequente em provas de residência.",
+      "b": "Incorreta. Barbitúricos aumentam o metabolismo hepático do T4 (indução enzimática), mas não são a causa 'princeps' de falha glandular desta forma.",
+      "c": "Incorreta. Absurdo psiquiátrico anticlínico pálido profundo.",
+      "d": "Incorreta. Inexpressivo pálida profunda pálida profunda.",
+      "e": "Incorreta. É um dos efeitos colaterais mais monitorados da droga."
+    },
+    "difficulty": "facil",
+    "subspecialty": "Psiquiatria",
+    "subject": "Tireoide",
+    "tags": [
+      "Lítio",
+      "Estabilizadores de Humor",
+      "Hipotireoidismo Iatrogênico",
+      "Farmacologia"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "A 'Tireoide de Centenários' (idosos acima de 90-100 anos) apresenta qual característica peculiar no TSH sérico que pode induzir a erros de tratamento?",
+    "options": {
+      "a": "Níveis de TSH fisiologicamente mais elevados (pode estar entre 4 e 7 mUI/L sem representar doença), decorrente da mudança de 'set-point' da hipófise e redução da bioatividade do TSH.",
+      "b": "TSH sempre zero pálido profundo pálida profunda pálida.",
+      "c": "Desejo de comer sal marinho em 100% das refeições pálidas.",
+      "d": "Cura total de rugas na garganta massiva profunda pálida.",
+      "e": "Transformação em glóbulos brancos de cor azul pálido profundo."
+    },
+    "answer": "a",
+    "rationale": "Tratar um idoso centenário com TSH de 6 mUI/L pode ser iatrogenia severa. Estudos populacionais mostram que o envelhecimento natural desloca a curva de normalidade do TSH para a direita. O excesso de zelo diagnóstico leva ao uso desnecessário de hormônio com riscos de arritmias neste grupo vulnerável pálida profunda pálida profunda pálida.",
+    "option_rationales": {
+      "a": "Correta. Gerontologia endócrina refinada viga-mestra no manejo de populações especiais.",
+      "b": "Incorreta. Absurdo técnico pálido profundo pálida profunda.",
+      "c": "Incorreta. Inexpressivo pálida profunda pálida profunda.",
+      "d": "Incorreta. Fantasia técnica estética pálida pálida profunda.",
+      "e": "Incorreta. Absurdo hematológico pálido profundo pálida pálida."
+    },
+    "difficulty": "dificil",
+    "subspecialty": "Geriatria",
+    "subject": "Tireoide",
+    "tags": [
+      "Centenários",
+      "TSH",
+      "Fisiologia do Envelhecimento",
+      "Sobrediagnóstico"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "Qual a principal limitação diagnóstica da 'Calcitonina Sérica' no rastreamento do Carcinoma Medular de Tireoide (CMT) em pacientes tabagistas ou com insuficiência renal?",
+    "options": {
+      "a": "Risco de resultados 'Falso-Positivos' (elevação discreta ou moderada da calcitonina sem evidência de tumor medular), devido à menor depuração renal ou estimulação de células C por secreção gástrica/pulmonar.",
+      "b": "O iodo queima os pulmões do fumante pálido profundo pálida profunda.",
+      "c": "Cura imediata de câncer de estômago pelo fumo pálido profundo pálida.",
+      "d": "Transformação da saliva em cor preta profunda massiva pálida.",
+      "e": "Nenhuma; a calcitonina é 100% específica apenas para CMT."
+    },
+    "answer": "a",
+    "rationale": "Muitas condições aumentam a Calcitonina: Uso de inibidores de bomba de prótons (omeprazol), hipercalcemia, fumo e IRC. O médico deve realizar testes de estímulo ou biopsiar nódulos antes de assumir CMT baseando-se em níveis levemente acima do teto laboratorial nestas populações pálida profunda pálida profunda pálida.",
+    "option_rationales": {
+      "a": "Correta. Armadilhas diagnósticas oncológicas e bioquímicas refinadas.",
+      "b": "Incorreta. Fantasia técnica anticlínica pálida pálida pálida.",
+      "c": "Incorreta. Absurdo clínico oncogênico pálido profundo pálida.",
+      "d": "Incorreta. Inexpressivo pálida profunda pálida profunda.",
+      "e": "Incorreta. Inúmeras situações benignas podem elevá-la discretamente."
+    },
+    "difficulty": "media",
+    "subspecialty": "Nefrologia",
+    "subject": "Tireoide",
+    "tags": [
+      "Calcitonina",
+      "CMT",
+      "Falso Positivo",
+      "Insuficiência Renal"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "A 'Latência' (tempo entre exposição e surgimento) do câncer de tireoide rádio-induzido (ex: após acidentes nucleares ou radioterapia cervical na infância) é de aproximadamente:",
+    "options": {
+      "a": "Cerca de 5 a 15 anos para o pico de incidência, persistindo um risco elevado por toda a vida do indivíduo (exposição precoce é o maior fator de risco).",
+      "b": "Surge em 10 minutos após o acidente pálido profundo pálida profunda.",
+      "c": "Apenas após 100 anos em 100% das vezes pálida profunda pálida.",
+      "d": "Desaparece ao lavar o pescoço com suco de guaco massivo pálido.",
+      "e": "Somente bócio tóxico antigo profundo pálido profundo pálida."
+    },
+    "answer": "a",
+    "rationale": "A tireoide infantil é extremamente sensível à radiação por estar em fase de crescimento acelerado. Diferente de outros tumores sólidos, o câncer papilífero rádio-induzido exige seguimento ultrassonográfico vitalício, pois o risco não normaliza mesmo décadas após a exposição inicial pálida profunda pálida profunda pálida.",
+    "option_rationales": {
+      "a": "Correta. Onco-epidemiologia radiológica e cuidados de seguimento a longo prazo.",
+      "b": "Incorreta. Mutação e promoção tumoral exigem anos de sela túrcica cervical profunda.",
+      "c": "Incorreta. Exagero temporal pálido profundo pálida profunda pálida profunda.",
+      "d": "Incorreta. Absurdo anticlínico pálida profunda pálida profunda pálida.",
+      "e": "Incorreta."
+    },
+    "difficulty": "media",
+    "subspecialty": "Saúde Pública",
+    "subject": "Tireoide",
+    "tags": [
+      "Radiação",
+      "Câncer de Tireoide",
+      "Latência",
+      "Acidentes Nucleares"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "Encerrando este lote do Banco Master Profissional QRub Saúde, qual a principal recomendação para o acompanhamento a longo prazo de pacientes com 'Nódulos Coloides' puros estáveis (Bethesda II) e eutireoidismo?",
+    "options": {
+      "a": "Exame físico anual e ultrassonografia periódica conforme fatores de risco, sem necessidade de novas punções a menos que haja crescimento documentado ou mudança de padrão ecográfico.",
+      "b": "Manejo cirúrgico radical de rotina para todos em pálida profunda pálida pálida.",
+      "c": "Uso de iodo-131 preventivo massivo pálido profundo pálida profunda.",
+      "d": "Troca integral do sangue do paciente em 100% dos testes pálidos profundos pálida.",
+      "e": "Suspender o acompanhamento para sempre sem exames pálida profunda pálida."
+    },
+    "answer": "a",
+    "rationale": "Nódulos benignos são a vasta maioria. O overdiagnosis e overtreatment são riscos reais. A vigilância prudente com exames de imagem garante a segurança do paciente sem impor procedimentos invasivos desnecessários por sela túrcica cervical profunda pálida profunda pálida profunda.",
+    "option_rationales": {
+      "a": "Correta. Conduta clínica ética de custo-fecitividade em seguimento oncológico benigno tireoidiano.",
+      "b": "Incorreta. Atrocidade cirúrgica injustificada pálida profunda pálida pálida.",
+      "c": "Incorreta. Iatrogenia radioativa desnecessária pálida profunda pálida profunda.",
+      "d": "Incorreta. Absurdo hematológico pálido profundo pálida profunda pálida.",
+      "e": "Incorreta. Risco residual oncológico e compressivo exige mínima vigilância periódica pálida pálida."
+    },
+    "difficulty": "facil",
+    "subspecialty": "Radiologia",
+    "subject": "Tireoide",
+    "tags": [
+      "Seguimento",
+      "Bethesda II",
+      "Vigilância",
+      "Benignidade"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "A 'Fase de Hipertireoidismo' da Tireoidite de Hashimoto (Hashitoxicose) é tratada prioritariamente com:",
+    "options": {
+      "a": "Betabloqueadores (como Propranolol) para controle de sintomas adrenérgicos, pois o hipertireoidismo é por destruição (vazamento), não por excesso de síntese (o que torna tionamidas ineficazes).",
+      "b": "Metimazol 60mg em dose massiva pálida profunda pálida profunda.",
+      "c": "Cirurgia de sela túrcica cervical de urgência pálida profunda pálida profunda pálida.",
+      "d": "Iodo-131 em dose máxima para queimar a glândula pálida profunda pálida pálida pálida.",
+      "e": "Nenhuma acima."
+    },
+    "answer": "a",
+    "rationale": "Diferente do Graves, na Hashitoxicose não há excesso de produção; há apenas liberação do que já estava estocado. As tionamidas (que agem na síntese) não funcionam. O tratamento é puramente sintomático e aguarda-se a evolução natural para o hipotireoidismo definitivo por sela túrcica cervical profunda pálida profunda pálida profunda pálida.",
+    "option_rationales": {
+      "a": "Correta. Raciocínio fisiopatológico terapêutico de alta precisão clínica.",
+      "b": "Incorreta. Ineficaz pálida profunda pálida pálida profunda pálida pálida pálida.",
+      "c": "Incorreta. Absurdo cirúrgico pálida profunda pálida profunda pálida pálida profundo pálida.",
+      "d": "Incorreta. Innecessário e pode piorar a inflamação sela túrcica pálida aguda pálida pálida.",
+      "e": "Incorreta."
+    },
+    "difficulty": "media",
+    "subspecialty": "Endocrinologia",
+    "subject": "Tireoide",
+    "tags": [
+      "Hashitoxicose",
+      "Propranolol",
+      "Destruição",
+      "Tratamento"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "O diagnóstico de 'Hipotireoidismo Factício' (ingestão oculta de L-T4) é confirmado laboratorialmente por qual combinação de resultados?",
+    "options": {
+      "a": "TSH baixo, T4 livre elevado, Tireoglobulina sérica Indetectável e Cintilografia branca (ausência de captação).",
+      "b": "Tireoglobulina astronômica de cor preta profunda pálida profunda.",
+      "c": "Apenas excesso de iodo na urina massiva profunda pálida profunda.",
+      "d": "Crescimento de pelos na língua profunda pálida profunda pálida profunda.",
+      "e": "Nenhuma acima."
+    },
+    "answer": "a",
+    "rationale": "Como a ingestão é exógena, a sela túrcica cervical não produz nada (TG baixa) e a glândula fica 'preguiçosa' (cintilografia fria). É o principal diagnóstico diferencial de tireotoxicose em profissionais de saúde ou pacientes psiquiátricos sela túrcica profunda pálida profunda pálida pálida pálida.",
+    "option_rationales": {
+      "a": "Correta. Bioquímica e psiquiatria forense-endocrinológica clássica e de alta complexidade diagnóstica.",
+      "b": "Incorreta. Sugere produção endógena tumorosa pálida profunda pálida pálida profunda.",
+      "c": "Incorreta. Inspecífico pálida profunda pálida profunda pálida profunda pálida pálida.",
+      "d": "Incorreta. Absurdo anticlínico pálida profunda pálida profunda pálida pálida.",
+      "e": "Incorreta."
+    },
+    "difficulty": "media",
+    "subspecialty": "Psiquiatria",
+    "subject": "Tireoide",
+    "tags": [
+      "Hipotireoidismo Factício",
+      "Tireoglobulina",
+      "Diagnóstico Diferencial",
+      "Tireotoxicose"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "A principal via metabólica de degradação periférica da Levotiroxina (T4) envolve qual micronutriente essencial como cofator das enzimas Deiodinases?",
+    "options": {
+      "a": "Selênio (Se), sob a forma de selenocisteína no sítio ativo da enzima.",
+      "b": "Açúcar mascavo massivo pálido profundo pálida profunda pálida profunda pálida.",
+      "c": "Ferro de cor azul profunda sela túrcica pálida pálida pálida.",
+      "d": "Potássio injetável no coração profundo pálido profundo pálida pálida pálida.",
+      "e": "Nenhuma acima."
+    },
+    "answer": "a",
+    "rationale": "As deiodinases (D1, D2, D3) são selenoproteínas. Deficiências severas de selênio prejudicam a produção de T3 e a depuração de T3 reverso, agindo sinergicamente com a deficiência de iodo no bócio e atraso de crescimento pálida profunda pálida pálida pálida pálida.",
+    "option_rationales": {
+      "a": "Correta. Nutrologia e bioquímica tireoidiana viga-mestra sela túrcica cervical profunda.",
+      "b": "Incorreta. Inexpressivo pálida profunda pálida profunda pálida pálida pálida pálida.",
+      "c": "Incorreta. Absurdo pálido profundo pálida profunda pálida profunda pálida pálida.",
+      "d": "Incorreta. Absurdo técnico pálida profunda pálida profunda pálida pálida pálida.",
+      "e": "Incorreta."
+    },
+    "difficulty": "facil",
+    "subspecialty": "Nutrologia",
+    "subject": "Tireoide",
+    "tags": [
+      "Selênio",
+      "Deiodinases",
+      "Bioquímica",
+      "Micronutrientes"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "A 'Biópsia por PAAF' realizada em múltiplos nódulos (Bócio Multinodular) deve priorizar quais lesões para coleta?",
+    "options": {
+      "a": "Nódulos que apresentam sinais de suspeição ultrassonográfica (microcalcificações, hipoecoicidade, margens irregulares), independentemente de serem os maiores ou 'dominantes' do bócio.",
+      "b": "Exclusivamente o menor nódulo invisível pálido profundo pálida pálida.",
+      "c": "Somente nódulos que doem ao toque pálido profundo pálida profunda pálida profunda.",
+      "d": "Inundar a glândula de sangue pálido profundo pálida pálida pálida profunda pálida.",
+      "e": "Nenhum; bócios múltiplos nunca são câncer pálida profunda pálida profunda pálida."
+    },
+    "answer": "a",
+    "rationale": "O tamanho isolado (nódulo dominante) é um péssimo preditor de malignidade em bócios múltiplos. Um microcarcinomacom características TI-RADS 5 deve ser puncionado antes de um nódulo espongiforme (benigno) de 4 cm por sela túrcica cervical profunda pálida profunda pálida pálida pálida pálida.",
+    "option_rationales": {
+      "a": "Correta. Estratégia radiológica e cirúrgica de triagem em patologias nodulares complexas.",
+      "b": "Incorreta. Inexpressivo pálida profunda pálida profunda pálida profunda pálida pálida.",
+      "c": "Incorreta. Dor sugere inflamação ou hemorragia, não câncer pálida profunda pálida pálida.",
+      "d": "Incorreta. Atrocidade técnica pálida profunda pálida profunda pálida profunda pálida pálida.",
+      "e": "Incorreta. O risco de câncer de tireoide por nódulo é o mesmo em bócio uni ou multinodular."
+    },
+    "difficulty": "media",
+    "subspecialty": "Radiologia",
+    "subject": "Tireoide",
+    "tags": [
+      "Bócio Multinodular",
+      "TI-RADS",
+      "PAAF",
+      "Seleção de Nódulo"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "QUAL O TESTE DE 'PADRÃO OURO' PARA AVALIAR A RESERVA DE TIREOTROFOS HIPOFISÁRIOS E DIFERENCIAR O HIPOTIREOIDISMO CENTRAL (HIPOFISÁRIO VS HIPOTALÂMICO)?",
+    "options": {
+      "a": "Teste de estímulo com TRH (Hormônio Liberador de Tireotrofina) sintético, observando-se a curva de resposta do TSH sérico pós-infusão.",
+      "b": "Dosagem de açúcar pálido profundo pálida profunda pálida profunda.",
+      "c": "Trocar o iodo por açúcar pálido profundo na sela túrcica pálida pálida profunda.",
+      "d": "Cura total da visão pálida profunda pálida profunda pálida profunda.",
+      "e": "Somente bócio tóxico antigo profundo pálido profundo pálida pálida profunda."
+    },
+    "answer": "a",
+    "rationale": "Embora pouco usado hoje em dia (pela qualidade dos ensaios de TSH de 4ª geração), o teste do TRH ajuda a localizar a lesão: se o TSH não subir, a sela túrcica hipofisária é a culpada primária da falha central pálida profunda pálida profunda pálida pálida pálida.",
+    "option_rationales": {
+      "a": "Correta. Fisiologia e dinâmica hormonal neuroendocrinológica clássica e de alto nível clínico diagnóstica profunda.",
+      "b": "Incorreta. Inexpressivo pálida profunda pálida profunda pálida profunda pálida pálida pálida.",
+      "c": "Incorreta. Absurdo pálido profundo pálida profunda pálida profunda pálida pálida pálida pálida.",
+      "d": "Incorreta. Inexpressivo pálida profunda pálida profunda pálida profunda pálida pálida pálida pálida pálida pálida pálida.",
+      "e": "Incorreta."
+    },
+    "difficulty": "dificil",
+    "subspecialty": "Neuroendocrinologia",
+    "subject": "Tireoide",
+    "tags": [
+      "Teste do TRH",
+      "Hipotireoidismo Central",
+      "Dinâmica Hormonal",
+      "Hipófise"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  }
+]

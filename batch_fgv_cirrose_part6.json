@@ -1,0 +1,542 @@
+[
+  {
+    "enunciado": "Sobre a lesão hepática induzida por drogas (DILI), qual o critério bioquímico conhecido como 'Lei de Hy' (Hy's Law) que prediz um risco de mortalidade de 10% a 50% em pacientes que desenvolvem hepatotoxicidade medicamentosa?",
+    "options": {
+      "a": "ALT > 2x LSN e Fosfatase Alcalina > 5x LSN.",
+      "b": "ALT ou AST > 3x LSN associada a Bilirrubina Total > 2x LSN (sem evidência de colestase ou síndrome de Gilbert).",
+      "c": "Apenas elevação isolada de Gama-GT > 10x LSN.",
+      "d": "Plaquetas < 100.000 e RNI > 2,0.",
+      "e": "Creatinina > 1,5 mg/dL com TGO normal."
+    },
+    "answer": "b",
+    "rationale": "A 'Lei de Hy' é um preditor clássico de gravidade na DILI. Ela postula que pacientes com lesão hepatocelular significativa (ALT/AST > 3x) que também desenvolvem icterícia (Bilirrubina > 2x) sem causa obstrutiva ou hemolítica, possuem prognóstico sombrio, indicando falência funcional severa da massa hepatocitária residual. Isso ocorre porque o fígado tem grande reserva para depurar bilirrubina, e se ela sobe junto com a necrose (ALT alta), a lesão é grave.",
+    "option_rationales": {
+      "a": "Isso sugere um padrão colestático ou misto, mas a Lei de Hy foca no dano hepatocelular puro com icterícia.",
+      "b": "Correta. Define o critério prognóstico mais importante da hepatotoxicidade medicamentosa.",
+      "c": "A GGT é sensível mas pouco específica para predizer falência hepática por drogas.",
+      "d": "Sinais de insuficiência renal ou coagulopatia, que são tardios em relação à necrose enzimática inicial.",
+      "e": "Sem relação direta com a predição de necrose hepática por fármacos."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["DILI", "Lei de Hy", "Hepatotoxicidade"]
+  },
+  {
+    "enunciado": "No tratamento sistêmico de primeira linha do Carcinoma Hepatocelular (CHC) avançado (BCLC C) ou irresecável, qual a combinação de imunoterápicos que demonstrou superioridade ao Sorafenibe no estudo IMbrave150?",
+    "options": {
+      "a": "Nivolumab + Ipilimumab.",
+      "b": "Atezolizumab + Bevacizumab.",
+      "c": "Pembrolizumab + Lenvatinib.",
+      "d": "Everolimus + Tacrolimus.",
+      "e": "Interferon Peguilado + Ribavirina."
+    },
+    "answer": "b",
+    "rationale": "O estudo IMbrave150 mudou o paradigma do tratamento do CHC avançado em pacientes com boa função hepática (Child A). A combinação de Atezolizumab (anti-PD-L1) e Bevacizumab (anti-VEGF) mostrou-se superior ao Sorafenibe tanto em sobrevida global quanto em sobrevida livre de progressão, tornando-se o novo padrão-ouro internacional de primeira linha nesta população.",
+    "option_rationales": {
+      "a": "Combinação promissora mas usada como segunda linha ou em estudos específicos, não a primária do IMbrave150.",
+      "b": "Correta. Identifica a terapia alvo-imunológica de maior impacto recente na onco-hepatologia.",
+      "c": "Outra linha de pesquisa, mas não a definida como padrão de superioridade inicial global no CHC.",
+      "d": "São imunossupressores pós-transplante, sem ação antitumoral primária no CHC avançado.",
+      "e": "Tratamento histórico e obsoleto para hepatite C, não para câncer de fígado."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["CHC", "Imunoterapia", "Oncologia"]
+  },
+  {
+    "enunciado": "Um paciente de 45 anos com Fibrose Cística apresenta aumento progressivo de transaminases e evidencia cirrose micronodular com colestase na biópsia. Qual a principal causa da doença hepática na Fibrose Cística?",
+    "options": {
+      "a": "Depósito de ferro nos hepatócitos.",
+      "b": "Bile espessa e desidratada que obstrui os pequenos ductos biliares devido ao defeito no canal de cloro CFTR.",
+      "c": "Invasão direta por Pseudomonas aeruginosa no parênquima hepático.",
+      "d": "Deficiência de Vitamina K.",
+      "e": "Toxicidade por excesso de N-acetilcisteína."
+    },
+    "answer": "b",
+    "rationale": "A Fibrose Cística afeta o canal CFTR, que no fígado localiza-se na membrana apical dos colangiócitos (células dos ductos biliares). A falha no transporte de cloro e bicarbonato leva à produção de uma bile extremamente viscosa e desidratada, que causa obstrução biliar intra-hepática crônica, inflamação e fibrose progressiva (cirrose biliar focal).",
+    "option_rationales": {
+      "a": "Causa de hemocromatose.",
+      "b": "Correta. Explica a fisiopatologia ductular exócrina da doença na visão sistêmica da mutação CFTR.",
+      "c": "Causa infecções pulmonares, mas a cirrose é uma falha de transporte ductular, não infecciosa primária.",
+      "d": "Consequência da colestase, não a causa da cirrose.",
+      "e": "A acetilcisteína é usada como mucomodulador e protetor hepático em outros contextos."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Fibrose Cística", "CFTR", "Gastroenterologia"]
+  },
+  {
+    "enunciado": "Paciente masculino, 35 anos, apresenta poliartrite, hiperpigmentação cutânea (aspecto 'bronzeado') e diabetes melito de início recente. Laboratório: Ferritina 2.500 ng/mL e Saturação de Transferrina 85%. Qual a mutação gênica mais provável e qual o valor alvo de ferritina durante o tratamento de manutenção com flebotomias (sangrias)?",
+    "options": {
+      "a": "HFE (C282Y); Alvo de ferritina < 50 ng/mL.",
+      "b": "ATP7B; Alvo de ferritina < 500 ng/mL.",
+      "c": "JAK2; Alvo de hematócrito < 45%.",
+      "d": "G6PD; Alvo de hemoglobina > 12.",
+      "e": "UCP2; Alvo de glicose < 100."
+    },
+    "answer": "a",
+    "rationale": "O quadro descreve a 'Tríade de Bronze' da Hemocromatose Hereditária (Cirrose, Diabetes e Hiperpigmentação). A causa principal em caucasianos é a mutação homozigota C282Y no gene HFE. O tratamento baseia-se em reduzir a sobrecarga de ferro através de sangrias terapêuticas. Na fase de manutenção, o objetivo é manter a ferritina entre 50 e 100 ng/mL (diretriz AASLD recomenda < 50-100 para evitar re-acúmulo e dano orgânico).",
+    "option_rationales": {
+      "a": "Correta. Identifica a mutação específica e o alvo terapêutico rigoroso para prevenir progressão de cirrose e CHC.",
+      "b": "Refere-se à Doença de Wilson.",
+      "c": "Refere-se à Policitemia Vera.",
+      "d": "Refere-se a distúrbios hemolíticos.",
+      "e": "O diabetes é secundário ao dano pancreático pelo ferro, mas o tratamento foca na ferropenia induzida."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Hemocromatose", "HFE", "Ferro"]
+  },
+  {
+    "enunciado": "Em um paciente com ascite, o gradiente de albumina soro-ascite (GASA) de 1,2 g/dL confirma a presença de hipertensão portal. Durante a análise proteica, observa-se que o líquido possui Proteínas Totais > 2,5 g/dL. Qual das seguintes causas de ascite por hipertensão portal apresenta esta característica de proteínas altas (exsudato-like)?",
+    "options": {
+      "a": "Cirrose Hepática avançada.",
+      "b": "Insuficiência Cardíaca Congestiva (ascite cardíaca) ou Síndrome de Budd-Chiari.",
+      "c": "Esquistossomose Mansônica pura.",
+      "d": "Síndrome de Meigs.",
+      "e": "Peritonite Carcinomatosa."
+    },
+    "answer": "b",
+    "rationale": "Ascites com GASA ≥ 1,1 são causadas por hipertensão portal. Se a proteína no líquido for baixa (< 2,5), sugere cirrose (fígado falhando na síntese). Se a proteína for alta (> 2,5), sugere que o fígado ainda consegue produzir proteína, mas a pressão está aumentada por um bloqueio pós-sinusoidal ou cardíaco. Na ICC e na fase aguda de Budd-Chiari, o sinusóide hepático está intacto e 'vaza' linfa rica em albumina para o abdome.",
+    "option_rationales": {
+      "a": "A cirrose tipicamente apresenta proteínas baixas (< 2,5) no líquido dadas a falha de síntese e dilatação linfática crônica.",
+      "b": "Correta. Diferencia as causas de hipertensão portal pelo nível de proteína no líquido ascite.",
+      "c": "A esquistossomose pura cursa com GASA alto e proteínas variáveis, mas a ascite é rara fora da descompensação terminal ou cirrose associada.",
+      "d": "Meigs é um transudato (GASA baixo geralmente) sem hipertensão portal primária.",
+      "e": "Carcinomatose apresenta GASA baixo (< 1,1), pois não há hipertensão portal sinusoidal envolvida."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["GASA", "ICC", "Diagnóstico Diferencial"]
+  },
+  {
+    "enunciado": "Um cirrótico admitido com quadro de icterícia súbita e febre apresenta leucolactose (PMN no líquido ascite > 250) e em poucos dias desenvolve múltiplas bolhas hemorrágicas em membros inferiores após ingestão de frutos do mar crus. Qual o patógeno provável e qual o risco específico deste paciente?",
+    "options": {
+      "a": "Salmonella typhi; Perfuração intestinal.",
+      "b": "Vibrio vulnificus; Sepse fulminante com alta taxa de mortalidade em cirróticos com sobrecarga de ferro.",
+      "c": "Staphylococcus aureus; Endocardite aguda.",
+      "d": "Escherichia coli; PBE clássica sem complicações cutâneas.",
+      "e": "Candida albicans; Candidíase sistêmica."
+    },
+    "answer": "b",
+    "rationale": "O Vibrio vulnificus é uma bactéria gram-negativa marinha que causa infecções devastadoras em indivíduos com hepatopatia crônica (especialmente aqueles com sobrecarga de ferro). O ferro livre no soro do cirrótico age como combustível para o crescimento explosivo da bactéria. Manifesta-se com septicemia e lesões cutâneas bolhosas hemorrágicas patognomônicas.",
+    "option_rationales": {
+      "a": "Não causa lesões bolhosas hemorrágicas desta forma explosiva associada a frutos do mar.",
+      "b": "Correta. Identifica o patógeno oportunista oportunista e a condição clínica de alto risco no cirrótico.",
+      "c": "O Staph pode causar celulite, mas a história de ingestão de frutos do mar aponta para Vibrio.",
+      "d": "E. coli causa PBE, mas raramente infecta a pele com bolhas hemorrágicas fulminantes no cirrótico.",
+      "e": "Candidíase sistêmica cursa com microabscessos hepatoesplênicos, não fasciíte/bolhas periféricas súbitas."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Vibrio vulnificus", "Infecção", "Cirrose"]
+  },
+  {
+    "enunciado": "Um paciente submetido a cirurgia de Fontan para correção de cardiopatia congênita complexa desenvolve, 20 anos depois, quadro de cirrose hepática com varizes esofágicas. Qual o mecanismo hemodinâmico desta 'Doença Hepática Associada ao Fontan' (FALD)?",
+    "options": {
+      "a": "Toxicidade por varfarina.",
+      "b": "Congestão venosa hepática crônica passiva secundária à elevada pressão venosa sistêmica necessária para manter o fluxo pulmonar passivo.",
+      "c": "Hepatite B adquirida em transfusões na infância.",
+      "d": "Isquemia arterial por baixo débito cardíaco apenas.",
+      "e": "Falta de exercícios físicos."
+    },
+    "answer": "b",
+    "rationale": "A cirurgia de Fontan cria uma circulação única onde o retorno venoso sistêmico vai direto para os pulmões sem uma bomba ventricular subpulmonar. Isso exige pressões venosas sistêmicas (e consequentemente hepáticas) permanentemente elevadas. Esta congestão sinusoidal crônica leva à fibrose perisinusoidal e, eventualmente, à cirrose congestiva fóbica ('fígado cardíaco' avançado), predispondo ao risco de CHC precoce.",
+    "option_rationales": {
+      "a": "A varfarina previne trombose no Fontan, mas não causa a cirrose congestiva.",
+      "b": "Correta. Explica o link biomecânico-hemodinâmico entre a cirurgia cardíaca paliativa e a falência hepática tardia.",
+      "c": "Pode ocorrer, mas a FALD é uma entidade congestiva estrutural intrínseca ao Fontan.",
+      "d": "A falha é de 'saída' (congestão), não de 'entrada' (isquemia) primordialmente na FALD.",
+      "e": "Não tem relação com a patogênese vascular descrita."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Fontan", "FALD", "Cardiologia"]
+  },
+  {
+    "enunciado": "Sobre o manejo da Síndrome de Hepatite Alcoólica Aguda grave (Maddrey ≥ 32), após 7 dias de tratamento com Prednisolona 40mg/dia, qual ferramenta é utilizada para decidir se o paciente é um 'paciente respondedor' ou se o corticoide deve ser suspenso devido ao risco de infecção e futilidade?",
+    "options": {
+      "a": "Escore de Lille (Lille Score).",
+      "b": "Escore de Child-Pugh.",
+      "c": "Critérios de Milão.",
+      "d": "Razão de Ritis.",
+      "e": "Classificação de West-Haven."
+    },
+    "answer": "a",
+    "rationale": "O Escore de Lille é calculado no 4º ou 7º dia de corticoterapia para hepatite alcoólica grave. Ele utiliza a evolução da bilirrubina total, idade, creatinina e tempo de protrombina. Um escore de Lille > 0,45 sugere que o paciente não está respondendo ao corticoide e que o tratamento deve ser interrompido, pois o risco de complicações infecciosas supera qualquer benefício residual na sobrevida.",
+    "option_rationales": {
+      "a": "Correta. Define o parâmetro de monitorização terapêutica de curta duração para imunossupressão em hepatite alcóolica.",
+      "b": "Avalia o estado basal da cirrose, não a resposta aguda ao corticoide.",
+      "c": "Critérios oncológicos para transplante.",
+      "d": "Apenas indica etiologia alcoólica provável pela relação TGO/TGP.",
+      "e": "Mede o grau de encefalopatia psicomotora e neurológica."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Hepatite Alcoólica", "Lille", "Conduta"]
+  },
+  {
+    "enunciado": "Um paciente de 50 anos com cirrose Child B interna para paracentese eletiva. Ao exame laboratorial, observa-se Na 128 mEq/L, K 4,5 mEq/L, Creatinina 1,1 mg/dL. O volume urinário é normal. O paciente está consciente e nega sintomas. Qual a conduta recomendada para a correção da hiponatremia no paciente cirrótico estável?",
+    "options": {
+      "a": "Infusão rápida de Solução Salina Hipertônica 3%.",
+      "b": "Restrição hídrica (aprox. 1.000 mL/dia) e suspensão de diuréticos se a natremia cair abaixo de 125 mEq/L ou se houver sintomas neurológicos.",
+      "c": "Uso de desmopressina (DDAVP).",
+      "d": "Aumentar a ingestão de sal na dieta para 10g/dia.",
+      "e": "Infusão de potássio concentrado."
+    },
+    "answer": "b",
+    "rationale": "A hiponatremia na cirrose é tipicamente dilucional (hipervolêmica) pelo excesso de água livre. A reposição de sódio com solução salina (mesmo a 0,9%) agrava o edema e a ascite, não corrigindo o distúrbio básico. A recomendação é a restrição hídrica se o sódio for < 125 ou 120 mEq/L, ou se houver sintomas. Solução hipertônica (3%) é reservada apenas para casos raros de hiponatremia sintomática aguda acompanhada de gravidade extrema ou no perioperatório do transplante.",
+    "option_rationales": {
+      "a": "Pode causar mielinólise pontina se corrigida rápido e piora drasticamente a ascite e o edema.",
+      "b": "Correta. Define o manejo padrão da hiponatremia dilucional do cirrótico compensado.",
+      "c": "DDAVP reteria ainda mais água, piorando a hiponatremia.",
+      "d": "Aumentar sódio na dieta no cirrótico asfítico leva ao aumento incontrolável da ascite.",
+      "e": "O problema não é o potássio, mas o balanço hídrico negativo de água livre necessário."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Hiponatremia", "Cirrose", "Eletrolíticos"]
+  },
+  {
+    "enunciado": "O Carcinoma Hepatocelular (CHC) é único entre os tumores sólidos por poder ser diagnosticado SEM necessidade de biópsia em pacientes com cirrose. Qual o tamanho mínimo do nódulo e o achado radiológico necessário para esse diagnóstico não invasivo em exames de imagem de alta qualidade (TC multifásica ou RM)?",
+    "options": {
+      "a": "Nódulo de qualquer tamanho com captação de contraste persistente.",
+      "b": "Nódulo ≥ 1,0 cm com hiper-realce na fase arterial seguido de 'wash-out' (clareamento) na fase portal ou de equilíbrio.",
+      "c": "Apenas alfafetoproteína > 200 ng/mL, independente do tamanho.",
+      "d": "Calcificação periférica em nódulo de 3 cm.",
+      "e": "Aparência de 'alvo' na fase arterial."
+    },
+    "answer": "b",
+    "rationale": "O diagnóstico não invasivo de CHC baseia-se no comportamento vascular. A neovascularização arterial do tumor faz com que ele brilhe intensamente na fase arterial e fique mais escuro que o parênquima circundante na fase portal (devido ao wash-out rápido). Esse padrão em nódulos ≥ 1 cm no fígado cirrótico é altamente específico (LI-RADS 5), permitindo o diagnóstico definitivo dispensando a biópsia (que tem riscos de sangramento e disseminação tumoral).",
+    "option_rationales": {
+      "a": "A captação persistente sugere hemangioma ou HNF, não CHC.",
+      "b": "Correta. Enuncia os critérios diagnósticos radiológicos padrão-ouro aceitos mundialmente.",
+      "c": "A alfafetoproteína elevada sugere o tumor mas não é diagnóstica isolada nos novos algoritmos oncológicos sem imagem confirmatória.",
+      "d": "Calcificações são raras no CHC e inespecíficas.",
+      "e": "Padrão de alvo ('targetoid') sugere metástases ou colangiocarcinoma intra-hepático."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["CHC", "Diagnóstico por Imagem", "Oncologia"]
+  },
+  {
+    "enunciado": "Sobre a Sarcopenia na Cirrose, relacionada ao pior prognóstico e risco de transplante, qual método simples e beira-leito é validado para quantificar a força muscular na avaliação diagnóstica?",
+    "options": {
+      "a": "Teste de levantamento de peso olímpico.",
+      "b": "Dinamometria manual (Handgrip strength).",
+      "c": "Eletromiografia profunda de agulha.",
+      "d": "Medir a circunferência do pescoço.",
+      "e": "Biópsia de músculo quadríceps."
+    },
+    "answer": "b",
+    "rationale": "A sarcopenia é um componente crucial da 'Fragilidade' (Frailty) no cirrótico. A dinamometria manual avalia a força de preensão e possui correlação excelente com a massa muscular total e com o prognóstico pré e pós-transplante. Valores baixos (< 27 kg para homens e < 16 kg para mulheres, conforme alguns consensos) indicam perda funcional severa que exige intervenção nutricional e fisioterápica imediata.",
+    "option_rationales": {
+      "a": "Inadequado e perigoso para o paciente cirrótico debilitado.",
+      "b": "Correta. Identifica a ferramenta de triagem funcional validada em hepatologia e geriatria.",
+      "c": "Exame neurológico doloroso, não usado para diagnóstico de desnutrição muscular primária.",
+      "d": "Avalia risco cardiovascular e apneia do sono, mas não força muscular distal.",
+      "e": "Invasivo e desnecessário para o diagnóstico clínico da fragilidade sarcopênica."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Sarcopenia", "Dinamometria", "Nutrição"]
+  },
+  {
+    "enunciado": "No contexto da cirrose pelo vírus C (HCV), qual o marco histórico que permite hoje curar mais de 95% dos pacientes e como essa cura atua no risco de desenvolvimento futuro de Carcinoma Hepatocelular?",
+    "options": {
+      "a": "Interferon inalatório; Elimina o risco de câncer completamente.",
+      "b": "Antivirais de Ação Direta (DAAs); Aumentam a sobrevida e reduzem drasticamente, mas não eliminam totalmente o risco de CHC se a cirrose já estiver estabelecida (F4).",
+      "c": "Transplante de medula óssea; Cura apenas se o genótipo for 1.",
+      "d": "Uso de prednisona; Aumenta a replicação protegendo o hepatócito.",
+      "e": "Não existe cura para Hepatite C."
+    },
+    "answer": "b",
+    "rationale": "Os Antivirais de Ação Direta (Sofosbuvir, Daclatasvir, Glecaprevir/Pibrentasvir) revolucionaram a hepatologia. A resposta viral sustentada (RVS) é equivalente à cura. Pacientes cirróticos curados apresentam melhora da função hepática e redução do risco de câncer, mas como a 'cicatriz' da cirrose permanece, a vigilância oncológica semestral com USG deve continuar por toda a vida do paciente F4.",
+    "option_rationales": {
+      "a": "O interferon era injetável, pouco tolerado e com baixas taxas de cura; o risco de CHC persiste no cirrótico mesmo após cura.",
+      "b": "Correta. Define o tratamento moderno e a necessidade contínua de vigilância oncológica no paciente com fibrose residual avançada.",
+      "c": "Não é tratamento para vírus C, exceto se houver linfoma crioglobulinêmico associado, mas não como padrão geral.",
+      "d": "Corticoides agravaram a replicação do HCV no passado.",
+      "e": "Falso. O HCV é hoje uma das hepatopatias crônicas mais tratáveis e curáveis."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Hepatite C", "DAAs", "CHC"]
+  },
+  {
+    "enunciado": "Qual a causa de cirrose hepática que apresenta o sinal clínico de 'Kayser-Fleischer' e qual a cor característica deste anel na córnea?",
+    "options": {
+      "a": "Hepatite Viral; Anel branco.",
+      "b": "Doença de Wilson; Anel acastanhado ou verde-escururo na periferia da membrana de Descemet.",
+      "c": "Hemocromatose; Anel dourado metálico.",
+      "d": "Colangite Esclerosante; Anel azulado.",
+      "e": "Drogas (Amiodarona); Anel cristalino."
+    },
+    "answer": "b",
+    "rationale": "O Anel de Kayser-Fleischer (KF) é patognomônico da Doença de Wilson (acúmulo de cobre). O cobre deposita-se na membrana de Descemet na córnea profunda, aparecendo como um anel pigmentado na junção esclero-corneana. Sua presença é quase obrigatória em pacientes com manifestações neurológicas da doença, auxiliando no diagnóstico rápido via exame com lâmpada de fenda.",
+    "option_rationales": {
+      "a": "Hepatites não cursam com depósito hídrico corneano desta forma.",
+      "b": "Correta. Identifica o depósito metálico patognomônico da principal doença metabólica de acúmulo da juventude.",
+      "c": "Hemocromatose causa hiperpigmentação cutânea e conjuntival, mas não o anel de KF clássico.",
+      "d": "CBP pode causar xantomas, não anéis corneanos de metal.",
+      "e": "A amiodarona causa córnea verticilata (depósitos em redemoinho), diferente do anel periférico do cobre."
+    },
+    "difficulty": "facil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Wilson", "Kayser-Fleischer", "Oftalmologia"]
+  },
+  {
+    "enunciado": "Um paciente cirrótico Child B apresenta hemorragia digestiva por varizes esofágicas. No manejo inicial, após estabilização hemodinâmica, observa-se que ele é portador de doença renal crônica terminal em hemodiálise. Qual droga vasoativa deve ser usada com CAUTELA extrema ou evitada devido ao risco aumentado de isquemia periférica e isquemia mesentérica em pacientes vasculopatas/renais?",
+    "options": {
+      "a": "Somatostatina.",
+      "b": "Octreotide.",
+      "c": "Terlipressina.",
+      "d": "Propranolol.",
+      "e": "Lactulona."
+    },
+    "answer": "c",
+    "rationale": "A Terlipressina é um potente vasoconstritor sistêmico além de esplâncnico. Em pacientes com doença vascular periférica prévia, aterosclerose severa ou doença renal crônica (que frequentemente têm vasculopatia associada), ela pode causar isquemia de extremidades, isquemia miocárdica ou mesentérica. Nestes pacientes, a Somatostatina ou Octreotide são preferíveis pelo perfil de segurança cardiovascular superior.",
+    "option_rationales": {
+      "a": "Vasoconstritor esplâncnico puro com baixíssimos efeitos sitêmicos; mais seguro no cardiopata/vasculopata.",
+      "b": "Perfil de segurança similar à somatostatina.",
+      "c": "Correta. Identifica o risco isquêmico severo da terlipressina em subgrupos vulneráveis.",
+      "d": "BBNS são usados na profilaxia secundária estável, não no controle do sangramento agudo instável.",
+      "e": "Laxante osmótico, sem papel no controle hemodinâmico do sangramento agudo."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Terlipressina", "Segurança", "HDA"]
+  },
+  {
+    "enunciado": "Sobre o carcinoma hepatocelular (CHC) desenvolvido em fígados NÃO-cirróticos, qual a etiologia infecciosa que mais frequentemente pode causar câncer antes mesmo do desenvolvimento de fibrose avançada?",
+    "options": {
+      "a": "Hepatite C.",
+      "b": "Hepatite B (VHB).",
+      "c": "Hepatite A.",
+      "d": "Mononucleose infecciosa.",
+      "e": "Citomegalovírus."
+    },
+    "answer": "b",
+    "rationale": "O Vírus da Hepatite B (VHB) é um vírus DNA que se integra ao genoma do hospedeiro, podendo induzir mutações oncogênicas e CHC mesmo em pacientes com fígados não-cirróticos ou com fibrose leve. Por isso, a vigilância oncológica em portadores de VHB deve ser individualizada (usando scores como PAGE-B), por vezes iniciando antes do estágio de cirrose franca.",
+    "option_rationales": {
+      "a": "O vírus C raramente causa CHC sem cirrose prévia (estágio F3/F4).",
+      "b": "Correta. Identifica o potencial mutagênico direto do vírus B via integração genômica.",
+      "c": "A hepatite A é aguda e autolimitada, sem risco de cronicidade ou câncer.",
+      "d": "Causa hepatite aguda transitória, sem oncogênese.",
+      "e": "Pode causar hepatite em imunodeprimidos, mas não é um agente oncogênico hepático primário clássico."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["VHB", "Oncogênese", "CHC"]
+  },
+  {
+    "enunciado": "A encefalopatia hepática pode ser dividida em Tipos A, B e C. O que define o Tipo B e qual o achado radiológico em grandes vasos que deve ser buscado?",
+    "options": {
+      "a": "Tipo B associada à Infecção; Buscar pneumonia.",
+      "b": "Tipo B associada a 'Bypass' (Comunicação portossistêmica) sem cirrose intrínseca; Buscar shunt portossistêmico intra ou extra-hepático maciço.",
+      "c": "Tipo B associada à Bilirrubina alta; Buscar cálculos biliares.",
+      "d": "Tipo B associada ao Álcool; Buscar atrofia cerebelar.",
+      "e": "Tipo B refere-se a Encefalopatia por Vírus B apenas."
+    },
+    "answer": "b",
+    "rationale": "A classificação da encefalopatia hepática baseada na etiologia a divide em: Tipo A (Falência Hepática Aguda/Acute), Tipo B (Shunts ou Bypass sem cirrose, comum em shunts cirúrgicos ou congênitos) e Tipo C (Cirrose, a mais comum). No Tipo B, o fígado é funcionalmente bom, mas o sangue 'foge' dele, levando neurotoxinas ao cérebro.",
+    "option_rationales": {
+      "a": "Inadequado; infecção é fator precipitante, não define o tipo estrutural.",
+      "b": "Correta. Identifica a variante rara e mecânica de encefalopatia por desvio de fluxo sanguíneo venoso.",
+      "c": "A bilirrubina não causa EH (causa kernicterus em recém-nascidos).",
+      "d": "Álcool causa cirrose (Tipo C).",
+      "e": "Nomenclatura sem relação com a etiologia viral específica."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["EH", "Shunt", "Classificação"]
+  },
+  {
+    "enunciado": "Um paciente de 55 anos portador de cirrose avançada e mestre-ascite apresenta o sinal de 'Icterícia da Cirrose' associado a 'Facies Cirrótica'. O que compõe a fácies típica do cirrótico desnutrido?",
+    "options": {
+      "a": "Edema facial exuberante e pescoço curto.",
+      "b": "Atrofia das massas musculares temporais e masseterinas, olhos encovados (enoftalmia) e pele amarelada com telangiectasias.",
+      "c": "Exoftalmia e bócio visível.",
+      "d": "Eritema malar em borboleta e alopecia total.",
+      "e": "Arredondamento da face (moon face) e estrias purpúreas."
+    },
+    "answer": "b",
+    "rationale": "A fácies cirrótica reflete o estado de desnutrição proteico-calórica extrema (sarcopenia da face) associado à colestase crônica e vasodilatação periférica. A atrofia bi-temporal é um dos marcadores mais precoces da perda de massa muscular no hepatopata.",
+    "option_rationales": {
+      "a": "Sugere síndrome nefrótica ou mixedema pulmonar.",
+      "b": "Correta. Define o aspecto semiológico do paciente hepatopata crônico consumido.",
+      "c": "Fácies do hipertireoidismo (Doença de Graves).",
+      "d": "Fácies do Lupus Eritematoso Sistêmico.",
+      "e": "Fácies Cushingóide (excesso de corticoides)."
+    },
+    "difficulty": "facil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Propedêutica", "Semiologia", "Sarcopenia"]
+  },
+  {
+    "enunciado": "Sobre o manejo da ascite tensa, após a retirada de 8 litros de líquido ascite, o paciente recebe 64g de albumina humana 20%. Qual a principal preocupação renal nas primeiras 72 horas após esse procedimento de grande volume?",
+    "options": {
+      "a": "Desenvolvimento de hematúria macroscópica.",
+      "b": "Piora súbita da creatinina por disfunção circulatória pós-paracentese (DCPP), mesmo com reposição parcial.",
+      "c": "Proteinúria maciça.",
+      "d": "Refluxo vesicoureteral.",
+      "e": "Formação de cristais de ácido úrico no túbulo distal."
+    },
+    "answer": "b",
+    "rationale": "Mesmo com reposição correta (8g por litro retirado = 64g para 8L), o paciente cirrótico Child C possui uma autorregulação renal muito precária. Monitorar a função renal nas 72h seguintes é crucial, pois a DCPP pode ocorrer se a dose for subestimada ou se o paciente já tiver uma volemia arterial muito baixa (hipotensão arterial).",
+    "option_rationales": {
+      "a": "A paracentese não causa sangramento urinário.",
+      "b": "Correta. Identifica a labilidade renal do cirrótico mesmo sob protocolo de proteção volêmica.",
+      "c": "O paciente não excreta a albumina infundida pela urina desta forma.",
+      "d": "Patologia anatômica urológica sem relação com paracentese.",
+      "e": "Sem relação estabelecida."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Paracentese", "DCPP", "Rim"]
+  },
+  {
+    "enunciado": "No contexto do transplante hepático 'Auxiliar', o que caracteriza esta modalidade e em qual situação ela é preferível?",
+    "options": {
+      "a": "Colocar um terceiro rim no paciente.",
+      "b": "Manter parte do fígado nativo doente e implantar um enxerto parcial ao lado, visando regeneração do fígado original; Preferível em Insuficiência Hepática Fulminante por intoxicação reversível (ex: paracetamol).",
+      "c": "Usar um fígado de animal para ajudar o humano.",
+      "d": "Realizar o transplante apenas se o paciente tiver câncer de pele.",
+      "e": "Implantar o fígado na perna do paciente para melhor acesso."
+    },
+    "answer": "b",
+    "rationale": "O transplante auxiliar é uma técnica onde o fígado nativo é preservado total ou parcialmente e o novo enxerto é colocado como suporte. A ideia é que o enxerto mantenha o paciente vivo durante a fase aguda da insuficiência fulminante enquanto o fígado original se recupera da agressão (ex: necrose por paracetamol ou hepatite viral aguda). Quando o nativo recupera a função, a imunossupressão para o enxerto pode ser suspensa, deixando o paciente com seu fígado original saudável.",
+    "option_rationales": {
+      "a": "Se refere a transplante renal.",
+      "b": "Correta. Define o conceito de suporte funcional temporário cirúrgico para regeneração orgânica.",
+      "c": "Xenotransplante.",
+      "d": "Sem nexo causal.",
+      "e": "Absurdo anatômico."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Transplante Auxiliar", "Hepatite Fulminante", "Técnica"]
+  },
+  {
+    "enunciado": "Sobre o uso do Ácido Ursodesoxicólico (UDCA) na cirrose biliar, qual o mecanismo de ação celular principal que justifica seu uso crônico?",
+    "options": {
+      "a": "Destruição generalizada de linfonodos abdominais.",
+      "b": "Substituição de ácidos biliares endógenos hidrofóbicos e citotóxicos (como o ácido litocólico) por um ácido biliar hidrofílico e citoprotetor.",
+      "c": "Aumentar a síntese de ferro.",
+      "d": "Bloquear o receptor de insulina.",
+      "e": "Reduzir o tamanho do baço via ação osmótica."
+    },
+    "answer": "b",
+    "rationale": "O UDCA atua diluindo a bile tóxica do paciente colestático. Além de ser hidrofílico (menos detergente para as membranas celulares), ele atrai transportadores biliares para a membrana do colangiócito e inibe a apoptose induzida por ácidos biliares agressivos. Em doenças como a CBP, ele comprovadamente reduz a progressão da fibrose.",
+    "option_rationales": {
+      "a": "Ação imunológica muito mais fina e específica que uma 'destruição'.",
+      "b": "Correta. Define a base bioquímica da terapia colestática padrão-ouro.",
+      "c": "Não interfere no metabolismo do ferro.",
+      "d": "Sem relação com glicemia.",
+      "e": "A redução do baço só ocorre secundariamente se houver redução da pressão portal por melhora da fibrose."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["UDCA", "Farmacologia", "Colestase"]
+  }
+]

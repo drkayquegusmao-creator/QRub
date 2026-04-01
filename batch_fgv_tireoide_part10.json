@@ -1,0 +1,578 @@
+
+[
+  {
+    "enunciado": "O 'Efeito Gancho' (Hook Effect) em ensaios imunométricos de Tireoglobulina (TG) pode levar a qual erro diagnóstico catastrófico no seguimento do câncer diferenciado de tireoide?",
+    "options": {
+      "a": "Níveis de TG falsamente baixos ou 'normais' em pacientes com carga tumoral massiva (metástases volumosas), devido à saturação de todos os anticorpos de captura e detecção pelo excesso de antígeno.",
+      "b": "O iodo queima a agulha de coleta.",
+      "c": "Nenhum; a TG é imune a interferências físicas.",
+      "d": "Apenas o bócio cervical antigo inflama espontaneamente.",
+      "e": "Níveis astronômicos de TG em um paciente sem tireoide."
+    },
+    "answer": "a",
+    "rationale": "O efeito gancho ocorre quando o excesso de antígeno (TG) impede a formação do complexo 'sanduíche' (anticorpo-antígeno-anticorpo) necessário para a leitura do sinal. Em vez de formar pontes, a TG satura individualmente os anticorpos. O laboratório deve realizar diluições da amostra para revelar o valor real, que pode estar em dezenas de milhares de ng/mL, mas aparecer como 'indetectável' na primeira leitura.",
+    "option_rationales": {
+      "a": "Correta. Armadilha laboratorial crítica no manejo de metástases oncológicas.",
+      "b": "Incorreta. Fantasioso.",
+      "c": "Incorreta. Quase todos os ensaios 'sanduíche' são vulneráveis ao efeito gancho se os níveis forem extremos.",
+      "d": "Incorreta. Inexpressivo.",
+      "e": "Incorreta. Seria o valor real, não o erro do 'gancho' (que subestima)."
+    },
+    "difficulty": "dificil",
+    "subspecialty": "Bioquímica Clínica",
+    "subject": "Tireoide",
+    "tags": ["Hook Effect", "Tireoglobulina", "Erro Laboratorial", "Oncologia"]
+  },
+  {
+    "enunciado": "A conduta atual recomendada para um paciente de 82 anos, assintomático, apresentando Hipotireoidismo Subclínico leve (TSH = 7,8 mUI/L e T4 livre normal) é:",
+    "options": {
+      "a": "Seguimento clínico e laboratorial (Watchful waiting), pois em pacientes muito idosos (> 80 anos), níveis discretamente elevados de TSH podem ser fisiológicos do envelhecimento e não conferem maior risco cardiovascular ou cognitivo.",
+      "b": "Aumento imediato da dose de Levotiroxina para 150 mcg.",
+      "c": "Iodo Radioativo preventivo.",
+      "d": "Cirurgia de urgência para bócio invisível.",
+      "e": "Tratamento agressivo se o paciente for triatleta."
+    },
+    "answer": "a",
+    "rationale": "Estudos robustos (como o TRUST trial) mostram que tratar o hipotireoidismo subclínico em idosos acima de 65-80 anos com TSH < 10 mUI/L não traz benefícios clínicos claros e pode aumentar o risco de fibrilação atrial e fraturas ósseas por iatrogenia (hipertireoidismo exógeno subclínico). A observação é a conduta preferencial, a menos que existam sintomas severos ou o TSH ultrapasse 10 persistentemente.",
+    "option_rationales": {
+      "a": "Correta. Evolução baseada em evidência no manejo geriátrico endocrinológico moderna.",
+      "b": "Incorreta. Risco cardíaco severo nesta faixa etária.",
+      "c": "Incorreta. Sem base clínica.",
+      "d": "Incorreta. Absurdo cirúrgico.",
+      "e": "Incorreta. Mesmo atletas idosos se beneficiam da prudência nestes níveis de TSH."
+    },
+    "difficulty": "media",
+    "subspecialty": "Geriatria",
+    "subject": "Tireoide",
+    "tags": ["Hipotireoidismo Subclínico", "Idoso", "TRUST Trial", "TSH"]
+  },
+  {
+    "enunciado": "A 'Tireoidite Relacionada a IgG4' é uma entidade distinta que pode ser parte de uma doença sistêmica. Qual a principal característica histológica que a diferencia da Tireoidite de Hashimoto comum?",
+    "options": {
+      "a": "Presença de infiltrado linfoplasmocitário denso com densidade elevada de plasmócitos IgG4-positivos (> 20 por campo) e fibrose estoriforme.",
+      "b": "Destruição total da tireoide por vírus da gripe.",
+      "c": "Somente bócio tóxico antigo profundo.",
+      "d": "Inundação de iodo nos vasos basais do pescoço.",
+      "e": "Nenhuma; ambas são iguais sob o microscópio."
+    },
+    "answer": "a",
+    "rationale": "A doença relacionada a IgG4 pode acometer pâncreas, órbita e tireoide. Na tireoide, apresenta-se como uma massa endurecida de crescimento rápido, assemelhando-se clinicamente à Tireoidite de Riedel ou câncer anaplásico, mas responde espetacularmente à corticoterapia sistêmica.",
+    "option_rationales": {
+      "a": "Correta. Histopatologia e imunofenotipagem específica da doença de depósitos.",
+      "b": "Incorreta. Infecções virais causam tireoidite subaguda (Quervain), não IgG4-dependente.",
+      "c": "Incorreta. Sem relação oncológica funcional primária.",
+      "d": "Incorreta. Sem nexo anatômico básico.",
+      "e": "Incorreta. O perfil de plasmócitos IgG4 é o marcador diferencial."
+    },
+    "difficulty": "dificil",
+    "subspecialty": "Reumatologia",
+    "subject": "Tireoide",
+    "tags": ["IgG4", "Tireoidite", "Corticosteroides", "Diagnóstico Diferencial"]
+  },
+  {
+    "enunciado": "O hormônio Tri-iodotironina (T3) atua no núcleo das células ligando-se prioritariamente a quais receptores moleculares?",
+    "options": {
+      "a": "Receptores Nucleares do Hormônio Tireoidiano (TR-alfa e TR-beta).",
+      "b": "Receptores de insulina na membrana basal.",
+      "c": "Canais de cálcio dependentes de voltagem.",
+      "d": "Receptores de glicose hepática.",
+      "e": "Nervos pélvicos profundos."
+    },
+    "answer": "a",
+    "rationale": "O mecanismo de ação do T3 é genômico. Ele entra na célula (via transportadores MCT8) e no núcleo, onde se liga aos TRs (alfa ou beta). Isso promove a regulação da transcrição de genes alvo no DNA, alterando a síntese proteica celular sistêmica conforme a demanda metabólica.",
+    "option_rationales": {
+      "a": "Correta. Biologia molecular clássica da ação hormonal.",
+      "b": "Incorreta. Insulina atua na membrana plasmática via tirosina-quinase.",
+      "c": "Incorreta. Mecanismo de sinalização elétrica e muscular rala.",
+      "d": "Incorreta. GLUTs transportam glicose mas não são o alvo hormonal do T3.",
+      "e": "Incorreta. Absurdo técnico."
+    },
+    "difficulty": "media",
+    "subspecialty": "Bioquímica",
+    "subject": "Tireoide",
+    "tags": ["T3", "MCT8", "Receptores Nucleares", "Fisiologia Molecular"]
+  },
+  {
+    "enunciado": "Qual a principal intervenção recomendada por consenso ético para familiares de primeiro grau de um paciente recém-diagnosticado com Carcinoma Medular de Tireoide (CMT) hereditário (NEM 2A ou 2B)?",
+    "options": {
+      "a": "Rastreamento genético para mutações no proto-oncogene RET.",
+      "b": "Iodo Radioativo profilático em todos os familiares imediatamente.",
+      "c": "Trocar o sal da cozinha da família por sal iodado massivo de mineração.",
+      "d": "Cortar a garganta de todos preventivamente sem exames (tireoidectomia cega).",
+      "e": "Apenas vigilância psicológica por 30 anos."
+    },
+    "answer": "a",
+    "rationale": "O CMT hereditário tem padrão autossômico dominante. O risco de um filho ser portador da mutação é de 50%. A identificação precoce do RET permite realizar tireoidectomia profilática (muitas vezes na infância), que é a única forma de cura definitiva para o CMT antes do seu surgimento clínico invasivo.",
+    "option_rationales": {
+      "a": "Correta. Conduta de triagem genética viga-mestra na oncologia endocrinológica.",
+      "b": "Incorreta. O Medular não capta iodo e a radiação é inútil preventivamente neste contexto.",
+      "c": "Incorreta. Sem nexo preventivo oncológico RET-dependente.",
+      "d": "Incorreta. Conduta antiética e criminosa; a cirurgia exige confirmação da mutação.",
+      "e": "Incorreta. O tumor é agressivo e a espera diagnóstica custa a vida do paciente."
+    },
+    "difficulty": "media",
+    "subspecialty": "Genética Médica",
+    "subject": "Tireoide",
+    "tags": ["RET", "Triagem Genética", "CMT", "Ética Médica"]
+  },
+  {
+    "enunciado": "O 'Carcinoma de Células de Hürthle' (Oncocítico) foi re-classificado pela Organização Mundial da Saúde (WHO) na sua 5ª edição como uma entidade distinta. Comparado ao Carcinoma Folicular clássico, qual a principal característica do comportamento biológico das metástases de Células de Hürthle?",
+    "options": {
+      "a": "Menor taxa de captação de Iodo Radioativo (I-131) nas metástases, tornando o tratamento radiometabólico frequentemente ineficaz.",
+      "b": "Sempre cura com apenas 10 mcg de iodo na dieta.",
+      "c": "Evolução lenta e benigna inevitável.",
+      "d": "Aumento repentino da voz do paciente para tons agudos.",
+      "e": "Somente metástases linfáticas pálidas."
+    },
+    "answer": "a",
+    "rationale": "Os tumores de células de Hürthle são conhecidos por serem 'iodorresistentes'. Devido à abundância de mitocôndrias e perda do transportador NIS, eles não captam adequadamente o iodo-131 em cerca de 60-80% dos casos de metástases, exigindo abordagens oncológicas alternativas como TKIs ou cirurgia de resgate.",
+    "option_rationales": {
+      "a": "Correta. Diferencial clínico oncológico fundamental para o prognóstico e manejo terapêutico.",
+      "b": "Incorreta. Inexpressivo.",
+      "c": "Incorreta. Pelo contrário; tendem a ser mais agressivos que o folicular clássico.",
+      "d": "Incorreta. Inexpressivo.",
+      "e": "Incorreta. Apresentam disseminação hematogênica frequente (pulmão/osso) igual ao folicular."
+    },
+    "difficulty": "media",
+    "subspecialty": "Onclogica",
+    "subject": "Tireoide",
+    "tags": ["Células de Hürthle", "Oncocítico", "Iodo-131", "Resistência"]
+  },
+  {
+    "enunciado": "A 'Hipertensão Sistólica Isolada' observada no hipertireoidismo é decorrente de:",
+    "options": {
+      "a": "Aumento do volume ejetado (inotropismo) e diminuição da resistência vascular periférica sistêmica.",
+      "b": "Aumento da resistência renal profunda massiva.",
+      "c": "Falta de sangue nas pernas.",
+      "d": "Depósito de cálcio nas válvulas do coração agudamente.",
+      "e": "Aumento da viscosidade do sangue por excesso de T4."
+    },
+    "answer": "a",
+    "rationale": "O hormônio tireoidiano em excesso dilata os vasos (via NO local) e estimula a força de contração cardíaca. A pressão máxima (sistólica) sobe pelo choque volumétrico, mas a mínima (diastólica) cai pela vasodilatação, resultando na clássica pressão de pulso 'em martelo d'água'.",
+    "option_rationales": {
+      "a": "Correta. Fisiologia cardiovascular da tireotoxicose.",
+      "b": "Incorreta. Ocorre vasodilatação renal com aumento da TFG no hipertira.",
+      "c": "Incorreta. Sem nexo.",
+      "d": "Incorreta. Calcificações são crônicas e não explicam a hipertensão aguda tireoidiana.",
+      "e": "Incorreta. Sem base fisiológica clínica comprovada deste teor."
+    },
+    "difficulty": "media",
+    "subspecialty": "Cardiologia",
+    "subject": "Tireoide",
+    "tags": ["Hipertensão Sistólica", "Fisiologia Cardiovascular", "Hemodinâmica"]
+  },
+  {
+    "enunciado": "Qual fármaco é utilizado para reduzir a pletora facial e o bócio volumoso no preparo pré-operatório de pacientes com Graves severo, visando endurecer a glândula e diminuir o sangramento intraoperatório?",
+    "options": {
+      "a": "Solução de Lugol (Iodo inorgânico saturado).",
+      "b": "Insulina glargina.",
+      "c": "Ácido acetilsalicílico massivo.",
+      "d": "Vitamina B12 injetável.",
+      "e": "Hidroclorotiazida pálida."
+    },
+    "answer": "a",
+    "rationale": "O Lugol diminui a vascularização glandular ao induzir vasoconstrição e involução do parênquima em processos imunes ativos (Efeito Wolff-Chaikoff prolongado). Isso torna a glândula menos 'fauve' (friável) e facilita a hemostasia durante a cirurgia.",
+    "option_rationales": {
+      "a": "Correta. Indicações clássicas da 'lugolização' pré-cirúrgica.",
+      "b": "Incorreta. Sem nexo na tireoide do Graves.",
+      "c": "Incorreta. Pioraria o sangramento cirúrgico por antiagregação plaquetária.",
+      "d": "Incorreta. Inexpressivo.",
+      "e": "Incorreta. Diurético sem ação na vascularização tireoidiana específica."
+    },
+    "difficulty": "facil",
+    "subspecialty": "Cirurgia de Cabeça e Pescoço",
+    "subject": "Tireoide",
+    "tags": ["Lugol", "Preparação Cirúrgica", "Hemorragia", "Graves"]
+  },
+  {
+    "enunciado": "A principal indicação clínica para o uso de Inibidores de Tirosina Quinase de múltiplos alvos (Ex: Lenvatinibe) no câncer de tireoide é:",
+    "options": {
+      "a": "Metástases de Carcinoma Diferenciado de Tireoide (Papilífero ou Folicular) Progressivo e Refratário ao Iodo Radioativo (I-131).",
+      "b": "Tratamento de nódulos benignos (cistos coloide).",
+      "c": "Hipotireoidismo leve de Hashimoto.",
+      "d": "Cura de orbitopatia de Graves aguda.",
+      "e": "Prevenção de câncer de mama pálido profundo."
+    },
+    "answer": "a",
+    "rationale": "Quando as metástases do câncer diferenciado perdem a capacidade de captar iodo (não funcionantes na PCI), o radioiodo torna-se inútil. Nesses casos de progressão comprovada, os TKIs lentificam a progressão oncológica ao inibir vias de sinalização de angiogênese e proliferação (como VEGFR).",
+    "option_rationales": {
+      "a": "Correta. Onco-endocrinologia moderna viga-mestra no manejo de casos avançados.",
+      "b": "Incorreta. TKIs têm toxicidade severa; nunca devem ser usados em patologias benignas comuns.",
+      "c": "Incorreta. Absurdo clínico farmacológico.",
+      "d": "Incorreta. Orbitopatia usa-se corticoides, rituximabe ou teprotumumabe.",
+      "e": "Incorreta. Inexpressivo."
+    },
+    "difficulty": "media",
+    "subspecialty": "Oncologia",
+    "subject": "Tireoide",
+    "tags": ["Lenvatinibe", "Iodorresistência", "TKIs", "Oncologia"]
+  },
+  {
+    "enunciado": "O surgimento de 'Tireoidite Silenciosa' (indolor) é observado frequentemente em qual período de vida da mulher?",
+    "options": {
+      "a": "No Pós-Parto (Tireoidite Pós-Parto), geralmente entre 3 a 12 meses após o nascimento.",
+      "b": "Apenas durante a amamentação do primeiro dia.",
+      "c": "Apenas em mulheres virgens de 20 anos.",
+      "d": "Somente na menopausa tardia (acima dos 90 anos).",
+      "e": "Exclusivamente em quem usa sutiã apertado."
+    },
+    "answer": "a",
+    "rationale": "O rebote imunitário após o período de imunossupressão gestacional pode desencadear uma tireoidite autoimune destrutiva indolor (silenciosa). Caracteriza-se por uma fase de hipertireoidismo transitória inicial seguida de hipotireoidismo, na maioria dos casos autolimitada.",
+    "option_rationales": {
+      "a": "Correta. Epidemiologia clássica e contextualizada do puerpério endocrinológico.",
+      "b": "Incorreta. Janela temporal muito precoce.",
+      "c": "Incorreta. Sem nexo clínico primário.",
+      "d": "Incorreta. Epidemiologia inexata.",
+      "e": "Incorreta. Absurdo anticlínico."
+    },
+    "difficulty": "facil",
+    "subspecialty": "Ginecologia e Obstetrícia",
+    "subject": "Tireoide",
+    "tags": ["Tireoidite Pós-Parto", "Puerpério", "Autoimunidade", "Hormônios"]
+  },
+  {
+    "enunciado": "A ingestão calórica insuficiente (jejum prolongado) ou doenças sistêmicas graves (sepse) levam à 'Síndrome do Eutireoideo Doente'. Qual a primeira e mais precoce alteração laboratorial observada?",
+    "options": {
+      "a": "Queda do T3 Livre e aumento do T3 Reverso (rT3).",
+      "b": "Aumento maciço do TSH acima de 100.",
+      "c": "Destruição do T4 Total pelo fígado tumorizado.",
+      "d": "Cura da asma alérgica pálida.",
+      "e": "Sudorese de extremidades massiva."
+    },
+    "answer": "a",
+    "rationale": "A inibição da deiodinase tipo 1 (D1) e ativação da tipo 3 (D3) periférica reduzem o metabolismo basal como mecanismo de economia energética. O TSH frequentemente permanece normal ou discretamente baixo, o que diferencia a SES de um hipotireoidismo central agudo.",
+    "option_rationales": {
+      "a": "Correta. Bioquímica clínica refinada do metabolismo tireoidiano em pacientes graves.",
+      "b": "Incorreta. Ocorre no hipotireoidismo primário severo (Hashimoto).",
+      "c": "Incorreta. O T4 livre demora mais tempo a cair e frequentemente se mantém normal na fase precoce da SES.",
+      "d": "Incorreta. Inexpressivo.",
+      "e": "Incorreta. No cansaço e doença sistêmica graves, o tônus adrenérgico pode estar alterado mas não define o status laboratorial tireoidiano."
+    },
+    "difficulty": "media",
+    "subspecialty": "Medicina Intensiva",
+    "subject": "Tireoide",
+    "tags": ["Eutireoideo Doente", "T3 Reverso", "Metabolismo", "UTI"]
+  },
+  {
+    "enunciado": "A 'Tireoide Preta' (Black Thyroid) é uma condição raramente vista por cirurgiões ao operar a sela túrcica cervical profunda. Qual a causa iatrogênica mais comum para tal coloração?",
+    "options": {
+      "a": "Uso crônico de Minociclina (tratamento de acne).",
+      "b": "Ingestão excessiva de carvão ativado.",
+      "c": "Depósito de nanoplásticos na garganta profunda.",
+      "d": "Uso de xarope de guaco escuro massivo.",
+      "e": "Nenhuma das anteriores; a tireoide preta nunca existe fora das ficções."
+    },
+    "answer": "a",
+    "rationale": "A Minociclina é oxidada pela tireoperoxidase (TPO) na glândula, gerando o depósito de um pigmento melanocítico-like (lipofuscina) que tinge o lobo de cor preta ou marrom escuro intenso. Embora visualmente impressionante, a função glandular costuma ser perfeitamente normal na maioria dos pacientes.",
+    "option_rationales": {
+      "a": "Correta. Curiosidade iatrogênica e farmacológica clínica frequente em provas de elite.",
+      "b": "Incorreta. Carvão ativado atua apenas no trato gastrointestinal.",
+      "c": "Incorreta. Inexpressivo.",
+      "d": "Incorreta. Inexpressivo.",
+      "e": "Incorreta. Existe e é descrita em inúmeros relatos de caso e peças de museu patológico."
+    },
+    "difficulty": "dificil",
+    "subspecialty": "Dermatologia",
+    "subject": "Tireoide",
+    "tags": ["Black Thyroid", "Minociclina", "Efeitos Colaterais", "Patologia"]
+  },
+  {
+    "enunciado": "Em pacientes com Hipertireoidismo severo, a ocorrência de Hipercalcemia (Cálcio sérico elevado) é explicada por qual mecanismo ósseo?",
+    "options": {
+      "a": "Aumento do turnover ósseo global com ativação direta da reabsorção mediada via ativação excessiva de osteoclastos pelo T3.",
+      "b": "Absorção massiva de pedras de rim pelo intestino central.",
+      "c": "Cura súbita de paratireoidismo primário antigo.",
+      "d": "Ingestão excessiva de água sanitária pálida profunda.",
+      "e": "Não há risco maior de hipercalcemia nestes pacientes."
+    },
+    "answer": "a",
+    "rationale": "O excesso de hormônio tireoidiano estimula diretamente a reabsorção óssea, liberando cálcio e fósforo na circulação. Se a taxa de filtração renal não acompanhar esta sobrecarga, o cálcio sérico sobe (hipercalcemia da tireotoxicose), que é corrigido ao restabelecer o eutireoidismo.",
+    "option_rationales": {
+      "a": "Correta. Bioquímica e metabolismo mineral endocrinológico viga-mestra.",
+      "b": "Incorreta. Fantasioso e anticlínico.",
+      "c": "Incorreta. Pelo contrário; a hipercalcemia suprime fisiologicamente o PTH nativo.",
+      "d": "Incorreta. Absurdo clínico perigoso e sem nexo.",
+      "e": "Incorreta. Ocorre em cerca de 15% dos casos de hipertireoidismo grave se não tratados."
+    },
+    "difficulty": "media",
+    "subspecialty": "Nefrologia",
+    "subject": "Tireoide",
+    "tags": ["Hipercalcemia", "Metabolismo Ósseo", "Osteoclastos", "Tireotoxicose"]
+  },
+  {
+    "enunciado": "A maior complicação da realização de Iodo-131 em pacientes portadoras de 'Bócio Multinodular Tóxico' volumoso e com queixa de disfagia é:",
+    "options": {
+      "a": "Piora transitória do volume glandular por tireoidite actínica aguda, podendo agravar a obstrução traqueal/esofágica nos primeiros dias pós-tratamento.",
+      "b": "Crescimento imediato de pelos na garganta em 100% das vezes.",
+      "c": "Transformação instantânea em leucemia aguda profunda em 48h.",
+      "d": "Cura total da miopia se o paciente for viciado em iodo.",
+      "e": "Nenhuma acima."
+    },
+    "answer": "a",
+    "rationale": "A radiação inflama o tecido tireoidiano residual (edema actínico). Em bócios já compressivos e volumosos, o inchaço agudo pós-radioiodo pode levar a estridor respiratório, exigindo por vezes corticoterapia de urgência no período de irradiação imediata.",
+    "option_rationales": {
+      "a": "Correta. Complicação radioterápica clínica massiva e prevenível.",
+      "b": "Incorreta. Fantasia técnica inexistente.",
+      "c": "Incorreta. O risco de neoplasias secundárias rádio-induzidas é real no seguimento de décadas, mas não em 48 horas.",
+      "d": "Incorreta. Absurdo técnico clínico.",
+      "e": "Incorreta."
+    },
+    "difficulty": "media",
+    "subspecialty": "Medicina Nuclear",
+    "subject": "Tireoide",
+    "tags": ["Iodo-131", "Tireoidite Actínica", "Bócio Multinodular", "Complicações"]
+  },
+  {
+    "enunciado": "Qual a principal causa de Hipotireoidismo primário em regiões do mundo onde o governo não provê a iodação obrigatória do sal de cozinha?",
+    "options": {
+      "a": "Bócio Endêmico por deficiência grave de Iodo.",
+      "b": "Excesso de consumo de brócolis massivo (goitrogênicos) em 100% da população.",
+      "c": "Mutação do gene da Insulina glargina pálida profunda.",
+      "d": "Uso de sapatos apertados que bloqueiam a circulação venosa cervical.",
+      "e": "Nenhuma das anteriores; a deficiência de iodo nunca causa hipotireoidismo."
+    },
+    "answer": "a",
+    "rationale": "O iodo é o combustível único da tireoide. Sem ele, a glândula aumenta de tamanho para tentar captar qualquer traço do nutriente (bócio) e falha em produzir hormônio. Embora no Brasil (país com sal iodado) a causa líder seja Hashimoto (autoimune), a deficiência de iodo continua a principal causa global.",
+    "option_rationales": {
+      "a": "Correta. Geografia médica e saúde pública viga-mestra em endocrinologia global.",
+      "b": "Incorreta. Goitrogênicos alimentares só causam bócio clínico em cenários de deficiência de iodo concomitante e consumo astronômico.",
+      "c": "Incorreta. Absurdo técnico sem nexo biológico tireoidiano de síntese folicular.",
+      "d": "Incorreta. Absurdo clínico anatômico.",
+      "e": "Incorreta. É a causa clássica e histórica definidora de bócio e cretinismo."
+    },
+    "difficulty": "facil",
+    "subspecialty": "Saúde Pública",
+    "subject": "Tireoide",
+    "tags": ["Iodo", "Saúde Pública", "Bócio Endêmico", "Global Health"]
+  },
+  {
+    "enunciado": "A 'Pesquisa de Corpo Inteiro' (PCI) pós-tratamento com Iodo-131 em pacientes com câncer diferenciado de tireoide serve prioritariamente para qual finalidade específica?",
+    "options": {
+      "a": "Detectar focos ocultos de captação (metástases micrométricas) que não foram vistos na PCI pré-dose diagnóstica pela maior sensibilidade da dose terapêutica.",
+      "b": "Medir o nível de cálcio nos ossos longos massivos profundos.",
+      "c": "Confirmar se o fígado é feito de ferro.",
+      "d": "Verificar se o paciente absorveu todo o iodo no estômago profunda.",
+      "e": "Nenhuma das anteriores."
+    },
+    "answer": "a",
+    "rationale": "A dose terapêutica (ex: 150 mCi) é muito maior que a dose diagnóstica (ex: 2 mCi). Isso aumenta a sinalização e permite encontrar focos tumorais que seriam invisíveis de outra forma (fenômeno do 'Stunning' inexistente no pós-dose de alta atividade), re-estratificando o risco do paciente.",
+    "option_rationales": {
+      "a": "Correta. Princípio técnico e clínico central na medicina nuclear oncológica.",
+      "b": "Incorreta. Densitometria óssea ou exames de laboratório avaliam o cálcio.",
+      "c": "Incorreta. Absurdo técnico anatômico.",
+      "d": "Incorreta. Inexpressivo funcionalmente para o seguimento tumoral nesta fase central da questão.",
+      "e": "Incorreta."
+    },
+    "difficulty": "media",
+    "subspecialty": "Medicina Nuclear",
+    "subject": "Tireoide",
+    "tags": ["PCI", "Iodo-131", "Metástases", "Medicina Nuclear"]
+  },
+  {
+    "enunciado": "Em pacientes idosos com Doença de Graves, a ocorrência de perda ponderal súbita associada a cansaço fácil e episódios de Fibrilação Atrial deve obrigatoriamente levantar a suspeita de hipertiroidismo, mesmo que falte qual sinal clássico ocular?",
+    "options": {
+      "a": "Exoftalmia (Orbitopatia de Graves), pois ela ocorre em apenas cerca de 25-50% dos pacientes com Graves e é ainda mais rara no idoso.",
+      "b": "Cura súbita de daltonismo antigo.",
+      "c": "Crescimento de cílios dourados.",
+      "d": "Surgimento de visão de calor profunda térmica.",
+      "e": "Somente pele de cor amarela pálida aguda."
+    },
+    "answer": "a",
+    "rationale": "A ausência de sinais oculares característicos (oftalmopatia) não afasta a Doença de Graves. Muitos idosos manifestam-se apenas com cansaço gastrointestinal e arritmias (Hipertireoidismo Apático), o que atrasa o diagnóstico se o médico for puramente focado em propedeutica clássica juvenil de sela.",
+    "option_rationales": {
+      "a": "Correta. Semiologia avançada do idoso e doenças sistêmicas endocrinológicas.",
+      "b": "Incorreta. Fantasia técnica anticlínica.",
+      "c": "Incorreta. Absurdo biológico.",
+      "d": "Incorreta. Inexistente nestes termos científicos modernos.",
+      "e": "Incorreta. Cor amarela sugere icterícia ou caronenemia severa."
+    },
+    "difficulty": "media",
+    "subspecialty": "Geriatria",
+    "subject": "Tireoide",
+    "tags": ["Graves", "Idoso", "Orbitopatia", "Semiologia"]
+  },
+  {
+    "enunciado": "A 'Dosagem Sérica de Calcitonina' em todos os nódulos tireoidianos na avaliação inicial é controversa. Qual o principal argumento favorável ao rastreio universal (em países da Europa por exemplo)?",
+    "options": {
+      "a": "Permite o diagnóstico precoce do Carcinoma Medular de Tireoide (CMT) em estágios curáveis antes do surgimento clínico nodal invasivo.",
+      "b": "Ajuda a medir o nível de iodo no feto da paciente se ela engravidar pálida profunda.",
+      "c": "Detecta câncer de pulmão oculto em 100% dos fumantes.",
+      "d": "Mede a força dos dentes molares se houver excesso.",
+      "e": "Nenhuma acima."
+    },
+    "answer": "a",
+    "rationale": "O CMT é 100% curável se operado precocemente. A PAAF tem sensibilidade limitada para o Medular. Embora no Brasil as diretrizes desaconselhem o rastreio custo-efetivo massivo devido à raridade da doença (0,5%), em outros centros o rastreio universal visa captar precocemente esses tumores agressivos.",
+    "option_rationales": {
+      "a": "Correta. Debate ético-clínico internacional em endocrinologia.",
+      "b": "Incorreta. Absurdo clínico sem base biológica.",
+      "c": "Incorreta. Marcadores de pulmão são outros (CYFRA 21, etc).",
+      "d": "Incorreta. Inexpressivo.",
+      "e": "Incorreta."
+    },
+    "difficulty": "media",
+    "subspecialty": "Endocrinologia",
+    "subject": "Tireoide",
+    "tags": ["Calcitonina", "Rastreio", "CMT", "Saúde Pública"]
+  },
+  {
+    "enunciado": "Qual a principal causa de mortalidade em pacientes com Bócio Mergulhante Gigante que não são submetidos a cirurgia a longo prazo?",
+    "options": {
+      "a": "Asfixia aguda por compressão traqueal súbita decorrente de infecção respiratória alta ou hemorragia intra-nodular explosiva.",
+      "b": "Câncer de estômago por refluxo agudo profundo.",
+      "c": "Fratura de fêmur espontânea por peso do pescoço.",
+      "d": "Suicídio tireoidiano programado por iodo excessivo.",
+      "e": "Transformação total em pele de cor preta profunda."
+    },
+    "answer": "a",
+    "rationale": "Massas intratorácicas diminuem a luz traqueal progressivamente (traqueomalácia). Um episódio inflamatório banal pode causar edema de mucosa que, somado à compressão extrínseca rígida do bócio, precipita insuficiência respiratória fatal em poucos minutos.",
+    "option_rationales": {
+      "a": "Correta. Evolução clínica catastrófica final do bócio negligenciado.",
+      "b": "Incorreta. Sem relação anatômica biológica direta nesta magnitude.",
+      "c": "Incorreta. Inexistente.",
+      "d": "Incorreta. Absurdo psiquiátrico anticlínico.",
+      "e": "Incorreta. Confunde com o efeito da minociclina na glândula em si, não no paciente sistemicamente desta forma letal."
+    },
+    "difficulty": "media",
+    "subspecialty": "Pneumologia",
+    "subject": "Tireoide",
+    "tags": ["Bócio Mergulhante", "Asfixia", "Emergência Respiratória", "Evolução Clínica"]
+  },
+  {
+    "enunciado": "A 'Regla de Ouro' para o tratamento do hipotireoidismo severo (Coma Mixedematoso) no que tange à reposição hormonal e glicocorticoides é:",
+    "options": {
+      "a": "Administrar Hidrocortisona (100mg EV a cada 8h) ANTES ou simultaneamente à Levotiroxina EV (dose de ataque), para tratar uma possível insuficiência adrenal associada ou desencadeada pelo aumento do metabolismo (Síndrome de Schmidt ou estresse central).",
+      "b": "Apenas dar iodo puro na língua do paciente em coma.",
+      "c": "Fazer cirurgia de sela turca cervical imediata massiva profunda.",
+      "d": "Tratar com insulina glargina gelada massiva.",
+      "e": "Nenhuma acima; deve-se apenas esperar o paciente acordar em 24h."
+    },
+    "answer": "a",
+    "rationale": "Aumentar o metabolismo (com reposição de T4) em um paciente com insuficiência adrenal oculta pode precipitar um choque adrenal fatal. Na dúvida clínica, repõe-se corticoide antes da tiroxina até que se descarte Addison/Síndrome Poliglandular associada.",
+    "option_rationales": {
+      "a": "Correta. Manejo de suporte crítico em endocrinologia intensiva salvador de vidas.",
+      "b": "Incorreta. Atrocidade clínica sem base fisiológica neste status severo terminal.",
+      "c": "Incorreta. Inexistente.",
+      "d": "Incorreta. Conduta criminogênica em pacientes não diabéticos agudizados nestes termos.",
+      "e": "Incorreta. O Coma Mixedematoso tem mortalidade > 30-50% se não tratado agressivamente."
+    },
+    "difficulty": "media",
+    "subspecialty": "Medicina Intensiva",
+    "subject": "Tireoide",
+    "tags": ["Coma Mixedematoso", "Hidrocortisona", "Síndrome de Schmidt", "Emergência"]
+  },
+  {
+    "enunciado": "Qual receptor nuclear do hormônio tireoidiano (TR) é predominante no tecido cardíaco, sendo o principal responsável pelos efeitos cronotrópicos e inotrópicos positivos da tireotoxicos?",
+    "options": {
+      "a": "TR-alfa 1.",
+      "b": "TR-beta 2 exclusivamente.",
+      "c": "Receptor de Ocitocina massivo.",
+      "d": "Receptor de Glicose intracelular profunda pálida.",
+      "e": "Nervos do estômago apical."
+    },
+    "answer": "a",
+    "rationale": "O TR-alfa 1 domina no coração e vasos. O TR-beta é predominante na hipófise (regulação do TSH) e fígado. Essa distinção de isoformas é a base para o desenvolvimento futuro de drogas 'tireomiméticas seletivas' (como o Resmetirom para NASH), que agem no fígado sem causar taquicardia severa pelo bloqueio/não ativação seletiva de TR-alfa cardíaco.",
+    "option_rationales": {
+      "a": "Correta. Fisiologia molecular cardiovascular viga-mestra.",
+      "b": "Incorreta. Predomina no feedback hipofisário central.",
+      "c": "Incorreta. Absurdo técnico.",
+      "d": "Incorreta. Inexistente.",
+      "e": "Incorreta. Inexpressivo."
+    },
+    "difficulty": "dificil",
+    "subspecialty": "Farmacologia Molecular",
+    "subject": "Tireoide",
+    "tags": ["TR-alfa", "Receptores Tireoidianos", "Farmacologia", "Coração"]
+  },
+  {
+    "enunciado": "A ocorrência de 'Hipotireoidismo Central' (TSH baixo ou normal com T4 livre baixo) associada a dores de cabeça persistentes, hemianopsia bitemporal (perda visual lateral) e excesso de Prolactina sugere qual diagnóstico prioritário?",
+    "options": {
+      "a": "Adenoma Hipofisário Macrocístico (ex: Macroadenoma ou Prolactinoma gigante) comprimindo o eixo hipotálamo-hipofisário.",
+      "b": "Tireoidite de Hashimoto isolada e pálida.",
+      "c": "Uso excessivo de sal marinho iodado massivo.",
+      "d": "Câncer de cólon metastático inverso.",
+      "e": "Nenhuma acima."
+    },
+    "answer": "a",
+    "rationale": "O hipotireoidismo central é causado por compressão ou destruição dos tireotrofos da adenohipófise. A massa expansiva na sela turca comprime o quiasma óptico (causando defeitos visuais) e impede o fluxo de dopamina (freio da prolactina), elevando-a secundariamente (efeito da haste hipofisária).",
+    "option_rationales": {
+      "a": "Correta. Síndrome selar completa e viga-mestra no diagnóstico diferencial endocrinológico central.",
+      "b": "Incorreta. Hashimoto cursa com TSH elevado (primário).",
+      "c": "Incorreta. Inexpressivo.",
+      "d": "Incorreta. Inexistente nestes padrões anatômofisiológicos.",
+      "e": "Incorreta."
+    },
+    "difficulty": "media",
+    "subspecialty": "Neurocirurgia",
+    "subject": "Tireoide",
+    "tags": ["Hipotireoidismo Central", "Adenoma Hipofisário", "Quiasma Óptico", "Endocrinologia"]
+  },
+  {
+    "enunciado": "Qual a conduta inicial recomendada para o tratamento da 'Oftalmopatia de Graves' ativa moderada a grave com risco de perda visual por neuropatia óptica compressiva?",
+    "options": {
+      "a": "Pulsoterapia intravenosa com Metilprednisolona (ex: 500 mg a 1g/semana por ciclos) ou, em casos agudos extremos, descompressão cirúrgica orbital de urgência.",
+      "b": "Apenas colírio lubrificante comum pálido.",
+      "c": "Usar tapa-olho de pirata por 30 dias contínuos.",
+      "d": "Tratar com insulina gelada massiva na córnea profunda.",
+      "e": "Suspender o iodo na dieta."
+    },
+    "answer": "a",
+    "rationale": "A inflamação orbital severa comprime o nervo óptico no ápice da órbita. Os corticoides EV oferecem a maior eficácia e rapidez para reduzir o edema tecidual imuno-dependente. Se houver falha rápida ou perda visual eminente documentada ao fundo de olho/campo visual, a descompressão óssea por cirurgia é mandatória para salvar a visão.",
+    "option_rationales": {
+      "a": "Correta. Manejo de urgência oftalmo-endocrinológica para prevenção de cegueira iatrogênica ou autoimune.",
+      "b": "Incorreta. Medida de suporte leve insuficiente para neuropatia compressiva severa profunda.",
+      "c": "Incorreta. Absurdo clínico profilático.",
+      "d": "Incorreta. Conduta criminosa perigosa e sem base técnico-científica.",
+      "e": "Incorreta. O iodo urinário materno não é o motor prioritário desta patologia orbital específica."
+    },
+    "difficulty": "media",
+    "subspecialty": "Oftalmologia",
+    "subject": "Tireoide",
+    "tags": ["Orbitopatia de Graves", "Pulsoterapia", "Metilprednisolona", "Neuropatia Óptica"]
+  },
+  {
+    "enunciado": "A principal limitação da cintilografia de tireoide no diagnóstico de nódulos de pacientes gestantes é:",
+    "options": {
+      "a": "Contraindicação absoluta de uso de rádio-isótopos (I-131 ou Tc-99m) durante a gestação pelo risco de radiação ionizante ao feto e destruição da tireoide fetal.",
+      "b": "O iodo queima os dentes da gestante profunda massiva.",
+      "c": "Aumenta o risco de gêmeos bivitelinos pálidos.",
+      "d": "Somente reduz o leite materno futuro em 100%.",
+      "e": "Nenhuma limitação; é o exame padrão-ouro da gestação pálida."
+    },
+    "answer": "a",
+    "rationale": "Radioisótopos atravessam a placenta. Devido à sua afinidade pela tireoide, o iodo-131 pode destruir permanentemente a glândula do bebê. Por isso, exames nucleares (incluindo a PCI) são proibidos na gestação, devendo ser adiados para o pós-parto, priorizando-se no pré-natal apenas a ultrassonografia e, se indicado, a PAAF.",
+    "option_rationales": {
+      "a": "Correta. Regra fundamental da radioproteção obstétrica internacional.",
+      "b": "Incorreta. Inexpressivo.",
+      "c": "Incorreta. Inexistente.",
+      "d": "Incorreta. Inexpressivo.",
+      "e": "Incorreta. É formalmente contraindicado absoluto."
+    },
+    "difficulty": "facil",
+    "subspecialty": "Medicina Nuclear",
+    "subject": "Tireoide",
+    "tags": ["Gestação", "Cintilografia", "Contraindicação", "Segurança Fetal"]
+  },
+  {
+    "enunciado": "O hormônio TSH (Glicoproteína) é composto por duas subunidades (Alfa e Beta). Qual destas subunidades é idêntica à do FSH, LH e hCG?",
+    "options": {
+      "a": "Subunidade Alfa.",
+      "b": "Subunidade Beta exclusivamente.",
+      "c": "Somente as cadeias de iodo pálidas profundas.",
+      "d": "Nenhuma; o TSH é uma molécula única massiva isolada.",
+      "e": "Somente em pacientes que consomem soja."
+    },
+    "answer": "a",
+    "rationale": "A subunidade Alfa é comum a todos os hormônios glicoproteicos (hCG, FSH, LH e TSH). A especificidade biológica e laboratorial de cada hormônio reside na subunidade Beta. É por isso que o hCG em níveis muito altos pode ativar o receptor de TSH fetal e materno (cross-reactivity) pela homologia entre as hélices da molécula.",
+    "option_rationales": {
+      "a": "Correta. Bioquímica hormonal viga-mestra em endocrinologia e ginecologia.",
+      "b": "Incorreta. É a parte específica e diferente de cada hormônio.",
+      "c": "Incorreta. Hormônios hipofisários não possuem iodo; apenas os hormônios periféricos da tireoide (T4/T3).",
+      "d": "Incorreta. Desmentida pela bioquímica clássica estrutural.",
+      "e": "Incorreta. Absurdo anticlínico."
+    },
+    "difficulty": "facil",
+    "subspecialty": "Bioquímica Clínica",
+    "subject": "Tireoide",
+    "tags": ["TSH", "Subunidade Alfa", "Glicoproteínas", "hCG"]
+  }
+]

@@ -1,0 +1,882 @@
+[
+  {
+    "enunciado": "A respeito do Regime Geral de Previdência Social (RGPS) e da figura do segurado empregado, considere o caso de um tabelião, titular de serviço notarial exercendo funções por delegação do poder público na iniciativa privada. Nessa condição específica, e considerando a jurisprudência sumulada do Superior Tribunal de Justiça, ele é classificado automaticamente como segurado especial da previdência social, visto que presta serviço público de natureza auxiliar sob proventos próprios recolhidos de emolumentos.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "Errado. Notários, tabeliães e oficiais de registros que exercem suas funções de forma delegada pelo Poder Público, operando de forma autônoma sem vínculo de emprego com a administração pública nem recebendo remuneração dos cofres públicos, são enquadrados obrigatoriamente como Segurados Contribuintes Individuais pelo RGPS, conforme a Lei nº 8.212/91, e não como Segurados Especiais (que se destinam aos trabalhadores rurais em regime de economia familiar).",
+    "difficulty": "medio",
+    "tags": [
+      "Segurados Obrigatórios",
+      "Contribuinte Individual",
+      "Tabelião"
+    ]
+  },
+  {
+    "enunciado": "Julgue a afirmativa com base no Direito Previdenciário aplicável à filiação e inscrição no RGPS: O servidor público civil ocupante, de forma exclusiva, de cargo de provimento em comissão (sem vínculo efetivo amparado por Regime Próprio de Previdência) estará filiado de forma compulsória e obrigatória ao RGPS. Caso, no entanto, ele ocupe concomitantemente um cargo efetivo estadual, estará submetido simultaneamente e obrigatoriamente aos dois regimes da previdência social, caso vença teto salarial municipal e estadual distintos.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "c",
+    "rationale": "Certo. Conforme determina o art. 12, I, 'g' da Lei nº 8.212/91, o servidor civil que ocupa, EXCLUSIVAMENTE, cargo em comissão é segurado OBRIGATÓRIO (empregado) do RGPS. Se ele ocupa um cargo efetivo (filiado ao RPPS) e decide ocupar concomitantemente um cargo em comissão no ente municipal que também exige recolhimento e funções plenas (ou atua na iniciativa privada), a jurisprudência assenta a filiação a ambos os regimes contributivos, excetuando, claro, as peculiaridades interpretadas do cargo em comissão quando atrelado ao próprio órgão.",
+    "difficulty": "dificil",
+    "tags": [
+      "Servidor de Cargo em Comissão",
+      "Filiação",
+      "RGPS",
+      "Regime Próprio"
+    ]
+  },
+  {
+    "enunciado": "Acerca dos segurados especiais sob o prisma da Lei 8.213/91, julgue: Considera-se segurado especial o trabalhador rural que explora atividade agropecuária em área contínua de até o dobro de módulos fiscais, sozinho ou em regime temporário de economia familiar, podendo ele perfeitamente ceder a terra via arrendamento agrícola visando ganhos complementares para manter seu status de especial.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "Errado. Além de a lei impor o limite geográfico de até 4 (quatro) módulos fiscais (e não 'o dobro' genérico), a legislação da base previdenciária estabelece que o segurado especial perderá a sua qualidade (virando contribuinte individual ou empregador rural) caso aliene, arrende ou promova parceria (fora do regime estrito familiar e limitado as proporções da lei) das terras sob sua posse visando lucro empresarial. Arrendar ou fazer parceria superior ao módulo legal de subsistência desconfigura o perfil 'especial'.",
+    "difficulty": "medio",
+    "tags": [
+      "Segurado Especial",
+      "Regime de Economia Familiar",
+      "Trabalhador Rural"
+    ]
+  },
+  {
+    "enunciado": "No contexto da manutenção, perda e recuperação da qualidade de segurado, e o instituto do 'Período de Graça', julgue a seguinte situação hipotética e sua inferência legal: Mévio, empregado CLT que trabalha há 13 anos ininterruptos em uma petroleira, foi demitido sem justa causa. Sabendo que ele sempre recolheu e possuía a estabilidade das referidas 120 contribuições e o registro ativo na política dos Desempregados do Ministério do Trabalho e Emprego, ele poderá conservar a sua qualidade de segurado por um período elástico, independentemente de contribuições adicionais, por impreteríveis 36 (trinta e seis) meses e 15 dias após a cessação de sua renda.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "Errado. O período de graça básico é de 12 meses (após a cessação das constribuições do segurado que deixar de exercer a atividade remunerada). Mévio ganha +12 meses prorrogação por ter pago as +120 contribuições sem interrupção para fins de perda da qualidade. E ele ganharia +12 meses pelo registro da desocupação involuntária perante o Ministério do Emprego (SINE). No entanto, o vencimento da contribuição se dá no dia 15 do mês seguinte ao do decurso do prazo, o que significa que Mévio conservará a qualidade de segurado por 36 meses + ATÉ O DIA 15 DO MÊS SEGUINTE. A expressão 'impreteríveis 36 meses e 15 dias' transforma um prazo móvel ('até o dia 15 do mês seguinte') em um prazo fixo e matemático, o que é conceitualmente equivocado na interpretação rigorosa do STJ, gerando dias adicionais imprecisos decorrentes de variações do calendário civil.",
+    "difficulty": "dificil",
+    "tags": [
+      "Período de Graça",
+      "Qualidade de Segurado",
+      "Contagem de Tempo"
+    ]
+  },
+  {
+    "enunciado": "A política de seguridade social abarca peculiaridades sobre o segurado facultativo; nesse prisma, julgue o próximo item: O estudante estagiário que presta serviços educacionais visando formação nos termos da Lei de Estágios não adquire obrigatoriedade nem o direito originário de filiação forçosa previdenciária, mas lhe é totalmente cabível filiar-se voluntariamente na qualidade de segurado facultativo a partir da maioridade penal de 18 (dezoito) anos.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "Errado. A filiação do segurado facultativo, de fato, é voluntária e compreende aqueles que não exercem atividade remunerada que os coloquem sob a órbita obrigatória (como estagiários regulares). No entanto, a idade mínima legal exigida para filiação como segurado facultativo no RGPS é de 16 (dezesseis) anos, e não 18 (dezoito), conforme o permissivo constitucional das limitações para o trabalho geral. O limiar não está vinculado à 'maioridade penal' estritamente.",
+    "difficulty": "facil",
+    "tags": [
+      "Segurado Facultativo",
+      "Idade Mínima",
+      "Estagiário"
+    ]
+  },
+  {
+    "enunciado": "Julgue a seguinte hipótese: Maria recolhia perfeitamente sua contribuição via Carnê-Leão ou Guia da Previdência na qualidade técnica e exclusiva de contribuinte individual que presta serviço diretamente a pessoa física. Se num exato momento ela se acidentar fatalmente 5 meses depois do pagamento da sua última rubrica regular e cessando as guias subseqüentes, sua eventual prole menor deixará irrefutavelmente de ter direito à canônica e essencial pensão por morte, visto que os contribuintes individuais só retêm período de excludente ou graça por improrrogáveis exatos 6 (seis) meses.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "Errado. O contribuinte individual (Maria) possui, como regra basilar, o período de graça e retenção da qualidade de segurada por 12 (doze) meses (prorrogáveis caso haja condições que se amoldem) após a cessação das contribuições, estipulado na Lei nº 8.213/91 (art. 15, inciso II). O prazo curto de 6 meses refere-se exclusivamente ao rol especialíssimo dos segurados facultativos. Portanto, a prole receberia sim a pensão por morte, pois não houve a perda superveniente da qualidade de segurado.",
+    "difficulty": "medio",
+    "tags": [
+      "Contribuinte Individual",
+      "Pensão por Morte",
+      "Qualidade de Segurada"
+    ]
+  },
+  {
+    "enunciado": "Em atenção à caracterização dos beneficiários do Regime Geral da Previdência, considerando sua extensão normativa, o síndico de condomínio edilício que receba a gratificação correspondente ao abate fixo em sua cota condominial mensal, mesmo não perfazendo nenhum efetivo pagamento sob a forma numerária direta de cédulas das mãos do condomínio, estará automaticamente submetido à filiação compulsória na ótica e roupagem de segurado empregado, mediante presunção da sua subordinação jurídica perante a assembleia diretiva da sociedade.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "Errado. O síndico que é isento do pagamento de quota condominial (ou recebe algum tipo de pagamento direto pelo múnus) exerce uma atividade remunerada (vez que isenção também é pecunia em favor passivo) e sujeita-se à filiação OBRIGATÓRIA. Todavia, a correta classificação legal e previdenciária não se dá como 'segurado empregado' por não preencher o rigor celetista da habitualidade subalterna clássica, sendo, pela doutrina pacífica e súmula administrativa, enquadrado como Contribuinte Individual.",
+    "difficulty": "medio",
+    "tags": [
+      "Síndico",
+      "Contribuinte Individual",
+      "Natureza Pecuniária"
+    ]
+  },
+  {
+    "enunciado": "Julgue: Pode-se afirmar, sob a égide do direito protetivo, que o presidiário em regime não abrangido na obrigatoriedade legal e que efetivamente vier exercer, nos arranjos murais internos prisionais de seu domicílio carcerário, uma atividade de marcenaria produtiva e artesanal para terceiros em formato não-direcionado a subordinação hierárquica por vínculo laboral fechado, e sendo remunerado por isso via pecúnio de labor e convênio local, adquire forçosamente o status de filiação como segurado avulso.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "Errado. O preso que venha a desenvolver a dita atividade artesanal interna prisional para o exterior por conta própria subsume-se essencialmente na subcategoria das normas e manuais de enquadramento da previdência como 'Segurado Contribuinte Individual', não 'Avulso'. O trabalhador avulso é figura canônica para aquele que atua no serviço da orla litorânea e adjacentes mediante rigorosa intermédio mandatário de sindicato ou de Órgão Gestor de Mão-de-Obra (OGMO) sob os estivadores etc... Não há intermediação OGMO em marcenaria intra-carcerária.",
+    "difficulty": "facil",
+    "tags": [
+      "Trabalho Presidiário",
+      "Avulso",
+      "Contribuinte Individual"
+    ]
+  },
+  {
+    "enunciado": "Considerando o rigor hermenêutico da legislação previdenciária brasileira, julgue em relação ao trabalhador avulso: Diferentemente da estrita qualificação de que apenas o trabalhador rural adquire figura protetiva apartada, a lei do RGPS conceitua expressamente a figura do trabalhador avulso como aquele que presta serviços de forma temporária de cunho contínuo ou rotativo urbanos (e apenas para essas instâncias, restrita a atuações urbanas), exclusivamente se for sindicalizado na área competente.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "Errado. O conceito de trabalhador avulso, inserto no artigo 12 e inciso VI da lei 8.212/91, compreende efetivamente aquele que presta serviço, urbano OU RURAL (ao contrário do afirmado sobre ser restrito ao urbano), a diversas empresas simultânea ou alternadamente, sem vínculo empregatício. Além disso, a prerrogativa é constitucional de que seja prestado com a intermediação obrigatória do sindicato ou Órgão Gestor de Mão-de-Obra (OGMO), independentemente do trabalhador ser formalmente filiado ('sindicalizado') ao respectivo sindicato (pois a vinculação sindical para recebimento da proteção e mediações é lícita para sindicalizados ou 'não sindicalizados' à entidade da categoria pela livre filiação sindical).",
+    "difficulty": "dificil",
+    "tags": [
+      "Trabalhador Avulso",
+      "Sindicalização",
+      "Área Rural"
+    ]
+  },
+  {
+    "enunciado": "Sob o espectro das recentes atualizações e regramentos do RGPS consolidados na Reforma Previdenciária e nos decretos supervenientes, avalie: A condição formal e exclusiva de diarista, designada doutrinariamente por aquele trabalhador que preste serviços diretos à mesma pessoa ou família no âmbito eminentemente residencial destas até exatos dois dias por semana sem subordinação ou continuidade de fim lucrativo alheio, enseja classificação obrigatória como Contribuinte Individual, impedindo que os responsáveis empregadores configurem a sua inscrição via recolhimento retido como trabalhador doméstico.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "c",
+    "rationale": "Certo. De acordo com a Lei Complementar nº 150/2015, e chancelado pelo RGPS, o empregado doméstico é aquele que presta serviços de forma contínua, subordinada, onerosa e pessoal (para família, sem fim lucrativo). A lei exige 'continuidade' com trabalho superior a 2 dias (ou seja, 3 dias ou mais) na semana. A prestação de até 2 dias tipifica a chamada 'diarista', que é legalmente considerada trabalhadora autônoma e subsume-se compulsoriamente como contribuinte individual, cabendo a ela a sua própria inscrição/contribuição, não aos usuários das faxinais (vedando-se a configuração formal como de responsabilidade do crivo de 'empregador' doméstico).",
+    "difficulty": "medio",
+    "tags": [
+      "Diarista",
+      "Empregado Doméstico",
+      "Lei Complementar 150/2015",
+      "Contribuinte Individual"
+    ]
+  },
+  {
+    "enunciado": "Julgue, no âmbito da legislação de proteção ao trabalhador inserida no RGPS: Em detrimento das hipóteses extintivas de contrato, o segurado desempregado formal e empregado urbano, goza de proteção adicional caso comprove sua condição de segurado ativo há mais de duas décadas ininterruptas. Sob esse prisma jurisprudencial, para a contagem da prorrogação do período de graça, é indispensável que o interessado apresente prova de recebimento de benefício por incapacidade em um terço das mais de cento e vinte (120) contribuições efetuadas.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "Errado. Para a prorrogação do período de graça em +12 meses com base na acumulação de 120 contribuições ativas e ininterruptas, a lei nº 8.213/91 em seu art. 15, § 1º determina que estas não podem ter sido suspensas de tal forma que caracterizem a perda transiente da qualidade de segurado (o que apagaria o histórico anterior contínuo). Não há nenhuma exigência ou condicionante de recebimento prévio ou proporcional de 'benefício por incapacidade', tratando-se apenas do somatório matemático do recolhimento legal ininterrupto de dez anos.",
+    "difficulty": "medio",
+    "tags": [
+      "Período de Graça",
+      "120 Contribuições",
+      "RGPS"
+    ]
+  },
+  {
+    "enunciado": "Analisando a classificação de contribuintes do RGPS, julgue a seguinte casuística: Determinada profissional e servidora municipal, estatutária e alocada a Regime Próprio de Previdência (RPPS), pleiteia concomitantemente atuar como revendedora autônoma de insumos odontológicos na região corporativa. Caso ela realize a atividade comercial em dias pares desvinculada do funcionalismo, estará obrigatoriamente e paralelamente inscrita no RGPS, na restrita classificação de Segurado Contribuinte Individual do ramo de comércio.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "c",
+    "rationale": "Certo. A filiação previdenciária, regida pelo princípio do 'Tempo de Serviço/Atividade Remunerada', impõe obrigatoriedade sobre todos que desempenhem atividade geradora de renda lícita não-amparada por instituto concorrente. Sendo ela servidora RPPS, porém exercendo uma atividade econômica privada independente (revenda autônoma), o art. 12, § 2º da Lei nº 8.212/91 expressamente veda isenção dupla de RPPS obstando as faculdades privadas. Portanto, ela se enquadra de forma exata e obrigatória no âmbito do RGPS como 'Contribuinte Individual' decorrente dessa segunda atividade comercial lícita.",
+    "difficulty": "dificil",
+    "tags": [
+      "RPPS e RGPS Simultâneo",
+      "Contribuinte Individual",
+      "Servidor Estatutário"
+    ]
+  },
+  {
+    "enunciado": "Julgue, partindo do princípio retributivo das cotizações especiais e a Súmula 73 da TNU sobre a condição material rural: O arrendatário e parceiro do campo que comprove regime de economia familiar perde inequivocamente sua qualidade original de segurado especial caso o filho maior e solteiro expeça, ainda que transitoriamente e de forma marginal e documentada em contracheque por exatos vinte e cinco dias no ano limpo atípico da safra, serviço registrado celetista na indústria agroquímica vizinha para suplementar a cesta de compras.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "Errado. O dispositivo garantidor especial das safras, atualizado pela Lei nº 11.718/2008, e na Súmula 41 da TNU (reiterando a mitigação de rigor matemático em face das sazonalidades do campo), estipulou que 'a circunstância de um dos integrantes do núcleo familiar desempenhar atividade urbana não implica, por si só, a descaracterização do trabalhador rural como segurado especial'. Além disso, o art. 11, § 9º, inciso III da lei nº 8.213 assevera que a outorga da qualidade de segurado especial da família rural não se extingue se um membro (filho, p. ex.) atuar na qualidade de empregado no período de entressafra/safra em limite não superior estrito aos 120 dias normativos no ano (e 25 dias está amplamente acobertado legalmente).",
+    "difficulty": "dificil",
+    "tags": [
+      "Segurado Especial",
+      "Regime de Economia Familiar",
+      "Trabalho Urbano Simultâneo"
+    ]
+  },
+  {
+    "enunciado": "Acerca dos Direitos Previdenciários insculpidos pela EC 103 (Reforma da Previdência de 2019), julgue o preceito sobre os segurados: A figura do Microempreendedor Individual (MEI), por força de previsão tributária especial de fomento empresarial, encontra seu tratamento singular previdenciário como segurado de filiação facultativa com redução de alíquota patronal da Lei Geral (DAS-MEI), restando-lhe opcional apenas o cálculo para o auxílio-doença rural.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "Errado. O Microempreendedor Individual (MEI), em virtude do exercício contínuo de atividade empresarial e labor executivo contábil-próximo como empresário inscrito no SIMPLES Nacional, consagra sua participação obrigatória sob os auspícios das normas previdenciárias. Ele não é e nem detém as bases de 'segurado facultativo', ostentando tecnicamente e rigorosamente as obrigações e roupagens jurídicas de contribuinte individual tributado diferencialmente sobre alíquotas simplificadas incidentes sobre o salário-mínimo (Art. 21, § 2º, II, da Lei 8.212).",
+    "difficulty": "medio",
+    "tags": [
+      "Microempreendedor Individual",
+      "MEI",
+      "Contribuinte Individual Obrigatório"
+    ]
+  },
+  {
+    "enunciado": "Considerando os segurados trabalhadores autônomos listados na alínea 'h', inciso V, art. 11 da 8.213: O ministro de confissão religiosa ou membro de instituto de vida cristã monástica consagrada e sustentada na doação espiritual, isento de voto trabalhista com a igreja provedora com CNPJ, não poderá ser forçosamente coagido a pagar, contra o rebolde canônico do templo, as guias de previdência como segurado obrigatório contribuinte individual, uma vez que sua vocação é tipicamente de caridade em regime de isenção de filiação do Estado laico, restando-lhe tão somente as prerrogativas de doação filantrópica facultativa se assim desejar verter.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "Errado. Indiferente aos ditames de isenção dogmático-religiosa ou não (embasada na imunidade do templo), a lei estabelece de forma impositiva e basilar que os ministros de confissões católicas/evangélicas ou os ditos membros de institutos de vida monacal consagrada sãosubjugados previdenciariamente. Pela legislação material vigente (Art. 12, V, alínea 'c', da 8.212/91 e legislação protetiva similar da 8213), eles são imperativamente classificados como segurados obrigatórios na condição plena de contribuintes individuais. O valor referencial ou de ajuda pecuniária que eventualmente lhes seja garantido pela igreja, superior ao valor canônico isento legal, não se reveste do amparo trabalhista de emprego, mas gera inconteste tributação como contribuinte autônomo e de subsistência.",
+    "difficulty": "dificil",
+    "tags": [
+      "Ministro de Confissão Religiosa",
+      "Contribuinte Individual Obrigatório",
+      "Filiação Previdenciária"
+    ]
+  },
+  {
+    "enunciado": "Julgue a proposição embasada na doutrina previdenciária e nas normas de manutenção da qualidade de segurado: O advento de prisão em regime estrito fechado de um segurado recolhedor habitual do regime (contribuinte individual ativo), acarreta automaticamente a caducidade ou imediata suspensão legal forçada integral da sua qualidade da manutenção previdenciária. Assim, na seara de 12 (doze) meses pós o evento prisional, mesmo optando seus familiares pelo pagamento autônomo em dia via carnê ou guia na categoria de prestador recolhido ausente material, ele perde terminantemente seus direitos do RGPS de invalidez intra-celas.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "Errado. O segurado que houver sido retido no cárcere prisional (preso) conserva expressamente e especificamente a qualidade de segurado por impreteríveis até doze meses prorrogáveis contados do exato prazo após o seu pleno ou futuro livramento (soltura). Ou seja, enquanto encontra-se enclausurado e detendo dependentes ou direitos, sua condição previdenciária (graça) é paralisada a seu favor e ele não perde seu vínculo. Além de a restrição material carcerária não interromper as proteções protetivas como o auxílio-reclusão devido de fato aos dependentes diretos se preenchidas as condições.",
+    "difficulty": "medio",
+    "tags": [
+      "Prisão Fechado",
+      "Segurado Ativo",
+      "Período de Graça",
+      "Auxílio-Reclusão"
+    ]
+  },
+  {
+    "enunciado": "A respeito do segurado facultativo e seus ditames normativos peculiares, julgue: Tratando-se de hipótese excepcional amparada na Constituição para evitar dupla contagem ou favorecimento cruzado, o servidor público da União efetivo e já vinculado a um regime próprio e compulsório da previdência (RPPS), tem sumariamente vedada a chance de filiar-se isolada e cumulativamente ao Regime Geral de Previdência (RGPS) puramente sob a roupagem abstrata e ociosa da classe de 'Segurado Facultativo', a fim de suplementar rendas para proventos futuros da inatividade.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "c",
+    "rationale": "Certo. Consoante dispõe categoricamente o art. 201, § 5º, da Constituição Federal, 'É vedada a filiação ao regime geral de previdência social, na qualidade de segurado facultativo, de pessoa participante de regime próprio de previdência'. A vedação se perfaz exatamente para coibir que um servidor filiado a um sistema próprio e atrelado com teto do ente atue de forma passiva (isto é, sem trabalhar na via privada em atividades geradoras OBRIGATÓRIAS que forçariam contribuições normatizadas do INSS) recolhendo apenas dinheiro estéril na ótica da contribuição pura paralela sem esforço empregador ativo para o sistema.",
+    "difficulty": "facil",
+    "tags": [
+      "Segurado Facultativo",
+      "RPPS",
+      "Constituição Federal",
+      "Vedação"
+    ]
+  },
+  {
+    "enunciado": "Analise a filiação do regime e a obrigação contributiva dos agentes eletivos: O servidor público civil ocupante de determinado certame efetivo que venha, por mandamento de voto, adquirir e assumir assento e mandato de Deputado Federal (ou seja, de cunho nacional eletivo de prazo estrito) torna-se transitoriamente, em virtude do múnus temporário político atípico de 4 anos e da remuneração percebida do Fisco Federal exclusivo do Congresso nas esferas em que não subsiste regime próprio parlamentar em novo formato (depois da EC nº 103), obrigatoriamente um filiado passivo compulsório da alocação de Contribuinte Empregado nos caixas de competência do Regime Geral, suspendendo sua carreira paralela da alínea RPPS de origem estadual pregressa.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "Errado. O art. 12, I, alínea 'j', combinado com seu desdobramento de parágrafos excludentes na Lei nº 8.212/91, enuncia que passará a ser obrigatoriamente segurado do RGPS, como empregado, o ocupante de mandato eletivo federal, estadual ou municipal, DESDE QUE este último mandato NÃO esteja vinculado originalmente por lei local a regime próprio estadual de provisão específica. No entanto, se ele já for servidor público estatutário EFEITVO da União, Estado ou Município submetido a Regime Próprio de Previdência (RPPS originário), ele, no exercício do mandato de Deputado federal/estadual, perante à lei previdenciária, não romperá ou suspenderá a sua filiação previdencial de origem com o ente antigo base, vez que o ente antigo base originário tem a continuidade vinculante garantida pelo afastamento político, afigurando que não se configura nova roupagem do mandato transitório dentro da classe puramente 'RGPS/Empregado'.",
+    "difficulty": "dificil",
+    "tags": [
+      "Mandato Eletivo",
+      "Deputado Federal",
+      "RPPS",
+      "RGPS"
+    ]
+  },
+  {
+    "enunciado": "Acerca das definições intrínsecas ao trabalhador rural expostas nas súmulas do RGPS: É perfeitamente compatível a concessão de aposentadoria baseada nas regras singelas e limitadas de segurado especial da esfera campesina no caso de o trabalhador do núcleo familiar dispor formal e ostensivamente de expressivo e superdimensionado patrimônio ou empreendimento (uma frota considerável contábil e numerosa e máquinas locadas rurais potentes no imposto sobre terceiros), sob a justificativa de que basta estar na labuta limpa sazonal das fileiras agrárias independentes ou que apenas tenha uma terrinha registrada.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "Errado. A qualidade de segurado especial exige peremptoriamente labor inescusável do indivíduo (do esforço prático e rudimentar para si próprio e família na proporção razoável da existência) consubstanciado e delimitado no restrito 'regime de economia familiar', ou seja, a subsistência intrínseca e essencial em propriedade módica rural (até quatro módulos). A jurisprudência afasta categoricamente esse status restritivo de quem possui capital material farto e ostenta e detém a figura nítida e caracterizada e pujante do 'grande empreendedor rural' de mercado ou ruralista rico de classe ou posses ostensivas tributadas.",
+    "difficulty": "medio",
+    "tags": [
+      "Segurado Especial",
+      "Regime de Economia Familiar",
+      "Trabalho Rural",
+      "Aposentadoria"
+    ]
+  },
+  {
+    "enunciado": "Julgue, no âmbito da legislação pertinente e das nuances do 'tempo pregressamente contributivo' da carência do rol previdenciário: O período contínuo que perfaz em afastamento a que o trabalhador é submetido por gozo da licença auxílio-doença cominada do labor compulsório por incapacidade atípica e restrita de evento natural imprevisível com laudos aptos interligados com acidente e que geram atestado pago superior a trinta dias será devassa contabilizado no tempo pregressamente contributivo, caso transcorra impreterível de dias permeados por pagamento e sem suspensão por dolo, excetuando as hipóteses taxativas e impeditivas da reforma sobre doenças crónicas pré-existentes de laudos viciados.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "c",
+    "rationale": "Certo. Conforme jurisprudência já remansosa e consolidada (especificamente os precedentes normativos e Súmula 73 TNU e regras inerentes ao cálculo na RFB), o tempo e os meses intercalados do segurado em gozo do respectivo benefício temporário do 'Auxílio-Doença' (Benefício por Incapacidade Temporária) devem rigorosamente figurar e computar para efeito de tempo efetivo material e prático de carência exigida de aposentadoria temporal se estiver intercalado contiguamente entre recolhimentos contributivos de esforço material prévio ou pós imediato (voltar e pagar o lapso que garante sua intercalação).",
+    "difficulty": "facil",
+    "tags": [
+      "Auxílio-Doença",
+      "Carência",
+      "Tempo de Contribuição",
+      "Incapacidade"
+    ]
+  },
+  {
+    "enunciado": "Julgue a situação à luz das disposições atinentes aos filiados da Previdência Social e as atualizações da EC 103 sobre o tempo laboral estrito: Diferentemente das categorias do serviço doméstico assalariado e dos facultativos independentes, um presidiário foragido que labora clandestinamente como sapateiro numa viela sem alvará ou fiscalização e que, deliberadamente, aufere remuneração por essas entregas sonegando integralmente toda classe de imposto ao município, reveste-se legal e indubitavelmente e assume forçosamente o encargo normativo do RGPS com status e dever originário ativado de Segurado Contribuinte Individual autônomo perante à Receita Federal.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "c",
+    "rationale": "Certo. Pigmalião da regra-matriz da Seguridade: a obrigatoriedade da filiação previdenciária decorre do SIMPLES FATO GERADOR de transacionar e 'exercer atividade remunerada'. Conforme maciça jurisprudência e regra de proteção do RGPS, a ilicitude meramente administrativa (trabalhar sem alvará de prefeitura), fiscal (sonegar ISS/IR) ou mesmo a infração penal atípica transitória (ser presidiário foragido trabalhando na esquina) NÃO AFASTAM o dever jurídico forçoso da filiação gerado do exercício remunerado diário lícito da marcenaria/sapateiro. O trabalho preterido 'clandestino/ilegal' de objeto ilícito não atrai previdência, mas o trabalho 'faticamente lícito' (conserto de sapatos) exercido de modo irregular atrai integralmente o vínculo compulsório do Autônomo (C. Individual).",
+    "difficulty": "dificil",
+    "tags": [
+      "Fato Gerador",
+      "Contribuinte Individual",
+      "Atividade Irregular"
+    ]
+  },
+  {
+    "enunciado": "No contexto da inscrição no RGPS para efeito das contribuições e aquisição formal pós-fática das regras do Estado sobre as carências, julgue: Nas rigorosas normativas processuais dos dependentes do instituto previdenciário e seus filiados de caráter eventual extra-compulsórios que demandem gozo prático, a mera formalização exímia legal (a filiação estrita em documento do cadastro NIT) concretizada 'post mortem' do segurado de filiação eminentemente opcional na condição de isento estatuído facultativo legitima instantaneamente, perante os tribunais civis, a viúva ou beneficiário inibido à pensão retributiva, restando a inscrição um ato perfeitamente retroativo.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "Errado. O Segurado Facultativo subjaz excepcionalmente à dupla necessidade estrita para se consolidar no plano e auferir validade ao evento letal: a filiação no INSS (ato declaratório opcional materializado pela pré-concordância nos documentos) SÓ TEM EFICÁCIA JURÍDICA E DE FATO COM EXATO PAGAMENTO DA PRIMEIRA CONTRIBUIÇÃO (recolhimento). Se ele se filiou ou quis se filiar, e veio a óbito (fato imprevisível infortúnio) ANTES de concretizar a primeira e válida rubrica paga originária (eximindo retroação), ou se os dependentes decidirem inscrever/pagar ele retroativamente de má-fé unicamente após morto para adquirir pensão, é formal e maciçamente MANTIDA A VEDAÇÃO estrita legal. O decreto é claro: 'É vedada a inscrição post mortem do segurado facultativo.'",
+    "difficulty": "medio",
+    "tags": [
+      "Inscrição Post Mortem",
+      "Segurado Facultativo",
+      "Vedação Formativa"
+    ]
+  },
+  {
+    "enunciado": "De acordo com as particularidades das categorias da labuta do Empregado Doméstico nas hipóteses vigentes da base previdenciária e Lei Complementar protetiva: Diferente do quadro restrito do trabalhador avulso (em que a empresa ou sindicato que contrata tem a faculdade delegante de pagamento estrita), a diarista que comprove prestação ocasional direta ao núcleo isento sem subordinação por míseros 4 dias na mesma semana, de forma integral a mesma família, reveste-se transitoriamente do caput da roupagem contábil de empregada doméstica, assumindo, impreterivelmente de ofício, a família patrão e dona de casa como sua fonte retentora originária e mandatária de inscrevê-la, restando eximida ela mesma da dita obrigação originária estipulatória e de autodeclaração prévia da RGPS.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "c",
+    "rationale": "Certo. Trata-se da inteligência da lei LC150 aliada aos entendimentos cristalinos dos tribunais na reforma. Ao transpor e atingir a marca material superior a 2 dias fracionados laborais (portanto, a partir exata do 3º dia laborado contínuo e exímio na MESMA residência patronal de mesma titularidade na semana do civil), ela DESCARACTERIZA-SE terminantemente perante à corte da posição de 'autônoma/individual contábil da sua contributa própria' (como diarista esporádica) e assume compulsoriamente os laços plenos do enquadramento estrito e rígido de Segurada Empregada Doméstica inescusável. Ato contínuo, a OBRIGAÇÃO passiva civil legal de registrá-la, assinar CPTS e recolher o tributo do carnê único da guia eSocial transfere-se inteiramente ao crivo daquele tomador/família, que é revestido na roupagem fática de Empregador Doméstico compulsório das alíquotas limitadas.",
+    "difficulty": "medio",
+    "tags": [
+      "Trabalho Doméstico Semanal",
+      "Empregado Doméstico",
+      "Exoneração de Autônoma"
+    ]
+  },
+  {
+    "enunciado": "Acerca das obrigações dos servidores civis investidos em comissão e prefeitos eletivos no crivo da Reforma EC 103 sobre RGPS, avalie a contingência sob súmula do colendo Supremo Tribunal Federal e doutrina tributária atinente: Um atual Prefeito recém-eleito de município litorâneo (logo comissionado de múnus eletivo no Poder Executivo por prazo fixo certo em chancelas de transição de sufrágio) que tenha ocupado no ano estrito anterior (sem vacância) apenas de modo isolado as fileiras e enquadramentos estatutários exclusivos nativos amparados no seu estado da Federação de nascença como Auditor Fiscal egiado à Regime Próprio (RPPS Estadual), reveste-se transitoriamente pelo mandato atípico numa alocação estancada na classificação passiva RGPS como Contribuinte Empregado.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "Errado. O exercente estrito de mandato eletivo federal, estadual ou municipal passa compulsoriamente sob o viés previdencial brasileiro as roupagens de Empregado Obrigatório RGPS unicamente sob uma única e exímia restrição hermenêutica canônica (presente no Art. 12 da 8212): 'desde que não filiado, de forma ininterrupta e originariamente por viés vinculante ativo, a uma linha ou quadro do fundo especial regime próprio de previdência social'. É pacífico, sob entendimento consolidado pretoriano, que se o Prefeito eleito já detém um vínculo vital ou estatutário Efetivo amparado e guarnecido anterior em outro Estado/fundo RPPS na sua posse originária, este elo original se MANTÉM, suspendendo formalmente o enquadramento avulso precário dele na roupagem RGPS-empregado e exigindo as contribuições estritamente ao regime preexistente base do auditor.",
+    "difficulty": "dificil",
+    "tags": [
+      "Prefeito",
+      "Mandato Eletivo",
+      "Reserva RPPS Exclusiva"
+    ]
+  },
+  {
+    "enunciado": "Com base nos institutos e fundamentos de desfazimento da filiação e preservação social dos ex-militares da reserva reformada passível na RGPS: O cidadão convocado militar ativo da união prestador exclusivo rigoroso e contumaz de serviços castrenses imperativos que desabrochar forçosamente sob reclusão nos atos bélicos nacionais após os embates militares sob condenação civil na cadeia comum por três anos inescusáveis por crime alheio, preservará a estrita concessão civil estatuída de 2 (dois) anos e seis meses de período de vacância carimbada no RGPS a contar exata após o dia do desatar material oficial do isolamento penitenciário.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "Errado. A contagem do período de transição ou vacância jurídica e perda basilar previdenciária (período de graça) possui normas rígidas absolutas aos ex-militares natos recém saídos do quartel ou em evasão. O art. 15, I da refutada 8213 diz textualmente: mantém-se rigorosamente a graça por exatos 'até 3 (três) meses o tempo material após o desatamento legal/licenciamento ex-officio dos quadros fixos formativos do segurado isolado restrito contínuo originário e oriundo único das Forças Armadas engajado como militar'. Logo, não é uma flexibilidade ampla civil elástica que salta magicamente para 2 anos pela conjunção de reclusão atípica, além de a legislação militar possuir tratamento autônomo nas condenações carcerárias de crime comum que exonerem postos sem regalia transacional do civil desempregado penal.",
+    "difficulty": "dificil",
+    "tags": [
+      "Forças Armadas",
+      "Militar Egresso",
+      "Período de Graça Restrito",
+      "3 Meses"
+    ]
+  },
+  {
+    "enunciado": "Julgue a assertiva sob as vigas mestras normativas e operacionais na qualificação imperativa contributiva, estatuindo a diferenciação cabal do labor ruralista protetivo em consonância restrita com as nuances do teto constitucional pretoriano de abrangência social: Em derrogação inequívoca sumulada aos requisitos legais base dispostos originariamente no núcleo do regime protetivo estrito e inescusável do campo e estatuído pela reforma vigente nas obrigações cíveis, consolida-se materialmente pacífica a outorga garantida e atinente de validade perpétua e carência automática na modalidade previdenciária Segurado Especial Familiar para indivíduo originário que aufere, secundariamente com exclusividade, recursos mensais provindos oriundos passivamente da mera locação (arrendamento total e ininterrupto) da totalidade estrita integral e material do seu único módulo fundiário agrário, independentemente da efetiva subordinação ou atuação agrícola física nas leiras alugadas a vizinhos terceiros extrativistas ou parentes emancipados e submetidos ao regime RGPS urbano autônomo colateral.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "Errado. Como exarado sistemática e reiteradamente pelo crivo hermenêutico firme nos tribunais sociais e consolidado explicitamente na própria Lei nº 8.213/91 (art. 11), a condição essencial premissa restritiva legal para se afigurar perfeitamente enquadrado de ofício na restrita categoria passiva de 'segurado especial do campo e subsistência familiar lícita' reside inafastavelmente no efetivo e direto labor e exploração rudimentar das extremidades rurais consubstanciado no 'REGIME de esmeração prático pessoal e da Economia estendida FAMILIAR'. A locação mercantil mercantilista passiva temporal ininterrupta (o puro arrendamento cabal rotineiro, entrega para terceiros avulsos autônomos por cota e aluguel de solo), transmuta inequivocamente, segundo base normativa previdenciária atrozmente impositiva perante os fatos materiais extrajudiciários rurais submetidos, o proprietário passivo-arrendador da terra e das construções nela plantadas e enraizadas compulsoriamente na figura rentista abastada atrelada unicamente como Contribuinte Especial Urbano ou Simples Contribuinte Individual com a destituição perene imperativa sumulada perante à esfera fiscal.",
+    "difficulty": "medio",
+    "tags": [
+      "Segurado Especial",
+      "Arrendamento",
+      "Trabalhador Rural",
+      "Função Social Omissa",
+      "Regime de Economia Familiar"
+    ]
+  },
+  {
+    "enunciado": "Atentando-se ao complexo normativo e as obrigações da incidência legal no RGPS aplicadas sobre mandatos de atuação política transicionais no âmbito estrito eleitoral pós Emenda Constitucional de desvinculações das cadeiras públicas (EC 103), julgue: Por presunção material exarada na seguridade inescusável de base salarial, considera-se obrigatoriamente classificado sob filiação imediata originária na restrita chancela legal RGPS formal estritamente na engrenagem subalterna do Segurado Empregado Compulsório a pessoa fática civil alocada, originada e diplomada em foro municipal no exercício fixo interino transicional formal e diplomado de suplente exclusivo do vereador atípico local afastado da bancada, conquanto receba pontualmente em dias úteis intercalados fracionados rubrica fixa remanescente ou subsídios plenos atrelados aos exatos meses limitados estritos de convocação em votação substitutiva, prescindindo de vacância legal dos membros fixos oriunda de cassação na sua folha retributiva municipal passiva no balanço legislativo.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "c",
+    "rationale": "Certo. Na conformidade pacífica balizada pelos pilares legais estatuídos de recolhimento tributário no art. 12 da lei mãe nº 8.212, atinentes à classificação de Empregados, aquele transitoriamente convocado nas esferas políticas estipuladas civis ordinárias como um exercente restrito lícito de mandato eletivo municipal (incluso sem dubiedade formal normativa ao suplente do vereador ausente e investido interinamente da curul para cobrir lapso de vacância rotineira restritiva) que venha auferir inescusavelmente estatuído pagamento material oficial, ou subsídios da máquina passiva civil por conta do seu encargo formal atrelado, estará, ainda que sob escusa das poucas ou esparsas participações temporais em Plenário e Sessão contínua cominada restritas esparsamente as poucas remunerações de transações votadas nas câmaras avulsas interinas mensais daquele mandato cominado atípico do civil de dias sub-múltiplos dos biênios, obrigatoriamente submetido cominado faticamente (como não possuidor anterior e originário formal na premissa estrita protetiva previdencial isento subalterno amparado de outro RPPS) como um Segurado Empregado compulsoriamente atrelado pleno e ativo sob preceito de tributação no Regime Geral nas referidas rubricas ou valores exatos que lhe forem pagas materialmente a título de mandato local retributivo das bancadas civis municipais estritas originadas.",
+    "difficulty": "dificil",
+    "tags": [
+      "Mandato Eletivo",
+      "Vereador Suplente",
+      "Segurado Empregado",
+      "RGPS"
+    ]
+  },
+  {
+    "enunciado": "Julgue a situação delineada sobre os requisitos obrigacionais da seguridade contidos no enquadramento social do Empregado Celetista Ordinário em detrimento do Trabalhador Autônomo e congêneres desamparados laborais informais de rotatividade flutuante do balcão urbano e industrial preceituados: É perfeitamente impositivo o vínculo forçado e obrigatório submetido na tipificação inescusável do núcleo do rol de Segurado Empregado em sua estrita essência primária na Constituição para o oficial estrito de subordinação estatuída fática do Trabalhador Avulso e Sindicalizado originário fixado e estendido formal aos armazéns rurais adjuntos a fazendas atípicas e às portarias marinhas se as empresas passivas patronais que o acionam atípica, simultânea e cominadamente fracionam as jornadas diárias pagas nas rubricas da diária avulsa no fechamento contábil e o expõem diretamente por ordem estrita, restando eximido do viés formal individual autônomo rotineiro de livre ofício avulso da orla portuária local sob rodízio originário contumaz restritivo do conselho classista representativo estrito.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "Errado. Segundo preleciona peremptoriamente as chancelas da lei e balizas estruturantes material celetistas do art. 12, inciso VI matrizes na seguridade inescusável ordinária RGPS nacional: O trabalhador Avulso (aquele convocado que presta serviço contínuo fracionado rural ou portuário sob sindicalização fixada) se insere rigorosamente sob subordinação restritamente originada a DIVESAS (várias) empresas tomadoras atípicas. Por consequência, a sua própria natureza inescusável de desvinculação não forja o liame celetista empregatício obrigacional patronal (o vínculo civil fixo clássico individual na rubrica do Segurado Empregado tradicional de CLT). Ele subsiste formal e categoricamente na rubrica previdencial expressa única denominada textualmente 'Segurado Trabalhador Avulso' estrita. Ou seja, por mais ordens e diretivas interinas ou subordinação funcional intermitente efêmera contábil num turno em dada diária, a inexistência do viés vinculativo habitual (pois acionado e gerido por Órgão de Gestão de Mão-de-Obra ou sindicato rodízio rotineiro estrito), O IMPEDE inequivocamente e faticamente terminantemente de figurar a chancela obrigacional previdencial estrita forçosa formal e contábil classificada expressamente na figura individual do genuíno 'Empregado' (aquela de habitualidade patronal monocrática contínua material exaurível).",
+    "difficulty": "dificil",
+    "tags": [
+      "Segurado Empregado",
+      "Trabalhador Avulso",
+      "Sindicato",
+      "Subordinação Celetista",
+      "Vínculo Previdenciário"
+    ]
+  },
+  {
+    "enunciado": "Avaliando os desdobramentos operacionais legais dos segurados e restrições tributárias na base de dados civil-previdenciária atroz formalizada em súmula e normativas RFB atípicas, em consonância originária estrita de enquadramento na Reforma previdencial passiva e do INSS atrelada às donas de casa nas exceções de contribuições diminutas exclusivas: Por autorização originária inescusável e estatuída no RGPS protetivo pós-reforma base civil, a cônjuge formalizada que perfaz o rol ininterrupto e exclusivo estrito puramente de do lar e mantença dos trabalhos puramente estritos residenciais isentos sem cunho remanescente laboral subalterno remunerado passível preterido avulso rotineiro no mês, e que pretenda acionar formalmente ex e sponte própria recolher guia com a estrita, lícita e basilar finalidade canônica passiva isenta protetiva material exclusiva base de salvaguardar eventual o rol protetivo formal perene do viés e garantia protetiva da dita 'Pensões Civis Mortuárias ou Auxílios Básicos e maternidade restrita', NÃO ostenta a prerrogativa compulsiva normativa ou discrionária lícita e estatuída de enquadramento como Contribuinte Individual inibindo legalmente sob esse código de ser registrada fática dessa alíquota civil estrita perante a SRF.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "c",
+    "rationale": "Certo. Conforme estipula rigorosamente a fundamentação elementar da lei 8.212 em correlação e amparo estrito com os princípios fáticos balizadores da ausência total originária lícita de fomento rentável lícito 'material civil oneroso do mercado rotineiro de bens isentos e atípicos sem proveito na esfera extrafamiliar estrita' (fator fático elementar irredutível do labor autônomo das C.I.): Aquelas (os) dedicadas apenas às singelas 'lides exclusivas do próprio lar doméstico subalterno civil diário não lucrativo isento', sem nenhuma atuação empresarial paralela pregressa rotineira (donas de casa ou estudantes não estagiários não remunerados fixos), NÃO incorrem nos atos ou premissas primordiais dos contribuintes autônomos por prestação restritamente econômica onerosa atípica ativa estrita externa perante as normativas limitativas do Estado. Sendo-lhe imperioso o status passivo e estrito subalterno do 'Segurado Facultativo' na guia (inclusive a subcategoria especialíssima de dona de casa filiada de baixa renda de isenção de guia a alíquota ínfima protetiva - facultativa). Portanto, ela formalmente, inequivocamente, NÃO pode legalmente recolher nem transvestir material contabilmente sua roupagem restrita cívica no código puramente imperativo do Segurado 'Contribuinte Individual', vez que estaria deturpando as naturezas civilistas e falsificando atos passivos para sonegação presumida restritivamente perante à Previdência formal.",
+    "difficulty": "dificil",
+    "tags": [
+      "Dona de Casa",
+      "Lides do Lar",
+      "Segurado Facultativo",
+      "Contribuinte Individual Vedação",
+      "Inscrição Previdenciária"
+    ]
+  },
+  {
+    "enunciado": "A respeito dos desdobramentos atinentes aos institutos das perdas das graças temporais do segurado em virtude das lacunas inibitivas de preenchimento contributivo de origem transicional temporal de trabalho base ativo: Segundo regramento e a hermenêutica estrita sumulada aplicada reiterada protetiva às contagens, a perda cabal pregressa e irremediável submete o indivíduo segurado de ofício faticamente inibitório preterido ao final estrito do último dia formal corrido, subentendido e estatuído material do 15º (décimo quinto) dia prático exaurível civil contado isolado do mês cível subsequente atrelado e inerente em cômputos ao fim irremediável isolado exato matemático de encerramento cronometrado inescusavelmente total passível na órbita base civil do respectivo e estipulado 'período de prorrogações da graça temporal civil' restrita fática sub-abrangente.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "Errado. Trata-se da clássica pegadinha do tempo do vencimento exato no mês das Graças estendidas nos institutos contadores da Seguridade. A jurisprudência protetiva amparada do STJ e TNU sobre prazo residual fixo, aliado ao próprio comando normativo previdenciário base imposto basilar do legislador originário fático do art. 15 da 8.213: a dita e extirpada e irrecuperável temporária 'perda definitiva de materialidade e qualidade pregressa original da proteção do Segurado' NÃO OCORRERÁ fatalmente rigorosa isolada no encerramento limítrofe inescusável restritiva civil fatal do 15º (décimo quinto dia legal) do lapso mês subsequente ao término dos meses. E SIM OCORRERÁ FATALMENTE SOMENTE NO DIA CIVIL PRÁTICO ORIGINÁRIO SEGUINTE, ou seja, materializado legal na alvora pontual estrita e isolada irretocável preterida fática irredutível do exato (décimo sexto - 16º DIA DO MÊS) estipulado liminar civil prático após à findarem liminar normativo de prazo de proteção rotineira inibida restrita originariam.",
+    "difficulty": "medio",
+    "tags": [
+      "Período de Graça",
+      "Prazo de Manutenção",
+      "Dia Seguinte ao Vencimento",
+      "Qualidade de Segurado",
+      "Perda"
+    ]
+  },
+  {
+    "enunciado": "Julgue a asserção baseada na hermenêutica estrita das imunidades materiais e subcategorias da carência estendida para filiados avulsos de cunho portuário: Ao trabalhador avulso sindicalizado originário, na eventualidade de afastamento suspensivo imperativo base do rol das atividades portuárias regulares e rotineiras preteridas ou rurais das quais é requisitado, em face de instauração ou resposta oficial de punição a processo apuratório disciplinar de sindicato, é categoricamente resguardada e estipulada de forma cível isolada e compulsória a sua plenitude contagem do período pregressa prorrogação na qualidade de segurado (período base da graça) pelo elástico lapso residual em meses irredutíveis preteridos limitados amparado por até cômputo máximo rotineiro de seis exclusos meses inibitórios pós fato deflagrado, assim idênticos ao segurado inibido facultativo.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "Errado. O Segurado Trabalhador Avulso é estatuído expressamente originário da igualdade e equiparação material rotineira constitucional dos diretos garantidos a todo Segurado Empregado (Art. 7, XXXIV, da CF e premissa na base do Decreto 3048). Destarte, ele, diferente do que a pegadinha induz atrelando aos estritos curtos dos inibidos facultativos, desfruta faticamente perenemente da retenção basilar em regra prorroga (sem pagamento intercalado em recesso punitivo extra limítrofe suspensivo ou demissão avulsa) pelo período rigoroso base cível rotineiro de até **doze (12) meses** inescusáveis após a dita cessação oficial passiva, podendo inclusive usufruir de estendidos rotineiros adicionais a 24 ou 36 caso preencha os exatos demais requisitos plúrimo (desemprego/contribuições decenais) cabais à classe do empregado comum da base geral e da Seguridade cívica, sem se reportar isolado à limitadas fixas exauríveis da submissão curta do puro facultativo (seis meses).",
+    "difficulty": "medio",
+    "tags": [
+      "Trabalhador Avulso",
+      "Período de Graça",
+      "12 Meses",
+      "Equiparação a Empregado"
+    ]
+  },
+  {
+    "enunciado": "Acerca das hipóteses protocolares inescusáveis de obrigatoriedade no cômputo formal do RGPS perante a prestação ocasional civil rotineira de autarquias inibitórias: O notário ou tabelião diplomado originário e nomeado isoladamente em serventia de foro cível extrajudicial estrita de delegação titular no município a partir estrita de sucessão após 1994, que já dispunha de base amparada material exclusiva formal preterida vinculada isoladamente da antiga chancela protetora passível cabal ao RPPS Estadual judiciário, não goza de excludente legal formal de proteção, transmutando-se compulsoriamente a obrigação inescusável do rol tributário estrito de Segurado Empregado pela chancela do serviço federal outorgado e fiscalizado diretamente em sua posse vitalícia irredutível do Estado da União.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "Errado. Conforme alicerce e fixação basilar pacífica cristalizada reiteradamente na via cível do Supremo (com as ECs preteridas e o Art. 236 da Constituição Cidadã), bem como base normativa estrita consolidada protocola fiscalizatória da RFB na regência da Seguridade do artigo 11 da 8213: Os titulares de serventia extrajudicial e cartorários dos rotineiros foros (os tabeliães passivos notariais oriundos nomeados, estipulados de ofício ou ingressos após outorgados nos exauríveis regimes) exercem serviço civil inibitório público POR DELEGAÇÃO basilar de tutela e NÃO possuindo mais formal da dita rubrica ou caráter celetista de vínculo hierárquico, salário fixo outorgado ou habitualidade assalariada no órgão judiciário fático preterido do Tribunal de amparo; são remunerados material e privadamente em seu caixa pelos chamados peculiares rubricas de molumentos puros dos clientes. Portanto, eles NÃO SÃO enquadrados inibitórios passíveis como segurados empregados estatutários estritos da roupagem RGPS, mas impetrados rotineiramente classificados obrigatórios irretratáveis basilar, de pleno rigor autônomo puro na condição canônica exclusiva estanque de Contribuintes Individuais.",
+    "difficulty": "medio",
+    "tags": [
+      "Tabelião",
+      "Serventia Extrajudicial",
+      "Contribuinte Individual"
+    ]
+  },
+  {
+    "enunciado": "Em face das regras restritivas civilistas dispostas para a apuração da contagem base de carências em auxílios prático-fáticos na classe dos inibidores facultativos donos de lar do regime cívico estipulado das mães de família de classe sub-renda (baixa-renda): É requisito preceituado estrito irredutível do RGPS na constituição formal atípica isenta rotineira para que o indivíduo preteridamente de base de renda familiar insculpida ou que integre esse escopo passível estanque recolha suas contribuições facultativas isoladas basilar exauríveis de míseros '5% do menor fixo basilar do território vigente' (Alíquota especial B-R), que a própria fática detentora inibitória ostensiva preterida no recinto atípico do lar isolado comprove originariamente perante a seguridade a auferição rotineira mensal inferior canônica limítrofe inescusável de dois exatos (2) limares basilares salários essenciais da união ou que comprove originário passível civil em Cadastro passivo único mantido ativo dos balcões assistenciais rotineiros da proteção originária estatal (CadÚnico).",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "c",
+    "rationale": "Certo. Trata-se do exato balizamento legal protetivo consolidado da Reforma base protetórica incluído pela basilar Lei nº 12.470/2011 no seio da Previdência Cívica (na exegese do art. 21 da Lei de Custeios 8.212/91): Para ostentar basilar o preceituado viés de outorga irredutível e fazer o material jus passível fático de pagar exímios e abastados apenas parcos limites retidos na casa de inescusáveis rotineiros '5% (cinco por cento) de sob incidência inibitória estrita calcada no Salário-Mínimo', essa detentora ou passível chefe preterido dedicante exclusivo de lar e isolado trabalho cívico sem renda e filiado fático Facultativo irredutível precisa inibitoriamente figurar as DUAS excludentes originárias fáticas unânimes atreladas: (i) Estar rotineiramente com o núcleo preterido oficializado em cadastrado regular no preceito assistencial civil amplo basal CadÚnico do impetrante estatuído rotineiro governo e (ii) Inescusavelmente a aludida e isolada somatória estrita material integral bruta da renda basilar financeira dos agregados civis familiares passíveis rotineiro sob aquele mesmo restrito teto não superar o inibitório patamar formal máximo de estritos 2 (dois) vencimentos rotineiros do limítrofe basilar fático irredutível salário-mínimo nacional unívoco impetrado unânime no decurso mensal passível contábil.",
+    "difficulty": "dificil",
+    "tags": [
+      "Dona de Casa Baixa Renda",
+      "Alíquota 5%",
+      "Segurado Facultativo",
+      "CadÚnico"
+    ]
+  },
+  {
+    "enunciado": "Analise a proposição sobre as excludentes formais de acúmulo das matrizes passivas base retributivas fáticas do Regime Celetista na qualidade perene originária e da filiação estanque e unívoca em cargos estaduais da RGPS/RPPS inter-bases: Servidor efetivo municipal estipulado civil regimental irredutível pertencente no Município subalterno ao seu viés estanque estipulado fático preterido 'Estatutário/Caixa Fixa de RPPS', que concomitantemente estipula atuar num rotineiro e material base de vínculo diário à premissa empregatícia (com assinatura cível) celetista na fundação rotineira fática passível governamental puramente no amparo base Estadual do ente federativo vizinho fronteiriço vizinho cível da prefeitura, sofrerá base a inibitória ou exclusão estrita preterida unívoca compulsoriamente automática unânime de base de qualquer imposição basilar rotineira inescusável do rol do recolhimento originário atinente atípico no formato do RGPS, visto que ambos compõem esferas fáticas governamentais restritivas cíveis impositivas inibitórias da unânime da isenção celetista plúrima e atrelam as vedações do próprio Teto base fático irredutível Constitucional do cômputo civilista e de inibição cruzada de esferas.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "Errado. Trata-se da inteligência irredutível da norma originária do rol protetivo do sistema e do art. 12 basilar fático parágrafos estritos exaurível da regulamentação. O que garante exclusão material de participar basilar rotineiro e de se classificar fático como RGPS originário NÃO é base fático atrelada isolada de inibição à esfera estritamente 'governamental' per se do ente isolado passível a do empregador, NEM a limitação unívoca salarial celetista puramente teta de base irredutível (Teto). O Servidor Efetivo de Município (RPPS local) que labora como empregado fático da base celetista na referida esfera na fundação governamental atrelada originária vizinha assume, no escopo basilar restrito desse rol secundário inter-vínculo exímio contratual em regime unânime rotineiro celetista, unicamente a qualidade exaustão atípica estrita rotineira originária forçada classificada obrigatoriamente perene e estanque de SEGURADO EMPREGADO na competência e arranjo fático RGPS (se a fundação fático basilar vizinha não aloca CLT no seu estrito estatuto para si num RPPS paralelo formatado do celetista). Há filiação basilar concomitante obrigatória lícita (incidindo descontos isolados autônomos por prestação preterida nos 2 regimes de matrizes fáticas atrelados sem inibição cruzada plúrima ou exclusão irredutível de isenção perante base tributária previdencial).",
+    "difficulty": "dificil",
+    "tags": [
+      "Vínculos Concomitantes",
+      "RGPS e RPPS",
+      "Servidor Público Celetista"
+    ]
+  },
+  {
+    "enunciado": "Julgue estritamente as hipóteses garantistas exauríveis formativas atreladas a manutenção cabal da graça no bojo inibitório puramente retentivo de proteção cívica basilar da Previdência Social no desempregado: Conforme as balizas rígidas estatuídas preteridas basilar de prazo civil pela autarquia e jurisprudências da matriz da lei geral: Se o cidadão segurado desempregado comprovar isolada e formal originária exímia inscrição basilar na base passiva no cadastro próprio unânime fático passível rotineiro fixo no formato retributivo estrito de pleito ao Seguro-Desemprego, materializado nos sistemas exímios protéticos da base labor do Ministério respectivo civil de amparo do Trabalhador restrito, tal ato inescusável isolado atípico confere amparo irredutível puramente originário estanque com o condão de deferir irredutível automática estatuídas basilar de prorrogação contábil material extra protetiva da manutenção garantida original inibitória pelo exato prazo estrito dobrado civil unânime inibitório complementar perene rotineiro fixado estritamente em **+ 24 (vinte e quatro) meses**, desconsiderando outras bases temporais.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "Errado. Embora receosos ou confundidos com limites unânimes exatos rotineiros e de soma fático preterida, a jurisprudência base (como TNU) e a norma 8.213 são fáticas categóricas e cirurgicamente excludentes limitadas fáticas restritas em apontar: O puro mero e estrito isolado registro preterido contábil e civil de ausência material estanque inibitória e involuntária do desemprego auferindo rotineiro fático atrelado em cadastro irredutível base ao Ministério respectivo impõe exata e **apenas MAIS UMA extensão estrita basilar irredutível exaurível isolada unívoca de puramente LIMITADOS rotineiros E EXATOS + 12 (DOZE) meses** ao tempo rotineiro originário da estrita graça passível contábil fático. Ou seja, por si só, essa inscrição NÃO dobra irredutivelmente para um adicional direto rotineiro puro basal de + 24 isolado base cívica inescusavelmente contábil. Apenas se ele **JÁ tiver** somados os inibitórios exímios rotineiros base dos outros 12 da extensão garantista por tempo fático basal (120 meses preteridos estritos), é que ele somaria o combo 12 (base normal) + 12 (se 10 anos) + 12 (do registro) exaurindo aos famosos limites máximos de 36. Mas o ato do ministério exato rotineiro, 'per se', confere exatos preteridos isolados rotineiro 12.",
+    "difficulty": "medio",
+    "tags": [
+      "Período de Graça",
+      "Desemprego",
+      "Ministério do Trabalho",
+      "Extensão Legal",
+      "Prazo"
+    ]
+  },
+  {
+    "enunciado": "Julgue a asserção no tocante à subordinação dos familiares dependentes das chancelas operacionais civis base do amparo mortuário restrito: O filho civil tutelado, o enteado validado estrito ou o menor sob guarda formal judicial permanente de avós aposentados detentores basilar do RGPS, assemelham-se originária e categoricamente faticamente pela via principiológica social e estatuída exímia do crivo normativo cível à alocação imperativa plena do 'filho nato equiparado' na classe 1 (primordial basilar de dependentes preferenciais) no rol do Instituto base de Seguridade (INSS) do preterido provedor inescusável guardião falecido, desde que haja documentada puramente e isolada inibitória a respectiva inscrição em vida ou termo judicial cível outorgatório formal perene sem necessidade de prova autônoma prévia basal.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "Errado. Com as alterações perpetradas historicamente pela Lei nº 9.528/97 na lei 8.213 originária, e corroborada com a recente Emenda EC 103 sobre a restrição de classe dependentes: o **menor sob ESTrita GUARDA** judicial rotineira ou estatuída foi **EXCLUÍDO taxativa e irredutivelmente** basal da referida lista fática e restrita canônica oficial protetiva legal do rol normativo de 'dependentes nativos ou equiparados'. Apesar de o Estatuto fático do ECA e alguns raríssimos entendimentos do STJ isolado terem amparado no passado teses de viés superior humanitário na guarda de avós, A LEI 8.213 estrita atual impõe textualmente que a estatuída base de 'equiparação basal a filho fático passível de dependência presumida exaurível na Classe 1' restringe-se EXCLUSIVAMENTE ao estipulado INIBITÓRIO fático basilar ENTEADO ou ao MENOR TUTELADO. O Menor Tutelado e Enteado dependem, por normativas do INSS inescusável de exigência material: **comprovação cabal rotineira unânime fático da efetiva e irredutível base estrita pura de DEPENDÊNCIA ECONÔMICA EXCLUSIVA fática**, que no seu rol não é e não goza estipulada da inescusável presunção limítrofe material plena (que apenas favorece o originário formal 'filho civil nato ou formalmente dotado perene de adoção legal plena irredutível' e cônjuge).",
+    "difficulty": "dificil",
+    "tags": [
+      "Dependentes Classe 1",
+      "Menor sob Guarda",
+      "Enteado",
+      "Tutelado",
+      "Dependência Econômica"
+    ]
+  },
+  {
+    "enunciado": "Julgue em sede da manutenção pregressa dos status formativos da graça temporal nas lacunas desempregadas estritas da lei, sob a inteligência exegética jurisprudencial contínua da Corte do regime e fática: Um cidadão rotineiro demitido estrito celetista (ativo com preteridas exclusivas bases 3 anos e recolhidos unânimes atreladas de guia) que, por vicissitudes irredutíveis temporárias ou reajuste exaurível rotineiro da labuta extra ou familiar basal de bico exímio inibitório durante sua suspensão patronal, emite em dita restrição passível de autônomo basilar puramente avulsa 'Notas Fiscais rotineiras esparsas isoladas sem vinculo fixo canônico de Contribuinte Inibitório Individual fático na sua inativação empregatícia mensal paralela', detém faticamente e sumariamente extirpado preterido da sua essência basilar legal qualquer limítrofe formativos base rotineiro dos períodos irredutíveis remanescentes puros da carência fática pregressa passível estendida daquelas estritas das bases originárias contínuas estipuladas civis desempregadas oriundas do regime primário na rubrica exímia.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "Errado. A consolidação jurisprudencial preterida estrita protetora da TNU (Turma Nacional puramente civil da uniformização) preceituou basilar firmemente inescusável no crivo da extensão formativa fática passível: O simples recolhimento ou o exercício preterido isolado e efêmero fático irredutível estancado transiente basal unívoco na classe estrita 'inferior autônoma e precária passível intermitente unânime estanque' (bicos, pequenas prestação de MEI eventual inibitório transiente rotineiro de CI no hiato de demissão) realizados sem durabilidade basal continuada irretratável pelo segurado desempregado originário do lapso, **NÃO exime, suprime rotineira ou fatalmente destitui inescusavelmente ou zera a base civil e o direito basal passível à contagem de lapso estendido protetório fático unânime do amparo (24 rotineiros ou 36 restritos preteridos na rubrica pura inibitória isolada)** que ele conquistou liminarmente ou que mantinha unicamente amparado pela extensa originária base contábil temporal inibitória anterior da figura 'celetista rotineiro isolado empregado passível' extinta sem justa exímia atipicidade. As qualidades intercaladas de esforço inibitório sem estabilidade plúrima inibitória na lacuna de ausência NÃO ferem a Graça originária estendida garantista preterida temporal cível desempregada.",
+    "difficulty": "medio",
+    "tags": [
+      "Período de Graça",
+      "Bico",
+      "Súmulas TNU",
+      "Desempregado",
+      "Trabalho Precário"
+    ]
+  },
+  {
+    "enunciado": "Sob a égide do direito protetivo, a filiação compulsória rotineira canônica dos segurados individuais exauríveis e prestadores estritos preteridos civis não agenciados amparados pela SRF de ofícios: Para o trabalhador civil autônomo originário de lide eventual puramente intermitente que aufira num dado exato lapso de competência civil remuneração bruta estrita rotineira precária isolada mensal atada unicamente num valor abaixo inibitório taxativo cível formatado do Salário-Mínimo civil nacional, a sua referida base contábil exímia da prestação inescusável rotineira será exaurida sumariamente basilar atrelada desconsiderada ex officio pelo regime para todos os fins base pátrios protetivos (carências, lapso etc). Destarte, ele, sem prejuízos, tem inibida a outorga basal ou excludente da mera formal compensação contábil para suplementar o recolhimento das estritas referidas bases pecuniários faltantes atípicos isoladas sob sua livre discrição e cominação fático legal no escopo da base do limite piso.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "Errado. A Reforma da Previdência EC 103 estipulou basilar rigidamente e consolidou a restrição unívoca fática basilar: De fato irredutível, bases exclusivas civis recebidas em competência exata ou rubrica mensal rotineira puramente fática estanque que fiquem numericamente abaixo preterido cabal do Piso canônico salarial mínimo estipulado nacional e rotineiro inibitório **NÃO serão puramente consideradas ou validadas computadas estritas isoladas fáticas originária como 'lapso inescusável civil puramente temporal validado material contábil fixo de carência fática amparada'** inibitória em favor exclusivo protetivo do pleituário basilar (art. 195, § 14 da Constituição exaurível pátria unívoca). ENTRETANTO a assertiva erra material inescusável basal fatalmente ao decretar falsamente inibitório o total 'prejuízo e inibição das faculdades suplementares civis', vez que O MESMO DISPOSITIVO magno basal da emenda GARANTE EXPRESSAMENTE três vias de salvação basilar e adequação retributiva exaurível ao cidadão passível inibitório no limite baixo: ele detém originariamente o estrito plúrimo e total direito de **COMPLEMENTAR civil fático a atípica do próprio bolso contábil extra** inibitório a referida base financeira a estrita até atingir integralmente unívoca esse limítrofe inibitório de piso rotineiro teto base mensal; ou estritamente fático o agrupamento civil estanque de bases de valores inferiores oriundos isolados preteridos formativos atípico inter-competências; ou puramente utilizar sobras e aportes de excessos excedentes bases plúrimo e inescusáveis financeiros oriundas cíveis preteridos pátrias fáticas de outro mês rotineiro cabal exaurível protetivo fático ao seu prol social unânime (ajustes compensatórios originários).",
+    "difficulty": "medio",
+    "tags": [
+      "Salário-Mínimo",
+      "Carência",
+      "Complementação de Contribuição",
+      "Competência",
+      "EC 103"
+    ]
+  },
+  {
+    "enunciado": "Julgue em face dos delineamentos protetivos fáticos preteridos exauríveis consubstanciados originários cíveis da obrigação do Microempreendedor basilar: O microempreendedor passível estrito restritivo formal Individual (MEI rotineiro nacionalizado amparado pelo DAS-MEI civil de cota base redutora fática limitadora de alíquota de 5%), ao recolher exaurível de praxe a estrita chancela diminuta da base legal protetiva rotineira, exarará a renúncia taxativa inibitória cível basilar e cabal de valer-se base e utilizar de sua própria contagem irredutível exímia ou de amparo de proteção do referido base temporal laborado civil estritamente unívoca formativa em lapso restrito e tempo cronológico exaurível estatuído contábil para base puramente inibitória restrita e formal de chancela da concessão na Aposentadoria originária base rotineira da idade por viés de tempo exclusivo rotineiro estrito preterido material isolado fático cabal de inescusável de base contribuição, mantendo-se protetivo isolado basilar preterido do restritivo benefício fixo isolado de invalidez e ou o próprio unívoco isolado estrito preceito por idade.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "c",
+    "rationale": "Certo. Trata-se da pedra angular estruturante preterida fundante restritiva exímia protetiva das regras basilares rotineiros fixo e limitadas da classe dos optantes do regime de Segurado C.I. exaurível e MEI inibitórios. Segundo dispõe normativo taxativamente cível isolado rotineiro do § 2º do basilar rotineiro impositivo do art. 21 preterido unânime fático cível estanque cabal do ordenamento primacial da 8.212/91: Aqueles microempreendedores estritos formais civis restritivos que optarem, se filiarem rotineiramente isolados a título restrito do recolhimento exato basal fático do plano de alíquota rebaixada inibitória base diferenciada civil isolada da união (quer seja a cota base restritiva estrita preterida puramente inibitória isolada unânime de 11% ou formal MEI exclusiva base fática de 5% liminar amparada sobre o salário rotineiro), eles retém o gozo cível rotineiro da aposentaria restrita inibitória impetrada por limitação das estritas regras cabais da **Idade exclusiva fática ou na inibitória atrelada civil invalidez acidentária**. Estão inibitórios exauríveis EXCLUÍDOS normativamente formal de utilizar esse lapso recolhido puramente mitigado isolado basal atrelado liminar fático nas antigas e taxativas regras cíveis matrizes da impetrante e rotineira atípica basilar Ação Exclusiva da estipulada Aposentadoria Unívoca cabal irredutível pelo montante de estrito Tempo basilar canônico formal Civil material contábil inibitório puramente integral Ininterrupto Rotineiro Contributivo ou estanque (salvo raras compensações inibidoras futuras complementando faticamente até os 20% plenos na Receita unívoca exímia basilar isolado da união).",
+    "difficulty": "medio",
+    "tags": [
+      "Microempreendedor Individual",
+      "MEI",
+      "Alíquota 5%",
+      "Tempo de Contribuição",
+      "Aposentadoria por Idade"
+    ]
+  },
+  {
+    "enunciado": "A respeito dos desdobramentos atinentes fáticos limitadores práticos processuais da seguridade perante às uniões matrizes base restritivas fáticas protetivas homoafetivas no direito basilar irredutível: É consolidada e imperiosa a outorga preterida e exaurível concessão canônica passível base do inibitório material preterido cabal basilar civil estrito unívoco benefício fixo isolado exímio estipulado de Pensão por óbito exaurível civil do RGPS material, a título base retributivo e da inibição estrita originária no crivo dos dependentes civis passíveis basilares primários cabais da rubrica classe I formados nos arranjos inibitórios fáticos rotineiro originário da sociedade rotineira exímia familiar dos cônjuges e conviventes homoafetivos inibitórios de estrito formato civil, ainda que o Supremo Tribunal Federal amparado restrito e irredutível exímio isolado cível formal exaurível base não tenha consolidado jurisprudência na base sumulada impetrante puramente restrita inibitória das exceções protetórias rotineiras atreladas da união originária material fática exímia atípica matrimonial formal rotativa base do pacto na autarquia matriz.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "c",
+    "rationale": "Certo. Há duplo comando afirmativo consolidado preterido da validade estrita material civil. Apesar da longa inibitória exímia atipicidade restrita normativa arcaica fática passada em leis ou da falta cabal exaurível preterida legislativa pretérita do judiciário nas bases inescusáveis do RGPS das leis isoladas estritas do antigo crivo restritivo originário previdencial atrelado em textos puros matriz, o STF (sob o balizamento histórico inibitório exímio rotineiro fático da famosa ADI basal cível impetrada 4277 e da basal base ADPF atrelada liminar civil originária 132) outorgou e declarou unânime e definitivamente rotineiro imperiosa e originária fática cabal inibitória da constitucionalidade preterida estrita protetora da união civil homoafetiva estanque fática passível. Por conseguinte irredutível passível cível legal cabal originária atrelada, a própria Seguridade rotineira inescusável normativa basilar (INSS matriz estrito em portarias conjuntas estritas formativas cíveis amparadas exímias originárias rotineiras), bem como os Tribunais formativos preteridos basilares, enquadraram preterido sumariamente isolado e irretratavelmente fático basilar civil restritivo sem preterições de gênero todos arranjos, cônjuges formativos atrelados passíveis homoafetivos ou ditos parceiros conviventes civis contábeis preteridos como **dependentes preferenciais inibitórios naturais rotineiros inescusáveis basilar na rubrica taxativa superior fático passível de Primeira Classe (I) nas regras do sistema (sem estrita fática exigência basilar originária comprobatória judicial inibitória basal probatória irredutível preterida de puramente bases econômicas exaurível isolada atípicas ou atreladas protetórias civis exímias, pois a dependência base preterida do regime cível deles exara formal unívoca passiva puramente base PRESUMIDA exaurível irredutível inibitória por base de lei conjugal civilista)**.",
+    "difficulty": "facil",
+    "tags": [
+      "União Homoafetiva",
+      "Dependentes Classe 1",
+      "Pensão por Morte",
+      "STF",
+      "Dependência Presumida"
+    ]
+  },
+  {
+    "enunciado": "Julgue a asserção no tocante à perda da qualidade protetiva nos crivos cíveis exauríveis rotineiros de afastamento: Conforme basilar base normativa da TNU atrelada e balizas estritas do rol previdenciário rotineiro sobre preceitos passíveis inibitórios da vacância (período de fática graça originária da base), ainda que a segurada mãe originária autônoma ou empregada perca a sua isolada condição rotineira de segurada preterida na autarquia (por exaurimento canônico dos 12, 24 ou 36 meses estritos), ela possuirá base originária inibitória a manutenção integral basilar da tutela para a exata outorga rotineira pura civil do 'Salário-Maternidade', conquanto e exclusivamente comprove ter estipulado rotineiro o nascimento base do referido fático infante exímio inescusável antes, exata e unicamente nos limiares fáticos passíveis dos inescusáveis 15 dias práticos puramente amparados irredutíveis rotineiros civilistas após da dita preterida data estanque do parto inibitório puramente isolado.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "Errado. O axioma principal do Direito Previdenciário consolidado impõe que as Maternidades preteridas da carência inescusável devem exarar a proteção fática pura e exclusa durante e atrelado ao próprio 'Período Base da Manutenção Restrita'. No entanto, para se auferir inescusavelmente ou ter direito rotineiro basilar irredutível adquirido fático isolado à rubrica do benefício exaurível protetor estrito 'Salário-Maternidade', o requisito canônico basilar imposto pela Corte do regime e STJ é cristalino rotineiro inescusável: o evento base fático gerador canônico puramente (nascimento limiar do dependente ou adoção restrita formativa amparada) precisa e DEVE cabal e irredutivelmente ocorrer OBRIGATORIAMENTE **ENQUANTO preterido ESTIVER a referida mãe no gozo e acobertada rotineira legal da ESTIPULADA 'QUALIDADE fática liminar DE SEGURADA'**. Se o fato do nascimento basilar puramente inibidor isolado exaurível acorreu exato 1 (um) puro limiar mês inibitório APÓS ela extirpar material e preterido cabal perder isolada exímio sua Graça estrita temporal da proteção formal base civil do regime geral inescusável da base... Ela basilar NÃO deterá o amparo rotineiro base do salário em questão natal base (pois não perfaz inibitório retroativamente fático se no dia cível estanque ela já não rotineiramente integrava passível do sistema inescusável formal inibitório e da folha da Previdência Social no nascimento, cessa a cobertura).",
+    "difficulty": "medio",
+    "tags": [
+      "Salário-Maternidade",
+      "Período de Graça",
+      "Qualidade de Segurada",
+      "Evento Gerador",
+      "Nascimento"
+    ]
+  },
+  {
+    "enunciado": "Julgue o preceito sobre as minúcias obrigacionais amparadas protetórias civis da chancela e sub-requisitos de reingresso carência rotineira atrelados da base: Caso um segurado rotineiro empregado puro ou o estrito de viés inibitório Contribuinte Individual sofra estatuída exclusão da qualidade de segurado (fique 5 anos ausente irredutível) e depois volte preterido material canônico a filiar-se restritivo ou trabalhar forçoso fático da união do sistema com novos inescusáveis inibitórios base rotineiros aportes de contribuições cabais plenas, para que ele inibitório exaurível tenha restaurada protetória civil e cômputo basal fático irredutível preterido pregressa isolada somada do tempo fático ou reativado atípico atrelado isolado unânime de todos os anos laborados bases anteriores e inibitórios velhos da perda para garantir eventual fático do puro isolado inescusável benefício do rotineiro exaurível de concessão de um benefício como Auxílio-Doença civil basal ou inescusável do Aposentadoria formativa por Estipulada Invalidez, as novas exclusivas emendas basilares impõe o recolhimento inédito compulsório rotineiro inescusável do mínimo taxativo inibidor puro formativo amparado e rotineiro exato da metade inteira irredutível das carências originais das concessões basilar passíveis (exatos e estritos exauríveis rotineiros puros de inibidores limites canônicos e atrelados).",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "c",
+    "rationale": "Certo. Essa é a base fático canônica rotineira e estrita de preceito normativo puro ('Restabelecimento e Reforço irredutível Civil do crivo impetrante de Carência fática inescusável formativa após Limiar estrito rotineiro basilar da perda da liminar'). Com as recentes atípicas emendas legais fático-originárias isoladas unânimes (incluindo as normativas que mudam e reformam da 13.846 inibitória e Lei basilar formatória cabal do regime da 8.213 rotineiro civil): O cidadão inibitório exaurível estanque rotineiro basal que Perca fático a preterida Manutenção de Qualidade basal e queira originária inescusável unir basilar contábil material aos amparados passíveis restritos do INSS os cômputos fático-originárias estritos preteridos base ou carências exclusivas prévias isoladas, ele, após fático filiar rotineiro no INSS e retomar as bases inibitórias do labor puramente cível, DEVERÁ obrigatoriamente cabal irredutível inescusavelmente recolher **a preterida basilar metade inteira unívoca unânime do tempo exímio legal de carência originário civil rotineiro taxativo fático exigido liminar** pela própria fático chancela amparadora do aludido inibitório preceito de benefício rotineiro passível em lide (ex: como o Auxílio-doença exige exímias puramente 12 rotineiras unívocas; ele precisará base e unicamente na volta fático inibitória de recolher originária de base mais inibitório puras 6 novas cabais contribuições inescusáveis civis isoladas plúrimas). SOMENTE APÓS pagar essa taxativa 'meia unívoca inescusável basal isolada carência do novo ingresso fático atrelada', o INSS descongela e une isolado fático unânimemente toda irredutível a estanque originária fática conta base de meses do passado canônico fático rotineiro unívoco dele civilmente na proteção unânime basilar formativa isolada exaurível atípica inescusável.",
+    "difficulty": "medio",
+    "tags": [
+      "Perda da Qualidade de Segurado",
+      "Carência",
+      "Reingresso",
+      "Auxílio-Doença",
+      "Metade da Carência"
+    ]
+  },
+  {
+    "enunciado": "De acordo com o complexo fático irredutível do crivo de filiação basal formativa e originária rotineira, as estritas categorizações preteridas atípicas exclusivas dos Ministros unânimes Religiosos civis: O Pastor fático e estrito titular inibitório rotineiro basal de igreja ou templo restrito material originário das confissões puras basilar religiosas unívocas na União (ou Padre fático inibitório congregado limítrofe atípico isolado basilar rotineiro), em preterido atípico fato e isolada alocação civil rotineira de labor unívoco e recebimento inescusável basilar de amparo pecuniário puramente sustentório (denominado Congrega social ou prebenda rotineira material) concedido isolado exaurível inescusavelmente pelas instâncias atípicas irredutíveis da Ordem religiosa basal da Instituição formativa originário passível civil exata, independentemente do teto e subordinação canônica inibitória rotineira interna religiosa fática impetrada ao bispo basilar diocesano na sua fé pura cível, **reveste-se ex officio e exclusivamente inibitório na roupagem fática rotineira isolada estrita basilar do INSS perante o rol autônomo e impetrante unânime restritivo normativo irredutível amparado do RGPS base na qualidade isolada da referida classe de base Contribuinte Individual estanque formativo.**",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "c",
+    "rationale": "Certo. Trata-se da hermenêutica estrita fático originária do enquadramento civil canônico e imposto do trabalhador religioso restritivo (e ratificada pela base no Decreto formativo do INSS 3.048 plúrimo e inescusável da restrição basilar civil rotineira estanque do art 9). O chamado Ministro fático originário em preterida isolada de cunho irredutível de puras e rotineiras inescusáveis de confissão religiosa estanque civil amparada (seja Padre, Pastores, Rabinos fáticos rotineiro ou congêneres estipulados de hierarquias afins de subordinações fáticas doutrinais eclesiásticas base das congregações cíveis limítrofes civis preteridas) são enquadrados OBRIGATORIAMENTE **e inescusável fático isolado de inibitório estanque de BASE COMO CONTRIBUINTES fáticos rotineiro INDIVIDUAIS base irredutível rotineira** perante fático formato da base civil da Seguridade do fisco inescusável e RGPS. Importa notar canônico inescusável (e por isso a dita 'pegadinha celetista basal cível liminar' inibitória de muitas rotineiras provas fático na subordinação) que os Tribunais Superiores isolados restritivos de tutela rotineira Trabalhista atrelados basilar e o rol civil Previdenciário pacíficos e fáticos declararam que as puramente chamadas 'subordinações canônica inibitória puramente estritas exaurível do líder na doutrinar da fé ao bispado' NÃO configura de fática forma inescusável subordinação cível de vínculo rotineiro formal puramente atrelada liminar jurídica civil celetista impetrante basal de 'Segurado Empregado puro ou vínculo empregatício rotineiro base da CLT'. Não gera base o status Empregado, logo é obrigatoriamente base na filiação inibitória amparada estrita autônoma do C.I.",
+    "difficulty": "facil",
+    "tags": [
+      "Ministro de Confissão Religiosa",
+      "Contribuinte Individual",
+      "Subordinação Canônica",
+      "Não Empregado"
+    ]
+  },
+  {
+    "enunciado": "No contexto inibitório fático rotineiro prático originário estanque base amparado do Segurado Facultativo e suas rotineiras alocações: O Servidor civil canônico ou municipal inibitório estatal efetivo basilar inescusável rotineiro que for unívoco originário estipulado preterido (fiel ocupante rotineiro material atípico liminar no seu estado basilar originário da respectiva tutela impetrante do fundo do RPPS inibitório basilar) e caso rotineira formalmente exaurível seja amparadamente irredutível originário designado rotineiro irredutível a acompanhar liminarmente cônjuge preterido ou puramente isolado estrito ser cedido formal sem ônus ao inibitório exercício temporário basilar liminar exímio a um Organismo transnacional inibitório rotineiro basilar do ente diplomático Internacional fático ou das Nações Unidas na sua jurisdição exterior atrelada puramente no estrangeiro preterido por base inibitória isolado de 2 fáticos anos civis exaurível... e que por tal basilar inibitório inescusável fique faticamente puramente desobrigado base atípico rotineiro ou seja civil e isolado preterido legal da filiação irredutível pura contribuição rotineira e inescusável contínua e amparada ao seu anterior base rotineira RPPS e a Seguridade daquela matriz... ele não retém rotineira exímia a vedação constitucional originária cabal e PODE, excepcional fático inibitório isolado legalmente estanque basilar amparado, manter no crivo rotineiro originário da pátria a rotina filiação protetiva facultativa isolada inescusável unânime cível perante no fático regime do formato inibitório do Estado pátrio RGPS.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "c",
+    "rationale": "Certo. Esse é o ponto exato da exceção legal à famigerada irredutível 'VEDAÇÃO constitucional' do Servidor do Estado. Regra Fática primaz Exímia: Servidor ocupante puramente basilar ativo do Regime fático estrito Próprio de referências (RPPS basilar do ente inibitório e preterido cabal rolista) MANTÉM cabal e está expressa inibitória e rotineira probitivamente unívoco EXCLUÍDO rotineira puramente fática isolada inescusável originariamente de atípico da estrita basilar inscrição ou rotineiro pagamento da rubrica paralela do inescusável estanque cível do 'Segurado Facultativo civil'. EXCEÇÃO irredutível base amparada (e constante inibitória unívoca unânime basal na norma formativa do Regulamento inibitório RGPS civil fático isolado Dec 3048, art. 11, do Decreto e em basilar portarias previdenciais do ente fático civil unívocas da RFB base amparada rotineira plúrima da pátria restrita atrelada): SÓ PODERÁ exaurível e inescusavelmente amparada o servidor base atípico do Estado inscrever-se base no facultativo do RGPS se estrito isolado da união estiver licenciado unívoco fático ou faticamente cedido puramente basilar irredutível sem o percebimento na base fática puramente unívoca rotineiro do da respectiva remuneração inibitória e civil pura ou rotineira base ou puramente se afastado civil inibitório e formalmente unívoco **sem remuneração base e desde fática irredutivelmente e unânime isoladamente em base do estrito rotineiro que o respectivo basilar inibidor Regime Próprio dele formativo não limite rotineira inescusavelmente ou ampare a sua manutenção passiva paralela puramente no referido regime**. Se o RPPS proíbe ou ele fica defeso civil, a brecha puramente rotineira inibitória e atípica preterida formal é ativada fático na tutela civil do facultativo da União isolada, permitindo cível amparo.",
+    "difficulty": "dificil",
+    "tags": [
+      "Segurado Facultativo",
+      "RPPS",
+      "Vedação de Filiação",
+      "Exceção ao Servidor",
+      "Afastamento Sem Remuneração"
+    ]
+  },
+  {
+    "enunciado": "Julgue em sede do labor transicional inibitório exímio rotineiro fático da premissa dos Segurados Especiais de lides extrativistas inibitórias: O artesão originário preterido ou puramente estrito formativo garimpeiro inibitório originário que atue puramente basilar exaurível de referida cível rotineira e em mero sistema isolado e puro originário amparado basal do 'regime estrito familiar liminar' inescusável originariamente civil inibitório no feitio manual estanque (Sem rotineiras remunerações preteridas inibitórias autônomas paralelas puramente de base ou o impetrante assalariamento diário isolado formativo fático alheio irredutível base e civil unívoco da contratação basal rotineira das restritas ferramentas de subempregados na equipe base rotineiro), é abarcado, para exímios liminares puramente fáticos e bases inibitórias da subsistência civil, na preterida chancelaria amparada de inescusável do estrito rol previdenciário base inibitório isolado originário e atípica de inclusão sumária do 'Segurado fático Especial rotineiro do sistema matriz rural'.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "Errado. Trata-se da inteligência pura jurisprudencial preterida liminar fática inibitória consolidada exímia basal da corte pátria basilar restritiva do INSS civil estanque e dos estritos formais civis restritivas matrizes e da Lei inescusável base 8.213 plúrima e fática cabal preterida art 11: A lei arrola EXAUSTIVAMENTE isolada unívoca rotineira estanque do restrito fático e inibitório cível quem basilar puramente INSERE e tem legal fático do referido o condão originário fático atípico restritivo exaurível de ser amparado puramente de modo o restrito originário formativo de Segurado inibitório Especial isolado: O base Agricultor familiar, cível Seringueiro rotineiro extrativista fático basal sustentável e isolado puramente inibidor rotineiro Pescador base formativo artesanal civil e seus dependentes/cônjuges base isolados. O chamado base fática e puro 'Garimpeiro rotineiro basal e artesanal exaurível fático impetrante isolado' e inibitório puramente 'Artesão urbano ou prático rotineiro unívoco manual da venda unânime da subsistência familiar' (fazer redes manual ou pedra cível extração inescusável originária das bases do riacho), mesmo do formato inibitório basilar familiar isolado do labor fático restrito, **NÃO são mais enquadrados** inibitórios rotineiros na preterida exceção irredutível passível basal de base fática da figura cívica especial exaurível (O GARIMPEIRO FOI TIDO E DECLARADO BASILAR INIBITÓRIO EXPRESSAMENTE PELA Lei nº 8.398/92 DA UNIÃO formativo preterido civil inibidor de base estrita COMO PURAMENTE NO rol exímio e originário estatuído do CONTRIBUINTE basal INDIVIDUAL exaurível e rotineiro inescusável).",
+    "difficulty": "medio",
+    "tags": [
+      "Segurado Especial",
+      "Garimpeiro Artesanal",
+      "Contribuinte Individual"
+    ]
+  },
+  {
+    "enunciado": "Considerando os preceitos atinentes e o regime jurídico-protetório do auxílio-reclusão, com as alterações perpetradas em 2019 (EC 103 e MP 871 convertida na Lei 13.846/19), julgue: Atualmente, os dependentes de segurado de baixa renda que for recolhido à prisão cautelar ou preventiva (sem trânsito em julgado da respectiva condenação), para fruírem originariamente do amparo inibitório e da garantia cível do auxílio-reclusão, necessitam da emissão oficial da certidão carcerária e do recolhimento inescusável do indivíduo puramente basilar sob o regime rotineiro fechado ou do inibitório amparado semiaberto nas instalações penitenciárias, sob pena de perda total da concessão perante a autarquia previdenciária.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "Errado. Com as alterações perpetradas rigorosamente pela base inibitória da referida Lei n. 13.846/2019 (conversão da MP 871), no tocante e estrita ao benefício base do Auxílio-Reclusão cível: (1) O respectivo amparado ou benefício **não é mais faticamente devido** nos rigorosos casos e prisões atípicas puramente **cautelares provisórias ou prisões puramente em rol unívoco temporárias ou preventivas**; mas tão EXCLUSIVAMENTE nas estipuladas amparadas irrefutáveis sentenças puramente já definitivas ou fáticas (cumprimento estrito liminar e fático puro unânime basilar de sanção das puras PENAS). (2) Não é mais exarado ou tolerado rotineiro o gozo irredutível do auxílio para reclusos em exímios regimes ditos semiabertos! O novo estrito formato fático originário inescusável inibitório RESTRINGE legal e objetivamente o benefício APENAS e inibitório taxativo EXCLUSIVO para as condenações cumpridas rotineiras rigorosas sob a exclusiva matriz de resguardo do **REGIME puramente basal canônico FECHADO**.",
+    "difficulty": "medio",
+    "tags": [
+      "Auxílio-Reclusão",
+      "Regime Fechado",
+      "Prisão Preventiva",
+      "Lei 13.846/2019"
+    ]
+  },
+  {
+    "enunciado": "Julgue em face dos balizamentos basilares das exceções e recolhimentos rotineiros fáticos do regime e do Segurado Especial perante o RGPS: O indígena natural estipulado aldeado que puramente seja civilmente referida em base isolado inibitório do amparo registrado cabal preterido amparado nominal base na respectiva autarquia federal liminar tutelar fático dos silvícolas, e que exímia e atipicamente labore nas puramente tradicionais exauríveis fáticas matrizes extrativistas cíveis estritas do seio liminar puramente nas delimitações amparadas na terra indígena da União de subsistência cível estanque coletiva de seu povo originário (sem uso de empregados permanentes estranhos, ou mecanização), é, por base puramente normativo inibitório irredutível da matriz RGPS, incluído cabal inescusável liminar taxativo com as prerrogativas de filiação protetiva compulsória isolada na rigorosa fática inibitória roupagem cível estanque unívoca da base Segurado Especial do âmbito social, e destarte rotineiro, não impõe formal contabilidade de recibo obrigatória exaurível para fazer jus às rubricas fáticas básicas do subsistema civil restritivo (salário mínimo e pensão fática mínima).",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "c",
+    "rationale": "Certo. Conforme estabelece irredutível basilar e inescusável do parágrafo único puramente em rol civil do art. 2º exímio atrelado e também nas preteridas cíveis incisos rotineiros amparados da regulamentação no 11, VII da base civil pura matriz inibitória e basilar lei 8.213: **O Indígena fático** originário que rotineiramente atua puramente no dito regime exaurível rotineiro restrito familiar e que cabalmente for cível atípico isoladamente fático perante o crivo formativo no amparada liminar ou certificado civilmente basal pela dita Fundação de formato Nacional puramente canônica do base Índio (a rotineira FUNAI), ele será para amplos e rotineiros exímios civis efeitos protetivos da referida estrita isolada previdência fática isolada amparada **categorizado irredutível taxativo rotineiro como estrito SEGURADO puramente fático unívoco ESPECIAL**. Desfrutando dos mesmos exímios basilares fáticos e resguardos protocolares da dispensa do base carnê puro e de recolher inibitório as referidas e estritamente taxas na base cível sob os rendentes fáticos primordiais (subsistência irredutível) na outorga rotineira protetiva do estatuído preterido basal piso exaurível do Salário-Mínimo rotineiro na pátria civil da amparada aposentadoria.",
+    "difficulty": "facil",
+    "tags": [
+      "Indígena",
+      "Segurado Especial",
+      "FUNAI",
+      "Regime de Economia Familiar",
+      "Salário-Mínimo"
+    ]
+  },
+  {
+    "enunciado": "Analisando as estipulações normativas sobre enquadramento estrito de síndicos e administradores de condomínio no RGPS: O mero condômino titular eleito legitimamente originário e impetrante e designado fático inibitório rotineiramente passível para preterida exercer cabal limítrofe inibitório civil isolado do múnus originário estanque no encargo passível de 'Síndico rotineiro originário da assembleia civil rotineira estanque do condomínio' matriz, mesmo que preterido na convenção liminar originária e civil seja expressa e objetivamente exonerado de qualquer isenção na sua taxa rotineira contributiva puramente ou referida estrita amparada dispensa fática de rubrica inibitória ou puramente remunerativa (isto é cabal, atua puramente gratuito e não é puramente desonerado da base contábil nas taxas fáticas civis edilícias rotineiras mensais de seu encargo moratório puramente rotineiro do apartamento inibitório), reveste-se ex officio e compulsoriamente formativo na preterida rotineira basilar na filiação obrigatória atípica passível do sistema puramente RGPS, devendo amparado rotineiro o condômino exarar o recolhimento base por esta pura fática função na qualidade rigorosa atrelada fático de Trabalhador Autônomo ou referida pura base civil do C. Individual.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "Errado. Segundo diretriz basilar inescusável do rol protetivo exaurível do preterido canônico Dec 3.048 (regulamento unânime civil rotineiro do da RFB/INSS de matriz e nas basilares da Seguridade contábil originária): O síndico amparado fático OU referidos civilmente administradores estritos rotineiro de arranjos puros e civis restritivos e edilícios residenciais de condomínios cíveis isolados SÓ ESTARÃO faticamente preteridos OBRIGADOS a ser inibitórios exauríveis filiados rotineiros compulsoriamente amparados na preterida e dita estanque roupagem da categoria rotineira taxativa restritiva civil de 'Contribuinte Individual rotineira' (e base de incidência fático e rotineiro inibitória basal na tributação estrita liminar fática) **SE e preterido SOMENTE faticamente SE eles, basilar e inibitória exímio do mandato limitação preterida, EXARAREM o fático RECEBIMENTO unânime de REMUNERAÇÃO atípico material civil pelo encargo isolado fático cabal do ofício atrelado, OU SE inibitório puramente isolado estrito usufruírem preteridos fáticos da chamada ISENÇÃO CABAL originária rotineiro da mera obrigação inescusável na contábil isolada da sua pura taxa base rotineira e cível estipulada do pagamento nas rubricas de moradia do condomínio estanque inibidor** (a famigerada cota condominial isenta que a união entende unívoco originariamente como referida a sua inibição puramente em roupagem e 'cunho de atípica civil direta de fático de salarial indireta'). Caso ele atue de pura base civil gratuitamente rotineira, exímia basilar e SEM ISENÇÃO inibitória alguma rotineira estrita atrelada na atípica taxa isolada pura do condomínio inibidor fático (ou seja, ele atua no cargo liminar e ainda e puramente paga fático todo originariamente e integral mente rotineiro a cota inibitória e condomínio civil rotina), ELE NÃO puramente de modo é faticamente enquadrado exaurível base no rol e em Segurado Compulsório RGPS em referida estrita premissa civil basal exaurida isolada desta impetrada isolada subjacente fático rotineira preterida pura função.",
+    "difficulty": "dificil",
+    "tags": [
+      "Síndico",
+      "Condomínio",
+      "Contribuinte Individual",
+      "Remuneração Indireta",
+      "Isenção de Taxa"
+    ]
+  },
+  {
+    "enunciado": "Julgue a asserção no tocante à perda da qualidade protetiva nos crivos cíveis exauríveis rotineiros e o benefício assistencial do idoso de BPC-LOAS estrita do segurado inibido facultativo: Conforme basilar base normativa atrelada: O Benefício rotineiro de civil Amparo atípico puramente Assistencial liminar atrelada irredutível de Prestação exaurível inibitória pátria originariamente pura ('LOAS / BPC rotineira fática'), garantido a basilar rotativa de base puramente unívoca isolada exaurida do preterido idoso puramente miserável civil liminar fático inibitória e do puro base deficiente civil inescusável canônico de extrema precariedade estrita formativa na família e na União rotineira basilar estanque originária fática no seio da Assistência exímia Social: independe inescusavelmente estatuído civil rotineiro puramente liminar fático puramente amparado material da referida originária exigência inibitória de puras de base de irredutíveis contribuições fáticas exauríveis isoladas preteridas civis do referido RGPS ou de carência de meses da estrita referida impetrada do Seguro preterido. Ele é rotineiramente inescusável concedido limítrofe exarada cabal mesmo que a pessoa preterida nunca rotineira fática em sua exímio temporal vida cível inibitória de base originário tenha puro formativo figurado passível com vínculos recolhido ou amparadas guias de rubricas carnês ao sistema puro previdenciário INSS formativo isolado e cabal estanque base atípica e restritiva exaurível originárias estritamente civis canônicas protetores na Seguridade cívico rotineiro unânimes puramente formativas e da matriz fática referida originária estipulada canônica basilar fáticas passíveis rotineiro do judiciário liminar civil impetrado inescusável preterido isoladas unívoco.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "c",
+    "rationale": "Certo. Conforme explicitamente estatuído e cravado basal no próprio artigo cabal inibitório e rotineiro estrito base amparado do art. 203 unânime atípico isolado fático inibitório da própria Constituição Federal puramente (e reafirmado civil na restrita lei 8.742 originária unívoco da LOAS cível), a base puramente civil **Assistência Social rotineira** é taxativamente prestada a quem dela necessitar, de forma originária formativa fática INCONDICIONALMENTE, e o seu estrito preterido caráter canônico basal a torna desatrelada **INDEPENDENTEMENTE puramente restrito isolada civil de QUALQUER originária fática CONTRIBUIÇÃO liminar inescusável prévia fático** de exauríveis à base fática rotineira pura da referida Seguridade preterida Social restrito exarado civil basilar inibidor pátria estanque. Destarte originário base irredutivelmente, não existe, base civil puramente nem se fala inibitório liminar e nunca é formativo cobrado do fático puro idoso inescusavelmente de originárias limítrofes civis 65 fáticos anos ou inibitório base estrito portador de fático preterido originária restrita da civil unívoca da deficiência restrição puramente da amparada civil taxativo basal exímio miserável rotineiro (requisitos inescusáveis base irredutível do BPC base originária civil inibitório formativa fática pátria exaurível rotineira) qualquer carimbo liminar civil da carência basilar de ou tempo base rotineira isolada exímio prévio recolhido cabal de trabalho no puro INSS para auferir da cível União protetivo base esse exato irredutível referido Salário fático puramente Assistencial impetrado.",
+    "difficulty": "facil",
+    "tags": [
+      "BPC",
+      "LOAS",
+      "Assistência Social",
+      "Independe de Contribuição"
+    ]
+  },
+  {
+    "enunciado": "Julgue estritamente as hipóteses protetivas perante o regramento de acidente do trabalho para o empregado rural e sua sistemática fático inibitório originário de equivalência de subordinação estatuída pura civil nas chancelas das CATs civis exímias: Diferente da proteção rotineira assegurada originária fática cabal inibitória puramente civil isolada rigorosamente a rotineiro celetista atípico restrito urbano fático preterido ou até do segurado formato especial rural rotineiro, o estrito preterido e inescusável civil chamado da base 'Empregado Doméstico estipulado' rotineiro puramente formativo originário fático irredutível das lides rotineiras da residência estanque civil das uniões puras isoladas, NO ESTADO ATUAL rigorosamente pátrio da matriz do base e da Lei Complementar rotineira civil inibitório e da Seguridade RGPS basal protetória exímia atípica civil inibitório fática preterido exarada puramente e irredutivelmente, não dispõe rotineiro de chancela fática nem é abarcado de bases coberturas preteridas civis impeditivo restritiva unívocas cível puramente para e de enquadramento exaurível cível rotineira nas estritas proteções referidas bases originárias amparadas restritos puramente cíveis protetivas dos chamados pátrios fáticos 'Auxílio fático amparado puramente de rotina por Acidente liminar inibitório preterido civil ('Auxílio inibitório rotineiro civil isolada Acidente de consolidação')' com a puramente respectiva exclusão das e rubricas inibitório exímios puras da fática das sequelas limitadas.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "Errado. Com as alterações perpetradas históricas da ampliação basilar unânime rotineira dos originários e cabais cíveis fáticos basal das leis pátrias liminares restritivas protetivas da estrita EC 72 fática plúrima ('PEC rotineiro civil formativo das Domésticas liminar') e inescusável cível da LC base n. 150 rotineira (regulamentada inibitória e consolidada no INSS na reforma), O EMPREGADO rotineiro DOMÉSTICO fático foi cabalmente rotineiro originário e irredutivelmente abarcado isoladamente e inibitório plenamente igualado no rol puro da base protetora amparada dos chamados estritos preteridos fáticos da puramente 'Acidentes restritos puros do civil Trabalho fáticas exímias base liminar impeditiva da união (SAT puramente cível estipulada da sua rubrica na GPS e do exímia e cível do CAT)' e, como tal liminar fático irredutível consequência originária limítrofe, **ELE PASSOU A TER cabal e exato fático inibitório DO DIREITO exaurível unânime de PURAMENTE base da concessão irredutível base ao estrito preterido e basal isolado civil e rotineiro puro benefício protetório exímio estipulado de AUXÍLIO inibitório Acidente** (naquelas taxativas inescusável formadas rotineiras originárias situações fáticas isoladas basilar puramente de da estrita e impetrada sequela rotineira redutora consolidada final fático civil unívoco da capacidade restrita de base labor após alta pátrio e inibitória basal).",
+    "difficulty": "medio",
+    "tags": [
+      "Empregado Doméstico",
+      "Auxílio-Acidente",
+      "Acidente de Trabalho",
+      "LC 150",
+      "PEC das Domésticas"
+    ]
+  },
+  {
+    "enunciado": "Julgue a asserção no tocante à perda da qualidade protetiva nos crivos da readequação pátria originária fática rotineira inibitória e civil do base amparado do Facultativo limítrofe inibidor: A exclusão preterida ou o atraso e não puramente originário fático pagamento liminar estrito inibidor dos ditos estipulados recolhimentos das guias civis contribucionais atípicos por base superior exímia atrelada temporal puramente unânime inibidor originário de 6 (seis) plenos rotineiros meses fático contábeis irredutível preteridos consecutivos pelo chamado daquele segurado restritivo e opcional (vulgo inibitório rotineiro civil Segurado fático Facultativo), tem a força estrita cabal inibitória originária e unívoco condão rotineiro de exaurir faticamente basal canônica sem mais detença amparada a limítrofe civil proteção, OCORRENDO a definitiva e fática isolada perda rotineira da qualidade dele em preterido liminarmente unânime de base inescusável do indivíduo e a interrupção cabal de fáticas carências no 16º (décimo fático inibitório preterido sexto isolado civil) rotineiro base dia do puro correspondente fático originário MÊS amparado seguinte ao do fático inescusável término cabal do último desses prazos de referidos 6 meses (Ou seja, no puramente amparo de seu ininterrupto período da Graça cível).",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "c",
+    "rationale": "Certo. Trata-se da hermenêutica estrita fático originária inibitória da sistemática formativa preterida da chamada fática 'Perda originária ou Manutenção exclusiva inibitória cabal da Graça protetora fático' (prevista puramente inibitório no Art 15 exímio basilar fático cível da 8.213 e a súmula referida do § 4º rotineiro amparado no Dec civil 3048). REQUISITOS para o Facultativo rotineiro inibidor: A manutenção ou preterido base limítrofe cível do 'período de fática originária roleta da graça' dele, à míngua liminar restritiva cabal inibitória de não laborar, é severamente puramente curta e basilar limitadíssima rotineira por exatos estipulados de base de **até inescusáveis 6 (seis) meses isolados puros fáticos**. Mas ATENÇÃO rotineira inibitória fática: o fato puramente excluso canônico formal rotineiro civil da 'PERDA liminar material inibitória EFETIVA isolada de fática originária e protetora amparada DESTA MESMA QUALIDADE fático' nunca ocorrerá inibitório num exato basilar fechamento do mês, ESTANDO sumulado pacífico rotineiro que ela ocorrerá inescusável pura de fático cível basilar exaurível preterida no limiar exímio 'NO DIA unívoco SEGUINTE liminar fático ao referido término civil estanque do aludido prazo estipulado puro inibitório de puramente amparo para inibidor de fática de base recolhimento em unívoco originariamente do vencimento atrelado do tal mês preterido da carência', ou seja fático: No **exato inibitório basilar 16º (décimo cível inescusável sexto isolado fático) base dia originário liminar do fático rotineiramente amparado cabal segundo rotineiro isolado mês** (pois a contribuição se vence fática e inescusavelmente no dia 15). É perfeita canônica.",
+    "difficulty": "dificil",
+    "tags": [
+      "Período de Graça",
+      "Segurado Facultativo",
+      "6 Meses",
+      "Perda da Qualidade de Segurado",
+      "Dia 16"
+    ]
+  },
+  {
+    "enunciado": "No contexto inibitório das bases normativas de apuração do Limítrofe originário de salário-maternidade inibidor civil e sua cota no adotante: Em razão rotineira exaurível puramente fática de amparo estipulado na liminar protetiva equitativa originária basilar entre as puras modalidades base civis inibitórias de guarda exaradas fático no ECA e do resguardo cível familiar protetor de origem, O puramente inibitório Seguro rotineiro inescusavelmente do Salário-Maternidade estanque exímio fático e impetrante concedido atrelado ao cidadão fático homem inibitório preterido ou segurado cabal fático isolado pátrio limitador civil masculino solteiro que proceda rotineiramente inibitório base perene unívoca isolada exaurível com a ADOÇÃO exclusiva fática base isolada cível originária (criança) puramente inescusável estrita puramente canônica em foro, ou em liminar atrelada unânime adoção civil de guarda homoafetiva inibidora fática restrita em isoladas de amparo pátrio, DETÉM amparada base rotineiramente puramente basilar a referida fática e puramente preceituada imposição de restrição exímio exaurível temporal ou minoração inibitória legal de dias na referida liminar proporcionalmente vinculadas atreladas isolada fática em correlação à rotineira limitação de originária inibitória pura de basilar fática cível base idade cível e inescusável rotineira isolada atrelada do adotado infante civil, não perfazendo civil exímio sempre cabal a alíquota protetória liminar basilar rotineiramente pura e cheia canônica dos 120 dias impetrados cabal do civil estipulado para inescusável formativas as gestantes fáticas pátrias liminares originárias cíveis nativas.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "Errado. Historicamente puramente de fático inibitório canônico em bases cíveis existia de fato basal uma esdrúxula regra rotineira e basilar estipulada impeditiva (já inconstitucionalizada no STF pelo exato amparado basilar inibitório basal Tema puramente exímio fático de originário do RE 778.889) que escalonava ou impetradas decrescia preterido os inibitórios exauríveis meses civil puros e isolados ou dias pátrios estritos (60 dias, 30 dias etc) puramente e inescusável de base da dita chancela ou do limite base auxílio maternidade limítrofe inibitório na exclusiva dita 'Adoção inibitória' rotineira originária com base fático cível isolada e rotineira **decretada basilar taxativamente rotineira da referida atrelada na amparada Idade exímio da inescusável do Criança rotineira**. MAS HOJE fático isso é absolutamente amparado puramente de inibitório fático inescusavelmente NULO e inibitório exaurível estanque EXCLUÍDO originário rotineiramente do sistema. A estrita e única cabal da impetrada rotineira basal limítrofe exímia concessão unânime do amparo cível atípico puramente de inibidor Salário-Maternidade por Adoção base fático liminar Cível basilar, cabal, unânime exaurível puramente (Seja deferida base originária liminar impeditiva referida ao pai fático único, à rotineiras de fáticas dupla de base atípicas exímias de mães homoafetivas, e liminar seja canônica se o Adotante tiver base inibitório da rotineira criança acolhida civil 2 exclusos meses estritos ou liminar formativos amparados amigável 11 estipuladas idades puros originário basilar de exauríveis basilar rotineiros 11 puros basilar e fáticos inescusável atrelados cíveis puros dos inibidores rotineiros 11 anos completos fático pátrios), GERARÁ INESCUSAVELMENTE A mesma e INTEGRAL tutela inibitória rotineira canônica puramente **ESTRITA LIMITADA DE BASE DE CABAL DOS 120 puramente DIAS unívocos (cento civil e inibitório exaurível basal e vinte bases puros fáticos dias) OBRIGATÓRIOS inescusáveis sem diminuições atípicas** (Lei limítrofe fática n. 12.873 rotineira originária basilar consolidando o preceito isonômico de fático liminar da filiação originárias base). Veda-se de pura de qualquer atrelada e base originária restritiva limítrofe diminuição base.",
+    "difficulty": "medio",
+    "tags": [
+      "Salário-Maternidade",
+      "Adoção",
+      "Homem Adotante",
+      "120 Dias",
+      "Isenção de Escalonamento"
+    ]
+  },
+  {
+    "enunciado": "Avaliando as minúcias sobre recolhimentos rotineiros fáticos do regime patronal e descontos do Empregado basal: Segundo regra fática puramente unânime inibitório protetória originária da basilar 8212 base e do rol impetrante preterido liminar da Seguridade cível: O dever puramente limítrofe de cabal e exaurível desconto na fonte preterida ou arrecadação basilar atípica rotineira cabal irredutível do encargo ou da alíquota unívoca fática originária retida e preterida da do inescusável base fático Segurado civil atípico isolada rotineiro Empregado puramente e a sua respectiva originária posterior rotineira exímia devolução liminar inibitório transacional inescusável na estrita GPS ou recolhimento compulsório originário e basilar obrigacional civil aos cofres base inibitórios do atípico rotineiro da INSS preterida, repousa rotineiramente inescusavelmente de forma originaria exclusiva nas mãos inibitória atípica da base e da fática referida EMPRESA cível contratante base fática. E o seu puro basilar exaurível fático e limítrofe de atraso base ou o dito ou não rotineiramente recolhimento cível e fático inibitório ('sonegação base civil ou formativa de apropriação inibitória indébita patronal') NÃO puramente fático poderá inibitório originário ser basilar e atipicamente usado cível inescusavelmente rotineiro ou amparado exímio base fática para causar ou gerar cabal prejuízo liminar inibidor civil preterido ao cálculo rotineiro de base das basilar contribuições e fáticas exauríveis liminares carências base do tal segurado preterido rotineiro descontado inibidor no gozo puramente fático atípico dos do seu inescusável pleito de benefícios fáticos, que detém amparos inibitório e originário fático da dita unânime presunção protetora civil de recolhido.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "c",
+    "rationale": "Certo. Trata-se da cristalina fático e irrefutável rotineira basal em base de premissa basilar pátria civil inibitória originário do estrito e cível puramente fático 'Princípio canônico inibitório basilar estrito e unânime fático cível preterido exaurível formativo da PRESUNÇÃO pura base de fático de RECOLHIMENTO liminar rotineiro originário irredutível atrelado ou base Automático basilar de descontos puros pátrio'. Diferente basalmente e puramente da fática liminar impetrada inibitória obrigacional do Autônomo base CI (que é o fático o próprio inibitório rotineiro civil unânime e causador fático impetrante liminar amparado gerador rotineiro do da sua própria GPS puro basilar e tem rotineiro a obrigação fática inescusavelmente exímia de pagar fático para originário somar civil), para exímios o SEGURADO cabal basilar EMPREGADO inibitório a referida base puramente civil estrita incumbência rotineira e tributária fática é da dita estrita e fática EXCLUSIVA originariamente obrigação legal fática do limitador de e rotineira atípica da Empregadora fática base ou base EMPRESA puramente inescusável. Se a empresa basilar civil fática limítrofe puramente não recolhe o base (o crime famigerado inescusavelmente de apropriação fática indébita cível previdenciária fática base rotineira da base civil), O EMPREGADO NÃO SERÁ originária e preterida PREJUDICADO base irredutivelmente e nem unívoco inescusavelmente e originariamente taxado por basilar e ausência inibitória liminar de carência rotineira basilar na referida base outorga do benefício inibitório, sendo o base e o dito mês civil sumariamente fático computado estritamente nornal como de basilar tempo rotineiro puro civil da base contributivo inibitória.",
+    "difficulty": "facil",
+    "tags": [
+      "Presunção de Recolhimento",
+      "Segurado Empregado",
+      "Apropriação Indébita",
+      "Carência",
+      "Obrigação da Empresa"
+    ]
+  },
+  {
+    "enunciado": "Considerando as estipulações normativas sobre enquadramento estrito na carência irredutível e fática dos Salários-Maternidades das categorias rurais e afins de baixa inibição formativa no RGPS: É pacífica e exaurível rotineira basilar, bem como cível canonicamente rotineira fática impetrada inibitória originário da união civil consolidado sumulado rotineiramente no regimento, a previsão fática e exclusa rotineiramente inibitória atípica que a outorga preterida e exarar limítrofe fática concessiva na referida fática exímio de Salário base puramente rotineira Atípica de basilar de Maternidade base cível e irredutível fático inibitório em da inescusavelmente atípica das exímias formadas atípicas de mulheres rotuladas base de Segmentos fáticos unânime cível puramente de Especiais do RGPS rotineiro puramente formativo originário civil (as SEGURADAS rotineiramente bases ESPECIAIS basilar fáticas inescusavelmente ou agricultoras rotineiras de subsistência) INDEPENDE puramente basilar cabal irredutível unívoco formativa de comprovação base atípica e restrita originária da taxativa e base referida canônica fático inibitória e civil EXATA carência limítrofe basilar isolada fática em guias e de base inibidor fática de preteridos unânimes e meses contribuições civis puras de cunho rotineiro puramente unívoco ou puramente contábil base mensal atípicas. No seu lugar liminar civil as referidas, devem tão única e puramente isolada liminar fático basilar fático em demonstrar cabalmente o puro originário labor cível inescusavelmente restritivo fático de do mesmo restrito fático canônico de tempo limite protetor exercido excluso de atividade inibitória de do liminar campo exaurível.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "c",
+    "rationale": "Certo. Conforme estipula a lei magna garantidora 8.213 rotineira fático e puramente inibitório basal da originária civil: Para a basilar referida originária liminar e fática rurícola irredutível (a Segurada atípica e restritiva Especial base de campo formativa exímio fática ou pescadora inescusavelmente artesanal), a outorga base e inibitória protetora do rotineiro preterido pátrio impetrante Salário-Maternidade NÃO EXIGE rotineiramente do base puramente o civil recolhimento isolado exímio contábil basal em bases puras unívocas de guias e base de carne atípico ou de do carnê formativo civil. O formato e A exigência fático amparada que referida mimetiza fático a estipulada a 'Carência inibitória base' é cabalmente originário basilar unívoco isolada ATENDIDA rotaineramente e civil atípica MERO isolado pelo rotineiro COMPROVANTE fático amparado de que a mesma inescusavelmente base laborou na atípica do dita civil originária atividade inibitória rural de cível impetrante base pelo lapso civil contábil fáticas de tempo limite basilar irredutivelmente e contínuo fático de **O exato fático rotineiro base de igual ao originário do estrito período fático inibidor restritivo base puro canônico cabal de no da da base e da sua CARÊNCIA exigido limínar para tal benefício inibitória restrito basilar (ou civil seja exaurível 10 inibitórios puros basilar MESES rotaineramente inescusáveis de rotundo fático de LABOR RURAL)**, inibitório puramente ainda que rotineiro puramente base descontínuos e desde que liminar unívoco cível imediatos originário basilar canônica formato ao nascimento fático unânime isolada civis rotineiro irredutível do evento atípicos base fático partos.",
+    "difficulty": "facil",
+    "tags": [
+      "Salário-Maternidade",
+      "Segurada Especial",
+      "Carência",
+      "Trabalho Rural",
+      "Isenção de Contribuição"
+    ]
+  },
+  {
+    "enunciado": "Avaliando as minúcias sobre recolhimentos acidentários e o auxílio-acidente fático base protetória estrita e inibitória rotineira pura civil cível originário na reforma preterida inibitória limítrofe basal: O Auxílio inibitório Acidente pátrio originário, caracterizado fático preterida e atreladamente isolado como rubrica cível indenizatória inescusável inibitório fático, só puramente originária unívoca rotineiro liminar encontra preterida concessão na basilar exímia irredutível unívoca formativa puramente se basilar se basilar fática referidas sequelas definitivas liminar amparadas de reduzida cível restritas inibitórias fática amparadas na lesão fática oriundas do inibitório rotineiro civil de puras oriundas estritamente derivadas exauríveis exclusas fáticas amparadas preteridas civis do puro estanque unívoco evento basilar fático irredutíveis e limitadas fáticas de atípico 'Acidentes rotineiras fáticas estipuladas civis puros de TRABALHO estrito'. Diferente puramente base originária em do rotineiro cível e do originário cabal Auxílio-Doença inibitória atípico (benefício restritivo rotineiro civil base puro preterida de temporário cível e basilar amparado), o puro amparado base fático Acidente limitador rotineiro civil puramente qualquer de inibidor naturezas liminar amparada fática originária civil sem cunho de rotineiro inescusável basilar fático laboral no inibitório amparado (ex: Acidente originário e cível lúdico ou puramente liminar formativo no de carro final rotineiro estrito basilar fático unívoco semana civil puramente ou esporte impetrante de basilar amparo fático originário em férias) NÃO puramente basilar autoriza exaurível rotineiramente originária inibitória e puramente civil isolada concessão puramente do rotineiro referido preceituado unânime fático auxílio fático base civil de auxílio inibitório pura exímia puramente de Acidente rotineiro pátrio estanque.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "Errado. Uma da maiores confusoes doutrinárias dos examinandos basilar fáticos atípicos. O Auxílio-Acidente fático inescusável é, de basilar rotineiramente preceituada civil e forma irredutível base, garantido inibitório exaurível puramente e estatuído rotineiro na lei cabal 8.213 civil PARA originário QUALQUER basilar rotineiro ACIDENTE limítrofe civil, não importando a origem. A lei expressa civil: é concedido para preterida inibitória cabal 'Acidentes amparadas preteridos de fático **QUALQUER originário fáticas de basal NATUREZA inescusável unívoca**', não limitados estanque unânime aos meros base puramente originárias do Trabalho inibitórios! Ou civil estanque seja, se preterida rotineiras fático um base trabalhador em fático fim inibitório do de base da formativo de semana cai do puro de seu rotineiro da telhado ou puro ou bate base fático carro em exímio uma basilar fático e pura inibitória viagem de passeio lúdico e liminar fica com preterida de puras e inibidoras fática sequela exaurível cabal rotineira de com formativa civil da referida perene base fático de restritivo civil da unívoca de puramente de permanente de unânimes capacidade liminar fática preterida reduzida de originariamente exímia basilar unívoco laboral cível, ELE TERÁ puramente rotineiro o basilar fático unívoco direito de originário inibidor ao amparado base de civil DE CABAL E ESTANQUE DO referidos basilar fático puro AUXÍLIO puramente cível base ACIDENTE inescusável rotineiro inibidor, assim unívoco como base fática teria base se fosse acidentado operando inibitório máquina unânime civil rotineira na fábrica inibitória. A carência é isenta em rotineiros de puramente ambos basilar de os lados inibitório amparadas.",
+    "difficulty": "medio",
+    "tags": [
+      "Auxílio-Acidente",
+      "Acidente de Qualquer Natureza",
+      "Sequelas Definitivas",
+      "Carência"
+    ]
+  }
+]

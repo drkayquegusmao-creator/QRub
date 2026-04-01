@@ -1,0 +1,57 @@
+[
+  {
+    "enunciado": "Julgue a situação à luz das disposições atinentes aos filiados da Previdência Social e as atualizações da EC 103 sobre o tempo laboral estrito: Diferentemente das categorias do serviço doméstico assalariado e dos facultativos independentes, um presidiário foragido que labora clandestinamente como sapateiro numa viela sem alvará ou fiscalização e que, deliberadamente, aufere remuneração por essas entregas sonegando integralmente toda classe de imposto ao município, reveste-se legal e indubitavelmente e assume forçosamente o encargo normativo do RGPS com status e dever originário ativado de Segurado Contribuinte Individual autônomo perante à Receita Federal.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "c",
+    "rationale": "Certo. Pigmalião da regra-matriz da Seguridade: a obrigatoriedade da filiação previdenciária decorre do SIMPLES FATO GERADOR de transacionar e 'exercer atividade remunerada'. Conforme maciça jurisprudência e regra de proteção do RGPS, a ilicitude meramente administrativa (trabalhar sem alvará de prefeitura), fiscal (sonegar ISS/IR) ou mesmo a infração penal atípica transitória (ser presidiário foragido trabalhando na esquina) NÃO AFASTAM o dever jurídico forçoso da filiação gerado do exercício remunerado diário lícito da marcenaria/sapateiro. O trabalho preterido 'clandestino/ilegal' de objeto ilícito não atrai previdência, mas o trabalho 'faticamente lícito' (conserto de sapatos) exercido de modo irregular atrai integralmente o vínculo compulsório do Autônomo (C. Individual).",
+    "difficulty": "dificil",
+    "tags": ["Fato Gerador", "Contribuinte Individual", "Atividade Irregular"]
+  },
+  {
+    "enunciado": "No contexto da inscrição no RGPS para efeito das contribuições e aquisição formal pós-fática das regras do Estado sobre as carências, julgue: Nas rigorosas normativas processuais dos dependentes do instituto previdenciário e seus filiados de caráter eventual extra-compulsórios que demandem gozo prático, a mera formalização exímia legal (a filiação estrita em documento do cadastro NIT) concretizada 'post mortem' do segurado de filiação eminentemente opcional na condição de isento estatuído facultativo legitima instantaneamente, perante os tribunais civis, a viúva ou beneficiário inibido à pensão retributiva, restando a inscrição um ato perfeitamente retroativo.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "Errado. O Segurado Facultativo subjaz excepcionalmente à dupla necessidade estrita para se consolidar no plano e auferir validade ao evento letal: a filiação no INSS (ato declaratório opcional materializado pela pré-concordância nos documentos) SÓ TEM EFICÁCIA JURÍDICA E DE FATO COM EXATO PAGAMENTO DA PRIMEIRA CONTRIBUIÇÃO (recolhimento). Se ele se filiou ou quis se filiar, e veio a óbito (fato imprevisível infortúnio) ANTES de concretizar a primeira e válida rubrica paga originária (eximindo retroação), ou se os dependentes decidirem inscrever/pagar ele retroativamente de má-fé unicamente após morto para adquirir pensão, é formal e maciçamente MANTIDA A VEDAÇÃO estrita legal. O decreto é claro: 'É vedada a inscrição post mortem do segurado facultativo.'",
+    "difficulty": "medio",
+    "tags": ["Inscrição Post Mortem", "Segurado Facultativo", "Vedação Formativa"]
+  },
+  {
+    "enunciado": "De acordo com as particularidades das categorias da labuta do Empregado Doméstico nas hipóteses vigentes da base previdenciária e Lei Complementar protetiva: Diferente do quadro restrito do trabalhador avulso (em que a empresa ou sindicato que contrata tem a faculdade delegante de pagamento estrita), a diarista que comprove prestação ocasional direta ao núcleo isento sem subordinação por míseros 4 dias na mesma semana, de forma integral a mesma família, reveste-se transitoriamente do caput da roupagem contábil de empregada doméstica, assumindo, impreterivelmente de ofício, a família patrão e dona de casa como sua fonte retentora originária e mandatária de inscrevê-la, restando eximida ela mesma da dita obrigação originária estipulatória e de autodeclaração prévia da RGPS.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "c",
+    "rationale": "Certo. Trata-se da inteligência da lei LC150 aliada aos entendimentos cristalinos dos tribunais na reforma. Ao transpor e atingir a marca material superior a 2 dias fracionados laborais (portanto, a partir exata do 3º dia laborado contínuo e exímio na MESMA residência patronal de mesma titularidade na semana do civil), ela DESCARACTERIZA-SE terminantemente perante à corte da posição de 'autônoma/individual contábil da sua contributa própria' (como diarista esporádica) e assume compulsoriamente os laços plenos do enquadramento estrito e rígido de Segurada Empregada Doméstica inescusável. Ato contínuo, a OBRIGAÇÃO passiva civil legal de registrá-la, assinar CPTS e recolher o tributo do carnê único da guia eSocial transfere-se inteiramente ao crivo daquele tomador/família, que é revestido na roupagem fática de Empregador Doméstico compulsório das alíquotas limitadas.",
+    "difficulty": "medio",
+    "tags": ["Trabalho Doméstico Semanal", "Empregado Doméstico", "Exoneração de Autônoma"]
+  },
+  {
+    "enunciado": "Acerca das obrigações dos servidores civis investidos em comissão e prefeitos eletivos no crivo da Reforma EC 103 sobre RGPS, avalie a contingência sob súmula do colendo Supremo Tribunal Federal e doutrina tributária atinente: Um atual Prefeito recém-eleito de município litorâneo (logo comissionado de múnus eletivo no Poder Executivo por prazo fixo certo em chancelas de transição de sufrágio) que tenha ocupado no ano estrito anterior (sem vacância) apenas de modo isolado as fileiras e enquadramentos estatutários exclusivos nativos amparados no seu estado da Federação de nascença como Auditor Fiscal egiado à Regime Próprio (RPPS Estadual), reveste-se transitoriamente pelo mandato atípico numa alocação estancada na classificação passiva RGPS como Contribuinte Empregado.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "Errado. O exercente estrito de mandato eletivo federal, estadual ou municipal passa compulsoriamente sob o viés previdencial brasileiro as roupagens de Empregado Obrigatório RGPS unicamente sob uma única e exímia restrição hermenêutica canônica (presente no Art. 12 da 8212): 'desde que não filiado, de forma ininterrupta e originariamente por viés vinculante ativo, a uma linha ou quadro do fundo especial regime próprio de previdência social'. É pacífico, sob entendimento consolidado pretoriano, que se o Prefeito eleito já detém um vínculo vital ou estatutário Efetivo amparado e guarnecido anterior em outro Estado/fundo RPPS na sua posse originária, este elo original se MANTÉM, suspendendo formalmente o enquadramento avulso precário dele na roupagem RGPS-empregado e exigindo as contribuições estritamente ao regime preexistente base do auditor.",
+    "difficulty": "dificil",
+    "tags": ["Prefeito", "Mandato Eletivo", "Reserva RPPS Exclusiva"]
+  },
+  {
+    "enunciado": "Com base nos institutos e fundamentos de desfazimento da filiação e preservação social dos ex-militares da reserva reformada passível na RGPS: O cidadão convocado militar ativo da união prestador exclusivo rigoroso e contumaz de serviços castrenses imperativos que desabrochar forçosamente sob reclusão nos atos bélicos nacionais após os embates militares sob condenação civil na cadeia comum por três anos inescusáveis por crime alheio, preservará a estrita concessão civil estatuída de 2 (dois) anos e seis meses de período de vacância carimbada no RGPS a contar exata após o dia do desatar material oficial do isolamento penitenciário.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "Errado. A contagem do período de transição ou vacância jurídica e perda basilar previdenciária (período de graça) possui normas rígidas absolutas aos ex-militares natos recém saídos do quartel ou em evasão. O art. 15, I da refutada 8213 diz textualmente: mantém-se rigorosamente a graça por exatos 'até 3 (três) meses o tempo material após o desatamento legal/licenciamento ex-officio dos quadros fixos formativos do segurado isolado restrito contínuo originário e oriundo único das Forças Armadas engajado como militar'. Logo, não é uma flexibilidade ampla civil elástica que salta magicamente para 2 anos pela conjunção de reclusão atípica, além de a legislação militar possuir tratamento autônomo nas condenações carcerárias de crime comum que exonerem postos sem regalia transacional do civil desempregado penal.",
+    "difficulty": "dificil",
+    "tags": ["Forças Armadas", "Militar Egresso", "Período de Graça Restrito", "3 Meses"]
+  }
+]

@@ -1,0 +1,57 @@
+[
+  {
+    "enunciado": "Julgue, no âmbito da legislação de proteção ao trabalhador inserida no RGPS: Em detrimento das hipóteses extintivas de contrato, o segurado desempregado formal e empregado urbano, goza de proteção adicional caso comprove sua condição de segurado ativo há mais de duas décadas ininterruptas. Sob esse prisma jurisprudencial, para a contagem da prorrogação do período de graça, é indispensável que o interessado apresente prova de recebimento de benefício por incapacidade em um terço das mais de cento e vinte (120) contribuições efetuadas.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "Errado. Para a prorrogação do período de graça em +12 meses com base na acumulação de 120 contribuições ativas e ininterruptas, a lei nº 8.213/91 em seu art. 15, § 1º determina que estas não podem ter sido suspensas de tal forma que caracterizem a perda transiente da qualidade de segurado (o que apagaria o histórico anterior contínuo). Não há nenhuma exigência ou condicionante de recebimento prévio ou proporcional de 'benefício por incapacidade', tratando-se apenas do somatório matemático do recolhimento legal ininterrupto de dez anos.",
+    "difficulty": "medio",
+    "tags": ["Período de Graça", "120 Contribuições", "RGPS"]
+  },
+  {
+    "enunciado": "Analisando a classificação de contribuintes do RGPS, julgue a seguinte casuística: Determinada profissional e servidora municipal, estatutária e alocada a Regime Próprio de Previdência (RPPS), pleiteia concomitantemente atuar como revendedora autônoma de insumos odontológicos na região corporativa. Caso ela realize a atividade comercial em dias pares desvinculada do funcionalismo, estará obrigatoriamente e paralelamente inscrita no RGPS, na restrita classificação de Segurado Contribuinte Individual do ramo de comércio.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "c",
+    "rationale": "Certo. A filiação previdenciária, regida pelo princípio do 'Tempo de Serviço/Atividade Remunerada', impõe obrigatoriedade sobre todos que desempenhem atividade geradora de renda lícita não-amparada por instituto concorrente. Sendo ela servidora RPPS, porém exercendo uma atividade econômica privada independente (revenda autônoma), o art. 12, § 2º da Lei nº 8.212/91 expressamente veda isenção dupla de RPPS obstando as faculdades privadas. Portanto, ela se enquadra de forma exata e obrigatória no âmbito do RGPS como 'Contribuinte Individual' decorrente dessa segunda atividade comercial lícita.",
+    "difficulty": "dificil",
+    "tags": ["RPPS e RGPS Simultâneo", "Contribuinte Individual", "Servidor Estatutário"]
+  },
+  {
+    "enunciado": "Julgue, partindo do princípio retributivo das cotizações especiais e a Súmula 73 da TNU sobre a condição material rural: O arrendatário e parceiro do campo que comprove regime de economia familiar perde inequivocamente sua qualidade original de segurado especial caso o filho maior e solteiro expeça, ainda que transitoriamente e de forma marginal e documentada em contracheque por exatos vinte e cinco dias no ano limpo atípico da safra, serviço registrado celetista na indústria agroquímica vizinha para suplementar a cesta de compras.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "Errado. O dispositivo garantidor especial das safras, atualizado pela Lei nº 11.718/2008, e na Súmula 41 da TNU (reiterando a mitigação de rigor matemático em face das sazonalidades do campo), estipulou que 'a circunstância de um dos integrantes do núcleo familiar desempenhar atividade urbana não implica, por si só, a descaracterização do trabalhador rural como segurado especial'. Além disso, o art. 11, § 9º, inciso III da lei nº 8.213 assevera que a outorga da qualidade de segurado especial da família rural não se extingue se um membro (filho, p. ex.) atuar na qualidade de empregado no período de entressafra/safra em limite não superior estrito aos 120 dias normativos no ano (e 25 dias está amplamente acobertado legalmente).",
+    "difficulty": "dificil",
+    "tags": ["Segurado Especial", "Regime de Economia Familiar", "Trabalho Urbano Simultâneo"]
+  },
+  {
+    "enunciado": "Acerca dos Direitos Previdenciários insculpidos pela EC 103 (Reforma da Previdência de 2019), julgue o preceito sobre os segurados: A figura do Microempreendedor Individual (MEI), por força de previsão tributária especial de fomento empresarial, encontra seu tratamento singular previdenciário como segurado de filiação facultativa com redução de alíquota patronal da Lei Geral (DAS-MEI), restando-lhe opcional apenas o cálculo para o auxílio-doença rural.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "Errado. O Microempreendedor Individual (MEI), em virtude do exercício contínuo de atividade empresarial e labor executivo contábil-próximo como empresário inscrito no SIMPLES Nacional, consagra sua participação obrigatória sob os auspícios das normas previdenciárias. Ele não é e nem detém as bases de 'segurado facultativo', ostentando tecnicamente e rigorosamente as obrigações e roupagens jurídicas de contribuinte individual tributado diferencialmente sobre alíquotas simplificadas incidentes sobre o salário-mínimo (Art. 21, § 2º, II, da Lei 8.212).",
+    "difficulty": "medio",
+    "tags": ["Microempreendedor Individual", "MEI", "Contribuinte Individual Obrigatório"]
+  },
+  {
+    "enunciado": "Considerando os segurados trabalhadores autônomos listados na alínea 'h', inciso V, art. 11 da 8.213: O ministro de confissão religiosa ou membro de instituto de vida cristã monástica consagrada e sustentada na doação espiritual, isento de voto trabalhista com a igreja provedora com CNPJ, não poderá ser forçosamente coagido a pagar, contra o rebolde canônico do templo, as guias de previdência como segurado obrigatório contribuinte individual, uma vez que sua vocação é tipicamente de caridade em regime de isenção de filiação do Estado laico, restando-lhe tão somente as prerrogativas de doação filantrópica facultativa se assim desejar verter.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "Errado. Indiferente aos ditames de isenção dogmático-religiosa ou não (embasada na imunidade do templo), a lei estabelece de forma impositiva e basilar que os ministros de confissões católicas/evangélicas ou os ditos membros de institutos de vida monacal consagrada sãosubjugados previdenciariamente. Pela legislação material vigente (Art. 12, V, alínea 'c', da 8.212/91 e legislação protetiva similar da 8213), eles são imperativamente classificados como segurados obrigatórios na condição plena de contribuintes individuais. O valor referencial ou de ajuda pecuniária que eventualmente lhes seja garantido pela igreja, superior ao valor canônico isento legal, não se reveste do amparo trabalhista de emprego, mas gera inconteste tributação como contribuinte autônomo e de subsistência.",
+    "difficulty": "dificil",
+    "tags": ["Ministro de Confissão Religiosa", "Contribuinte Individual Obrigatório", "Filiação Previdenciária"]
+  }
+]

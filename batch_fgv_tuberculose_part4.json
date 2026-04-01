@@ -1,0 +1,953 @@
+[
+  {
+    "enunciado": "Um paciente de 38 anos, em tratamento regular para tuberculose pulmonar há 3 meses (término da fase de ataque), apresenta melhora clínica significativa e baciloscopias negativas no 1º e 2º meses. No entanto, o exame do 3º mês resultou em: 'Baciloscopia de Escarro: Positiva (1+)'. O paciente nega tosse ou febre. Qual o fenômeno imunológico que pode explicar este achado em um paciente que vinha em melhora progressiva?",
+    "options": {
+      "a": "Eliminação de bacilos mortos (bacilos persistentes não viáveis), o que não caracteriza necessariamente falência do tratamento.",
+      "b": "Resistência secundária adquirida à Pirazinamida puramente motivada pelo estresse metabólico.",
+      "c": "Erro laboratorial mandatório, pois é impossível ter baciloscopia positiva após 2 negativas.",
+      "d": "Aparecimento de uma nova caverna pulmonar causada pelo 'efeito paradoxal' das vitaminas do complexo B.",
+      "e": "Infecção por micobactéria não tuberculosa (MNT) oportunista pela cura da TB primária."
+    },
+    "answer": "a",
+    "rationale": "Em alguns pacientes, conforme as cavidades pulmonares 'limpam' e se consolidam, pode haver a expulsão ocasional de restos celulares e bacilos mortos (ou fragmentos de DNA) que são detectados pela baciloscopia (coloração de Ziehl-Neelsen) ou TRM-TB. Se o paciente está clinicamente bem e as culturas forem negativas, esse achado isolado não deve ser interpretado como falha. No entanto, exige monitoramento rigoroso e repetição do exame.",
+    "option_rationales": {
+      "a": "Correta. Fenômeno de 'clareamento' cavitário.",
+      "b": "Incorreta. A resistência secundária não se manifesta clinicamente como 'melhora total'.",
+      "c": "Incorreta. Embora o erro possa ocorrer, há uma base biológica para este achado.",
+      "d": "Incorreta. Não existe tal efeito paradoxal descrito com vitaminas.",
+      "e": "Incorreta. MNTs não 'substituem' a TB desta forma e não seriam a primeira hipótese."
+    },
+    "difficulty": "media",
+    "subspecialty": "Pneumologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "Fisiopatologia",
+      "Monitoramento",
+      "Baciloscopia"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "A Tuberculose Pericárdica é uma das formas mais graves de tuberculose extrapulmonar. Qual a complicação crônica mais temida desta condição e qual medicamento, se usado precocemente, pode reduzir sua incidência?",
+    "options": {
+      "a": "Pericardite Constritiva; uso de Prednisona (corticosteroides).",
+      "b": "Tamponamento cardíaco agudo; uso de Digoxina.",
+      "c": "Infarto agudo do miocárdio; uso de Aspirina.",
+      "d": "Prolapso de valva mitral; uso de Penicilina benzatina.",
+      "e": "Fibrilação atrial paroxística; uso de Varfarina."
+    },
+    "answer": "a",
+    "rationale": "A inflamação crônica causada pelo M. tuberculosis no pericárdio leva à deposição de fibrina, espessamento e posterior calcificação das camadas pericárdicas. Isso resulta em pericardite constritiva (o 'coração em couraça'), que impede o enchimento diastólico. O uso de corticoides (Prednisona) associado ao esquema RIPE ajuda a modular a resposta inflamatória e reduzir a formação de cicatrizes fibróticas, diminuindo o risco de constrição.",
+    "option_rationales": {
+      "a": "Correta. Complicação e prevenção clássica na TB cardíaca.",
+      "b": "Incorreta. O tamponamento é uma complicação aguda (efusiva), não crônica (fibrosa).",
+      "c": "Incorreta. A TB não atinge as coronárias desta maneira direta.",
+      "d": "Incorreta. Isso descreve sequelas de febre reumática.",
+      "e": "Incorreta. Arritmias podem ocorrer, mas a constrição é a sequela estrutural viga mestra da doença."
+    },
+    "difficulty": "media",
+    "subspecialty": "Cardiologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "TB Pericárdica",
+      "Cardiologia",
+      "Corticosteroides",
+      "Prevenção"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "Uma enfermeira de 28 anos, gestante (18 semanas), foi exposta a um paciente com tuberculose pulmonar bacilífera. Ela nunca teve TB e sua PPD de admissão (há 1 ano) era 0 mm. Realizado novo PPD agora que resultou 15 mm. RX de tórax normal e assintomática. Qual a melhor conduta para a gestante?",
+    "options": {
+      "a": "Iniciar o Tratamento Preventivo da TB (TPTB) com Isoniazida ou Rifampicina imediatamente; a gestação NÃO é contraindicação para o tratamento de infecção latente.",
+      "b": "Aguardar o término da gestação e do aleitamento para tratar a ILTB.",
+      "c": "Interromper a gestação por risco de teratogenicidade dos fármacos da TB.",
+      "d": "Indicar apenas vitamina B6 (Piridoxina) sem os antibióticos, pois o corpo grávido se protege sozinho.",
+      "e": "Realizar abortamento terapêutico imediato, pois a mãe transmitirá a TB latente via placenta."
+    },
+    "answer": "a",
+    "rationale": "Gestantes têm o mesmo risco de adoecimento por TB que a população geral e, se adoecerem, a doença pode ser grave para o feto (baixo peso, prematuridade). A conversão tuberculínica recente indica infecção aguda. As drogas usadas no TPTB (Isoniazida e Rifampicina) são seguras na gestação. Portanto, o tratamento deve ser iniciado com suplementação obrigatória de Piridoxina (B6) para prevenir neuropatia na mãe e no feto.",
+    "option_rationales": {
+      "a": "Correta. Protocolo de ILTB em Gestantes atualizado.",
+      "b": "Incorreta. O adiamento aumenta o risco de a gestante adoecer durante o período de maior vulnerabilidade (puerpério).",
+      "c": "Incorreta. As drogas de primeira linha são categoria B/C e amplamente usadas com segurança.",
+      "d": "Incorreta. A vitamina previne efeitos colaterais, mas não trata o bacilo.",
+      "e": "Incorreta. A TB latente não ultrapassa a placenta e não existe indicação de interrupção de gravidez por TB."
+    },
+    "difficulty": "media",
+    "subspecialty": "Obstetrícia",
+    "subject": "Tuberculose",
+    "tags": [
+      "Gestação",
+      "ILTB",
+      "Infectologia",
+      "Saúde da Mulher"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "Um paciente está tratando TB há 15 dias e apresenta prurido generalizado e manchas vermelhas (exantema morbiliforme) sem febre ou sinais de gravidade (sinal de Nikolsky negativo). Qual o manejo escalonado correto sugerido pelo Ministério da Saúde para reações cutâneas leves/moderadas?",
+    "options": {
+      "a": "Suspender todas as drogas até a regressão do exantema e, após, reintroduzir uma a uma começando pela Rifampicina (fármaco com menor chance de causar alergia grave).",
+      "b": "Manter o tratamento e prescrever apenas hidratante corporal.",
+      "c": "Suspender apenas a Isoniazida e manter o restante do tratamento por 1 ano.",
+      "d": "Trocar por Estreptomicina injetável para o resto da vida.",
+      "e": "Internar o paciente e realizar plasmaférese de urgência."
+    },
+    "answer": "a",
+    "rationale": "Em casos de farmacodermia leve a moderada, o protocolo é: 1) Suspender todas as drogas (R-I-P-E); 2) Aguardar o desaparecimento das lesões; 3) Reintroduzir as drogas sequencialmente para identificar o culpado: Rifampicina (3-7 dias de teste), Isoniazida (3-7 dias), Etambutol (3-7 dias) e, por último, a Pirazinamida (frequente culpada por alergias). Se a reação for grave (ex: Stevens-Johnson), as drogas não devem ser reintroduzidas.",
+    "option_rationales": {
+      "a": "Correta. Protocolo de reintrodução sequencial padrão.",
+      "b": "Incorreta. Se houver alergia sistêmica, manter a droga pode levar à anafilaxia ou reações bolhosas graves.",
+      "c": "Incorreta. Não se retira uma droga sem saber se ela é a causa.",
+      "d": "Incorreta. A conduta é desproporcional e a estreptomicina também pode causar alergia.",
+      "e": "Incorreta. Medidas de suporte são suficientes para casos leves após suspensão da droga."
+    },
+    "difficulty": "media",
+    "subspecialty": "Dermatologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "Farmacodermia",
+      "Alergia",
+      "Manejo",
+      "Enfermagem"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "A Tuberculose de Orofaringe e Laringe é considerada uma das formas mais contagiosas da doença. Qual o sintoma cardinal da tuberculose laríngea que deve alertar o clínico para o diagnóstico em um paciente com tosse crônica?",
+    "options": {
+      "a": "Disfonia (rouquidão) progressiva e dolorosa.",
+      "b": "Perda total da audição bilateral súbita.",
+      "c": "Aumentos de volume das glândulas parótidas (Sialonose).",
+      "d": "Gengivorragia maciça espontânea.",
+      "e": "Odinofagia profunda que impede a deglutição de sólidos apenas."
+    },
+    "answer": "a",
+    "rationale": "A TB laríngea é quase sempre secundária à TB pulmonar (os bacilos expectorados 'banham' as cordas vocais). O sintoma mais comum é a rouquidão (disfonia) e a dor ao falar/deglutir (odinofagia laríngea). Devido à alta carga bacilar e à aerolização pela fala, esses pacientes são extremamente bacilíferos, exigindo isolamento respiratório rigoroso.",
+    "option_rationales": {
+      "a": "Correta. Sintoma guia para TB de vias aéreas superiores.",
+      "b": "Incorreta. Associado a otite média por TB ou ototoxicidade de drogas.",
+      "c": "Incorreta. Sialonose é comum em parotidite viral ou sarcoidose.",
+      "d": "Incorreta. A gengivite por TB é rara e não se manifesta tipicamente por hemorragia maciça isolada.",
+      "e": "Incorreta. A dor costuma ser tanto para sólidos quanto para líquidos e a disfonia é o marco principal."
+    },
+    "difficulty": "media",
+    "subspecialty": "Otorrinolaringologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "Otorrinolaringologia",
+      "Disfonia",
+      "Contagiosidade",
+      "Higiene"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "Um detento de 45 anos iniciou tratamento para TB com esquema RIPE. Após 3 meses, ele é transferido para o regime semiaberto e deixa de comparecer ao posto de saúde. Por quanto tempo de interrupção contínua um paciente deve ser considerado como tendo 'abandonado' o tratamento no programa de controle da tuberculose?",
+    "options": {
+      "a": "30 dias ou mais após a data prevista para o retorno.",
+      "b": "7 dias corridos após a falta à consulta.",
+      "c": "6 meses, correspondendo a um curso completo.",
+      "d": "Apenas se ele formalizar por escrito que não quer mais tomar os remédios.",
+      "e": "24 horas de atraso na dose do Tratamento Diretamente Observado (TDO)."
+    },
+    "answer": "a",
+    "rationale": "Definição de Abandono (Ministério da Saúde): Considera-se abandono o caso em que o paciente, após iniciar o tratamento, deixa de comparecer à unidade de saúde (ou de receber a medicação no TDO) por 30 dias consecutivos ou mais. O abandono é um dos maiores desafios para a cura do paciente e para a saúde coletiva (risco de resistência).",
+    "option_rationales": {
+      "a": "Correta. Definição epidemiológica operacional.",
+      "b": "Incorreta. 7 dias é considerado falta; busca ativa deve ser iniciada, mas ainda não é 'abandono' oficial no sistema.",
+      "c": "Incorreta. Seria tempo demais para esperar antes de tomar uma medida de vigilância.",
+      "d": "Incorreta. A maioria dos abandonos é silenciosa e sem justificativa formal.",
+      "e": "Incorreta. Seria impossível gerir o programa com um critério de 24h para abandono."
+    },
+    "difficulty": "facil",
+    "subspecialty": "Saúde Pública",
+    "subject": "Tuberculose",
+    "tags": [
+      "Vigilância",
+      "Abandono",
+      "Fluxo",
+      "Gestão"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "A Tuberculose Miliar pode evoluir com Síndrome do Desconforto Respiratório Agudo (SDRA) e falência de múltiplos órgãos. Qual o exame complementar que frequentemente demonstra a gravidade da disseminação hematogênica na medula óssea desses pacientes?",
+    "options": {
+      "a": "Mielograma ou Biópsia de medula óssea, evidenciando granulomas caseosos.",
+      "b": "Dosagem de Vitamina B12 sérica.",
+      "c": "Conteúdo de ferritina no líquor.",
+      "d": "Avaliação de fragilidade osmótica eritrocitária.",
+      "e": "Cintilografia óssea com tecnécio."
+    },
+    "answer": "a",
+    "rationale": "A TB miliar atinge órgãos ricos em filtros reticuloendoteliais, sendo a medula óssea um dos principais alvos. A biópsia de medula é extremamente útil em casos de febre de origem indeterminada, podendo demonstrar os granulomas típicos (caséolo) e permitir o isolamento do bacilo antes mesmo dos exames de escarro (que podem ser negativos na forma puramente hematogênica).",
+    "option_rationales": {
+      "a": "Correta. Método diagnóstico para TB disseminada.",
+      "b": "Incorreta. A B12 avalia anemias carenciais, sem relação específica diagnóstica com a TB.",
+      "c": "Incorreta. A ferritina é marcador inflamatório sérico e não faz parte do rastreio de TB no líquor.",
+      "d": "Incorreta. Usado na investigação de esferocitose hereditária.",
+      "e": "Incorreta. A cintilografia detecta áreas de hipermetabolismo ósseo, mas não diferencia TB de metástases ou infecções piogênicas."
+    },
+    "difficulty": "media",
+    "subspecialty": "Hematologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "TB Miliar",
+      "Medula Óssea",
+      "Hematologia",
+      "Biópsia"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "Paciente de 58 anos, morador de área rural, apresenta febre, perda de peso e o RX de tórax com cavitação em ápice pulmonar. Ele relata o costume de 'pastar' ou mastigar gravetos e capim. Além de Tuberculose, qual o principal diagnóstico diferencial desta síndrome cavitária, considerando a exposição e a localização geográfica?",
+    "options": {
+      "a": "Paracoccidioidomicose (Micose Sul-Americana).",
+      "b": "Asbestos pulmonar pela poeira da estrada.",
+      "c": "Histoplasmose epidêmica (doença das cavernas).",
+      "d": "Sarcoidose estádio IV.",
+      "e": "Silicose aguda por moagem de grãos."
+    },
+    "answer": "a",
+    "rationale": "A Paracoccidioidomicose (PCM) é frequentemente confundida com a Tuberculose. Ambas atingem o parênquima pulmonar com infiltrados e cavitações, causam sintomas constitucionais (febre/emagrecimento) e linfonodomegalias. O hábito de mastigar vegetais (onde o fungo reside no solo) é um dado epidemiológico clássico. O diagnóstico diferencial é fundamental, pois o tratamento da PCM envolve sulfonamidas ou derivados imidazólicos (ex: Itraconazol), enquanto o da TB envolve antibióticos específicos.",
+    "option_rationales": {
+      "a": "Correta. Principal diagnóstico diferencial micológico da TB no Brasil.",
+      "b": "Incorreta. Causa fibrose em bases, sem síndrome febril aguda/subaguda típica.",
+      "c": "Incorreta. Associada a fezes de morcegos em cavernas/galinheiros.",
+      "d": "Incorreta. Doença granulomatosa sistêmica idiopática; menos provável com histórico rural e hábito mastigatório.",
+      "e": "Incorreta. Exposição à sílica envolve mineração ou jateamento de areia."
+    },
+    "difficulty": "media",
+    "subspecialty": "Infectologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "PCM",
+      "Diagnóstico Diferencial",
+      "Infectologia",
+      "Brasil"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "Qual a orientação correta quanto ao tempo de isolamento respiratório (precaução para aerossóis) para um paciente com Tuberculose Pulmonar sensível que está sob tratamento adequado com o esquema RIPE e apresenta boa adesão?",
+    "options": {
+      "a": "Geralmente 15 dias após o início do tratamento efetivo, desde que haja melhora clínica, pois a carga bacilar na via aérea cai drasticamente neste período.",
+      "b": "Até que o tratamento complete 6 meses.",
+      "c": "O isolamento não é necessário em nenhum momento, apenas o uso de máscara cirúrgica pelo médico.",
+      "d": "Até que o PPD (teste cutâneo) negative.",
+      "e": "Vitalício para contato com crianças e idosos."
+    },
+    "answer": "a",
+    "rationale": "Após 14 a 15 dias de tratamento correto com Rifampicina (altamente bactericida), a maioria dos pacientes com TB sensível deixa de ser infectante, pois os bacilos remanescentes na via aérea estão inviabilizados para transmissão. No entanto, se houver suspeita de resistência ou o paciente estiver em ambiente hospitalar crítico, o isolamento deve ser mantido até a negativação definitiva das baciloscopias.",
+    "option_rationales": {
+      "a": "Correta. Critério operacional de desisolamento ambulatorial/hospitalar.",
+      "b": "Incorreta. Seria inviável manter o isolamento por 6 meses para todos os pacientes.",
+      "c": "Incorreta. A transmissibilidade no início (fase pré-tratamento) é real e perigosa.",
+      "d": "Incorreta. O PPD raramente negativa e não serve para monitorar transmissibilidade ou cura.",
+      "e": "Incorreta. O contagio cessa com o tratamento resolutivo."
+    },
+    "difficulty": "facil",
+    "subspecialty": "Infectologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "Biossegurança",
+      "Isolamento",
+      "Transmissibilidade",
+      "Epidemiologia"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "Um paciente de 40 anos, com TB pulmonar, apresenta quadro de tonturas, náuseas e dificuldades na marcha (desequilíbrio). Ao exame físico, nota-se nistagmo horizontal e alteração no teste de Romberg. Qual fármaco, tipicamente usado em esquemas de segunda linha ou retratamento, é o principal suspeito deste efeito ototóxico vestibular?",
+    "options": {
+      "a": "Estreptomicina (ou outros aminoglicosídeos).",
+      "b": "Levofloxacino.",
+      "c": "Bedaquilina.",
+      "d": "Linezolida.",
+      "e": "Clofazimina."
+    },
+    "answer": "a",
+    "rationale": "A Estreptomicina é um aminoglicosídeo injetável que tem como principal toxicidade a lesão do VIII par craniano (nervo vestibulococlear). Pode causar tanto perda auditiva (toxicidade coclear) quanto tontura/vertigem (toxicidade vestibular). O idoso e o renal crônico são mais susceptíveis. Por isso, as drogas injetáveis foram retiradas da primeira linha de tratamento.",
+    "option_rationales": {
+      "a": "Correta. Efeito adverso clássico do grupo dos aminoglicosídeos.",
+      "b": "Incorreta. Causa rotura de tendões e distúrbios do SNC (insônia/tremores), não ototoxicidade direta.",
+      "c": "Incorreta. Aumenta o intervalo QT no ECG.",
+      "d": "Incorreta. Causa neurite óptica e plaquetopenia periférica.",
+      "e": "Incorreta. Causa pigmentação acastanhada da pele."
+    },
+    "difficulty": "media",
+    "subspecialty": "Neurologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "Ototoxicidade",
+      "Estreptomicina",
+      "Efeitos Adversos",
+      "Auditivo"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "Como deve ser feita a investigação de contatos intradomiciliares de um caso índice de Tuberculose Pulmonar Bacilífera?",
+    "options": {
+      "a": "Todos os contatos (independentemente da presença de sintomas) devem ser avaliados com anamnese, RX de tórax e teste de infecção latente (PPD ou IGRA).",
+      "b": "Apenas os contatos que estiverem tossindo sangue devem ser avaliados.",
+      "c": "Somente crianças menores de 5 anos devem ser investigadas.",
+      "d": "Deve-se tratar preventivamente todos os contatos com o esquema RIPE antes mesmo de fazer exames.",
+      "e": "Os contatos só precisam se afastar do paciente por 15 dias, sem necessidade de exames."
+    },
+    "answer": "a",
+    "rationale": "O controle de contatos visa: 1) Identificar casos de TB doença escondidos (busca ativa); 2) Identificar infecção latente (ILTB) para tratamento preventivo. Portanto, a avaliação deve ser universal no domicílio do paciente índice bacilífero.",
+    "option_rationales": {
+      "a": "Correta. Norma de vigilância epidemiológica fundamental.",
+      "b": "Incorreta. Muitos casos de TB ativa têm tosse seca ou sintomas vagos.",
+      "c": "Incorreta. Adultos, idosos e imunodeprimidos do domicílio também têm alto risco.",
+      "d": "Incorreta. Tratamento (esquema RIPE) exige diagnóstico de doença; a prevenção (monoterapia) exige exclusão de doença.",
+      "e": "Incorreta. A conduta é passiva e ignora o risco de infecção já estabelecida no grupo."
+    },
+    "difficulty": "facil",
+    "subspecialty": "Saúde Pública",
+    "subject": "Tuberculose",
+    "tags": [
+      "Vigilância",
+      "Contatos",
+      "Saúde da Família",
+      "Fluxo"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "Recentemente, o Ministério da Saúde do Brasil recomenda a Rifapentina (associada à Isoniazida - esquema 3HP) como uma opção para o tratamento preventivo da Tuberculose (TPTB). Qual a principal vantagem logística do esquema 3HP em comparação à Isoniazida isolada (6 ou 9 meses)?",
+    "options": {
+      "a": "Duração muito menor (apenas 12 doses semanais em 3 meses) e maior taxa de adesão.",
+      "b": "Custo 100 vezes menor em farmácias populares.",
+      "c": "Pode ser administrada via inalatória através de nebulização.",
+      "d": "Elimina a necessidade de suplementação com Vitamina B6.",
+      "e": "Causa coloração verde na urina, facilitando o controle visual do médico."
+    },
+    "answer": "a",
+    "rationale": "O esquema 3HP (3 meses de Rifapentina + Isoniazida semanal) revolucionou o tratamento da ILTB. Por ser curto e exigir apenas uma tomada semanal, a adesão é muito superior aos esquemas de 6 a 9 meses de doses diárias de Isoniazida. É a escolha preferencial para contatos e pessoas vivendo com HIV com boa contagem de CD4.",
+    "option_rationales": {
+      "a": "Correta. Benefício logístico e terapêutico moderno.",
+      "b": "Incorreta. A Rifapentina é, na verdade, uma droga mais cara por dose unitária, mas compensa pela redução de danos e aumento da cura latente.",
+      "c": "Incorreta. A via é puramente oral.",
+      "d": "Incorreta. A Isoniazida continua presente, exigindo B6 se houver fatores de risco.",
+      "e": "Incorreta. A Rifapentina, como a Rifampicina, colore os fluidos de vermelho/laranja, não verde."
+    },
+    "difficulty": "media",
+    "subspecialty": "Saúde Pública",
+    "subject": "Tuberculose",
+    "tags": [
+      "ILTB",
+      "3HP",
+      "Adesão",
+      "Novas Tecnologias"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "Um paciente de 48 anos com história de silicose ocupacional (ex-minerador) procura o ambulatório por febre, perda ponderal e RX com novos infiltrados cavitários. Por que a Tuberculose é tão frequente em pacientes com Silicose (Síndrome de Silicotuberculose)?",
+    "options": {
+      "a": "A sílica ingerida pelos macrófagos alveolares causa sua necrose e impede a contenção adequada do M. tuberculosis.",
+      "b": "O bacilo da TB se alimenta quimicamente do dióxido de silício presente nos pulmões.",
+      "c": "A vacina BCG é neutralizada pelas partículas de areia no interstício pulmonar.",
+      "d": "Pacientes com silicose costumam ter alergia severa à Isoniazida.",
+      "e": "Não há relação estatística entre as duas condições; é apenas uma coincidência epidemiológica."
+    },
+    "answer": "a",
+    "rationale": "A sílica é citotóxica para os macrófagos alveolares. O macrófago é a célula viga mestra da defesa contra o bacilo de Koch. Quando os macrófagos estão 'ocupados' ou destruídos pelo processamento da sílica, a imunidade local pulmonar fica devastada, permitindo que qualquer bacilo inalado ou latente se prolifere descontroladamente. Pacientes silicoticos têm risco dezenas de vezes maior de desenvolver TB que a população geral.",
+    "option_rationales": {
+      "a": "Correta. Explicação fisiopatológica clássica da pneumoconiose e infecção.",
+      "b": "Incorreta. O bacilo é quimio-heterotrófico e se alimenta de substâncias orgânicas do hospedeiro.",
+      "c": "Incorreta. A BCG é uma vacina neonatal e sua ação imune é sistêmica/celular, não física neutralizável por poeira.",
+      "d": "Incorreta. Não existe tal associação farmacológica fixa.",
+      "e": "Incorreta. A associação é fortíssima e descrita em todos os manuais de medicina do trabalho."
+    },
+    "difficulty": "media",
+    "subspecialty": "Pneumologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "Silicose",
+      "Pneumoconiose",
+      "Saúde Ocupacional",
+      "Imunologia"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "A Tuberculose Urogenital pode causar uma complicação radiológica característica chamada de 'rim mastigado' (masticated kidney) ou 'autonefrectomia'. O que isso representa?",
+    "options": {
+      "a": "Um rim destruído por calcificações e retrações cicatriciais extensas, tornando-se não funcional.",
+      "b": "Um rim com múltiplos tumores malignos síncronos causados pela TB.",
+      "c": "Uma infestação do sistema coletor por larvas de insetos atraídas pelo pus da TB.",
+      "d": "Um rim transplantado que sofre rejeição hiperaguda pela TB latente do doador.",
+      "e": "A presença de cálculos de struvita gigantes ocupando todo o parênquima."
+    },
+    "answer": "a",
+    "rationale": "A TB causa inflamação destrutiva crônica (necrose de caseificação) que atinge os cálices, a pelve e o parênquima renal. Com a evolução e a tentativa de cura por fibrose e calcificação, o rim se retrai e se torna um bloco de cálcio e tecido cicatricial sem função excretora (autonefrectomia). Na radiologia/TC, as imagens dessas áreas de destruição irregular lembram um órgão 'mastigado'.",
+    "option_rationales": {
+      "a": "Correta. Achado de imagem patognomônico de TB renal tardia.",
+      "b": "Incorreta. A TB não é oncogênica desta forma.",
+      "c": "Incorreta. Absurdo biológico.",
+      "d": "Incorreta. Não tem relação direta com o termo 'rim mastigado'.",
+      "e": "Incorreta. Cáclulos de estruvita sugerem infecção por Proteus e não TB."
+    },
+    "difficulty": "media",
+    "subspecialty": "Urologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "TB Renal",
+      "Radiologia",
+      "Autonefrectomia",
+      "Urologia"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "Um paciente de 41 anos está no 5º mês de tratamento (fase de manutenção) para TB pulmonar. Ele relata ao médico que parou de sentir o gosto e o cheiro dos alimentos e que tem sentido tremores leves nas mãos. Qual o manejo correto desse possível efeito colateral neurológico central?",
+    "options": {
+      "a": "Investigar toxicidade pela Isoniazida; administrar Piridoxina (B6) e, se não houver melhora, considerar suspensão da droga.",
+      "b": "Suspender a Rifampicina imediatamente pois causa 'anosmia química'.",
+      "c": "Diagnosticar COVID-19 e colocar em quarentena forçada.",
+      "d": "Não são efeitos esperados das drogas da TB; investigar tumor de tronco cerebral.",
+      "e": "Orientar que o cheiro forte da Pirazinamida causa saturação olfativa passageira."
+    },
+    "answer": "a",
+    "rationale": "Embora a neuropatia periférica seja mais comum, a Isoniazida pode causar efeitos no SNC (tremores, irritabilidade, convulsões, distúrbios da memória e, mais raramente, distúrbios sensitivos centrais). A base do manejo é a reposição de Vitamina B6, que ajuda a 'estabilizar' o metabolismo neuronal afetado pela droga.",
+    "option_rationales": {
+      "a": "Correta. Associação clássica da toxicidade central da isoniazida.",
+      "b": "Incorreta. Rifampicina não tem esse perfil de neurotoxicidade.",
+      "c": "Incorreta. Embora COVID cause anosmia, os tremores e o contexto do tratamento de TB tornam a farmacotoxicologia a primeira hipótese.",
+      "d": "Incorreta. São efeitos descritos na bula e na literatura sobre a droga.",
+      "e": "Incorreta. Não existe esta saturação mecânica descrita clinicamente para a pirazinamida."
+    },
+    "difficulty": "media",
+    "subspecialty": "Neurologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "Efeitos Adversos",
+      "Isoniazida",
+      "SNC",
+      "B6"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "Em pacientes com Tuberculose Ocular, qual a manifestação mais frequente observada no exame de fundo de olho?",
+    "options": {
+      "a": "Coroidite tuberculosa (presença de tubérculos de coroide, infiltrados branco-amarelados).",
+      "b": "Descolamento de retina exsudativo maciço.",
+      "c": "Oclusão de artéria central da retina.",
+      "d": "Cristais de colesterol na fóvea (Mancha de Cherry-red).",
+      "e": "Hemorragia vítrea em 'chama de vela'."
+    },
+    "answer": "a",
+    "rationale": "A TB disseminada pode atingir a coroide (a camada vascular do olho). Os 'tubérculos de coroide' são granulomas visíveis ao oftalmoscópio como pequenas placas amareladas e elevadas. Sua presença é um forte indicativo de disseminação hematogênica (TB biliar ou miliar).",
+    "option_rationales": {
+      "a": "Correta. Marco diagnóstico da TB ocular.",
+      "b": "Incorreta. Pode ocorrer em formas severas, mas não é a mais 'frequente'.",
+      "c": "Incorreta. Característico de fenômenos embólicos agudos.",
+      "d": "Incorreta. Mancha de Cherry-red é associada a doenças metabólicas ou oclusão arterial.",
+      "e": "Incorreta. Hemorragia em chama de vela é comum em retinopatia hipertensiva ou diabética."
+    },
+    "difficulty": "media",
+    "subspecialty": "Oftalmologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "Coroidite",
+      "Oftalmologia",
+      "Tubérculo de Coroide",
+      "Miliar"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "Qual o principal critério para a interrupção do isolamento hospitalar de um paciente com Tuberculose em sistema de pressão negativa e filtros HEPA?",
+    "options": {
+      "a": "Melhora clínica clara do paciente e pelo menos duas (idealmente três) baciloscopias de escarro negativas, coletadas em dias diferentes, sob tratamento adequado.",
+      "b": "O tratamento completar 48 horas.",
+      "c": "O paciente prometer que usará máscara cirúrgica no corredor.",
+      "d": "O teste de PPD (feito na alta) ser negativo.",
+      "e": "A família solicitar a alta por motivos religiosos."
+    },
+    "answer": "a",
+    "rationale": "Diferente do isolamento domiciliar (onde 15 dias de tratamento costumam bastar para o desisolamento operacional), o ambiente hospitalar exige critérios mais rígidos por conter outros pacientes vulneráveis. A demonstração de negativas em série (baciloscopia negativa) é o padrão-ouro de segurança para suspender a precaução para aerossóis.",
+    "option_rationales": {
+      "a": "Correta. Protocolo de segurança hospitalar.",
+      "b": "Incorreta. 48h é tempo insuficiente para assepsia da via aérea.",
+      "c": "Incorreta. Comprometimento verbal não tem valor biológico de segurança.",
+      "d": "Incorreta. PPD não serve para alta ou desisolamento.",
+      "e": "Incorreta. Motivos sociais ou religiosos não suplantam o risco de infecção hospitalar massiva."
+    },
+    "difficulty": "media",
+    "subspecialty": "Infectologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "Biossegurança",
+      "Isolamento",
+      "Infectologia",
+      "Gestão Hospitalar"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "Paciente de 32 anos apresenta infertilidade primária há 2 anos. Antecedente pessoal de 'frialdade abdmoninal' e ascite leve na adolescência tratada como 'problemas de estômago'. Histerossalpingografia atual revela trompas obstruídas e com aspecto de 'contas de rosário' ou 'trompas em cachimbo'. Qual a principal hipótese diagnóstica?",
+    "options": {
+      "a": "Salpingite Tuberculosa (TB Genital feminina).",
+      "b": "Endometriose profunda severa.",
+      "c": "Síndrome dos Ovários Policísticos (SOP).",
+      "d": "Infecção por Clamídia aguda.",
+      "e": "Síndrome de Asherman pós-curetagem."
+    },
+    "answer": "a",
+    "rationale": "A TB genital é uma causa silenciosa e frequente de infertilidade em áreas endêmicas. O bacilo atinge as trompas (salpingite) via hematogênica, causando destruição da mucosa e áreas de estenose e dilatação (contas de rosário). Frequentemente é sequela de uma TB peritoneal ocorrida anos antes. O diagnóstico exige biópsia de endométrio ou cultura de fluxo menstrual.",
+    "option_rationales": {
+      "a": "Correta. Causa de esterilidade tubária clássica.",
+      "b": "Incorreta. Endometriose causa aderências, mas o padrão de 'rosário' nas trompas é muito sugestivo de TB ou DIPA crônica.",
+      "c": "Incorreta. SOP é uma desordem anovulatória, não anatômica tubária.",
+      "d": "Incorreta. A clamídia causa obstrução, mas raramente com este histórico de doença sistêmica pregressa.",
+      "e": "Incorreta. Asherman ocorre após traumas uterinos (leves), não atingindo as trompas desta maneira."
+    },
+    "difficulty": "media",
+    "subspecialty": "Ginecologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "Infertilidade",
+      "Sinal do Rosário",
+      "Ginecologia",
+      "Infectologia"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "A Tuberculose Mamária é uma apresentação rara. Qual o diagnóstico diferencial mais importante na prática clínica, especialmente em mulheres com mais de 40 anos?",
+    "options": {
+      "a": "Câncer de Mama.",
+      "b": "Prolactinoma.",
+      "c": "Ectasia ductal.",
+      "d": "Mastite puerperal comum.",
+      "e": "Lipoma intramamário."
+    },
+    "answer": "a",
+    "rationale": "A TB mamária se manifesta como um nódulo endurecido, às vezes com retração da pele ou fístulas que drenam material purulento/caseoso. Por ser um nódulo fixo e de crescimento progressivo, simula perfeitamente um carcinoma mamário. A biópsia é obrigatória para diferenciar as duas entidades.",
+    "option_rationales": {
+      "a": "Correta. Principal 'grande simulador' no tecido mamário.",
+      "b": "Incorreta. Prolactinoma causa galactorreia bilateral, sem nódulos mamários inflamatórios.",
+      "c": "Incorreta. Ectasia ductal causa descarga papilar, sem formação de fístulas caseosas sistêmicas.",
+      "d": "Incorreta. Ocorre no período da amamentação e é uma infecção por Gram-positivos aguda.",
+      "e": "Incorreta. Lipoma é macio, móvel e indolor."
+    },
+    "difficulty": "media",
+    "subspecialty": "Mastologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "Mastologia",
+      "Oncologia",
+      "Diagnóstico Diferencial",
+      "Nódulos"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "Em pacientes com Tuberculose e uso de Dolutegravir (DTG) para HIV, dobramos a dose do DTG para 50 mg 12/12h. Quando o paciente termina o tratamento da TB e para de usar a Rifampicina, por quanto tempo ainda se deve manter a dose dobrada do Dolutegravir?",
+    "options": {
+      "a": "Duas semanas após a última dose de Rifampicina, pois a indução enzimática demora este tempo para dissipar.",
+      "b": "Pode voltar para a dose normal no dia seguinte.",
+      "c": "Deve-se manter a dose dobrada pelo resto da vida.",
+      "d": "Pelo menos por 6 meses para garantir que não haja 'efeito rebote'.",
+      "e": "Até que a carga viral do HIV negative novamente."
+    },
+    "answer": "a",
+    "rationale": "A indução enzimática do citocromo P450 pela Rifampicina é potente e persistente. Mesmo após a interrupção da droga, as enzimas hepáticas 'induzidas' permanecem ativas por cerca de 10 a 14 dias até serem degradadas naturalmente. Portanto, para manter níveis seguros de Dolutegravir, mantém-se a dose dobrada por 2 semanas após o fim do esquema RIPE.",
+    "option_rationales": {
+      "a": "Correta. Orientação farmacocinética de precisão para TB-HIV.",
+      "b": "Incorreta. Se baixar no dia seguinte, o DTG será degradado rapidamente pelas enzimas remanescentes.",
+      "c": "Incorreta. Desnecessário e aumenta o risco de efeitos colaterais do DTG.",
+      "d": "Incorreta. Tempo excessivamente longo.",
+      "e": "Incorreta. O critério é baseado na meia-vida das enzimas citocromais, não na carga viral diretamente."
+    },
+    "difficulty": "dificil",
+    "subspecialty": "Infectologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "Interações",
+      "Dolutegravir",
+      "Rifampicina",
+      "Farmacologia"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "Qual a principal complicação metabólica da Tuberculose Adrenal (Doença de Addison por TB)?",
+    "options": {
+      "a": "Insuficiência adrenal primária (hipocortisolismo e hipoaldosteronismo), causando hiponatremia, hipercalemia e hipotensão.",
+      "b": "Síndrome de Cushing por hipercortisolismo reacional.",
+      "c": "Diabetes Insipidus central.",
+      "d": "Hipertireoidismo severo.",
+      "e": "Hipercalcemia hipocalciúrica familiar."
+    },
+    "answer": "a",
+    "rationale": "O M. tuberculosis pode destruir progressivamente o córtex das glândulas adrenais. A falta de aldosterona leva à perda de sódio (hiponatremia) e retenção de potássio (hipercalemia), enquanto a falta de cortisol causa hipotensão refratária e hipoglicemia. É uma emergência endócrina se não diagnosticada a tempo.",
+    "option_rationales": {
+      "a": "Correta. Fisiopatologia da Doença de Addison infecciosa.",
+      "b": "Incorreta. Addison é o contrário de Cushing.",
+      "c": "Incorreta. Diabetes insipidus é uma disfunção da neuro-hipófise (ADH).",
+      "d": "Incorreta. A glândula tireoide não é a adrenel.",
+      "e": "Incorreta. Distúrbio mineral sem relação com a TB adrenal."
+    },
+    "difficulty": "media",
+    "subspecialty": "Endocrinologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "Endocrinologia",
+      "Addison",
+      "Adrenal",
+      "Infectologia"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "No exame PPD, o que deve ser medido pelo profissional de saúde no dia da leitura (48-72h após aplicação)?",
+    "options": {
+      "a": "O diâmetro maior da INDURAÇÃO (endurecimento palpável) em milímetros.",
+      "b": "O diâmetro do ERITEMA (área avermelhada).",
+      "c": "A profundidade da ferida em centímetros.",
+      "d": "Apenas se há dor ou não ao toque.",
+      "e": "A quantidade de pus que drenar do local."
+    },
+    "answer": "a",
+    "rationale": "A leitura do PPD é baseada na hipersensibilidade tardia (reação de tipo IV), que se manifesta por um endurecimento (induração) da derme. O eritema (vermelhidão) pode ocorrer por irritação local e não deve ser medido, pois superestima o resultado do teste. A medição deve ser feita transversalmente ao eixo do braço.",
+    "option_rationales": {
+      "a": "Correta. Técnica correta de leitura do teste tuberculínico.",
+      "b": "Incorreta. Eritema não indica imunidade celular.",
+      "c": "Incorreta. Não se mede profundidade nem em centímetros.",
+      "d": "Incorreta. Subjetivo e sem valor diagnóstico.",
+      "e": "Incorreta. O PPD bem aplicado não causa 'drenagem de pus'."
+    },
+    "difficulty": "facil",
+    "subspecialty": "Enfermagem",
+    "subject": "Tuberculose",
+    "tags": [
+      "PPD",
+      "Técnica",
+      "Semiologia",
+      "Diagnóstico"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "A Tuberculose de Intestino Delgado pode simular perfeitamente qual doença inflamatória intestinal crônica, tanto nos exames de imagem quanto na colonoscopia?",
+    "options": {
+      "a": "Doença de Crohn.",
+      "b": "Retocolite Ulcerativa (RCU).",
+      "c": "Doença Celíaca.",
+      "d": "Síndrome do Intestino Irritável.",
+      "e": "Diverticulite aguda."
+    },
+    "answer": "a",
+    "rationale": "A TB intestinal e a Doença de Crohn são o grande desafio diagnóstico da gastroenterologia. Ambas causam úlceras longitudinais, estenoses, granulomas (embora na TB o granuloma seja caseoso) e atingem preferencialmente a região ileocecal. O diagnóstico diferencial muitas vezes exige teste terapêutico ou PCR nas biópsias intestinais.",
+    "option_rationales": {
+      "a": "Correta. Principal diagnóstico diferencial cirúrgico/gastro: Crohn x TB.",
+      "b": "Incorreta. A RCU atinge apenas o cólon e de forma contínua e superficial.",
+      "c": "Incorreta. A Doença Celíaca é uma enteropatia imune ao glúten com atrofia vilosa, sem cavernas ou fístulas infecciosas.",
+      "d": "Incorreta. A SII é funcional e não causa lesões orgânicas como fístulas e úlceras.",
+      "e": "Incorreta. Diverticulite atinge mais o cólon esquerdo e é uma complicação aguda de divertículos pré-existentes."
+    },
+    "difficulty": "dificil",
+    "subspecialty": "Gastroenterologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "Doença de Crohn",
+      "TB Intestinal",
+      "Gastroenterologia",
+      "Diferencial"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "Um paciente portador de Hepatite B crônica inicia tratamento para TB. Qual o risco principal durante a fase de ataque do tratamento da TB neste paciente?",
+    "options": {
+      "a": "Agravamento da hepatite medicamentosa pelas drogas do esquema RIPE e possível reativação do vírus da Hepatite B pela inflamação sistêmica.",
+      "b": "Desenvolvimento imediato de câncer renal compensatório.",
+      "c": "Cura espontânea da Hepatite B pela ação da Rifampicina.",
+      "d": "Infertilidade permanente masculina.",
+      "e": "Perda do paladar pelas próximas 5 décadas."
+    },
+    "answer": "a",
+    "rationale": "Pacientes com doenças hepáticas pré-existentes (Hepatite B, C, cirrose, alcoólatras) têm reserva funcional hepática reduzida. O uso de três drogas potencialmente hepatotóxicas (R, I, P) aumenta muito a chance de uma Hepatite Medicamentosa severa. Por isso, esses pacientes exigem exames de bioquímica hepática quinzenais ou mensais durante todo o tratamento.",
+    "option_rationales": {
+      "a": "Correta. Risco clínico real e fundamentado.",
+      "b": "Incorreta. Não há tal associação carcinogênica.",
+      "c": "Incorreta. A Rifampicina não tem efeito antiviral sobre o HBV.",
+      "d": "Incorreta. Não existe tal associação testicular.",
+      "e": "Incorreta. Absurdo clínico."
+    },
+    "difficulty": "facil",
+    "subspecialty": "Hepatologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "Hepatites Virais",
+      "Toxicidade",
+      "Segurança",
+      "Monitoramento"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "A vacina BCG deve ser aplicada preferencialmente em que local do corpo e qual a via de administração correta?",
+    "options": {
+      "a": "No braço direito, na altura da inserção do músculo deltoide; via intradérmica.",
+      "b": "Na nádega (quadrante superior externo); via intramuscular profunda.",
+      "c": "Na face anterior da coxa; via subcutânea.",
+      "d": "Na planta do pé; via tópica.",
+      "e": "No topo da cabeça; via epicutânea."
+    },
+    "answer": "a",
+    "rationale": "A aplicação da BCG é rigorosa: via intradérmica no braço direito. Esse local foi padronizado mundialmente para facilitar a identificação da cicatriz vacinal em inquéritos epidemiológicos. A via intradérmica é essencial para a correta formação da pápula e posterior pústula/ulceração/cicatriz típica.",
+    "option_rationales": {
+      "a": "Correta. Técnica padrão do Programa Nacional de Imunizações (PNI).",
+      "b": "Incorreta. Via intramuscular causaria abcessos profundos e falha na resposta imune típica.",
+      "c": "Incorreta. Via subcutânea é usada para outras vacinas (ex: Sarampo), mas não para BCG.",
+      "d": "Incorreta. Inviável.",
+      "e": "Incorreta. Absurdo técnico."
+    },
+    "difficulty": "facil",
+    "subspecialty": "Enfermagem",
+    "subject": "Tuberculose",
+    "tags": [
+      "BCG",
+      "Imunização",
+      "Técnica",
+      "Saúde Pública"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciated": "Qual micobactéria do Complexo M. tuberculosis é classicamente transmitida pela ingestão de leite não pasteurizado de vacas infectadas?",
+    "options": {
+      "a": "Mycobacterium bovis.",
+      "b": "Mycobacterium africanum.",
+      "c": "Mycobacterium leprae.",
+      "d": "Mycobacterium avium.",
+      "e": "Mycobacterium kansasii."
+    },
+    "answer": "a",
+    "rationale": "O M. bovis é o agente da tuberculose bovina. Pode infectar humanos através da ingestão de produtos lácteos contaminados (transmissão digestiva), causando frequentemente tuberculose ganglionar ou intestinal. É um dos membros do complexo que causa a doença TB em humanos, embora a esmagadora maioria dos casos mundiais seja por M. tuberculosis (transmissão aérea).",
+    "option_rationales": {
+      "a": "Correta. Agente zoonótico clássico.",
+      "b": "Incorreta. Presente em regiões da África, transmissão aérea similar ao M. tuberculosis.",
+      "c": "Incorreta. Agente da Hanseníase.",
+      "d": "Incorreta. Micobactéria não tuberculosa (MNT), ambiental.",
+      "e": "Incorreta. Outra MNT ambiental importante."
+    },
+    "difficulty": "facil",
+    "subspecialty": "Infectologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "Zoologenia",
+      "M. bovis",
+      "Higiene Alimentar",
+      "Epidemiologia"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "Um paciente idoso (82 anos) com diagnostico de Tuberculose é também diabético e hipertenso. Ele está em uso de Glibenclamida, Enalapril e Hidroclorotiazida. Durante o tratamento da TB com o esquema RIPE, o médico observa que o controle glicêmico do paciente piorou muito (hemoglobina glicada subiu). Qual a explicação farmacológica para este fato?",
+    "options": {
+      "a": "A Rifampicina induz o metabolismo da Glibenclamida no fígado, reduzindo sua eficácia hipoglicemiante.",
+      "b": "A Isoniazida estimula a produção de insulina, causando hiperglicemia rebote.",
+      "c": "O Etambutol bloqueia os receptores de insulina nos tecidos periféricos.",
+      "d": "A Pirazinamida converte o açúcar do sangue em ácido úrico, elevando ambos.",
+      "e": "Não há interação; o paciente deve estar comendo mais doces por causa do tratamento."
+    },
+    "answer": "a",
+    "rationale": "Assim como o Dolutegravir e os Anticoncepcionais, as sulfonilureias (Glibenclamida, Gliclazida) são metabolizadas pelo citocromo P450. A potente indução pela Rifampicina acelera a 'destruição' do remédio do diabetes, deixando o paciente desprotegido e hiperglicêmico. Pode ser necessário trocar para insulina ou ajustar as doses orais sensivelmente.",
+    "option_rationales": {
+      "a": "Correta. Interação medicamentosa clássica no paciente polipatológico.",
+      "b": "Incorreta. Isoniazida não tem este efeito.",
+      "c": "Incorreta. Sem fundamento fisiopatológico.",
+      "d": "Incorreta. Não existe tal via bioquímica.",
+      "e": "Incorreta. Negligenciada a farmacotoxicologia evidente."
+    },
+    "difficulty": "media",
+    "subspecialty": "Endocrinologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "Diabetes",
+      "Interações",
+      "Rifampicina",
+      "Farmacologia"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "A Tuberculose Miliar em crianças menores de 2 anos é uma emergência pediátrica. Qual a principal medida de saúde pública no Brasil que comprovadamente reduziu as taxas de mortalidade por esta forma e pela meningite tuberculosa nesta faixa etária?",
+    "options": {
+      "a": "Vacinação universal com BCG ao nascer.",
+      "b": "Uso de máscaras cirúrgicas em todas as creches.",
+      "c": "Distribuição gratuita de leite em pó fortificado com Ferro.",
+      "d": "Proibição da entrada de adultos em berçários.",
+      "e": "Testagem de PPD em todas as grávidas no pré-natal."
+    },
+    "answer": "a",
+    "rationale": "A vacina BCG não previne a infecção pulmonar comum no adulto, mas é extremamente eficaz (80-90%) em prevenir as formas de disseminação hematogênica precoce na criança (forma miliar e meningite). É por isso que ela é aplicada obrigatoriamente logo após o nascimento.",
+    "option_rationales": {
+      "a": "Correta. Principal impacto epidemiológico da vacina BCG.",
+      "b": "Incorreta. Medida inviável e sem evidência específica para TB infantil msm em creches.",
+      "c": "Incorreta. Nutrição ajuda, mas a vacina é o fator imunológico direto.",
+      "d": "Incorreta. Inviável.",
+      "e": "Incorreta. A testagem de grávidas não substitui a vacinação direta da criança."
+    },
+    "difficulty": "facil",
+    "subspecialty": "Saúde Pública",
+    "subject": "Tuberculose",
+    "tags": [
+      "BCG",
+      "Pediatria",
+      "Prevenção",
+      "Saúde Pública"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  }
+]

@@ -1,0 +1,57 @@
+[
+  {
+    "enunciado": "Julgue a proposição embasada na doutrina previdenciária e nas normas de manutenção da qualidade de segurado: O advento de prisão em regime estrito fechado de um segurado recolhedor habitual do regime (contribuinte individual ativo), acarreta automaticamente a caducidade ou imediata suspensão legal forçada integral da sua qualidade da manutenção previdenciária. Assim, na seara de 12 (doze) meses pós o evento prisional, mesmo optando seus familiares pelo pagamento autônomo em dia via carnê ou guia na categoria de prestador recolhido ausente material, ele perde terminantemente seus direitos do RGPS de invalidez intra-celas.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "Errado. O segurado que houver sido retido no cárcere prisional (preso) conserva expressamente e especificamente a qualidade de segurado por impreteríveis até doze meses prorrogáveis contados do exato prazo após o seu pleno ou futuro livramento (soltura). Ou seja, enquanto encontra-se enclausurado e detendo dependentes ou direitos, sua condição previdenciária (graça) é paralisada a seu favor e ele não perde seu vínculo. Além de a restrição material carcerária não interromper as proteções protetivas como o auxílio-reclusão devido de fato aos dependentes diretos se preenchidas as condições.",
+    "difficulty": "medio",
+    "tags": ["Prisão Fechado", "Segurado Ativo", "Período de Graça", "Auxílio-Reclusão"]
+  },
+  {
+    "enunciado": "A respeito do segurado facultativo e seus ditames normativos peculiares, julgue: Tratando-se de hipótese excepcional amparada na Constituição para evitar dupla contagem ou favorecimento cruzado, o servidor público da União efetivo e já vinculado a um regime próprio e compulsório da previdência (RPPS), tem sumariamente vedada a chance de filiar-se isolada e cumulativamente ao Regime Geral de Previdência (RGPS) puramente sob a roupagem abstrata e ociosa da classe de 'Segurado Facultativo', a fim de suplementar rendas para proventos futuros da inatividade.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "c",
+    "rationale": "Certo. Consoante dispõe categoricamente o art. 201, § 5º, da Constituição Federal, 'É vedada a filiação ao regime geral de previdência social, na qualidade de segurado facultativo, de pessoa participante de regime próprio de previdência'. A vedação se perfaz exatamente para coibir que um servidor filiado a um sistema próprio e atrelado com teto do ente atue de forma passiva (isto é, sem trabalhar na via privada em atividades geradoras OBRIGATÓRIAS que forçariam contribuições normatizadas do INSS) recolhendo apenas dinheiro estéril na ótica da contribuição pura paralela sem esforço empregador ativo para o sistema.",
+    "difficulty": "facil",
+    "tags": ["Segurado Facultativo", "RPPS", "Constituição Federal", "Vedação"]
+  },
+  {
+    "enunciado": "Analise a filiação do regime e a obrigação contributiva dos agentes eletivos: O servidor público civil ocupante de determinado certame efetivo que venha, por mandamento de voto, adquirir e assumir assento e mandato de Deputado Federal (ou seja, de cunho nacional eletivo de prazo estrito) torna-se transitoriamente, em virtude do múnus temporário político atípico de 4 anos e da remuneração percebida do Fisco Federal exclusivo do Congresso nas esferas em que não subsiste regime próprio parlamentar em novo formato (depois da EC nº 103), obrigatoriamente um filiado passivo compulsório da alocação de Contribuinte Empregado nos caixas de competência do Regime Geral, suspendendo sua carreira paralela da alínea RPPS de origem estadual pregressa.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "Errado. O art. 12, I, alínea 'j', combinado com seu desdobramento de parágrafos excludentes na Lei nº 8.212/91, enuncia que passará a ser obrigatoriamente segurado do RGPS, como empregado, o ocupante de mandato eletivo federal, estadual ou municipal, DESDE QUE este último mandato NÃO esteja vinculado originalmente por lei local a regime próprio estadual de provisão específica. No entanto, se ele já for servidor público estatutário EFEITVO da União, Estado ou Município submetido a Regime Próprio de Previdência (RPPS originário), ele, no exercício do mandato de Deputado federal/estadual, perante à lei previdenciária, não romperá ou suspenderá a sua filiação previdencial de origem com o ente antigo base, vez que o ente antigo base originário tem a continuidade vinculante garantida pelo afastamento político, afigurando que não se configura nova roupagem do mandato transitório dentro da classe puramente 'RGPS/Empregado'.",
+    "difficulty": "dificil",
+    "tags": ["Mandato Eletivo", "Deputado Federal", "RPPS", "RGPS"]
+  },
+  {
+    "enunciado": "Acerca das definições intrínsecas ao trabalhador rural expostas nas súmulas do RGPS: É perfeitamente compatível a concessão de aposentadoria baseada nas regras singelas e limitadas de segurado especial da esfera campesina no caso de o trabalhador do núcleo familiar dispor formal e ostensivamente de expressivo e superdimensionado patrimônio ou empreendimento (uma frota considerável contábil e numerosa e máquinas locadas rurais potentes no imposto sobre terceiros), sob a justificativa de que basta estar na labuta limpa sazonal das fileiras agrárias independentes ou que apenas tenha uma terrinha registrada.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "Errado. A qualidade de segurado especial exige peremptoriamente labor inescusável do indivíduo (do esforço prático e rudimentar para si próprio e família na proporção razoável da existência) consubstanciado e delimitado no restrito 'regime de economia familiar', ou seja, a subsistência intrínseca e essencial em propriedade módica rural (até quatro módulos). A jurisprudência afasta categoricamente esse status restritivo de quem possui capital material farto e ostenta e detém a figura nítida e caracterizada e pujante do 'grande empreendedor rural' de mercado ou ruralista rico de classe ou posses ostensivas tributadas.",
+    "difficulty": "medio",
+    "tags": ["Segurado Especial", "Regime de Economia Familiar", "Trabalho Rural", "Aposentadoria"]
+  },
+  {
+    "enunciado": "Julgue, no âmbito da legislação pertinente e das nuances do 'tempo pregressamente contributivo' da carência do rol previdenciário: O período contínuo que perfaz em afastamento a que o trabalhador é submetido por gozo da licença auxílio-doença cominada do labor compulsório por incapacidade atípica e restrita de evento natural imprevisível com laudos aptos interligados com acidente e que geram atestado pago superior a trinta dias será devassa contabilizado no tempo pregressamente contributivo, caso transcorra impreterível de dias permeados por pagamento e sem suspensão por dolo, excetuando as hipóteses taxativas e impeditivas da reforma sobre doenças crónicas pré-existentes de laudos viciados.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "c",
+    "rationale": "Certo. Conforme jurisprudência já remansosa e consolidada (especificamente os precedentes normativos e Súmula 73 TNU e regras inerentes ao cálculo na RFB), o tempo e os meses intercalados do segurado em gozo do respectivo benefício temporário do 'Auxílio-Doença' (Benefício por Incapacidade Temporária) devem rigorosamente figurar e computar para efeito de tempo efetivo material e prático de carência exigida de aposentadoria temporal se estiver intercalado contiguamente entre recolhimentos contributivos de esforço material prévio ou pós imediato (voltar e pagar o lapso que garante sua intercalação).",
+    "difficulty": "facil",
+    "tags": ["Auxílio-Doença", "Carência", "Tempo de Contribuição", "Incapacidade"]
+  }
+]

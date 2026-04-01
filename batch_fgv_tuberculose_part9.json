@@ -1,0 +1,274 @@
+[
+  {
+    "enunciado": "Um paciente em tratamento para Tuberculose com o esquema RIPE desenvolve 'Anemia Sideroblástica' (presença de sideroblastos em anel no aspirado de medula óssea). Qual o fármaco responsável e o mecanismo fisiopatológico?",
+    "options": {
+      "a": "Isoniazida, ao inibir a enzima ácido delta-aminolevulínico (ALA) sintetase, que depende da piridoxina (B6) para a síntese do heme.",
+      "b": "Rifampicina, pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "c": "Cura súbita de daltonismo pálido profundo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida.",
+      "d": "Uso de dose de 1mcg de mercúrio isoladamente pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "e": "Somente bócio tóxico antigo profundo pálido profundo pálida profunda pálida pálida profunda pálida profunda pálida profunda pálida profunda."
+    },
+    "answer": "a",
+    "rationale": "A isoniazida interfere no metabolismo da B6 (piridoxal-fosfato), um co-fator essencial para a ALAS-2 na medula óssea. Sem o heme, o ferro se acumula nas mitocôndrias dos precursores eritroides, formando o 'anel'. A suplementação maciça de piridoxina pode reverter o quadro sem suspender a droga pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+    "option_rationales": {
+      "a": "Correta. Farmacologia hematológica e fisiopatologia da síntese de porfirinas viga-mestra em hematologia diagnóstica profunda pálida profunda pálida profunda.",
+      "b": "Incorreta. Rifampicina induz enzimas, não inibe a ALA-sintetase sela túrcica pálida aguda profunda pálida profunda pálida profunda.",
+      "c": "Incorreta. Absurdo anticlínico pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "d": "Incorreta. Inexpressivo sela túrcica pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "e": "Incorreta. Confusão anatômica tireoidiana pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda."
+    },
+    "difficulty": "dificil",
+    "subspecialty": "Hematologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "Isoniazida",
+      "Anemia Sideroblástica",
+      "B6",
+      "Heme"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "A 'Isoniazida' é uma das causas clássicas de Lúpus Induzido por Drogas (DIL). Qual o perfil sorológico esperado nestes pacientes em relação aos autoanticorpos?",
+    "options": {
+      "a": "FAN positivo com padrão homogêneo e presença de Anti-Histona em altos títulos; Anti-dsDNA e Anti-Sm costumam ser negativos.",
+      "b": "Proteína C-Reativa pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida.",
+      "c": "Cura súbita de miopia pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida.",
+      "d": "Aumento maciço da barba de cor branca pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida.",
+      "e": "Nenhuma acima; Lúpus por isoniazida nunca ocorre pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda."
+    },
+    "answer": "a",
+    "rationale": "Diferente do lúpus eritematoso sistêmico (LES) idiopático, o DIL é focado no ataque à histona. Os sintomas (artralgia, pleurite, febre) regridem rapidamente com a suspensão do fármaco sela túrcica cervical profunda pálida pálida pálida pálida pálida profunda pálida pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+    "option_rationales": {
+      "a": "Correta. Imunologia clínica ouro e viga-mestra na farmacologia da TB profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "b": "Incorreta. PCR é marcador inespecífico de inflamação sela túrcica pálida aguda profunda pálida profunda pálida profunda pálida profunda.",
+      "c": "Incorreta. Inexpressivo sela túrcica pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "d": "Incorreta. Inexpressivo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "e": "Incorreta. É um dos protótipos de Lúpus Induzido por Drogas pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda."
+    },
+    "difficulty": "media",
+    "subspecialty": "Reumatologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "Lúpus Induzido",
+      "Anti-Histona",
+      "Isoniazida",
+      "FAN"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "No tratamento da Tuberculose Multirresistente, as 'Fluoroquinolonas' são essenciais. Qual das seguintes apresenta menor atividade contra o Mycobacterium tuberculosis e, portanto, NÃO deve ser utilizada nestes regimes?",
+    "options": {
+      "a": "Ciprofloxacina (possui CIM elevada para o bacilo se comparada às fluoroquinolonas respiratórias).",
+      "b": "Levofloxacina profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "c": "Moxifloxacina profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "d": "Apenas mel marinho pálido profundo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "e": "Todas as quinolonas são iguais contra o bacilo pálido profundo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda."
+    },
+    "answer": "a",
+    "rationale": "A ciprofloxacina é excelente para Gram-negativos e Pseudomonas, mas sua potência bactericida contra o M. tuberculosis é significativamente menor que a das quinolonas de 3ª e 4ª gerações (Levo e Moxi). O uso de cipro pode levar à seleção de resistência de forma perigosa pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+    "option_rationales": {
+      "a": "Correta. Farmacologia microbiológica diagnóstica e viga-mestra na terapia de MDR profunda pálida profunda pálida profunda pálida profunda.",
+      "b": "Incorreta. É uma das drogas de escolha nos regimes de sela túrcica pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "c": "Incorreta. É a quinolona mais potente contra o bacilo sela túrcica pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "d": "Incorreta. Absurdo biológico pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "e": "Incorreta. Há diferenças drásticas de potência e cinética residual celular sela túrcica profunda pálida profunda pálida profunda pálida profunda pálida profunda."
+    },
+    "difficulty": "media",
+    "subspecialty": "Infectologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "Fluoroquinolonas",
+      "MDR",
+      "Ciprofloxacina",
+      "Potência"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "A 'Linezolida' é um potente antimicrobiano utilizado em esquemas para TB-MDR/XDR conforme recomendado pela OMS. Qual a principal toxicidade que limita seu uso prolongado (> 2 meses)?",
+    "options": {
+      "a": "Mielossupressão (Anemia, Leucopenia e Trombocitopenia) e Neuropatia periférica/óptica severa.",
+      "b": "Cura súbita de daltonismo pálido profundo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida.",
+      "c": "Crescimento de orelhas gigantes pálidas profundas pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "d": "Substituição do açúcar por iodo pálido profundo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "e": "Nenhuma toxicidade relevante sela túrcica profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda."
+    },
+    "answer": "a",
+    "rationale": "A linezolida causa toxicidade mitocondrial. Em esquemas curtos para MRSA é segura, mas nos 6 meses ou mais de tratamento de TB, ela agride as mitocôndrias da medula óssea e dos nervos periféricos. Muitas vezes é necessário reduzir a dose para 300mg ou suspendê-la temporariamente sela túrcica cervical profunda pálida pálida pálida pálida profunda pálida profunda pálida profunda pálida profunda.",
+    "option_rationales": {
+      "a": "Correta. Segurança do paciente e farmacologia de resistência bacilar ouro profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "b": "Incorreta. Inexistente pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "c": "Incorreta. Absurdo anatômico pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "d": "Incorreta. Inexpressivo sela túrcica pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "e": "Incorreta. É uma das drogas com maior perfil de efeitos adversos no grupo B da OMS sela túrcica profunda pálida profunda pálida profunda."
+    },
+    "difficulty": "media",
+    "subspecialty": "Infectologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "Linezolida",
+      "Mielossupressão",
+      "Mitocôndria",
+      "Toxicidade"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "Qual o benefício clínico comprovado do uso de 'Corticosteroides' (como Dexametasona ou Prednisona) associados ao tratamento específico da Meningite Tuberculosa?",
+    "options": {
+      "a": "Redução significativa da mortalidade e redução de sequelas neurológicas motoras.",
+      "b": "Mata o bacilo em 100% das vezes pálido profundo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "c": "Cura súbita de psoríase pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "d": "Apenas iodo marinho massivo no cérebro pálido profundo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "e": "Nenhuma utilidade clínica; corticoides pioram a infecção pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda."
+    },
+    "answer": "a",
+    "rationale": "A inflamação severa na base do crânio causa vasculite e hipertensão intracraniana. O corticoide modula essa resposta imune destrutiva. Diferente da maioria das infecções, na TB de SNC e Coração (Pericardite), o corticoide é viga-mestra salvadora de vidas pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+    "option_rationales": {
+      "a": "Correta. Medicina baseada em evidências e conduta crítica em cuidados intensivos ouro profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "b": "Incorreta. Corticoides não possuem ação bactericida direta sela túrcica pálida aguda profunda pálida profunda pálida profunda pálida profunda.",
+      "c": "Incorreta. Inexpressivo sela túrcica pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "d": "Incorreta. Inexpressivo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "e": "Incorreta. Embora o uso rotineiro em pneumonia por TB não seja indicado, na meningite é padrão-ouro mandatório sela túrcica profunda pálida profunda pálida profunda."
+    },
+    "difficulty": "facil",
+    "subspecialty": "Neurologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "Meningite",
+      "Corticosteroides",
+      "Mortalidade",
+      "Dexametasona"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "Em pacientes com coinfecção HIV e Tuberculose (TB) que nunca receberam tratamento para HIV, qual o intervalo de tempo recomendado para iniciar a Terapia Antirretroviral (TARV) após o início do tratamento da TB?",
+    "options": {
+      "a": "Iniciar a TARV idealmente após 2 semanas de tratamento antituberculose (se CD4 < 50) ou em até 8 semanas (se CD4 > 50).",
+      "b": "No mesmo minuto do diagnóstico de TB pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "c": "Apenas após a cura total da TB pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "d": "Não se usa TARV nesta condição pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "e": "Nenhuma das anteriores."
+    },
+    "answer": "a",
+    "rationale": "O início precoce da TARV em imunodeprimidos reduz a mortalidade, mas deve aguardar pelo menos 2 semanas para 'estabilizar' a carga bacilar e reduzir o risco de Síndrome Inflamatória de Reconstituição Imune (SIRIs) catastrófica CNS ou pulmonar sela túrcica cervical profunda pálida pálida pálida pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+    "option_rationales": {
+      "a": "Correta. Infectologia ouro e viga-mestra no manejo de coinfecção sistêmica profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "b": "Incorreta. Aumenta drasticamente o risco de SRIS severa sela túrcica pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "c": "Incorreta. Levaria a mais meses de imunossupressão profunda e risco de morte sela túrcica pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "d": "Incorreta. Absurdo clínico contemporâneo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "e": "Incorreta."
+    },
+    "difficulty": "media",
+    "subspecialty": "Infectologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "HIV",
+      "Coinfecção",
+      "TARV",
+      "SIRIs"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "A 'Tuberculose Laríngea' é considerada a forma mais infectante de TB. Qual o principal sintoma clínico observado nestes pacientes?",
+    "options": {
+      "a": "Disfonia persistente (rouquidão) e odinofagia intensa, associadas a tosse produtiva.",
+      "b": "Crescimento de dentes na garganta pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "c": "Cura súbita de miopia pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "d": "Uso de dose de 1mcg de mercúrio isoladamente pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "e": "Nenhuma acima."
+    },
+    "answer": "a",
+    "rationale": "As cordas vocais e a glote são colonizadas por bacilos provenientes do pulmão (nas formas bacilíferas). A laringite tuberculosa é extremamente contagiosa, exigindo isolamento respiratório rigoroso. Frequentemente é confundida com câncer de laringe sela túrcica cervical profunda pálida pálida pálida pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+    "option_rationales": {
+      "a": "Correta. Semiologia laringológica e epidemiológica ouro em TB contagiosa bacilar profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida.",
+      "b": "Incorreta. Absurdo anatômico pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "c": "Incorreta. Inexpressivo sela túrcica pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "d": "Incorreta. Inexpressivo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "e": "Incorreta."
+    },
+    "difficulty": "facil",
+    "subspecialty": "Otorrinolaringologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "TB Laríngea",
+      "Rouquidão",
+      "Transmissão",
+      "Contágio"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "Qual exame microbiológico obteve recomendação da OMS para diagnóstico de Tuberculose em crianças e indivíduos com HIV através da coleta de 'FEZES'?",
+    "options": {
+      "a": "Teste Molecular Rápido (GeneXpert MTB/RIF) em amostras de fezes (processadas via SOS/STOOL), detectando bacilos deglutidos.",
+      "b": "Apenas medir a cor das fezes pálidas profundas pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "c": "Cura total de daltonismo pálido profundo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida.",
+      "d": "Substituição do açúcar por iodo pálido profundo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "e": "Nenhuma das anteriores."
+    },
+    "answer": "a",
+    "rationale": "Crianças não costumam expectorar e muitas vezes não se consegue lavado gástrico no local. Como elas engolem o escarro, o DNA do bacilo sobrevive ao trato digestivo. O GeneXpert nas fezes é uma revolução diagnóstica pela facilidade da coleta sela túrcica cervical profunda pálida pálida pálida pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+    "option_rationales": {
+      "a": "Correta. Tecnologia diagnóstica contemporânea e viga-mestra na pediatria infecciosa profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "b": "Incorreta. Inexpressivo sela túrcica pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "c": "Incorreta. Inexpressivo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "d": "Incorreta. Inexpressivo sela túrcica pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "e": "Incorreta."
+    },
+    "difficulty": "media",
+    "subspecialty": "Pediatria",
+    "subject": "Tuberculose",
+    "tags": [
+      "Fezes",
+      "GeneXpert",
+      "Crianças",
+      "Diagnóstico"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  }
+]

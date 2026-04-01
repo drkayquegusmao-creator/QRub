@@ -19,6 +19,11 @@ export interface QuestionFilters {
 /**
  * Build valid taxonomy matchers (slugs + names) for a given taxonomy node + its descendants.
  */
+/**
+ * Build taxonomy UUID list (node + all descendants) for a given taxonomy node.
+ * For Concursos: returns only UUIDs (concurso_questao_base stores UUID FKs).
+ * For Saúde: returns IDs + slugs + names (questao_base uses text matching).
+ */
 async function buildTaxonomyMatchers(taxonomyId: string, isConcursos = false): Promise<string[]> {
     const table = isConcursos ? 'concurso_taxonomia' : 'taxonomia'
     const { data: node } = await supabase
@@ -29,14 +34,20 @@ async function buildTaxonomyMatchers(taxonomyId: string, isConcursos = false): P
 
     const matchers: string[] = []
     if (node?.id) matchers.push(node.id)
-    if (node?.slug) matchers.push(node.slug)
-    if (node?.name) matchers.push(node.name)
+
+    // Saúde uses text matching against slug/name; Concursos uses UUID FK columns
+    if (!isConcursos) {
+        if (node?.slug) matchers.push(node.slug)
+        if (node?.name) matchers.push(node.name)
+    }
 
     const descendants = await getDescendants(taxonomyId, isConcursos)
     descendants.forEach(d => {
         if (d.id) matchers.push(d.id)
-        if (d.slug) matchers.push(d.slug)
-        if (d.name) matchers.push(d.name)
+        if (!isConcursos) {
+            if (d.slug) matchers.push(d.slug)
+            if (d.name) matchers.push(d.name)
+        }
     })
 
     return [...new Set(matchers)]
@@ -44,19 +55,18 @@ async function buildTaxonomyMatchers(taxonomyId: string, isConcursos = false): P
 
 /**
  * Fetch matching question IDs using per-column individual queries.
+ * Columns differ between Saúde (specialty_id etc.) and Concursos (area_id etc.)
  */
 async function fetchMatchingIds(matchers: string[], isConcursos = false): Promise<string[]> {
     if (matchers.length === 0) return []
 
     const qTable = isConcursos ? 'concurso_questao_base' : 'questao_base'
-    const taxColumns = [
-        'specialty_id',
-        'subspecialty_id',
-        'subject_id',
-        'area_id',
-        'tema_id',
-        'subarea_id',
-    ] as const
+
+    // Concursos table uses direct UUID FK columns that map to concurso_taxonomia
+    const concursosTaxColumns = ['area_id', 'disciplina_id', 'subdisciplina_id', 'assunto_id'] as const
+    // Saúde table uses legacy text/UUID columns
+    const saudeTaxColumns = ['specialty_id', 'subspecialty_id', 'subject_id', 'area_id', 'tema_id', 'subarea_id'] as const
+    const taxColumns = isConcursos ? concursosTaxColumns : saudeTaxColumns
 
     const chunkSize = 50
     const chunks: string[][] = []

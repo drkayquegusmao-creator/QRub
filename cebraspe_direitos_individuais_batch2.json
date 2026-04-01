@@ -1,0 +1,57 @@
+[
+  {
+    "enunciado": "Considerando o princípio da isonomia consagrado no caput do art. 5º da CF/88, julgue: A adoção de critérios diferenciados para a promoção de integrantes de carreiras militares baseados unicamente em cotas de gênero para o acesso aos quadros de oficiais combatentes é considerada, pelo Supremo Tribunal Federal, plenamente compatível com o princípio da igualdade material, justificando-se pela necessidade histórica de nivelamento ostensivo das patentes.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "Errado. O STF, em ações recentes (ADIs contra polícias militares de vários estados), firmou entendimento de que a destinação de vagas exclusivas ou a limitação de percentuais máximos (como 10%) para mulheres em concursos públicos de carreiras de segurança pública militar viola frontalmente o princípio da isonomia/igualdade, por configurar discriminação de gênero injustificada, não caracterizando medida de 'nivelamento'.",
+    "difficulty": "medio",
+    "tags": ["Princípio da Isonomia", "Carreiras Militares", "Cotadas de Gênero", "STF"]
+  },
+  {
+    "enunciado": "A respeito do direito fundamental ao esquecimento no ordenamento jurídico brasileiro, julgue: O Supremo Tribunal Federal reconheceu o direito ao esquecimento como um direito fundamental implícito, derivado da dignidade da pessoa humana, permitindo a desindexação em motores de busca de informações verídicas e lícitas, desde que o lapso temporal transcorrido seja suficiente para afastar o interesse público atual sobre o fato penal anterior.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "Errado. O STF, no julgamento do RE 1010606 (Tema 786), decidiu que o 'direito ao esquecimento' é incompatível com a Constituição Federal. A Corte considerou que apagar fatos verídicos publicados em meios de comunicação (quando obtidos licitamente) com base no mero transcurso do tempo viola a liberdade de expressão e o direito à informação, sendo inadmissível censura prévia.",
+    "difficulty": "medio",
+    "tags": ["Direito ao Esquecimento", "Liberdade de Expressão", "STF"]
+  },
+  {
+    "enunciado": "Acerca da inviolabilidade do sigilo da correspondência e das comunicações telegráficas, de dados e das comunicações telefônicas, julgue: É admitida a quebra do sigilo de dados bancários e fiscais diretamente por comissões parlamentares de inquérito (CPIs) federais e estaduais, por força de seus poderes de investigação próprios de autoridades judiciais, não sendo extensível essa prerrogativa, contudo, a CPIs instaladas em âmbito municipal.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "c",
+    "rationale": "Certo. O STF reconhece que as CPIs Federais e Estaduais detêm poderes de investigação equiparados aos das autoridades judiciais (art. 58, § 3º, CF), podendo determinar diretamente a quebra de sigilo bancário, fiscal e de dados telefônicos (não a escuta/interceptação das comunicações, que é reserva de jurisdição). Contudo, essa prerrogativa de quebra direta não se estende às CPIs Municipais, que precisam recorrer ao Judiciário (por ausência de previsão de 'autoridade judicial' de primeira instância sob a alçada direta municipal em face da reserva de magistratura estadual e federal).",
+    "difficulty": "dificil",
+    "tags": ["CPI", "Quebra de Sigilo Bancário", "Poderes de Investigação"]
+  },
+  {
+    "enunciado": "No que concerne ao tribunal do júri, cuja instituição é reconhecida constitucionalmente (art. 5º, XXXVIII), julgue o item: É competência absoluta do Tribunal do Júri o julgamento dos crimes dolosos contra a vida. Portanto, havendo prerrogativa de foro prevista exclusivamente em Constituição Estadual de um Procurador de Estado que venha a cometer homicídio doloso, esta não prevalecerá sobre a competência do Tribunal do Júri, que tem assento na Constituição Federal.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "c",
+    "rationale": "Certo. De acordo com a Súmula Vinculante 45 do STF, 'A competência constitucional do Tribunal do Júri prevalece sobre o foro por prerrogativa de função estabelecido exclusivamente pela Constituição Estadual'. A exceção ocorre apenas se a prerrogativa do foro for estabelecida expressamente pela própria Constituição Federal.",
+    "difficulty": "medio",
+    "tags": ["Tribunal do Júri", "Súmula Vinculante 45", "Prerrogativa de Função"]
+  },
+  {
+    "enunciado": "Julgue a assertiva com base nas regras constitucionais sobre extradição, expulsão e deportação: A proibição de extradição de brasileiro nato é cláusula pétrea e garantia fundamental absoluta. Entretanto, a jurisprudência do Supremo Tribunal Federal tem flexibilizado essa restrição, permitindo a extradição nos casos em que o brasileiro nato abdica formalmente da nacionalidade para obter outra, transformando-se tecnicamente em estrangeiro no momento do delito.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "c",
+    "rationale": "Certo. A Constituição impede a extradição de brasileiros natos. No entanto, o STF já julgou o paradigmático caso 'Cláudia Hoerig' (MS 33864), onde uma brasileira nata que voluntariamente se naturalizou norte-americana (abdicando expressamente da nacionalidade brasileira de forma voluntária, antes da flexibilização da EC 131/2023 sobre os critérios de perda) perdeu o status de nata. Com isso, após cometer crime nos EUA e fugir para o Brasil, ela foi legalmente tratada como estrangeira e teve seu pedido de extradição autorizado e julgado procedente pelo Supremo Tribunal Federal.",
+    "difficulty": "dificil",
+    "tags": ["Extradição", "Brasileiro Nato", "Perda de Nacionalidade"]
+  }
+]

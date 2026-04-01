@@ -1,0 +1,852 @@
+[
+  {
+    "enunciado": "A 'Síndrome de Marine-Lenhart' descreve uma variante rara da Doença de Graves que se associa a qual outra condição funcional da tireoide?",
+    "options": {
+      "a": "Nódulos autônomos (bócio nodular tóxico) coexistindo com a estimulação difusa pelo TRAb.",
+      "b": "Agravação por anticorpos anti-células parietais.",
+      "c": "Somente hipotireoidismo agudo de Hashimoto.",
+      "d": "Câncer anaplásico precoce.",
+      "e": "Deficiência congênita de Vitamina B12."
+    },
+    "answer": "a",
+    "rationale": "A Síndrome de Marine-Lenhart é a combinação de Doença de Graves (estimulação difusa e homogênea da glândula por TRAb) com a presença de um ou mais nódulos autonômos hiperfuncionantes. Laboratorialmente é indistinguível do Graves clássico, mas na cintilografia os nódulos podem captar mais iodo que o parênquima circundante, e habitualmente exigem doses maiores de Iodo-131 para tratamento eficaz.",
+    "option_rationales": {
+      "a": "Correta. Definição da síndrome mista.",
+      "b": "Incorreta. Relacionado a anemia perniciosa.",
+      "c": "Incorreta. Marine-Lenhart cursa com hipertireoidismo.",
+      "d": "Incorreta. Sem relação oncológica específica.",
+      "e": "Incorreta. Sem nexo clínico primário."
+    },
+    "difficulty": "dificil",
+    "subspecialty": "Endocrinologia",
+    "subject": "Tireoide",
+    "tags": [
+      "Marine-Lenhart",
+      "Graves",
+      "Bócio Nodular",
+      "Cintilografia"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "O 'Hipertireoidismo Apático' é uma forma de apresentação atípica da tireotoxicose que exige alto índice de suspeição diagnóstica. Em qual grupo populacional ele é mais prevalente?",
+    "options": {
+      "a": "Idosos acima de 70-80 anos.",
+      "b": "Crianças menores de 2 anos.",
+      "c": "Atletas de crossfit em uso de anabolizantes.",
+      "d": "Gestantes no primeiro mês.",
+      "e": "Adolescentes com transtorno bipolar."
+    },
+    "answer": "a",
+    "rationale": "No idoso, os sinais adrenérgicos clássicos do hipertireoidismo (taquicardia, agitação, tremor) podem estar ausentes. O paciente apresenta-se paradoxalmente letárgico, deprimido (apático), com perda ponderal severa e, frequentemente, apenas fibrilação atrial isolada como pista diagnóstica.",
+    "option_rationales": {
+      "a": "Correta. Perfil clínico atípico de extrema importância na geriatria.",
+      "b": "Incorreta. Em pediatria a clínica costuma ser florida.",
+      "c": "Incorreta. Hipertireoidismo factício teria outras facetas.",
+      "d": "Incorreta. Clínica gestacional é exuberante.",
+      "e": "Incorreta. O transtorno bipolar não amortece de forma 'apática' o hipertireoidismo clínico comum no jovem."
+    },
+    "difficulty": "media",
+    "subspecialty": "Geriatria",
+    "subject": "Tireoide",
+    "tags": [
+      "Idoso",
+      "Hipertireoidismo Apático",
+      "Diagnóstico Diferencial",
+      "Clínica Médica"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "Qual a alteração do colesterol sérico clássica encontrada em pacientes com Hipotireoidismo Primário severo?",
+    "options": {
+      "a": "Aumento do Colesterol Total e do LDL-Colesterol decorrente da diminuição da síntese de receptores de LDL pelos hepatócitos.",
+      "b": "Redução global de todas as frações de gordura no sangue.",
+      "c": "Somente aumento isolado de Triglicerídeos e redução de HDL sérico.",
+      "d": "Não há interação laboratorial entre tireoide e perfil lipídico.",
+      "e": "Hipotrigliceridemia grave persistente."
+    },
+    "answer": "a",
+    "rationale": "A tiroxina (T4) estimula a expressão hepática dos receptores de LDL. Sem hormônio, o LDL circulante não é adequadamente limpo da circulação, elevando significativamente os níveis lipídicos. Em muitos pacientes, o tratamento exclusivo do hipotireoidismo normaliza o perfil lipídico sérico sem necessidade de estatinas iniciais.",
+    "option_rationales": {
+      "a": "Correta. Mecanismo metabólico endócrino fundamental.",
+      "b": "Incorreta. Ocorre no hipertireoidismo.",
+      "c": "Incorreta. O aumento do LDL é a marca registrada metabólica mais sensível.",
+      "d": "Incorreta. O hipotireoidismo é uma das principais causas de dislipidemia secundária.",
+      "e": "Incorreta. Os TG podem até subir secundariamente no hipotira."
+    },
+    "difficulty": "media",
+    "subspecialty": "Nutrologia",
+    "subject": "Tireoide",
+    "tags": [
+      "Dislipidemia",
+      "Hipotireoidismo",
+      "LDL",
+      "Metabolismo"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "A 'Síndrome de Schmidt' é constituída por qual combinação de patologias autoimunes?",
+    "options": {
+      "a": "Doença de Addison (Insuficiência Adrenal) e Doença de Hashimoto (ou Graves).",
+      "b": "Diabetes tipo 1 e Vitiligo.",
+      "c": "Bócio multinodular e Doença Celíaca.",
+      "d": "Anemia Perniciosa e Hipoparatiroidismo.",
+      "e": "Lúpus e Sarcoidose."
+    },
+    "answer": "a",
+    "rationale": "A Síndrome de Schmidt é a denominação clássica para a Síndrome Poliglandular Autoimune Tipo 2 (SPA 2), caracterizada prioritariamente pela associação de insuficiência adrenal autoimune com doença autoimune da tireoide (comumente Hashimoto, mas também Graves). É vital detectar ambas, pois o tratamento isolado da tireoide em um paciente com Addison não diagnosticado pode levar à morte por choque adrenal.",
+    "option_rationales": {
+      "a": "Correta. Nome histórico e associação clínica padrão-ouro.",
+      "b": "Incorreta. Podem fazer parte do SPA 2, mas não definem o núcleo da Schmidt sozinhos.",
+      "c": "Incorreta. Sem relação sindrômica direta prioritária.",
+      "d": "Incorreta. Marcadores do SPA tipo 1.",
+      "e": "Incorreta. Doenças sistêmicas não endócrinas típicas."
+    },
+    "difficulty": "media",
+    "subspecialty": "Endocrinologia",
+    "subject": "Tireoide",
+    "tags": [
+      "Síndrome de Schmidt",
+      "SPA Tipo 2",
+      "Addison",
+      "Polidlandular"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "A lesão unilateral acidental do Nervo Laríngeo Superior duranta a tireoidectomia (frequentemente ao clampar a artéria tireóidea superior) manifesta-se clinicamente como:",
+    "options": {
+      "a": "Perda de tons agudos e fadiga vocal (especialmente em profissionais da voz/cantores), além de risco de aspiração de líquidos.",
+      "b": "Rouquidão intensa e imediata (bitonalidade).",
+      "c": "Fasciculação da língua prolongada.",
+      "d": "Paralisia completa de toda a laringe com estridor.",
+      "e": "Cessação da produção de saliva pelo ducto parotídeo."
+    },
+    "answer": "a",
+    "rationale": "Diferente do nervo recorrente (que move as cordas vocais), o nervo laríngeo superior inerva o músculo cricotireóideo, responsável pelo estiramento da prega vocal e produção de sons de alta frequência. Sua lesão é muitas vezes sutil para o paciente comum, mas devastadora para oradores e cantores devido à perda de alcance vocal.",
+    "option_rationales": {
+      "a": "Correta. Semiologia neurológica cirúrgica específica.",
+      "b": "Incorreta. Marca registrada da lesão do nervo recorrente unilateral.",
+      "c": "Incorreta. Lesão do Hipoglosso.",
+      "d": "Incorreta. Exigiria lesão bilateral severa traumática.",
+      "e": "Incorreta. Glândulas salivares são distantes deste sítio cirúrgico tireoidiano."
+    },
+    "difficulty": "media",
+    "subspecialty": "Otorrinolaringologia",
+    "subject": "Tireoide",
+    "tags": [
+      "Complicações Cirúrgicas",
+      "Nervo Laríngeo Superior",
+      "Foniatria",
+      "Cirurgia"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "O Carcinoma Medular de Tireoide e o Feocromocitoma Bilateral são manifestações clínicas obrigatórias em qual destas síndromes?",
+    "options": {
+      "a": "Neoplasia Endócrina Múltipla tipo 2A e 2B (NEM 2).",
+      "b": "NEM tipo 1 apenas (Síndrome de Wermer).",
+      "c": "Síndrome de Cushing subclínica.",
+      "d": "Anemia de Fanconi hereditária.",
+      "e": "Síndrome de Kallmann (hipogonadismo hipogonadotrófico)."
+    },
+    "answer": "a",
+    "rationale": "A Neoplasia Endócrina Múltipla Tipo 2 é causada por mutações ativadoras no proto-oncogene RET. Ambas as variantes (2A e 2B) apresentam Carcinoma Medular de Tireoide (100% dos casos) e Feocromocitoma (cerca de 50%). A tipo 2A associa-se também ao hiperparatiroidismo, enquanto a 2B apresenta fenotipo marfanoide e neuromas de mucosa.",
+    "option_rationales": {
+      "a": "Correta. Associação clássica e viga-mestra na oncogenética endócrina.",
+      "b": "Incorreta. Hipófise, Paratireoide e Pâncreas (os 3 'P's).",
+      "c": "Incorreta. Relacionado a excesso de glicocorticoides de causa diversa.",
+      "d": "Incorreta. Causa falência medular hematológica.",
+      "e": "Incorreta. Relacionado a anosmia e deficiência de GnRH central."
+    },
+    "difficulty": "media",
+    "subspecialty": "Genética Médica",
+    "subject": "Tireoide",
+    "tags": [
+      "NEM 2",
+      "CMT",
+      "Feocromocitoma",
+      "RET"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "O hormônio T3 (tri-iodotironina) circulante provém majoritariamente de qual processo metabólico?",
+    "options": {
+      "a": "Conversão periférica do T4 para T3 pela ação das enzimas deiodinases (tipo 1 e 2), principalmente no fígado e rins.",
+      "b": "Secreção direta massiva pela glândula tireóide.",
+      "c": "Digestão estomacal baseada em ácido gástrico.",
+      "d": "Absorção pelo intestino grosso através de bactérias simbióticas.",
+      "e": "Transformação por radiações UV no tecido subcutâneo facial."
+    },
+    "answer": "a",
+    "rationale": "A tireoide produz cerca de 90-95% de T4 (pro-hormônio) e apenas uma pequena fração de T3 (hormônio ativo). Cerca de 80% do T3 circulante é oriundo da remoção enzimática de um átomo de ioda do T4 nos tecidos periféricos (fígado, músculo, rim), o que torna a deiodinação o principal passo de ativação hormonal.",
+    "option_rationales": {
+      "a": "Correta. Bioquímica e fisiologia tireoidiana central.",
+      "b": "Incorreta. A tireoide produz pouco T3 direto.",
+      "c": "Incorreta. Inexpressivo.",
+      "d": "Incorreta. Irreal.",
+      "e": "Incorreta. Descreve a síntese de Vitamina D."
+    },
+    "difficulty": "facil",
+    "subspecialty": "Bioquímica",
+    "subject": "Tireoide",
+    "tags": [
+      "T3",
+      "T4",
+      "Deiodinases",
+      "Conversão Periférica"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "A 'Variante Insular' (Insular variant) do câncer de tireoide é atualmente considerada pelo sistema de classificação da WHO como um tumor de que tipo?",
+    "options": {
+      "a": "Carcinoma de Tireoide Pouco Diferenciado (Poorly Differentiated Thyroid Carcinoma - PDTC), de prognóstico intermediário entre o diferenciado e o anaplásico.",
+      "b": "Microcarcinoma benigno.",
+      "c": "Tumor puramente estromal e sem agressividade clínica.",
+      "d": "Variante oncocítica de células de Hürthle simples.",
+      "e": "Metástase pulmonar intramamária apenas."
+    },
+    "answer": "a",
+    "rationale": "O carcinoma insular é o protótipo do carcinoma 'pouco diferenciado'. Apresenta um padrão de ninhos sólidos de células pequenas (ilhas), elevada taxa mitótica e necrose tecidual histológica. Possui maior agressividade biológica e menores taxas de cura pelo radioiodo quando isolado comparado ao papilífero clássico.",
+    "option_rationales": {
+      "a": "Correta. Evolução histopatológica e terminologia diagnóstica atualizada.",
+      "b": "Incorreta. Maligno de alto grau.",
+      "c": "Incorreta. Tumor epitelial epitelial agressivo.",
+      "d": "Incorreta. Diferente citologicamente das células oncocíticas.",
+      "e": "Incorreta. Sem nexo."
+    },
+    "difficulty": "dificil",
+    "subspecialty": "Oncologia",
+    "subject": "Tireoide",
+    "tags": [
+      "Carcinoma Insular",
+      "Pouco Diferenciado",
+      "Patologia",
+      "Oncologia"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "Um paciente de 40 anos apresenta nódulo tireoidiano de 1,2 cm em lobo direito. A citologia por PAAF revela: 'Epitélio folicular arranjado em microfolículos, escassa coloide, intensa atipia nuclear frouxa, sistema Bethesda IV'. Qual a conduta padrão ouro?",
+    "options": {
+      "a": "Cirurgia (geralmente lobectomia diagnóstica inicial) ou teste molecular (quando disponível) para diferenciar adenoma de carcinoma.",
+      "b": "Apenas repetir a PAAF após 6 meses.",
+      "c": "Iodo Radioativo curativo de 30 mCi imediato.",
+      "d": "Aspirar e esvaziar o cisto.",
+      "e": "Suspender o sal na comida por 1 ano."
+    },
+    "answer": "a",
+    "rationale": "A categoria Bethesda IV (Suspeito para Neoplasia Folicular) apresenta um risco de malignidade entre 15% e 30%. Como a citologia não diferencia adenoma de carcinoma, o diagnóstico definitivo depende da análise da peça cirúrgica (cápsula e vasos). Alternativamente, o uso de painéis moleculares que buscam mutações e padrões de gene expression pode evitar cirurgias diagnósticas desnecessárias.",
+    "option_rationales": {
+      "a": "Correta. Conduta padrão em nódulos indeterminados da linhagem folicular.",
+      "b": "Incorreta. A repetição não resolve o problema diagnóstico biológico subjacente do Bethesda IV.",
+      "c": "Incorreta. Iodo não diagnostica ou trata nódulos frios Bethesda IV inicialmente.",
+      "d": "Incorreta. Nódulos Bethesda IV são tipicamente sólidos ou predominantemente sólidos.",
+      "e": "Incorreta. Absurdo clínico sem nexo biológico."
+    },
+    "difficulty": "media",
+    "subspecialty": "Endocrinologia",
+    "subject": "Tireoide",
+    "tags": [
+      "Bethesda IV",
+      "Nódulo de Tireoide",
+      "Cirurgia",
+      "Conduta"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "A ocorrência de bócio indolor volumoso e endurecido, associado a Hipocalcemia severa sintomática (Sinal de Trousseau positivo) em um paciente com diagnóstico prévio de Doença Medular de Tireoide deve levantar a suspeita de qual processo sistêmico?",
+    "options": {
+      "a": "Invasão direta local das paratireoides pelo Carcinoma Medular, reduzindo o PTH agudamente.",
+      "b": "Excesso de Calcitonina isolado reduzindo o cálcio (efeito farmacológico massivo).",
+      "c": "Hipotireoidismo de Riedel induzido pelo tumor.",
+      "d": "Gordura na biliar fecal.",
+      "e": "Mimetismo molecular com calcificações da aorta."
+    },
+    "answer": "a",
+    "rationale": "O carcinoma medular pode ser localmente invasivo. Devido à sua posição anatômica frequente na parte superior e central dos lobos tireoidianos, pode infiltrar e destruir as quatro glândulas paratireoides vizinhas, levando ao hipoparatiroidismo grave e hipocalcemia persistente.",
+    "option_rationales": {
+      "a": "Correta. Complicação biomecânica e oncológica loco-regional severa.",
+      "b": "Incorreta. Curiosamente, mesmo níveis astronômicos de calcitonina (ex: 20.000 ng/mL) no carcinoma medular raramente causam hipocalcemia clínica, pois os receptores ósseos sofrem downregulation ('downregulation') rápido.",
+      "c": "Incorreta. Riedel é autoimune por IgG4, não tumoral direta.",
+      "d": "Incorreta. Sem nexo.",
+      "e": "Incorreta. Sem nexo."
+    },
+    "difficulty": "dificil",
+    "subspecialty": "Oncologia",
+    "subject": "Tireoide",
+    "tags": [
+      "Carcinoma Medular",
+      "Hipocalcemia",
+      "Paratireoide",
+      "Metástases"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "Sobre o uso do Tapazol (Metimazol) em idosos com cardiopatia, qual cuidado inicial é recomendado antes de atingir o eutireoidismo pleno?",
+    "options": {
+      "a": "Sempre associar Betabloqueadores (como Atenolol ou Propranolol) para controlar a taquicardia e prevenir arritmias letais até que a função tireoidiana esteje medicada.",
+      "b": "Realizar reposição massiva de iodo na dieta.",
+      "c": "Somente repouso absoluto no escuro por 30 dias.",
+      "d": "Induzir hipotireoidismo agudo imediato com doses de 100 mg/dia do fármaco de rotina em casos leves.",
+      "e": "Utilizar exclusivamente aspirina para aliviar os tremores."
+    },
+    "answer": "a",
+    "rationale": "O tratamento com tionamidas (Metimazol) demora de 4 a 8 semanas para normalizar os níveis hormonais (estoppel de síntese e depleção hormonal residual). No paciente cardiopata, os sintomas adrenérgicos do hipertireoidismo (palpitações, FA, angina) causam risco imediato; portanto, o uso adjuvante de betabloqueadores é crucial para estabilização hemodinâmica inicial.",
+    "option_rationales": {
+      "a": "Correta. Prática clínica de segurança primária cardiovascular.",
+      "b": "Incorreta. Pioraria o hipertireoidismo (Jod-Basedow) no idoso com bócio nodular.",
+      "c": "Incorreta. Não resolve a toxicidade bioquímica tecidual cardíaca.",
+      "d": "Incorreta. Doses astronômicas iniciais em idosos aumentam o risco de hepatotoxicidade e agranulocitose.",
+      "e": "Incorreta. Aspirina pode elevar o T4 livre, piorando o quadro."
+    },
+    "difficulty": "media",
+    "subspecialty": "Cardiologia",
+    "subject": "Tireoide",
+    "tags": [
+      "Metimazol",
+      "Betabloqueadores",
+      "Idoso",
+      "Cardiopatia"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "A 'Célula de Askanazy' (Hürthle) é comum em biópsias de tireoide e caracteriza-se por um citoplasma abundante, granular e eosinofílico. Histologicamente, esse aspecto é decorrente do acúmulo patológico de qual organela celular?",
+    "options": {
+      "a": "Mitocôndrias.",
+      "b": "Complexo de Golgi dilatado.",
+      "c": "Ribossomos livres.",
+      "d": "Lisossomos com pigmento melânico.",
+      "e": "Retículo Endoplasmático Rugoso hipertrófico apenas."
+    },
+    "answer": "a",
+    "rationale": "As células de Hürthle (oncócitos) apresentam um citoplasma granular rosa característico devido à presença massiva e hipertrófica de mitocôndrias. São comuns na Tireoidite de Hashimoto e em neoplasias oncocíticas, representando células com alto turnover metabólico ou degeneração metabólica específica.",
+    "option_rationales": {
+      "a": "Correta. Fato histopatológico definidor da oncocitose.",
+      "b": "Incorreta. Não causa esse tipo de granulação eosinofílica clássica.",
+      "c": "Incorreta. Ribossomos dão cor basofílica (azulada) ao citoplasma, não eosinofílica.",
+      "d": "Incorreta. Não relacionado.",
+      "e": "Incorreta. O retículo liso poderia ser abundante em células produtoras de esteroides, mas na tireoide do Hürthle são as mitocôndrias."
+    },
+    "difficulty": "dificil",
+    "subspecialty": "Patologia",
+    "subject": "Tireoide",
+    "tags": [
+      "Célula de Hürthle",
+      "Mitocôndria",
+      "Hashimoto",
+      "Histologia"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "O principal anticorpo marcador da Doença de Graves, capaz de estimular a glândula tireóide de forma contínua, é o:",
+    "options": {
+      "a": "TSH receptor antibody (TRAb) - fração estimuladora.",
+      "b": "Antibiorpo Antirreticulina.",
+      "c": "Antigeno Carcinoembrionário (CEA).",
+      "d": "Antígeno prostático específico (PSA).",
+      "e": "Anti-SCL 70."
+    },
+    "answer": "a",
+    "rationale": "O TRAb é o mecanismo patogênico central da Doença de Graves. Ele mimetiza o TSH, ligando-se ao seu receptor nos tireócitos e ativando a cascata do AMP cíclico, levando à hiperplasia difusa e hiper-secreção desgovernada de hormônios.",
+    "option_rationales": {
+      "a": "Correta. Bioquímica e imunologia da doença tireoidiana básica.",
+      "b": "Incorreta. Relacionado a doença celíaca.",
+      "c": "Incorreta. Marcador oncológico do CMT ou TGI.",
+      "d": "Incorreta. Marcador prostático.",
+      "e": "Incorreta. Relacionado a esclerodermia sistêmica."
+    },
+    "difficulty": "facil",
+    "subspecialty": "Imunologia",
+    "subject": "Tireoide",
+    "tags": [
+      "TRAb",
+      "Graves",
+      "Autoimunidade",
+      "Endocrinologia"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "A 'Biópsia por PAAF' tem o seu maior valor diagnóstico em qual destes cenários oncológicos?",
+    "options": {
+      "a": "Na identificação do Carcinoma Papilífero de Tireoide, onde apresenta sensibilidade e especificidade elevadíssimas (> 95%).",
+      "b": "Para diferenciar Carcinoma Folicular de Nódulo Benigno.",
+      "c": "Para detectar exclusivamente osteoporose cervical.",
+      "d": "Como tratamento para câncer de pulmão.",
+      "e": "Nenhuma das anteriores."
+    },
+    "answer": "a",
+    "rationale": "O diagnóstico citológico do carcinoma papilífero baseia-se em alterações nucleares inequívocas (fendas, núcleos claros, pseudo-inclusões). Diferente do folicular (que exige análise capsular histológica), o papilífero pode ser diagnosticado com segurança absoluta apenas pelas células aspiradas.",
+    "option_rationales": {
+      "a": "Correta. Fato diagnóstico viga-mestra na oncologia de cabeça e pescoço.",
+      "b": "Incorreta. Justamente a principal limitação da PAAF é a linhagem folicular (Bethesda IV).",
+      "c": "Incorreta. Absurdo técnico.",
+      "d": "Incorreta. Absurdo técnico.",
+      "e": "Incorreta."
+    },
+    "difficulty": "facil",
+    "subspecialty": "Radiologia",
+    "subject": "Tireoide",
+    "tags": [
+      "PAAF",
+      "Carcinoma Papilífero",
+      "Diagnóstico",
+      "Bethesda"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "Um paciente apresentando bócio difuso leve, taquicardia severa e níveis indetectáveis de Tireoglobulina (TG) sérica deve sugerir:",
+    "options": {
+      "a": "Hipertireoidismo factício (ingestão exógena inadvertida ou proposital de hormônio tireoidiano).",
+      "b": "Doença de Graves em atividade massiva.",
+      "c": "Bócio multinodular tóxico crônico.",
+      "d": "Carcinoma medular oculto.",
+      "e": "Uso excessivo de sal marinho iodado."
+    },
+    "answer": "a",
+    "rationale": "A Tireoglobulina é produzida apenas por tecido tireoidiano funcionante e 'vaza' para a circulação quando a glândula está em hiperatividade endógena. Se houver excesso de hormônio no sangue mas a TG estiver baixa (indetectável ou < 1-2 ng/mL), significa que a glândula nativa está suprimida e a fonte de hormônio é externa (pastilhas manipuladas, iatrogenia ou transtorno psiquiátrico).",
+    "option_rationales": {
+      "a": "Correta. Diagnóstico diferencial bioquímico essencial na clínica médica.",
+      "b": "Incorreta. TG estaria extremamente elevada pelo estímulo do TRAb.",
+      "c": "Incorreta. TG estaria elevada pela autonomia nodular.",
+      "d": "Incorreta. CMT não causa hipertireoidismo clínico direto desta forma.",
+      "e": "Incorreta. Sem nexo."
+    },
+    "difficulty": "media",
+    "subspecialty": "Psiquiatria",
+    "subject": "Tireoide",
+    "tags": [
+      "Factício",
+      "Tireoglobulina",
+      "Diagnóstico Diferencial",
+      "Endocrinologia"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "O tratamento do Hipotireoidismo primário durante a gestação exige ajustes na dose de Levotiroxina (L-T4). Qual a conduta prática recomendada logo após a confirmação da gravidez pela paciente?",
+    "options": {
+      "a": "Aumentar a dose semanal de L-T4 em aproximadamente 25 a 30% (geralmente acrescentando 2 doses semanais extras na grade atual) e dosar TSH mensalmente.",
+      "b": "Suspender a medicação para não sobrecarregar o feto.",
+      "c": "Manter a mesma dose e reavaliar apenas após o 6º mês.",
+      "d": "Trocar para T3 isolado em gotas puras.",
+      "e": "Dobrar a dose de rotina."
+    },
+    "answer": "a",
+    "rationale": "A demanda de hormônio aumenta logo no início da gestação devido aos elevados níveis de estrogênio (aumentando a TBG) e à transferência de T4 materno para o feto. O atraso no ajuste pode elevar o TSH materno rapidamente, prejudicando o neurodesenvolvimento fetal nas fases iniciais críticas.",
+    "option_rationales": {
+      "a": "Correta. Guideline internacional mandatória para segurança obstétrica.",
+      "b": "Incorreta. Conduta de alto risco para abortamento e dano cerebral fetal.",
+      "c": "Incorreta. Perigoso atraso no ajuste fisiológico necessário.",
+      "d": "Incorreta. O T4 é essencial e seguro na gestação; o T3 não é recomendado para reposição isolada.",
+      "e": "Incorreta. Excesso sugerido; o aumento de 30% é o ideal estatístico inicial maioria dos casos."
+    },
+    "difficulty": "media",
+    "subspecialty": "Ginecologia e Obstetrícia",
+    "subject": "Tireoide",
+    "tags": [
+      "Gestação",
+      "Hipotireoidismo",
+      "Levotiroxina",
+      "Pré-Natal"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "O sinal de 'Stella' ou retração palpebral superior em pacientes com hipertireoidismo decorre de qual efeito fisiológico?",
+    "options": {
+      "a": "Hiperatividade simpática do músculo tarsal superior (músculo de Müller), induzida pelo excesso de hormônio tireoidiano.",
+      "b": "Infiltração gordura na pele da pálpebra.",
+      "c": "Paralisia do nervo facial bilateral.",
+      "d": "Desejo do paciente de manter os olhos abertos por mania.",
+      "e": "Calcificação da conjuntiva ocular aguda profunda."
+    },
+    "answer": "a",
+    "rationale": "O estado tireotóxico induz um aumento da sinalização simpática sistêmica e local. O músculo de Müller (músculo liso da pálpebra) sofre contração persistente, gerando a retração palpebral (olhar de espanto). Ao contrário da exoftalmia real (proptose), a retração palpebral pode estar presente em qualquer causa de hipertireoidismo (não exclusivo do Graves) e frequentemente melhora com betabloqueadores.",
+    "option_rationales": {
+      "a": "Correta. Fisiopatologia da semiologia ocular tireotoxicose.",
+      "b": "Incorreta. Processo volumétrico, não reacional imediato.",
+      "c": "Incorreta. Causaria ptose, não retração.",
+      "d": "Incorreta. Inexistente.",
+      "e": "Incorreta. Sem nexo anatômico."
+    },
+    "difficulty": "media",
+    "subspecialty": "Endocrinologia",
+    "subject": "Tireoide",
+    "tags": [
+      "Sinal de Stella",
+      "Müller",
+      "Hipertireoidismo",
+      "Sinais Clínicos"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "Qual a principal intervenção recomendada para nódulos tireoidianos benignos (Bethesda II) que são inteiramente císticos (líquidos) e recorrentes após a punção de esvaziamento?",
+    "options": {
+      "a": "Alcoolização percutânea (injeção guiada por USG de etanol absoluto).",
+      "b": "Cirurgia de lobectomia aberta.",
+      "c": "Uso de Iodo Radioativo.",
+      "d": "Administração de antineoplásicos intravasculares.",
+      "e": "Colocação de stent cervical."
+    },
+    "answer": "a",
+    "rationale": "Para cistos tireoidianos recorrentes, a escleroterapia com etanol é extremamente eficaz. O álcool causa desidratação e necrose da parede do cisto (que produz o líquido), levando ao colabamento definitivo da cavidade com mínima morbidade e alta taxa de sucesso estético e funcional.",
+    "option_rationales": {
+      "a": "Correta. Técnica intervencionista padrão-ouro em radiologia da tireoide.",
+      "b": "Incorreta. Excesso terapêutico para uma lesão benigna puramente cística.",
+      "c": "Incorreta. Cistos não captam rádioisótopos (são 'frios' por definição).",
+      "d": "Incorreta. Não há neoplasia para justificar antineoplásicos.",
+      "e": "Incorreta. Sem nexo anatômico."
+    },
+    "difficulty": "media",
+    "subspecialty": "Radiologia Intervencionista",
+    "subject": "Tireoide",
+    "tags": [
+      "Alcoolização",
+      "Cisto de Tireoide",
+      "Tratamento",
+      "Biópsia"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "A 'Tireotoxicose de Hashimoto' (ou Hashitoxicose) é um quadro clínico que descreve:",
+    "options": {
+      "a": "Uma fase transitória de hipertireoidismo no início da Tireoidite de Hashimoto, decorrente da destruição folicular inflamatória e liberação hormonal indesejada.",
+      "b": "Desejo do paciente de ter câncer.",
+      "c": "Urgência metabólica tratada com iodo radioativo curativo em 24h.",
+      "d": "Hipertireoidismo induzido por dieta sem glúten.",
+      "e": "Variante maligna do bócio de Riedel."
+    },
+    "answer": "a",
+    "rationale": "Semelhante à tireoidite subaguda ou silenciosa, a fase aguda do Hashimoto pode ocasionar liberação massiva de hormônio pré-formado para a circulação devido ao ataque linfocitário intenso à glândula. Deve ser tratada sintomaticamente com betabloqueadores, pois não há hiperfunção glandular real, evitando-se tratamentos definitivos que piorariam o hipotireoidismo futuro inevitável.",
+    "option_rationales": {
+      "a": "Correta. Definição fisiopatológica da fase hiper da tireoidite linfocítica crônica.",
+      "b": "Incorreta. Absurdo.",
+      "c": "Incorreta. Contraindicado absoluto (destruiria ainda mais o pouco tecido normal residual).",
+      "d": "Incorreta. Inexistente.",
+      "e": "Incorreta. Riedel é outra entidade patológica."
+    },
+    "difficulty": "media",
+    "subspecialty": "Endocrinologia",
+    "subject": "Tireoide",
+    "tags": [
+      "Hashitoxicose",
+      "Hipotireoidismo",
+      "Inflamação",
+      "Diferencial"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "Qual hormônio deve ser obrigatoriamente dosado para avaliar o risco de desenvolvimento de Carcinoma Medular de Tireoide em pacientes com nódulos sólidos e antecedentes familiares de Neoplasia Endócrina Múltipla?",
+    "options": {
+      "a": "Calcitonina.",
+      "b": "ADH.",
+      "c": "Inibina B.",
+      "d": "Gastrina sérica isolada.",
+      "e": "T3 livre em urina de 24 horas."
+    },
+    "answer": "a",
+    "rationale": "A calcitonina é o marcador direto da atividade das células C (parafoliculares). Níveis elevados associados a nódulos tireoidianos são altamente sugestivos de Carcinoma Medular, especialmente em contextos genéticos familiares.",
+    "option_rationales": {
+      "a": "Correta. Marcador tumoral ideal para linhagem Medular.",
+      "b": "Incorreta. Hormônio antidiurético (neurohipófise).",
+      "c": "Incorreta. Marcador da reserva folicular ovariana ou função testicular periférica.",
+      "d": "Incorreta. Pode elevar no NEM 1 (gastrinoma), mas não avalia risco de CMT direto.",
+      "e": "Incorreta. Bioquímica inexistente na rotina prática diagnóstica de câncer."
+    },
+    "difficulty": "facil",
+    "subspecialty": "Endocrinologia",
+    "subject": "Tireoide",
+    "tags": [
+      "Calcitonina",
+      "Carcinoma Medular",
+      "NEM",
+      "Oncologia"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "O principal efeito colateral cutâneo (dermatológico) associado ao uso de Propiltiomacil (PTU) ou Metimazol, que exige suspeita imediata e possível troca de medicação se houver agravamento sistêmico, é:",
+    "options": {
+      "a": "Exantema macular/papular acompanhado de prurido (urticária leve) ou, raramente, vasculite anca-positiva e agranulocitose.",
+      "b": "Hiperqueratose palmo-plantar fixa.",
+      "c": "Queda massiva de supercílios (Madarose).",
+      "d": "Surgimento de múltiplas sardas no rosto (Efelides).",
+      "e": "Cianose de extremidades permanente."
+    },
+    "answer": "a",
+    "rationale": "Reações alérgicas cutâneas ocorrem em 5% dos pacientes em uso de antitireoidianos. Embora a maioria seja leve (prurido), a ocorrência de vasculite ANCA-positiva ou reações severas pode indicar toxicidade hematológica ou sistêmica grave (LES-like), exigindo suspensão ou substituição da terapia por iodo radioativo ou cirurgia.",
+    "option_rationales": {
+      "a": "Correta. Efito colateral dermatológico e sistêmico farmacológico.",
+      "b": "Incorreta. Inespecífico.",
+      "c": "Incorreta. É sinal de hipotireoidismo severo/Hashimoto (Sinal de Hertoghe).",
+      "d": "Incorreta. Exposição solar.",
+      "e": "Incorreta. Causas cardíacas/pulmonares críticas."
+    },
+    "difficulty": "media",
+    "subspecialty": "Farmacologia Clínica",
+    "subject": "Tireoide",
+    "tags": [
+      "Metimazol",
+      "PTU",
+      "Efeitos Colaterais",
+      "Reações Cutâneas"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "No tratamento do câncer diferenciado de tireoide, o termo 'Radioiodoterapia' de ablação refere-se:",
+    "options": {
+      "a": "À destruição do remanescente de tecido tireoidiano normal após a cirurgia de tireoidectomia total, visando diminuir a recorrência e facilitar o monitoramento futuro da Tireoglobulina.",
+      "b": "Ao uso de laser para evaporar o nódulo.",
+      "c": "Ao tratamento exclusivo com iodo na dieta por 30 anos.",
+      "d": "À lavagem cerebral por radiação ionizante.",
+      "e": "Nenhuma das anteriores."
+    },
+    "answer": "a",
+    "rationale": "O objetivo da ablação após a cirurgia é 'zerar' a produção de TG proveniente de células normais residuais. Uma vez que não sobra nenhuma célula tireoidiana no corpo, qualquer valor de TG detectado no futuro indicará tumor remanescente/recorrente.",
+    "option_rationales": {
+      "a": "Correta. Conceito terapêutico básico da oncologia radiometabólica.",
+      "b": "Incorreta. Ablação térmica por rádio frequência é diferente da ablação radiometabólica por I-131.",
+      "c": "Incorreta. Seria o oposto do tratamento radioterápico clínico metabólico planejado.",
+      "d": "Incorreta. Absurdo.",
+      "e": "Incorreta."
+    },
+    "difficulty": "facil",
+    "subspecialty": "Medicina Nuclear",
+    "subject": "Tireoide",
+    "tags": [
+      "Radioiodo",
+      "Ablação",
+      "Câncer de Tireoide",
+      "Metabolismo"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "A principal indicação clínica de dosagem de Tireoglobulina (TG) é:",
+    "options": {
+      "a": "O monitoramento de recorrência tumoral em pacientes já submetidos a tireoidectomia total por câncer diferenciado de tireoide.",
+      "b": "O diagnóstico inicial de câncer de tireoide em nódulos palpáveis.",
+      "c": "Triagem para hipotireoidismo em gestantes.",
+      "d": "Acompanhamento de gastrite crônica atrófica.",
+      "e": "Verificação do nível de mercúrio no sangue profundo."
+    },
+    "answer": "a",
+    "rationale": "A TG nunca deve ser usada como ferramenta diagnóstica inicial em pacientes com glândula íntegra, pois bócios benignos e tireoidites elevam absurdamente seu nível. No entanto, em pacientes sem tireoide (pós-cirurgia radical), ela se torna o marcador tumoral de excelência.",
+    "option_rationales": {
+      "a": "Correta. Função clínica primordial e exclusiva do marcador oncológico.",
+      "b": "Incorreta. Possui baixíssima especificidade no paciente não operado.",
+      "c": "Incorreta. Usa-se TSH/T4 livre.",
+      "d": "Incorreta. Marcador gástrico (Pepsinogênio/Gastrina).",
+      "e": "Incorreta. Inexistente tecnicamente."
+    },
+    "difficulty": "facil",
+    "subspecialty": "Oncologia",
+    "subject": "Tireoide",
+    "tags": [
+      "Tireoglobulina",
+      "Marcador Tumoral",
+      "Oncologia",
+      "Monitoramento"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "Qual medicação é utilizada para proteger a tireoide de indivíduos saudáveis de forma preventiva em cenários de acidentes nucleares com liberação de Iodo radioativo ambiental?",
+    "options": {
+      "a": "Iodeto de Potássio (KI) em doses elevadas (pastilhas de iodo estável).",
+      "b": "Levotiroxina em altas doses.",
+      "c": "Vitamina de complexo B completa.",
+      "d": "Xarope de guaco melado.",
+      "e": "Bicarbonato de sódio tópico na garganta."
+    },
+    "answer": "a",
+    "rationale": "O iodo estável bloqueia competitivamente a entrada de iodo radioativo na tireoide (saturação do NIS e Wolff-Chaikoff temporário). Isso evita que o rádio-isótopo perigoso se acumule na glândula das crianças e adultos, reduzindo severamente o risco futuro de carcinoma radio-induzido.",
+    "option_rationales": {
+      "a": "Correta. Protocolo internacional de defesa civil e saúde pública.",
+      "b": "Incorreta. Não bloqueia o transportador de iodo de forma tão rápida e eficaz quanto o próprio iodo saturado.",
+      "c": "Incorreta. Inexpressivo.",
+      "d": "Incorreta. Fitoterápico expectorante sem nexo rádio-protetor.",
+      "e": "Incorreta. Sem nexo."
+    },
+    "difficulty": "media",
+    "subspecialty": "Saúde Pública",
+    "subject": "Tireoide",
+    "tags": [
+      "Acidente Nuclear",
+      "Radioproteção",
+      "Iodeto de Potássio",
+      "Segurança"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "A ocorrência de um sopro audível à ausculta sobre a glândula tireóide e a palpação de um frêmito (thrill) em um bócio difuso são sinais clínicos virtuais de:",
+    "options": {
+      "a": "Doença de Graves (devido ao hiperfluxo sanguíneo patológico secundário à neoangiogênese imune).",
+      "b": "Carcinoma Medular calcificado.",
+      "c": "Hipotireoidismo severo de longa data por iodo baixo.",
+      "d": "Infecção por micobactérias na traqueia.",
+      "e": "Compressão da artéria aorta retro-esofágica."
+    },
+    "answer": "a",
+    "rationale": "A intensa estimulação da glândula pelo TRAb induz um aumento dramático na vascularização tireoidiana (visto ao Doppler como 'hell's fire'). Esse fluxo turbulento gera sopros e frêmitos que são característicos do hipertireoidismo autoimune de Graves severo.",
+    "option_rationales": {
+      "a": "Correta. Semiologia cardiovascular dedicada à glândula hiperativa.",
+      "b": "Incorreta. O tumor é sólido e endurecido, raramente gerando sopro auditivo distal.",
+      "c": "Incorreta. A glândula hipoativa tem fluxo reduzido.",
+      "d": "Incorreta. Sem relação.",
+      "e": "Incorreta. Sem relação anatômica direta."
+    },
+    "difficulty": "media",
+    "subspecialty": "Clínica Médica",
+    "subject": "Tireoide",
+    "tags": [
+      "Graves",
+      "Semiologia",
+      "Sopro Tireoidiano",
+      "Vascularização"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  }
+]

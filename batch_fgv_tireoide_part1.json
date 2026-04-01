@@ -1,0 +1,682 @@
+[
+  {
+    "enunciado": "Uma mulher de 34 anos apresenta-se ao consultório com queixas de fadiga, constipação severa, pele seca e irregularidade menstrual (polimenorreia) nos últimos 6 meses. Ela relata também discreto aumento de peso (4 kg) no período, apesar de manter o apetite habitual. Ao exame físico: bradicardia (FC: 52 bpm), reflexos tendinosos profundos lentificados (fase de relaxamento prolongada) e edema periorbitário leve. Não há bócio palpável. Exames laboratoriais revelam: TSH = 18 mUI/L (VR: 0,4 a 4,5) e T4 Livre = 0,6 ng/dL (VR: 0,8 a 1,8). Qual o diagnóstico mais provável e a conduta inicial correta?",
+    "options": {
+      "a": "Hipotireoidismo primário clínico; iniciar Levotiroxina (1,6 mcg/kg/dia) com estômago vazio.",
+      "b": "Hipotireoidismo subclínico; apenas observar e repetir exames em 3 meses.",
+      "c": "Hipotireoidismo central (secundário); solicitar Ressonância de Sela Túrcica.",
+      "d": "Síndrome do Eutireoideo Doente; não há necessidade de reposição hormonal.",
+      "e": "Hipotireoidismo primário clínico; iniciar Liotironina (T3) isolada."
+    },
+    "answer": "a",
+    "rationale": "A paciente apresenta sinais e sintomas clássicos de hipotireoidismo clínico (TSH elevado e T4L baixo). A conduta padrão é a reposição com Levotiroxina (T4 sintético) em jejum. A dose de 1,6 mcg/kg/dia é a preconizada para adultos jovens e hígidos. O hipotireoidismo subclínico seria definido se o T4L estivesse normal (o que não é o caso).",
+    "option_rationales": {
+      "a": "Correta. Diagnóstico e conduta baseados no consenso brasileiro e internacional.",
+      "b": "Incorreta. O T4L baixo exclui a forma subclínica.",
+      "c": "Incorreta. No hipotireoidismo central, o TSH estaria baixo ou inadequadamente normal, nunca elevado desta forma.",
+      "d": "Incorreta. A síndrome do eutireoideo doente ocorre em pacientes críticos internados e cursa com T3 baixo, mas T4L e TSH usualmente normais no início.",
+      "e": "Incorreta. A reposição de escolha é sempre com T4 (Levotiroxina) devido à sua meia-vida longa e conversão periférica fisiológica em T3."
+    },
+    "difficulty": "facil",
+    "subspecialty": "Endocrinologia",
+    "subject": "Tireoide",
+    "tags": [
+      "Hipotireoidismo",
+      "Diagnóstico",
+      "Dose",
+      "Semiologia"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "Um homem de 52 anos, com história de cardiopatia isquêmica (infarto prévio há 2 anos), apresenta TSH = 12 mUI/L e T4 Livre = 0,7 ng/dL. O paciente queixa-se de cansaço extremo. Sobre a introdução de Levotiroxina neste paciente com comorbidade cardíaca, qual a orientação correta?",
+    "options": {
+      "a": "Iniciar com dose plena (1,6 mcg/kg/dia) para resolver os sintomas rapidamente.",
+      "b": "Iniciar com dose baixa (12,5 a 25 mcg/dia) e aumentar lentamente a cada 4-8 semanas (estratégia 'start low, go slow').",
+      "c": "Contraindicar a levotiroxina pois o hormônio causa arritmias fatais em cardiopatas.",
+      "d": "Iniciar reposição apenas se o TSH for maior que 20 mUI/L.",
+      "e": "Substituir a levotiroxina por Propranolol para proteger o coração."
+    },
+    "answer": "b",
+    "rationale": "Em pacientes idosos ou com dança arterial coronariana conhecida, a reposição hormonal brusca pode aumentar o consumo de oxigênio pelo miocárdio e o débito cardíaco, podendo desencadear angina, arritmias ou novo infarto. Por isso, a regra de ouro é começar com doses muito baixas e progredir conforme a tolerância clínica e laboratorial.",
+    "option_rationales": {
+      "a": "Incorreta. Risco cardíaco injustificável e perigoso.",
+      "b": "Correta. Medida de segurança fundamental na endocrinogeriatria e cardiologia.",
+      "c": "Incorreta. O hipotireoidismo não tratado também traz sérios riscos cardíacos (dislipidemia, disfunção diastólica, bradicardia).",
+      "d": "Incorreta. O paciente já tem hipotireoidismo clínico (T4L baixo) e deve ser tratado.",
+      "e": "Incorreta. Propranolol é usado no hipertireoidismo, não no hipotireoidismo."
+    },
+    "difficulty": "media",
+    "subspecialty": "Cardiologia",
+    "subject": "Tireoide",
+    "tags": [
+      "Hipotireoidismo",
+      "Segurança",
+      "Cardiologia",
+      "Endocrinologia"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "Uma gestante de 8 semanas de idade gestacional apresenta, no seu primeiro exame de pré-natal, TSH = 3,8 mUI/L. Ela não possui diagnóstico prévio de doença tireoidiana. De acordo com os consensos brasileiros de tireoide na gestação, qual a conduta diante deste valor?",
+    "options": {
+      "a": "O valor está normal para a gestação, não exige nenhuma medida.",
+      "b": "Solicitar obrigatoriamente a dosagem de Anticorpo Antiperoxidase (Anti-TPO); se positivo, iniciar Levotiroxina.",
+      "c": "Iniciar Levotiroxina (100 mcg/dia) para todas as gestantes com TSH > 2,5.",
+      "d": "Solicitar interrupção da gravidez por risco de bócio fetal.",
+      "e": "Aguardar o segundo trimestre para repetir o exame, pois o TSH só tem valor após a 20ª semana."
+    },
+    "answer": "b",
+    "rationale": "Os valores de referência para TSH na gestação são mais baixos devido à ação do HCG (que estimula o receptor de TSH). Um TSH entre 2,5 e o limite superior do método (geralmente 4,0) em gestantes exige a dosagem do Anti-TPO. Se a gestante tiver autoimunidade positiva, o risco de progressão para hipotireoidismo durante a gestação e de complicações obstétricas (aborto, pré-eclâmpsia) aumenta, justificando o tratamento precoce se TSH > 2,5. Se o Anti-TPO for negativo, apenas monitora-se.",
+    "option_rationales": {
+      "a": "Incorreta. Na gestação, o limite de 4,0 já é considerado suspeito para hipotireoidismo subclínico em muitos contextos.",
+      "b": "Correta. Reflete o manejo estratificado de risco pelo anticorpo.",
+      "c": "Incorreta. Nem toda gestante com TSH > 2,5 precisa de tratamento; a dose de 100 mcg é excessiva para início de quem tem hipotireoidismo subclínico.",
+      "d": "Incorreta. Absurdo obstétrico.",
+      "e": "Incorreta. O primeiro trimestre é o período crucial para o desenvolvimento neurológico fetal dependente de hormônios maternos."
+    },
+    "difficulty": "dificil",
+    "subspecialty": "Obstetrícia",
+    "subject": "Tireoide",
+    "tags": [
+      "Gestação",
+      "TSH",
+      "Anti-TPO",
+      "Endocrinologia"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "A Tireoidite de Hashimoto é a causa mais comum de hipotireoidismo em áreas iodo-suficientes. Qual o achado histopatológico e o anticorpo marcador desta patologia respecitvamente?",
+    "options": {
+      "a": "Infiltrado linfocítico com centros germinativos e células de Hürthle (oxicílicas); Anti-TPO.",
+      "b": "Infiltrado neutrofílico agudo e necrose de liquefação; Anti-TRAB.",
+      "c": "Fibrose pétrea que invade tecidos adjacentes; Anti-TPO.",
+      "d": "Granulomas epitelioides com células gigantes de Langhans; Anti-TG.",
+      "e": "Hiperplasia folicular com bordas festonadas; Anticorpo Anti-TSH."
+    },
+    "answer": "a",
+    "rationale": "A Tireoidite de Hashimoto é uma doença autoimune mediada por células T. Na patologia, observamos a destruição do parênquima folicular e sua substituição por um infiltrado inflamatório linfocítico denso, podendo formar folículos linfoides (centros germinativos). As células foliculares remanescentes tornam-se metaplásicas (Células de Hürthle ou oxicílicas). O Anti-TPO (Antiperoxidase) é positivo em > 90% dos casos.",
+    "option_rationales": {
+      "a": "Correta. Definição patognomônica da doença.",
+      "b": "Incorreta. Sugere processo infeccioso agudo (abscesso), não crônico autoimune.",
+      "c": "Incorreta. Isto descreve a Tireoidite de Riedel.",
+      "d": "Incorreta. Granulomas sugerem TB, sarcoidose ou Tireoidite de De Quervain em fase específica (mas sem Caseum).",
+      "e": "Incorreta. Descrição clássica da Doença de Graves."
+    },
+    "difficulty": "media",
+    "subspecialty": "Patologia",
+    "subject": "Tireoide",
+    "tags": [
+      "Hashimoto",
+      "Histopatologia",
+      "Anticorpos",
+      "Autoimunidade"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "Um paciente de 28 anos, ansioso, apresenta palpitações, insônia, tremores de extremidades e perda de massa muscular proximal (miopatia). Refere sensação de calor constante. Ao exame físico: bócio difuso e indolor com presença de sopro sistólico na glândula tireoide. Nota-se proptose ocular (exoftalmia) e retração palpebral. Laboratório: TSH < 0,01 mUI/L e T4 Livre = 4,2 ng/dL. Qual o diagnóstico e o anticorpo envolvido?",
+    "options": {
+      "a": "Doença de Graves; Anticorpo estimulador do receptor de TSH (TRAB).",
+      "b": "Bócio Multinodular Tóxico; Anticorpo Anti-Tireoglobulina.",
+      "c": "Adenoma Tóxico (Doença de Plummer); Anticorpo Anti-TPO.",
+      "d": "Tireoidite Subaguda de De Quervain; Anti-TRAB.",
+      "e": "Hipertireoidismo factício; TRAB negativo."
+    },
+    "answer": "a",
+    "rationale": "O quadro de bócio difuso ('sopro na tireoide') associado a sinais oculares específicos (oftalmopatia) e hipertireoidismo clínico severo define a Doença de Graves. A etiologia é a produção de anticorpos (TRAB) que mimetizam a ação do TSH, estimulando continuamente a glândula.",
+    "option_rationales": {
+      "a": "Correta. Tríade de Graves e fisiopatologia molecular.",
+      "b": "Incorreta. O bócio multinodular não apresenta exoftalmia típica nem sopro difuso na glândula.",
+      "c": "Incorreta. A Doença de Plummer é um nódulo único autônomo (quente no cintilograma) e não possui etiologia autoimune.",
+      "d": "Incorreta. A tireoidite de De Quervain é extremamente DOLOROSA na palpação cervical.",
+      "e": "Incorreta. O hipertireoidismo factício (pela ingestão de hormônio) cursa com glândula atrófica (sem bócio)."
+    },
+    "difficulty": "facil",
+    "subspecialty": "Endocrinologia",
+    "subject": "Tireoide",
+    "tags": [
+      "Hipertireoidismo",
+      "Graves",
+      "TRAB",
+      "Oftalmopatia"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "Uma paciente de 35 anos apresenta quadro clínico de dor cervical súbita e intensa, que irradia para a mandíbula e orelhas. Relata ter tido uma infecção respiratória alta (resfriado) há 2 semanas. Ao exame: tireoide aumentada de volume, de consistência elástica e extremamente dolorosa à palpação. Laboratório: TSH suprimido, T4L elevado e Velocidade de Hemossedimentação (VHS) = 90 mm/1ªh (VR: < 20). Qual o diagnóstico e o tratamento de escolha para a fase aguda?",
+    "options": {
+      "a": "Tireoidite Subaguda (De Quervain); tratamento com Anti-inflamatórios não hormonais (AINH) ou Corticoides.",
+      "b": "Tireoidite Infecciosa Aguda (Supurativa); tratamento com Antibioticoterapia endovenosa.",
+      "c": "Tireoidite de Hashimoto (fase Hashitoxicose); tratamento com Metimazol.",
+      "d": "Hemorragia intranodular; tratamento cirúrgico de urgência.",
+      "e": "Carcinoma Anaplásico de Tireoide; tratamento paliativo."
+    },
+    "answer": "a",
+    "rationale": "A apresentação de dor cervical súbita e intensa após um quadro viral, associada a tireotoxicose clínica e laboratorial (TSH baixo, T4L alto) e VHS extremamente elevado, é patognomônica da Tireoidite Subaguda de De Quervain (ou granulomatosa). O tratamento visa o controle da dor e da inflamação, sendo os AINHs a primeira escolha; em casos graves ou refratários, os corticoides são indicados.",
+    "option_rationales": {
+      "a": "Correta. Diagnóstico clássico pós-viral com dor e VHS alto.",
+      "b": "Incorreta. A tireoidite supurativa cursa com sinais flogísticos locais intensos e desvio à esquerda no hemograma.",
+      "c": "Incorreta. Hashitoxicose não costuma ser dolorosa e o VHS é normal.",
+      "d": "Incorreta. A hemorragia causa dor súbita mas raramente hipertireoidismo e VHS tão alto.",
+      "e": "Incorreta. O carcinoma anaplásico causa dor e crescimento rápido em idosos, mas o VHS e a relação pós-viral são típicos de De Quervain."
+    },
+    "difficulty": "media",
+    "subspecialty": "Endocrinologia",
+    "subject": "Tireoide",
+    "tags": [
+      "Tireoidite",
+      "De Quervain",
+      "Dor Cervical",
+      "VHS"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "A crise tireotóxica (tempestade tireoidiana) é uma emergência médica. De acordo com o escore de Burch-Wartofsky, qual dos sinais abaixo NÃO é um critério clássico para o diagnóstico de tempestade tireoidiana?",
+    "options": {
+      "a": "Febre acima de 38,5°C.",
+      "b": "Taquicardia proporcional à febre (FC < 90 bpm).",
+      "c": "Alterações no sistema nervoso central (agitação, confusão, coma).",
+      "d": "Sintomas gastrointestinais (vômitos, diarreia, icterícia).",
+      "e": "Insuficiência cardíaca congestiva."
+    },
+    "answer": "b",
+    "rationale": "A tempestade tireoidiana cursa com taquicardia DESPROPORCIONAL à febre, geralmente com FC > 140 bpm. O escore de Burch-Wartofsky pontua temperatura, efeitos neurológicos centrais, disfunção cardiovascular (taquicardia, fibrilação atrial, ICC) e disfunção gastro-hepática. Uma frequência cardíaca baixa (90 bpm) pontua zero no escore e desfavorece o diagnóstico de crise tireotóxica.",
+    "option_rationales": {
+      "a": "Incorreta. A hipertermia é o marco da crise.",
+      "b": "Correta. O erro está na frequência cardíaca descrita como baixa.",
+      "c": "Incorreta. Disfunção do SNC é critério viga mestra do escore.",
+      "d": "Incorreta. Disfunção gastrointestinal pontua no escore.",
+      "e": "Incorreta. ICC é uma das manifestações clínicas terminais ou graves da tempestade."
+    },
+    "difficulty": "media",
+    "subspecialty": "Endocrinologia",
+    "subject": "Tireoide",
+    "tags": [
+      "Emergência",
+      "Crise Tireotóxica",
+      "Burch-Wartofsky",
+      "Infectologia"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "No tratamento do hipertireoidismo, o Metimazol (MMI) é preferencial ao Propiltiouracil (PTU), EXCETO em situações específicas. Em qual das situações abaixo o Propiltiouracil (PTU) deve ser preferido como droga de primeira escolha?",
+    "options": {
+      "a": "Primeiro trimestre da gestação e Crise Tireotóxica.",
+      "b": "Hipotireoidismo severo.",
+      "c": "Idosos com arritmia cardíaca.",
+      "d": "Adolescentes com bócio discreto.",
+      "e": "Pacientes com insuficiência renal crônica."
+    },
+    "answer": "a",
+    "rationale": "O PTU é preferível no 1º trimestre da gestação porque o Metimazol (MMI) está associado a malformações fetais raras mas graves (aplasia cutis, atresia de coanas/esôfago). Na Crise Tireotóxica, o PTU é preferido porque, além de inibir a síntese do hormônio tireoidiano (como o MMI), ele também inibe a conversão periférica de T4 em T3 (o hormônio metabolicamente mais ativo). No 2º e 3º trimestres, volta-se ao MMI por menor risco de hepatotoxicidade materna grave comparado ao PTU.",
+    "option_rationales": {
+      "a": "Correta. Regra farmacológica clássica da tireoide.",
+      "b": "Incorreta. Nenhuma destas drogas é usada no hipotireoidismo.",
+      "c": "Incorreta. MMI é mais seguro em idosos por menor hepatotoxicidade.",
+      "d": "Incorreta. Adolescentes devem usar MMI preferencialmente.",
+      "e": "Incorreta. O metabolismo é predominantemente hepático; o PTU não tem vantagem renal específica."
+    },
+    "difficulty": "media",
+    "subspecialty": "Ginecologia",
+    "subject": "Tireoide",
+    "tags": [
+      "Farmacologia",
+      "Gestação",
+      "Crise Tireotóxica",
+      "Metimazol"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "Um paciente de 45 anos, assintomático, apresenta em um exame de check-up um nódulo tireoidiano de 1,8 cm em lobo direito. A ultrassonografia demonstra: 'Nódulo sólido, hipoecogênico, com margens irregulares e presença de microcalcificações (TI-RADS 5)'. Qual a conduta correta perante esta descrição ultrassonográfica?",
+    "options": {
+      "a": "Realizar Punção Aspirativa por Agulha Fina (PAAF) imediatamente.",
+      "b": "Apenas repetir a ultrassonografia em 12 meses.",
+      "c": "Solicitar Cintilografia de Tireoide como primeiro exame.",
+      "d": "Iniciar Levotiroxina para suprimir o TSH e reduzir o nódulo.",
+      "e": "Indicar tireoidectomia total sem necessidade de punção prévia."
+    },
+    "answer": "a",
+    "rationale": "O nódulo apresenta características de altíssima suspeição para malignidade (sólido, hipoecoico, microcalcificações e margens irregulares). Pela classificação ACR TI-RADS, nódulos TI-RADS 5 superiores a 1,0 cm devem ser submetidos à PAAF para diagnóstico citológico (Bethesda).",
+    "option_rationales": {
+      "a": "Correta. Conduta padrão para nódulo suspeito.",
+      "b": "Incorreta. Retardar a investigação em um nódulo TI-RADS 5 é um erro grave.",
+      "c": "Incorreta. A cintilografia só é indicada como passo inicial se o TSH estiver suprimido (nódulo possivelmente 'quente').",
+      "d": "Incorreta. A terapia supressiva com levotiroxina para nódulos não é mais recomendada.",
+      "e": "Incorreta. A cirurgia deve ser baseada no resultado da citologia (PAAF)."
+    },
+    "difficulty": "facil",
+    "subspecialty": "Radiologia",
+    "subject": "Tireoide",
+    "tags": [
+      "Nódulo de Tireoide",
+      "PAAF",
+      "TI-RADS",
+      "Câncer de Tireoide"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "O resultado da PAAF de um nódulo tireoidiano de 2,5 cm foi classificado como 'Bethesda IV (Neoplasia Folicular ou Suspeito para Neoplasia Folicular)'. Qual a conduta recomendada para este resultado?",
+    "options": {
+      "a": "Cirurgia (Lobectomia ou Tireoidectomia Total) ou realização de testes moleculares, pois a citologia não consegue diferenciar adenoma folicular de carcinoma folicular.",
+      "b": "Repetir a PAAF imediatamente para confirmar se é câncer.",
+      "c": "Alta definitiva; o nódulo é benigno.",
+      "d": "Apenas observação radiológica a cada 24 meses.",
+      "e": "Tratamento com Iodo Radioativo (I-131)."
+    },
+    "answer": "a",
+    "rationale": "O diagnóstico citológico (Bethesda IV) não consegue distinguir se há invasão de cápsula ou de vasos, que são os critérios histopatológicos que definem o Carcinoma Folicular. Portanto, a análise do nódulo inteiro (peça cirúrgica) é necessária. Em centros avançados, o teste molecular pode ser usado para evitar cirurgias desnecessárias se demonstrar baixo risco genético.",
+    "option_rationales": {
+      "a": "Correta. Dilema histopatológico do padrão folicular.",
+      "b": "Incorreta. Repetir a punção resultará no mesmo padrão 'folicular' e não resolverá a dúvida de invasão capsular.",
+      "c": "Incorreta. Bethesda IV tem risco de malignidade de 15% a 30%.",
+      "d": "Incorreta. Risco de negligenciar um carcinoma folicular.",
+      "e": "Incorreta. O I-131 é tratamento de resgate pós-cirúrgico ou para hipertireoidismo, não para diagnóstico inicial de nódulos."
+    },
+    "difficulty": "media",
+    "subspecialty": "Patologia",
+    "subject": "Tireoide",
+    "tags": [
+      "Bethesda",
+      "PAAF",
+      "Carcinoma Folicular",
+      "Cirurgia"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "O Carcinoma Papilífero de Tireoide (CPT) é o tipo mais comum de câncer de tireoide. Qual a via de disseminação preferencial deste tumor e qual o marcador laboratorial usado no seguimento pós-operatório (após tireoidectomia total e ablação com iodo)?",
+    "options": {
+      "a": "Disseminação Linfática; marcador: Tireoglobulina.",
+      "b": "Disseminação Hematogênica; marcador: Calcitonina.",
+      "c": "Disseminação por contiguidade; marcador: T4 Livre.",
+      "d": "Não sofre disseminação; marcador: Anti-TPO.",
+      "e": "Disseminação Linfática; marcador: TSH."
+    },
+    "answer": "a",
+    "rationale": "O CPT dissemina-se preferencialmente por via linfática para os linfonodos cervicais. Como as células foliculares normais e as neoplásicas papilíferas produzem Tireoglobulina (Tg), após a retirada total de todo o tecido tireoidiano (cirurgia + iodo), a Tg deve ser indetectável. Sua detecção no sangue durante o seguimento sugere recidiva ou metástase.",
+    "option_rationales": {
+      "a": "Correta. Padrão ouro de oncologia da tireoide.",
+      "b": "Incorreta. Disseminação hematogênica é mais comum no Folitcular e Medular. Calcitonina é o marcador do Medular.",
+      "c": "Incorreta. Embora invada por contiguidade, a via linfática é a regra para as metástases iniciais. T4L não é marcador tumoral.",
+      "d": "Incorreta. Todos os cânceres podem disseminar-se.",
+      "e": "Incorreta. O TSH é usado para avaliar a dose da medicação ou preparar para exames, mas o marcador do tumor em si é a Tg."
+    },
+    "difficulty": "facil",
+    "subspecialty": "Oncologia",
+    "subject": "Tireoide",
+    "tags": [
+      "Carcinoma Papilífero",
+      "Tireoglobulina",
+      "Linfonodos",
+      "Oncologia"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "Um paciente submetido a Punção Aspirativa por Agulha Fina (PAAF) de um nódulo tireoidiano recebe o laudo como 'Sistema Bethesda VI'. Qual o significado clínico e a conduta sugerida?",
+    "options": {
+      "a": "Maligno (Câncer); indicar tratamento cirúrgico definitivo.",
+      "b": "Benigno; acompanhamento clínico.",
+      "c": "Inconclusivo; repetir punção em 3 meses com auxílio de Core Biopsy.",
+      "d": "Lesão de significado indeterminado; conduta expectante.",
+      "e": "Células foliculares normais; alta."
+    },
+    "answer": "a",
+    "rationale": "No sistema Bethesda, a categoria VI representa um diagnóstico definitivo de Malignidade (geralmente Carcinoma Papilífero), com valor preditivo positivo > 99%. A cirurgia é o tratamento mandatório.",
+    "option_rationales": {
+      "a": "Correta. Classificação de Bethesda máxima.",
+      "b": "Incorreta. Benigno é Bethesda II.",
+      "c": "Incorreta. Inconclusivo é Bethesda I.",
+      "d": "Incorreta. Indeterminado é Bethesda III.",
+      "e": "Incorreta. Bethesda VI nunca é normal."
+    },
+    "difficulty": "facil",
+    "subspecialty": "Endocrinologia",
+    "subject": "Tireoide",
+    "tags": [
+      "Bethesda",
+      "Câncer",
+      "Conduta",
+      "Cirurgia"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "O Carcinoma Medular de Tireoide (CMT) origina-se de quais células e qual marcador laboratorial é utilizado para seu diagnóstico e seguimento?",
+    "options": {
+      "a": "Células C (Parafoliculares); marcador: Calcitonina.",
+      "b": "Células Foliculares; marcador: Tireoglobulina.",
+      "c": "Linfócitos intra-tireoidianos; marcador: CD20.",
+      "d": "Células de Hürthle; marcador: Ácido Úrico.",
+      "e": "Células Estromais; marcador: Estrogênio."
+    },
+    "answer": "a",
+    "rationale": "O CMT deriva das células parafoliculares (Células C), que produzem o hormônio Calcitonina. Este tumor pode ser esporádico ou associado a síndromes de Neoplasia Endócrina Múltipla (NEM 2A ou 2B). A Calcitonina é o biomarcador sensível e específico para este câncer.",
+    "option_rationales": {
+      "a": "Correta. Fisiopatologia do Carcinoma Medular.",
+      "b": "Incorreta. Células foliculares originam o Papilífero e o Folicular.",
+      "c": "Incorreta. Linfomas de tireoide originam-se de linfócitos.",
+      "d": "Incorreta. Células de Hürthle são variantes das foliculares.",
+      "e": "Incorreta. Não existe carcinoma estromal de tireoide produtor de estrogênio."
+    },
+    "difficulty": "media",
+    "subspecialty": "Oncologia",
+    "subject": "Tireoide",
+    "tags": [
+      "Carcinoma Medular",
+      "Calcitonina",
+      "Células C",
+      "NEM"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "Um paciente de 40 anos com quadro de hipertireoidismo por Doença de Graves recebe tratamento com Metimazol (MMI). Após 10 dias, desenvolve febre alta e dor de garganta severa (odinofagia) com presença de exsudato em orofaringe. Qual o efeito colateral grave e raro do Metimazol deve ser suspeitado e qual o exame imediato?",
+    "options": {
+      "a": "Agranulocitose; Hemograma com contagem de neutrófilos.",
+      "b": "Hepatite fulminante; Transaminases.",
+      "c": "Síndrome Nefrótica; Urina Tipo 1.",
+      "d": "Hipotireoidismo iatrogênico; TSH.",
+      "e": "Mononucleose infecciosa por imunodepressão; Sorologias."
+    },
+    "answer": "a",
+    "rationale": "A agranulocitose (neutrófilos < 500/mm³) é um efeito colateral raro (0,2 a 0,5%) e potencialmente fatal das tionamidas (MMI e PTU). Manifesta-se subitamente como infecção de orofaringe ou sepse. O paciente deve ser orientado a suspender a droga e procurar o hospital imediatamente se tiver febre e dor de garganta. A conduta é a suspensão definitiva da medicação e suporte com fator de crescimento de colônias (G-CSF) se necessário.",
+    "option_rationales": {
+      "a": "Correta. Efeito adverso hematológico crítico.",
+      "b": "Incorreta. Hepatite causa icterícia e dor abdominal, não dor de garganta.",
+      "c": "Incorreta. Não há tal associação dermatológica/renal.",
+      "d": "Incorreta. Hipotireoidismo não causa dor de garganta e febre.",
+      "e": "Incorreta. Embora os sintomas simulem mononucleose, a causa medicamentosa é a prioridade no paciente em uso de MMI."
+    },
+    "difficulty": "media",
+    "subspecialty": "Farmacologia",
+    "subject": "Tireoide",
+    "tags": [
+      "Agranulocitose",
+      "Metimazol",
+      "Efeitos Adversos",
+      "Hematologia"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciated": "A Síndrome de Marine-Lenhart caracteriza-se por:",
+    "options": {
+      "a": "Associação de Doença de Graves (hipertireoidismo autoimune) com a presença de nódulos funcionais autônomos (Bócio Multinodular Tóxico).",
+      "b": "Associação de Hipotireoidismo com Insuficiência Adrenal.",
+      "c": "Associação de Câncer de Tireoide com Feocromocitoma.",
+      "d": "Tireoidite de Hashimoto cursando com Fibrose Retroperitoneal.",
+      "e": "Hipertireoidismo causado por tumor hipofisário secretor de TSH."
+    },
+    "answer": "a",
+    "rationale": "A Síndrome de Marine-Lenhart é uma variante rara do hipertireoidismo onde coexistem duas doenças: a Doença de Graves (estímulo difuso pelo TRAB) e nódulos que são independentes do TRAB e do TSH (autônomos). No cintilograma, observa-se captação difusa aumentada com áreas nodulares de captação ainda mais intensa.",
+    "option_rationales": {
+      "a": "Correta. Definição da síndrome epônima.",
+      "b": "Incorreta. Isto descreve a Síndrome de Schmidt.",
+      "c": "Incorreta. Sugere NEM 2A.",
+      "d": "Incorreta. Sem relação descrita.",
+      "e": "Incorreta. Isto é um TSHoma."
+    },
+    "difficulty": "dificil",
+    "subspecialty": "Endocrinologia",
+    "subject": "Tireoide",
+    "tags": [
+      "Graves",
+      "Marine-Lenhart",
+      "Bócio",
+      "Endocrinologia"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "No estado de Hipertireoidismo (Graves), o que se espera encontrar na avaliação da Captação de Iodo Radioativo (RAIU) de 24 horas?",
+    "options": {
+      "a": "RAIU elevada (Glândula ávida por iodo).",
+      "b": "RAIU baixa (Glândula 'branca' ou sem captação).",
+      "c": "RAIU normal, mas com excreção urinária aumentada.",
+      "d": "Padrão nodular frio.",
+      "e": "Captação exclusiva em pirâmide de Lalouette."
+    },
+    "answer": "a",
+    "rationale": "Na Doença de Graves, a glândula está em hiperatividade sintética constante. Portanto, ela capta avidamente o iodo circulante para produzir hormônios. Já nas Tireoidites (onde o hormônio 'vaza' do folículo destruído) ou no hipertireoidismo factício, a RAIU está baixa.",
+    "option_rationales": {
+      "a": "Correta. Padrão de hiperfunção verdadeira.",
+      "b": "Incorreta. RAIU baixa ocorre em tireoidites, ingestão exógena ou excesso de iodo (Jod-Basedow).",
+      "c": "Incorreta. A captação intraglandular é o que define o diagnóstico diferencial.",
+      "d": "Incorreta. Doença de Graves é difusa.",
+      "e": "Incorreta. Pirâmide de Lalouette é um remanescente anatômico, não um padrão funcional isolado no Graves."
+    },
+    "difficulty": "media",
+    "subspecialty": "Medicina Nuclear",
+    "subject": "Tireoide",
+    "tags": [
+      "RAIU",
+      "Iodo Radioativo",
+      "Graves",
+      "Diferencial"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "A principal causa de Hipotireoidismo Congênito no Brasil é a Disgenesia Tireoidiana. Qual o exame de triagem neonatal obrigatório para detecção desta condição e qual o período ideal para coleta?",
+    "options": {
+      "a": "Teste do Pezinho (Dosagem de TSH); entre o 3º e 5º dia de vida.",
+      "b": "Dosagem de T4 Livre no cordão umbilical.",
+      "c": "Ultrassonografia cervical na maternidade.",
+      "d": "Cintilografia de tireoide aos 7 dias de vida.",
+      "e": "Teste do Pezinho (Dosagem de Calcitonina); 1º dia de vida."
+    },
+    "answer": "a",
+    "rationale": "O Teste do Pezinho coleta sangue capilar do calcanhar do RN. O TSH neonatal é a ferramenta de triagem para hipotireoidismo congênito, que se não tratado precocemente (idealmente nas primeiras 2 semanas), causa deficiência intelectual irreversível (cretinismo). A coleta no 3º-5º dia evita o pico fisiológico de TSH que ocorre logo após o nascimento.",
+    "option_rationales": {
+      "a": "Correta. Protocolo de triagem neonatal universal.",
+      "b": "Incorreta. Sangue de cordão pode sofrer interferência materna e não é operacionalmente viável como triagem de massa.",
+      "c": "Incorreta. USG serve para localizar a glândula após o diagnóstico bioquímico, não como triagem.",
+      "d": "Incorreta. Exame diagnóstico de segunda linha.",
+      "e": "Incorreta. Calcitonina não serve para rastrear hipotireoidismo."
+    },
+    "difficulty": "facil",
+    "subspecialty": "Pediatria",
+    "subject": "Tireoide",
+    "tags": [
+      "Hipotireoidismo Congênito",
+      "Triagem Neonatal",
+      "Teste do Pezinho",
+      "Prevenção"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "Sobre o Coma Mixedematoso, assinale a alternativa que contém a tríade diagnóstica clássica.",
+    "options": {
+      "a": "Alteração de consciência (coma/letargia), Hipotermia e fator precipitante (ex: infecção, frio, cirurgia).",
+      "b": "Febre alta, Taquicardia e Agitação.",
+      "c": "Bócio gigante, Proptose e Insuficiência cardíaca.",
+      "d": "Tremores, Perda de peso e Diarreia.",
+      "e": "Poliúria, Polidipsia e Desidratação severa."
+    },
+    "answer": "a",
+    "rationale": "O Coma Mixedematoso é o estágio terminal do hipotireoidismo não tratado, agravado por um fator agudo. Caracteriza-se por lentificação global: hipotermia (frequentemente < 35°C), depressão respiratória (hipercapnia), bradicardia e alteração do nível de consciência. É uma emergência com alta mortalidade.",
+    "option_rationales": {
+      "a": "Correta. Reconhecimento clínico da emergência.",
+      "b": "Incorreta. Descrição de crise tireotóxica (o oposto).",
+      "c": "Incorreta. Sugere Doença de Graves severa.",
+      "d": "Incorreta. Sintomas de hipertireoidismo.",
+      "e": "Incorreta. Sugere Diabetes Mellitus ou Insipidus."
+    },
+    "difficulty": "media",
+    "subspecialty": "Medicina Intensiva",
+    "subject": "Tireoide",
+    "tags": [
+      "Coma Mixedematoso",
+      "Emergência",
+      "Terapia Intensiva",
+      "Hipotireoidismo"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciado": "Qual complicação cirúrgica imediata da tireoidectomia pode levar à obstrução respiratória aguda e morte se não for prontamente drenada?",
+    "options": {
+      "a": "Hematoma cervical expansivo sufocante.",
+      "b": "Hipocalcemia por retirada das paratireoides.",
+      "c": "Lesão bilateral do nervo laríngeo superior.",
+      "d": "Crise asmática induzida pelo iodo.",
+      "e": "Recorrência tumoral imediata."
+    },
+    "answer": "a",
+    "rationale": "O sangramento no espaço cervical após tireoidectomia pode formar um hematoma sob a fáscia profunda. Devido à rigidez das estruturas cervicais, o sangue comprime a traqueia (laringomalácia reacional) e causa asfixia mecânica imediata. A conduta é a abertura da ferida cirúrgica à beira do leito para descompressão e posterior retorno ao bloco cirúrgico.",
+    "option_rationales": {
+      "a": "Correta. Emergência pós-operatória crítica do cirurgião de cabeça e pescoço.",
+      "b": "Incorreta. Hipocalcemia causa parestesias e tetania (sinal de Chvostek/Trousseau), mas não obstrução respiratória mecânica súbita.",
+      "c": "Incorreta. A lesão do laríngeo superior altera a emissão de tons agudos. A lesão do RECORRENTE bilateral é que causa paralisia das cordas vocais em adução e estridor (obstrução alta).",
+      "d": "Incorreta. Raríssimo e não cursa com compressão cervical externa.",
+      "e": "Incorreta. Impossível."
+    },
+    "difficulty": "media",
+    "subspecialty": "Cirurgia de Cabeça e Pescoço",
+    "subject": "Tireoide",
+    "tags": [
+      "Cirurgia",
+      "Complicações",
+      "Emergência Post-Op",
+      "Hematoma"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  },
+  {
+    "enunciated": "A síndrome de Refetoff caracteriza-se por:",
+    "options": {
+      "a": "Resistência generalizada aos hormônios tireoidianos (mutação no receptor TR-beta).",
+      "b": "Destruição da glândula tireoide por radiação nuclear.",
+      "c": "Produção ectópica de hormônio tireoidiano por um tumor ovariano (Struma Ovarii).",
+      "d": "Insucesso na conversão periférica de T4 em T3 por deficiência de selênio.",
+      "e": "Aumento do bócio causado por ingestão excessiva de mandioca branca."
+    },
+    "answer": "a",
+    "rationale": "Na Síndrome de Refetoff, os tecidos são resistentes à ação do hormônio tireoidiano. O resultado laboratorial é paradoxal: T4 Livre e T3 elevados, mas TSH também elevado ou normal (pois a hipófise também é resistente ao feedback negativo). O paciente pode estar clinicamente eutireoideo, hipotireoideo ou hipertireoideo (dependendo do grau de resistência em diferentes tecidos).",
+    "option_rationales": {
+      "a": "Correta. Doença genética de resistência hormonal.",
+      "b": "Incorreta. Trata-se de tireoidite actínica.",
+      "c": "Incorreta. Descrição de Struma Ovarii.",
+      "d": "Incorreta. Síndrome do Eutireoideo Doente ou defeitos nas deiodinases.",
+      "e": "Incorreta. Bócio endêmico bociogênico alimentar."
+    },
+    "difficulty": "dificil",
+    "subspecialty": "Genética Médica",
+    "subject": "Tireoide",
+    "tags": [
+      "Resistência Hormonal",
+      "Refetoff",
+      "Endocrinologia",
+      "Tireoide"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "endocrinologia",
+    "subspecialty_id": "fa6919ef-d143-474f-838b-0b0f39b52f0d",
+    "subject_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0",
+    "tema_id": "0e8afdbd-831a-409b-a6d9-3676c56426d0"
+  }
+]

@@ -1,0 +1,407 @@
+[
+  {
+    "enunciado": "Um homem de 38 anos apresenta quadro de dispneia progressiva aos esforços há 3 meses. Refere histórico de cirrose por Hepatite C (Child-Pugh A). Ao exame físico: PA 110/70 mmHg, FC 90 bpm, Saturação O2 94% em ar ambiente. Ausculta pulmonar livre, mas com segunda bulha hiperfonética em foco pulmonar. Ultrassom com Doppler mostra veia porta com fluxo hepatopetal e esplenomegalia. Solicitado ecocardiograma transtorácico que estimou pressão sistólica da artéria pulmonar (PSAP) de 50 mmHg. Qual o critério diagnóstico necessário via cateterismo cardíaco direito para confirmar a Hipertensão Portopulmonar (HPP) e diferenciá-la da sobrecarga volêmica?",
+    "options": {
+      "a": "Pressão média da artéria pulmonar (PmAP) > 20 mmHg; Pressão de oclusão da artéria pulmonar (POAP) ≤ 15 mmHg e Resistência Vascular Pulmonar (RVP) > 2 Unidades Wood.",
+      "b": "PmAP > 25 mmHg; POAP > 18 mmHg; RVP < 2 Unidades Wood.",
+      "c": "Déficit de saturação em membros inferiores comparado aos superiores.",
+      "d": "PmAP > 15 mmHg; gradiente transpulmonar < 5 mmHg.",
+      "e": "POAP < 12 mmHg isoladamente, sem necessidade de medir a PmAP."
+    },
+    "answer": "a",
+    "rationale": "A Hipertensão Portopulmonar (HPP) é uma forma de hipertensão arterial pulmonar (Grupo 1 da OMS) que ocorre em pacientes com hipertensão portal. O diagnóstico definitivo requer cateterismo cardíaco direito demonstrando: (1) Pressão média da artéria pulmonar (PmAP) > 20 mmHg (conforme nova definição de 2022); (2) Pressão de oclusão da artéria pulmonar (POAP/cunha) ≤ 15 mmHg (indicando que a hipertensão é pré-capilar e não por insuficiência cardíaca esquerda/sobrecarga) e (3) Resistência Vascular Pulmonar (RVP) elevada (> 2 Unidades Wood).",
+    "option_rationales": {
+      "a": "Correta. Define os critérios hemodinâmicos atuais para HPP pré-capilar conforme as últimas diretrizes de hipertensão pulmonar.",
+      "b": "POAP > 18 sugere componente pós-capilar (insuficiência cardíaca), o que exclui HPP pura.",
+      "c": "Não é critério para hipertensão pulmonar, mas sim para coarctação ou shunts complexos.",
+      "d": "PmAP de 15 mmHg é considerada normal; o gradiente transpulmonar isolado não define HPP.",
+      "e": "O diagnóstico exige obrigatoriamente a medida da pressão média pulmonar elevada."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Hipertensão Portopulmonar", "Hemodinâmica", "Pneumo-Hepatologia"]
+  },
+  {
+    "enunciado": "Paciente masculino, 28 anos, não etilista, apresenta quadro de enfisema pulmonar pan-lobular em bases pulmonares detectado por TC de tórax. Realizada investigação hepática que demonstra aumento discreto de transaminases e elastografia sugestiva de fibrose F3. Na biópsia hepática, observa-se a presença de glóbulos eosinofílicos PAS-positivos e resistentes à diastase no citoplasma dos hepatócitos periportais. Qual a deficiência enzimática/proteica subjacente e qual o genótipo mais comumente associado à doença hepática grave no adulto?",
+    "options": {
+      "a": "Deficiência de Alfa-1-Antitripsina; Genótipo PiZZ.",
+      "b": "Deficiência de Glicose-6-Fosfato Desidrogenase; Genótipo Mediterrâneo.",
+      "c": "Hipogamaglobulinemia Comum Variável; Genótipo HLA-DR4.",
+      "d": "Deficiência de Ceruloplasmina; Mutação ATP7B.",
+      "e": "Deficiência de Ornitina Transcarbamilase; Herança ligada ao X."
+    },
+    "answer": "a",
+    "rationale": "A Deficiência de Alfa-1-Antitripsina (DAAT) é uma desordem genética onde o dobramento incorreto da proteína no retículo endoplasmático do hepatócito impede sua secreção (gerando enfisema por falta de proteção pulmonar) e causa toxicidade direta ao fígado (gerando cirrose). O achado histopatológico patognomônico são os glóbulos hialinos PAS-positivos resistentes à diastase. O fenótipo PiZZ (homozigoto para a variante Z) é o que apresenta o maior risco de desenvolvimento precoce de cirrose e carcinoma hepatocelular.",
+    "option_rationales": {
+      "a": "Correta. Identifica a patologia, o marcador histopatológico clássico e o genótipo de maior risco clínico.",
+      "b": "Causa quadros de anemia hemolítica, não doença hepática crônica com glóbulos PAS.",
+      "c": "Relacionada a imunodeficiências primárias e infecções recorrentes.",
+      "d": "Refere-se à Doença de Wilson.",
+      "e": "Refere-se a distúrbios do ciclo da ureia, que causam hiperamonemia aguda, não fibrose F3 progressiva com glóbulos."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Alfa-1-Antitripsina", "Genética", "Enfisema"]
+  },
+  {
+    "enunciado": "Uma mulher de 30 anos, usuária de anticoncepcional oral há 10 anos, realiza ultrassonografia de abdome que detecta nódulo hepático sólido de 4,5 cm de diâmetro em lobo direito. A Ressonância Magnética (RM) demonstra lesão hipervascular na fase arterial, com componente central de cicatriz estrelada que apresenta realce tardio pelo contraste. Não há 'wash-out'. O sinal da lesão é isointenso ao parênquima na fase hepatobiliar (usando contraste ácido gadoxético - Primovist). Qual o diagnóstico mais provável e a conduta recomendada?",
+    "options": {
+      "a": "Adenoma Hepático; Interrupção imediata do anticoncepcional e cirurgia.",
+      "b": "Hiperplasia Nodular Focal (HNF); Manejo conservador e observação.",
+      "c": "Carcinoma Hepatocelular; Ressecção cirúrgica imediata.",
+      "d": "Hemangioma Esclerosante; Acompanhamento trimestral com TC.",
+      "e": "Metástase de tumor neuroendócrino; Pesquisa de sítio primário."
+    },
+    "answer": "b",
+    "rationale": "A Hiperplasia Nodular Focal (HNF) é o segundo tumor hepático benigno mais comum. Sua característica clássica na imagem é a 'cicatriz central estrelada' que realça tardiamente. O uso de contrastes hepatobiliares (como o gadoxético) é definitivo: por possuir hepatócitos funcionantes e ductos biliares malformados que não drenam o contraste, a HNF mantém-se isointensa ou hiperintensa na fase tardia (diferente do adenoma ou CHC, que ficam hipointensos/escuros). Como é benigna e raramente sangra ou maligniza, a conduta é conservadora.",
+    "option_rationales": {
+      "a": "Adenomas são tipicamente hipointensos no Primovist e não possuem a cicatriz central estrelada típica.",
+      "b": "Correta. Diagnóstico por imagem avançada e conduta expectante para lesão benigna.",
+      "c": "O CHC apresentaria 'wash-out' (ficaria escuro na fase portal) e não seria isointenso no Primovist.",
+      "d": "Hemangiomas apresentam realce periférico nodular e centrípeto, não cicatriz central.",
+      "e": "Metástases costumam ser múltiplas e possuem sinais invasivos."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["HNF", "Tumores Benignos", "Nódulo Hepático"]
+  },
+  {
+    "enunciado": "Um paciente de 40 anos com Retocolite Ulcerativa (RCU) controlada apresenta elevação de Fosfatase Alcalina e Gama-GT isoladamente. Colangiografia por RM revela estreitamentos multifocais curtos alternados com dilatações das vias biliares intra e extra-hepáticas. O paciente é assintomático. Sobre a profilaxia de complicações neoplásicas, qual o rastreamento periódico deve ser instituído anualmente para este paciente com Colangite Esclerosante Primária (CEP)?",
+    "options": {
+      "a": "Colonoscopia apenas a cada 5 anos, devido ao controle da RCU.",
+      "b": "Ultrassonografia de abdome ou RM de vias biliares associada à dosagem de CA 19-9 para rastreio de colangiocarcinoma.",
+      "c": "Biópsia hepática anual para avaliar tempo de progressão da fibrose.",
+      "d": "Endoscopia Digestiva Alta trimestral para busca de varizes.",
+      "e": "Rastreio apenas se surgirem sintomas de icterícia (colestase)."
+    },
+    "answer": "b",
+    "rationale": "A CEP está intimamente ligada ao Colangiocarcinoma (risco anual de 0,6 a 1,5%). Diretrizes recomendam a vigilância anual (ou semestral em alguns centros) com exames de imagem (USG ou colangio-RM) associada à dosagem de CA 19-9. Além disso, pelo alto risco de câncer colorretal em pacientes com CEP + RCU, a colonoscopia deve ser ANUAL desde o diagnóstico da CEP, independentemente da duração ou atividade da RCU.",
+    "option_rationales": {
+      "a": "Na associação CEP + RCU, o rastreio de câncer de cólon deve ser ANUAL obrigatoriamente.",
+      "b": "Correta. Define o rastreio para o risco neoplásico biliar específico da CEP.",
+      "c": "A biópsia não é usada para rastreio neoplásico, mas para estadiamento inicial em casos duvidosos.",
+      "d": "EDA é para hipertensão portal, não risco oncológico biliar primário.",
+      "e": "O diagnóstico sintomático do colangiocarcinoma costuma ser tardio e incurável."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["CEP", "Colangiocarcinoma", "Rastreamento"]
+  },
+  {
+    "enunciado": "Um cirrótico Child C apresenta ascite de grande volume com proteínas totais no líquido ascítico de 0,8 g/dL e creatinina sérica de 1,6 mg/dL. Segundo os critérios de consenso para profilaxia primária de Peritonite Bacteriana Espontânea (PBE), este paciente é candidato ao uso de antibiótico profilático? Qual o limiar de proteína ascite e o critério renal aceito?",
+    "options": {
+      "a": "Sim; Proteína no líquido ascite < 1,5 g/dL associada à creatinina ≥ 1,2 mg/dL ou Child-Pugh ≥ 9.",
+      "b": "Não; A profilaxia só é feita após o primeiro episódio (profilaxia secundária).",
+      "c": "Sim; Apenas se o paciente tiver varizes de esôfago associadas.",
+      "d": "Não; Proteína de 0,8 g/dL é considerada alta e protetora contra PBE.",
+      "e": "Sim; Iniciar Vancomicina profilática por via oral 250mg ao dia."
+    },
+    "answer": "a",
+    "rationale": "A profilaxia primária para PBE é indicada em pacientes com alto risco de translocação bacteriana. Os critérios clássicos são: Proteínas totais no líquido ascítico < 1,5 g/dL associadas a pelo menos um dos seguintes: (1) Creatinina ≥ 1,2 mg/dL; (2) Ureia ≥ 25 mg/dL; (3) Sódio sérico ≤ 130 mEq/L; ou (4) Escore Child-Pugh ≥ 9 com Bilirrubina ≥ 3 mg/dL. O antibiótico de escolha é o Norfloxacino 400 mg diário.",
+    "option_rationales": {
+      "a": "Correta. Enuncia com precisão os critérios de indicação para profilaxia primária em cirróticos de alto risco.",
+      "b": "A profilaxia primária existe e salva vidas em grupos selecionados de alto risco.",
+      "c": "Varizes são indicação de profilaxia apenas se houver sangramento agudo (HDA).",
+      "d": "Pelo contrário, 0,8 g/dL é proteína muito baixa (baixa atividade opsônica), sendo fator de risco.",
+      "e": "Vancomicina não é usada para profilaxia de PBE (que visa gram-negativos entéricos)."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Profilaxia PBE", "Gastroenterologia", "Antibióticos"]
+  },
+  {
+    "enunciado": "Paciente de 44 anos, feminina, obesa (IMC 34), em tratamento para hipotireoidismo, queixa-se de artralgia em mãos e prurido leve. TGO 90, TGP 105, Fosfatase Alcalina 120 (VN 105). Sorologias virais negativas. Ferritina 450, Saturação de Transferrina 25%. FAN positivo 1:160 padrão homogêneo. Biópsia hepática mostra esteatose em 20% dos hepatócitos, hepatite de interface moderada e infiltrado de plasmócitos. Sobre este quadro de 'overlap' (sobreposição), qual a hipótese diagnóstica mais provável e a abordagem terapêutica inicial?",
+    "options": {
+      "a": "DHGNA associada a Lupus Sistêmico; Hidroxicloroquina e dieta.",
+      "b": "Hepatite Autoimune associada a MASH (Esteato-hepatite Metabólica); Dieta, Prednisona e Azatioprina.",
+      "c": "Colangite Biliar Primária; Ácido Ursodesoxicólico isolado.",
+      "d": "Cirrose Alcoólica; Abstinência e suporte nutricional.",
+      "e": "Hepatite C oculta; Antivirais de ação direta."
+    },
+    "answer": "b",
+    "rationale": "O quadro apresenta elementos de síndrome metabólica (obesidade, esteatose na biópsia) mas também marcadores francos de autoimunidade (FAN positivo, hepatite de interface com plasmócitos). A hepatite autoimune pode coexistir com a doença gordurosa do fígado. Na presença de hepatite de interface moderada/grave, o componente autoimune deve ser tratado com imunossupressão (corticoide/azatioprina) para evitar progressão rápida para cirrose, paralelamente ao manejo metabólico.",
+    "option_rationales": {
+      "a": "Embora o FAN seja positivo, a biópsia é típica de hepatite autoimune hepática, não manifestação lúpica pura.",
+      "b": "Correta. Reconhece o componentes de sobreposição e prioriza o tratamento da inflamação autoimune ativa.",
+      "c": "AMA costuma ser negativo na HAI pura e as transaminases estariam mais baixas que a FA.",
+      "d": "Paciente nega álcool e o perfil é de autoimunidade metabólica.",
+      "e": "Sorologias negativas excluem hepatite C nesta fase diagnóstica."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["HAI", "MASH", "Overlap"]
+  },
+  {
+    "enunciado": "Um cirrótico Child-Pugh B por consumo crônico de álcool é admitido por quadro de agitação, agressividade e comportamento inadequado. Após estabilização, inicia-se tratamento para encefalopatia hepática. Qual a recomendação nutricional ATUAL e baseada em evidências quanto à ingestão proteica diária para este paciente?",
+    "options": {
+      "a": "Restrição rigorosa de proteínas (máximo 0,5g/kg/dia) para reduzir a produção de amônia.",
+      "b": "Manter dieta hiperproteica (1,2 a 1,5 g/kg/dia), preferencialmente de origem vegetal ou láctea, e evitar longos períodos de jejum (fazer lanche noturno).",
+      "c": "Dieta líquida sem proteínas até a melhora do estado mental por 48 horas.",
+      "d": "Substituição completa de proteínas por aminoácidos de cadeia aromática via sonda.",
+      "e": "Dieta sem restrição calórica, mas com gordura zero."
+    },
+    "answer": "b",
+    "rationale": "A diretriz moderna de nutrição na cirrose (ESPEN/AASLD) aboliu a restrição proteica na encefalopatia hepática. A restrição agrava a sarcopenia e a desnutrição, que por sua vez aumentam o risco de EH (o músculo é um consumidor secundário de amônia). Recomenda-se 1,2 a 1,5 g/kg/dia de proteínas, com ênfase em evitar o jejum noturno prolongado (ceia noturna rica em carboidratos complexos) para evitar o catabolismo muscular.",
+    "option_rationales": {
+      "a": "Conduta antiga e perigosa que leva à desnutrição proteico-calórica severa.",
+      "b": "Correta. Prioriza a preservação da massa muscular como estratégia contra a amônia.",
+      "c": "Privar o cirrótico de proteína por 48h piora o quadro metabólico global.",
+      "d": "Aminoácidos de cadeia ramificada (BCAAs) podem ser suplementos, mas não substitutos totais da dieta oral.",
+      "e": "A gordura é necessária para aporte calórico e absorção de vitaminas lipossolúveis."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Nutrição", "EH", "Sarcopenia"]
+  },
+  {
+    "enunciado": "Um homem de 58 anos com cirrose Child C apresenta quadro de ascite refratária e hematomas espontâneos. Laboratório: Plaquetas 45.000, RNI 2,2, Fibrinogênio 90 mg/dL (VN > 200). Sobre a reposição de hemocomponentes antes de uma paracentese diagnóstica, qual a conduta recomendada?",
+    "options": {
+      "a": "Transfusão de Plaquetas até atingir 100.000 e Plasma Fresco para RNI < 1,5.",
+      "b": "A paracentese diagnóstica é considerada um procedimento de baixo risco; a reposição de plaquetas ou plasma rotineira não é indicada se não houver fibrinólise exuberante.",
+      "c": "Administrar Vitamina K intramuscular por 3 dias antes do procedimento.",
+      "d": "Realizar o procedimento apenas sob visão direta por laparoscopia.",
+      "e": "Contraindicação absoluta à paracentese devido ao risco de hemoperitônio."
+    },
+    "answer": "b",
+    "rationale": "Estudos demonstraram que os testes laboratoriais convencionais (RNI/Plaquetas) não predizem o risco real de sangramento no cirrótico, devido ao 'rebalanço da hemostasia' (redução concomitante de fatores pró e anticoagulantes). A paracentese diagnóstica/alívio tem risco de sangramento extremamente baixo (< 1%). Diretrizes atuais (AASLD) recomendam não repor hemocomponentes profilaticamente antes da paracentese, independente do RNI ou plaquetas (até limites razoáveis como plaquetas > 20.000).",
+    "option_rationales": {
+      "a": "Conduta iatrogênica que sobrecarrega a volemia e raramente corrige o sangramento real.",
+      "b": "Correta. Reflete o entendimento moderno da coagulopatia do cirrótico e a segurança da paracentese.",
+      "c": "A vitamina K costuma ser ineficaz na cirrose avançada (falha de síntese proteica).",
+      "d": "Desnecessário e aumenta o risco do paciente descompensado.",
+      "e": "A paracentese é essencial para diagnosticar PBE e deve ser feita prontamente."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Coagulopatia", "Paracentese", "Hemostasia"]
+  },
+  {
+    "enunciado": "Sobre o manejo de varizes esofágicas na cirrose, conforme Baveno VII, qual dos seguintes pacientes apresenta indicação de iniciar betabloqueador não seletivo (BBNS) ou Carvedilol para profilaxia PRIMÁRIA mesmo sem endoscopia prévia, baseando-se apenas em critérios de elastografia e plaquetas?",
+    "options": {
+      "a": "Qualquer paciente com Child-Pugh A.",
+      "b": "Rigidez hepática (elastografia) < 20 kPa e plaquetas > 150.000/mm³.",
+      "c": "Rigidez hepática ≥ 20 kPa ou plaquetas < 150.000/mm³ (Critérios para Hipertensão Portal Clinicamente Significativa).",
+      "d": "Apenas se houver sangramento prévio documentado.",
+      "e": "Apenas em pacientes com ascite tensa simultânea."
+    },
+    "answer": "c",
+    "rationale": "O Baveno VII avançou no conceito de 'não-invasividade'. Pacientes com elastografia ≥ 20 kPa ou plaquetas < 150.000 são considerados portadores de Hipertensão Portal Clinicamente Significativa (HPCS). Nesses casos, o início de BBNS (especialmente o Carvedilol, por sua superioridade em reduzir o gradiente de pressão portal) pode ser indicado para prevenir a primeira descompensação, muitas vezes prescindindo da EDA inicial se o objetivo for tratar a hipertensão portal per se.",
+    "option_rationales": {
+      "a": "Child A sem sinais de hipertensão portal não tem indicação de BBNS.",
+      "b": "Estes critérios indicam baixo risco de varizes que precisem de tratamento (Critérios de Baveno VI para poupar EDA).",
+      "c": "Correta. Aplica os novos paradigmas de tratamento preemptivo da hipertensão portal.",
+      "d": "Isso seria profilaxia secundária.",
+      "e": "A ascite é sinal de descompensação e hipertensão portal, mas o critério específico para varizes usa elastografia/plaquetas."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Baveno VII", "Elastografia", "Varizes"]
+  },
+  {
+    "enunciado": "No contexto da cirrose hepática, o que caracteriza a Síndrome de Zieve, frequentemente observada em etilistas pesados agudizados?",
+    "options": {
+      "a": "Anemia hemolítica, Icterícia e Hiperlipidemia (Zieve's Syndrome).",
+      "b": "Cegueira noturna, neuropatia e quedas.",
+      "c": "Febre, sopro cardíaco e esplenomegalia.",
+      "d": "Dermatite, Diarreia e Demência (Pelagra).",
+      "e": "Ascite refratária, Hiponatremia e Coma."
+    },
+    "answer": "a",
+    "rationale": "A Síndrome de Zieve é uma complicação rara mas específica do alcoolismo agudo/crônico. Ela se manifesta pela tríade de (1) Anemia hemolítica com presença de acantócitos, (2) Icterícia (insuficiência hepática aguda alcóolica) e (3) Hiperlipidemia (principalmente hipertrigliceridemia). O tratamento baseia-se na interrupção do álcool e suporte clínico, com resolução espontânea da hemólise após 1 a 3 semanas.",
+    "option_rationales": {
+      "a": "Correta. Define uma síndrome clínica clássica da hepatologia alcóolica.",
+      "b": "Sinais de deficiências vitamínicas (A e B).",
+      "c": "Sugere endocardite infecciosa.",
+      "d": "Pêntade da Pelagra (deficiência de Niacina).",
+      "e": "Quadro terminal de cirrose descompensada, mas não específico para Zieve."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Síndrome de Zieve", "Álcool", "Hemólise"]
+  },
+  {
+    "enunciado": "Um paciente cirrótico com mestre-ascite desenvolve herniação umbilical com pele extremamente adelgaçada e sinal de 'imincência de ruptura'. Qual a conduta cirúrgica profilática mais recomendada nestes casos, considerando que o paciente é Child-Pugh B?",
+    "options": {
+      "a": "Reparo cirúrgico eletivo da hérnia umbilical com colocação de tela após otimização da ascite.",
+      "b": "Uso de cinta abdominal compressiva e punção aspirativa da hérnia.",
+      "c": "Herniorrafia de urgência apenas se houver estrangulamento.",
+      "d": "Encaminhar para transplante hepático imediato como única solução.",
+      "e": "Prescrever apenas antibióticos profiláticos."
+    },
+    "answer": "a",
+    "rationale": "A hérnia umbilical no cirrótico com ascite descontrolada tem alto risco de ruptura espontânea (Síndrome de Flood) e peritonite. Em pacientes Child A ou B, recomenda-se o reparo cirúrgico eletivo após o controle rigoroso da ascite com diuréticos ou paracentese. O uso de telas é controverso mas tem sido cada vez mais aceito se não houver infecção ativa, visando reduzir a recidiva.",
+    "option_rationales": {
+      "a": "Correta. Conduta cirúrgica preventiva padrão para evitar complicações fatais da hérnia umbilical no cirrótico.",
+      "b": "Cintas aumentam a pressão intra-herniária e podem acelerar a ruptura.",
+      "c": "A ruptura espontânea é uma catástrofe que deve ser prevenida antes de ocorrer ou se tornar urgência.",
+      "d": "O transplante resolve a causa, mas a hérnia precisa de manejo mecânico local se estiver em risco eminente.",
+      "e": "Antibióticos não resolvem o defeito estrutural da parede abdominal."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Hérnia Umbilical", "Cirurgia", "Ascite"]
+  },
+  {
+    "enunciado": "Sobre a icterícia no paciente cirrótico, qual o principal mecanismo da hiperbilirrubinemia indireta (não conjugada) observada frequentemente em períodos de descompensação, na ausência de obstrução biliar ou hemólise evidente?",
+    "options": {
+      "a": "Disfunção do transportador biliar MRP2.",
+      "b": "Redução da atividade da enzima UDP-glucuronosiltransferase por inflamação e redução da massa hepatocitária funcional.",
+      "c": "Fístula colecistoduodenal espontânea.",
+      "d": "Aumento da absorção intestinal de urobilinogênio.",
+      "e": "Destruição prematura de neutrófilos no baço congestionado."
+    },
+    "answer": "b",
+    "rationale": "Na cirrose descompensada, a capacidade de conjugação do fígado pode estar comprometida pela perda de hepatócitos funcionantes e pela inibição enzimática mediada por citocinas inflamatórias. Isso leva a um aumento da bilirrubina indireta. Frequentemente, há também uma hiperbilirrubinemia mista se houver colestase associada (falha nos transportadores de excreção).",
+    "option_rationales": {
+      "a": "Isso causaria aumento da bilirrubina direta (comum na Síndrome de Dubin-Johnson).",
+      "b": "Correta. Explica a base enzimática da falha de captação/conjugação na insuficiência hepática.",
+      "c": "Causa de pneumobilia ou obstrução intestinal (íleo biliar), não hiperbilirrubinemia sistêmica indireta.",
+      "d": "A absorção não justifica o acúmulo sérico se a excreção estivesse funcional.",
+      "e": "Causaria plaquetopenia/anemia (esplenismo), mas não hemólise indireta maciça sistemática desta forma."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Icterícia", "Bilirrubina", "Fisiologia"]
+  },
+  {
+    "enunciado": "Um paciente cirrótico Child-Pugh C apresenta quadro de ascite volumosa. A paracentese mostra Proteínas Totais de 3,5 g/dL e gradiente de albumina soro-ascite (GASA) de 0,8 g/dL. Qual o significado clínico desse GASA baixo e qual diagnóstico deve ser fortemente considerado?",
+    "options": {
+      "a": "GASA < 1,1 indica hipertensão portal; Diagnóstico: Cirrose compensada.",
+      "b": "GASA < 1,1 indica ausência de hipertensão portal; Diagnóstico: Tuberculose Peritoneal ou Carcinomatose.",
+      "c": "GASA < 1,1 indica insuficiência cardíaca grave; Diagnóstico: Congestão passiva.",
+      "d": "GASA é irrelevante perante proteínas altas.",
+      "e": "Indica síndrome de Meigs associada."
+    },
+    "answer": "b",
+    "rationale": "O GASA (Gradiente Albumina Soro-Ascite) é a ferramenta fundamental para classificar a ascite. GASA ≥ 1,1 g/dL indica hipertensão portal (associada ou não à cirrose). GASA < 1,1 g/dL indica que a ascite não é causada por hipertensão portal. Proteínas altas (> 2,5) com GASA baixo (< 1,1) são características de exsudatos inflamatórios ou malignos, como Tuberculose Peritoneal ou Carcinomatose Peritoneal. No cirrótico, isso pode indicar uma doença concomitante ou que o fígado não é a causa daquela ascite específica.",
+    "option_rationales": {
+      "a": "GASA baixo exclui hipertensão portal como causa única/principal daquela ascite.",
+      "b": "Correta. Aplica o raciocínio fisiopatológico diferencial do líquido ascítico.",
+      "c": "A ICC clássicamente apresenta GASA ≥ 1,1 (pela hipertensão sinusoidal retrógrada).",
+      "d": "O GASA é o parâmetro mais fidedigno que a proteína total isolada.",
+      "e": "Meigs (tumor de ovário + ascite + hidrotórax) costuma ter GASA baixo, mas não é a causa 'strongly considered' básica no cirrótico."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["GASA", "Ascite", "Diagnóstico Diferencial"]
+  },
+  {
+    "enunciado": "Qual a principal causa de 'Encefalopatia Hepática Mínima' e qual o teste neuropsicológico mais comum usado para sua detecção no consultório, visando a prevenção de acidentes automobilísticos?",
+    "options": {
+      "a": "Excesso de ferro; Teste de Romberg.",
+      "b": "Depleção de zinco e amônia discretamente elevada; Teste de Conexão Numérica (Number Connection Test) ou testes computadorizados de tempo de reação.",
+      "c": "Falta de vitamina B6; Teste da marcha.",
+      "d": "Hipertensão portal isolada; Teste de Snellen.",
+      "e": "Acúmulo de alumínio; Escala de Glasgow."
+    },
+    "answer": "b",
+    "rationale": "A Encefalopatia Hepática Mínima (EHM) ocorre em pacientes cirróticos que parecem clinicamente normais ao exame físico (sem asterixe ou confusão franca), mas apresentam déficits cognitivos sutis na atenção, coordenação e velocidade psicomotora. A causa é o acúmulo crônico de amônia e outras neurotoxinas, agravado pela depleção de zinco (cofator para enzimas de ciclo da ureia). O teste do 'estalar de dedos' é sugestivo, mas o Teste de Conexão Numérica (ligar pontos em ordem) é o padrão ouro na triagem de EHM.",
+    "option_rationales": {
+      "a": "Romberg avalia equilíbrio vestibular/proprioceptivo, não cognição sub-clínica.",
+      "b": "Correta. Define a condição e a ferramenta de triagem recomendada neurologicamente.",
+      "c": "A marcha avalia coordenação motora grossa, menos sensível para EHM.",
+      "d": "Snellen é para acuidade visual.",
+      "e": "Glasgow é para nível de consciência em urgência/coma."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["EHM", "Segurança Viária", "Neuropsicologia"]
+  },
+  {
+    "enunciado": "No contexto da cirrose pelo vírus B, sobre a coinfecção com o vírus Delta (HDV), qual a implicação clínica em relação à progressão da doença hepática?",
+    "options": {
+      "a": "O vírus Delta protege o fígado da inflamação causada pelo VHB.",
+      "b": "A coinfecção ou superinfecção pelo HDV acelera drasticamente a progressão para cirrose e aumenta o risco de insuficiência hepática fulminante.",
+      "c": "O vírus Delta só infecta pacientes com vírus C.",
+      "d": "O vírus Delta é transmitido exclusivamente pela saliva.",
+      "e": "O HDV não altera o prognóstico da hepatite B."
+    },
+    "answer": "b",
+    "rationale": "O vírus Delta é um vírus RNA defectivo que necessita do antígeno de superfície do vírus B (HBsAg) para se replicar. Quando um paciente tem B + Delta, a inflamação hepática é muito mais severa do que na infecção isolada pelo VHB, com taxas de progressão para cirrose e carcinoma hepatocelular muito mais elevadas e maior risco de falência hepática aguda.",
+    "option_rationales": {
+      "a": "Incorreta. O HDV é um dos patógenos virais mais agressivos ao fígado.",
+      "b": "Correta. Resume o impacto epidemiológico e clínico devastador da coinfecção.",
+      "c": "O HDV é dependente exclusivamente do VHB.",
+      "d": "A transmissão é parenteral (sangue, sexo, seringas compartilhadas).",
+      "e": "O prognóstico é significativamente pior."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Hepatite Delta", "VHB", "Epidemiologia"]
+  }
+]

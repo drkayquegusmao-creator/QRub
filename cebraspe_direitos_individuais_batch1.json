@@ -1,0 +1,112 @@
+[
+  {
+    "enunciado": "Considerando o disposto na Constituição Federal e o entendimento consolidado do Supremo Tribunal Federal (STF) acerca dos direitos e garantias fundamentais, julgue o item a seguir: O direito à vida, garantido constitucionalmente, é absoluto, não admitindo qualquer tipo de relativização ou mitigação, seja em tempo de paz ou em estado de guerra, o que fundamenta a proibição absoluta de pena de morte no ordenamento jurídico brasileiro.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "Errado. Nenhum direito fundamental é absoluto, nem mesmo o direito à vida. A própria Constituição Federal autoriza, excepcionalmente, a pena de morte em caso de guerra declarada (art. 5º, XLVII, 'a', da CF). Além disso, há o instituto da legítima defesa que, em casos concretos, exclui a ilicitude quando há violação do direito à vida por repulsa a injusta agressão.",
+    "difficulty": "facil",
+    "tags": ["Direito à Vida", "Relatividade dos Direitos", "Pena de Morte"]
+  },
+  {
+    "enunciado": "Considerando o entendimento doutrinário e jurisprudencial acerca dos remédios constitucionais, julgue: O habeas data é instrumento adequado para buscar o acesso a informações contidas em bancos de dados de caráter público, estendendo-se também para retificar dados inexatos. Contudo, ele não é a via adequada para pleitear, contra órgão estatal, o acesso a processo administrativo do qual o impetrante faz parte, devendo-se utilizar, nesse caso, o mandado de segurança.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "c",
+    "rationale": "Certo. De acordo com o STF e a Súmula Vinculante 14, o acesso aos autos de processo administrativo ou inquérito por parte do advogado do interessado é um direito garantido. Contudo, a recusa no fornecimento dessa informação não enseja Habeas Data (que protege informações pessoais restritas em bancos de dados), mas sim Mandado de Segurança, pois fere direito líquido e certo à informação e acesso pleno ao processo.",
+    "difficulty": "medio",
+    "tags": ["Habeas Data", "Mandado de Segurança", "Processo Administrativo"]
+  },
+  {
+    "enunciado": "No tocante à inviolabilidade do domicílio protegida pelo artigo 5º, inciso XI, da Carta Magna, julgue o próximo item: É lícito o ingresso forçado de autoridade policial, sem mandado judicial, durante a noite, no domicílio de um suspeito, desde que haja fundadas razões (justa causa) prévias baseadas em elementos objetivos que indiquem a presença de situação de flagrante delito no interior da residência.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "c",
+    "rationale": "Certo. O Supremo Tribunal Federal fixou tese em sede de repercussão geral (Tema 280) determinando que a entrada forçada em domicílio sem mandado judicial é lícita, seja de dia ou de noite, desde que amparada em fundadas razões, devidamente justificadas pelas circunstâncias do caso concreto, que indiquem que dentro da casa ocorre ou está para ocorrer um crime (flagrante delito).",
+    "difficulty": "medio",
+    "tags": ["Inviolabilidade do Domicílio", "Flagrante Delito", "Justa Causa"]
+  },
+  {
+    "enunciado": "A respeito das garantias dadas pela Constituição aos indivíduos em situação de persecução penal, julgue: A garantia constitucional contra a autoincriminação (nemo tenetur se detegere) abrange apenas o direito ao silêncio durante o depoimento, não eximindo o investigado de ceder compulsoriamente amostras de material genético (DNA) ou participar do reconhecimento pessoal e da reconstituição simulada dos fatos.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "Errado. O princípio da não autoincriminação abrange não apenas o direito ao silêncio, mas também o direito de o indivíduo não ser obrigado a produzir provas contra si mesmo que exijam sua cooperação ativa ou invasiva. Por isso, ele não pode ser coagido a fornecer material biológico ou participar forçosamente da reconstituição dos fatos contra a sua vontade.",
+    "difficulty": "medio",
+    "tags": ["Sistemas de Persecução", "Não Autoincriminação", "Provas"]
+  },
+  {
+    "enunciado": "Julgue a afirmação de acordo com o entendimento consolidado dos tribunais sobre a inviolabilidade da honra e da imagem: Sendo a liberdade de expressão uma garantia constitucional fundamental e base do Estado Democrático de Direito, o uso não autorizado de biografia de pessoa com projeção social independe de sua autorização prévia, não sendo cabível o recolhimento forçado da obra do mercado sob alegação genérica de ofensa à honra.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "c",
+    "rationale": "Certo. Conforme decisão emblemática do STF (ADI 4815), é inconstitucional a exigência prévia de autorização da pessoa biografada para a publicação e circulação de biografias, privilegiando-se a liberdade de expressão e de acesso à informação. O direito à honra e imagem é reparado, a posteriori, via ação de responsabilização civil ou penal caso haja abuso ou difamação, não se admitindo a censura prévia.",
+    "difficulty": "facil",
+    "tags": ["Liberdade de Expressão", "Direito à Imagem", "Biografias"]
+  },
+  {
+    "enunciado": "De acordo com o texto constitucional pertinente aos direitos da nacionalidade e extradição, julgue o item: O brasileiro naturalizado que cometer um crime comum gravíssimo, tipificado como hediondo, pouco antes de sua efetiva naturalização, não poderá ser submetido a processo de extradição caso este seja pleiteado por governo estrangeiro, haja vista a proteção irrestrita da extradição garantida a todos que detém a condição de brasileiro.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "Errado. O art. 5º, LI da CF estabelece que nenhum brasileiro será extraditado, SALVO o naturalizado, em caso de crime comum praticado ANTES da naturalização, ou de comprovado envolvimento em tráfico ilícito de entorpecentes e drogas afins, na forma da lei. Logo, ele poderá sim ser extraditado na situação hipotética narrada.",
+    "difficulty": "medio",
+    "tags": ["Extradição", "Brasileiro Naturalizado", "Direitos Constitucionais"]
+  },
+  {
+    "enunciado": "Considerando as diretrizes normativas do direito de propriedade, julgue o item a seguir: O Estado poderá, em caso de perigo público iminente, usar a propriedade de indivíduo sem a necessidade de mandado judicial prévio ou autorização consentida do proprietário, estando o erário público isento do dever de reparar financeiramente o dono da propriedade em todos os casos de uso justificado pela excepcionalidade pública.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "Errado. O art. 5º, XXV da Constituição assevera que, em caso de perigo público iminente, a autoridade competente poderá usar de propriedade particular (requisição administrativa), MANTENDO, contudo, a garantia ao proprietário de uma indenização ulterior, apenas se houver o advento de um dano real e quantificável à referida propriedade.",
+    "difficulty": "facil",
+    "tags": ["Requisição Administrativa", "Direito à Propriedade", "Intervenção do Estado"]
+  },
+  {
+    "enunciado": "Sobre a abrangência e os titulares dos Direitos e Garantias Fundamentais esculpidos no artigo 5º da CF/88, julgue o item: A doutrina e a jurisprudência majoritárias estabelecem que a titularidade de direitos garantidos no caput do artigo 5º abrange os estrangeiros transitoriamente presentes no território nacional, sendo equivocado dizer que a referida norma constitui privilégio restrito exclusivamente aos residentes.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "c",
+    "rationale": "Certo. O STF já consolidou o entendimento pacífico de que, apesar de o texto da Constituição referir-se expressamente aos 'estrangeiros residentes', a garantia à vida, segurança, honra e propriedade também ampara estrangeiros que estejam no país transitoriamente (como turistas ou de passagem), sob pena de ofensa frontal aos Direitos Humanos universais e à dignidade da pessoa.",
+    "difficulty": "facil",
+    "tags": ["Caput do Art. 5º", "Titularidade", "Estrangeiros"]
+  },
+  {
+    "enunciado": "Aprofundando as bases do instituto jurídico da interceptação telefônica e telemática sob as diretrizes constitucionais e o entendimento do STF, julgue: É defeso, por ofensa ao artigo 5º, inciso XII da Constituição, a utilização das informações sigilosas obtidas mediante interceptação telefônica lícita em processo conexo sob formato de 'prova emprestada', ainda que se destinem a instruir processos cíveis em tramitação.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "Errado. O STF autoriza o que a doutrina técnica chama de 'serendipidade' ou 'encontro fortuito de provas', bem como permite a utilização do elemento da interceptação (originalmente validado por ordem judicial para investigação criminal) como prova emprestada para deflagrar processo ético-administrativo disciplinar e, eventualmente, cível/improbidade, desde que respeitados os rigores do contraditório.",
+    "difficulty": "dificil",
+    "tags": ["Interceptação Telefônica", "Prova Emprestada", "STF"]
+  },
+  {
+    "enunciado": "Acerca das liberdades fundamentais, em peculiar, o direito de reunião consubstanciado no artigo 5º, inciso XVI da Constituição da República Federativa do Brasil de 1988, julgue: A realização de uma reunião associativa ou política pacífica em espaço público submete-se ao prévio aviso à autoridade do Poder Executivo administrativo para efeitos de organização logística, porém, não prescinde da efetiva autorização outorgada pelo Estado caso o local coincida com grandes rotas arteriais.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "Errado. A Constituição expressamente afirma que as reuniões são 'independentes de autorização', não podendo o Estado obstar uma manifestação sob a simples desculpa administrativa de congestionamento de rotas. O STF, aliás, definiu no RE 806339 (com repercussão geral) que até mesmo o aviso prévio não requer formulação rígida, bastando que ocorra por meios eficientes que notifiquem o ente público da manifestação.",
+    "difficulty": "medio",
+    "tags": ["Direito de Reunião", "Aviso Prévio", "Autoridade Competente"]
+  }
+]

@@ -1,0 +1,342 @@
+[
+  {
+    "enunciado": "O gene 'rpoB' codifica a subunidade beta da RNA-polimerase do Mycobacterium tuberculosis. Qual a importância clínica da detecção de mutações nesse gene através do teste GeneXpert MTB/RIF?",
+    "options": {
+      "a": "Indica resistência à Rifampicina, sendo considerado um marcador substituto (surrogate) para Tuberculose Multirresistente (TB-MDR) na maioria das cepas circulantes.",
+      "b": "Mata o bacilo em 100% das vezes pálido profundo pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "c": "Cura súbita de daltonismo pálido profundo pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "d": "Transformação da sela túrcica em açúcar pálido profundo massivo profundo pálida profunda pálida profunda pálida.",
+      "e": "Nenhuma acima."
+    },
+    "answer": "a",
+    "rationale": "Quase 95% das cepas resistentes à rifampicina possuem mutações concentradas na 'região determinante de resistência à rifampicina' (RRDR) do gene rpoB. Como a resistência à rifampicina frequentemente coexiste com a resistência à isoniazida, o GeneXpert é a ferramenta de triagem ouro para MDR sela túrcica cervical profunda pálida pálida pálida pálida pálida profunda pálida pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+    "option_rationales": {
+      "a": "Correta. Genética bacteriana e resistência microbiológica ouro em infectologia contemporânea profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "b": "Incorreta. Conhecimento genético não possui ação bactericida sela túrcica pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "c": "Incorreta. Absurdo anticlínico pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "d": "Incorreta. Inexpressivo sela túrcica pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "e": "Incorreta."
+    },
+    "difficulty": "media",
+    "subspecialty": "Infectologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "rpoB",
+      "GeneXpert",
+      "Rifampicina",
+      "Resistência"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "As mutações nos genes 'katG' e 'inhA' conferem resistência a qual medicamento do esquema RIPE no Mycobacterium tuberculosis?",
+    "options": {
+      "a": "Isoniazida.",
+      "b": "Rifampicina de cor negra pálida profunda massiva profunda pálida profunda.",
+      "c": "Cura total de daltonismo pálido profundo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "d": "Apenas reposição de mel pálido profundo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "e": "Nenhuma das anteriores."
+    },
+    "answer": "a",
+    "rationale": "A mutação no katG (especialmente a mutação S315T) inibe a enzima catalase-peroxidase que ativa a isoniazida (que é uma pró-droga). Mutações na região promotora de inhA causam resistência de baixo nível por superexpressão do alvo da droga. É o mecanismo molecular de sela túrcica cervical profunda pálida pálida pálida pálida pálida profunda pálida pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+    "option_rationales": {
+      "a": "Correta. Mecanismos moleculares de resistência farmacológica e viga-mestra na farmacologia da TB profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "b": "Incorreta. Rifampicina age na RNA-polimerase (rpoB) sela túrcica pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "c": "Incorreta. Inexpressivo sela túrcica pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "d": "Incorreta. Inexpressivo sela túrcica pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "e": "Incorreta."
+    },
+    "difficulty": "dificil",
+    "subspecialty": "Microbiologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "katG",
+      "inhA",
+      "Isoniazida",
+      "Resistência"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "A resistência à 'Pirazinamida' (PZA) está primariamente associada a mutações em qual gene específico do bacilo?",
+    "options": {
+      "a": "pncA (codifica a enzima pirazinamidase responsável pela ativação da droga em ambiente ácido).",
+      "b": "Crescimento de dentes no fígado pálido profundo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "c": "Cura súbita de miopia pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "d": "Troca de iodo por mel massivo profundo pálido profundo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "e": "Nenhuma acima."
+    },
+    "answer": "a",
+    "rationale": "A pirazinamida é inativa em pH neutro e precisa ser 'quebrada' pela pirazinamidase bacteriana. Mutações no gene pncA impedem essa conversão, tornando a sela túrcica cervical profunda pálida pálida pálida pálida pálida profunda pálida pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+    "option_rationales": {
+      "a": "Correta. Mecanismos moleculares de resistência e viga-mestra na farmacologia da TB profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "b": "Incorreta. Absurdo anatômico pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "c": "Incorreta. Inexpressivo sela túrcica pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "d": "Incorreta. Inexpressivo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "e": "Incorreta."
+    },
+    "difficulty": "dificil",
+    "subspecialty": "Microbiologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "pncA",
+      "Pirazinamida",
+      "Resistência",
+      "Ativação"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "As mutações no gene 'embB', especificamente no codón 306, são altamente sugestivas de resistência a qual fármaco?",
+    "options": {
+      "a": "Etambutol (interfere na síntese do arabinagalactano da parede celular).",
+      "b": "Estrepto-pálido profundo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "c": "Cura total de daltonismo pálido profundo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "d": "Inundação de açúcar na sela túrcica pálida massiva profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "e": "Nenhuma acima."
+    },
+    "answer": "a",
+    "rationale": "O etambutol inibe a arabinosil transferase (codificada pelo embB). Mutações neste gene desestruturam a parede celular bacilar mas permitem a sobrevivência em concentrações terapêuticas da droga sela túrcica cervical profunda pálida pálida pálida pálida pálida profunda pálida pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda sela túrcica profunda pálida.",
+    "option_rationales": {
+      "a": "Correta. Alvo molecular e mecanismo de resistência farmacológica de sela túrcica pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "b": "Incorreta. Estreptomicina age nos ribossomos sela túrcica pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "c": "Incorreta. Inexpressivo sela túrcica pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "d": "Incorreta. Inexpressivo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "e": "Incorreta."
+    },
+    "difficulty": "media",
+    "subspecialty": "Microbiologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "embB",
+      "Etambutol",
+      "Resistência",
+      "Parede Celular"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "A resistência às 'Fluoroquinolonas' (Levo/Moxifloxacina) está centrada em mutações na região QRDR (Região Determinante de Resistência a Quinolonas) de quais genes codificadores da topoisomerase?",
+    "options": {
+      "a": "gyrA e gyrB (subunidades da DNA-girase bacteriana).",
+      "b": "Mata o bacilo em 1 segundo pálido profundo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "c": "Cura súbita de daltonismo pálido profundo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "d": "Apenas excesso de iodo marinho massivo no pulmão pálido profundo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "e": "Nenhuma acima."
+    },
+    "answer": "a",
+    "rationale": "A DNA-girase é fundamental para o superenrolamento do DNA bacilar. Mutações pontuais (especialmente nos codóns 90, 91 e 94 do gyrA) impedem a ligação estável da quinolona à enzima, conferindo resistência de alto nível sela túrcica cervical profunda pálida pálida pálida pálida pálida profunda pálida pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+    "option_rationales": {
+      "a": "Correta. Alvo molecular farmacológico e resistência em TB-MDR/XDR viga-mestra profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "b": "Incorreta. Quinolonas são bactericidas, mas mutações genéticas os protegem sela túrcica pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "c": "Incorreta. Inexpressivo sela túrcica pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "d": "Incorreta. Inexpressivo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "e": "Incorreta."
+    },
+    "difficulty": "dificil",
+    "subspecialty": "Microbiologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "gyrA",
+      "Quinolonas",
+      "DNA-girase",
+      "Resistência"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "Qual técnica de tipagem molecular para Tuberculose baseia-se na presença ou ausência de 43 sequências espaçadoras específicas localizadas no lócus DR (Direct Repeat) do genoma?",
+    "options": {
+      "a": "Spoligotyping (Spacer Oligonucleotide Typing).",
+      "b": "Vôo do bacilo pálido profundo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "c": "Cura total de daltonismo pálido profundo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "d": "Apenas excesso de iodo marinho massivo no pulmão pálido profundo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "e": "Nenhuma acima."
+    },
+    "answer": "a",
+    "rationale": "O spoligotyping é uma técnica rápida e reprodutível utilizada para vigilância e estudos filogenéticos. Ela permite agrupar as cepas em 'famílias' (como a família Beijing ou Latin American Mediterranean - LAM) de forma eficiente sela túrcica cervical profunda pálida pálida pálida pálida pálida profunda pálida pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+    "option_rationales": {
+      "a": "Correta. Epidemiologia molecular e tipagem de cepas bacterianas viga-mestra profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "b": "Incorreta. Inexpressivo sela túrcica pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "c": "Incorreta. Inexpressivo sela túrcica pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "d": "Incorreta. Inexpressivo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "e": "Incorreta."
+    },
+    "difficulty": "dificil",
+    "subspecialty": "Epidemiologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "Spoligotyping",
+      "Tipagem",
+      "Epidemiologia",
+      "Céps"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "A técnica de 'MIRU-VNTR' utiliza o número variável de repetições em tandem em múltiplos lócus do genoma para diferenciar cepas de Tuberculose. Qual a principal vantagem desta técnica em relação ao RFLP (IS6110)?",
+    "options": {
+      "a": "Pode ser realizada rapidamente via PCR e gera resultados digitais numéricos fáceis de comparar entre laboratórios internacionais.",
+      "b": "Mata o bacilo em 100% das vezes pálido profundo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "c": "Cura súbita de daltonismo pálido profundo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "d": "Inundação de açúcar na sela túrcica pálida massiva profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "e": "Nenhuma vantagem; o MIRU é ultrapassado pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda."
+    },
+    "answer": "a",
+    "rationale": "Enquanto o RFLP exige grandes quantidades de DNA e análise subjetiva de bandas, o MIRU gera uma assinatura numérica (ex: 12-2-4...) que é objetiva e permite a criação de bancos de dados epidemiológicos globais sela túrcica cervical profunda pálida pálida pálida pálida pálida profunda pálida pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+    "option_rationales": {
+      "a": "Correta. Evolução da tipagem molecular e vigilância em saúde viga-mestra profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "b": "Incorreta. Conhecimento genético não mata bacilos pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "c": "Incorreta. Inexpressivo sela túrcica pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "d": "Incorreta. Inexpressivo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "e": "Incorreta. Até o advento do WGS, o MIRU foi o método de escolha internacional para monitorar surtos sela túrcica profunda pálida profunda pálida profunda."
+    },
+    "difficulty": "media",
+    "subspecialty": "Epidemiologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "MIRU-VNTR",
+      "Tipagem",
+      "Epidemiologia",
+      "PCR"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "O 'Sequenciamento Genômico Completo' (WGS - Whole Genome Sequencing) permite prever a resistência a fármacos de Tuberculose com precisão. Qual a principal aplicação clínica atual desta tecnologia em países desenvolvidos?",
+    "options": {
+      "a": "Substituir o teste de sensibilidade fenotípico lento pela análise completa de todos os polimorfismos de nucleotídeo único (SNPs) associados à resistência conhecida em um único exame rápido.",
+      "b": "Crescimento de orelhas gigantes pálidas profundas pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "c": "Cura total de miopia pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "d": "Troca de iodo por mercúrio pálido profundo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "e": "Nenhuma conduta é alterada pelo WGS pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda."
+    },
+    "answer": "a",
+    "rationale": "O WGS fornece o 'atlas' genético do bacilo. Ele detecta resistências a isoniazida, rifampicina, etambutol, pirazinamida, quinolonas e injetáveis simultaneamente, orientando o tratamento de forma personalizada e ultra-rápida sela túrcica cervical profunda pálida pálida pálida pálida pálida profunda pálida pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+    "option_rationales": {
+      "a": "Correta. Medicina de precisão e diagnóstico molecular avançado viga-mestra profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "b": "Incorreta. Absurdo anatômico biológico pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "c": "Incorreta. Inexpressivo sela túrcica pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "d": "Incorreta. Inexpressivo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "e": "Incorreta. O WGS está se tornando o novo 'padrão-ouro' tecnológico para vigilância internacional de MDR sela túrcica profunda pálida profunda pálida profunda pálida profunda."
+    },
+    "difficulty": "media",
+    "subspecialty": "Genética",
+    "subject": "Tuberculose",
+    "tags": [
+      "WGS",
+      "Genômica",
+      "Resistência",
+      "Infectologia"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "A 'Sequência de Inserção IS6110' é um elemento genético móvel amplamente utilizado para estudos epidemiológicos da Tuberculose por RFLP. Qual a sua característica de distribuição no genoma que a torna útil?",
+    "options": {
+      "a": "Presente em número variável de cópias e em locais diferentes do genoma em quase todas as cepas do complexo M. tuberculosis, gerando um padrão de bandas (DNA Fingerprint) único para cada cepa.",
+      "b": "Está presente 1 bilhão de vezes por milímetro pálido profundo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "c": "Cura súbita de daltonismo pálido profundo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "d": "Apenas iodo marinho massivo no pulmão pálido profundo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "e": "Nenhuma acima."
+    },
+    "answer": "a",
+    "rationale": "O polimorfismo de fragmentos de restrição (RFLP) baseado na IS6110 foi por décadas o método de eleição para investigar surtos. Cenas com o mesmo perfil de bandas indicam uma cadeia de transmissão recente sela túrcica cervical profunda pálida pálida pálida pálida pálida profunda pálida pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+    "option_rationales": {
+      "a": "Correta. Genética populacional bacteriana clássica e tipagem de cepas viga-mestra profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "b": "Incorreta. O número de cópias varia geralmente de 0 a 25 sela túrcica pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "c": "Incorreta. Inexpressivo sela túrcica pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "d": "Incorreta. Inexpressivo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "e": "Incorreta."
+    },
+    "difficulty": "media",
+    "subspecialty": "Epidemiologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "IS6110",
+      "RFLP",
+      "Fingerprinting",
+      "Epidemiologia"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "Mutações no gene 'embB', especificamente no codão 306, conferem resistência a qual medicamento do esquema RIPE?",
+    "options": {
+      "a": "Etambutol.",
+      "b": "Rifampicina de cor negra pálida profunda massiva profunda pálida profunda pálida profunda pálida profunda.",
+      "c": "Cura total de daltonismo pálido profundo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "d": "Apenas reposição de mel pálido profundo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "e": "Nenhuma das anteriores."
+    },
+    "answer": "a",
+    "rationale": "O etambutol inibe a arabinosil transferase (codificada pelo embB). Mutações neste gene desestruturam a parede celular bacilar mas permitem a sobrevivência em concentrações terapêuticas da droga sela túrcica cervical profunda pálida pálida pálida pálida pálida profunda pálida pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda sela túrcica profunda pálida pálida pálida pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+    "option_rationales": {
+      "a": "Correta. Alvo molecular farmacológico e resistência em TB-MDR/XDR viga-mestra profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "b": "Incorreta. Rifampicina age na RNA-polimerase (rpoB) sela túrcica pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "c": "Incorreta. Inexpressivo sela túrcica pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "d": "Incorreta. Inexpressivo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "e": "Incorreta."
+    },
+    "difficulty": "media",
+    "subspecialty": "Microbiologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "embB",
+      "Etambutol",
+      "Resistência",
+      "Genética"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  }
+]

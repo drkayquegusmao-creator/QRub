@@ -1,0 +1,515 @@
+[
+  {
+    "enunciado": "Um paciente de 54 anos, cirrótico por vírus C (Child B), é admitido com febre e piora rápida do estado de consciência e da função renal em menos de 24 horas. Ao exame físico: icterícia 4+/4+, PA 80/40 mmHg, ascite tensa. Exames laboratoriais: Creatinina 2,8 mg/dL, Bilirrubina Total 18 mg/dL, RNI 2,5 e Leucócitos 22.000/mm³. Hemoculturas e paracentese são colhidas. Segundo os critérios do estudo CANONIC (European Foundation for the Study of Chronic Liver Failure), como é classificado este quadro clínico agudo e qual a principal variável que diferencia esta síndrome de uma descompensação comum da cirrose?",
+    "options": {
+      "a": "Encefalopatia Hepática Grau IV; A variável é apenas o nível de amônia sérica.",
+      "b": "Insuficiência Hepática Aguda sobre Crônica (ACLF); A variável é o número de falências orgânicas e a alta mortalidade em curto prazo (28 dias).",
+      "c": "Sepse Abdominal de foco não definido; A variável é a presença de germes multirresistentes.",
+      "d": "Síndrome Hepatorrenal Tipo 1; A variável é a ausência de resposta à albumina.",
+      "e": "Hepatite Viral Aguda sobreposta; A variável é a carga viral do VHC."
+    },
+    "answer": "b",
+    "rationale": "A ACLF (Acute-on-Chronic Liver Failure) é uma entidade distinta de descompensação simples. Caracteriza-se por uma falência orgânica aguda (hepática, renal, cerebral, coagulatória, circulatória ou respiratória) em um paciente com cirrose pré-existente, geralmente desencadeada por um insulto precipatante (sepse, álcool). O estudo CANONIC validou que a ACLF possui prognóstico sombrio com alta mortalidade em 28 dias e deve ser graduada (ACLF 1, 2 ou 3) de acordo com o número de falências de sistemas específicos.",
+    "option_rationales": {
+      "a": "A encefalopatia é apenas um dos componentes possíveis da ACLF.",
+      "b": "Correta. Define a síndrome pela falência multiorgânica e pelo risco iminente de morte em curto prazo.",
+      "c": "A sepse é o gatilho mais comum, mas a ACLF é o diagnóstico da resposta multiorgânica sistêmica.",
+      "d": "A SHR é um tipo específico de falência orgânica (renal) que compõe a ACLF.",
+      "e": "A carga viral não é critério diagnóstico para insuficiência hepática sobre crônica aguda."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["ACLF", "Hepatologia", "Prognóstico"]
+  },
+  {
+    "enunciado": "Sobre a Cardiomiopatia Cirrótica, uma condição de disfunção cardíaca silenciosa no cirrótico, quais os achados ecocardiográficos típicos esperados em um paciente Child-Pugh C que está sendo avaliado para transplante hepático?",
+    "options": {
+      "a": "Hipertrofia ventricular esquerda maciça e estenose aórtica.",
+      "b": "Débito cardíaco elevado em repouso, prolongamento do intervalo QT e disfunção diastólica (avaliada pelo Doppler tecidual e relação E/e').",
+      "c": "Derrame pericárdico volumoso e sinais de tamponamento cardíaco.",
+      "d": "Insuficiência mitral grave por rotura de cordoalha tendínea.",
+      "e": "Bloqueio de ramo esquerdo completo e angina instável."
+    },
+    "answer": "b",
+    "rationale": "A cardiomiopatia cirrótica é caracterizada por um estado hiperdinâmico crônico (alto débito e baixa resistência vascular sistêmica), disfunção diastólica (por alteração do relaxamento ventricular) e incapacidade de aumentar o débito cardíaco sob estresse (ex: cirurgia ou fármacos). Além disso, é comum o prolongamento do intervalo QT no ECG, que deve ser monitorado em procedimentos de grande porte como o transplante.",
+    "option_rationales": {
+      "a": "A hipertrofia pode ocorrer por estresse de fluxo, mas a estenose aórtica é uma patologia valvar distinta.",
+      "b": "Correta. Resume a tríade hemodinâmica, elétrica e funcional cardíaca do cirrótico avançado.",
+      "c": "O derrame pericárdico pode ocorrer na ascite severa, mas não é o marcador funcional da cardiomiopatia cirrótica.",
+      "d": "Incompatível com o padrão de disfunção metabólica e miocárdica crônica descrita.",
+      "e": "A doença coronariana isquêmica não faz parte da definição de cardiomiopatia cirrótica primária."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Cardiomiopatia Cirrótica", "Ecocardiografia", "Transplante"]
+  },
+  {
+    "enunciado": "Um paciente de 47 anos com Colangite Biliar Primária (CBP) controlada bioquimicamente (FA e Bilirrubinas normais) queixa-se de prurido lancinante que o impede de dormir à noite. Tentou-se Colestiramina sem melhora. Qual o mecanismo fisiopatológico do prurido na colestase e qual a medicação de segunda linha com evidência de eficácia nestes casos?",
+    "options": {
+      "a": "Depósito de cristais de cálcio; Gluconato de Cálcio.",
+      "b": "Aumento dos níveis de opioides endógenos e alteração da sinalização de ácido lisofosfatídico; Rifampicina ou Naltrexona (antagonista opioide).",
+      "c": "Infecção por fungos oportunistas; Fluconazol.",
+      "d": "Hipotireoidismo secundário; Levotiroxina.",
+      "e": "Deficiência de Vitamina B12; Reposição intramuscular."
+    },
+    "answer": "b",
+    "rationale": "O prurido da colestase é complexo e mediado pela sinalização de citocinas e metabólitos biliares que agem nos nervos periféricos e no SNC. Opioides endógenos estão aumentados e estimulam o prurido via receptores mu. A Rifampicina (que induz o receptor PXR e acelera a detoxificação dos pruritógenos) e a Naltrexona (bloqueador de receptores opioides) são opções terapêuticas eficazes após falha do sequestrador de ácidos biliares (Colestiramina).",
+    "option_rationales": {
+      "a": "O prurido não se deve a depósitos minerais cutâneos.",
+      "b": "Correta. Identifica a base neurobiológica moderna do prurido coleostático e sua farmacoterapia específica.",
+      "c": "Não há relação primária com micose.",
+      "d": "O prurido no cirrótico é hepático até prova em contrário.",
+      "e": "Deficiência de B12 causa parestesias, não prurido colestático intenso."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Prurido", "CBP", "Farmacoterapia"]
+  },
+  {
+    "enunciado": "Uma paciente cirrótica de 50 anos relata aparecimento de 'pequenas aranhas vermelhas' no tórax, palma das mãos avermelhada e irregularidade menstrual. O exame físico confirma telangiectasias (spider nevi) e eritema palmar. Qual a base endócrina para estas manifestações dermatológicas clássicas da cirrose hepática?",
+    "options": {
+      "a": "Aumento da Testosterona livre plasmática.",
+      "b": "Hiperestrogenismo resultante da redução da metabolização hepática do estrogênio e aumento da conversão periférica de androgênios.",
+      "c": "Hipercortisolismo secundário ao estresse crônico.",
+      "d": "Hipotireoidismo franco com aumento de TSH.",
+      "e": "Deficiência completa de Progesterona."
+    },
+    "answer": "b",
+    "rationale": "O fígado cirrótico falha em inativar hormônios esteroides e a presença de shunts portossistêmicos agrava o quadro. Isso leva ao hiperestrogenismo relativo, que promove vasodilatação periférica cutânea (gerando spiders e eritema palmar) e alterações nas gônadas (gerando ginecomastia e atrofia testicular no homem, ou amenorreia/infertilidade na mulher).",
+    "option_rationales": {
+      "a": "Na cirrose, o níveis de testosterona costumam cair no sexo masculino.",
+      "b": "Correta. Identifica o desequilíbrio hormonal central que produz os estigmas periféricos da insuficiência hepática.",
+      "c": "Não explica as telangiectasias ou o eritema palmar de forma clássica.",
+      "d": "Embora o cirrótico possa ter disfunções de T3, não é a causa dos spiders e eritema.",
+      "e": "A progesterona isolada não justifica a vasodilatação cutânea arterial característica."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Dermatologia Hepática", "Estrogênio", "Estigmas"]
+  },
+  {
+    "enunciado": "Um paciente cirrótico descompensado com ascite apresenta quadro súbito de dispneia em repouso e tosse seca. A ausculta pulmonar revela abolição completa de murmúrio vesicular em hemitórax direito, sem febre ou dor pleurítica. Radiografia de tórax mostra derrame pleural volumoso à direita, ocupando 2/3 do pulmão. Realizada toracentese diagnóstica: Líquido pleural com gradiente de albumina soro-pleura (GASP) de 1,4 g/dL e contagem celular com 80 neutrófilos/mm³. Qual o diagnóstico e o mecanismo provável de formação deste líquido?",
+    "options": {
+      "a": "Empiema Pleural; Infecção bacteriana direta do espaço pleural.",
+      "b": "Hidrotórax Hepático; Translocação física de ascite através de pequenos defeitos diafragmáticos (microperfurações) causados pela pressão intra-abdominal aumentada.",
+      "c": "Pneumonia por Aspiração; Extravasamento linfático intratorácico.",
+      "d": "Tromboembolismo Pulmonar; Isquemia de pleura visceral.",
+      "e": "Derrame Parapneumônico Simples; Reação inflamatória de vizinhança."
+    },
+    "answer": "b",
+    "rationale": "O hidrotórax hepático é definido como um derrame pleural (geralmente à direita - 85% dos casos) em cirróticos na ausência de doença cardiopulmonar ou pleural primária. O mecanismo é a passagem direta de ascite do abdome para o tórax via defeitos fenestrados no diafragma devido ao gradiente de pressão negativo intratorácico. O líquido deve ter características de transudato, espelhando o líquido ascítico (GASP > 1,1 g/dL).",
+    "option_rationales": {
+      "a": "A contagem de neutrófilos está normal (baixa), excluindo infecção pleural (empiema).",
+      "b": "Correta. Define o diagnóstico e a anatomia da comunicação transdiafragmática no cirrótico asfítico.",
+      "c": "Derrame linfático (quilotórax) teria níveis altíssimos de triglicerídeos e aspecto leitoso.",
+      "d": "TEP costuma causar derrames pequenos e hemorrágicos em alguns casos, não massa líquida maciça com GASP alto.",
+      "e": "Não há clínica de infecção respiratória aguda simultânea."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Hidrotórax Hepático", "Pneumo-Hepatologia", "Anatomia"]
+  },
+  {
+    "enunciado": "Sobre a vacinação em pacientes cirróticos, qual o esquema preventivo RECOMENDADO sistematicamente para prevenir descompensações agudas por patógenos evitáveis?",
+    "options": {
+      "a": "Vacinar apenas contra febre amarela, visto o risco hemorrágico.",
+      "b": "Vacinação contra Hepatite A e B (se soronegativo), Influenza anual, Pneumococo (VPC13 e VPP23) e reforço de Tétano/Difteria.",
+      "c": "Nenhuma vacina de vírus vivo (como tríplice viral) pode ser administrada, independente do Child-Pugh.",
+      "d": "Apenas vacinar se o paciente for submetido a esplenectomia prévia.",
+      "e": "Vacinar apenas contra Raiva e Dengue."
+    },
+    "answer": "b",
+    "rationale": "O cirrótico é funcionalmente imunocomprometido. A profilaxia vacinal é um pilar do manejo ambulatorial. Deve-se garantir imunidade contra Hepatites A e B para evitar superinfecções fulminantes. A vacina da Influenza reduz hospitalizações por pneumonia e a anti-pneumocócica é essencial pela suscetibilidade a infecções respiratórias. Vacinas de vírus vivo (Febre Amarela, Tríplice Viral) são contraindicadas em cirróticos descompensados (Child B/C ou transplantados), mas podem ser consideradas em Child A.",
+    "option_rationales": {
+      "a": "A febre amarela é contraindicada na cirrose descompensada severa.",
+      "b": "Correta. Lista o calendário vacinal preconizado para redução de morbimortalidade no hepatopata crônico.",
+      "c": "Generalização incorreta; a contraindicação de vírus vivo é relativa ao estágio da doença (Child B e C).",
+      "d": "O cirrótico já possui hiposplenismo funcional por congestão/sequestro, exigindo as vacinas para germes encapsulados como o pneumococo.",
+      "e": "Inadequado como plano de vigilância epidemiológica crônica do cirrótico."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Vacinação", "Prevenção", "Imunidade"]
+  },
+  {
+    "enunciado": "Um paciente masculino de 62 anos, com cirrose por Álcool Child B, apresenta-se na consulta de rotina. Ao ultrassom de controle, detecta-se fluxo hepatofugal na veia porta e o surgimento de múltiplas finas colaterais periportais, caracterizando o 'cavernoma de veia porta'. Qual a implicação do cavernoma portal no diagnóstico e no planejamento cirúrgico deste paciente?",
+    "options": {
+      "a": "Indica regeneração hepática exuberante e bom prognóstico.",
+      "b": "Representa uma trombose crônica da veia porta com recanalização por colaterais sinuosas. Aumenta a complexidade técnica de um eventual transplante hepático futuro.",
+      "c": "Sinal de CHC invasivo; Iniciar quimioterapia imediata.",
+      "d": "Indica cura espontânea da hipertensão portal.",
+      "e": "Não possui relevância clínica ou cirúrgica."
+    },
+    "answer": "b",
+    "rationale": "O cavernoma portal (transformação cavernomatosa da veia porta) é o resultado final de uma trombose crônica da veia porta. O corpo tenta compensar a obstrução do vaso principal criando colaterais peri-hilares tortuosas. Isso mantém a hipertensão portal e o risco de varizes altos e, tecnicamente, pode impedir ou dificultar severamente a anastomose portal durante o transplante de fígado, exigindo enxertos vasculares complexos.",
+    "option_rationales": {
+      "a": "Pelo contrário, é sinal de complicação vascular crônica grave.",
+      "b": "Correta. Identifica a patologia vascular e a consequência técnica para a terapia definitiva (transplante).",
+      "c": "O CHC pode causar trombose portal (invasão tumoral), mas o cavernoma é tipicamente um achado crônico fibrovasculatura compensatória.",
+      "d": "A hipertensão portal é mantida ou agravada pela perda da via de fluxo principal.",
+      "e": "Possui extrema importância cirúrgica em transplantes e cirurgias biliares."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Trombose Portal", "Cavernoma", "Transplante"]
+  },
+  {
+    "enunciado": "Uma paciente cirrótica de 55 anos apresenta quadro de ascite refratária. Realizada Doppler que evidencia shunt portossistêmico espontâneo do tipo esplenorrenal. Ela evolui com episódios de encefalopatia hepática recorrente Grau I (alteração do humor), apesar do uso correto de Lactulona e Rifaximina. Qual a intervenção de radiologia intervencionista que pode ser considerada para melhorar a encefalopatia ao preço de possível piora da hipertensão portal?",
+    "options": {
+      "a": "Embolização seletiva do shunt esplenorrenal espontâneo.",
+      "b": "Injeção de toxina botulínica no esfíncter biliar.",
+      "c": "Colocação de stent na artéria renal.",
+      "d": "Alcoolização de plexo celíaco.",
+      "e": "Esplenectomia cirúrgica aberta."
+    },
+    "answer": "a",
+    "rationale": "Shunts portossistêmicos espontâneos calibrosos (ex: esplenorrenal grosso) permitem que o sangue esplâncnico cheio de neurotoxinas desvie do fígado e vá direto para a circulação sistêmica, causando encefalopatia hepática persistente mesmo com função hepática preservada. A embolização desses shunts por radiologia intervencionista pode reverter a encefalopatia, mas como o 'sangue volta para o portal', pode haver aumento da pressão nas varizes esofágicas como efeito colateral.",
+    "option_rationales": {
+      "a": "Correta. Descreve uma técnica moderna de manejo da encefalopatia hepática 'shunt-dependente'.",
+      "b": "Técnica usada para disfunção de Oddi, sem relação com EH.",
+      "c": "Usada para estenose de artéria renal/hipertensão renovascular.",
+      "d": "Usada para dor crônica no câncer pancreático.",
+      "e": "A esplenectomia no cirrótico Child B/C é de altíssimo risco e não é a conduta padrão para fechar shunts."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Shunts", "EH", "Radiologia Intervencionista"]
+  },
+  {
+    "enunciado": "Um paciente cirrótico de 65 anos com ascite compensada realiza exames laboratoriais que mostram: Cálcio Iônico 3,9 mg/dL (Baixo), Vitamina D total 12 ng/ml (Deficiente). Densitometria óssea revela T-score de -3,0 em coluna lombar. Como se denomina esta complicação óssea da cirrose e qual sua principal etiologia em pacientes com colestase crônica?",
+    "options": {
+      "a": "Osteodistrofia Hepática; Má absorção de vitaminas lipossolúveis (K, A, D, E) e inflamação sistêmica.",
+      "b": "Gota Tofácea Hepática; Acúmulo de ácido úrico no fígado.",
+      "c": "Artrite Reumatoide Secundária; Depósito de amônia nas articulações.",
+      "d": "Pseudogota; Por excesso de magnésio.",
+      "e": "Mieloma Múltiplo do Fígado; Hipergamaglobulinemia monoclonal."
+    },
+    "answer": "a",
+    "rationale": "A osteodistrofia hepática engloba a osteoporose (T-score < -2,5) e a osteomalácia observadas na cirrose. Em pacientes colestáticos (ex: CBP, CEP), a má absorção de gorduras leva à deficiência de vitamina D. Além disso, citocinas inflamatórias (TNF-alfa) estimulam o osteoclasto, acelerando a perda óssea. A sarcopenia crônica também reduz o estímulo mecânico ao osso, agravando a fragilidade esquelética do cirrótico.",
+    "option_rationales": {
+      "a": "Correta. Define a complicação metabólica óssea e os fatores de risco nutricionais/inflamatórios.",
+      "b": "A gota não tem relação fisiopatológica direta desta forma com o parênquima hepático cirrótico.",
+      "c": "A amônia causa toxicidade cerebral, não articular.",
+      "d": "Não há relação clássica.",
+      "e": "Mieloma é uma neoplasia de plasmócitos na medula óssea, não relacionada à falha de síntese hepática."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Metabolismo Ósseo", "Cirrose", "Nutrição"]
+  },
+  {
+    "enunciado": "Sobre o uso do escore FIB-4 e do APRI na avaliação ambulatorial de pacientes com hepatites virais ou doença gordurosa do fígado, qual a utilidade clínica principal destas ferramentas de cálculo?",
+    "options": {
+      "a": "Decidir qual antibiótico usar para PBE.",
+      "b": "Identificar pacientes com alto risco de fibrose avançada/cirrose sem necessidade inicial de biópsia hepática ou elastografia cara.",
+      "c": "Cálculo da dose de norfloxacino profilático.",
+      "d": "Avaliar o nível de consciência na encefalopatia.",
+      "e": "Estimar o tamanho do tumor hepatocelular."
+    },
+    "answer": "b",
+    "rationale": "FIB-4 (idade, AST, ALT, plaquetas) e APRI (AST/Plaquetas) são testes bioquímicos não invasivos de baixo custo. Eles possuem um excelente valor preditivo negativo: um FIB-4 < 1,30 ou 1,45 praticamente exclui fibrose avançada com alta segurança, permitindo o acompanhamento pela atenção primária. Valores altos triam o paciente para exames mais específicos como Elastografia Hepática ou Biópsia em centros de referência.",
+    "option_rationales": {
+      "a": "Não têm relação com infecção bacteriana.",
+      "b": "Correta. Define a função epidemiológica de triagem de fibrose dessas calculadoras clínicas.",
+      "c": "A dose de norfloxacino é fixa ou ajustada pela função renal.",
+      "d": "O nível de consciência é West-Haven ou Glasgow.",
+      "e": "A triagem de CHC é feita por USG e Alfafetoproteína."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["FIB-4", "APRI", "Fibrose"]
+  },
+  {
+    "enunciado": "Um paciente cirrótico apresenta fezes em aspecto de 'borra de café' e melena súbita. No manejo inicial do sangramento digestivo, antes da EDA, inicia-se droga vasoativa. Qual a vantagem teórica da Terlipressina em relação ao Octreotide neste cenário?",
+    "options": {
+      "a": "A Terlipressina é menos potente para reduzir a pressão portal.",
+      "b": "A Terlipressina possui eficácia demonstrada na redução da mortalidade em pacientes selecionados, enquanto Octreotide e Somatostatina focam apenas no controle inicial do sangramento.",
+      "c": "Octreotide causa mais isquemia cardíaca que a terlipressina.",
+      "d": "A terlipressina não necessita de monitoramento cardíaco.",
+      "e": "Não há diferença entre elas em nenhum parâmetro."
+    },
+    "answer": "b",
+    "rationale": "Ambas são eficazes no controle agudo do sangramento varicoso por causarem vasoconstrição esplâncnica (reduzindo o fluxo portal). Contudo, metanálises históricas sugerem que o uso de análogos da vasopressina (terlipressina) resultou em ganho de sobrevida comparado à ausência de medicação, benefício este menos robusto para o octreotide isoladamente. A terlipressina deve ser usada com cautela pela indução de isquemia coronariana e hiponatremia.",
+    "option_rationales": {
+      "a": "A terlipressina é extremamente potente em reduzir o GPVH.",
+      "b": "Correta. Reflete o debate acadêmico sobre desfechos 'duros' (mortalidade) entre as drogas vasoativas.",
+      "c": "O octreotide tem um perfil de segurança cardiovascular melhor que a terlipressina.",
+      "d": "O monitoramento da terlipressina deve ser rigoroso devido ao risco isquêmico sistêmico.",
+      "e": "Há diferenças significativas em meia-vida, posologia (bolus vs contínuo) e efeitos colaterais."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Drogas Vasoativas", "HDA", "Hepatologia"]
+  },
+  {
+    "enunciado": "Um homem de 50 anos com cirrose por vírus C apresenta quadro de ascite volumosa. A análise do líquido revela contagem de 300 PMN/mm³, Bilirrubina do líquido ascite de 10 mg/dL e Bilirrubina sérica de 2 mg/dL. Qual o diagnóstico sugestivo perante este gradiente de bilirrubina e qual a causa provável?",
+    "options": {
+      "a": "PBE por Escherichia coli multirresistente.",
+      "b": "Ascite Biliar por ruptura de via biliar ou colecistite perfurada.",
+      "c": "Carcinomatose Peritoneal.",
+      "d": "Hidrotórax Hepático com translocação negativa.",
+      "e": "Ascite isolada sem complicações."
+    },
+    "answer": "b",
+    "rationale": "A presença de bilirrubina no líquido ascítico em concentração superior à sérica (especialmente se a razão Bilirrubina LA / Soro > 2 ou 3) é marcador de Ascite Biliar. No paciente cirrótico, isso pode decorrer de complicações de colelitíase (que é mais comum nessa população) ou iatrogenia biliar após biopsias ou procedimentos.",
+    "option_rationales": {
+      "a": "A PBE não eleva a bilirrubina LA de forma isolada sem icterícia sérica desproporcional.",
+      "b": "Correta. Aplica o raciocínio de que 'se a bilirrubina está mais alta fora do sangue, ela veio da via biliar'.",
+      "c": "A carcinomatose eleva citologia e proteínas, não necessariamente bilirrubina.",
+      "d": "O hidrotórax é derrame pleural, não ascítico.",
+      "e": "O valor de 10mg/dL no líquido com 2mg/dL no sangue é patológico e exige investigação."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Ascite Biliar", "Líquido Ascítico", "Diagnóstico"]
+  },
+  {
+    "enunciado": "Qual a principal limitação do escore MELD original e por que a adição do Sódio (MELD-Na) foi considerada um avanço fundamental para a justiça na lista de transplante?",
+    "options": {
+      "a": "O MELD original não considerava a idade do médico.",
+      "b": "O MELD original subestimava a mortalidade de pacientes com hipertensão portal grave e hiponatremia, que morriam na lista mesmo com função renal/hepática aparentemente estável.",
+      "c": "A creatinina é um exame muito caro para ser feito em todos os pacientes.",
+      "d": "O sódio atrai mais órgãos para o fígado do paciente.",
+      "e": "Não houve vantagem demonstrada em incluir o sódio."
+    },
+    "answer": "b",
+    "rationale": "Pacientes com cirrose avançada frequentemente desenvolvem hiponatremia dilucional devido à excessiva retenção de água livre (ativação de ADH). A hiponatremia é um preditor fortíssimo de mortalidade em curto prazo e complicações como EH e SHR. O MELD original, focado apenas em Creatinina, RNI e Bilirrubina, deixava esses pacientes com 'escores baixos' apesar da gravidade clínica extrema, sendo o MELD-Na a correção dessa distorção estatística.",
+    "option_rationales": {
+      "a": "Inadequado; escores clínicos não usam demografia do examinador.",
+      "b": "Correta. Explica sucintamente a lógica estatística e clínica da mudança nos critérios de priorização.",
+      "c": "Creatinina é um exame laboratorial básico e de baixo custo.",
+      "d": "Absurdo sem base científica.",
+      "e": "Houve clara melhoria na calibração do modelo para predizer o óbito na lista pós-inclusão do sódio."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["MELD-Na", "Transplante", "Sobrevida"]
+  },
+  {
+    "enunciado": "Um paciente cirrótico descompensado apresenta quadro de asma brônquica severa e desenvolve sangramento por varizes esofágicas. Após o controle do sangramento, qual a melhor estratégia para profilaxia SECUNDÁRIA, considerando a contraindicação formal ao uso de betabloqueadores não seletivos?",
+    "options": {
+      "a": "Apenas vigilância com hemograma mensal.",
+      "b": "Programa formal de sessões semanais de Ligadura Elástica Endoscópica (LEE) até a erradicação completa das varizes.",
+      "c": "Uso de Propranolol em baixas doses com monitoramento pulmonar.",
+      "d": "Anticoagulação com Aspirina para evitar trombose das varizes.",
+      "e": "Administração de Ferro venoso quinzenal."
+    },
+    "answer": "b",
+    "rationale": "A profilaxia secundária (evitar re-sangramento) padrão-ouro é a combinação de BBNS + LEE. Se o BBNS é contraindicado (como no asmático severo), o paciente deve ser mantido em um programa intensivo exclusivamente de Ligadura Elástica até as varizes serem totalmente erradicadas. Após a erradicação, a vigilância endoscópica periódica deve ser mantida para detectar recidivas.",
+    "option_rationales": {
+      "a": "O risco de re-sangramento em 1 ano sem profilaxia é de aproximadamente 60%.",
+      "b": "Correta. Define a conduta isolada necessária perante contraindicação medicamentosa formal.",
+      "c": "O risco de broncoespasmo fatal no asmático severo com BBNS (mesmo em baixas doses) contraindica a tentativa.",
+      "d": "Anticoagulantes aumentariam drasticamente o risco de morte no caso de novo sangramento.",
+      "e": "O ferro trata a anemia pós-sangramento, não previne a causa mecânica do rompimento varicoso."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["LEE", "Profilaxia Secundária", "Asma"]
+  },
+  {
+    "enunciado": "No paciente cirrótico Child C com hipoxemia, a diferenciação entre Síndrome Hepatopulmonar (SHP) e Hipertensão Portopulmonar (HPP) é fundamental. Qual exame simples de beira de leito, utilizando oxímetro de pulso, sugere fortemente o diagnóstico de SHP?",
+    "options": {
+      "a": "Ortostase: Oximetria que cai ≥ 5% ou 4 mmHg ao mudar da posição deitada para em pé (Ortodeoxia).",
+      "b": "Teste de marcha de 6 minutos mostrando aumento da saturação.",
+      "c": "Manobra de Valsalva reduzindo a cianose.",
+      "d": "Teste de apneia positiva após 10 segundos.",
+      "e": "Uso de oxigênio sob máscara que não altera a saturação (Shunt fixo)."
+    },
+    "answer": "a",
+    "rationale": "A ortodeoxia é a manifestação funcional do shunt intrapulmonar na SHP. Como as dilatações vasculares ocorrem preferencialmente nas bases pulmonares, ao ficar em pé, a gravidade aumenta o fluxo sanguíneo para essas regiões 'shunntadas' em detrimento das regiões ventiladas superiores, causando queda súbita da saturação de oxigênio. A HPP não apresenta tipicamente este fenômeno posicional.",
+    "option_rationales": {
+      "a": "Correta. Identifica o marco propedêutico da ortodeoxia posicional específico para SHP.",
+      "b": "O esforço na SHP costuma piorar a saturação, semelhante à HPP.",
+      "c": "A Valsalva não é teste diagnóstico padrão para SHP desta forma.",
+      "d": "Teste de apneia é usado para diagnóstico de morte encefálica.",
+      "e": "Na SHP clássica, a saturação costuma responder ao O2 a 100% (diferente de shunts cardíacos massivos intracavitários), embora a resposta seja menor que no pulmão normal."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["SHP", "Ortodeoxia", "Propedêutica"]
+  },
+  {
+    "enunciado": "No manejo dietético de um cirrótico sarcopênico, qual a orientação sobre o 'horário de alimentação' para minimizar a neoglicogênese a partir de aminoácidos musculares?",
+    "options": {
+      "a": "Fazer jejum intermitente de 16 horas para limpar as toxinas do fígado.",
+      "b": "Alimentar-se a cada 8 horas apenas.",
+      "c": "Fracionar a dieta em 5 a 6 refeições por dia, incluindo obrigatoriamente um lanche noturno (noite/ceia) rico em carboidratos complexos e proteínas.",
+      "d": "Comer apenas uma vez ao dia, no almoço, para evitar picos de insulina.",
+      "e": "Jejum total após as 18h até as 08h do dia seguinte."
+    },
+    "answer": "c",
+    "rationale": "O cirrótico avançado entra em 'estado de inanição' (jejum) muito antes de um indivíduo normal. Em poucas horas sem comer, o fígado cirrótico já esgota o glicogênio e começa a degradar músculo (proteólise) para obter glicose via neoglicogênese. O lanche noturno (late night snack) é comprovadamente eficaz em reduzir a sarcopenia e melhorar a EH, pois impede esse período longo de catabolismo noturno.",
+    "option_rationales": {
+      "a": "O jejum intermitente é perigoso no cirrótico, acelerando a perda de massa muscular e agravando a encefalopatia.",
+      "b": "Intervalos de 8h são excessivos para a reserva metabólica limitada do fgado cirrótico.",
+      "c": "Correta. Alinha a fisiologia metabólica do estoque de glicogênio com a conduta nutricional preventiva de sarcopenia.",
+      "d": "Estratégia catastrófica para um paciente que já possui desnutrição sarcopênica.",
+      "e": "O período das 18h às 08h é longo demais (jejum catabólico) para o cirrótico."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Nutrição", "Metabolismo", "Cirrose"]
+  },
+  {
+    "enunciado": "Qual a principal limitação no uso de betabloqueadores não seletivos (BBNS) no cirrótico com mestre-ascite tensas e refratária?",
+    "options": {
+      "a": "Os BBNS podem induzir a formação de cálculos biliares.",
+      "b": "Os BBNS podem reduzir gravemente a estabilidade hemodinâmica (redução do débito cardíaco) e a pressão de perfusão renal, precipitando a Síndrome Hepatorrenal.",
+      "c": "Os BBNS causam ganho excessivo de peso pela retenção de líquidos.",
+      "d": "Os BBNS aceleram a proliferação viral da Hepatite B.",
+      "e": "Não há contraindicação em nenhum cenário de ascite."
+    },
+    "answer": "b",
+    "rationale": "Embora o BBNS seja excelente na profilaxia de sangramento, em pacientes com ascite refratária (especialmente se a pressão arterial sistólica for < 90 mmHg), o bloqueio beta-1 reduz a contratilidade cardíaca. Como esses pacientes dependem de alto débito cardíaco para compensar a vasodilatação sistêmica e manter a perfusão renal, o BBNS pode desencadear falência renal funcional e reduzir a sobrevida nestes casos específicos (janela terapêutica fechada).",
+    "option_rationales": {
+      "a": "Sem relação estabelecida.",
+      "b": "Correta. Explica o risco hemodinâmico do uso de BBNS em cirróticos na fase final de descompensação vascular.",
+      "c": "Geralmente não causam mais edema; seu risco é renal e hemodinâmico.",
+      "d": "BBNS não interferem no ciclo replicativo viral.",
+      "e": "As diretrizes recentes (Consenso de Baveno e AASLD) reconhecem a fase de 'descontinuação' baseada na segurança clínica."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["BBNS", "Ascite Refratária", "Segurança"]
+  },
+  {
+    "enunciado": "Um paciente cirrótico de 45 anos realiza paracentese de rotina por ascite volumosa. A análise do líquido mostra: PMN 150/mm³ (normal), Cultura negativa do líquido ascítico. No entanto, o paciente apresenta-se consciente, com febre de 38,5°C e calafrios. Hemoculturas revelam crescimento de Klebsiella pneumoniae. Como se denomina este quadro em cirróticos?",
+    "options": {
+      "a": "Bacterascite; Infecção apenas do líquido, sem sintomas sistêmicos.",
+      "b": "Bacteremia Espontânea (Bacteremia Monomicrobiana Espontânea do Cirrótico); Translocação bacteriana intestinal direta para a corrente sanguínea sem foco aparente ou infecção da ascite.",
+      "c": "Linfangite Peritoneal; Obstrução de dutos linfáticos por bactérias.",
+      "d": "Foco de osteomielite latente.",
+      "e": "Choque Séptico de origem urinária obrigatoriamente."
+    },
+    "answer": "b",
+    "rationale": "Muitos cirróticos apresentam episódios de translocação bacteriana onde os germes cruzam a parede intestinal, passam pelos linfonodos mesentéricos e atingem o ducto torácico e a circulação sistêmica. Se o líquido ascítico é normal (< 250 PMN), o diagnóstico é Bacteremia Espontânea. O manejo é idêntico ao da PBE (cefalosporinas de 3ª geração), pois o risco de evolução para sepse e descompensação é idêntico.",
+    "option_rationales": {
+      "a": "Bacterascite é a cultura do líquido ascite positiva com contagem de PMN normal e paciente assintomático.",
+      "b": "Correta. Define a variante clínica de infecção espontânea sistêmica sem peritonite concomitante imediata.",
+      "c": "Termo não utilizado para definir bacteremia espontânea em hepatologia.",
+      "d": "Sem qualquer sugestão clínica no caso.",
+      "e": "A bacteremia sistêmica no cirrótico é frequentemente de origem intestinal (translocação), independente da via urinária."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Translocação", "Bacteremia Espontânea", "Infecção"]
+  },
+  {
+    "enunciado": "Sobre o transplante de fígado com a técnica do 'Split Liver' (Fígado partido), qual o objetivo principal desta modalidade cirúrgica?",
+    "options": {
+      "a": "Remover apenas a parte doente do fígado e manter o resto.",
+      "b": "Dividir um único fígado de doador falecido em dois enxertos independentes, permitindo transplantar dois receptores (geralmente um adulto e uma criança).",
+      "c": "Permitir que o paciente receba metade de um fígado de porco e metade de um humano.",
+      "d": "Simplificar a hemodinâmica do transplante em pacientes muito idosos.",
+      "e": "Acelerar o tempo de isquemia fria do órgão."
+    },
+    "answer": "b",
+    "rationale": "A técnica de 'Split Liver' visa otimizar o escasso pool de órgãos. Um fígado de doador falecido ideal é dividido (frequentemente o lobo esquerdo para uma criança e o lobo direito para um adulto). Isso maximiza a utilidade social do órgão, oferecendo sobrevivência a dois indivíduos distintos com um único procedimento de captação.",
+    "option_rationales": {
+      "a": "Inadequado; o transplante troca o órgão inteiro pelo enxerto (total ou parcial).",
+      "b": "Correta. Define o conceito técnico e social da divisão do enxerto hepático.",
+      "c": "Isso seria xenotransplante, ainda em fase experimental muito inicial e não com essa técnica de 'split'.",
+      "d": "A técnica de split é tecnicamente mais complexa do que o transplante de fígado inteiro.",
+      "e": "Pelo contrário, o tempo cirúrgico e de isquemia pode ser maior devido à necessidade de banco (backtable) para a divisão."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Transplante", "Técnica Cirúrgica", "Split Liver"]
+  }
+]

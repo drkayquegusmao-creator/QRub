@@ -107,7 +107,7 @@ export default function TreinarAreaConcursosPage() {
             try {
                 const count = await countConcursoQuestions({
                     banca_id: banca || undefined,
-                    area_id: deepestSelectedNode.id,
+                    taxonomy_id: deepestSelectedNode.id,
                     difficulty: difficulty === 'Qualquer' ? undefined : difficulty,
                 })
                 setTotalAvailable(count)
@@ -155,7 +155,7 @@ export default function TreinarAreaConcursosPage() {
         try {
             setIsCreatingSession(true)
             const questions = await getConcursoQuestions({
-                area_id: deepestSelectedNode.id,
+                taxonomy_id: deepestSelectedNode.id,
                 difficulty: difficulty === 'Qualquer' ? undefined : difficulty,
             }, volume)
 

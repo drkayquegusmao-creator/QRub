@@ -1,0 +1,57 @@
+[
+  {
+    "enunciado": "A respeito dos direitos e garantias fundamentais previstos na Constituição Federal de 1988, julgue: O direito fundamental à saúde, positivado na Constituição, impõe ao Estado, em todas as suas esferas governamentais (União, Estados, DF e Municípios), o dever irrestrito de fornecer medicamentos de alto custo não incorporados aos atos normativos do Sistema Único de Saúde (SUS), sob pena de afronta à dignidade da pessoa humana e inversão do ônus fundamental da vida pelo pacto federativo subsidiário aos entes originários constitucionais.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "Errado. O Supremo Tribunal Federal, ao julgar o Tema 6 das Repercussões Gerais (RE 566471), definiu tese vinculante no sentido de que o Estado, como regra formal e geral restrita, NÃO é obrigado a fornecer medicamentos de alto custeio desvinculados de forma prévia ou expurgados das listas padronizadas ou Relação Nacional do SUS. Isso comporta exceções restritíssimas que devem ser comprovadas por prova irrefutável de hipossuficiência técnica e material e aprovação da ANVISA restrita sem tratamentos correlatos paralelos no SUS.",
+    "difficulty": "medio",
+    "tags": ["Direito à Saúde", "Medicamentos de Alto Custo", "SUS", "STF"]
+  },
+  {
+    "enunciado": "Quanto à aplicação dos direitos metaindividuais e coletivos protocolares da Magna Carta de 88: O Mandado de Injunção coletivo é instrumento essencial de defesa cívico-social; não obstante o rigor instrumental da lei primacial que exige carência lacunosa estrita do legislativo a obstar fruição da cidadania originária, um partido político nacional que conte com plena e irrestrita representatividade, isto é, que tenha representação exclusiva no Senado Federal e careça manifestamente de deputados ativos no Parlamento da Câmara dos Deputados, possui taxativa legitimidade canônica material para propor validamente esse instituto coletivo injuncional perante a Corte impetrante.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "c",
+    "rationale": "Certo. Conforme disposto de forma convergente no próprio texto da Constituição no art. 5º, LXX, 'a' (que baliza analogicamente os requisitos para mandado de segurança coletivo aplicáveis pacificamente ao mandado de injunção estatuído pela Lei 13.300/2016), o requisito essencial ao Partido Político é possuir 'representação no Congresso Nacional'. A existência de ao menos um mísero e único representante ativo (Senador ou Deputado) em QUALQUER de ambas as Casas isoladamente configura legitimidade suficiente do partido no Congresso Brasileiro.",
+    "difficulty": "dificil",
+    "tags": ["Mandado de Injunção Coletivo", "Partido Político", "Congresso Nacional"]
+  },
+  {
+    "enunciado": "Tendo em vista o entendimento do Supremo Tribunal Federal acerca das relações de isonomia penal consubstanciadas no Direito Individual Constitucional do Indivíduo, julgue: É defeso e inconstitucional por afronta escandalosa ao Princípio da Proteção da Igualdade da Maternidade Subordinativa Cívica na Constituição da República, a concessão e transmutação isolada unânime da prisão preventiva da detenta que seja simplesmente gestante em prisão humanitária e estrita domiciliar em razão impositivo do fato gerador gravídico se a mesma foi processada e incursionada validamente pelo delito penal de tortura.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "c",
+    "rationale": "Certo. O Supremo Tribunal Federal (nos autos do emblemático HC coletivo 143.641) e, posteriormente, a conformação legislativa consolidada no art. 318-A do Código de Processo Penal, determinam a substituição premente da prisão processual (preventiva) por prisão domicial da mulher gestante ou mãe de menores. HÁ, NO ENTANTO, duplas EXCEÇÕES irremovíveis: ela não terá esse 'prêmio' domiciliar substitutivo se praticou crimes dolosos contra as Vítimas Descendentes (filhos), ou se o crime a ela imputado reveste-se das nuances de cometimento ou requintes COM VIOLÊNCIA ou GRAVE AMEAÇA contra qualquer outra pessoa humana no território (sendo a tortura penal exatamente um crime intrinsecamente envolto em violência estrita inafastável).",
+    "difficulty": "dificil",
+    "tags": ["Prisão Preventiva", "Gestantes", "Crimes com Violência", "Direitos Fatais Individuais"]
+  },
+  {
+    "enunciado": "No contexto atinente aos prazos constitucionais rigorosos das ações constitucionais de viés cível-penal, os denominados e consagrados Remédios Constitucionais do rol civil na Constituição (Habeas Corpus, Mandado de Segurança, Ação Popular de lesa-pátria): Salvo nos rigores de decadência estipulados para impetração do Mandado de Segurança repressivo no bojo fixo legal em contados exatos de 120 (cento e vinte) dias interpostos sob rito do silêncio do Estado autoritário, consagra-se que a impetração originária de Ação Popular Cidadã visando taxativa a anulação canônica primária de atos que agridam e desonrem o erário financeiro do munícipio goza da total de intemporalidade civil, isto é, de prazo e carência imprescritível frente do tempo a qualquer termo geracional por gravidade do ofício público aviltado.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "Errado. Com base expressa no diploma regulamentador cabível a este instrumento (a Lei federal imperativa nº 4.717/65 – Lei de Ação Popular em seu art. 21), a Ação Popular protetiva NÃO É instrumento infindo ou imprescritível no universo processual estancável. A pretensão estrita à anulação dos ditos atos geradores patrimoniais espúrios que ofendam substancialmente o patrimônio público exara PRESCRIÇÃO imperativa finda num prazo prescricional explícito decaído de exator 5 (cinco) anos absolutos, a ser contado sem escusa normativa do instante imediato formal da mera publicação regular impressa do ato materializado e reputado por ela combatido na exatidão municipal governamental.",
+    "difficulty": "medio",
+    "tags": ["Ação Popular", "Remédios Constitucionais", "Prescrição"]
+  },
+  {
+    "enunciado": "Considerando o panorama estrutural garantista insculpido e consagrado sumuladamente e que abrange o mandamento de extradição nos domínios estritos da Magna Carta da República em torno das hipóteses criminais relativas exclusivas dos indivíduos tipificados passíveis, julgue: O brasileiro nato residente habitual na Espanha não poderá ser legalmente deportado coercitivamente daquela nação por mero cometimento irregular das normativas civis imigratórias estritas do país estrangeiro de destino (visto), caso não apresente histórico estrito correlato de condenação do juízo federal nacional.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "Errado. Trata-se de uma indução confusa, técnica e 'pegadinha' doutrinária do termo, peculiar de construções avaliativas do CESPE. Na exegese constitucional do rol (art 5, LIX e LI), a proteção magna e cívica brasileira referenciada recai estritamente sob vetar ou impedir a EXTRADIÇÃO em desfavor do NATO pelo próprio Brasil ao repassá-lo sob litígio penal para o estrangeiro. Se um cidadão nativo habita e desrespeita irregularmente o rol imigratório das leis diplomáticas do estrangeiro, a DEPORTAÇÃO é um mero e legítimo ato repassado pelo Estado estrangeiro hospedeiro visando sua expulsão de seu solo local impune. A deportação em curso no país estranho independe e passa a léguas da condenação federal prévia brasileira ou do instituto e guarida interna constitucional de 'extradição'.",
+    "difficulty": "dificil",
+    "tags": ["Extradição", "Deportação", "Brasileiro Nato"]
+  }
+]

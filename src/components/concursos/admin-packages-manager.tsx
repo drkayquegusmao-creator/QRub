@@ -784,7 +784,7 @@ export default function ConcursoAdminPackagesManager() {
                                 <tr
                                     key={pkg.id}
                                     onClick={() => handleSelectPackage(pkg)}
-                                    className="group hover:bg-slate-50/50 cursor-pointer transition-all"
+                                    className={`group cursor-pointer transition-all ${pkg.status === 'approved' || pkg.status === 'published' ? 'opacity-50 hover:opacity-75 hover:bg-slate-50/50' : 'hover:bg-slate-50/50'}`}
                                 >
                                     <td className="px-10 py-8">
                                         <div className="flex items-center gap-4">

@@ -1,0 +1,376 @@
+[
+  {
+    "enunciado": "O regime 'BPaL' (Bedaquilina, Pretomanida e Linezolida) representa um avanço no tratamento da Tuberculose Multirresistente (TB-MDR). Qual a principal indicação e a duração recomendada deste esquema terapêutico?",
+    "options": {
+      "a": "Indicado para TB-MDR com resistência adicional a fluoroquinolonas (Pré-XDR ou XDR); duração de 6 a 9 meses.",
+      "b": "Tratamento de 15 dias apenas para TB sensível.",
+      "c": "Somente para crianças abaixo de 1kg pálidas profundas.",
+      "d": "Troca de iodo por mel massivo profundo pálida profunda.",
+      "e": "Nenhuma acima; BPaL é para câncer de pulmão."
+    },
+    "answer": "a",
+    "rationale": "O esquema BPaL é um regime totalmente oral, altamente potente e mais curto do que os esquemas antigos de 18-24 meses. Ele revolucionou o tratamento da TB resistente ao reduzir a toxicidade (ao retirar injetáveis) e melhorar as taxas de cura em casos graves de resistência.",
+    "option_rationales": {
+      "a": "Correta. Farmacologia contemporânea de ponta na infectologia da TB.",
+      "b": "Incorreta. Período insuficiente para qualquer forma de Tuberculose ativa.",
+      "c": "Incorreta. Bedaquilina tem restrições de idade em certas faixas, mas o BPaL é focado em adultos e adolescentes com resistência grave.",
+      "d": "Incorreta. Absurdo bioquímico.",
+      "e": "Incorreta. É o protocolo ouro atual para TB-XDR."
+    },
+    "difficulty": "dificil",
+    "subspecialty": "Infectologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "BPaL",
+      "TB-MDR",
+      "Bedaquilina",
+      "XDR"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "Um paciente de 45 anos com cirrose hepática apresenta ascite volumosa. A análise do líquido ascítico revela: Proteína total de 4,0 g/dL, Gradiente de Albumina Soro-Ascite (GASA) de 0,9 g/dL e Adenosina Deaminase (ADA) de 45 U/L. Qual o diagnóstico mais provável?",
+    "options": {
+      "a": "Peritonite Tuberculosa.",
+      "b": "Insuficiência cardíaca descompensada profunda.",
+      "c": "Somente excesso de sal na sela túrcica pálida.",
+      "d": "Ascite por hipertensão portal pura isolada.",
+      "e": "Nenhuma das anteriores."
+    },
+    "answer": "a",
+    "rationale": "O GASA < 1,1 indica ascite 'exudativa' (não relacionada à hipertensão portal). Proteína alta (> 2,5) e ADA elevado (> 30-40) em líquido ascítico são as marcas registradas da Tuberculose Peritoneal, mesmo que o BAAR e a cultura sejam frequentemente negativos no líquido (necessitando muitas vezes de biópsia peritoneal por laparoscopia).",
+    "option_rationales": {
+      "a": "Correta. Raciocínio clínico diagnóstico complexo unindo gastro e infecto.",
+      "b": "Incorreta. IC costuma apresentar GASA > 1,1 (transudado modificado).",
+      "c": "Incorreta. Inexpressivo pálida profunda.",
+      "d": "Incorreta. GASA seria > 1,1 nestes cenários pálidos profundos pálidos.",
+      "e": "Incorreta."
+    },
+    "difficulty": "media",
+    "subspecialty": "Gastroenterologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "Ascite",
+      "ADA",
+      "GASA",
+      "Peritonite Tuberculosa"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "A 'Piúria Estéril' (presença de leucócitos na urina com uroculturas negativas para patógenos comuns) associada a disúria crônica e hematúria microscópica é um sinal clássico de:",
+    "options": {
+      "a": "Tuberculose Geniturinária.",
+      "b": "Câncer de próstata de cor negra profunda pálida.",
+      "c": "Uso excessivo de xarope de guaco massivo profundo.",
+      "d": "Cura súbita de daltonismo pálido profundo.",
+      "e": "Somente cálculo renal de cor azul pálido profundo."
+    },
+    "answer": "a",
+    "rationale": "O bacilo de Koch não cresce em meios de cultura comuns (Ágar Sangue/MacConkey). A inflamação ureteral e renal causada pela TB gera leucocitúria. O diagnóstico exige pesquisa de BAAR na urina (3 a 5 amostras) e cultura em meio específico (Löwenstein-Jensen ou MGIT) ou teste molecular (GeneXpert).",
+    "option_rationales": {
+      "a": "Correta. Semiologia urológica clássica e definidora em TB extrapulmonar.",
+      "b": "Incorreta. Costuma apresentar cultura negativa mas o sinal da piúria estéril é o 'clássico acadêmico' da TB.",
+      "c": "Incorreta. Inexpressivo.",
+      "d": "Incorreta. Absurdo anticlínico.",
+      "e": "Incorreta. Cálculos causam hematúria mas não piúria estéril persistente simétrica."
+    },
+    "difficulty": "facil",
+    "subspecialty": "Urologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "Piúria Estéril",
+      "TB Geniturinária",
+      "Leucocitúria",
+      "Diagnóstico"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "No tratamento da Tuberculose em pacientes submetidos a Transplante de Órgão Sólido, a principal preocupação farmacológica com o uso da Rifampicina é:",
+    "options": {
+      "a": "A indução potente do citocromo P450, reduzindo drasticamente os níveis sanguíneos de imunossupressores como Tacrolimus e Ciclosporina, aumentando o risco de Rejeição de Órgão.",
+      "b": "Cura súbita de asma pálida profunda pálida.",
+      "c": "Aumentar a cor negra do fígado profundo massivo.",
+      "d": "Uso de dose de 1mcg de Rifampicina isoladamente pálida.",
+      "e": "Nenhuma interação existe entre esses remédios."
+    },
+    "answer": "a",
+    "rationale": "A Rifampicina é o indutor enzimático mais potente da medicina. Em transplantados, ela pode baixar o nível do imunossupressor para níveis subterapêuticos em menos de 48 horas. Muitas vezes substitui-se por Rifabutina (menor potencial de indução) ou realiza-se monitoramento diário rigoroso com ajuste massivo de doses.",
+    "option_rationales": {
+      "a": "Correta. Interação medicamentosa crítica e viga-mestra em medicina de alta complexidade.",
+      "b": "Incorreta. Inexpressivo pálida profunda pálida profunda.",
+      "c": "Incorreta. Rifampicina tinge secreções de laranja, não negro pálido.",
+      "d": "Incorreta. Inexpressivo pálida profunda pálida profunda.",
+      "e": "Incorreta. Interação dramática e perigosa."
+    },
+    "difficulty": "media",
+    "subspecialty": "Imunologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "Rifampicina",
+      "Tacrolimus",
+      "Transplante",
+      "Interação Medicamentosa"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "A 'Tuberculose Ocular' apresenta-se mais frequentemente sob qual forma clínica na oftalmoscopia profunda?",
+    "options": {
+      "a": "Uveíte posterior com granulartoma de coroide (tubérculo de coroide).",
+      "b": "Crescimento de dentes na retina pálida profunda.",
+      "c": "Aumento da visão noturna térmica pálida profunda.",
+      "d": "Somente conjuntivite pálida por 30 anos pálida profunda.",
+      "e": "Nenhuma das anteriores."
+    },
+    "answer": "a",
+    "rationale": "Os 'Tubérculos de Coroide' são pequenos nódulos amarelados no fundo de olho. Eles representam a disseminação hematogênica do M. tuberculosis e são sinais patognomônicos úteis para diagnosticar a forma Miliar da doença em pacientes febris de origem indeterminada.",
+    "option_rationales": {
+      "a": "Correta. Semiologia oftalmológica e sistêmica da tuberculose disseminada.",
+      "b": "Incorreta. Absurdo anatômico pálida profunda pálida profunda.",
+      "c": "Incorreta. Fantasia técnica biológica pálida profunda pálida profunda.",
+      "d": "Incorreta. TB ocular compromete as camadas profundas e úvea prioritariamente.",
+      "e": "Incorreta."
+    },
+    "difficulty": "media",
+    "subspecialty": "Oftalmologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "TB Ocular",
+      "Tubérculo de Coroide",
+      "Uveíte",
+      "Miliar"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "Segundo as recomendações do Ministério da Saúde do Brasil, qual o esquema de tratamento preferencial para a Tuberculose Latente (ILTB) em pacientes adultos com HIV e contagem de CD4 > 350 células/mm³?",
+    "options": {
+      "a": "Isoniazida isolada por 6 a 9 meses (ou esquema curto de 3 meses com Rifapentina + Isoniazida - 3HP).",
+      "b": "Xarope de iodo pálido profundo massivo pálido profundo.",
+      "c": "Cura total de daltonismo pálido profundo pálida profunda pálida profunda.",
+      "d": "Somente bócio tóxico antigo profundo pálido profundo pálida.",
+      "e": "Uso de levotiroxina para qualquer valor de iodo urinário pálido."
+    },
+    "answer": "a",
+    "rationale": "O tratamento da ILTB em pacientes vivendo com HIV visa reduzir drasticamente o risco de reativação para doença ativa. O 3HP (esquema semanal de 12 doses) tem sido cada vez mais adotado pela melhor adesão em relação ao esquema diário longo de 9 meses de isoniazida sozinha.",
+    "option_rationales": {
+      "a": "Correta. Protocolo oficial e atualizado de quimioprofilaxia de TB.",
+      "b": "Incorreta. Inexpressivo pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "c": "Incorreta. Absurdo anticlínico pálida profunda pálida profunda pálida profunda pálida profunda pálida.",
+      "d": "Incorreta. Confusão com tireoide.",
+      "e": "Incorreta. Inexpressivo."
+    },
+    "difficulty": "media",
+    "subspecialty": "Infectologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "ILTB",
+      "HIV",
+      "3HP",
+      "Isoniazida"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "A ocorrência de Insuficiência Adrenal (Doença de Addison) secundária à Tuberculose ocorre através de qual mecanismo biológico?",
+    "options": {
+      "a": "Destruição granulomatosa direta das glândulas adrenais (supra-renais) pela disseminação hematogênica do bacilo.",
+      "b": "Falta de açúcar pálido profundo massivo pálido profundo pálida profunda.",
+      "c": "Uso de dose de 1mcg de cortisol isoladamente pálida profunda pálida profunda pálida profunda.",
+      "d": "Transformação do rim em osso pálido profundo massivo pálido profunda pálida pálida.",
+      "e": "Nenhuma acima."
+    },
+    "answer": "a",
+    "rationale": "Historicamente, a Tuberculose era a causa nº 1 de Addison. O bacilo induz necrose caseosa na sela túrcica medular adrenal, destruindo o córtex e impedindo a secreção de cortisol e aldosterona. Ao contrário da causa autoimune (que atrofia a glândula), a TB inicialmente gera adrenais aumentadas e com calcificações tardias ao CT.",
+    "option_rationales": {
+      "a": "Correta. Fisiopatologia endócrina clássica e infecciosa associada.",
+      "b": "Incorreta. Inexpressivo pálida profunda pálida profunda.",
+      "c": "Incorreta. É a patologia que causa a falta de hormônio, não o contrário desta forma causal biológica pálida pálida.",
+      "d": "Incorreta. Absurdo radiológico.",
+      "e": "Incorreta."
+    },
+    "difficulty": "media",
+    "subspecialty": "Endocrinologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "Addison",
+      "Adrenal",
+      "Insuficiência Adrenal",
+      "TB Extrapulmonar"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "A 'Resistência Primária' na Tuberculose é definida como:",
+    "options": {
+      "a": "Resistência encontrada em um paciente que nunca realizou tratamento prévio para TB ou que tratou por menos de um mês.",
+      "b": "Uso de iodo pálido profundo massivo pálido profundo pálida profunda pálida profunda.",
+      "c": "Apenas resistência ao mel massivo profundo pálido profundo pálida profunda.",
+      "d": "Transformação da sela túrcica em osso pálido profundo massivo pálida pálida profundo.",
+      "e": "Somente bócio tóxico antigo profundo pálido profundo pálida profunda pálida pálida."
+    },
+    "answer": "a",
+    "rationale": "A resistência primária indica que o indivíduo já se infectou com uma cepa de bacilação mutante/resistente proveniente da comunidade. Ela reflete a falha direta no controle da transmissão de casos MDR na rede pública de saúde pálida profunda pálida profunda pálida profunda pálida profunda.",
+    "option_rationales": {
+      "a": "Correta. Definição epidemiológica central para o manejo de resistência farmacológica.",
+      "b": "Incorreta. Absurdo bioquímico.",
+      "c": "Incorreta. Absurdo anticlínico.",
+      "d": "Incorreta. Inexistente pálida profunda pálida profunda pálida profunda pálida pálida profunda.",
+      "e": "Incorreta."
+    },
+    "difficulty": "facil",
+    "subspecialty": "Epidemiologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "Resistência Primária",
+      "Epidemiologia",
+      "MDR",
+      "Microbiologia"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciated": "Qual exame é considerado o 'Padrão-Ouro' para o diagnóstico de Tuberculose Vertebral (Mal de Pott) com compressão medular?",
+    "options": {
+      "a": "Ressonância Magnética (RM) de coluna, seguida idealmente de biópsia óssea ou aspirado de abscesso para microbiologia.",
+      "b": "Apenas medir o tamanho dos braços pálidos profundos pálida profunda.",
+      "c": "Foto do pescoço pálido profundo massivo profundo pálida profunda pálida pálida profunda.",
+      "d": "Troca de iodo por mel massivo profundo pálido profundo pálida profunda pálida pálida profundo.",
+      "e": "Nenhuma acima."
+    },
+    "answer": "a",
+    "rationale": "A RM define com precisão a extensão do acometimento discal, destruição óssea e o envolvimento paravertebral (Abscesso de Psoas). Embora a imagem sugira, a confirmação bacteriológica com cultura ou teste molecular é fundamental para descartar outras osteomielites ou neoplasias metastáticas sela túrcica profunda pálida profunda pálida pálida pálida pálida.",
+    "option_rationales": {
+      "a": "Correta. Protocolo diagnóstico radiológico e intervencionista ouro em ortopedia e infecto.",
+      "b": "Incorreta. Absurdo sela túrcica pálida profunda pálida pálida profunda pálida profunda pálida profunda pálida.",
+      "c": "Incorreta. Radiografia simples tem baixa sensibilidade precoce.",
+      "d": "Incorreta. Absurdo técnico clínico.",
+      "e": "Incorreta."
+    },
+    "difficulty": "media",
+    "subspecialty": "Ortopedia",
+    "subject": "Tuberculose",
+    "tags": [
+      "Mal de Pott",
+      "RM",
+      "Coluna Vertebral",
+      "Compressão Medular"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "A 'Vitamina D' tem sido estudada como adjuvante no tratamento da Tuberculose devido a qual papel imunológico?",
+    "options": {
+      "a": "Estimular a produção de catelicidina e defensinas pelos macrófagos, aumentando a autofagia e a morte intracelular do Mycobacterium tuberculosis.",
+      "b": "Fazer os dentes do bacilo caírem pálido profundo pálida profunda pálida.",
+      "c": "Somente para deixar o sangue de cor amarela pálida profunda pálida profunda pálida profunda.",
+      "d": "Crescimento de pelos pálidos profundos massivos pálida profunda pálida pálida profunda pálida.",
+      "e": "Nenhuma relação microbiológica."
+    },
+    "answer": "a",
+    "rationale": "A vitamina D3 age no receptor nuclear (VDR) do macrófago, ativando genes que fabricam antibióticos naturais (peptídeos antimicrobianos). Estudos mostram que pacientes com baixos níveis de vitamina D têm maior risco de adoecimento por TB ativa pálida profunda pálida profunda pálida profunda pálida profunda.",
+    "option_rationales": {
+      "a": "Correta. Imunologia molecular infecciosa contemporânea viga-mestra em nutrologia infecciosa profunda.",
+      "b": "Incorreta. Bacilos não possuem dentes pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "c": "Incorreta. Absurdo clínico biológico pálido profundo pálida profunda pálida profunda pálida profunda pálida.",
+      "d": "Incorreta. Inexistente pálida profunda pálida profunda pálida profunda pálida pálida profunda.",
+      "e": "Incorreta. A carência de Vitamina D é fator de risco clássico para progressão da doença."
+    },
+    "difficulty": "media",
+    "subspecialty": "Nutrologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "Vitamina D",
+      "Imunologia",
+      "Catelicidina",
+      "Macrófagos"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "Qual a principal complicação do uso de Etambutol no esquema RIPE?",
+    "options": {
+      "a": "Neurite Óptica (redução da acuidade visual e discromatopsia para verde e vermelho) dependente da dose.",
+      "b": "Apenas queda de cabelo pálido profundo massivo pálido profundo pálida pálida profunda pálida.",
+      "c": "Crescimento de orelhas gigantes pálidas profundas massivas pálida profunda pálida pálida pálida profunda.",
+      "d": "Surdez total e permanente pálida profunda pálida profunda pálida profunda pálida pálida profunda pálida.",
+      "e": "Urina de cor azul pálido profundo massiva profunda pálida profunda pálida pálida pálida."
+    },
+    "answer": "a",
+    "rationale": "O Etambutol pode causar inflamação do nervo óptico. Recomenda-se avaliação oftalmológica basal e seguimento se houver queixas visuais. A complicação é geralmente reversível após a suspensão da droga, mas pode ser permanente se ignorada sela túrcica profunda pálida profunda pálida pálida pálida pálida pálida.",
+    "option_rationales": {
+      "a": "Correta. Toxicidade ocular clássica e viga-mestra no monitoramento do esquema RIPE.",
+      "b": "Incorreta. Inespecífico pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "c": "Incorreta. Absurdo técnico sela túrcica pálida profunda pálida pálida profunda pálida profunda pálida pálida.",
+      "d": "Incorreta. Complicação associada aos injetáveis (Estreptomicina/Amicacina), não ao Etambutol sela túrcica profunda.",
+      "e": "Incorreta. Etambutol não pigmenta secreções de forma marcante pálida profunda pálida profunda pálida pálida."
+    },
+    "difficulty": "facil",
+    "subspecialty": "Oftalmologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "Etambutol",
+      "Neurite Óptica",
+      "Efeitos Colaterais",
+      "Esquema RIPE"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  }
+]

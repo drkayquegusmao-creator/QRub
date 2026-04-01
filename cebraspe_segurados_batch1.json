@@ -1,0 +1,112 @@
+[
+  {
+    "enunciado": "A respeito do Regime Geral de Previdência Social (RGPS) e da figura do segurado empregado, considere o caso de um tabelião, titular de serviço notarial exercendo funções por delegação do poder público na iniciativa privada. Nessa condição específica, e considerando a jurisprudência sumulada do Superior Tribunal de Justiça, ele é classificado automaticamente como segurado especial da previdência social, visto que presta serviço público de natureza auxiliar sob proventos próprios recolhidos de emolumentos.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "Errado. Notários, tabeliães e oficiais de registros que exercem suas funções de forma delegada pelo Poder Público, operando de forma autônoma sem vínculo de emprego com a administração pública nem recebendo remuneração dos cofres públicos, são enquadrados obrigatoriamente como Segurados Contribuintes Individuais pelo RGPS, conforme a Lei nº 8.212/91, e não como Segurados Especiais (que se destinam aos trabalhadores rurais em regime de economia familiar).",
+    "difficulty": "medio",
+    "tags": ["Segurados Obrigatórios", "Contribuinte Individual", "Tabelião"]
+  },
+  {
+    "enunciado": "Julgue a afirmativa com base no Direito Previdenciário aplicável à filiação e inscrição no RGPS: O servidor público civil ocupante, de forma exclusiva, de cargo de provimento em comissão (sem vínculo efetivo amparado por Regime Próprio de Previdência) estará filiado de forma compulsória e obrigatória ao RGPS. Caso, no entanto, ele ocupe concomitantemente um cargo efetivo estadual, estará submetido simultaneamente e obrigatoriamente aos dois regimes da previdência social, caso vença teto salarial municipal e estadual distintos.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "c",
+    "rationale": "Certo. Conforme determina o art. 12, I, 'g' da Lei nº 8.212/91, o servidor civil que ocupa, EXCLUSIVAMENTE, cargo em comissão é segurado OBRIGATÓRIO (empregado) do RGPS. Se ele ocupa um cargo efetivo (filiado ao RPPS) e decide ocupar concomitantemente um cargo em comissão no ente municipal que também exige recolhimento e funções plenas (ou atua na iniciativa privada), a jurisprudência assenta a filiação a ambos os regimes contributivos, excetuando, claro, as peculiaridades interpretadas do cargo em comissão quando atrelado ao próprio órgão.",
+    "difficulty": "dificil",
+    "tags": ["Servidor de Cargo em Comissão", "Filiação", "RGPS", "Regime Próprio"]
+  },
+  {
+    "enunciado": "Acerca dos segurados especiais sob o prisma da Lei 8.213/91, julgue: Considera-se segurado especial o trabalhador rural que explora atividade agropecuária em área contínua de até o dobro de módulos fiscais, sozinho ou em regime temporário de economia familiar, podendo ele perfeitamente ceder a terra via arrendamento agrícola visando ganhos complementares para manter seu status de especial.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "Errado. Além de a lei impor o limite geográfico de até 4 (quatro) módulos fiscais (e não 'o dobro' genérico), a legislação da base previdenciária estabelece que o segurado especial perderá a sua qualidade (virando contribuinte individual ou empregador rural) caso aliene, arrende ou promova parceria (fora do regime estrito familiar e limitado as proporções da lei) das terras sob sua posse visando lucro empresarial. Arrendar ou fazer parceria superior ao módulo legal de subsistência desconfigura o perfil 'especial'.",
+    "difficulty": "medio",
+    "tags": ["Segurado Especial", "Regime de Economia Familiar", "Trabalhador Rural"]
+  },
+  {
+    "enunciado": "No contexto da manutenção, perda e recuperação da qualidade de segurado, e o instituto do 'Período de Graça', julgue a seguinte situação hipotética e sua inferência legal: Mévio, empregado CLT que trabalha há 13 anos ininterruptos em uma petroleira, foi demitido sem justa causa. Sabendo que ele sempre recolheu e possuía a estabilidade das referidas 120 contribuições e o registro ativo na política dos Desempregados do Ministério do Trabalho e Emprego, ele poderá conservar a sua qualidade de segurado por um período elástico, independentemente de contribuições adicionais, por impreteríveis 36 (trinta e seis) meses e 15 dias após a cessação de sua renda.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "Errado. O período de graça básico é de 12 meses (após a cessação das constribuições do segurado que deixar de exercer a atividade remunerada). Mévio ganha +12 meses prorrogação por ter pago as +120 contribuições sem interrupção para fins de perda da qualidade. E ele ganharia +12 meses pelo registro da desocupação involuntária perante o Ministério do Emprego (SINE). No entanto, o vencimento da contribuição se dá no dia 15 do mês seguinte ao do decurso do prazo, o que significa que Mévio conservará a qualidade de segurado por 36 meses + ATÉ O DIA 15 DO MÊS SEGUINTE. A expressão 'impreteríveis 36 meses e 15 dias' transforma um prazo móvel ('até o dia 15 do mês seguinte') em um prazo fixo e matemático, o que é conceitualmente equivocado na interpretação rigorosa do STJ, gerando dias adicionais imprecisos decorrentes de variações do calendário civil.",
+    "difficulty": "dificil",
+    "tags": ["Período de Graça", "Qualidade de Segurado", "Contagem de Tempo"]
+  },
+  {
+    "enunciado": "A política de seguridade social abarca peculiaridades sobre o segurado facultativo; nesse prisma, julgue o próximo item: O estudante estagiário que presta serviços educacionais visando formação nos termos da Lei de Estágios não adquire obrigatoriedade nem o direito originário de filiação forçosa previdenciária, mas lhe é totalmente cabível filiar-se voluntariamente na qualidade de segurado facultativo a partir da maioridade penal de 18 (dezoito) anos.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "Errado. A filiação do segurado facultativo, de fato, é voluntária e compreende aqueles que não exercem atividade remunerada que os coloquem sob a órbita obrigatória (como estagiários regulares). No entanto, a idade mínima legal exigida para filiação como segurado facultativo no RGPS é de 16 (dezesseis) anos, e não 18 (dezoito), conforme o permissivo constitucional das limitações para o trabalho geral. O limiar não está vinculado à 'maioridade penal' estritamente.",
+    "difficulty": "facil",
+    "tags": ["Segurado Facultativo", "Idade Mínima", "Estagiário"]
+  },
+  {
+    "enunciado": "Julgue a seguinte hipótese: Maria recolhia perfeitamente sua contribuição via Carnê-Leão ou Guia da Previdência na qualidade técnica e exclusiva de contribuinte individual que presta serviço diretamente a pessoa física. Se num exato momento ela se acidentar fatalmente 5 meses depois do pagamento da sua última rubrica regular e cessando as guias subseqüentes, sua eventual prole menor deixará irrefutavelmente de ter direito à canônica e essencial pensão por morte, visto que os contribuintes individuais só retêm período de excludente ou graça por improrrogáveis exatos 6 (seis) meses.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "Errado. O contribuinte individual (Maria) possui, como regra basilar, o período de graça e retenção da qualidade de segurada por 12 (doze) meses (prorrogáveis caso haja condições que se amoldem) após a cessação das contribuições, estipulado na Lei nº 8.213/91 (art. 15, inciso II). O prazo curto de 6 meses refere-se exclusivamente ao rol especialíssimo dos segurados facultativos. Portanto, a prole receberia sim a pensão por morte, pois não houve a perda superveniente da qualidade de segurado.",
+    "difficulty": "medio",
+    "tags": ["Contribuinte Individual", "Pensão por Morte", "Qualidade de Segurada"]
+  },
+  {
+    "enunciado": "Em atenção à caracterização dos beneficiários do Regime Geral da Previdência, considerando sua extensão normativa, o síndico de condomínio edilício que receba a gratificação correspondente ao abate fixo em sua cota condominial mensal, mesmo não perfazendo nenhum efetivo pagamento sob a forma numerária direta de cédulas das mãos do condomínio, estará automaticamente submetido à filiação compulsória na ótica e roupagem de segurado empregado, mediante presunção da sua subordinação jurídica perante a assembleia diretiva da sociedade.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "Errado. O síndico que é isento do pagamento de quota condominial (ou recebe algum tipo de pagamento direto pelo múnus) exerce uma atividade remunerada (vez que isenção também é pecunia em favor passivo) e sujeita-se à filiação OBRIGATÓRIA. Todavia, a correta classificação legal e previdenciária não se dá como 'segurado empregado' por não preencher o rigor celetista da habitualidade subalterna clássica, sendo, pela doutrina pacífica e súmula administrativa, enquadrado como Contribuinte Individual.",
+    "difficulty": "medio",
+    "tags": ["Síndico", "Contribuinte Individual", "Natureza Pecuniária"]
+  },
+  {
+    "enunciado": "Julgue: Pode-se afirmar, sob a égide do direito protetivo, que o presidiário em regime não abrangido na obrigatoriedade legal e que efetivamente vier exercer, nos arranjos murais internos prisionais de seu domicílio carcerário, uma atividade de marcenaria produtiva e artesanal para terceiros em formato não-direcionado a subordinação hierárquica por vínculo laboral fechado, e sendo remunerado por isso via pecúnio de labor e convênio local, adquire forçosamente o status de filiação como segurado avulso.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "Errado. O preso que venha a desenvolver a dita atividade artesanal interna prisional para o exterior por conta própria subsume-se essencialmente na subcategoria das normas e manuais de enquadramento da previdência como 'Segurado Contribuinte Individual', não 'Avulso'. O trabalhador avulso é figura canônica para aquele que atua no serviço da orla litorânea e adjacentes mediante rigorosa intermédio mandatário de sindicato ou de Órgão Gestor de Mão-de-Obra (OGMO) sob os estivadores etc... Não há intermediação OGMO em marcenaria intra-carcerária.",
+    "difficulty": "facil",
+    "tags": ["Trabalho Presidiário", "Avulso", "Contribuinte Individual"]
+  },
+  {
+    "enunciado": "Considerando o rigor hermenêutico da legislação previdenciária brasileira, julgue em relação ao trabalhador avulso: Diferentemente da estrita qualificação de que apenas o trabalhador rural adquire figura protetiva apartada, a lei do RGPS conceitua expressamente a figura do trabalhador avulso como aquele que presta serviços de forma temporária de cunho contínuo ou rotativo urbanos (e apenas para essas instâncias, restrita a atuações urbanas), exclusivamente se for sindicalizado na área competente.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "e",
+    "rationale": "Errado. O conceito de trabalhador avulso, inserto no artigo 12 e inciso VI da lei 8.212/91, compreende efetivamente aquele que presta serviço, urbano OU RURAL (ao contrário do afirmado sobre ser restrito ao urbano), a diversas empresas simultânea ou alternadamente, sem vínculo empregatício. Além disso, a prerrogativa é constitucional de que seja prestado com a intermediação obrigatória do sindicato ou Órgão Gestor de Mão-de-Obra (OGMO), independentemente do trabalhador ser formalmente filiado ('sindicalizado') ao respectivo sindicato (pois a vinculação sindical para recebimento da proteção e mediações é lícita para sindicalizados ou 'não sindicalizados' à entidade da categoria pela livre filiação sindical).",
+    "difficulty": "dificil",
+    "tags": ["Trabalhador Avulso", "Sindicalização", "Área Rural"]
+  },
+  {
+    "enunciado": "Sob o espectro das recentes atualizações e regramentos do RGPS consolidados na Reforma Previdenciária e nos decretos supervenientes, avalie: A condição formal e exclusiva de diarista, designada doutrinariamente por aquele trabalhador que preste serviços diretos à mesma pessoa ou família no âmbito eminentemente residencial destas até exatos dois dias por semana sem subordinação ou continuidade de fim lucrativo alheio, enseja classificação obrigatória como Contribuinte Individual, impedindo que os responsáveis empregadores configurem a sua inscrição via recolhimento retido como trabalhador doméstico.",
+    "options": {
+      "c": "Certo",
+      "e": "Errado"
+    },
+    "answer": "c",
+    "rationale": "Certo. De acordo com a Lei Complementar nº 150/2015, e chancelado pelo RGPS, o empregado doméstico é aquele que presta serviços de forma contínua, subordinada, onerosa e pessoal (para família, sem fim lucrativo). A lei exige 'continuidade' com trabalho superior a 2 dias (ou seja, 3 dias ou mais) na semana. A prestação de até 2 dias tipifica a chamada 'diarista', que é legalmente considerada trabalhadora autônoma e subsume-se compulsoriamente como contribuinte individual, cabendo a ela a sua própria inscrição/contribuição, não aos usuários das faxinais (vedando-se a configuração formal como de responsabilidade do crivo de 'empregador' doméstico).",
+    "difficulty": "medio",
+    "tags": ["Diarista", "Empregado Doméstico", "Lei Complementar 150/2015", "Contribuinte Individual"]
+  }
+]

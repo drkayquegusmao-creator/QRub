@@ -1,0 +1,512 @@
+[
+  {
+    "enunciado": "Paciente masculino, 42 anos, natural de Pernambuco e residente em São Paulo há 10 anos, trabalhador da construção civil, procura a Unidade Básica de Saúde com queixa de tosse produtiva com expectoração amarelada e ocasionalmente hemoptoica há cerca de 2 meses. Relata também febre vespertina não aferida, sudorese noturna que o obriga a trocar a roupa de cama e perda ponderal de 8 kg no período (peso habitual de 75 kg). É tabagista (20 maços-ano) e etilista social. Ao exame físico: emagrecido, eupneico (FR: 18 irpm), afebril no momento, FC: 88 bpm, PA: 110/70 mmHg. Ausculta pulmonar revela estertores creptantes em ápice direito e redução do murmúrio vesicular na mesma região. Sem outras alterações dignas de nota. O médico solicita radiografia de tórax, que demonstra infiltrado reticulonodular com área de cavitação de 2 cm no lobo superior direito. Com base no quadro clínico e radiológico apresentado, a conduta inicial mais adequada para a investigação diagnóstica é:",
+    "options": {
+      "a": "Solicitar teste rápido molecular para tuberculose (TRM-TB) e cultura para micobactérias em amostra de escarro.",
+      "b": "Iniciar esquema RIPE (Rifampicina, Isoniazida, Pirazinamida e Etambutol) imediatamente devido à alta suspeição clínica.",
+      "c": "Solicitar tomografia de tórax de alta resolução para melhor caracterização da lesão cavitária.",
+      "d": "Realizar broncoscopia com lavado broncoalveolar para pesquisa de fungos e micobactérias.",
+      "e": "Prescrever amoxicilina com clavulanato por 10 dias e reavaliar o paciente após o término do tratamento."
+    },
+    "answer": "a",
+    "rationale": "A apresentação clínica de tosse produtiva e hemoptise crônica, associada a sintomas constitucionais (febre vespertina, sudorese noturna e perda de peso) em um paciente com achados radiológicos sugestivos (infiltrado e cavitação em ápice pulmonar), torna a tuberculose pulmonar o principal diagnóstico diferencial. De acordo com o Manual de Recomendações para o Controle da Tuberculose no Brasil, em adultos e adolescentes com suspeita de TB pulmonar, a conduta diagnóstica inicial de escolha é a realização do Teste Rápido Molecular (TRM-TB), que detecta o DNA do Complexo M. tuberculosis e a resistência à rifampicina em poucas horas. A cultura para micobactérias também deve ser solicitada em conjunto para todos os casos suspeitos, pois é o padrão-ouro e permite a realização do teste de sensibilidade a outras drogas.",
+    "option_rationales": {
+      "a": "Correta. O TRM-TB é o método preferencial para o diagnóstico inicial devido à sua alta sensibilidade e rapidez, devendo ser complementado pela cultura.",
+      "b": "Incorreta. O tratamento nunca deve ser iniciado sem a tentativa de confirmação bacteriológica, a menos que o estado clínico seja crítico, o que não é o caso.",
+      "c": "Incorreta. Embora a TC ajude, a prioridade absoluta em um sintomático respiratório é a confirmação microbiológica da TB.",
+      "d": "Incorreta. A broncoscopia é um exame invasivo reservado para casos onde o escarro é negativo ou o paciente não consegue expectorar.",
+      "e": "Incorreta. Tratar como pneumonia bacteriana comum retardaria o diagnóstico de uma doença infectocontagiosa grave com alta suspeição clínica."
+    },
+    "difficulty": "media",
+    "subspecialty": "Infectologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "Tuberculose Pulmonar",
+      "Diagnóstico",
+      "TRM-TB",
+      "Saúde Pública"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "Uma paciente de 34 anos, técnica de enfermagem em um hospital universitário, apresenta-se com história de tosse seca há 3 semanas, associada a dor pleurítica à direita e febre baixa intermitente (37,8°C). Nega perda de peso importante ou sudorese noturna. Relata contato recente (há 6 meses) com paciente bacilífero em sua unidade de trabalho, sem uso adequado de equipamento de proteção individual na ocasião. Ao exame físico, apresenta diminuição global do murmúrio vesicular em base direita, com macicez à percussão na mesma região. Radiografia de tórax revela derrame pleural à direita ocupando cerca de um terço do hemitórax. Foi realizada toracentese diagnóstica que demonstrou líquido pleural exsudativo, com predomínio de linfócitos (85%), glicose de 70 mg/dL e níveis de Adenosina Deaminase (ADA) de 62 U/L. A pesquisa de BAAR e o TRM-TB no líquido pleural foram negativos. Qual o diagnóstico mais provável para esta paciente e a conduta recomendada?",
+    "options": {
+      "a": "Tuberculose pleural; iniciar tratamento com esquema RIPE com base no quadro clínico-laboratorial.",
+      "b": "Derrame pleural paraneumônico; iniciar antibioticoterapia de amplo espectro.",
+      "c": "Neoplasia pleural (Mesotelioma); realizar biópsia pleural por agulha ou pleuroscopia.",
+      "d": "Lúpus Eritematoso Sistêmico; pesquisar anticorpos antinucleares (FAN) e células LE no líquido.",
+      "e": "Empiema pleural tuberculoso; realizar drenagem torácica imediata em selo d'água."
+    },
+    "answer": "a",
+    "rationale": "A tuberculose pleural é a forma mais comum de tuberculose extrapulmonar em indivíduos jovens e imunocompetentes. No diagnóstico, o derrame pleural é caracteristicamente um exsudato linfocítico. O nível de ADA (Adenosina Deaminase) elevado (geralmente > 40 U/L) possui alto valor preditivo positivo em regiões com alta prevalência de TB. Embora a sensibilidade da baciloscopia e do TRM-TB no líquido pleural seja baixa (< 10%), o conjunto de quadro clínico (febre, dor pleurítica, contato prévio), líquido exsudativo linfocítico e ADA elevado autorizam o diagnóstico e o início do tratamento, mesmo sem a confirmação de biópsia em primeira instância no contexto brasileiro.",
+    "option_rationales": {
+      "a": "Correta. A tríade clínico-epidemiológica e o nível elevado de ADA no exsudato linfocítico são clássicos da TB pleural.",
+      "b": "Incorreta. O quadro é insidioso e o líquido não possui características de exsudato neutrofílico típico de pneumonia.",
+      "c": "Incorreta. Embora possível, o ADA elevado e a história epidemiológica tornam a TB muito mais provável em uma paciente jovem.",
+      "d": "Incorreta. O derrame lúpico costuma apresentar ADA mais baixo e outros sintomas sistêmicos ausentes aqui.",
+      "e": "Incorreta. O derrame da TB pleural clássica é reacional e não um empiema (que conteria pus e alta carga bacteriana), não exigindo drenagem de rotina."
+    },
+    "difficulty": "dificil",
+    "subspecialty": "Infectologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "Tuberculose Pleural",
+      "ADA",
+      "Líquido Pleural",
+      "Diagnóstico"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "Homem de 28 anos, portador de HIV (último CD4: 120 células/mm³, carga viral indetectável), em uso regular de TARV há 2 anos, apresenta quadro de cefaleia holocraniana progressiva, vômitos em jato e febre há 10 dias. Há 2 dias, a família relata confusão mental e somolência. Ao exame físico: Glasgow 12, rigidez de nuca presente, sinal de Brudzinski positivo. Sem déficits motores focais. Fundo de olho demonstra borramento de papila bilateral. Realizada tomografia de crânio que demonstrou discreto realce meníngeo basal, sem lesões expansivas ou efeito de massa. A análise do líquido cefalorraquidiano (LCR) revela: 250 células/mm³ (80% linfócitos), proteínas de 180 mg/dL, glicose de 22 mg/dL (glicemia plasmática: 98 mg/dL) e coloração de tinta da China negativa. O TRM-TB no líquor detectou M. tuberculosis sem resistência à rifampicina. Além do início imediato do esquema RIPE, qual medida terapêutica adicional é fundamental para reduzir a mortalidade e as sequelas neurológicas deste paciente?",
+    "options": {
+      "a": "Adição de dexametasona ao esquema terapêutico por 4 a 8 semanas.",
+      "b": "Mudança da Pirazinamida por Levofloxacino devido à melhor penetração no SNC.",
+      "c": "Drenagem liquórica externa imediata para controle da hipertensão intracraniana.",
+      "d": "Suspensão temporária da TARV para evitar a síndrome inflamatória de reconstituição imune (IRIS).",
+      "e": "Adição de Anfotericina B lipossomal até o resultado da cultura para fungos."
+    },
+    "answer": "a",
+    "rationale": "A meningoencefalite tuberculosa é a forma mais grave de TB, especialmente em pacientes com imunossupressão avançada. O uso de corticosteroides (dexametasona ou prednisolona) como terapia adjuvante é mandatório e comprovadamente reduz a mortalidade e melhora o prognóstico neurológico, ao modular a resposta inflamatória no espaço subaracnoideo e diminuir o edema cerebral. O início deve ser concomitante ao RIPE.",
+    "option_rationales": {
+      "a": "Correta. O corticosteroide é a única terapia adjuvante com evidência sólida de redução de mortalidade na TB meníngea.",
+      "b": "Incorreta. A Pirazinamida penetra bem no LCR e faz parte do esquema padrão de 1ª linha; o Levofloxacino é droga de 2ª linha.",
+      "c": "Incorreta. A drenagem é reservada para casos de hidrocefalia obstrutiva evidente, não sendo a 'medida fundamental' geral de primeira linha descrita.",
+      "d": "Incorreta. Em pacientes já em TARV, ela deve ser mantida. Se não estivessem, a introdução seria postergada por 8 semanas, mas nunca suspensa.",
+      "e": "Incorreta. O TRM-TB já confirmou a causa; o líquor linfocítico com glicose baixa e proteína alta é típico de TB, não justificando Anfotericina após confirmação de TB."
+    },
+    "difficulty": "media",
+    "subspecialty": "Infectologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "Tuberculose Clínica",
+      "HIV/AIDS",
+      "Neurologia",
+      "Corticoterapia"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "Um paciente de 55 anos, diabético e ex-tabagista, está em tratamento para tuberculose pulmonar sensível há 45 dias com o esquema RIPE (Rifampicina, Isoniazida, Pirazinamida e Etambutol). Durante consulta de acompanhamento, refere que há uma semana vem notando 'visão embaçada' e dificuldade para distinguir cores, especialmente o vermelho e o verde. Nega cefaleia ou dor à movimentação ocular. Ao exame oftalmológico, observa-se redução da acuidade visual bilateral e discromatopsia. O fundo de olho é normal nesta fase inicial. Qual fármaco do esquema terapêutico é o provável responsável por este efeito adverso e qual a conduta imediata recomendada?",
+    "options": {
+      "a": "Etambutol; suspender o fármaco e encaminhar para avaliação especializada.",
+      "b": "Isoniazida; administrar Piridoxina (Vitamina B6) em altas doses.",
+      "c": "Rifampicina; orientar que a alteração é transitória e não exige suspensão.",
+      "d": "Pirazinamida; dosar níveis de ácido úrico no sangue.",
+      "e": "Estreptomicina; realizar audiometria prioritária."
+    },
+    "answer": "a",
+    "rationale": "O Etambutol pode causar neurite óptica retrobulbar, que se manifesta clinicamente como redução da acuidade visual, alterações no campo visual (escotomas centrais) e perda da percepção de cores (verde-vermelho). É um efeito adverso dose-dependente e, por ser frequentemente reversível se detectado precocemente, a suspensão imediata da droga é a medida mais importante. Pacientes acima de 55 anos ou com disfunção renal têm maior risco.",
+    "option_rationales": {
+      "a": "Correta. A toxicidade ocular (neurite óptica) é o efeito colateral clássico do Etambutol.",
+      "b": "Incorreta. A Isoniazida causa neuropatia periférica (dormência), não distúrbios de visão colorida.",
+      "c": "Incorreta. A Rifampicina pode deixar lágrimas/urina laranjas, mas não causa perda de visão ou discromatopsia.",
+      "d": "Incorreta. A Pirazinamida causa hiperuricemia e hepatotoxicidade, sem relação com a visão.",
+      "e": "Incorreta. A Estreptomicina é ototóxica (audição/equilíbrio) e não faz parte do esquema RIPE padrão inicial (é usada em casos especiais)."
+    },
+    "difficulty": "facil",
+    "subspecialty": "Infectologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "Farmacologia",
+      "Efeitos Adversos",
+      "Etambutol",
+      "Oftalmologia"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "Paciente feminina, 29 anos, grávida (2ª gestação, 14 semanas), sem comorbidades conhecidas, apresenta tosse produtiva e febre baixa há 4 semanas. A investigação microbiológica por TRM-TB em escarro confirmou M. tuberculosis sensível à rifampicina. Sobre o tratamento da tuberculose ativa durante a gestação no Brasil, assinale a orientação correta:",
+    "options": {
+      "a": "O esquema RIPE deve ser iniciado normalmente, pois a Rifampicina, Isoniazida e Etambutol são seguros, e a Pirazinamida é recomendada pelo Ministério da Saúde brasileiro na gestação.",
+      "b": "O tratamento deve ser adiado para o segundo trimestre para evitar teratogenicidade dos fármacos.",
+      "c": "A Pirazinamida deve ser excluída do esquema, mantendo-se apenas Rifampicina, Isoniazida e Etambutol por 9 meses.",
+      "d": "A Isoniazida deve ser evitada devido ao risco de malformações no tubo neural do feto.",
+      "e": "Além do esquema RIPE, a estreptomicina deve ser adicionada para garantir a cura da gestante e prevenir a TB congênita."
+    },
+    "answer": "a",
+    "rationale": "No Brasil, o Ministério da Saúde recomenda o tratamento padrão com o esquema RIPE (Rifampicina, Isoniazida, Pirazinamida e Etambutol) para gestantes com tuberculose. Estudos e a vasta experiência clínica nacional demonstram segurança e eficácia, não havendo evidências de teratogenicidade significativa com essas drogas nas doses habituais. A Piridoxina (B6) é recomendada adicionalmente para prevenir neuropatia por Isoniazida na gestante.",
+    "option_rationales": {
+      "a": "Correta. O Brasil utiliza o esquema RIPE padrão em gestantes, tratando-as da mesma forma que não gestantes.",
+      "b": "Incorreta. A TB não tratada é muito mais perigosa para a mãe e para o feto do que os fármacos.",
+      "c": "Incorreta. Esta era uma recomendação antiga ou utilizada em outros países; no Brasil, a Pirazinamida é mantida.",
+      "d": "Incorreta. A Isoniazida é segura na gestação; as malformações de tubo neural dependem de ácido fólico, não de Isoniazida.",
+      "e": "Incorreta. A estreptomicina é estritamente contraindicada na gestação devido à toxicidade para o VIII par craniano fetal (surdez)."
+    },
+    "difficulty": "media",
+    "subspecialty": "Infectologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "Gestação",
+      "Terapêutica",
+      "Saúde da Mulher",
+      "Infectologia Clínica"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "Homem de 50 anos, alcoólatra crônico, em tratamento para tuberculose pulmonar há 20 dias, é levado à emergência por familiares com quadro de desorientação, náuseas intensas e icterícia evidente. Os exames laboratoriais revelam: AST (TGO) 520 U/L (VR: até 40), ALT (TGP) 480 U/L (VR: até 40), Bilirrubina Total 6,8 mg/dL (com direta de 5,1 mg/dL) e INR de 1,4. Ao ser diagnosticada a hepatotoxicidade grave induzida por fármacos antituberculose, qual a conduta imediata mais adequada quanto ao tratamento da TB?",
+    "options": {
+      "a": "Suspender imediatamente todos os fármacos do esquema RIPE.",
+      "b": "Suspender apenas a Pirazinamida e a Isoniazida, mantendo Rifampicina e Etambutol.",
+      "c": "Manter o tratamento e prescrever silimarina e complexo B para proteção hepática.",
+      "d": "Suspender a Rifampicina e a Pirazinamida, mantendo Isoniazida e Etambutol por ser um esquema menos hepatotóxico.",
+      "e": "Reduzir a dose de todos os fármacos para 50% até a normalização das enzimas."
+    },
+    "answer": "a",
+    "rationale": "A conduta na hepatotoxicidade induzida pelo tratamento da TB (definida como elevação de transaminases > 3x o valor de referência se sintomático, ou > 5x se assintomático, ou icterícia) é a suspensão imediata de todos os fármacos potencialmente hepatotóxicos (Rifampicina, Isoniazida e Pirazinamida). Após a normalização dos exames laboratoriais e melhora clínica, os fármacos devem ser reintroduzidos sequencialmente para identificar o causador.",
+    "option_rationales": {
+      "a": "Correta. A suspensão total é a regra de ouro para evitar falência hepática fulminante em caso de toxicidade medicamentosa evidente (icterícia e elevação > 10x das enzimas).",
+      "b": "Incorreta. A Rifampicina também é hepatotóxica e deve ser suspensa na fase aguda.",
+      "c": "Incorreta. O uso de 'protetores hepáticos' não substitui a necessidade vital de interromper a agressão tóxica.",
+      "d": "Incorreta. A Isoniazida é um dos principais causadores de lesão hepática grave.",
+      "e": "Incorreta. A redução de dose não resolve a toxicidade idiossincrática ou metabólica e pode induzir resistência bacteriana."
+    },
+    "difficulty": "media",
+    "subspecialty": "Infectologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "Hepatotoxicidade",
+      "Segurança do Paciente",
+      "Efeitos Adversos",
+      "Infectologia"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "Um homem de 38 anos, em situação de rua, foi diagnosticado com tuberculose pulmonar há 4 meses. Ele iniciou o esquema RIPE, mas abandonou o tratamento após 30 dias por sentir-se melhor. Retorna agora com tosse produtiva intensa, febre alta e emagrecimento importante. O TRM-TB realizado no retorno demonstrou presença de M. tuberculosis com detecção de resistência à rifampicina. Este quadro caracteriza-se como um provável caso de:",
+    "options": {
+      "a": "Tuberculose Multirresistente (TB-MDR) ou Resistente à Rifampicina (TB-RR).",
+      "b": "Tuberculose Sensível com recidiva precoce por falha imunológica.",
+      "c": "Tuberculose Extensivamente Resistente (TB-XDR).",
+      "d": "Tuberculose Monorresistente apenas à Isoniazida.",
+      "e": "Pneumonia de hipersensibilidade por exposição tardia a micobactérias."
+    },
+    "answer": "a",
+    "rationale": "A resistência à rifampicina (TB-RR), detectada isoladamente ou em associação à resistência a outra droga (como a isoniazida, configurando TB-MDR), exige a mudança imediata para esquemas especiais (geralmente contendo bedaquilina, linezolida e fluoroquinolonas). O abandono e o tratamento irregular são os principais fatores de risco para a seleção de cepas resistentes.",
+    "option_rationales": {
+      "a": "Correta. O TRM-TB identifica especificamente a resistência à rifampicina, definindo o caso como TB-RR, manejado como MDR no Brasil.",
+      "b": "Incorreta. A detecção de resistência genotípica pelo TRM invalida o diagnóstico de TB sensível.",
+      "c": "Incorreta. A TB-XDR exige resistência à rifampicina, isoniazida, uma fluoroquinolona e mais uma droga do Grupo A.",
+      "d": "Incorreta. O teste especificamente apontou resistência à rifampicina.",
+      "e": "Incorreta. Trata-se de uma doença infecciosa confirmada, não um quadro imunológico/alérgico."
+    },
+    "difficulty": "media",
+    "subspecialty": "Infectologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "Resistência Bacteriana",
+      "TB-MDR",
+      "Epidemiologia",
+      "Saúde Pública"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "Durante uma investigação de contatos de um paciente com Tuberculose Pulmonar bacilífera (baciloscopia ++), o filho do paciente, de 7 anos, é avaliado. Ele está assintomático, tem radiografia de tórax normal e exame físico sem alterações. Realizou-se a Prova Tuberculínica (PPD), que resultou em 12 mm. O cartão vacinal mostra cicatriz de BCG ao nascimento. Qual a interpretação e a conduta preconizada pelo Ministério da Saúde para esta criança?",
+    "options": {
+      "a": "Infecção Latente por Tuberculose (ILTB); iniciar tratamento preventivo com Isoniazida ou Rifampicina.",
+      "b": "Tuberculose Ativa com apresentação paucibacilar; iniciar esquema RIPE infantil.",
+      "c": "Imunização prévia por BCG apenas; não requer conduta adicional além da vigilância clínica.",
+      "d": "Tuberculose Larvada; solicitar tomografia de tórax para identificar linfonodomegalias hilares.",
+      "e": "Falso-positivo por exposição a micobactérias não tuberculosas; repetir o PPD em 3 meses."
+    },
+    "answer": "a",
+    "rationale": "Em crianças contatos de bacilíferos, um PPD ≥ 5 mm (independente do status da vacina BCG anterior, se aplicada há mais de 2 anos) com exame clínico e radiológico normal define o diagnóstico de Infecção Latente por Tuberculose (ILTB). A conduta correta é o tratamento preventivo da tuberculose (TPTB) para evitar a progressão para doença ativa, sendo a Rifampicina por 4 meses ou a Isoniazida por 6 a 9 meses as opções terapêuticas preferenciais.",
+    "option_rationales": {
+      "a": "Correta. Contato próximo, assintomático, RX normal e PPD reagente é o cenário clássico para tratamento de ILTB.",
+      "b": "Incorreta. Para diagnosticar doença ativa seria necessário sintoma ou alteração radiológica.",
+      "c": "Incorreta. O valor de 12 mm em contato de bacilífero é valorizado como infecção, não apenas resposta vacinal.",
+      "d": "Incorreta. O termo clínico correto é ILTB e a conduta é profilaxia, não exames invasivos em criança assintomática com RX normal.",
+      "e": "Incorreta. No Brasil, país de alta carga, o PPD reagente em contatos deve ser sempre atribuído à infecção pelo M. tuberculosis."
+    },
+    "difficulty": "dificil",
+    "subspecialty": "Infectologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "ILTB",
+      "Pediatria",
+      "Controle de Contatos",
+      "PPD"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "Paciente de 19 anos, do sexo masculino, procura atendimento por aumento de volume indolor em região cervical lateral direita há 3 semanas. Relata que o nódulo é de consistência endurecida, pouco móvel e não apresenta sinais inflamatórios (dor, calor ou rubor). Nega febre, mas refere perda de peso não intencional de 3 kg e astenia. Não há história de contato conhecido com tuberculose. Realizou ultrassonografia cervical que revelou conglomerado de linfonodos com áreas centrais hipoecoicas sugestivas de necrose. A biópsia excisional do linfonodo demonstrou inflamação granulomatosa crônica com necrose de caseificação. A baciloscopia do material foi negativa. Qual o provável diagnóstico e o principal sítio de acometimento da tuberculose extrapulmonar neste caso?",
+    "options": {
+      "a": "Tuberculose Ganglionar; é a forma extrapulmonar mais comum em imunocompetentes e HIV negativos no Brasil.",
+      "b": "Linfoma de Hodgkin; a necrose de caseificação é um achado patognomônico de doenças linfoproliferativas.",
+      "c": "Sarcoidose; a presença de necrose caseosa afasta o diagnóstico de Tuberculose.",
+      "d": "Artrite Reumatóide com nódulo necrobiótico cervical.",
+      "e": "Câncer de Tireoide metastático; o granuloma é uma reação do hospedeiro ao tumor."
+    },
+    "answer": "a",
+    "rationale": "A tuberculose ganglionar cervical (também conhecida historicamente como escrófula) é a forma mais frequente de tuberculose extrapulmonar em crianças e adultos jovens imunocompetentes. A patologia característica é o granuloma com necrose de caseificação (caseosa). A baciloscopia do material biopsiado costuma ser negativa devido à natureza paucibacilar da lenha, mas o achado histopatológico em contexto clínico sugestivo é altamente diagnóstico no Brasil.",
+    "option_rationales": {
+      "a": "Correta. A descrição clínica e o granuloma caseoso em linfonodo definem a TB ganglionar.",
+      "b": "Incorreta. O linfoma não apresenta necrose caseosa (que é típica de micobactérias ou fungos).",
+      "c": "Incorreta. Na sarcoidose, os granulomas são tipicamente 'não caseificantes'.",
+      "d": "Incorreta. Nódulos reumatoides têm histologia diferente e acometem outras regiões.",
+      "e": "Incorreta. O granuloma caseoso não é uma característica de metástase de tumor de tireoide."
+    },
+    "difficulty": "media",
+    "subspecialty": "Infectologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "Tuberculose Extrapulmonar",
+      "Patologia",
+      "Linfadenopatia",
+      "Escrófula"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "Um presidiário de 45 anos apresenta tosse crônica e cansaço. Ele realiza o Teste Rápido Molecular (TRM-TB), que indica: 'M. tuberculosis detectado: ALTO' e 'Resistência à Rifampicina: NÃO DETECTADA'. O médico assistente solicita também uma cultura para micobactérias com teste de sensibilidade (TS). Por que a cultura é necessária se o teste molecular já descartou resistência à rifampicina e confirmou o diagnóstico?",
+    "options": {
+      "a": "Para detectar resistência a outros fármacos (como a Isoniazida), realizar vigilância de cepas circulantes e testar sensibilidade em caso de falha terapêutica.",
+      "b": "Porque o TRM-TB possui baixa sensibilidade para confirmar a cura após o tratamento.",
+      "c": "Para diferenciar o M. tuberculosis das micobactérias atípicas (não tuberculosas).",
+      "d": "Para verificar se o paciente é portador de fungos associados em 'cavidade' pulmonar de TB prévia.",
+      "e": "A cultura não é mais necessária segundo os protocolos atuais se o TRM-TB for positivo em 'ALTO' nível."
+    },
+    "answer": "a",
+    "rationale": "Embora o TRM-TB seja excelente para o diagnóstico rápido e detecção de resistência à rifampicina, ele não detecta resistência a outras drogas essenciais, como a Isoniazida (configurando monorresistência ou resistência MDR se associada). A cultura continua sendo o padrão-ouro e é fundamental para a vigilância epidemiológica, controle de cura e ajuste de esquemas em casos complexos ou recidivas.",
+    "option_rationales": {
+      "a": "Correta. A cultura complementa o molecular permitindo o teste de sensibilidade (TS) completo para todas as drogas do esquema.",
+      "b": "Incorreta. O TRM-TB detecta DNA de bactérias mortas, logo não serve para controle de cura, mas isso não justifica o pedido no diagnóstico inicial.",
+      "c": "Incorreta. O TRM-TB é específico para o complexo M. tuberculosis.",
+      "d": "Incorreta. Cultura de micobactérias é em meio específico (Löwenstein-Jensen), não serve para fungos.",
+      "e": "Incorreta. O protocolo brasileiro recomenda cultura e TS para todos os casos confirmados no diagnóstico."
+    },
+    "difficulty": "dificil",
+    "subspecialty": "Infectologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "Microbiologia",
+      "Diagnóstico",
+      "Epidemiologia",
+      "Saúde Pública"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "Uma enfermeira de 26 anos participa da busca ativa de sintomáticos respiratórios em uma comunidade. Ela questiona qual o critério para considerar um indivíduo como 'sintomático respiratório' na população geral para fins de investigação de tuberculose pulmonar. De acordo com as normas técnicas brasileiras, deve-se investigar a TB em:",
+    "options": {
+      "a": "Toda pessoa com tosse por tempo igual ou superior a 3 semanas.",
+      "b": "Qualquer pessoa com febre vespertina, independente da presença de tosse.",
+      "c": "Apenas indivíduos em situação de rua com tosse há mais de 10 dias.",
+      "d": "Pessoas vivendo com HIV com qualquer tempo de tosse, mas moradores de área urbana apenas se tossirem há mais de 4 semanas.",
+      "e": "Indivíduos que apresentem expectoração purulenta, independente do tempo de tosse."
+    },
+    "answer": "a",
+    "rationale": "Para a população geral no Brasil, o conceito de sintomático respiratório é definido pela presença de tosse por 3 semanas ou mais. No entanto, para populações em maior risco (situação de rua, privados de liberdade, indígenas e imunossuprimidos), esse período de corte é reduzido para qualquer tempo de tosse ou conforme a avaliação clínica inicial.",
+    "option_rationales": {
+      "a": "Correta. Este é o critério epidemiológico clássico adotado pelo Ministério da Saúde para triagem na população geral.",
+      "b": "Incorreta. A febre é sintoma, mas a 'tosse' é o marco definidor do sintomático respiratório na triagem de massa.",
+      "c": "Incorreta. Para pessoas em situação de rua, qualquer tempo de tosse já justifica a investigação.",
+      "d": "Incorreta. PVHIV também devem ser investigados com qualquer tempo de tosse.",
+      "e": "Incorreta. A característica da secreção (purulenta ou hialina) não altera o critério cronológico da triagem."
+    },
+    "difficulty": "facil",
+    "subspecialty": "Infectologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "Epidemiologia",
+      "Saúde Coletiva",
+      "Atenção Básica",
+      "Protocolo"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "Paciente de 62 anos, com insuficiência renal crônica em hemodiálise e histórico de transplante renal prévio (em uso de tacrolimus e micofenolato), apresenta-se com febre de origem indeterminada, sudorese e perda de peso. Radiografia de tórax mostra padrão micronodular 'em grão de milheto' distribuído difusamente em ambos os pulmões. Foi realizada biópsia de medula óssea que revelou granulomas caseosos. O diagnóstico é Tuberculose Miliar. Qual a fisiopatologia principal desta forma clínica e qual o risco iminente que deve ser investigado neste paciente?",
+    "options": {
+      "a": "Disseminação hematogênica do bacilo atingindo múltiplos órgãos; deve-se realizar punção lombar mandatória para excluir TB meníngea associada.",
+      "b": "Aspiração maciça de bacilos das vias aéreas superiores; risco de insuficiência respiratória aguda hipoxêmica.",
+      "c": "Reativação de foco de Simon em ápice pleural; risco de pneumotórax hipertensivo.",
+      "d": "Fístula broncoesofágica por linfonodo roto; risco de mediastinite necrotizante.",
+      "e": "Contaminação por micobactérias do banho de diálise; risco de sepse bacteriana secundária."
+    },
+    "answer": "a",
+    "rationale": "A tuberculose militar resulta da disseminação hematogênica (via sangue) do M. tuberculosis, levando à formação de pequenos granulomas em múltiplos órgãos (pulmões, fígado, baço, medula óssea, cérebro). É comum em pacientes com imunossupressão grave. Devido à alta frequência de acometimento concomitante do sistema nervoso central (até 30% dos casos de TB militar), a investigação do LCR é obrigatória mesmo na ausência de sintomas meníngeos clássicos.",
+    "option_rationales": {
+      "a": "Correta. A disseminação é hematogênica e a associação com meningite exige punção lombar preventiva no manejo hospitalar.",
+      "b": "Incorreta. A via não é aspiração, e o padrão radiológico é sistêmico, não loco-regional pulmonar agudo comum.",
+      "c": "Incorreta. Os focos de Simon são apicais e causam TB pulmonar cavitária clássica, não militar.",
+      "d": "Incorreta. Esta é uma complicação anatômica rara, não relacionada à patogênese da TB militar.",
+      "e": "Incorreta. A micobactéria da TB não se espalha pelo banho de diálise (seria via inalatória prévia em imunossuprimido)."
+    },
+    "difficulty": "dificil",
+    "subspecialty": "Infectologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "Tuberculose Miliar",
+      "Imunossuprimido",
+      "Meningoencefalite",
+      "Diagnóstico"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "Um paciente em tratamento de tuberculose pulmonar há 3 meses apresenta persistência de baciloscopia (BAAR) de escarro positiva (++). Ele refere estar tomando os medicamentos corretamente. Esse cenário define um quadro de 'falha terapêutica'. Segundo o Ministério da Saúde, além da falha clínica ou microbiológica no 4º mês, quais as duas principais causas de falha que devem ser descartadas?",
+    "options": {
+      "a": "Resistência primária/adquirida aos fármacos e má adesão ao tratamento (não supervisionado).",
+      "b": "Interação medicamentosa com anti-hipertensivos e tabagismo ativo.",
+      "c": "Subtipo de micobactéria bovis (TB bovina) e uso de corticosteroides associados.",
+      "d": "Idade avançada do paciente e co-infecção por vírus da Hepatite C.",
+      "e": "Deficiência de vitamina D e baixa ingestão proteica."
+    },
+    "answer": "a",
+    "rationale": "A falha terapêutica na TB é caracterizada pela persistência de positividade no escarro no final do 4º mês de tratamento. As causas fundamentais a serem investigadas são a resistência bacteriana (que deve ser confirmada por teste de sensibilidade) e a falta de adesão ao tratamento, que é a causa mais comum de insucesso no Brasil. Por isso, o Tratamento Diretamente Observado (TDO) é preconizado para garantir a eficácia.",
+    "option_rationales": {
+      "a": "Correta. São os pilares do insucesso terapêutico: ou o remédio não funciona contra a cepa, ou o paciente não o toma.",
+      "b": "Incorreta. Interações com anti-hipertensivos são raras e não causam 'falha' por si sós.",
+      "c": "Incorreta. M. bovis é sensível ao esquema, exceto à pirazinamida, mas não é causa comum de falha em massa.",
+      "d": "Incorreta. Embora compliquem, não justificam a baciloscopia positiva persistente se o tratamento for adequado.",
+      "e": "Incorreta. São fatores de risco para adoecer, mas não para falha se as drogas forem tomadas contra bacilo sensível."
+    },
+    "difficulty": "media",
+    "subspecialty": "Infectologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "Manejo Clínico",
+      "Resistência",
+      "ADESÃO",
+      "TDO"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "Um jovem de 21 anos, sem sintomas, vai realizar exame admissional para uma empresa e o PPD solicitado resulta em 15 mm. Ele é vacinado com BCG em dose única ao nascer e não tem histórico de contato com tuberculose. RX de tórax normal. Ele está preocupado com o resultado. Qual a melhor explicação e conduta?",
+    "options": {
+      "a": "Ele possui Infecção Latente e deve ser apenas acompanhado periodicamente com RX, sem necessidade de tratamento preventivo por não ser grupo de risco.",
+      "b": "Possui Tuberculose latente confirmada e deve iniciar Rifampicina imediata.",
+      "c": "É um falso-positivo devido à BCG, deve-se ignorar o resultado e liberar para o trabalho.",
+      "d": "Ele deve realizar o teste IGRA (Interferon-Gamma Release Assay) para descartar reação cruzada com a BCG.",
+      "e": "O PPD reagente indica que ele está protegido contra formas graves de Tuberculose por toda a vida."
+    },
+    "answer": "a",
+    "rationale": "Em indivíduos imunocompetentes sem contatos conhecidos e sem comorbidades de risco, um PPD reagente (mesmo > 10 mm) isolado num exame de rotina indica apenas que houve contato prévio com o bacilo (infecção). Nestes casos, o risco de progressão para doença ativa é baixo e não há indicação formal de tratamento preventivo de ILTB segundo o protocolo do Ministério da Saúde brasileiro, priorizando-se o tratamento para contatos próximos e grupos de risco definidos.",
+    "option_rationales": {
+      "a": "Correta. Não há benefício comprovado em tratar ILTB em indivíduos saudáveis sem história de contato recente/risco elevado.",
+      "b": "Incorreta. Nem toda ILTB exige tratamento medicamentoso; depende da estratificação de risco.",
+      "c": "Incorreta. Aos 21 anos, o efeito da BCG no PPD é desprezível; o resultado provavelmente indica infecção real, mas de baixo risco.",
+      "d": "Incorreta. O IGRA ajudaria se houvesse dúvida clínica real, mas para fins admissionais o manejo é expectante.",
+      "e": "Incorreta. O PPD reagente não é sinal de imunidade protetora, mas de memória imunológica à infecção."
+    },
+    "difficulty": "media",
+    "subspecialty": "Infectologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "PPD",
+      "ILTB",
+      "Saúde Ocupacional",
+      "Epidemiologia"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "Paciente masculino, 35 anos, inicia tratamento para TB pulmonar cavitária. O médico prescreve o esquema RIPE em dose fixa combinada (4 comprimidos em 1). Sobre a Rifampicina, fármaco central do esquema, qual das seguintes orientações sobre interações medicamentosas é a mais relevante?",
+    "options": {
+      "a": "Ela é um potente indutor das enzimas do citocromo P450, podendo reduzir drasticamente os níveis séricos de anticoncepcionais, warfarina e antirretrovirais (como Dolutegravir).",
+      "b": "Ela inibe a excreção renal de lítio, podendo causar intoxicação grave.",
+      "c": "Deve ser evitada com alimentos gordurosos pois sua absorção é inibida por eles.",
+      "d": "Causa quelagem de ferro, devendo ser tomada distante de sulfato ferroso.",
+      "e": "Aumenta o efeito da insulina, predispondo o paciente diabético a crises de hipoglicemia."
+    },
+    "answer": "a",
+    "rationale": "A Rifampicina é um dos indutores enzimáticos mais potentes conhecidos na farmacologia clínica. Ao induzir o citocromo P450 (CYP3A4), ela acelera o metabolismo de inúmeros fármacos, exigindo ajustes de dose frequentes (como dobrar a dose de dolutegravir para 50mg 12/12h ou mudar métodos contraceptivos hormonais para barreira ou DIU).",
+    "option_rationales": {
+      "a": "Correta. Esta interação é crítica no manejo de pacientes com comorbidades e HIV.",
+      "b": "Incorreta. Não há interação relevante descrita com o lítio neste mecanismo.",
+      "c": "Incorreta. Ela deve ser tomada preferencialmente em jejum, mas a interação com gordura não é o ponto central da farmacodinâmica relevante perguntada.",
+      "d": "Incorreta. Esta é uma característica das tetraciclinas e quinolonas.",
+      "e": "Incorreta. Frequentemente ocorre o oposto; o controle glicêmico pode ser dificultado pela alteração metabólica hepática."
+    },
+    "difficulty": "media",
+    "subspecialty": "Infectologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "Farmacologia",
+      "Interação Medicamentosa",
+      "Rifampicina",
+      "HIV"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  }
+]

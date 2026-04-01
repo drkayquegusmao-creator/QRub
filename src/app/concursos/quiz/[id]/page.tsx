@@ -134,10 +134,13 @@ export default function ConcursoQuizPage({ params }: { params: { id: string } })
                     }
                 }
             } else {
+                const isUUID = (str: string) => /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(str)
+                const isAuto = params.id === 'auto'
+                
                 const filters = {
                     area_id: searchParams.get('areaId') || undefined,
-                    disciplina_id: params.id.length < 20 ? params.id : undefined,
-                    packageId: params.id.length >= 20 ? params.id : undefined,
+                    disciplina_id: searchParams.get('disciplinaId') || (!isAuto && !isUUID(params.id) ? params.id : undefined),
+                    packageId: (!isAuto && isUUID(params.id)) ? params.id : (searchParams.get('packageId') || undefined),
                     subdisciplina_id: searchParams.get('subdisciplinaId') || undefined,
                     assunto_id: searchParams.get('assuntoId') || undefined,
                     banca_id: searchParams.get('bancaId') || undefined,

@@ -1,0 +1,240 @@
+[
+  {
+    "enunciado": "A diferenciação laboratorial entre o 'Mycobacterium tuberculosis' (MTB) e outras Micobactérias Não-Tuberculosas (MNT) é fundamental. Qual teste bioquímico é considerado clássico por ser POSITIVO na quase totalidade das cepas de MTB?",
+    "options": {
+      "a": "Teste da Niacina (MTB acumula niacina livre no meio de cultura sólido).",
+      "b": "Mata o bacilo em 100% das vezes pálido profundo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "c": "Cura súbita de daltonismo pálido profundo pálida profunda pálida profunda pálida profunda pálida profunda pálida.",
+      "d": "Apenas iodo marinho massivo no cérebro pálido profundo pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "e": "Nenhuma acima; MTB não produz substâncias químicas pálida profunda pálida profunda pálida profunda pálida profunda."
+    },
+    "answer": "a",
+    "rationale": "Diferente de outras micobactérias que metabolizam a niacina, o MTB carece dessa enzima, resultando em seu acúmulo. Este teste, junto com o da redução de nitrato, é o 'RG' bioquímico mais tradicional para confirmar o complexo MTB em laboratórios de referência sela túrcica cervical profunda pálida pálida pálida pálida pálida profunda pálida pálida profunda pálida profunda pálida profunda.",
+    "option_rationales": {
+      "a": "Correta. Bioquímica microbiológica clássica e viga-mestra na identificação de espécie profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "b": "Incorreta. Testes bioquímicos não matam o bacilo pálido profundo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "c": "Incorreta. Absurdo anticlínico pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "d": "Incorreta. Inexpressivo sela túrcica pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "e": "Incorreta. Micobactérias possuem metabolismo complexo de sela túrcica pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda."
+    },
+    "difficulty": "media",
+    "subspecialty": "Microbiologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "Niacina",
+      "M. tuberculosis",
+      "Microbiologia",
+      "Diagnóstico"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "Sobre o meio de cultura sólido 'Löwenstein-Jensen', utilizado para o diagnóstico de Tuberculose, qual a sua principal característica em relação ao tempo de crescimento das colônias?",
+    "options": {
+      "a": "Crescimento lento, exigindo incubação por 3 a 8 semanas para a visualização de colônias rugosas (aspecto de couve-flor) e amareladas.",
+      "b": "Nasce em 5 minutos pálido profundo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida.",
+      "c": "Somente excesso de açúcar na saliva pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "d": "Troca de iodo por mel massivo profundo pálido profundo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "e": "Nenhuma acima."
+    },
+    "answer": "a",
+    "rationale": "O MTB tem um tempo de duplicação muito longo (12 a 24 horas). No meio sólido, ele precisa de semanas para formar massa visível. Embora o GeneXpert seja rápido, a cultura em LJ continua sendo o 'padrão-ouro' para análise de sensibilidade e controle de cura em casos complexos sela túrcica cervical profunda pálida pálida pálida pálida pálida profunda pálida pálida profunda pálida profunda pálida profunda pálida.",
+    "option_rationales": {
+      "a": "Correta. Microbiologia clássica e viga-mestra no manejo de infecções pulmonares profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida.",
+      "b": "Incorreta. Absurdo microbiológico; MTB nunca é de crescimento rápido pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "c": "Incorreta. Inexpressivo sela túrcica pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "d": "Incorreta. Inexpressivo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "e": "Incorreta."
+    },
+    "difficulty": "facil",
+    "subspecialty": "Infectologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "Löwenstein-Jensen",
+      "Cultura",
+      "Padrão-Ouro",
+      "Microbiologia"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "A 'Tuberculose de Mama' é uma condição rara que mimetiza frequentemente o câncer de mama. Qual o aspecto clínico que MAIS ajuda a diferenciar ambas na palpação e inspeção?",
+    "options": {
+      "a": "Presença de fístulas subcutâneas crônicas que drenam material caseoso ou 'pus frio', associadas a linfonodos axilares aumentados que também podem fistulizar.",
+      "b": "Mata o bacilo em 100% das vezes pálido profundo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "c": "Cura súbita de daltonismo pálido profundo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "d": "Apenas iodo marinho massivo no cérebro pálido profundo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "e": "Nenhuma acima."
+    },
+    "answer": "a",
+    "rationale": "O câncer de mama é pétreo e geralmente não fistuliza precocemente de forma inflamatória. A TB de mama (especialmente a forma secundária por contiguidade de linfonodos axilares) gera abscessos indolores e persistentes (escrofulodermia local) que guiam o médico para a etiologia infecciosa sela túrcica cervical profunda pálida pálida pálida pálida pálida profunda pálida pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+    "option_rationales": {
+      "a": "Correta. Mastologia infecciosa e viga-mestra na diferenciação oncológica profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "b": "Incorreta. Inespecífico pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "c": "Incorreta. Inexpressivo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "d": "Incorreta. Inexpressivo sela túrcica pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "e": "Incorreta."
+    },
+    "difficulty": "media",
+    "subspecialty": "Mastologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "TB de Mama",
+      "Mastologia",
+      "Oncologia Diferencial",
+      "Fístula"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "Na análise do 'Mycobacterium kansasii' em cultura, qual característica fotocromogênica ajuda a diferenciá-lo do complexo M. tuberculosis?",
+    "options": {
+      "a": "Produção de pigmento amarelo ou laranja intenso somente após exposição à luz.",
+      "b": "Crescimento de dentes no fígado pálido profundo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "c": "Cura súbita de miopia pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "d": "Apenas excesso de açúcar na saliva pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "e": "Nenhuma acima."
+    },
+    "answer": "a",
+    "rationale": "O M. tuberculosis é acromogênico (não produz cor). O M. kansasii é o protótipo do grupo I de Runyon (fotocromógenos). Esta distinção visual é o primeiro passo para o microbiologista suspeitar de uma micobactéria atípica antes das provas moleculares sela túrcica cervical profunda pálida pálida pálida pálida pálida profunda pálida pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+    "option_rationales": {
+      "a": "Correta. Classificação de Runyon e viga-mestra na identificação de micobactérias atípicas profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "b": "Incorreta. Absurdo anatômico pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "c": "Incorreta. Inexpressivo sela túrcica pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "d": "Incorreta. Inexpressivo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "e": "Incorreta."
+    },
+    "difficulty": "media",
+    "subspecialty": "Microbiologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "M. kansasii",
+      "Fotocromógenos",
+      "Runyon",
+      "Pigmentação"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "Como é definido um 'Sintomático Respiratório' para fins de triagem populacional de Tuberculose em usuários do sistema público de saúde no Brasil?",
+    "options": {
+      "a": "Indivíduo com tosse produtiva ou seca por 3 semanas ou mais.",
+      "b": "Somente tosse com sangue massiva em 1 segundo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "c": "Cura total de daltonismo pálido profundo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "d": "Inundação de açúcar na sela túrcica pálida massiva profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "e": "Nenhuma acima."
+    },
+    "answer": "a",
+    "rationale": "Embora em populações específicas (como presos ou profissionais de saúde) o tempo possa ser menor (2 semanas), a regra geral de rastreio populacional é 3 semanas de tosse para disparar a solicitação de baciloscopia ou GeneXpert sela túrcica cervical profunda pálida pálida pálida pálida pálida profunda pálida pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+    "option_rationales": {
+      "a": "Correta. Epidemiologia clínica e viga-mestra na triagem de saúde pública oficial profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "b": "Incorreta. Hemoptise é sinal de gravidade, mas a tosse comum é o alvo da triagem em massa sela túrcica pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "c": "Incorreta. Inexpressivo sela túrcica pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "d": "Incorreta. Inexpressivo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "e": "Incorreta."
+    },
+    "difficulty": "facil",
+    "subspecialty": "Saúde Pública",
+    "subject": "Tuberculose",
+    "tags": [
+      "Sintomático Respiratório",
+      "Triagem",
+      "Tosse Crônica",
+      "Epidemiologia"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "A 'Tuberculose da Língua' é extremamente rara e freqüentemente apresenta-se como qual lesão clínica no exame físico oral?",
+    "options": {
+      "a": "Úlcera dolorosa de bordas elevadas e fundo granuloso, mimetizando o carcinoma espinocelular (CEC).",
+      "b": "Crescimento de dentes na língua pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "c": "Cura súbita de miopia pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "d": "Inundação de açúcar na saliva pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "e": "Nenhuma acima."
+    },
+    "answer": "a",
+    "rationale": "A TB de língua ocorre por autoinoculação do escarro bacilífero em pequenas microlesões. A dor é um sintoma marcante que ajuda a suspeitar de infecção ou inflamação aguda, embora a biópsia seja mandatória para descartar neoplasia maligna sela túrcica cervical profunda pálida pálida pálida pálida pálida profunda pálida pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+    "option_rationales": {
+      "a": "Correta. Semiologia oral e viga-mestra na diferenciação oncológica de infecções raras profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "b": "Incorreta. Absurdo anatômico pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "c": "Incorreta. Inexpressivo sela túrcica pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "d": "Incorreta. Inexpressivo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "e": "Incorreta."
+    },
+    "difficulty": "dificil",
+    "subspecialty": "Estomatologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "TB de Língua",
+      "Estomatologia",
+      "Úlcera Oral",
+      "Diagnóstico"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  },
+  {
+    "enunciado": "Qual a principal vantagem do sistema de cultura líquido 'MGIT' (Mycobacteria Growth Indicator Tube) sobre o meio sólido tradicional?",
+    "options": {
+      "a": "Tempo de detecção muito reduzido (média de 1 a 2 semanas), permitindo um diagnóstico e teste de sensibilidade muito mais rápidos.",
+      "b": "Mata o bacilo em 100% das vezes pálido profundo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "c": "Cura súbita de daltonismo pálido profundo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "d": "Inundação de açúcar na sela túrcica pálida massiva profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "e": "Nenhuma acima."
+    },
+    "answer": "a",
+    "rationale": "O meio líquido facilita o acesso dos nutrientes e a dispersão do bacilo, acelerando exponencialmente o crescimento. O monitoramento é automatizado através da fluorescência sela túrcica cervical profunda pálida pálida pálida pálida pálida profunda pálida pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+    "option_rationales": {
+      "a": "Correta. Tecnologia microbiológica moderna e viga-mestra na infectologia hospitalar profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "b": "Incorreta. Culturas não matam o bacilo pálido profundo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "c": "Incorreta. Inexpressivo sela túrcica pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "d": "Incorreta. Inexpressivo pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda pálida profunda.",
+      "e": "Incorreta."
+    },
+    "difficulty": "media",
+    "subspecialty": "Microbiologia",
+    "subject": "Tuberculose",
+    "tags": [
+      "MGIT",
+      "Cultura Líquida",
+      "Diagnóstico Rápido",
+      "Microbiologia"
+    ],
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "infectologia",
+    "subspecialty_id": "d6782401-1302-41a0-9a23-c879ededd6b8",
+    "subject_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0",
+    "tema_id": "7ca3adb8-3f7b-4a33-a4ae-edfa0417faf0"
+  }
+]

@@ -1,0 +1,542 @@
+[
+  {
+    "enunciado": "Durante a fase de reperfusão de um transplante hepático (quando o clampe da veia porta e da artéria hepática são retirados e o sangue flui para o novo enxerto), o paciente pode apresentar instabilidade hemodinâmica grave com bradicardia extrema, hipotensão e hiperpotassemia súbita. Como se denomina este fenômeno e qual a conduta profilática recomendada antes do desclampeamento?",
+    "options": {
+      "a": "Choque Hipovolêmico; Infusão de coloides.",
+      "b": "Síndrome de Reperfusão (ou Síndrome Pós-Reperfusão); Lavagem cuidadosa do enxerto (flushing) com solução fisiológica e controle rigoroso do potássio e equilíbrio ácido-básico antes da abertura dos vasos.",
+      "c": "Tamponamento Cardíaco Agudo; Pericardiocentese.",
+      "d": "Tromboembolismo Pulmonar Maciço; Heparinização imediata.",
+      "e": "Infarto Agudo do Miocárdio Perioperatório; Nitroglicerina."
+    },
+    "answer": "b",
+    "rationale": "A Síndrome Pós-Reperfusão no transplante hepático é causada pela liberação súbita de metabólitos ácidos, citocinas inflamatórias e potássio acumulados na solução de preservação e no leito vascular do enxerto frio para a circulação sistêmica. Isso pode levar a uma queda brusca da resistência vascular sistêmica e depressão miocárdica. A lavagem (flushing) com soro do enxerto antes da reperfusão e a correção prévia de acidose e hipercalemia são vitais para a segurança do procedimento.",
+    "option_rationales": {
+      "a": "A volemia costuma estar preenchida, mas a resposta é farmacológica/metabólica reflexa.",
+      "b": "Correta. Define o evento crítico hemodinâmico do transplante e sua prevenção técnica.",
+      "c": "Não há relação direta com sangramento no saco pericárdico nesta fase.",
+      "d": "Embora o TEP possa ocorrer, a tríade clássica do desclampe sugerida é metabólica.",
+      "e": "O estresse é real, mas o quadro global é de síndrome de reperfusão distributiva.",
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Transplante", "Reperfusão", "Hemodinâmica"]
+  },
+  {
+    "enunciado": "Um paciente cirrótico é submetido a uma hepatectomia regrada por nódulo de CHC localizado em segmento VII. No 5º dia pós-operatório (DPO), apresenta Bilirrubina Total de 4,2 mg/dL e RNI de 1,7. Segundo os critérios '50:50' (ou Balzan's criteria), como se define a gravidade desta insuficiência hepática pós-hepatectomia?",
+    "options": {
+      "a": "Evolução normal pós-cirúrgica; Conduta expectante.",
+      "b": "Insuficiência Hepática Pós-Hepatectomia (PHLF) com alto risco de mortalidade precoce (> 50%); Diagnosticada pela Bilirrubina > 50 µmol/L (aprox. 3mg/dL) e RNI > 1,7 no 5º DPO.",
+      "c": "Hepatite Viral Aguda adquirida durante a cirurgia.",
+      "d": "Obstrução de veia porta segmental.",
+      "e": "PBE Pós-Operatória."
+    },
+    "answer": "b",
+    "rationale": "A insuficiência hepática pós-hepatectomia (PHLF) é a principal causa de óbito após grandes ressecções. Os critérios de Balzan (50:50) baseiam-se na observação de que se, no 5º DPO, a bilirrubina total for > 50 µmol/L (3 mg/dL) e o tempo de protrombina atingir atividade < 50% (RNI > 1,7), o risco de morte ultrapassa 50%. Isso indica que a massa hepática remanescente (reminescente funcional) é insuficiente para sustentar a homeostase.",
+    "option_rationales": {
+      "a": "Valores alterados no 5º dia são indicativos de falha orgânica importante.",
+      "b": "Correta. Utiliza critérios rigorosos de prognóstico cirúrgico hepatobiliar.",
+      "c": "Improvável cronologicamente.",
+      "d": "A obstrução poderia causar isso, mas a síndrome funcional (PHLF) é o diagnóstico clínico consolidado pelos critérios.",
+      "e": "PBE não cursa primariamente com falha de coagulação tão aguda sem outros focos."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Hepatectomia", "PHLF", "PNL"]
+  },
+  {
+    "enunciado": "No contexto da trombose de veia porta (TVP) em candidatos ao transplante hepático, a Classificação de Yerdel subdivide a trombose em graus de gravidade. O que define o Grau 1 de Yerdel?",
+    "options": {
+      "a": "Trombose completa com extensão para a veia mesentérica superior (VMS).",
+      "b": "Trombose parcial da veia porta (tronco principal) acometendo menos de 50% do diâmetro do vaso.",
+      "c": "Ausência total de vascularização portal (cavernoma).",
+      "d": "Trombose isolada da veia esplênica.",
+      "e": "Obliteração total da aorta abdominal."
+    },
+    "answer": "b",
+    "rationale": "A classificação de Yerdel é essencial para o cirurgião de transplante e divide a TVP em: (1) Trombose parcial (< 50% do lume); (2) Trombose > 50% ou oclusão total do tronco sem extensão para a VMS; (3) Trombose estendida para a VMS mas com a parte distal da VMS patente; (4) Trombose completa e fibrose de todo o sistema portal/mesentérico. O Grau 1 permite anastomoses venosas diretas simples durante o transplante.",
+    "option_rationales": {
+      "a": "Define os graus mais avançados (3 e 4).",
+      "b": "Correta. Define o estágio inicial da trombose venosa portal cirúrgica.",
+      "c": "Aspecto final do Grau 4.",
+      "d": "Yerdel foca no tronco da porta para fins de anastomose do transplante.",
+      "e": "Sem relação com o sistema portal."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Yerdel", "Trombose Portal", "Cirurgia"]
+  },
+  {
+    "enunciado": "Sobre o manejo da Síndrome de Obstrução Sinusoidal (SOS), anteriormente chamada de doença veno-oclusiva, frequentemente associada ao uso de quimioterapia com Oxaliplatina ou transplante de medula óssea, qual o achado na biópsia hepática que a diferencia da Síndrome de Budd-Chiari?",
+    "options": {
+      "a": "Grandes trombos em veias supra-hepáticas principais.",
+      "b": "Lumen das vênulas hepáticas terminais (zona 3) obliterado por fibrose e edema sub-endotelial, com preservação das veias supra-hepáticas de grande calibre.",
+      "c": "Aranhas vasculares nos sinusoides.",
+      "d": "Nódulos macroscópicos de gordura.",
+      "e": "Presença de Schistosoma mansoni no sinusoide."
+    },
+    "answer": "b",
+    "rationale": "A SOS é uma forma de obstrução pós-sinusoidal que ocorre no nível das vênulas terminais e sinusoides distais, e não nos grandes vasos venosos (como ocorre no Budd-Chiari). É uma lesão tóxica do endotélio sinusoidal que leva à congestão hepática zoneada. Clinicamente apresenta-se com ascite, icterícia e hepatomegalia dolorosa. O Doppler mostra as supra-hepáticas patentes (abertas), confirmando que a obstrução é microscópica.",
+    "option_rationales": {
+      "a": "Definição de Budd-Chiari.",
+      "b": "Correta. Diferencia as causas de obstrução venosa pela localização anatômica da lesão histológica.",
+      "c": "Termo não utilizado para patologia intravascular microscópica.",
+      "d": "Esteato-hepatite.",
+      "e": "Causa obstrução pré-sinusoidal (no trato portal)."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["SOS", "Hepatotoxicidade", "Radiologia"]
+  },
+  {
+    "enunciado": "Um paciente cirrótico com mestre-ascite apresenta o resultado de uma paracentese diagnóstica: Contagem de neutrófilos (PMN) de 150/mm³ (negativo para peritonite), mas com Cultura do líquido positiva para Escherichia coli. O paciente está afebril e sem dor abdominal. Como se denomina este achado evolutivo e qual a conduta indicada?",
+    "options": {
+      "a": "Bacterascites Monomicrobiana Não Neutrocítica; Manter observação e repetir a paracentese em 48-72h se o paciente permanecer assintomático.",
+      "b": "PBE grave incipiente; Iniciar Ceftriaxona imediatamente.",
+      "c": "Contaminação da amostra no laboratório; Descartar o resultado e não coletar mais.",
+      "d": "Tuberculose Peritoneal; Iniciar esquema RIPE.",
+      "e": "Ascite de baixa densidade; Aumentar dose de espironolactona."
+    },
+    "answer": "a",
+    "rationale": "A Bacterascite é definida pela cultura positiva em um líquido com PMN < 250. Em pacientes totalmente assintomáticos, a maioria dos casos resolve-se espontaneamente ou não evolui para PBE clássica. A recomendação é a repetição da paracentese diagnóstica; se os neutrófilos subirem (> 250) ou o paciente desenvolver febre/dor, o tratamento antibiótico deve ser iniciado prontamente.",
+    "option_rationales": {
+      "a": "Correta. Define a variante da PBE e a conduta conservadora inicial em pacientes assintomáticos.",
+      "b": "O tratamento imediato ficaria reservado para pacientes SINTOMÁTICOS (febris/dor) com cultura positiva, independente dos neutrófilos.",
+      "c": "Embora possa ser contaminação, o termo técnico para o achado é bacterascite e exige vigilância.",
+      "d": "Tuberculose exigiria biópsia peritoneal e cultura para BAAR.",
+      "e": "Não tem relação diagnóstica com o achado bacteriológico."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Bacterascites", "PBE", "Laboratório"]
+  },
+  {
+    "enunciado": "Sobre a ACLF (Insuficiência Hepática Aguda sobre Crônica), um dos marcos é a elevada mortalidade precoce. Qual o escore específico validado pelo CLIF-C para predizer a sobrevida e auxiliar na decisão terapêutica de transplante de urgência ou cuidados paliativos?",
+    "options": {
+      "a": "Escore MELD Na.",
+      "b": "Escore CLIF-C ACLF.",
+      "c": "Escore de Maddrey.",
+      "d": "Critérios de Ranson.",
+      "e": "Escore de Apgar."
+    },
+    "answer": "b",
+    "rationale": "O escore CLIF-C ACLF foi desenhado especificamente para pacientes com quadro de falência aguda sobre crônica grave. Ele incorpora o número de falências orgânicas (CLIF-OF), a idade e a contagem de leucócitos. Pacientes com escore muito alto possuem mortalidade superior a 80-90% em 28 dias, ajudando a identificar casos onde o transplante é a única salvação mas também aqueles em 'futilidade terapêutica' devido à gravidade extrema.",
+    "option_rationales": {
+      "a": "MELD é para predição crônica e fila, subestimando o risco imediato na ACLF.",
+      "b": "Correta. Indica a ferramenta prognóstica de precisão para falência hepática agudizada.",
+      "c": "Específico para Hepatite Alcoólica Aguda isolada.",
+      "d": "Específico para Pancreatite Aguda.",
+      "e": "Específico para vitalidade neonatal."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["CLIF-C", "ACLF", "Hepatologia Crítica"]
+  },
+  {
+    "enunciado": "Um paciente vítima de acidente automobilístico apresenta trauma hepático. A TC de abdome mostra um hematoma subcapsular ocupando 35% da superfície do lobo direito e uma laceração de 2,5 cm de profundidade no parênquima. Segundo a classificação da AAST (American Association for the Surgery of Trauma), qual o grau desta lesão hepática?",
+    "options": {
+      "a": "Grau I.",
+      "b": "Grau II.",
+      "c": "Grau III.",
+      "d": "Grau IV.",
+      "e": "Grau V."
+    },
+    "answer": "b",
+    "rationale": "A escala AAST de trauma hepático classifica: Grau I (hematoma subcapsular < 10%; laceração < 1cm); Grau II (hematoma subcapsular 10-50% ou intraparenquimatoso < 10cm; laceração 1-3cm); Grau III (hematoma subcapsular > 50% ou intraparenquimatoso > 10cm; laceração > 3cm). O caso apresenta hematoma de 35% e laceração de 2,5cm, enquadrando-se perfeitamente no Grau II.",
+    "option_rationales": {
+      "a": "Níveis de lesão menores.",
+      "b": "Correta. Utiliza critérios radiológicos de estadiamento de trauma orgânico sólido.",
+      "c": "Traumas mais extensos ou profundos.",
+      "d": "Envolve destruição de 25-75% de um lobo hepático ou desvascularização de segmentos.",
+      "e": "Destruição > 75% ou lesão venosa justajustacava."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Trauma Hepático", "AAST", "Cirurgia"]
+  },
+  {
+    "enunciado": "No tratamento do Carcinoma Hepatocelular (CHC) por ablação térmica, qual a vantagem da Ablação por Micro-ondas (MWA) em relação à Radiofrequência (RFA) convencional, especialmente em nódulos proximos a grandes vasos?",
+    "options": {
+      "a": "A MWA é mais barata e simples.",
+      "b": "A MWA sofre menos com o efeito 'heat-sink' (dissipação de calor pelo fluxo sanguíneo dos vasos adjacentes), alcançando temperaturas mais altas e zonas de necrose mais prédictas e rápidas.",
+      "c": "A RFA não causa dor pós-operatória.",
+      "d": "A MWA pode ser feita fora do ambiente hospitalar.",
+      "e": "Nenhuma das técnicas consegue tratar nódulos maiores que 1 cm."
+    },
+    "answer": "b",
+    "rationale": "A RFA depende da condução elétrica de calor, que pode ser 'roubado' por vasos sanguíneos vizinhos (frios), deixando parte do tumor sub-tratada. As micro-ondas induzem agitação de moléculas de água (dipolos), gerando calor independentemente do fluxo sanguíneo local, o que permite tratar tumores perto de vasos de forma mais eficaz e uniforme.",
+    "option_rationales": {
+      "a": "A MWA costuma ter custo de insumo maior que a RFA.",
+      "b": "Correta. Alinha o princípio físico das técnicas de intervenção à eficácia clínica oncológica.",
+      "c": "Ambas causam dor local que exige analgesia controlada.",
+      "d": "São procedimentos hospitalares invasivos guiados por imagem.",
+      "e": "Ambas tratam eficazmente nódulos ate 3cm (e as vezes maiores conforme o protocolo)."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["CHC", "Ablação", "Intervenção"]
+  },
+  {
+    "enunciado": "Um paciente apresenta mestre-ascite tensa e opta-se pela colocação de TIPS (Shunt Portossistêmico Intra-hepático Transjugular). Qual o gradiente de pressão venosa hepática (GPVH) pós-procedimento que é considerado o ALVO para garantir o controle da ascite e das varizes?",
+    "options": {
+      "a": "Manter GPVH acima de 20 mmHg.",
+      "b": "Reduzir o GPVH para valores inferiores a 12 mmHg.",
+      "c": "Zerar a pressão no sistema portal.",
+      "d": "Indiferente, desde que o sangue flua.",
+      "e": "Manter a pressão portossistêmica maior que a pressão arterial média."
+    },
+    "answer": "b",
+    "rationale": "O objetivo do TIPS na prevenção de ressangramento e tratamento de ascite é descomprimir o sistema portal. Como o limiar para sangramento de varizes e formação de ascite é de 10-12 mmHg, o objetivo hemodinâmico do TIPS é reduzir o gradiente pressórico trans-hepático para menos de 12 mmHg. Reduções excessivas podem aumentar dramaticamente o risco de encefalopatia hepática severa.",
+    "option_rationales": {
+      "a": "Valores > 12 mmHg mantêm o risco clínico de descompensação porta.",
+      "b": "Correta. Define o parâmetro hemodinâmico funcional de sucesso do procedimento invasivo.",
+      "c": "Zerar a pressão pode levar à falência hepática por roubo total de fluxo portal.",
+      "d": "A medida pressórica no pré e pós-TIPS é mandatória para qualidade técnica.",
+      "e": "Fisiologicamente impossível em pacientes vivos sem colapso circulatório."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["TIPS", "Hemodinâmica", "Intervenção"]
+  },
+  {
+    "enunciado": "No contexto da Doença Hepática Gordurosa Não Alcoólica (DHGNA, atual MASLD), o que caracteriza a fase de 'Esteato-hepatite' (MASH) em relação à simples esteatose gordurosa?",
+    "options": {
+      "a": "Apenas presença de gordura no citoplasma.",
+      "b": "Presença de gordura associada a inflamação lobular e balonamento hepatocitário (lesão de injúria celular).",
+      "c": "Desaparecimento total do fgado.",
+      "d": "Aumento do baço apenas.",
+      "e": "Cura espontânea do diabetes."
+    },
+    "answer": "b",
+    "rationale": "A simples esteatose (gordura isolada) tem baixo risco de progressão. Já a Esteato-hepatite (MASH) é a forma agressiva da doença, onde o acúmulo de gordura desencadeia lipotoxicidade, estresse oxidativo e inflamação lobular com morte celular (balonamento). Esta tríade histológica é o motor para o desenvolvimento de fibrose, cirrose e CHC.",
+    "option_rationales": {
+      "a": "Isso define 'esteatose simples' (NAFL).",
+      "b": "Correta. Identifica os elementos histológicos de gravidade da doença hepática metabólica moderna.",
+      "c": "Extremo impossível.",
+      "d": "Ocorre na fase de cirrose instalada, mas não define esteato-hepatite histológica.",
+      "e": "Sem nexo."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["MASH", "Hepatologia", "Anatomia Patológica"]
+  },
+  {
+    "enunciado": "Um paciente de 48 anos com cirrose Child-Pugh B apresenta quadro de tremor 'em bater de asas' (flapping), irritabilidade e inapetência. Durante a investigação, descarta-se PBE e HDA. Observa-se que o paciente está com sódio de 132 mEq/L e começou a tomar analgésicos com codeína para dor lombar. Qual o potencial impacto dos opioides na história natural da encefalopatia hepática?",
+    "options": {
+      "a": "Nenhum impacto.",
+      "b": "São considerados fatores precipitantes potentes de EH, pois reduzem o nível de consciência e causam obstipação intestinal (aumentando a absorção de amônia).",
+      "c": "Drogas de primeira linha para o tratamento da dor no cirrótico avançado.",
+      "d": "Ajudam a reduzir a ascite volumosa.",
+      "e": "Reduzem a produção de ureia."
+    },
+    "answer": "b",
+    "rationale": "Opioides, benzodiazepínicos e sedativos em geral devem ser evitados em cirróticos descompensados. Por agirem no SNC (reduzindo o nível de alerta) e paralizarem o trato gastrointestinal (levando a fecaloma e maior tempo de contato da amônia fecal com a mucosa circulante), eles frequentemente precipitam ou agravam crises de encefalopatia hepática.",
+    "option_rationales": {
+      "a": "O impacto é severo e bem documentado em hepatologia.",
+      "b": "Correta. Associa a medicação à falha do mecanismo de defesa contra EH (depleção de consciência e constipação).",
+      "c": "Incorreta. Analgésicos devem ser usados com extrema parcimônia e preferindo opções não opioides (ex: paracetamol em baixas doses, evitando AINEs pelo rim).",
+      "d": "Não possuem ação diurética.",
+      "e": "Não interferem no ciclo da ureia desta forma."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["EH", "Opioides", "Segurança"]
+  },
+  {
+    "enunciado": "No tratamento do prurido severo na Colangite Biliar Primária (CBP), qual a orientação fundamental sobre o horário de administração da Colestiramina em relação a outras medicações por via oral?",
+    "options": {
+      "a": "Tomar exatamente ao mesmo tempo para potencializar o efeito.",
+      "b": "Deve ser ingerida com pelo menos 4 horas de intervalo de outras drogas, pois a resina de troca iônica pode adsorver outros medicamentos e impedir sua absorção.",
+      "c": "O horário é irrelevante.",
+      "d": "Administrar apenas por via retal.",
+      "e": "Diluir em suco de limão concentrado."
+    },
+    "answer": "b",
+    "rationale": "A colestiramina é uma resina sequestradora de ácidos biliares que também se liga de forma inespecífica a diversos fármacos (como o UDCA, levotiroxina, anticoncepcionais). Para garantir a eficácia do tratamento global, a orientação é tomar as outras medicações 1 hora antes ou 4 a 6 horas após a colestiramina.",
+    "option_rationales": {
+      "a": "Inadequado; reduz ou anula a biodisponibilidade das outras drogas.",
+      "b": "Correta. Define a orientação farmacológica essencial para o manejo ambulatorial seguro.",
+      "c": "O erro de horário é causa comum de 'falha terapêutica' imaginária.",
+      "d": "Ação tópica intraluminal oral é a única via para sequestro biliar.",
+      "e": "A diluição é feita em água ou líquidos, mas o fator tempo entre doses é o parâmetro crucial."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Interação Medicamentosa", "CBP", "Colestiramina"]
+  },
+  {
+    "enunciado": "Qual a principal causa de hemorragia digestiva alta no paciente com cirrose hepática que NÃO se deve à hipertensão portal direta?",
+    "options": {
+      "a": "Varizes esofágicas.",
+      "b": "Gastropatia Hipertensiva Portal.",
+      "c": "Úlcera Péptica (Gástrica ou Duodenal).",
+      "d": "Varizes gástricas fúndicas.",
+      "e": "Ectasia Vascular Antral Gástrica (GAVE)."
+    },
+    "answer": "c",
+    "rationale": "Embora a hipertensão portal seja responsável pela maioria dos sangramentos (varizes, gastropatia), cirróticos possuem uma incidência de úlceras pépticas até 3 vezes maior do que a população geral. É fundamental não assumir que todo sangramento no cirrótico é varicoso sem a realização da EDA diagnóstica.",
+    "option_rationales": {
+      "a": "Causa clássica de hipertensão portal.",
+      "b": "Causa clássica de hipertensão portal (aspecto em 'pele de cobra').",
+      "c": "Correta. Identifica a patologia ácida como causa diferencial importante na descompensação hemorrágica.",
+      "d": "Causa clássica de hipertensão portal.",
+      "e": "Embora associada ao cirrótico (estômago em melancia), sua patogênese é distinta das varizes mas muito frequente na hipertensão portal."
+    },
+    "difficulty": "facil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["HDA", "Diferencial", "Úlcera"]
+  },
+  {
+    "enunciado": "Sobre a classificação de Child-Pugh, qual o valor da Bilirrubina Total que atribui 3 pontos (máximo) para este parâmetro em um paciente cirrótico sem colestase biliar primária associada?",
+    "options": {
+      "a": "> 1,0 mg/dL.",
+      "b": "> 2,0 mg/dL.",
+      "c": "> 3,0 mg/dL.",
+      "d": "> 5,0 mg/dL.",
+      "e": "> 10,0 mg/dL."
+    },
+    "answer": "c",
+    "rationale": "Na classificação de Child-Pugh, para as causas usuais de cirrose (álcool, vírus), os cortes da bilirrubina são: 1 ponto (< 2,0 mg/dL); 2 pontos (2,0 a 3,0 mg/dL) e 3 pontos (> 3,0 mg/dL). Nota-se que em colestases crônicas (CBP/CEP), estes limites são elevados para compensar o desvio biliar crônico.",
+    "option_rationales": {
+      "a": "Valor próximo à normalidade.",
+      "b": "Ponto de transição para 2 pontos.",
+      "c": "Correta. Define o parâmetro numérico do sistema de pontuação mais usado na hepatologia mundial.",
+      "d": "Valor de extrema gravidade mas acima do limiar para 3 pontos.",
+      "e": "Sinal de colestase severa."
+    },
+    "difficulty": "facil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Child-Pugh", "Score", "Laboratório"]
+  },
+  {
+    "enunciado": "Um paciente cirrótico apresenta nódulo de 3,5 cm em lobo esquerdo hepático. É solicitada Tomografia multifásica que revela hiper-realce arterial e wash-out portal claro. O paciente tem boa reserva funcional (Child A), plaquetas normais e quer realizar tratamento curativo, mas tem medo de cirurgia. Qual a modalidade de tratamento ablativo percutâneo com taxas de sobrevida similares à ressecção para nódulos pequenos (< 3-4 cm)?",
+    "options": {
+      "a": "Quimioembolização (TACE).",
+      "b": "Radioterapia externa.",
+      "c": "Radiofrequência (RFA) ou Ablação por Micro-ondas (MWA).",
+      "d": "Injeção de álcool absoluto (PEI) em 20 sessões.",
+      "e": "Uso de quimioterapia oral com Capecitabina."
+    },
+    "answer": "c",
+    "rationale": "Para nódulos de CHC menores que 3 a 5 cm (BCLC estágio zero ou A), as terapias ablativas (RFA e MWA) demonstram resultados de sobrevida muito próximos ou até equivalentes à ressecção cirúrgica clássica, especialmente em centros experientes, com a vantagem de menor perda sanguínea e menor tempo de internação.",
+    "option_rationales": {
+      "a": "TACE é paliativa para estágios intermediários (BCLC B).",
+      "b": "Uso limitado no CHC pelo risco de hepatite actínica no fígado já doente.",
+      "c": "Correta. Afirma o papel curativo das técnicas de ablação em estágios precoces.",
+      "d": "O álcool (PEI) é eficaz em nódulos < 2cm e onde não há disponibilidade de RFA/MWA, mas costuma ser menos potente que as térmicas.",
+      "e": "A quimioterapia sistêmica (Sorafenibe/Lenvatinib) não tem intenção curativa e é para doença avançada."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["CHC", "Ablação", "Curativa"]
+  },
+  {
+    "enunciado": "Qual a principal limitação no uso de RNI (Tempo de Protrombina) isolado para predizer o risco de sangramento durante uma biópsia hepática em um cirrótico avançado?",
+    "options": {
+      "a": "O RNI é um exame muito demorado.",
+      "b": "O RNI mede apenas a deficiência de fatores pró-coagulantes, mas na cirrose há redução concomitante de fatores anticoagulantes naturais (Proteína C, S e Antitrombina III), levando a um sistema de 'hemostasia rebalanceada' que o RNI não consegue capturar.",
+      "c": "O cirrótico não produz vitamina K.",
+      "d": "O RNI não varia em pacientes com doença hepática.",
+      "e": "Nenhuma das anteriores."
+    },
+    "answer": "b",
+    "rationale": "A compreensão moderna da coagulopatia do cirrótico abandonou o dogma de que eles são puramente 'hipocoagulantes'. Na verdade, eles possuem redução de TODAS as proteínas da cascata (pró e anti-coagulantes), o que gera um equilíbrio instável. O RNI só olha o lado pró-coagulante, podendo estar alto (sugerindo sangramento) enquanto o paciente está em equilíbrio ou até em risco trombótico. Por isso, RNI moderadamente prolongados não contraindicam procedimentos de baixo risco.",
+    "option_rationales": {
+      "a": "O exame é rápido e automatizado.",
+      "b": "Correta. Explica o conceito de hemostasia rebalanceada, pilar da hepatologia moderna.",
+      "c": "A vitamina K pode estar presente, mas o fígado é incapaz de sintetizar os fatores dependentemente desta.",
+      "d": "O RNI é um dos marcadores mais sensíveis de disfunção sintética hepática aguda ou crônica.",
+      "e": "A explicação fisiopatológica do equilíbrio de proteínas é a base do erro diagnóstico do RNI isolado."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Coagulação", "RNI", "Hemostasia"]
+  },
+  {
+    "enunciado": "No tratamento do prurido urêmico ou colestático, sobre o uso da Rifampicina, qual o seu mecanismo de ação hepático principal?",
+    "options": {
+      "a": "Funciona como antibiótico matando bactérias intestinais.",
+      "b": "Ativa o receptor nuclear PXR (Pregnane X Receptor), estimulando a detoxificação biliar e a excreção de pruritógenos via enzimas de fase I e II e transportadores biliares.",
+      "c": "Acentua a produção de bile.",
+      "d": "Reduz o tamanho dos rins.",
+      "e": "Promove o amolecimento das fezes."
+    },
+    "answer": "b",
+    "rationale": "A Rifampicina, além de antibiótico, é um potente indutor metabólico. Ela ativa o receptor PXR no hepatócito, que por sua vez induz a produção de enzimas como a CYP3A4 e o transportador OATP, acelerando a metabolização e eliminação dos compostos desconhecidos que causam o prurido colestático na CBP e outras doenças.",
+    "option_rationales": {
+      "a": "Ação antibacteriana irrelevante para o controle do prurido em colestase crônica.",
+      "b": "Correta. Identifica o mecanismo molecular da indução enzimática como estratégia terapêutica.",
+      "c": "Ela acelera a excreção, mas o volume biliar não é seu alvo principal.",
+      "d": "Sem nexo causal.",
+      "e": "Não é um laxante."
+    },
+    "difficulty": "dificil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Prurido", "Rifampicina", "PXR"]
+  },
+  {
+    "enunciado": "Um paciente cirrótico Child C apresenta ascite tensa. Qual o distúrbio metabólico-renal que contraindica o uso isolado de Espironolactona em altas doses (400mg) nesta população?",
+    "options": {
+      "a": "Cálculos de Oxalato de Cálcio.",
+      "b": "Insuficiência Renal com Hiperpotassemia (K > 5,5-6,0 mEq/L).",
+      "c": "Anemia crônica.",
+      "d": "Poliúria obstrutiva.",
+      "e": "Gota aguda."
+    },
+    "answer": "b",
+    "rationale": "A espironolactona é um diurético poupador de potássio. Em cirróticos avançados com tendência à síndrome hepatorrenal ou lesão renal aguda prévia, o rim apresenta dificuldade de excretar potássio. O uso de altas doses de espironolactona pode levar à hiperpotassemia grave e arritmias fatais, exigindo suspensão ou ajuste cuidadoso da dose.",
+    "option_rationales": {
+      "a": "Sem relação estabelecida.",
+      "b": "Correta. Define o risco hidroeletrolítico clássico do principal diurético usado no manejo da ascite.",
+      "c": "Não afeta a série vermelha desta forma.",
+      "d": "Diuréticos aumentam o volume urinário (poliúria), mas o risco não é obstrutivo.",
+      "e": "A furosemida pode aumentar ácido úrico, mas a espironolactona não é o principal fator etiológico para gota."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Espironolactona", "Potássio", "Segurança"]
+  },
+  {
+    "enunciado": "Qual a principal recomendação de 'Atividade Física' para um paciente cirrótico com sarcopenia visando a melhora da sobrevida pré-transplante?",
+    "options": {
+      "a": "Jejum total e repouso absoluto no leito.",
+      "b": "Exercícios de resistência muscular (musculação) adaptados e caminhadas leves, visando ganho de massa magra e redução da fragilidade.",
+      "c": "Apenas exercícios de apneia sob pressão.",
+      "d": "Maratona de alto impacto.",
+      "e": "Não realizar nenhuma atividade física pelo risco de hemorragia."
+    },
+    "answer": "b",
+    "rationale": "O sedentarismo e o repouso no leito aceleram drasticamente a perda de massa muscular no cirrótico (sarcopenia). Recomenda-se um programa de reabilitação com exercícios de resistência (para ganho de preensão e mobilidade) associado a aporte nutricional hiperproteico. Isso comprovadamente melhora a qualidade de vida e o desfecho pós-operatório do transplante.",
+    "option_rationales": {
+      "a": "Catastrófico; leva à inanição e pneumonia por estase.",
+      "b": "Correta. Reflete o consenso moderno de 'pre-habilitação' do paciente cirrótico candidato ao transplante.",
+      "c": "Sem evidência de benefício.",
+      "d": "Excessivo e arriscado para a reserva cardiopulmonar limitada do cirrótico avançado.",
+      "e": "O risco de sangramento varicoso agudo pelo exercício moderado é baixo e superado pelo benefício muscular sistêmico."
+    },
+    "difficulty": "facil",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["Fisioterapia", "Sarcopenia", "Pre-habilitação"]
+  },
+  {
+    "enunciado": "No contexto da cirrose hepática, o fenótipo de 'Insuficiência Hepática Fulminante' (IHF) é caracterizado pela instalação de icterícia, coagulopatia e encefalopatia em um fígado previamente sadio em qual intervalo de tempo máximo?",
+    "options": {
+      "a": "Até 8 semanas (2 meses) do início dos sintomas.",
+      "b": "Até 24 horas apenas.",
+      "c": "Até 1 ano.",
+      "d": "Após 10 anos de consumo de álcool.",
+      "e": "Vitalício."
+    },
+    "answer": "a",
+    "rationale": "A insuficiência hepática fulminante (aguda grave) define-se pelo aparecimento de encefalopatia hepática em pacientes sem cirrose prévia dentro de um período de até 8 a 26 semanas (dependendo da classificação: hiperaguda, aguda ou subaguda). É uma emergência médica que exige triagem imediata para transplante hepático prioritário.",
+    "option_rationales": {
+      "a": "Correta. Define o limite temporal clássico para diferenciar insuficiência aguda de descompensação crônica.",
+      "b": "Intervalo excessivamente curto (seria uma forma hiperaguda extrema).",
+      "c": "Acima de 6 meses já é considerada doença crônica.",
+      "d": "Define a patologia alcoólica crônica clássica.",
+      "e": "Sem precisão científica diagnóstica."
+    },
+    "difficulty": "moderado",
+    "course_id": "medicina",
+    "area_id": "clinica-medica",
+    "specialty_id": "gastroenterologia",
+    "subspecialty_id": "gastroenterologia",
+    "subject_id": "cirrose-hepatica",
+    "tema_id": "cirrose-hepatica",
+    "tags": ["IHF", "Gastroenterologia", "Intervalo"]
+  }
+]
