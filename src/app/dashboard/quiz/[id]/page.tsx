@@ -171,6 +171,22 @@ export default function QuizPage() {
 
     const question = availableQuestions[currentIdx]
     const isInsano = user?.plan_level === 'INSANO'
+
+    // HOOKS MUST BE BEFORE ANY EARLY RETURN
+    // Resolved options from question (array or legacy object format)
+    const shuffledOptions = useMemo(() => {
+        const raw = question?.options
+        if (!raw) return []
+
+        if (Array.isArray(raw)) {
+            return [...raw] as { id: string; text: string }[]
+        } else if (raw && typeof raw === 'object') {
+            return ['a', 'b', 'c', 'd', 'e']
+                .filter(k => (raw as Record<string, string>)[k])
+                .map(k => ({ id: k, text: (raw as Record<string, string>)[k] }))
+        }
+        return []
+    }, [question?.id])
     const isFree = user?.plan_level === 'FREE'
 
     if (questionsLoading) {
@@ -193,7 +209,7 @@ export default function QuizPage() {
                     </div>
                     <div className="space-y-2">
                         <h3 className="text-2xl font-black italic uppercase tracking-tighter">Ops! Sem questões.</h3>
-                        <p className="text-muted-foreground font-medium text-sm">Não encontramos questões disponíveis para os filtros selecionados (talvez você já tenha respondido todas as disponíveis para a seleção).</p>
+                        <p className="text-muted-foreground font-medium text-sm">Não encontramos questões disponíveis para os filtros selecionados.</p>
                     </div>
                     <button
                         onClick={() => router.push('/dashboard')}
@@ -201,47 +217,6 @@ export default function QuizPage() {
                     >
                         Limpar Filtros e Voltar
                     </button>
-                    {user?.role === 'MASTER' && (
-                        <p className="text-[10px] text-muted-foreground uppercase font-black tracking-widest">
-                            Dica: Acesse Menu &gt; Pacotes e Deploy para associar questões.
-                        </p>
-                    )}
-                </div>
-            </div>
-        )
-    }
-
-    // Embaralhamento de alternativas para evitar padrões (ex: muitas letras B seguidas)
-    const shuffledOptions = useMemo(() => {
-        if (!question) return []
-        const raw = question.options
-        let baseOptions: { id: string; text: string }[] = []
-
-        if (Array.isArray(raw)) {
-            baseOptions = [...raw]
-        } else if (raw && typeof raw === 'object') {
-            baseOptions = ['a', 'b', 'c', 'd', 'e']
-                .filter(k => (raw as Record<string, string>)[k])
-                .map(k => ({ id: k, text: (raw as Record<string, string>)[k] }))
-        }
-
-        // Se estiver em modo de simulação/treino, embaralhamos
-        // Em modo de revisão ou se o usuário já respondeu, talvez queiramos manter a ordem original?
-        // Mas para evitar o vício citado pelo usuário, o ideal é embaralhar sempre na primeira exibição.
-        return baseOptions
-    }, [question?.id])
-
-    // Guard: question exists but has no valid options (data corruption) — skip it
-    if (question && shuffledOptions.length === 0 && !questionsLoading) {
-        // Auto-advance past broken question
-        if (currentIdx < availableQuestions.length - 1) {
-            setTimeout(() => setCurrentIdx(prev => prev + 1), 50)
-        }
-        return (
-            <div className="min-h-screen flex items-center justify-center bg-background">
-                <div className="flex flex-col items-center gap-4">
-                    <div className="w-12 h-12 rounded-full border-4 border-primary border-t-transparent animate-spin" />
-                    <p className="text-sm font-black uppercase tracking-widest text-muted-foreground">Carregando próxima questão...</p>
                 </div>
             </div>
         )
