@@ -1,0 +1,48 @@
+[
+  {
+    "enunciado": "A conduta padrão sugerida para a prevenção de Anemia Ferropriva no lactente nascido a TERMO, com PESO ADEQUADO, em aleitamento materno exclusivo até os 6 meses, segundo as novas diretrizes da SBP (2021), é:",
+    "options": {
+        "a": "Manual da SBP: 1 mg de ferro elementar por kg ao dia, iniciando aos 3 meses (90 dias) e mantido até os 2 anos.",
+        "b": "Suplementar apenas após 12 meses.",
+        "c": "Espera introdução alimentar exclusiva.",
+        "d": "Ferro IM mensal.",
+        "e": "Somente recomendado se a ferritina for < 10."
+    },
+    "answer": "a",
+    "rationale": "As novas diretrizes da SBP (2021) unificaram a conduta para lactentes a termo e peso adequado, com início da suplementação profilática aos 90 dias com 1 mg/kg. Isso visa prevenir a carência de ferro durante o período de maior crescimento e esgotamento dos estoques fetais.",
+    "option_rationales": {
+        "a": "Correta. Protocolo terapêutico vigente no Brasil.",
+        "b": "Incorreta. Janela de risco entre 6 e 12 meses é negligenciada.",
+        "c": "Incorreta. Incorreto.",
+        "d": "Incorreta. Ferro IM não é profilaxia.",
+        "e": "Incorreta. O uso é profilático independente do exame."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["SBP", "Pediatria", "Suplementação", "Anemia Ferropriva", "FGV"]
+  },
+  {
+    "enunciado": "Sobre a Anemia Sideroblástica por Lead (Saturnismo), qual o achado laboratorial característico na hematoscopia decorrente da inibição da enzima pirimidina-5'-nucleotidase pelo chumbo?",
+    "options": {
+        "a": "Pontilhado basofílico grosseiro (agregados de RNA ribossômico).",
+        "b": "Presença de hemácias falciformes em massa.",
+        "c": "Dacriócitos em lágrima abundantes.",
+        "d": "Acantócitos ou spur cells.",
+        "e": "Esferócitos em rouleaux."
+    },
+    "answer": "a",
+    "rationale": "O chumbo inibe a pirimidina-5'-nucleotidase, o que impede a degradação de restos de RNA intracelular. Esses precipitados de RNA aparecem como grânulos azulados (pontilhado basofílico) nas hemácias periféricas, um marco clássico do saturnismo ou da intoxicação por metais pesados.",
+    "option_rationales": {
+        "a": "Correta. Morfologia clássica do saturnismo.",
+        "b": "Incorreta. Falciforme é hemoglobinopatia S.",
+        "c": "Incorreta. Sugere mielofibrose.",
+        "d": "Incorreta. Sugere hepatopatia terminal.",
+        "e": "Incorreta. Característica de hiperesferocitose e proteínas totais altas."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Saturnismo", "Toxicologia", "Hematologia", "FGV"]
+  }
+]

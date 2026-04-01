@@ -1,0 +1,94 @@
+[
+  {
+    "enunciado": "Um paciente de 40 anos, com icterícia leve e anemia, apresenta-se no laboratório com Bilirrubina Indireta 2.8 mg/dL e DHL 1100 U/L. O Coombs Direto é POSITIVO para IgG e NEGATIVO para C3d. Qual a principal hipótese?",
+    "options": {
+        "a": "Anemia Hemolítica Autoimune (AHAI) por anticorpos quentes.",
+        "b": "Anemia Hemolítica fria (Crioaglutininas).",
+        "c": "Esferocitose hereditária.",
+        "d": "Deficiência de B12.",
+        "e": "Doença de Wilson."
+    },
+    "answer": "a",
+    "rationale": "A AHAI quente é mediada por IgG (lise extravascular), resultando em Coombs IgG positivo.",
+    "option_rationales": {
+        "a": "Correta. Diagnóstico imuno-clínico esperado.",
+        "b": "Incorreta. Crioaglutininas seriam C3d positivo.",
+        "c": "Incorreta. Coombs é negativo na esferocitose.",
+        "d": "Incorreta. Sem nexo imune.",
+        "e": "Incorreta. Wilson pode ter Coombs positivo mas é raro, a tríade clássica é biliar."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["AHAI", "Coombs", "Imunologia", "FGV"]
+  },
+  {
+    "enunciado": "A conduta padrão sugerida para a prevenção de Anemia Ferropriva no lactente nascido a TERMO, com PESO ADEQUADO, em aleitamento materno exclusivo até os 6 meses, segundo as novas diretrizes da SBP (2021), é:",
+    "options": {
+        "a": "Manual da SBP: 1 mg de ferro elementar por kg ao dia, iniciando aos 3 meses (90 dias) e mantido até os 2 anos.",
+        "b": "Suplementar apenas após 12 meses.",
+        "c": "Espera introdução alimentar exclusiva.",
+        "d": "Ferro IM mensal.",
+        "e": "Somente recomendado se a ferritina for < 10."
+    },
+    "answer": "a",
+    "rationale": "As novas diretrizes da SBP (2021) unificaram a conduta para lactentes a termo e peso adequado, com início da suplementação profilática aos 90 dias com 1 mg/kg. Isso visa prevenir a carência de ferro durante o período de maior crescimento e esgotamento dos estoques fetais.",
+    "option_rationales": {
+        "a": "Correta. Protocolo terapêutico vigente no Brasil.",
+        "b": "Incorreta. Janela de risco entre 6 e 12 meses é negligenciada.",
+        "c": "Incorreta. Incorreto.",
+        "d": "Incorreta. Ferro IM não é profilaxia.",
+        "e": "Incorreta. O uso é profilático independente do exame."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["SBP", "Pediatria", "Suplementação", "Anemia Ferropriva", "FGV"]
+  },
+  {
+    "enunciado": "Sobre a Anemia Sideroblástica por Lead (Saturnismo), qual o achado laboratorial característico na hematoscopia decorrente da inibição da enzima pirimidina-5'-nucleotidase pelo chumbo?",
+    "options": {
+        "a": "Pontilhado basofílico grosseiro (agregados de RNA ribossômico).",
+        "b": "Presença de hemácias falciformes em massa.",
+        "c": "Dacriócitos em lágrima abundantes.",
+        "d": "Acantócitos ou spur cells.",
+        "e": "Esferócitos em rouleaux."
+    },
+    "answer": "a",
+    "rationale": "O chumbo inibe a pirimidina-5'-nucleotidase, o que impede a degradação de restos de RNA intracelular. Esses precipitados de RNA aparecem como grânulos azulados (pontilhado basofílico) nas hemácias periféricas, um marco clássico do saturnismo ou da intoxicação por metais pesados.",
+    "option_rationales": {
+        "a": "Correta. Morfologia clássica do saturnismo.",
+        "b": "Incorreta. Falciforme é hemoglobinopatia S.",
+        "c": "Incorreta. Sugere mielofibrose.",
+        "d": "Incorreta. Sugere hepatopatia terminal.",
+        "e": "Incorreta. Característica de hiperesferocitose e proteínas totais altas."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Saturnismo", "Toxicologia", "Hematologia", "FGV"]
+  },
+  {
+    "enunciado": "A Púrpura Trombocitopênica Trombótica (PTT) é uma emergência hematológica causada pela deficiência de ADAMTS13. Qual o sinal neurológico oscilante que compõe a 'pêntada' clássica e o diferencia da Púrpura Trombocitopênica Imune (PTI) comum?",
+    "options": {
+        "a": "Confusão mental, cefaléia ou convulsões de caráter flutuante.",
+        "b": "Apenas paralisia facial fixa.",
+        "c": "Perda aguda de visão por descolamento de retina.",
+        "d": "Surdez neurossensorial bilateral.",
+        "e": "Coma não-responsivo desde o início."
+    },
+    "answer": "a",
+    "rationale": "O sinal neurológico na PTT ocorre por microtrombose transitória e disseminada na vasculatura cerebral, levando a sintomas que flutuam em gravidade e localização. É um dos marcos diferenciais da PTT (que tem anemia hemolítica e trombopenia) em relação à PTI (que tem apenas trombocitopenia isolada).",
+    "option_rationales": {
+        "a": "Correta. Manifestação neurológica instável e característica.",
+        "b": "Incorreta. Geralmente multifocal e central.",
+        "c": "Incorreta. Incorreto.",
+        "d": "Incorreta. Incorreto.",
+        "e": "Incorreta. Ocorre em estágios finais se não tratada."
+    },
+    "difficulty": "alta",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["PTT", "Neurologia", "Trombocitopenia", "FGV"]
+  }
+]

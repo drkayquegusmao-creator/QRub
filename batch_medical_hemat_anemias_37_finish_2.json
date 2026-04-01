@@ -1,0 +1,25 @@
+[
+  {
+    "enunciado": "Um homem de 52 anos apresenta anemia progressiva e dor nos flancos. O hemograma demonstra anemia com 12% de reticulócitos e presença de esquizócitos. DHL 2.200 U/L. O exame de imagem revela uma massa renal de 8 cm. Qual a síndrome paraneoplásica hemolítica que pode ocorrer em tumores sólidos potentes, onde a rede microvascular tumoral fragmenta as hemácias circulantes?",
+    "options": {
+        "a": "Anemia Hemolítica Microangiopática Paraneoplásica.",
+        "b": "Anemia Sideroblástica Paraneoplásica.",
+        "c": "Doença das Crioaglutininas por tumor renal.",
+        "d": "Eritrocitose Paraneoplásica.",
+        "e": "Anemia de Doença Crônica do Rim."
+    },
+    "answer": "a",
+    "rationale": "Adenocarcinomas gástricos, pancreáticos e ocasionalmente renais podem gerar uma anemia hemolítica microangiopática por fragmentação eritroide na vasculatura tumoral anômala ou por coagulação intravascular disseminada crônica subclínica. Note que o tumor renal comumente causa eritrocitose (por produção biliar de EPO), mas se houver invasão vascular maciça ou metástases, a microangiopatia é uma complicação rara e documentada.",
+    "option_rationales": {
+        "a": "Correta. Paraneoplasia hematológica por microangiopatia.",
+        "b": "Incorreta. Sideroblastos não são características de destruição vascular.",
+        "c": "Incorreta. Crioaglutininas são mais comuns em linfomas B ou infecções.",
+        "d": "Incorreta. Tumores renais costumam causar eritrocitose; a anemia com esquizócitos aponta para a microangiopatia de gravidade.",
+        "e": "Incorreta. Doença crônica é normocitária e hiporegenerativa (reticulócitos baixos)."
+    },
+    "difficulty": "alta",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Oncologia", "Microangiopatia", "Tumor Renal", "Fragmentação Eritroide", "FGV"]
+  }
+]

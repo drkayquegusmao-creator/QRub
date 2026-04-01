@@ -1,0 +1,232 @@
+[
+  {
+    "enunciado": "A conduta padrão sugerida para a prevenção de Anemia Ferropriva no lactente nascido a TERMO, com PESO ADEQUADO, em aleitamento materno exclusivo até os 6 meses, segundo as novas diretrizes da SBP (2021), é:",
+    "options": {
+        "a": "Dose de 1 mg/kg/dia de ferro elementar, iniciando aos 3 meses (90 dias) e mantido até os 2 anos.",
+        "b": "Dose de 2 mg/kg/dia aos 6 meses.",
+        "c": "Dose de 3 mg/kg/dia ao nascimento.",
+        "d": "Não suplementar ferropicamente se a mãe é bem nutrida.",
+        "e": "Somente suplementar se o VCM for < 80."
+    },
+    "answer": "a",
+    "rationale": "A SBP atualizou em 2021 as diretrizes, antecipando o início da suplementação em lactentes a termo e peso adequado para os 3 meses de vida, mantendo até os 2 anos. Isso se deve à alta prevalência de anemia ferropriva na introdução alimentar brasileira.",
+    "option_rationales": {
+        "a": "Correta. Recomendação SBP 2021.",
+        "b": "Incorreta. Protocolo antigo (6 meses).",
+        "c": "Incorreta. Dose e momento incorretos para termo.",
+        "d": "Incorreta. Requisito nutricional do bebê excede o leite materno pós-3 meses.",
+        "e": "Incorreta. O uso é profilático."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["SBP", "Puericultura", "Ferro", "FGV"]
+  },
+  {
+    "enunciado": "Um paciente de 52 anos apresenta anemia progressiva e dor abdominal. Relata exposição ocupacional a tintas industriais e fundição por 15 anos. Na hematoscopia, é observada a presença de PONTILHADO BASOFÍLICO grosseiro nas hemácias. O perfil de ferro é normal. Qual o diagnóstico e qual o metal pesado responsável?",
+    "options": {
+        "a": "Saturnismo; Chumbo.",
+        "b": "Hidrargirismo; Mercúrio.",
+        "c": "Arsenicismo; Arsênico.",
+        "d": "Cadmiismo; Cádmio.",
+        "e": "Siderostomía por Zinco."
+    },
+    "answer": "a",
+    "rationale": "O chumbo inibe enzimas da via do heme e a pirimidina-5-nucleotidase, causando o pontilhado basofílico.",
+    "option_rationales": {
+        "a": "Correta. Marco diagnóstico do saturnismo.",
+        "b": "Incorreta.",
+        "c": "Incorreta.",
+        "d": "Incorreta.",
+        "e": "Incorreta."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Saturnismo", "Ocupacional", "FGV"]
+  },
+  {
+    "enunciado": "Sobre a Anemia de Mielofibrose Primária, qual o achado morfológico no sangue periférico que sugere a substituição da medula por fibrose?",
+    "options": {
+        "a": "Dacriócitos (hemácias em lágrima).",
+        "b": "Esferócitos.",
+        "c": "Dranpócitos.",
+        "d": "Acantócitos.",
+        "e": "Bite cells."
+    },
+    "answer": "a",
+    "rationale": "Dacriócitos ocorrem quando as hemácias se deformam ao tentar passar pelos espaços fibróticos da medula.",
+    "option_rationales": {
+        "a": "Correta. Marco morfológico da mielofibrose.",
+        "b": "Incorreta.",
+        "c": "Incorreta.",
+        "d": "Incorreta.",
+        "e": "Incorreta."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Mielofibrose", "Dacriócitos", "FGV"]
+  },
+  {
+    "enunciado": "Um paciente idoso apresenta anemia Hb 10,2 g/dL. Perfil de ferro: Ferritina 150 (normal/alta) e Ferro sérico 35 (baixo). PCR elevada. O diagnóstico mais provável é:",
+    "options": {
+        "a": "Anemia de Doença Crônica (Inflamatória).",
+        "b": "Anemia Ferropriva Absoluta.",
+        "c": "Anemia Sideroblástica.",
+        "d": "Mielodisplasia.",
+        "e": "Deficiência de B12."
+    },
+    "answer": "a",
+    "rationale": "Ferritina normal ou alta com ferro baixo em paciente com inflamação (PCR alta) caracteriza a anemia da inflamação.",
+    "option_rationales": {
+        "a": "Correta. Fisiopatologia clássica da uremia/inflamação.",
+        "b": "Incorreta.",
+        "c": "Incorreta.",
+        "d": "Incorreta.",
+        "e": "Incorreta."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Inflamação", "Idoso", "FGV"]
+  },
+  {
+    "enunciado": "Qual a classe de anticorpo envolvida na Doença das Crioaglutininas (Anemia Hemolítica ao Frio)?",
+    "options": {
+        "a": "IgM.",
+        "b": "IgG.",
+        "c": "IgA.",
+        "d": "IgE.",
+        "e": "IgD."
+    },
+    "answer": "a",
+    "rationale": "Crioaglutininas são geralmente anticorpos IgM que aglutinam hemácias em temperaturas baixas.",
+    "option_rationales": {
+        "a": "Correta. Imunologia das crioaglutininas.",
+        "b": "Incorreta. IgG é o anticorpo quente.",
+        "c": "Incorreta.",
+        "d": "Incorreta.",
+        "e": "Incorreta."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Crioaglutininas", "Imunologia", "FGV"]
+  },
+  {
+    "enunciado": "Um paciente submetido a cirurgia bariátrica (bypass gástrico) apresenta anemia e neutropenia refratárias ao ferro. O zinco está elevado. Qual a deficiência provável?",
+    "options": {
+        "a": "Cobre.",
+        "b": "Selênio.",
+        "c": "B12.",
+        "d": "Folato.",
+        "e": "Vitamina C."
+    },
+    "answer": "a",
+    "rationale": "O excesso de zinco compete com a absorção de cobre, levando a anemia e citopenias.",
+    "option_rationales": {
+        "a": "Correta. Complicação nutricional competitiva.",
+        "b": "Incorreta.",
+        "c": "Incorreta.",
+        "d": "Incorreta.",
+        "e": "Incorreta."
+    },
+    "difficulty": "alta",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Cobre", "Zinco", "Bariátrica", "FGV"]
+  },
+  {
+    "enunciado": "A Tríade da Síndrome Hemolítico-Urêmica (SHU) é composta por:",
+    "options": {
+        "a": "Anemia Hemolítica Microangiopática, Trombocitopenia e Insuficiência Renal Aguda.",
+        "b": "Febre, Dor Abdominal e Icterícia.",
+        "c": "Anemia, Leucocitose e Trombocitose.",
+        "d": "Hipertensão, Edema e Hematúria.",
+        "e": "Palidez, Hepatoesplenomegalia e Linfadenopatia."
+    },
+    "answer": "a",
+    "rationale": "SHU classicamente se manifesta com lise microvascular (esquizócitos), plaquetopenia e lesão renal.",
+    "option_rationales": {
+        "a": "Correta. Diagnóstico clínico da SHU.",
+        "b": "Incorreta.",
+        "c": "Incorreta.",
+        "d": "Incorreta.",
+        "e": "Incorreta."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["SHU", "Tríade", "FGV"]
+  },
+  {
+    "enunciado": "Qual o achado laboratorial urinário específico da Porfíria Intermitente Aguda durante a crise?",
+    "options": {
+        "a": "Aumento do Porfobilinogênio (PBG).",
+        "b": "Glicosúria.",
+        "c": "Proteinúria massiva.",
+        "d": "Bilirrubinúria.",
+        "e": "Hematúria isolada."
+    },
+    "answer": "a",
+    "rationale": "PBG elevado na urina é o marco da crise de PIA.",
+    "option_rationales": {
+        "a": "Correta. Laboratório da PIA.",
+        "b": "Incorreta.",
+        "c": "Incorreta.",
+        "d": "Incorreta.",
+        "e": "Incorreta."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["PIA", "Lab", "FGV"]
+  },
+  {
+    "enunciado": "Sobre a Anemia Sideroblástica hereditária ligada ao X, o defeito genético ocorre no gene:",
+    "options": {
+        "a": "ALAS2.",
+        "b": "HFE.",
+        "c": "JAK2.",
+        "d": "SMAD4.",
+        "e": "BRCA1."
+    },
+    "answer": "a",
+    "rationale": "Mutações no gene ALAS2 causam falha na primeira etapa da síntese do heme e sideroblastose.",
+    "option_rationales": {
+        "a": "Correta. Genética da anemia sideroblástica ligada ao X.",
+        "b": "Incorreta.",
+        "c": "Incorreta.",
+        "d": "Incorreta.",
+        "e": "Incorreta."
+    },
+    "difficulty": "alta",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Genética", "Sideroblástica", "FGV"]
+  },
+  {
+    "enunciado": "Qual o principal órgão afetado pela sobrecarga de ferro na Hemocromatose Hereditária que leva ao óbito precoce?",
+    "options": {
+        "a": "Coração (Cardiomiopatia).",
+        "b": "Fígado (Cirrose apenas).",
+        "c": "Rim.",
+        "d": "Pâncreas (Diabetes).",
+        "e": "Pele (Pigmentação)."
+    },
+    "answer": "a",
+    "rationale": "A falência cardíaca por depósito de ferro é a principal causa de mortalidade precoce não-maligna nesses pacientes.",
+    "option_rationales": {
+        "a": "Correta. Gravidade da sobrecarga férrica cardíaca.",
+        "b": "Incorreta.",
+        "c": "Incorreta.",
+        "d": "Incorreta.",
+        "e": "Incorreta."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Coração", "Hemocromatose", "FGV"]
+  }
+]

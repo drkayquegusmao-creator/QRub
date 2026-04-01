@@ -1,0 +1,117 @@
+[
+  {
+    "enunciado": "Um paciente de 45 anos, com histórico de transplante renal há 3 anos sob uso de imunossupressores, apresenta-se com anemia progressiva acompanhada de contagem de reticulócitos de 0,3%. O mielograma revela ausência quase total de precursores eritroides, mantendo-se íntegras as linhagens mieloide e megacariocítica. Há presença de proeritroblastos gigantes com inclusões nucleares. A sorologia para Parvovírus B19 é positiva. Qual o diagnóstico dessa eritroblastopenia adquirida e a conduta imunológica preconizada para o controle da viremia crônica neste paciente?",
+    "options": {
+      "a": "Aplasia pura da série vermelha; Imunoglobulina venosa.",
+      "b": "Anemia aplástica grave; Globulina antitimócito.",
+      "c": "Anemia de doença renal crônica; Eritropoetina.",
+      "d": "Crise de sequestro esplênico; Esplenectomia.",
+      "e": "Anemia hemolítica microangiopática; Plasmaférese."
+    },
+    "answer": "a",
+    "rationale": "A aplasia pura da série vermelha (APSV) em pacientes imunossuprimidos pode ser causada pela infecção persistente pelo Parvovírus B19. Diferente do paciente imunocompetente, o imunossuprimido não consegue clarear o vírus, resultando em viremia crônica e paralisia recorrente da eritropoese. O achado de proeritroblastos gigantes é característico. O tratamento envolve a infusão de imunoglobulina venosa (IVIG), que fornece os anticorpos necessários para neutralizar o vírus.",
+    "option_rationales": {
+      "a": "Correta. APSV e IVIG é o manejo padrão nesse contexto.",
+      "b": "Incorreta. Na anemia aplástica grave, todas as linhagens seriam afetadas.",
+      "c": "Incorreta. A anemia renal é normocítica por falta de EPO, não por aplasia medular focal de eritrocitos.",
+      "d": "Incorreta. No sequestro, o baço capta hemácias circulantes, sem afetar a produção medular dessa forma.",
+      "e": "Incorreta. MAHA envolve esquizócitos e plaquetopenia, não aplasia de precursores vermelhos."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["APSV", "Parvovírus B19", "Imunossupressão", "FGV"]
+  },
+  {
+    "enunciado": "Um homem de 30 anos, recém-diagnosticado com Malária por P. falciparum, inicia tratamento com Primaquina. No terceiro dia de tratamento, apresenta icterícia profunda, dor abdominal e urina escura. O hemograma mostra queda de 4 pontos no hematócrito. O médico assistente suspeita de deficiência de G6PD. No entanto, a dosagem da enzima G6PD realizada imediatamente após a crise hemolítica é NORMAL. Como deve ser interpretado este resultado?",
+    "options": {
+      "a": "O diagnóstico de deficiência de G6PD está descartado definitivamente.",
+      "b": "O teste pode ser falso-negativo pois as hemácias deficientes já hemolisaram.",
+      "c": "A dosagem deve ser repetida após 1 mês, acompanhada de dosagem de B12.",
+      "d": "A presença de reticulocitose aumenta falsamente os níveis de G6PD.",
+      "e": "O paciente possui a variante 'A+', que não hemolisa com primaquina."
+    },
+    "answer": "b",
+    "rationale": "Durante ou logo após uma crise hemolítica aguda na deficiência de G6PD, as hemácias mais velhas e com níveis enzimáticos mais baixos são as primeiras a serem destruídas. As hemácias sobreviventes e, especialmente, os reticulócitos (jovens) possuem níveis normais ou aumentados de enzima. Portanto, a dosagem realizada na vigência da hemólise pode ser um falso-negativo. O ideal é repetir o teste após 6-8 semanas do evento agudo.",
+    "option_rationales": {
+      "a": "Incorreta. A clínica é sugestiva e o falso-negativo é comum no agudo.",
+      "b": "Correta. Hemácias jovens/reticulócitos mascaram a deficiência.",
+      "c": "Incorreta. B12 não tem relação com o metabolismo oxidativo da G6PD.",
+      "d": "Correta (secundária), mas a opção B explica o mecanismo biológico de 'morte das deficientes'. Na prática, a união de B e D é o que ocorre.",
+      "e": "Incorreta. Variante A+ é tipicamente saudável ou hemolisa levemente."
+    },
+    "difficulty": "alta",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Deficiência de G6PD", "Malária", "Farmacologia", "FGV"]
+  },
+  {
+    "enunciado": "Uma criança de 2 anos, de etnia cigana, apresenta anemia microcítica grave refratária à terapia oral com ferro. A mãe relata que o filho consome 1 litro de leite de vaca integral por dia. Hemograma: Hb 6,2 g/dL; VCM 55 fL; HCM 18 pg; RDW 22%. Ferro sérico: 10 mcg/dL; Ferritina: 5 ng/mL. Sobre a reposição de ferro neste paciente infantil, qual a regra correta para o cálculo da dose?",
+    "options": {
+      "a": "Dose de 3 a 5 mg/kg peso/dia de ferro elementar por 3 a 6 meses.",
+      "b": "Prescrever 200 mg/dia de ferro elementar fixa para todas as idades.",
+      "c": "Utilizar apenas complexo de polimaltosado férrico IM em dose única.",
+      "d": "Substituir dieta por fórmulas lácteas e suplementar com 15 mg/kg/dia.",
+      "e": "Realizar transfusão se Hb < 8 para normalizar depósitos medulares."
+    },
+    "answer": "a",
+    "rationale": "O tratamento da anemia ferropriva na pediatria baseia-se na oferta de ferro elementar doseacional (3-5 mg/kg/dia). O tempo deve ser suficiente para normalizar a hemoglobina e, posteriormente, repor os estoques (geralmente meses após a correção da Hb). O excesso (opção D) aumenta a toxicidade sem ganho proporcional de eficácia.",
+    "option_rationales": {
+      "a": "Correta. Dose padrão pediátrica e duração adequada para estoque.",
+      "b": "Incorreta. Dose fixas são para adultos.",
+      "c": "Incorreta. A via preferencial é a oral sempre que possível.",
+      "d": "Incorreta. 15 mg/kg é dose tóxica.",
+      "e": "Incorreta. Transfusão é exceção absoluta em pediatria para níveis < 5-6 g/dL com descompensação clínica."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Pediatria", "Anemia Ferropriva", "Suplementação", "FGV"]
+  },
+  {
+    "enunciado": "No contexto das anemias megaloblásticas, uma complicação que pode ocorrer nos primeiros dias após o início do tratamento com Vitamina B12 e folato de forma vigorosa, sendo necessária a vigilância laboratorial, é:",
+    "options": {
+      "a": "Hiponatremia dilucional.",
+      "b": "Hipercalcemia por absorção gastrointestinal súbita.",
+      "c": "Hipocalemia devido à incorporação rápida de potássio nas novas células.",
+      "d": "Acidose metabólica por lise tumoral simulada.",
+      "e": "Insuficiência renal aguda por precipitação de bilirrubina."
+    },
+    "answer": "c",
+    "rationale": "A resposta medular à reposição de B12/folato em anemias graves é explosiva (pico de reticulócitos). Como o potássio é o principal cátion intracelular, a produção maciça de novas células capta grandes quantidades de K+ do plasma, o que pode levar a uma Hipocalemia severa e arritmias nos primeiros dias de tratamento.",
+    "option_rationales": {
+      "a": "Incorreta. O metabolismo do sódio não é afetado diretamente pela hematopoese.",
+      "b": "Incorreta. Não há alteração no cálcio relacionada a esse processo.",
+      "c": "Correta. Fenômeno de 'uptake' celular em uma medula anteriormente aplásica.",
+      "d": "Incorreta. Isso ocorre em leucemias, não na recuperação de anemias.",
+      "e": "Incorreta. Não ocorre precipitação de bilirrubina renal nesse cenário."
+    },
+    "difficulty": "alta",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Anemia Megaloblástica", "Eletrolitos", "Iatrogenia", "FGV"]
+  },
+  {
+    "enunciado": "Um paciente de 28 anos, com Anemia Falciforme (SS), procura atendimento por dor contínua em quadril direito há 6 meses, que piora ao caminhar e alivia no repouso. O exame físico mostra limitação da rotação interna do membro inferior. Recentemente, a dor tornou-se limitante para o trabalho. A radiografia do quadril sugere 'imagem em crescente' e irregularidade da cabeça femoral. Qual a complicação crônica descrita e qual o gene mutado que define essa condição hematológica de base?",
+    "options": {
+      "a": "Osteomielite por Salmonella; mutação no gene da beta-globina (Glu->Val).",
+      "b": "Necrose Avascular da Cabeça Femoral; mutação no gene da alfa-globina.",
+      "c": "Necrose Avascular da Cabeça Femoral; mutação no gene da beta-globina (Glu->Val na posição 6).",
+      "d": "Artrite séptica comunitária; mutação pontual no gene da G6PD.",
+      "e": "Osteonecrose idiopática; deleção parcial do braço longo do cromossomo 11."
+    },
+    "answer": "c",
+    "rationale": "A necrose avascular (ou osteonecrose) é uma complicação incapacitante da anemia falciforme, resultante de repetidos episódios de vaso-oclusão nos vasos que suprem a cabeça femoral (microinfartos ósseos). A doença de base é definida pela substituição do ácido glutâmico pela valina na sexta posição da cadeia beta da globina, criando a HbS.",
+    "option_rationales": {
+      "a": "Incorreta. Embora tenham risco de osteomielite, a dor crônica progressiva e imagem em crescente sugerem necrose.",
+      "b": "Incorreta. O gene da alfa-globina é afetado nas talassemias alfa.",
+      "c": "Correta. Descrição clássica da osteonecrose e da genética molecular falciforme.",
+      "d": "Incorreta. Não é defeito da G6PD.",
+      "e": "Incorreta. A causa é bem conhecida (isquemia) e não idiopática ou por deleção cromossômica."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Doença Falciforme", "Osteonecrose", "Ortopedia", "FGV"]
+  }
+]

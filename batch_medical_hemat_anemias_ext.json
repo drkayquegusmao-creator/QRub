@@ -1,0 +1,71 @@
+[
+  {
+    "enunciado": "Um paciente de 40 anos, com histórico de retocolite ulcerativa inespecífica em atividade moderada, apresenta quadro de cansaço e irritabilidade. O hemograma demonstra: Hb 9,5 g/dL; VCM 78 fL; Ferro sérico 30 mcg/dL; Ferritina 110 ng/mL; Saturação de transferrina 14%; PCR 65 mg/L. Sobre o diagnóstico e a conduta terapêutica para a anemia deste paciente, é correto afirmar:",
+    "options": {
+      "a": "Trata-se de anemia ferropriva pura e deve-se iniciar apenas sulfato ferroso oral.",
+      "b": "Trata-se de anemia de doença crônica pura e não há papel para a reposição de ferro.",
+      "c": "Trata-se de anemia mista (ferropriva + doença crônica); a ferritina de 110 ng/mL em vigência de PCR alto não descarta ferropenia absoluta.",
+      "d": "A ferritina acima de 100 ng/mL exclui qualquer benefício com uso de ferro parenteral.",
+      "e": "Deve-se realizar mielograma para avaliar a presença de sideroblastos em anel."
+    },
+    "answer": "c",
+    "rationale": "Em pacientes com doenças inflamatórias ativas (como DII), a ferritina se comporta como reagente de fase aguda, podendo estar falsamente elevada. Diretrizes recentes sugerem que, nesses pacientes, valores de ferritina < 100 ng/mL ou saturação de transferrina < 20% indicam deficiência absoluta ou funcional de ferro. O tratamento com ferro (preferencialmente parenteral para evitar exacerbação da inflamação intestinal pelo ferro oral) está indicado.",
+    "option_rationales": {
+      "a": "Incorreta. O quadro inflamatório sistêmico também contribui (hepcidina).",
+      "b": "Incorreta. A saturação de transferrina estaria baixa também na inflamação pura, mas a ferritina 'baixa para o nível de PCR' sugere mista.",
+      "c": "Correta. PCR alto mascara a ferropenia; SAT < 20% é o guia.",
+      "d": "Incorreta. Pacientes com DII se beneficiam muito de ferro parenteral se SAT < 20%.",
+      "e": "Incorreta. Sideroblástica não é a hipótese principal."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["DII", "Anemia Mista", "Reposição de Ferro", "Ferro Parenteral", "FGV"]
+  },
+  {
+    "enunciado": "Uma paciente de 35 anos, com antecedente de tireoidectomia total por carcinoma papilífero há 10 anos, apresenta-se com anemia normocítica estável (Hb 10,8 g/dL) sem outras queixas. É diagnosticada com Hipotireoidismo primário por dose insuficiente de levotiroxina. Qual o principal mecanismo causal da anemia no hipotireoidismo?",
+    "options": {
+      "a": "Perda de ferro por polimenorreia secundária ao hipotireoidismo.",
+      "b": "Redução do metabolismo basal e consequente queda na necessidade de transporte de O2 (menor estímulo à eritropoese).",
+      "c": "Deficiência associada de vitamina B12 (síndrome pluriglandular autoimune).",
+      "d": "Diminuição da absorção de folato no intestino delgado por hipocinesia intestinal.",
+      "e": "Todas as alternativas anteriores podem estar envolvidas, mas a redução do turnover eritroide é o mecanismo fisiológico direto do T4 baixo."
+    },
+    "answer": "e",
+    "rationale": "O hormônio tireoidiano (T4) tem efeito direto na eritropoese, estimulando a diferenciação das células-tronco e a produção de EPO. No hipotireoidismo, a queda do metabolismo celular reduz o recrutamento de glóbulos vermelhos. Além disso, irregularidades menstruais (aumento do fluxo) e a associação frequente com outras causas autoimunes (Anemia Perniciosa) tornam o quadro muitas vezes multifatorial.",
+    "option_rationales": {
+      "a": "Correta parcialmente.",
+      "b": "Correta parcialmente.",
+      "c": "Correta parcialmente.",
+      "d": "Correta parcialmente.",
+      "e": "Correta. Resume a natureza multifatorial, porém com mecanismo hormonal central."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Hipotireoidismo", "Metabolismo", "Endocrinologia", "FGV"]
+  },
+  {
+    "enunciado": "Um homem de 50 anos apresenta anemia refratária com presença de macrocitose persistente (VCM 108 fL) e história de neutropenia leve. Realiza mielograma que demonstra hipercelularidade medular com displasias em duas linhagens (eritroide e mieloide). Não há aumento de blastos (< 5%). A dosagem de B12 e folato são normais. O diagnóstico mais provável é Síndrome Mielodisplásica (SMD). Sobre esta condição e sua evolução clínica, é correto afirmar:",
+    "options": {
+      "a": "A cura é atingida em 90% dos casos com corticoterapia em altas doses.",
+      "b": "Há uma chance significativa de transformação para Leucemia Mieloide Aguda (LMA).",
+      "c": "O tratamento de suporte com suplementação excessiva de vitamina B12 costuma reverter a anemia.",
+      "d": "É uma doença exclusivamente infantil relacionada à exposição a vírus oncogênicos.",
+      "e": "A presença de sideroblastos em anel exclui o diagnóstico de SMD."
+    },
+    "answer": "b",
+    "rationale": "A Síndrome Mielodisplásica (SMD) é uma neoplasia clonal de células-tronco que resulta em hematopoese ineficaz (displasias) e citopenias. É comum em idosos e o principal risco é a progressão para Leucemia Mieloide Aguda (LMA), sendo por isso chamada por vezes de 'pré-leucemia'.",
+    "option_rationales": {
+      "a": "Incorreta. Corticoides não curam a clonalidade neoplásica da SMD.",
+      "b": "Correta. A evolução para LMA é o grande risco clínico.",
+      "c": "Incorreta. Nutrientes não revertem defeitos genéticos clonais.",
+      "d": "Incorreta. É doença predominantemente do idoso.",
+      "e": "Incorreta. SMD com Sideroblastos em Anel é um subtipo específico bem definido."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["SMD", "Neoplasias Mieloides", "Oncologia", "FGV"]
+  }
+]

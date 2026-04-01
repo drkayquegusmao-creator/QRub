@@ -1,0 +1,117 @@
+[
+  {
+    "enunciado": "Um homem de 52 anos apresenta anemia progressiva e dor abdominal. Relata exposição ocupacional a tintas industriais e fundição por 15 anos. Na hematoscopia, é observada a presença de PONTILHADO BASOFÍLICO grosseiro nas hemácias. O perfil de ferro é normal. Qual o diagnóstico e qual o metal pesado responsável por este achado laboratorial e clínico específico?",
+    "options": {
+        "a": "Saturnismo; Chumbo (Lead).",
+        "b": "Hidrargirismo; Mercúrio.",
+        "c": "Arsenicismo; Arsênico.",
+        "d": "Cadmiismo; Cádmio.",
+        "e": "Siderostomía por Zinco."
+    },
+    "answer": "a",
+    "rationale": "O Saturnismo (intoxicação por chumbo) leva à inibição de várias enzimas da síntese do heme (ALA-Desidratase e Ferroquelatase) e da enzima pirimidina-5'-nucleotidase. Esta última falha impede a degradação de restos de RNA ribossômico, originando o pontilhado basofílico. Clinicamente provoca anemia e dores abdominais neuropáticas (cólica saturnina).",
+    "option_rationales": {
+        "a": "Correta. Marco diagnóstico ocupacional clássico.",
+        "b": "Incorreta. Toxicidade renal e neurológica sem pontilhado eritroide marcante.",
+        "c": "Incorreta. Alterações dermatológicas e neoplásicas predominantes.",
+        "d": "Incorreta. Dano tubular renal e ósseo (Itai-itai).",
+        "e": "Incorreta. Nome inexistente bioquimicamente."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Saturnismo", "Chumbo", "Medicina do Trabalho", "Morfologia", "FGV"]
+  },
+  {
+    "enunciado": "Um paciente submetido a cirurgia bariátrica (bypass gástrico em Y-de-Roux) há 18 meses apresenta-se com fadiga crônica e quadro de neuropatia sensorial e motora progressiva ('perna inquieta' e incoordenação motora). O hemograma mostra anemia normocítica refratária ao ferro oral. Recebeu suplementação de B12 parenteral com níveis séricos normais agora, mas a neuropatia persiste. A dosagem de zinco está elevada (> 200). Qual o micronutriente em deficiência que melhor explica a anemia e a mieloneuropatia neste caso?",
+    "options": {
+        "a": "Cobre (Cu).",
+        "b": "Selênio (Se).",
+        "c": "Mangânes (Mn).",
+        "d": "Molibdênio (Mo).",
+        "e": "Cobalto (Co)."
+    },
+    "answer": "a",
+    "rationale": "A deficiência de cobre pós-bariátrica pode mimetizar quadro clínico e laboratorial da deficiência de B12 (incluindo a degeneração dos cordões posteriores da medula). O excesso de zinco (comumente suplementado ou em fixadores de dentadura) inibe a absorção de cobre no intestino (competitividade da metalotioneína). A carência de cobre causa anemia sideroblástica e leucopenia/neutropenia.",
+    "option_rationales": {
+        "a": "Correta. Diagnóstico diferencial importante na bariátrica e suplementação.",
+        "b": "Incorreta. Selênio associa-se a miocardiopatia (doença de Keshan).",
+        "c": "Incorreta. Manganês em excesso causa parkinsonismo.",
+        "d": "Incorreta. Molibdênio é cofator raro em erro inato.",
+        "e": "Incorreta. Cobalto faz parte da molécula da B12."
+    },
+    "difficulty": "alta",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Bariátrica", "Cobre", "Zinco", "Neuropatia", "FGV"]
+  },
+  {
+    "enunciado": "Um paciente de 40 anos apresenta crises de icterícia biliar e anemia hemolítica crônica. O exame de imagem revela colelitíase (Pedras na vesícula). Qual a composição química predominante desses cálculos biliares nestes pacientes com hemólise hemolítica hereditária e qual a conduta profilática cirúrgica discutida durante a esplenectomia?",
+    "options": {
+        "a": "Cálculos de Billirrubinato de Cálcio (Pigmentares); Realizar colecistectomia no mesmo tempo.",
+        "b": "Cálculos de Colesterol; Dieta hipolipídica.",
+        "c": "Cálculos de Oxalato; Suplemento de Cálcio.",
+        "d": "Cálculos de Estruvita; Antibióticos.",
+        "e": "Células tumorais biliares infiltrantes."
+    },
+    "answer": "a",
+    "rationale": "A hemólise crônica libera bilirrubina indireta em massa, que ao ser conjugada no fígado satura a via biliar e precipita como bilirrubinato de cálcio, formando cálculos pretos e múltiplos. A conduta consensual é remover a vesícula biliar se houver indicação de esplenectomia.",
+    "option_rationales": {
+        "a": "Correta. Complicação colecística da hemólise.",
+        "b": "Incorreta. Ocorre em pacientes obesos ou perda rápida de peso.",
+        "c": "Incorreta. Rins.",
+        "d": "Incorreta. Urease bactérias urinárias.",
+        "e": "Incorreta. Não existe nexo."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Litiase biliar", "Icterícia", "Gastro-Hematologia", "FGV"]
+  },
+  {
+    "enunciado": "Sobre a Anemia de Fanconi, desordem de instabilidade cromossômica, qual o risco oncológico específico que justifica o acompanhamento rigoroso destes pacientes even após a realização de Transplante de Medula Óssea (TMO) curativo para a aplasia medular?",
+    "options": {
+        "a": "Câncer de células escamosas de cabeça e pescoço e anogenital.",
+        "b": "Linfoma de Hodgkin apenas.",
+        "c": "Carcinoma de Células de Merkel.",
+        "d": "Oligodendroglioma cerebral.",
+        "e": "Tumor de Wilms bi-lateral."
+    },
+    "answer": "a",
+    "rationale": "Mesmo com o sistema hematopoético curado pelo TMO, todas as células do corpo do portador de Fanconi possuem o defeito no reparo do DNA. Isso confere um risco massivo para tumores sólidos, predominantemente os carcinomas espinocelulares em mucosas, exigindo acompanhamento onco-estomatológico vitalício.",
+    "option_rationales": {
+        "a": "Correta. Conhecimento vital do follow-up pós-TMO na Fanconi.",
+        "b": "Incorreta. Linfomas não são a marca registrada pós-TMO no Fanconi.",
+        "c": "Incorreta. Associado a vírus MCPyV.",
+        "d": "Incorreta. Sem relação gênica primária.",
+        "e": "Incorreta. Sindrome de Beckwith-Wiedemann."
+    },
+    "difficulty": "alta",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Oncologia", "Fanconi", "Hereditariedade", "TMO", "FGV"]
+  },
+  {
+    "enunciado": "A Porfíria Intermitente Aguda (PIA) pode levar a uma complicação eletrolítica grave devido à lesão hipotalâmica durante a crise aguda. Qual o distúrbio metabólico mais comum e potencialmente fatal se não corrigido?",
+    "options": {
+        "a": "Hiponatremia por SIADH (Secreção Inapropriada de ADH).",
+        "b": "Hipercalemia por rabdomiólise.",
+        "c": "Hipocalcemia por má absorção.",
+        "d": "Hipernatremia por desidratação.",
+        "e": "Acidose respiratória."
+    },
+    "answer": "a",
+    "rationale": "Crises de PIA costumam causar hiponatremia. Isso ocorre por perdas gastrointestinais e pela toxicidade das porfirinas e precursores (ALA/PBG) no eixo hipotalâmico-hipofisário, gerando SIADH. A hiponatremia grave pode provocar confusão e convulsões em pacientes com crise de porfíria.",
+    "option_rationales": {
+        "a": "Correta. Distúrbio eletrolítico característico da PIA.",
+        "b": "Incorreta. PIA não lise muscular massiva primária.",
+        "c": "Incorreta. Não existe nexo.",
+        "d": "Incorreta. O excesso de ADH dilui o sódio (hiponatremia).",
+        "e": "Incorreta. Distúrbios primários eletrolíticos predominam."
+    },
+    "difficulty": "alta",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["PIA", "Eletrólitos", "SIADH", "Metabolismo", "FGV"]
+  }
+]

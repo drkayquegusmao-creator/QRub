@@ -1,0 +1,163 @@
+[
+  {
+    "enunciado": "Uma mulher de 38 anos, do sexo feminino, multípara (G4P4), procura a unidade de pronto atendimento com queixa de fadiga progressiva, palpitações aos esforços moderados e tontura ocasional nos últimos 4 meses. Relata que seus ciclos menstruais tornaram-se mais intensos e prolongados (menorragia) após a última gestação há dois anos. Ao exame físico, apresenta-se descorada (+++/4+), anictérica, com glossite atrófica e queilite angular. Frequência cardíaca de 102 bpm e pressão arterial de 110/70 mmHg. O hemograma revela: Hemoglobina 8,2 g/dL; VCM 68 fL; HCM 22 pg; RDW 18,5%; Leucócitos e plaquetas normais. A hematoscopia mostra microcitose e hipocromia acentuadas, com presença de alguns anelócitos. Com base no quadro clínico e laboratorial apresentado, o achado bioquímico que melhor confirma o diagnóstico mais provável é:",
+    "options": {
+      "a": "Ferritina sérica reduzida.",
+      "b": "Capacidade total de ligação do ferro (TIBC) reduzida.",
+      "c": "Saturação de transferrina elevada.",
+      "d": "Ferro sérico elevado com estoque de medula óssea preservado.",
+      "e": "Níveis elevados de vitamina B12 e folato."
+    },
+    "answer": "a",
+    "rationale": "O caso descreve uma clássica anemia ferropriva secundária a perdas menstruais (menorragia). Os índices hematimétricos (VCM e HCM baixos, RDW alto) e a clínica (glossite, queilite) são soberanos. A ferritina sérica é o parâmetro isolado mais sensível e específico para diagnosticar a deficiência de ferro, refletindo fielmente os estoques corporais antes mesmo da queda da hemoglobina. Na anemia ferropriva, esperamos Ferritina baixa, Ferro sérico baixo, TIBC elevado e Saturação de transferrina baixa.",
+    "option_rationales": {
+      "a": "Correta. A ferritina baixa é o marcador padrão-ouro não invasivo para deficiência de ferro.",
+      "b": "Incorreta. Na deficiência de ferro, a TIBC (capacidade de ligação) aumenta como tentativa de captar mais ferro.",
+      "c": "Incorreta. A saturação de transferrina estaria reduzida (< 15-20%) devido à falta de ferro para transporte.",
+      "d": "Incorreta. Isso descreveria uma sobrecarga de ferro ou anemia sideroblástica, não ferropriva.",
+      "e": "Incorreta. Estes marcadores são usados para anemias macrocíticas (megaloblástica), enquanto o caso é microcítico."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Anemia Ferropriva", "Clínica Médica", "Semiologia", "FGV"]
+  },
+  {
+    "enunciado": "Um homem de 62 anos, com diagnóstico de Artrite Reumatóide há 15 anos, em uso irregular de prednisona e metotrexato, apresenta queixa de astenia e indisposição geral. Nega sangramentos digestivos ou urinários. Ao exame físico, observa-se sinovite moderada em mãos e punhos, além de palidez cutâneo-mucosa leve (+/4+). Exames laboratoriais mostram: Hemoglobina 10,5 g/dL; VCM 82 fL; HCM 28 pg; RDW 13%. Ferro sérico: 40 mcg/dL; Ferritina: 250 ng/mL; Capacidade total de ligação do ferro (TIBC): 200 mcg/dL. Proteína C Reativa (PCR): 45 mg/L. A abordagem terapêutica mais adequada para a anemia deste paciente é:",
+    "options": {
+      "a": "Prescrever sulfato ferroso oral 200mg três vezes ao dia.",
+      "b": "Iniciar reposição parenteral de ferro (sacarato de hidróxido férrico).",
+      "c": "Otimizar o tratamento da doença inflamatória de base (Artrite Reumatóide).",
+      "d": "Prescrever eritropoetina recombinante humana imediatamente.",
+      "e": "Realizar transfusão de concentrado de hemácias se hemoglobina < 11 g/dL."
+    },
+    "answer": "c",
+    "rationale": "O paciente apresenta Anemia de Doença Crônica (ou Anemia da Inflamação). As características diagnósticas são: anemia normocítica e normocrômica (geralmente), ferro sérico baixo, mas acompanhado de Ferritina normal ou elevada (reagente de fase aguda) e TIBC baixo. A fisiopatologia envolve a hepcidina, que bloqueia a ferroportina, impedindo a liberação do ferro estocado. O tratamento fundamental da anemia de doença crônica é o controle da patologia inflamatória subjacente. A reposição de ferro é ineficaz se não houver deficiência absoluta associada.",
+    "option_rationales": {
+      "a": "Incorreta. O ferro oral não será absorvido devido ao bloqueio da hepcidina no duodeno.",
+      "b": "Incorreta. O ferro parenteral pode ser usado em casos específicos, mas o foco primário é a inflamação.",
+      "c": "Correta. Controlando a Artrite Reumatóide, os níveis de hepcidina caem e a eritropoese normaliza.",
+      "d": "Incorreta. Eritropoetina é reservada para insuficiência renal ou casos graves de câncer/inflamação persistente.",
+      "e": "Incorreta. Transfusão é indicada apenas para anemias sintomáticas graves, geralmente com Hb < 7-8 g/dL."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Anemia de Doença Crônica", "Inflamação", "Hematologia", "FGV"]
+  },
+  {
+    "enunciado": "Uma mulher de 65 anos, com história prévia de gastrectomia total por adenocarcinoma gástrico há 5 anos, apresenta-se com parestesias em extremidades inferiores e dificuldade de marcha (ataxia sensorial). Relata que não realizou o acompanhamento vitamínico recomendado nos últimos dois anos. Ao exame físico, apresenta palidez e icterícia leve (flávica), além de perda da sensibilidade vibratória e proprioceptiva. O hemograma revela Hemoglobina de 7,4 g/dL e VCM de 118 fL. A análise do esfregaço de sangue periférico demonstra neutrófilos hipersegmentados. Qual o mecanismo fisiopatológico primário que justifica os achados neurológicos e hematológicos desta paciente?",
+    "options": {
+      "a": "Deficiência de ácido fólico levando a síntese defeituosa de DNA.",
+      "b": "Deficiência de vitamina B12 resultando em acúmulo de ácido metilmalônico.",
+      "c": "Hemólise autoimune por anticorpos quentes (IgG).",
+      "d": "Anemia aplástica secundária à quimioterapia prévia.",
+      "e": "Deficiência de ferro por má absorção pós-gastrectomia."
+    },
+    "answer": "b",
+    "rationale": "A paciente apresenta anemia megaloblástica por deficiência de vitamina B12 (cobalamina), consequência direta da gastrectomia total (perda do fator intrínseco produzido pelas células parietais). A deficiência de B12 causa macrocitose (síntese de DNA lenta com crescimento citoplasmático normal) e, ao contrário do folato, causa degeneração combinada subaguda da medula espinhal. O acúmulo de ácido metilmalônico e homocisteína lesa a bainha de mielina, justificando a perda de sensibilidade vibratória e propriocepção.",
+    "option_rationales": {
+      "a": "Incorreta. A deficiência de folato causa anemia megaloblástica, mas NÃO causa sintomas neurológicos.",
+      "b": "Correta. O mecanismo é a falta de cobalamina e o consequente impacto metabólico e mielo-neurológico.",
+      "c": "Incorreta. A anemia hemolítica não explicaria a macrocitose tão acentuada nem os sintomas neurológicos.",
+      "d": "Incorreta. Anemia aplástica é normocítica/macrocítica leve, mas cursa com pancitopenia e sem icterícia.",
+      "e": "Incorreta. A deficiência de ferro causa microcitose, oposto do VCM 118 fL observado."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Anemia Megaloblástica", "Vitamina B12", "Gastrectomia", "FGV"]
+  },
+  {
+    "enunciado": "Um paciente de 24 anos, afrodescendente, com histórico conhecido de Doença Falciforme (genótipo SS), comparece ao serviço de emergência com febre (38,6°C), dor pleurítica à direita e tosse produtiva há 24 horas. Ao exame físico: taquipneia (FR 28 irpm), SatO2 89% em ar ambiente, e murmúrio vesicular diminuído na base direita com estertores finos. O hemograma demonstra Hemoglobina 6,5 g/dL (basal de 7,8 g/dL) e Leucocitose importante com desvio à esquerda. A radiografia de tórax revela um novo infiltrado alveolar no lobo inferior direito. Diante do diagnóstico de Síndrome Torácica Aguda (STA), além da antibioticoterapia, a medida terapêutica de maior impacto na redução da morbimortalidade nesta fase é:",
+    "options": {
+      "a": "Hidratação venosa vigorosa com soro hipotônico.",
+      "b": "Transfusão simples ou exsanguíneotransfusão parcial.",
+      "c": "Alcalinização sistêmica com bicarbonato de sódio.",
+      "d": "Prescrição imediata de Hidroxiureia em altas doses.",
+      "e": "Antibioticoterapia isolada com foco em germes atípicos."
+    },
+    "answer": "b",
+    "rationale": "A Síndrome Torácica Aguda (STA) é uma das principais causas de óbito na Doença Falciforme. Caracteriza-se por novo infiltrado radiológico associado a sintomas respiratórios/febre. O tratamento envolve suporte de oxigênio, analgesia, antibioticoterapia (incluindo cobertura para germes atípicos) e, crucialmente, transfusão de hemácias. Em casos graves ou com hipoxemia persistente, a exsanguíneotransfusão é preferível para reduzir rapidamente a porcentagem de Hemoglobina S (idealmente < 30%) sem aumentar excessivamente a viscosidade sanguínea.",
+    "option_rationales": {
+      "a": "Incorreta. A hidratação deve ser cautelosa (parcimônica) na STA para evitar edema pulmonar.",
+      "b": "Correta. Aumentar a oferta de O2 e reduzir a carga de hemácias falciformes é vital.",
+      "c": "Incorreta. A alcalinização não é conduta padrão ou eficaz para reverter a falcilização pulmonar.",
+      "d": "Incorreta. A hidroxiureia é para prevenção a longo prazo, não para o manejo do quadro agudo.",
+      "e": "Incorreta. Antibióticos são fundamentais, mas a transfusão é o diferencial na reversão da hipoxemia/vencimento da crise."
+    },
+    "difficulty": "alta",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Doença Falciforme", "STA", "Emergência", "FGV"]
+  },
+  {
+    "enunciado": "Uma mulher de 42 anos, com diagnóstico de Lúpus Eritematoso Sistêmico (LES) em atividade, queixa-se de fadiga acentuada, dispneia aos pequenos esforços e icterícia há 10 dias. Nega uso de novos medicamentos. Ao exame físico: descorada (+++/4+), icterícia esclerótica (++/4+), baço palpável a 3 cm do rebordo costal esquerdo. Exames laboratoriais: Hemoglobina 6,8 g/dL; VCM 104 fL; Reticulócitos 12%; Bilirrubina Total 3,5 mg/dL (Indireta: 2,8); DHL 1.200 U/L. O Teste de Antiglobulina Direto (Coombs Direto) é positivo para IgG e negativo para C3d. Qual a conduta inicial MAIS adequada para esta paciente?",
+    "options": {
+      "a": "Iniciar Prednisona 1 mg/kg/dia por via oral.",
+      "b": "Prescrever Ciclosporina A imediatamente.",
+      "c": "Realizar esplenectomia de urgência.",
+      "d": "Indicar Rituximabe como primeira linha de tratamento.",
+      "e": "Realizar transfusão de 2 bolsas de concentrado de hemácias filtradas."
+    },
+    "answer": "a",
+    "rationale": "A paciente apresenta Anemia Hemolítica Autoimune (AHAI) por anticorpos quentes (IgG positivo), quadro frequentemente associado ao Lúpus. O tratamento de primeira linha para AHAI por anticorpos quentes são os corticosteroides (Prednisona), que reduzem a produção de anticorpos e a depuração das hemácias sensibilizadas pelo sistema mononuclear fagocitário (baço).",
+    "option_rationales": {
+      "a": "Correta. Corticosteroides são o padrão-ouro inicial.",
+      "b": "Incorreta. Ciclosporina é droga de linha posterior.",
+      "c": "Incorreta. Esplenectomia é para casos refratários.",
+      "d": "Incorreta. Rituximabe é segunda linha.",
+      "e": "Incorreta. Transfusão deve ser evitada ao máximo pela dificuldade de compatibilização e risco de hemólise aguda."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["AHAI", "LES", "Hematologia", "FGV"]
+  },
+  {
+    "enunciado": "Um homem de 58 anos, etilista crônico, apresenta-se com astenia, epigastralgia e perda de peso de 5 kg em 3 meses. Ao exame físico: palidez cutâneo-mucosa leve e queilite angular. O hemograma demonstra Hemoglobina 9,4 g/dL; VCM 74 fL; RDW 19,2%. A dosagem de Ferro sérico revela 35 mcg/dL e Ferritina de 12 ng/mL. Sobre este caso, qual a conduta propedêutica fundamental para este paciente antes de iniciar a reposição de ferro?",
+    "options": {
+      "a": "Realizar colonoscopia e endoscopia digestiva alta.",
+      "b": "Solicitar mielograma para avaliar estoques medulares.",
+      "c": "Iniciar apenas dieta rica em carnes vermelhas e acompanhar.",
+      "d": "Prescrever ferro parenteral por 10 dias e reavaliar Hb.",
+      "e": "Pesquisar sangue oculto nas fezes em 3 amostras seriadas."
+    },
+    "answer": "a",
+    "rationale": "Em um homem de 58 anos (faixa etária de risco para câncer colorretal e gástrico) com anemia ferropriva confirmada (ferritina < 30 ng/mL) e sintomas digestivos (epigastralgia, perda de peso), a prioridade absoluta é identificar a causa da perda sanguínea. A endoscopia digestiva alta (EDA) e a colonoscopia são as ferramentas padrão para descartar neoplasias malignas ocultas do trato gastrointestinal.",
+    "option_rationales": {
+      "a": "Correta. Fundamental para descartar câncer TGI.",
+      "b": "Incorreta. Mielograma não é necessário para diagnóstico de ferropenia primária clara.",
+      "c": "Incorreta. Conduta negligente frente à suspeita de sangramento oculto.",
+      "d": "Incorreta. Tratar sem investigar a causa é erro grave em adultos/idosos.",
+      "e": "Incorreta. O teste de sangue oculto pode ser falso-negativo. Com anemia ferropriva em homem de 58 anos, a investigação endoscópica é direta."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Anemia Ferropriva", "Gastroenterologia", "Câncer", "FGV"]
+  },
+  {
+    "enunciado": "Um jovem de 19 anos apresenta episódios recorrentes de icterícia leve desde a infância, geralmente após gripes ou esforços físicos intensos. Ao exame físico: palidez leve, icterícia de escleras e baço palpável a 2 cm do rebordo costal. O laboratório mostra: Hb 11,2 g/dL; Reticulócitos 6,5%; VCM 84 fL; CHCM 38,5% (Valor de referência até 36). A hematoscopia demonstra microesferócitos compactos, sem palidez central. O Teste de Fratilidade Osmótica é positivo (aumento da fragilidade). Qual a principal proteína de membrana eritrocitária que costuma estar deficiente nesta patologia?",
+    "options": {
+      "a": "Anquirina.",
+      "b": "Glicoforina C.",
+      "c": "Proteína PIGA.",
+      "d": "Espectrina delta.",
+      "e": "Proteína 4.1."
+    },
+    "answer": "a",
+    "rationale": "O quadro é típico de Esferocitose Hereditária: anemia hemolítica crônica familiar, esplenomegalia, reticulocitose e CHCM elevado (devido à desidratação celular e perda de membrana). A mutação mais comum na esferocitose hereditária ocorre no gene da anquirina, levando a um defeito na interação entre o esqueleto de espectrina e a bicamada lipídica da hemácia, resultando na formação de esferócitos.",
+    "option_rationales": {
+      "a": "Correta. Anquirina é a deficiência proteica mais frequente.",
+      "b": "Incorreta. Glicoforinas estão envolvidas em outros fenótipos raros.",
+      "c": "Incorreta. PIGA causa HPN (adquirida).",
+      "d": "Incorreta. Mutação na espectrina ocorre, mas anquirina é a líder de frequência.",
+      "e": "Incorreta. Defeito na 4.1 causa eliptocitose hereditária."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Esferocitose Hereditária", "Hemólise Crônica", "Genética", "FGV"]
+  }
+]

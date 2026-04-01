@@ -1,0 +1,117 @@
+[
+  {
+    "enunciado": "Uma paciente de 34 anos de idade, primigesta (G1P0A0), com 22 semanas de gestação, queixa-se de cansaço extremo. O hemograma demonstra Hb 10,2 g/dL; VCM 85 fL; Ferro sérico: 45 mcg/dL; Ferritina: 15 ng/mL. Sobre a interpretação deste achado no contexto gestacional, é correto afirmar:",
+    "options": {
+      "a": "A paciente é anêmica, pois na gestação o limite para anemia no segundo trimestre é 10,5 g/dL.",
+      "b": "Não é considerada anemia, pois na gestação o valor de referência cai para Hb 10,0 g/dL.",
+      "c": "A anemia é fisiológica ('anemia dilucional') e não deve ser tratada com ferro.",
+      "d": "A ferritina de 15 ng/mL é normal para uma gestante no segundo trimestre.",
+      "e": "Deve-se realizar biópsia de medula óssea para investigar anemia refratária."
+    },
+    "answer": "a",
+    "rationale": "De acordo com a OMS e o Ministério da Saúde, os critérios para anemia na gestação variam por trimestre. No primeiro e no terceiro trimestres, o limite é 11 g/dL. No segundo trimestre, devido ao pico da expansão plasmática (diluição), o limite aceitável é 10,5 g/dL. Portanto, Hb de 10,2 g/dL com Ferritina baixa (indicando estoques depletados) configura Anemia Ferropriva real e deve ser tratada.",
+    "option_rationales": {
+      "a": "Correta. Abaixo de 10,5 no 2º tri é anemia.",
+      "b": "Incorreta. O valor de corte é 10,5.",
+      "c": "Incorreta. Existe uma diluição fisiológica, mas uma queda abaixo do ponto de corte acompanhada de ferritina baixa demanda tratamento.",
+      "d": "Incorreta. Ferritina < 30 ng/mL indica deficiência de ferro (mesmo na gestação).",
+      "e": "Incorreta. Conduta invasiva e desnecessária para diagnóstico de ferropenia gestacional."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Obstetrícia", "Anemia na Gestação", "Valores de Referência", "FGV"]
+  },
+  {
+    "enunciado": "Um homem de 72 anos apresenta-se com anemia normocítica progresiva, dor lombar e perda ponderal. Recentemente, foi detectada proteinúria significativa e insuficiência renal aguda (Creatinina 2,4 mg/dL). O mielograma revela infiltração medular de 25% por plasmócitos monoclonais. O diagnóstico principal é Mieloma Múltiplo. Qual a principal causa da anemia observada neste paciente específico?",
+    "options": {
+      "a": "Defiência de ferro por sangramento uretérico oculto.",
+      "b": "Hemólise microangiopática por depósitos de amiloide.",
+      "c": "Multifatorial: infiltração medular ('ocupação de espaço') associada à redução de eritropoetina por lesão renal.",
+      "d": "Megaloblastose por competição tumoral pelo transporte de folato.",
+      "e": "Defeito hereditário na síntese de protoporfirina mitocondrial."
+    },
+    "answer": "c",
+    "rationale": "A anemia no Mieloma Múltiplo é majoritariamente multifatorial. A infiltração da medula pelos plasmócitos (doença de ocupação) reduz o espaço para a eritropoese, e a produção excessiva de citocinas inflamatórias (IL-6) gera um componente funcional de anemia de doença crônica. Além disso, a frequente nefropatia do mieloma ('rim do mieloma') reduz a produção de eritropoetina renal, agravando o déficit de hemácias.",
+    "option_rationales": {
+      "a": "Incorreta. O quadro não é de perda sanguínea clássica.",
+      "b": "Incorreta. Amiloidose pode ocorrer no mieloma, mas não é a causa líder da anemia normativa.",
+      "c": "Correta. Infiltração medular e insuficiência renal explicam a normocitose progressiva.",
+      "d": "Incorreta. O mieloma não compete pelo folato como linfomas ou cânceres de crescimento rápido.",
+      "e": "Incorreta. Descreve anemia sideroblástica hereditária congênita."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Mieloma Múltiplo", "Onco-Hematologia", "Nefrologia", "FGV"]
+  },
+  {
+    "enunciado": "Um paciente de 25 anos, com diagnóstico de esclerose múltipla sob uso de Imunoglobulina venosa e Azatioprina, apresenta-se no pronto-socorro com quadro clínico de icterícia 'lemon-yellow', polineuropatia periférica e astenia severa. O VCM é 125 fL. O médico solicita dosagem de vitamina B12 sérica, que resulta em nível NORMAL (280 pg/mL, VR: 200-900). Apesar disso, o médico mantém a alta suspeita de deficiência de B12. Qual exame MAIS sensível para confirmar a deficiência tecidual de vitamina B12 nestes casos de níveis séricos limítrofes?",
+    "options": {
+      "a": "Dosagem de Homocisteína e Ácido Metilmalônico séricos.",
+      "b": "Biópsia de nervo periférico para análise de desmielinização.",
+      "c": "Repetição da B12 em outro laboratório para controle de qualidade.",
+      "d": "Teste de Schilling com radiotraçadores de cobalamina.",
+      "e": "Mielograma com coloração para ferro medular."
+    },
+    "answer": "a",
+    "rationale": "Em cerca de 10-15% dos pacientes com deficiência de vitamina B12, o nível sérico pode estar dentro do intervalo de referência ('falso normal'). Para confirmar a carência funcional/tecidual, devem ser solicitados os precursores metabólicos que se acumulam na ausência de B12: homocisteína (elevada na falta de B12 ou folato) e ÁCIDO METILMALÔNICO (elevado especificamente na falta de B12).",
+    "option_rationales": {
+      "a": "Correta. São os marcadores teciduais de maior acurácia.",
+      "b": "Incorreta. Método agressivo e inespecífico para o déficit vitamínico.",
+      "c": "Incorreta. Perda de tempo clínico na vigência de sintomas neurológicos graves.",
+      "d": "Incorreta. O teste de Schilling caiu em desuso e servia para identificar a 'causa' (má absorção vs falta de FI), não a carência per se.",
+      "e": "Incorreta. Corar ferro não ajuda no diagnóstico de megaloblastose."
+    },
+    "difficulty": "alta",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Anemia Megaloblástica", "Diagnóstico Laboratorial", "Metabolismo", "FGV"]
+  },
+  {
+    "enunciado": "No tratamento da anemia ferropriva, após o sucesso da reposição de ferro oral, a PRIMEIRA alteração laboratorial que sinaliza positivamente a resposta medular (costuma ocorrer entre o 5º e o 10º dia) é:",
+    "options": {
+      "a": "Aumento significativo da Hemoglobina (elevação > 2 g/dL).",
+      "b": "Aumento da contagem de reticulócitos.",
+      "c": "Normalização imediata da Ferritina sérica.",
+      "d": "Queda súbita do RDW médio por uniformidade eritrocitária.",
+      "e": "Aumento do VCM médio para valores > 100 fL."
+    },
+    "answer": "b",
+    "rationale": "Após o início da reposição de ferro em pacientes deficientes, ocorre uma precocidade na resposta medular conhecida como 'crise reticulocitária'. O aumento dos reticulócitos é observado entre 5 e 10 dias após o início do tratamento, enquanto a hemoglobina leva mais tempo (semanas) para normalizar e a ferritina demora meses para recuperar os estoques.",
+    "option_rationales": {
+      "a": "Incorreta. A Hb sobe devagar, geralmente 1-2 g/dL por mês.",
+      "b": "Correta. Reticulocitose é o marcador precoce de eritropoese efetiva pós-tratamento.",
+      "c": "Incorreta. A ferritina é o último parâmetro a se normalizar.",
+      "d": "Incorreta. O RDW pode até aumentar no início pela coexistência de hemácias velhas (micro) e novas (normais).",
+      "e": "Incorreta. O VCM tende a se normalizar, não causar macrocitose."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Anemia Ferropriva", "Protocolo Terapêutico", "Laboratório", "FGV"]
+  },
+  {
+    "enunciado": "Um homem de 35 anos queixa-se de epigastralgia crônica há 2 anos, fazendo uso frequente de omeprazol e antiácidos comprados por conta própria. Refere também dieta rigorosamente vegana há 8 anos por ideologia pessoal. O hemograma demonstra anemia com VCM de 105 fL. Sobre as causas de anemia megaloblástica neste paciente, é correto afirmar:",
+    "options": {
+      "a": "Provavelmente trata-se de deficiência de folato, já que o uso de omeprazol bloqueia sua absorção ileal.",
+      "b": "O bloqueio crônico da secreção ácida gástrica pelo omeprazol prejudica a liberação da vitamina B12 das proteínas dos alimentos.",
+      "c": "O veganismo protege contra anemia megaloblástica por excesso de ingestão de espinafre e kale.",
+      "d": "A dieta vegana por tempo prolongado (> 3-5 anos) leva à carência de vitamina B12, já que esta encontra-se apenas em fontes de origem animal.",
+      "e": "As alternativas B e D estão corretas e se somam para favorecer a carência de cobalamina.",
+    },
+    "answer": "e",
+    "rationale": "O paciente possui dois fatores clássicos para deficiência de cobalamina (B12). Primeiro, a dieta vegana estrita, uma vez que a B12 é obtida quase exclusivamente de animais (carne, ovos, leite). Devido aos estoques hepáticos generosos, essa carência leva anos para se manifestar. Segundo, o uso de IBPs (omeprazol) reduz a acidez gástrica necessária para 'soltar' a B12 da matriz alimentar, dificultando o primeiro passo de sua absorção.",
+    "option_rationales": {
+      "a": "Incorreta. Omeprazol não afeta folato de forma primária.",
+      "b": "Correta isoladamente, mas parcial.",
+      "c": "Incorreta. Veganos não ingerem B12 na dieta vegetal suficiente.",
+      "d": "Correta isoladamente, mas parcial.",
+      "e": "Correta. Combinação de privação dietética e má absorção farmacológica."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Anemia Megaloblástica", "Veganos", "IBP", "Interação Farmacológica", "FGV"]
+  }
+]

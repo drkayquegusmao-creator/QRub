@@ -1,0 +1,117 @@
+[
+  {
+    "enunciado": "Uma mulher de 64 anos com diagnóstico de câncer de ovário avançado, sob tratamento quimioterápico com carboplatina e paclitaxel, apresenta anemia Hb 8,4 g/dL. O perfil de ferro mostra ferritina 800 ng/mL e saturação de transferrina 18%. Nega sangramentos. Além da toxicidade medular direta da quimioterapia, qual fator humoral, induzido por citocinas como IL-6 produzidas pelo tumor, é o principal responsável por sequestrar o ferro medular e reduzir o estímulo à eritropoese neste cenário?",
+    "options": {
+      "a": "Hepcidina.",
+      "b": "Hipsidina.",
+      "c": "Desteína pulmonar.",
+      "d": "Ferritina solúvel.",
+      "e": "Transferrina biliar."
+    },
+    "answer": "a",
+    "rationale": "Assim como em doenças inflamatórias crônicas, o câncer estimula a produção hepática de hepcidina via IL-6. A hepcidina degrada a ferroportina, impedindo a liberação do ferro dos estoques e resultando em anemia de doença crônica coexistente com a mielossupressão da quimioterapia.",
+    "option_rationales": {
+      "a": "Correta. Hepcidina é o eixo central da anemia em quase todas as doenças crônicas/neoplásicas.",
+      "b": "Incorreta. Nome inexistente.",
+      "c": "Incorreta. Nome inexistente.",
+      "d": "Incorreta. Ferritina alta é o 'marcador' do acúmulo, mas quem 'provoca' o acúmulo é a hepcidina.",
+      "e": "Incorreta. Nome inexistente."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Oncologia", "Hepcidina", "Anemia Inflamatória", "FGV"]
+  },
+  {
+    "enunciado": "Sobre a hemoglobinúria paroxística noturna (HPN), uma complicação grave e específica que a diferencia de outras causas de hemólise intravascular e falência medular, além do risco trombótico atípico, é:",
+    "options": {
+      "a": "Associação frequente com a Anemia Aplástica.",
+      "b": "Evolução invariável para Leucemia Linfoide Aguda em 10% dos casos.",
+      "c": "Presença de esplenomegalia maciça desde o início dos sintomas.",
+      "d": "Coombs Direto positivo para IgG em 100% dos pacientes.",
+      "e": "Resistência total a qualquer forma de imunossupressão."
+    },
+    "answer": "a",
+    "rationale": "A HPN é uma doença clonal que compartilha laços fisiopatológicos com a Anemia Aplástica. Frequentemente, pacientes com Anemia Aplástica desenvolvem um clone HPN menor, e pacientes com HPN podem apresentar hipoplasia medular importante. Essa associação é uma marca diagnóstica das falências medulares clonais.",
+    "option_rationales": {
+      "a": "Correta. Síndromes de sobreposição são clássicas.",
+      "b": "Incorreta. A evolução possível é para LMA ou SMD, mas a associação com LLA não é típica.",
+      "c": "Incorreta. O baço costuma estar normal em tamanho na HPN pura.",
+      "d": "Incorreta. HPN tem Coombs negativo (hemólise por complemento sem anticorpo direto).",
+      "e": "Incorreta. Algumas formas respondem, e o transplante é opção curativa."
+    },
+    "difficulty": "alta",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["HPN", "Anemia Aplástica", "Clonalidade", "FGV"]
+  },
+  {
+    "enunciado": "Um paciente de 45 anos, etilista abusivo, apresenta-se no pronto-atendimento com mal-estar intenso e hálito cetônico. O hemograma revela Hemoglobina 10,2 g/dL; VCM 108 fL. Na análise da medula óssea, o examinador encontra vacuolização citoplasmática em precursores eritroides e mieloides, além de sideroblastos em anel. O paciente melhora rapidamente após 5 dias de abstinência e suporte vitamínico. Qual a causa provável destes sideroblastos em anel e qual o mecanismo comum com o envenenamento por chumbo?",
+    "options": {
+      "a": "Toxicidade direta do etanol e seu metabólito acetaldeído na síntese do Heme.",
+      "b": "Deficiência de B12 induzida por álcool.",
+      "c": "Sideroblastos em anel sempre indicam SMD irreversível.",
+      "d": "Falta de complexo B estimula a apoptose medular.",
+      "e": "Infeccioso por supercrescimento de microbiota biliar."
+    },
+    "answer": "a",
+    "rationale": "O álcool é um tóxico direto para as mitocôndrias e enzimas da via do Heme. A anemia sideroblástica induzida por álcool é reversível com abstinência. Tanto o álcool quanto o chumbo (saturnismo) bloqueiam passos da síntese do heme (ferroquelatase), resultando em acúmulo mitocondrial de ferro.",
+    "option_rationales": {
+      "a": "Correta. Causas reversíveis de sideroblastos em anel.",
+      "b": "Incorreta. Álcool afeta absorção de B12/Folato, mas sideroblastos não são características da megaloblastose.",
+      "c": "Incorreta. O álcool causa formas reversíveis.",
+      "d": "Incorreta. Não justifica o achado específico do sideroblasto.",
+      "e": "Incorreta. Fator totalmente sem relação e sem nexo fisiopológico."
+    },
+    "difficulty": "alta",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Alcoolismo", "Anemia Sideroblástica", "Reversibilidade", "FGV"]
+  },
+  {
+    "enunciado": "Uma paciente grávida (G1P0), 28 semanas de gestação, apresenta cãibras nos dedos dos pés e alteração no paladar (pica por gelo). O hemograma mostra Hb 10,2 g/dL. No passado, já teve diagnóstico de Anemia Ferropriva. O médico suspeita de deficiência de ferro, mas a paciente relata náuseas intensas e constipação grave com sulfato ferroso oral em doses baixas. Qual a conduta MAIS atualizada e eficaz para garantir o suporte férrico adequado nesta paciente no terceiro trimestre?",
+    "options": {
+      "a": "Insistir na via oral com aumento de dose para 'quebra de resistência'.",
+      "b": "Prescrever apenas dieta suspender todo suplemento férrico por 1 mês.",
+      "c": "Indicar ferro por via intravenosa (sacarato de hidróxido férrico ou carboximaltose).",
+      "d": "Administrar ferro intramuscular no glúteo semanalmente.",
+      "e": "Realizar transfusão de sangue simples após o parto."
+    },
+    "answer": "c",
+    "rationale": "Em gestantes com intolerância digestiva severa ao ferro oral, ou quando se deseja uma correção rápida dos estoques antes do parto (especialmente no 3º trimestre), o ferro intravenoso é seguro e eficaz. O sequestro hepcídico na gravidez também favorece a eficácia do uso parenteral em relação ao oral.",
+    "option_rationales": {
+      "a": "Incorreta. Piora a adesão e os sintomas digestivos.",
+      "b": "Incorreta. Risco fetal e materno de ferropenia grave no periparto.",
+      "c": "Correta. Padrão atual para intolerância/má absorção oral na gestação avançada.",
+      "d": "Incorreta. Ferro IM é doloroso e pode causar manchas dérmicas, sendo descontinuado pela opção IV.",
+      "e": "Incorreta. Transfusão é última reserva sintomática."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Gestação", "Ferro IV", "Intolerância TGI", "FGV"]
+  },
+  {
+    "enunciado": "Um recém-nascido a termo, com 48 horas de vida, desenvolve icterícia precoce. O hemograma demonstra policro- matofilia discreta e o teste de Coombs direto é positivo para anticorpos anti-A (Mãe Tipo O+, RN Tipo A+). Trata-se de Incompatibilidade ABO. Qual o principal tratamento para manter níveis seguros de bilirrubina e evitar o Kernicterus nesta fase?",
+    "options": {
+      "a": "Fototerapia eficaz e hidratação.",
+      "b": "Exsanguíneotransfusão em 100% dos casos.",
+      "c": "Uso profilático de ferro por via oral nas primeiras 72 horas.",
+      "d": "Corticoterapia sistêmica para reduzir hemólise imune.",
+      "e": "Administração de Imunoglobulina Anti-D semanalmente no bebê."
+    },
+    "answer": "a",
+    "rationale": "A abordagem inicial e mais comum na icterícia neonatal hemolítica leve/moderada (como por ABO) é a fototerapia. A luz ultravioleta converte a bilirrubina em isômeros solúveis que podem ser excretados. Casos graves e refratários podem exigir exsanguíneotransfusão, mas a fototerapia é o pilar terapêutico para evitar o dano neurológico (Kernicterus).",
+    "option_rationales": {
+      "a": "Correta. Tratamento primordial na neonatologia.",
+      "b": "Incorreta. Reservada para falha da fototerapia ou níveis críticos conforme as curvas de Bhutani.",
+      "c": "Incorreta. O ferro não trata icterícia ou hemólise aguda neonatal.",
+      "d": "Incorreta. Corticoides não são padrão para hemólise imune neonatal (ABO/Rh).",
+      "e": "Incorreta. Anti-D é preventivo para grávidas Rh-, não para o tratamento do RN."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Hemodinâmica Neonatal", "Kernicterus", "Icterícia", "FGV"]
+  }
+]

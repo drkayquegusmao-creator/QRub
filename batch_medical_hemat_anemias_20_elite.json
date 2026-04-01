@@ -1,0 +1,117 @@
+[
+  {
+    "enunciado": "Um adolescente de 15 anos apresenta-se com anemia megaloblástica grave (Hb 7,4 g/dL; VCM 118 fL) e distúrbios psiquiátricos/atraso cognitivo iniciados precocemente na infância. Os níveis de B12 e Folato séricos estão NORMAS. Detecta-se Homocisteinúria e Acidúria Metilmalônica massivas. O médico suspeita de um erro inato do metabolismo da cobalamina. Qual o provável diagnóstico genético e qual o suporte nutricional de altas doses recomendado para contornar o bloqueio metabólico intracelular?",
+    "options": {
+        "a": "Defeito de transporte Cubilina/Amnionless; Vitamina B12 IM semanal.",
+        "b": "Deficiência de Cobalamina C (CblC); Hidroxicobalamina IM em doses altas e Betaína.",
+        "c": "Defeito do Fator Intrínseco; Fator intrínseco oral purificado.",
+        "d": "Deficiência de Transcobalamina II; Cobre venoso.",
+        "e": "Doença Celíaca soronegativa; Dieta isenta de glúten."
+    },
+    "answer": "b",
+    "rationale": "A Deficiência de Cobalamina C (CblC) é o erro inato do metabolismo de cobalamina mais comum. Ocorre falha na conversão de B12 dietética em suas formas ativas (Metilcobalamina e Adenosilcobalamina). Isso leva ao acúmulo tanto de homocisteína quanto de ácido metilmalônico (MMA), simulando deficiência nutricional de B12, mas com níveis séricos normais ou elevados. O tratamento envolve doses gigantescas de Hidroxicobalamina e suporte metabólico com Betaína.",
+    "option_rationales": {
+        "a": "Incorreta. Conhecida como Síndrome de Imerslund-Gräsbeck (má absorção de b12), mas MMA/Homocisteína altos com B12 sérica normal apontam para defeito INTRACELULAR (CblC).",
+        "b": "Correta. Fenótipo clássico de erro inato e tratamento com doses supra-farmacológicas.",
+        "c": "Incorreta. B12 estaria baixa no soro.",
+        "d": "Incorreta. Transcobalamina II transporta no sangue, mas o problema intracellular é compatível com CblC.",
+        "e": "Incorreta. Não justifica os erros metabólicos massivos específicos da via da B12."
+    },
+    "difficulty": "alta",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["B12 metabólica", "Genética Clínica", "Pediatria", "Erro Inato", "FGV"]
+  },
+  {
+    "enunciado": "Sobre a Anemia de Mielofibrose Primária (ou Secundária), qual o achado morfológico no sangue periférico (extensão sanguínea) que sugere fortemente a ocupação medular por fibrose e a consequente hematopoese extramedular biliar e esplênica?",
+    "options": {
+        "a": "Dacriócitos (hemácias em lágrima) associados à 'leucoeritroblastose'.",
+        "b": "Esferócitos e eritrócitos agrupados em rouleaux.",
+        "c": "Dranpócitos em forma de foice.",
+        "d": "Acantócitos e hemácias em alvo (target cells).",
+        "e": "Bite cells (hemácias em mordida)."
+    },
+    "answer": "a",
+    "rationale": "Na mielofibrose, a arquitetura da medula é destruída por fibras de colágeno, forçando as hemácias a se espremerem para sair para a circulação, o que gera os dacriócitos (lágrimas). Simultaneamente, a hematopoese 'vaza' precursores para o sangue (eritroblastos e mielócitos/metamielócitos), fenômeno denominado leucoeritroblastose, indicando fuga da barreira medular.",
+    "option_rationales": {
+        "a": "Correta. Tríade morfológica de infiltração/fibrose medular.",
+        "b": "Incorreta. Rouleaux sugere gamopatia monoclonal.",
+        "c": "Incorreta. Foice é da doença falciforme.",
+        "d": "Incorreta. Target cells sugerem hepatopatia ou hemoglobinopatia C/E.",
+        "e": "Incorreta. Mordidas são da lise oxidativa (G6PD)."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Mielofibrose", "Morfologia", "Onco-Hematologia", "FGV"]
+  },
+  {
+    "enunciado": "Um paciente de 45 anos com insuficiência renal crônica dialítica (estágio 5) apresenta anemia resistente à dose máxima de eritropoetina. Ao exame físico: palidez e pigmentação cutânea acinzentada. O perfil de ferro revela: Ferritina 2.500 ng/mL e Saturação de transferrina 85%. Refere histórico de mais de 100 transfusões de concentrado de hemácias nos últimos 5 anos. Qual a complicação deste excesso transfusional e qual o tratamento inicial preferencial, considerando o perigo da sobrecarga de ferro?",
+    "options": {
+        "a": "Hemocromatose Secundária (Transfusional); Quelação de ferro com Deferasirox oral.",
+        "b": "Hemólise mecânica; Troca dos filtros da hemodiálise.",
+        "c": "Anemia Aplástica reacional; Transplante de medula.",
+        "d": "Policitemia relativa; Sangrias terapêuticas quinzenais.",
+        "e": "Deficiência de Selênio; Multivitamínicos endovenosos."
+    },
+    "answer": "a",
+    "rationale": "Pacientes multi-transfundidos desenvolvem sobrecarga de ferro secundária em órgãos vitais (coração, fígado, glândulas). Diferente da hemocromatose hereditária, não se pode fazer sangria/flebotomia se o paciente já é anêmico (casos de talassemia ou anemia falciforme). Deve-se utilizar quelantes de ferro que facilitem a excreção urinária e fecal do excesso mineral, como o Deferasirox (oral) ou Deferoxamina (SC/IV).",
+    "option_rationales": {
+        "a": "Correta. Tratamento de escolha para sobrecarga secundária em anêmicos.",
+        "b": "Incorreta. Não reduz o estoque corporal de ferro.",
+        "c": "Incorreta. Sobrecarga causa fibrose mas não aplasia pura reversível.",
+        "d": "Incorreta. Sangrias em pacientes já anêmicos e dependentes de transfusão agravam o quadro clínico e hipóxia.",
+        "e": "Incorreta. Não existe nexo fisiopatológico no quadro descrito."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Hemocromatose Secundária", "Transfusão Crônica", "Quelação", "Hematologia", "FGV"]
+  },
+  {
+    "enunciado": "Um paciente de 25 anos com diagnóstico de Esferocitose Hereditária queixa-se de dor em hipocôndrio direito crônica e episódios de icterícia biliar obstrutiva (colúria e acolia). O exame de imagem revela colelitíase (pedra na vesícula). Qual a composição química predominante desses cálculos biliares nestes pacientes com hemólise crônica e qual a conduta profilática cirúrgica discutida durante a esplenectomia?",
+    "options": {
+        "a": "Cálculos de Billirrubinato de Cálcio (Pigmentares); Realizar colecistectomia profilática no mesmo tempo cirúrgico.",
+        "b": "Cálculos de Colesterol puro; Prescrever apenas dieta pobre em gorduras.",
+        "c": "Cálculos de Oxalato; Suplementação de Cálcio oral.",
+        "d": "Cálculos de Estrutivita; Tratamento com antibióticos.",
+        "e": "Ausência de cálculos; Dor apenas pelo volume esplênico."
+    },
+    "answer": "a",
+    "rationale": "A hemólise crônica eleva a bilirrubina indireta, que ao ser conjugada em excesso no fígado e excretada, precipita como bilirrubinato de cálcio, formando cálculos biliares pigmentares pretos. A colelitíase é muito frequente em crianças e adultos com hemólise crônica. Durante a esplenectomia para tratamento da esferocitose, recomenda-se a colecistectomia se já houver cálculos confirmados por imagem.",
+    "option_rationales": {
+        "a": "Correta. Bioquímica dos cálculos na hemólise.",
+        "b": "Incorreta. Cálculos de colesterol são da obesidade/dieta/gênero, não hemólise.",
+        "c": "Incorreta. Oxalato é da via urinária.",
+        "d": "Incorreta. Estrutivita associa-se a bactérias urease-positivas na urina.",
+        "e": "Incorreta. Condição clássica e perigosa na hemólise crônica."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Litiase Biliar", "Esferocitose", "Hematologia Cirúrgica", "Circulação de Bilirrubinas", "FGV"]
+  },
+  {
+    "enunciado": "Um homem de 50 anos, lavrador, apresenta quadro de 'geofagia' (desejo de comer terra) e cansaço. O hemograma demonstra anemia hipocrômica e microcítica extrema (Hb 6,2 g/dL; VCM 64 fL), acompanhada de eosinofilia persistente (12-15%). O exame parasitológico de fezes revela ovos de helmintos. Qual a principal causa infecciosa da anemia ferropriva neste contexto e qual o mecanismo causal parasitário direto?",
+    "options": {
+        "a": "Ancylostoma duodenale / Necator americanus; Hemofagia parasitaria e sangramento intestinal por laceração na mucosa.",
+        "b": "Ascaris lumbricoides; Obstrução mecânica da ampola de Vater.",
+        "c": "Taenia solium; Consumo de vitamina B12 no íleo terminal.",
+        "d": "Schistosoma mansoni; Hipertensão portal e hiperesplenismo.",
+        "e": "Giardia lamblia; Degradação de hepcidina biliar."
+    },
+    "answer": "a",
+    "rationale": "A Ancilostomíase ('Amarelão') é a causa clássica de anemia ferropriva por sangramento gastrointestinal prolongado em áreas endêmicas com saneamento precário. O verme ancora na mucosa do intestino delgado e suga sangue para sua nutrição, além de causar micro-sangramentos contínuos. A eosinofilia associada reforça a hipótese de helmintíase invasiva.",
+    "option_rationales": {
+        "a": "Correta. Mecanismo de carência de ferro por parasitose intestinal.",
+        "b": "Incorreta. Áscaris não causa sangramento crônico/ferropenia tipicamente.",
+        "c": "Incorreta. Diphyllobothrium latum é que consome B12 e causa macrocitose.",
+        "d": "Incorreta. Causa esplenomegalia congestiva e pancitopenia.",
+        "e": "Incorreta. Giardia causa má absorção proximal (folato/ferro), mas não sangramento ativo macroscópico."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Ancilostomíase", "Saúde Pública", "Ferropenia", "Infectologia", "FGV"]
+  }
+]

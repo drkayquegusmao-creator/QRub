@@ -1,0 +1,117 @@
+[
+  {
+    "enunciado": "Uma criança de 4 anos de idade apresenta quadro de diarréia sanguinolenta (colite) iniciada há 6 dias. Atualmente, apresenta palidez súbita, oligoanúria e petéquias em tronco. O hemograma demonstra Hb 7,2 g/dL; Plaquetas 25.000/mm³ e LDH 1.800 U/L. Na hematoscopia, é observada presença de numerosos ESQUIZÓCITOS (hemácias fragmentadas). O teste de Coombs Direto é NEGATIVO. Qual o diagnóstico e qual o agente etiológico mais comumente envolvido neste cenário pós-disentérico?",
+    "options": {
+        "a": "Síndrome Hemolítico-Urêmica (SHU); Escherichia coli O157:H7 (Toxina Shiga).",
+        "b": "Púrpura Trombocitopênica Trombótica (PTT); Anticorpo anti-ADAMTS13.",
+        "c": "Coagulação Intravascular Disseminada (CIVD); Sepsis estafilocócica.",
+        "d": "Deficiência de Vitamina B12; Gastrite autoimune.",
+        "e": "Infecção por Dengue Hemorrágica; Vírus da Dengue."
+    },
+    "answer": "a",
+    "rationale": "A Síndrome Hemolítico-Urêmica (SHU) típica é uma complicação de infecções intestinais por produtores de Shiga-toxina (E. coli ou Shigella). A tríade é: Anemia Hemolítica Microangiopática (com muitos esquizócitos e Coombs negativo), Trombocitopenia por consumo e Insuficiência Renal Aguda. É o diagnóstico clássico após diarréia sanguinolenta na pediatria.",
+    "option_rationales": {
+        "a": "Correta. Tríade da SHU e agente colônico comum.",
+        "b": "Incorreta. PTT é comum em adultos e tem envolvimento neurológico predominante e deficiência de enzima.",
+        "c": "Incorreta. CIVD apresentaria alargamento importante de tempos de coagulação (TP/TTPa).",
+        "d": "Incorreta. B12 causa megaloblastose, não microangiopatia.",
+        "e": "Incorreta. Dengue causa plaquetopenia e aumento de permeabilidade, mas não hemólise microangiopática franca com esquizocitose maciça."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["SHU", "Esquizócitos", "Pediatria", "Nefrologia", "FGV"]
+  },
+  {
+    "enunciado": "Sobre a Púrpura Trombocitopênica Trombótica (PTT), doença caracterizada pela deficiência da enzima ADAMTS13, qual o tratamento de EMERGÊNCIA de escolha que deve ser instituído para remover os multímeros ultragrandes de fator de von Willebrand e repor a enzima funcional?",
+    "options": {
+        "a": "Plasmaférese terapêutica e pulsoterapia com corticoides.",
+        "b": "Transfusão de plaquetas de emergência para elevar plaquetas > 50.000.",
+        "c": "Esplenectomia de urgência.",
+        "d": "Administração de Ferro parenteral isolada.",
+        "e": "Rituximabe como primeira e única escolha sem necessidade de troca plasmática."
+    },
+    "answer": "a",
+    "rationale": "A PTT é uma emergência hematológica fatal se não tratada. A plasmaférese (troca plasmática) é o sustentáculo do tratamento, pois remove autoanticorpos anti-ADAMTS13 e repõe a enzima funcional fornecida pelo plasma do doador. A transfusão de plaquetas é CONTRAINDICADA na PTT (exceto em sangramentos fatais) pois pde 'alimentar o fogo' da microtrombose, agravando a doença.",
+    "option_rationales": {
+        "a": "Correta. Plasmaférese é salvadora de vida na PTT.",
+        "b": "Incorreta. Transfusão de plaquetas na PTT é perigosa e associada a desfechos ruins.",
+        "c": "Incorreta. Esplenectomia não trata a deficiência enzimática plasática.",
+        "d": "Incorreta. Sem relação com ferropenia.",
+        "e": "Incorreta. Rituximabe é adjuvante em casos refratários ou graves, mas a troca plasmática é prioritária."
+    },
+    "difficulty": "alta",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["PTT", "ADAMTS13", "Emergência Hematológica", "Plasmaférese", "FGV"]
+  },
+  {
+    "enunciado": "Um homem de 52 anos apresenta anemia progressiva e dor nos flancos. O hemograma demonstra anemia com 12% de reticulócitos e presença de esquizócitos. DHL 2.200 U/L. O exame de imagem revela uma massa renal de 8 cm. Qual a síndrome paraneoplásica hemolítica que pode ocorrer em tumores sólidos potentes, onde a rede microvascular tumoral fragmenta as hemácias circulantes?",
+    "options": {
+        "a": "Anemia Hemolítica Microangiopática Paraneoplásica.",
+        "b": "Anemia Sideroblástica Paraneoplásica.",
+        "c": "Doença das Crioaglutininas por tumor renal.",
+        "d": "Eritrocitose Paraneoplásica.",
+        "e": "Anemia de Doença Crônica do Rim."
+    },
+    "answer": "a",
+    "rationale": "Adenocarcinomas gástricos, pancreáticos e ocasionalmente renais podem gerar uma anemia hemolítica microangiopática por fragmentação eritroide na vasculatura tumoral anômala ou por coagulação intravascular disseminada crônica subclínica. Note que o tumor renal comumente causa eritrocitose (por produção biliar de EPO), mas se houver invasão vascular maciça ou metástases, a microangiopatia é uma complicação rara e documentada.",
+    "option_rationales": {
+        "a": "Correta. Paraneoplasia hematológica por microangiopatia.",
+        "b": "Incorreta. Sideroblastos não são características de destruição vascular.",
+        "c": "Incorreta. Crioaglutininas são mais comuns em linfomas B ou infecções.",
+        "d": "Incorreta. Tumores renais costumam causar eritrocitose; a anemia com esquizócitos aponta para a microangiopatia de gravidade.",
+        "e": "Incorreta. Doença crônica é normocitária e hiporegenerativa (reticulócitos baixos)."
+    },
+    "difficulty": "alta",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Oncologia", "Microangiopatia", "Tumor Renal", "Fragmentação Eritroide", "FGV"]
+  },
+  {
+    "enunciado": "Sobre a Anemia Sideroblástica, qual o padrão esperado na coloração de Perls (Azul da Prússia) no mielograma e qual a localização intracelular EXATA do ferro que forma os sideroblastos em anel?",
+    "options": {
+        "a": "Depósitos de Ferro no interior das Mitocôndrias dispostas ao redor do núcleo do eritroblasto.",
+        "b": "Depósitos de Ferritina no interior dos Lisossomos citoplasmáticos.",
+        "c": "Depósitos de Hemosiderina no interior dos Cloroplastos celulares.",
+        "d": "Acúmulo de heme na membrana nuclear.",
+        "e": "Cálculo de cálcio nos Golgi."
+    },
+    "answer": "a",
+    "rationale": "Sideroblastos em anel são precursores eritroides onde o ferro, não sendo inserido na protoporfirina (falha na via do heme), acumula-se primariamente nas mitocôndrias. Estas mitocôndrias sobrecarregadas se organizam espacialmente ao redor do núcleo da célula, visíveis como uma 'coroa' ou 'anel' azul após a reação de Perls.",
+    "option_rationales": {
+        "a": "Correta. Ultraestrutura e bioquímica celular da sideroblastose.",
+        "b": "Incorreta. Ferritina não forma esse padrão em anel.",
+        "c": "Incorreta. Células animais não contêm cloroplastos.",
+        "d": "Incorreta. O ferro está na mitocôndria, não na membrana nuclear.",
+        "e": "Incorreta. Incorreto."
+    },
+    "difficulty": "alta",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Bioquímica Celular", "Mitocôndria", "Sideroblastose", "Mielograma", "FGV"]
+  },
+  {
+    "enunciado": "A Porfíria Cutânea Tarda (PCT) pode apresentar-se associada à sobrecarga de ferro hepático. Qual a mutação genética da Hemocromatose Hereditária que deve ser pesquisada preventivamente nestes pacientes com PCT no Brasil?",
+    "options": {
+        "a": "Mutação C282Y e H63D no gene HFE.",
+        "b": "Mutação JAK2 V617F.",
+        "c": "Mutação no gene da Beta-globina.",
+        "d": "Mutação no gene SMAD4.",
+        "e": "Mutação BRCA1."
+    },
+    "answer": "a",
+    "rationale": "Existe uma forte associação entre a PCT e mutações no gene HFE. A sobrecarga de ferro é um potente inibidor da enzima uroporfirinogênio descarboxilase (UROD). Quase um terço dos pacientes com PCT apresentam pelo menos uma cópia das mutações do HFE. A flebotomia é útil tanto para a hemocromatose quanto para a própria remissão da PCT.",
+    "option_rationales": {
+        "a": "Correta. Rastreio genético indicado na PCT com sobrecarga férrica.",
+        "b": "Incorreta. Mutação da Policitemia Vera.",
+        "c": "Incorreta. Mutação da anemia falciforme/talassemia.",
+        "d": "Incorreta. Mutação da polipose juvenil.",
+        "e": "Incorreta. Mutação ligada a câncer de mama e ovário."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["HFE", "Hepatologia", "Porfíria", "Genética", "FGV"]
+  }
+]

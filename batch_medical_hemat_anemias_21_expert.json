@@ -1,0 +1,117 @@
+[
+  {
+    "enunciado": "Um paciente de 35 anos apresenta quadro de astenia e icterícia leve há 1 mês. O hemograma revela Hb 9,2 g/dL; VCM 104 fL; Reticulócitos 12%; Bilirrubina Indireta 2,8 mg/dL; DHL 950 U/L. O teste de Coombs Direto é POSITIVO para IgG e NEGATIVO para C3d. Relata estar em tratamento para Pneumonia com Amoxicilina e Ácido Clavulânico iniciado há 10 dias. Qual o provável diagnóstico e qual o mecanismo imuno-hemolítico envolvido?",
+    "options": {
+        "a": "Anemia Hemolítica Autoimune por anticorpos quentes; Lise esplênica por fagocitose (Hapteno-adherência).",
+        "b": "Anemia Hemolítica por Crioaglutininas; Lise por complemento a frio.",
+        "c": "Deficiência de G6PD desencadeada pelo clavulanato; Lise oxidativa.",
+        "d": "Hemoglobinúria Paroxística Noturna; Falta de CD55/CD59.",
+        "e": "Doença de Wilson aguda; Toxicidade mitocondrial direta."
+    },
+    "answer": "a",
+    "rationale": "Anemias hemolíticas induzidas por drogas podem ocorrer por diferentes mecanismos. O mecanismo de hapteno (como nas penicilinas) envolve o fármaco se ligando à membrana eritrocitária e tornando-se o alvo de anticorpos IgG. Esses eritrócitos sensibilizados por IgG são removidos por macrófagos no baço, o que justifica o Coombs IgG positivo e a hemólise extravascular.",
+    "option_rationales": {
+        "a": "Correta. Mecanismo imune induzido por droga (penicilina/derivados).",
+        "b": "Incorreta. Crioaglutininas (IgM) têm Coombs C3d positivo.",
+        "c": "Incorreta. G6PD teria Coombs negativo e presença de Heinz bodies.",
+        "d": "Incorreta. HPN tem Coombs negativo.",
+        "e": "Incorreta. Wilson tem Coombs negativo em cerca de 40-50% dos casos e BI muito alta sem sinal imune."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["AHAI induzida por Drogas", "Amoxicilina", "Imunologia Hematológica", "FGV"]
+  },
+  {
+    "enunciado": "Um paciente de 48 anos com histórico de câncer de pulmão metástatico em tratamento paliativo apresenta cansaço progressivo. Hemograma: Hb 8,8 g/dL; VCM 88 fL; Reticulócitos 0,6%. O perfil de ferro mostra: Ferritina 850 ng/mL e Ferro sérico 35 mcg/dL. Foram excluídas carências de B12 e Folato. Qual o racional terapêutico para o uso de Agentes Estimuladores da Eritropoese (ESA) em pacientes oncológicos nestas condições e qual o risco trombótico associado?",
+    "options": {
+        "a": "Indicado se Hb < 10 g/dL para reduzir a necessidade de transfusões e melhorar qualidade de vida; Risco aumentado de tromboembolismo venoso.",
+        "b": "Indicado para todos os pacientes oncológicos para atingir Hb > 12 g/dL profilaticamente.",
+        "c": "Contraindicado em pacientes com câncer devido ao risco de progressão tumoral imediata.",
+        "d": "Usado se houver insuficiência renal aguda secundária ao tumor.",
+        "e": "O ferro parenteral deve ser evitado se usar ESA em oncologia."
+    },
+    "answer": "a",
+    "rationale": "O uso de ESA (Epoetina ou Darbepoetina) em oncologia tem indicações precisas. É recomendado quando a quimioterapia provoca anemia moderada/grave (Hb < 10) para evitar o risco de transfusões sucessivas. Entretanto, o uso de EPO no câncer foi associado a um risco aumentado de eventos tromboembólicos (como TVP/TEP) e sobrevida reduzida em alguns tumores específicos devido aos receptores de EPO presentes nas células tumorais.",
+    "option_rationales": {
+        "a": "Correta. Protocolo terapêutico e efeito adverso majoritário.",
+        "b": "Incorreta. Alvos de Hb > 12 em oncologia aumentam muito o risco cardiovascular/trombótico.",
+        "c": "Incorreta. Não é contraindicado, mas tem riscos que exigem discussão de riscos/benefícios.",
+        "d": "Incorreta. Esta é a indicação clássica em nefrologia.",
+        "e": "Incorreta. A reposição de ferro concomi- tante muitas vezes é necessária para a resposta ao ESA em oncologia."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Oncologia", "Eritropoetina", "Trombose", "Anemia do Câncer", "FGV"]
+  },
+  {
+    "enunciado": "Sobre as causas de 'pseudopolice- temia' ou policitemia relativa (Gaisböck), qual o achado laboratorial e o perfil epidemiológico clássico associado?",
+    "options": {
+        "a": "Redução do volume plasmático com massa eritrocitária total normal; Homens obesos, hipertensos e estressados.",
+        "b": "Aumento real da massa eritrocitária por mutação JAK2; Mulheres jovens e magras.",
+        "c": "Perda de genes talassêmicos; Residentes em grandes altitudes.",
+        "d": "Aumento de bilirrubinas na urina; Atletas de alta performance.",
+        "e": "Mielodisplasia RAEB-1; Idosos tabagistas."
+    },
+    "answer": "a",
+    "rationale": "A síndrome de Gaisböck ou policitemia relativa ocorre por hemoconcentração (redução do volume plasmático) e não por aumento real da produção de hemácias. É observada em homens obesos, hipertensos e ansiosos ('estresse'). O hematócrito está elevado (> 50-52%) mas a massa celular total é normal.",
+    "option_rationales": {
+        "a": "Correta. Definição fisiopatológica e perfil clínico.",
+        "b": "Incorreta. Isso descreveria Policitemia Vera (real).",
+        "c": "Incorreta. Hipóxia de altitude causa policitemia secundária real.",
+        "d": "Incorreta. Hematócrito de atletas via EPO ou doping é real.",
+        "e": "Incorreta. Mielodisplasia costuma cursar com citopenias, não policitemia."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Policitemia Relativa", "Hipertensão", "Síndrome de Gaisböck", "FGV"]
+  },
+  {
+    "enunciado": "Um paciente de 40 anos com histórico de lúpus eritematoso sistêmico (LES) apresenta anemia severa dependente de transfusão com Coombs Direto NEGATIVO. O mielograma revela ausência quase total de precursores eritroides, com maturação normal de granulócitos e plaquetas. Qual o diagnóstico e qual o anticorpo alvo que pode estar envolvido nesta aplasia pura de células vermelhas (PRCA) associada a doenças autoimunes ou timoma?",
+    "options": {
+        "a": "Aplasia Pura de Células Vermelhas (PRCA); Anticorpos Anti-EPO ou linfócitos T citotóxicos contra proeritroblastos.",
+        "b": "Anemia de Fanconi adquirida; Anti-DNA.",
+        "c": "Pancitopenia lupídica; Anti-Plaqueta.",
+        "d": "Leucemia Linfoide Aguda; Anti-Leucócito.",
+        "e": "Anemia Hemolítica; Anti-Hemácia IgG."
+    },
+    "answer": "a",
+    "rationale": "A aplasia pura de células vermelhas (PRCA) é uma condição rara onde ocorre a cessação seletiva da eritropoese medular. Pode ser congênita (Diamond-Blackfan) ou adquirida associada a timoma, doenças autoimunes (LES), Parvovírus B19 ou medicamentos. O mecanismo envolve imunidade celular (CD8+) ou humoral dirigida especificamente aos precursores eritroides.",
+    "option_rationales": {
+        "a": "Correta. Diagnóstico e imuno-patologia.",
+        "b": "Incorreta. Fanconi é genética.",
+        "c": "Incorreta. LES causa pancitopenia por destruição periférica ou aplasia total, mas a PRCA é seletiva eritroide.",
+        "d": "Incorreta. Patologia infiltrativa neoplásica.",
+        "e": "Incorreta. Hemólise teria Coombs positivo e reticulocitose intensa."
+    },
+    "difficulty": "alta",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["PRCA", "Lúpus", "Aplasia Pura", "Imunologia Hematológica", "FGV"]
+  },
+  {
+    "enunciado": "A Porfíria Intermitente Aguda (PIA) pode levar a uma complicação eletrolítica grave devido à lesão hipotalâmica durante a crise aguda. Qual o distúrbio metabólico mais comum e potencialmente fatal se não corrigido?",
+    "options": {
+        "a": "Hiponatremia por Secreção Inapropriada de Hormônio Antidiurético (SIADH).",
+        "b": "Hipercalemia por rabdomiólise.",
+        "c": "Hipocalcemia por má absorção.",
+        "d": "Hipernatremia por desidratação osmótica.",
+        "e": "Acidose metabólica com anion-gap elevado."
+    },
+    "answer": "a",
+    "rationale": "Crises agudas de porfíria frequentemente cursam com hiponatremi (baixa do sódio) por dois mecanismos: perdas gastrointestinais (vômitos) e, mais especificamente, a SIADH (Secreção Inapropriada de ADH) causada pela toxicidade dos precursores de porfirina (ALA e PBG) no hipotálamo/neuro-hipófise. A hiponatremia grave pode provocar convulsões e piorar o estado neurológico do paciente.",
+    "option_rationales": {
+        "a": "Correta. SIADH e hiponatremia na PIA.",
+        "b": "Incorreta. PIA não é causa direta de rabdomiólise massiva.",
+        "c": "Incorreta. Não existe nexo primário na crise.",
+        "d": "Incorreta. O excesso de ADH causa retenção de água livre e diluição do sódio (hiponatremia).",
+        "e": "Incorreta. O distúrbio hidroeletrolítico é a marca registrada."
+    },
+    "difficulty": "alta",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["PIA", "SIADH", "Sódio", "Endocrinologia Hematológica", "FGV"]
+  }
+]

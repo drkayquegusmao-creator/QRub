@@ -1,0 +1,71 @@
+[
+  {
+    "enunciado": "Uma mulher de 29 anos, recém-chegada de uma viagem de aventura pelo Sudeste Asiático, apresenta mal estar geral, febre diária e epigastralgia. Foi diagnosticada com Giardíase e está realizando tratamento com metronidazol. O hemograma demonstra Hb 10,8 g/dL; VCM 106 fL; RDW 15,1%. Ferro sérico e Ferritina estão nos limites superiores da normalidade. A haptoglobina é normal. Nega sintomas neurológicos. Diante do quadro de macrocitose assintomática e da patologia gastrointestinal concomitante, qual a deficiência vitamínica de ESTOQUE CURTO que costuma ser afetada por processos disabsortivos proximais e parasitoses como a giardíase?",
+    "options": {
+      "a": "Deficiência de Ácido Fólico (Folato).",
+      "b": "Deficiência de Cobalamina (Vitamina B12).",
+      "c": "Deficiência de Vitamina K.",
+      "d": "Deficiência de Vitamina D.",
+      "e": "Deficiência de Zinco e Selênio."
+    },
+    "answer": "a",
+    "rationale": "O folato é absorvido predominantemente no jejuno proximal. Condições que causam inflamação dessa área (como giardíase, doença celíaca ou enteropatia por HIV) podem levar à má absorção aguda de folato. Como os estoques corporais de folato são pequenos (duram semanas, ao contrário da B12 que dura anos), a macrocitose surge de forma mais precoce em casos disabsortivos.",
+    "option_rationales": {
+      "a": "Correta. Folato tem estoque curto e absorção proximal prejudicada em giardíase.",
+      "b": "Incorreta. B12 é absorvida no íleo terminal e tem estoques masivos.",
+      "c": "Incorreta. Vit K causa sangramento, não macrocitose.",
+      "d": "Incorreta. Vit D causa osteomalácia, não anemia megaloblástica.",
+      "e": "Incorreta. Minerais não causam esse padrão de macrocitose isolada."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Folato", "Infectologia", "Gastroenterologia", "FGV"]
+  },
+  {
+    "enunciado": "Um paciente de 48 anos, assintomático, realiza exames ocupacionais. O hemograma revela Hemoglobina de 18,5 g/dL; Hematócrito 56%; Leucócitos 12.500/mm³ e Plaquetas 550.000/mm³. Foram descartadas causas de policitemia secundária (não fumante, SatO2 normal, sem tumores renais). A pesquisa da mutação JAK2 V617F é positiva e o nível de Eritropoetina sérica está ABAIXO do valor de referência. Qual o diagnóstico e qual a principal complicação aguda que esse paciente corre risco imediato?",
+    "options": {
+      "a": "Policitemia Vera; Trombose (AVE ou IAM).",
+      "b": "Leucemia Mieloide Crônica; Crise Blástica.",
+      "c": "Anemia de Doença Crônica Mascarada; Infecção Grave.",
+      "d": "Policitemia Relativa; Desidratação Grave.",
+      "e": "Trombocitemia Essencial; Sangramento Mucoso."
+    },
+    "answer": "a",
+    "rationale": "A Policitemia Vera (PV) é uma neoplasia mieloproliferativa crônica caracterizada pelo aumento da massa eritrocitária independente da eritropoetina (por isso o nível de EPO é baixo). A mutação JAK2 é marcador fundamental. O risco imediato é a síndrome de hiperviscosidade sanguínea, que predispõe a eventos trombóticos graves como o Acidente Vascular Encefálico (AVE) ou Infarto Agudo do Miocárdio (IAM).",
+    "option_rationales": {
+      "a": "Correta. Diagnóstico clássico e risco de trombose por hiperviscosidade.",
+      "b": "Incorreta. LMC apresenta leucocitose maciça e trombocitose, mas não tipicamente policitemia isolada com JAK2.",
+      "c": "Incorreta. Não existe este conceito para o quadro.",
+      "d": "Incorreta. Policitemia relativa não tem mutação JAK2 nem EPO baixa.",
+      "e": "Incorreta. Na PV as plaquetas podem estar discretamente altas, mas o destaque é a hemoglobina/hematócrito."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Policitemia Vera", "Trombose", "JAK2", "FGV"]
+  },
+  {
+    "enunciado": "Uma adolescente de 15 anos apresenta quadro de febre, prostração, gengivorragia e dor óssea há 2 semanas. O hemograma revela Hb 7,0 g/dL; Plaquetas 25.000/mm³ e Leucócitos 85.000/mm³ (com presença de 90% de blastos agranulares, pequeno a médio tamanho, com citoplasma escasso, relação núcleo/citoplasma aumentada e nucléolos inconspícuos). A imunofenotipagem revela positividade para CD10 (CALLA), CD19 e TdT. Trata-se de uma Leucemia Linfoide Aguda (LLA). Qual o seu prognóstico hematológico básico e o regime terapêutico geralmente inicial em pediatria?",
+    "options": {
+      "a": "Prognóstico bom (> 80% cura); Poliquimioterapia sistêmica com profilaxia de SNC.",
+      "b": "Prognóstico excelente (> 95% cura); Transplante de Medula Óssea imediato como primeira escolha.",
+      "c": "Prognóstico reservado (< 30% cura); Radioterapia de corpo inteiro apenas.",
+      "d": "Prognóstico ruim; Uso isolado de corticoides orais.",
+      "e": "Prognóstico instável; Observação clínica vigilante (Watch and Wait)."
+    },
+    "answer": "a",
+    "rationale": "A LLA é a neoplasia malígna mais comum na infância. Os blastos com CD10+ (CALLA) e CD19+ indicam origem em precursores B common. Na pediatria, o prognóstico de cura é muito bom. O tratamento envolve fases de indução, consolidação e manutenção, sendo obrigatória a profilaxia do Sistema Nervoso Central (devido ao risco de recaída em 'santuários' não atingidos pela quimioterapia convencional).",
+    "option_rationales": {
+      "a": "Correta. Bom prognóstico infantil e profilaxia SNC é vital.",
+      "b": "Incorreta. TMO não é primeira linha a menos que haja fatores de alto risco (ex: Philadelphia +).",
+      "c": "Incorreta. A cura é elevada na LLA infantil.",
+      "d": "Incorreta. Corticoides fazem parte do regime, mas não de forma isolada.",
+      "e": "Incorreta. LLA requer tratamento imediato."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["LLA", "Onco-Pediatria", "Profilaxia SNC", "CD10", "FGV"]
+  }
+]

@@ -1,0 +1,117 @@
+[
+  {
+    "enunciado": "Um homem de 48 anos, assintomático, descobre em exames admissionais níveis elevados de ferritina (950 ng/mL) e saturação de transferrina de 72%. Nega etilismo ou hepatopatias prévias. O exame físico revela leve hiperpigmentação cutânea ('diabetes bronzeado') e artralgia em articulações metacarpofalangeanas. O teste genético confirma homozigose para a mutação C282Y no gene HFE. Qual a principal complicação visceral que deve ser rastreada por imagem (Ressonância Magnética T2*) e qual a base do tratamento para evitar a progressão da lesão de órgãos-alvo?",
+    "options": {
+      "a": "Cirrose hepática e Carcinoma Hepatocelular; Flebotomia terapêutica.",
+      "b": "Fibrose Pulmonar; Corticoterapia em pulsoterapia.",
+      "c": "Glomerulonefrite proliferativa; Ciclofosfamida.",
+      "d": "Insuficiência Pancreática Exócrina; Reposição enzimática.",
+      "e": "Cardiomiopatia Hipertrófica; Beta-bloqueadores isolados."
+    },
+    "answer": "a",
+    "rationale": "O paciente apresenta Hemocromatose Hereditária clássica (mutação C282Y). A sobrecarga crônica de ferro lesa principalmente o fígado (risco de cirrose e CHC), pâncreas (diabetes) e coração. A RM T2* é o exame de escolha para quantificar o depósito de ferro tecidual. O tratamento padrão é a flebotomia (sangria) para remover o excesso de ferro e normalizar a ferritina e a saturação de transferrina.",
+    "option_rationales": {
+      "a": "Correta. Rastreio de CHC e tratamento com sangria.",
+      "b": "Incorreta. Pulmão não é alvo primário da hemocromatose.",
+      "c": "Incorreta. Não há associação com glomerulonefrites.",
+      "d": "Incorreta. A lesão pancreática gera diabetes (endócrino), não insuficiência exócrina predominante.",
+      "e": "Incorreta. A lesão cardíaca gera cardiomiopatia restritiva ou dilatada, mas a sangria é o tratamento causal."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Hemocromatose", "Sobrecarga de Ferro", "Genética", "FGV"]
+  },
+  {
+    "enunciado": "Uma criança de 6 anos, com diagnóstico de Anemia Falciforme (SS), trazida ao pronto-socorro com quadro súbito de fraqueza, palidez extrema e aumento rápido do volume abdominal há 3 horas. Ao exame físico: taquicárdica (130 bpm), hipotensa (70/40 mmHg) e baço palpável a 8 cm do rebordo costal esquerdo (previamente não era palpável). O hemograma mostra queda drástica da hemoglobina (de 8,0 para 3,8 g/dL) e reticulocitose intensa (15%). Qual a complicação aguda e a conduta imediata mandatória?",
+    "options": {
+      "a": "Crise Aplástica por Parvovírus; Transfusão de plaquetas.",
+      "b": "Crise de Sequestro Esplênico; Expansão volêmica cautelosa e transfusão de hemácias emergencial.",
+      "c": "Síndrome Torácica Aguda; Antibioticoterapia de amplo espectro.",
+      "d": "Crise de Hemólise Hiperaguda; Corticoterapia endovenosa.",
+      "e": "Invaginação Intestinal; Cirurgia pediátrica de urgência."
+    },
+    "answer": "b",
+    "rationale": "O sequestro esplênico é uma emergência hematológica na doença falciforme pediátrica. O baço \"sequestra\" uma grande proporção da volemia, causando choque hipovolêmico e queda rápida da hemoglobina. A presença de esplenomegalia súbita e reticulocitose diferencia esse quadro da crise aplástica. O tratamento imediato é a restauração da volemia e a transfusão de sangue.",
+    "option_rationales": {
+      "a": "Incorreta. Crise aplástica teria reticulocitopenia e baço normal.",
+      "b": "Correta. Diagnóstico e conduta salvadora de vida.",
+      "c": "Incorreta. STA envolve sintomas respiratórios.",
+      "d": "Incorreta. Hemólise não causaria esplenomegalia tão súbita associada a choque.",
+      "e": "Incorreta. A causa é hematológica evidente."
+    },
+    "difficulty": "alta",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Doença Falciforme", "Sequestro Esplênico", "Emergência Pediátrica", "FGV"]
+  },
+  {
+    "enunciado": "Um paciente de 45 anos, com antecedente de carcinoma gástrico tratado com gastrectomia total e reconstrução em Y-de-Roux, apresenta cansaço e irritabilidade. O hemograma demonstra anemia microcítica e hipocrômica (Hb 9,2 g/dL; VCM 72 fL). O ferro sérico e ferritina são baixos. Relata que está utilizando sulfato ferroso oral (300mg/dia) há 3 meses sem melhora da hemoglobina. Qual o mecanismo que impede a eficácia do tratamento oral neste paciente e qual a conduta recomendada?",
+    "options": {
+      "a": "Acloridria gástrica impedindo a conversão do ferro férrico em ferroso; Indicar via parenteral.",
+      "b": "Exclusão do duodeno e jejuno proximal do trânsito alimentar pela cirurgia; Indicar via parenteral.",
+      "c": "Deficiência de fator intrínseco bloqueando o transporte de ferro; Repor Vitamina B12.",
+      "d": "Supercrescimento bacteriano no 'alça cega' consumindo o ferro; Usar antibióticos.",
+      "e": "As alternativas A e B justificam a má absorção oral; Indicar ferro intravenoso."
+    },
+    "answer": "e",
+    "rationale": "A absorção de ferro depende da acidez gástrica (para solubilização) e ocorre majoritariamente no duodeno e jejuno proximal. Após a gastrectomia total e reconstrução em Y-de-Roux, a ausência de HCl e o desvio do trânsito alimentar (bypass do duodeno) tornam a absorção oral de ferro extremamente ineficiente. O tratamento de escolha é a reposição de ferro por via intravenosa.",
+    "option_rationales": {
+      "a": "Correta em parte da justificativa.",
+      "b": "Correta em parte da justificativa.",
+      "c": "Incorreta. FI é para absorção de B12, não ferro.",
+      "d": "Incorreta. Bactérias consomem B12, não ferro de forma clínica significante nesse contexto.",
+      "e": "Correta. Combina os mecanismos fisiopatológicos do paciente gastrectomizado."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Bariatria", "Gastrectomia", "Ferro IV", "FGV"]
+  },
+  {
+    "enunciado": "Sobre a anemia fisiológica do lactente, que ocorre por volta do segundo ao terceiro mês de vida em bebês a termo, é INCORRETO afirmar:",
+    "options": {
+        "a": "Ocorre devido ao aumento da oxigenação tecidual após o nascimento, levando à queda da produção renal de eritropoetina.",
+        "b": "A vida média mais curta das hemácias fetais contribui para a queda dos níveis de hemoglobina.",
+        "c": "Trata-se de uma patologia que exige reposição imediata de sulfato ferroso em doses terapêuticas.",
+        "d": "O nível mínimo de hemoglobina pode chegar a 9-11 g/dL em lactentes saudáveis a termo.",
+        "e": "Geralmente é normocítica e normocrômica."
+    },
+    "answer": "c",
+    "rationale": "A anemia fisiológica do lactente é um processo adaptativo normal. Ao nascimento, a oferta de O2 aumenta drasticamente, suprimindo o estímulo à eritropoese até que os níveis de Hb caiam o suficiente para reativar a produção de EPO. Não é uma doença e não exige tratamento farmacológico além da suplementação profilática padrão recomendada pela Sociedade Brasileira de Pediatria conforme a idade gestacional e o peso ao nascer.",
+    "option_rationales": {
+        "a": "Correta. Mecanismo central da queda de EPO.",
+        "b": "Correta. Hemoglobina fetal (HbF) é trocada por HbA.",
+        "c": "Incorreta. Sendo fisiológica, não requer tratamento medicamentoso corretivo.",
+        "d": "Correta. Esses são os níveis típicos no nadir.",
+        "e": "Correta. Não há deficiência de substratos no início do processo."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Hematopediatria", "Anemia Fisiológica", "Eritropoese", "FGV"]
+  },
+  {
+      "enunciado": "Um paciente de 35 anos apresenta-se com urina de coloração escura após internação por pneumonia tratada com clavulin. Relata cefaleia e visão turva. No hemograma: Hb 8,2 g/dL; Reticulócitos 10%; DHL 900 U/L. O teste de Coombs direto é positivo para C3d apenas (IgG negativo). O Teste de Donath-Landsteiner é positivo. Qual o diagnóstico e qual o gatilho clássico desse quadro de hemólise intravascular aguda?",
+      "options": {
+          "a": "Hemoglobinúria Paroxística Noturna; Gatilho idiopático.",
+          "b": "Hemoglobinúria Paroxística a Frio; Infecção viral prévia.",
+          "c": "Anemia Hemolítica por Anticorpos Quentes; Doença Autoimune.",
+          "d": "Deficiência de G6PD; Estresse oxidativo por antibióticos.",
+          "e": "Doença de Crioaglutininas; Exposição ao frio intenso."
+      },
+      "answer": "b",
+      "rationale": "A Hemoglobinúria Paroxística a Frio (HPF) é uma forma rara de anemia hemolítica autoimune causada por um autoanticorpo bifásico (IgG) conhecido como Donath-Landsteiner. O anticorpo se liga às hemácias em baixas temperaturas e fixa complemento; ao retornar à temperatura corporal, ocorre a lise intravascular. É comum em crianças após infecções virais agudas e adultos com doenças linfoproliferativas ou sífilis.",
+      "option_rationales": {
+          "a": "Incorreta. HPN não tem teste de Donath-Landsteiner positivo.",
+          "b": "Correta. Diagnóstico de exclusão difícil sem o teste específico.",
+          "c": "Incorreta. Coombs IgG seria positivo.",
+          "d": "Incorreta. G6PD tem Coombs negativo.",
+          "e": "Incorreta. Crioaglutinina (IgM) tem Coombs C3d+ mas Donath-Landsteiner negativo."
+      },
+      "difficulty": "alta",
+      "subspecialty": "Hematologia",
+      "subject": "Anemias",
+      "tags": ["HPF", "Donath-Landsteiner", "Hemólise", "FGV"]
+  }
+]

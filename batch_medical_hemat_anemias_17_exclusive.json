@@ -1,0 +1,117 @@
+[
+  {
+    "enunciado": "Um homem de 58 anos com histórico de insuficiência cardíaca crônica e doença renal crônica estágio 3b (TFG 35 mL/min) apresenta anemia Hb 9,5 g/dL. O perfil de ferro mostra: Ferro sérico 40 mcg/dL; Ferritina 180 ng/mL; Saturação de transferrina 22%. A despeito do uso de dose otimizada de Eritropoetina recombinante humana (ESA), o paciente mantém níveis subótimos de hemoglobina. Qual o conceito hematológico que define este quadro e qual a conduta em relação ao estoque de ferro, visando melhorar a eficácia da eritropoetina?",
+    "options": {
+        "a": "Resistência funcional ao ESA; Iniciar Ferro endovenoso para atingir saturação de transferrina > 30%.",
+        "b": "Anemia Perniciosa associada; Iniciar Vitamina B12 endovenosa.",
+        "c": "Deficiência absoluta de Ferro; Administrar Sulfato Ferroso oral 300mg/dia.",
+        "d": "Toxicidade cardíaca pela EPO; Suspender toda medicação imediatamente.",
+        "e": "Hemólise mecânica por valva cardíaca; Indicar troca valvar urgente."
+    },
+    "answer": "a",
+    "rationale": "Muitos pacientes com Doença Renal Crônica (DRC) apresentam 'ferropenia funcional' ou 'restrição de ferro para eritropoese'. Mesmo com ferritina 'normal' (> 100 ng/mL), a saturação de transferrina nos limites inferiores (< 30%) pode impedir a resposta máxima à eritropoetina (ESA). O uso de ferro endovenoso é preferencial nesses casos para contornar o bloqueio hepcídico e os baixos estoques de ferro biodisponível durante o estímulo medular sintético.",
+    "option_rationales": {
+        "a": "Correta. Protocolo KDIGO para DRC sugere manter saturação > 30% e ferritina > 200/300.",
+        "b": "Incorreta. B12 não é a causa da resistência comum à EPO.",
+        "c": "Incorreta. Na DRC inflamatória, o ferro oral não é bem absorvido.",
+        "d": "Incorreta. EPO não tem toxicidade cardíaca que impeça o tratamento da anemia, embora controle pressórico seja necessário.",
+        "e": "Incorreta. Embora a hemólise mecânica possa existir, a ferropenia funcional é o diagnóstico clássico da resistência ao ESA em DRC."
+    },
+    "difficulty": "alta",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["DRC", "Resistência à EPO", "Ferro IV", "FGV"]
+  },
+  {
+    "enunciado": "Sobre a Alpha-Talassemia, especificamente sobre o genótipo da Doença da Hemoglobina H (--/-a), quais as principais características laboratoriais que o distinguem do traço talassêmico e das mutações beta?",
+    "options": {
+        "a": "Presença de inclusões em 'bolinha de golfe' (Precipitação do excesso de cadeias beta Beta4) na coloração de Azul de Cresil Brilhante.",
+        "b": "Eletroforese com HbA2 > 10%.",
+        "c": "Macrocitose acentuada (VCM > 110 fL).",
+        "d": "Presença majoritária de hemoglobina fetal no adulto (> 50%).",
+        "e": "Ausência total de corpo de Heinz."
+    },
+    "answer": "a",
+    "rationale": "Na Alpha-Talassemia Intermediária ou Doença da Hemoglobina H, ocorre a perda de 3 dos 4 genes alfa. Como não há cadeias alfa suficientes, as cadeias beta se tetramerizam (Beta-4), formando a Hemoglobina H. Ela é instável e precipita nas hemácias, sendo visível na coloração supra-vital como múltiplas inclusões diminutas ('ball-of-golf cells'). A eletroforese mostra presença de HbH (alcançando até 30% em estados não-esplenectomizados).",
+    "option_rationales": {
+        "a": "Correta. Marco diagnóstico da Doença da HbH.",
+        "b": "Incorreta. HbA2 aumentada é característica da Beta-Talassemia.",
+        "c": "Incorreta. Alpha-Talassemia causa microcitose extrema.",
+        "d": "Incorreta. HbF não é o marcador principal da alpha-talassemia HbH.",
+        "e": "Incorreta. No baço intacto se vê pouco, mas a HbH precipita e forma corpúsculos semelhantes a Heinz."
+    },
+    "difficulty": "alta",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Alpha-Talassemia", "Hemoglobina H", "Morfologia", "Eletroforese", "FGV"]
+  },
+  {
+    "enunciado": "Um paciente de 40 anos com quadro de anemia hemolítica crônica, crises recorrentes de dor abdominal neuropática e urina escura episódica, apresenta-se com trombocitopenia e histórico de trombose venosa profunda em território atípico (veia porta). A análise por citometria de fluxo demonstra ausência das proteínas CD55 e CD59 na membrana das hemácias e leucócitos. Qual o tratamento específico direcionado ao bloqueio do sistema complemento como primeira linha para pacientes com HPN e sintomas graves?",
+    "options": {
+        "a": "Eculizumabe (Anticorpo anti-C5).",
+        "b": "Rituximabe (Anticorpo anti-CD20).",
+        "c": "Infliximabe (Anticorpo anti-TNF).",
+        "d": "Ciclosporina A.",
+        "e": "Glicose venosa hipertônica."
+    },
+    "answer": "a",
+    "rationale": "A Hemoglobinúria Paroxística Noturna (HPN) decorre da falta de 'escudos' na membrana celular (CD55/CD59), o que torna as células vulneráveis ao ataque do sistema complemento. O Eculizumabe é um anticorpo monoclonal humanizado contra a proteína C5 do complemento, bloqueando a formação do complexo de ataque à membrana (MAC) e cessando a hemólise intravascular e reduzindo o risco de trombose.",
+    "option_rationales": {
+        "a": "Correta. Tratamento específico e revolucionário da HPN.",
+        "b": "Incorreta. Rituximabe é para anemias hemolíticas autoimunes (anticorpos).",
+        "c": "Incorreta. Infliximabe é para colite e doenças inflamatórias.",
+        "d": "Incorreta. Ciclosporina pode ser usada se houver hipoplasia medular associada, mas C5 blocker é específico.",
+        "e": "Incorreta. Usado para crises de porfíria aguda."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["HPN", "Citometria de Fluxo", "Complemento", "Eculizumabe", "FGV"]
+  },
+  {
+    "enunciado": "Sobre a Anemia de Fanconi, desordem de instabilidade cromossômica, qual o risco oncológico específico a longo prazo que justifica o acompanhamento rigoroso destes pacientes, mesmo após a realização de Transplante de Medula Óssea (TMO) curativo para a aplasia medular?",
+    "options": {
+        "a": "Câncer de células escamosas de cabeça e pescoço e anogenital.",
+        "b": "Apenas Leucemias Mieloides Agudas.",
+        "c": "Mesotelioma pleural em todos os pacientes expostos a TMO.",
+        "d": "Carcinoma basocelular em áreas não expostas ao sol.",
+        "e": "Retinoblastoma bilateral."
+    },
+    "answer": "a",
+    "rationale": "Embora o TMO cure a pancitopenia da Anemia de Fanconi, o defeito de reparo do DNA permanece em todas as células somáticas do paciente. Isso confere um risco massivo (até centenas de vezes maior que na população geral) para tumores sólidos, predominantemente carcinomas espinocelulares (CEC) de boca, garganta, esôfago e áreas genitais.",
+    "option_rationales": {
+        "a": "Correta. Risco vital persistente após o tratamento hematológico.",
+        "b": "Incorreta. O risco de LMA é alto, mas os tumores sólidos são o foco pós-TMO.",
+        "c": "Incorreta. Sem relação com Fanconi.",
+        "d": "Incorreta. CEC é o tipo específico associado à instabilidade cromossômica de Fanconi.",
+        "e": "Incorreta. Não existe essa associação primária."
+    },
+    "difficulty": "alta",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Genética", "Anemia de Fanconi", "Oncologia", "TMO", "FGV"]
+  },
+  {
+    "enunciado": "Um paciente de 35 anos apresenta quadro de crises dolorosas intensas desencadeadas por 'ingestão de habas' (favas) e uso de nitrofurantoína para ITU. A dosagem da atividade enzimática da G6PD foi realizada DURANTE o episódio hemolítico agudo e retornou nos limites da NORMALIDADE. Qual a recomendação médica em relação a este resultado e o momento da coleta?",
+    "options": {
+        "a": "Repetir o exame em 2 a 3 meses após a estabilização completa, pois hemácias jovens (reticulócitos) apresentam atividade de G6PD maior e podem mascarar a deficiência durante a crise.",
+        "b": "Confiar no resultado, pois o nível enzimático é estável em todas as fases da vida da célula.",
+        "c": "Investigar outra causa, pois o normal seria o nível de G6PD estar totalmente zerado em qualquer fase.",
+        "d": "Iniciar reposição de Ferro parenteral imediatamente baseado nesse resultado.",
+        "e": "Suspender apenas as favas e continuar as outras medicações oxidativas pois o nível enzimático é adequado."
+    },
+    "answer": "a",
+    "rationale": "Na deficiência de G6PD, as hemácias mais velhas têm menor carga enzimática e são as primeiras a lisar durante o estresse oxidativo. Durante a crise hemolítica, a medula óssea lança reticulócitos (hemácias jovens), que possuem teores normais ou quase normais de G6PD. Isso pode levar a um resultado falso-negativo se o teste for feito no pico da hemólise. Deve-se aguardar a calmaria para retestar.",
+    "option_rationales": {
+        "a": "Correta. Pitfall clássico no diagnóstico de laboratório da G6PD.",
+        "b": "Incorreta. A atividade decai com o envelhecimento celular, especialmente no fenótipo B- (mediterrâneo).",
+        "c": "Incorreta. Níveis normais ou baixos ocorrem de forma heterogênea.",
+        "d": "Incorreta. Ferro não trata G6PD.",
+        "e": "Incorreta. Conduta perigosa (risco de re-hemólise)."
+    },
+    "difficulty": "alta",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["G6PD", "Laboratório Clínico", "Hemólise", "Diagnóstico Errado", "FGV"]
+  }
+]

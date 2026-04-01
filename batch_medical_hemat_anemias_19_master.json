@@ -1,0 +1,117 @@
+[
+  {
+    "enunciado": "Um paciente de 42 anos, etilista abusivo, apresenta anemia moderada com VCM 108 fL. Relata parestesias em luvas e botas. No hemograma, observa-se macrocitose sem hipersegmentação de neutrófilos, mas com presença de vacuolização de precursores eritroides. O paciente recusa suspender o álcool. Qual a associação etiológica mais provável para a anemia e neuropatia, sabendo que as dosagens de folato e B12 no soro são NORMAS?",
+    "options": {
+      "a": "Toxicidade direta do etanol e má absorção funcional de Tiamina (B1); Sideroblástica associada.",
+      "b": "Deficiência de Vitamina B12 'mascarada' pela inflamação hepática.",
+      "c": "Anemia Sideroblástica reversível por zinco.",
+      "d": "Pancitopenia por esplenomegalia congestiva e nada mais.",
+      "e": "Infecção secundária por Citomegalovírus medular."
+    },
+    "answer": "a",
+    "rationale": "O alcoolismo é causa de macrocitose multifatorial (tóxica direta nas hemácias, carência de B1/B12/Folato por dieta e má absorção). A parestesia em bota/luva no etilista sugere Beribéri seco (Tiamina), enquanto a vacuolização celular e os sideroblastos apontam para a toxicidade mitocondrial direta do álcool.",
+    "option_rationales": {
+      "a": "Correta. Resume a etiologia comum no etilista.",
+      "b": "Incorreta. B12 normal exclui a causa se o soro for fidedigno.",
+      "c": "Incorreta. Zinco alto causa deficiência de cobre.",
+      "d": "Incorreta. Não justifica a neuropatia progressiva e específica.",
+      "e": "Incorreta. Sem nexo clínico primário."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Etanol", "Metabolismo", "Neuropatia", "Sideroblastose", "FGV"]
+  },
+  {
+    "enunciado": "Um paciente de 45 anos, internado em Unidade de Terapia Intensiva (UTI) por sepse de foco pulmonar, apresenta anemia estável (Hb 9,2 g/dL), normocítica e normocrômica. O médico assistente solicita perfil de ferro que mostra Ferritina 1.200 ng/mL e Ferro sérico 25 mcg/dL. Com base na fisiopatologia da inflamação aguda, qual a conduta em relação ao suporte férrico nestes pacientes durante o estado crítico febril?",
+    "options": {
+        "a": "Não administrar ferro (oral ou parenteral) no estágio agudo da inflamação/infecção, pois o ferro livre pode favorecer o crescimento bacteriano (siderofilia bacteriana) e a anemia é protetora.",
+        "b": "Prescrever apenas ferro parenteral para 'vencer' a inflamação e melhorar a imunidade.",
+        "c": "Realizar transfusão profilática para todos os pacientes em sepse com Hb < 10.",
+        "d": "Solicitar mielograma após a primeira dose de antibiótico.",
+        "e": "Administrar eritropoetina em doses elevadas para reverter o sequestro férrico."
+    },
+    "answer": "a",
+    "rationale": "A 'anemia da inflamação' em pacientes críticos é parte de uma resposta imune adaptativa chamada Imunidade Nutricional. Ao produzir hepcidina e sequestrar o ferro medular, o corpo impede que patógenos invasores tenham acesso ao ferro necessário para sua replicação rápida. Suplementar ferro na vigência de sepse febril é contraindicado, pois pode agravar a infecção.",
+    "option_rationales": {
+        "a": "Correta. Imunidade nutricional e sequestro fisiológico de ferro.",
+        "b": "Incorreta. O ferro livre é perigoso na sepse ativa.",
+        "c": "Incorreta. Gatilho transfusional em pacientes críticos estáveis é Hb < 7.",
+        "d": "Incorreta. Mielograma não tem papel no diagnóstico de anemia da inflamação aguda.",
+        "e": "Incorreta. EPO tem eficácia limitada na presença de citocinas inflamatórias elevadas (resistência humoral)."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["UTI", "Sepse", "Imunidade Nutricional", "Ferro", "FGV"]
+  },
+  {
+    "enunciado": "A Porfíria Intermitente Aguda (PIA) manifesta-se tipicamente com dor abdominal, mas sem alterações cutâneas de fotossensibilidade. Qual achado laboratorial urinário específico (amostra isolada após proteção da luz) confirma a crise aguda e qual medicamento neuropsiquiátrico é considerado SEGURO (não-porfirogênico) para pacientes com esta condição?",
+    "options": {
+      "a": "Aumento do Porfobilinogênio (PBG) urinário; Paracetamol ou Gabapentina.",
+      "b": "Aumento de Glicose na urina; Insulina NPH.",
+      "c": "Hematúria macroscópica; Varfarina.",
+      "d": "Redução total de Uroporfirinas; Diazepam.",
+      "e": "Cetonúria; Dieta cetogênica."
+    },
+    "answer": "a",
+    "rationale": "O diagnóstico de confirmação da crise de PIA é o aumento do Porfobilinogênio (PBG) e do Ácido delta-aminolevulínico (ALA) urinários. Muitos fármacos comuns podem precipitar crises (indutores do citocromo P450). Medicamentos considerados seguros incluem o paracetamol e a gabapentina (para dor/convulsão). Glicose abundante (carboidratos) é o tratamento da crise, não a dieta cetogênica (que a piora).",
+    "option_rationales": {
+      "a": "Correta. Diagnóstico urinário e farmácia segura.",
+      "b": "Incorreta. Glicosúria não é marcador de porfíria.",
+      "c": "Incorreta. Incorreto.",
+      "d": "Incorreta. Diazepam é controverso/perigoso em alguns casos.",
+      "e": "Incorreta. Carboidratos tratam, gorduras/proteínas não abortam crise."
+    },
+    "difficulty": "alta",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["PIA", "Urologia", "Farmacoterapia", "Crise de Porfíria", "FGV"]
+  },
+  {
+    "enunciado": "No diagnóstico das Anemias Hemolíticas Autoimunes (AHAI), o Teste de Coombs Direto (Antiglobulina Direta) é padrão-ouro. Se o resultado for positivo para C3d e negativo para IgG, em um paciente que apresenta fenômeno de aglutinação visível nos dedos e orelhas ao frio, qual a principal hipótese diagnóstica e a classe do anticorpo envolvido?",
+    "options": {
+        "a": "Doença das Crioaglutininas; Anticorpo IgM.",
+        "b": "Anemia Hemolítica por Anticorpos Quentes; Anticorpo IgG.",
+        "c": "Hemoglobinúria Paroxística Noturna; Sem anticorpo envolvido.",
+        "d": "Doença da Hemoglobina S; Sem anticorpo.",
+        "e": "Purpúra Trombocitopênica Trombótica; Anti-ADAMTS13."
+    },
+    "answer": "a",
+    "rationale": "A Doença das Crioaglutininas é mediada por IgM (geralmente monoclonal em idosos ou policlonal após infecções agudas como Mycoplasma ou EBV). O IgM fixa complemento (via clássica) em temperaturas baixas. Ao retornar ao laboratório (37°C), o IgM desgruda mas o complemento (frascos de C3b/C3d) permanece fixado no eritrócito, originando o padrão Coombs C3d+ / IgG-.",
+    "option_rationales": {
+        "a": "Correta. IgM e ativação do complemento a frio.",
+        "b": "Incorreta. Anticorpo quente é IgG e lise é esplênica predominantemente por fagocitose.",
+        "c": "Incorreta. HPN tem Coombs negativo.",
+        "d": "Incorreta. Doença genética.",
+        "e": "Incorreta. Condição de microangiopatia mecânica."
+    },
+    "difficulty": "alta",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Crioaglutininas", "Imunologia Hematológica", "Cooms Direto", "FGV"]
+  },
+  {
+    "enunciado": "Um paciente de 4 anos é trazido por apresentar palidez extrema iniciada há 3 meses. Não possui malformações. O hemograma revela anemia macrocítica pura (VCM 104 fL) com eritroblastopenia grave (Reticulócitos 0%). O mielograma confirma a ausência quase total de precursores eritroides, com maturação normal de granulócitos e plaquetas. Qual o diagnóstico e qual o tratamento inicial geralmente utilizado?",
+    "options": {
+        "a": "Anemia de Diamond-Blackfan (Eritroblastopenia Congênita); Corticosteroides.",
+        "b": "Anemia de Fanconi; Transplante de medula óssea imediato.",
+        "c": "Eritroblastopenia Transitória; Observação isolada.",
+        "d": "Mielodisplasia RAEB-2; Quimioterapia de indução.",
+        "e": "Anemia Sideroblástica; Vitamina B6."
+    },
+    "answer": "a",
+    "rationale": "A Anemia de Diamond-Blackfan (ADB) é uma eritroblastopenia pura congênita (defeito em proteínas ribossomais). Manifesta-se no primeiro ano de vida na maioria dos casos (ao contrário da transitória da infância, que é pós-viral e mais tardia). O tratamento de primeira linha são os corticosteroides, aos quais 80% dos pacientes respondem inicialmente.",
+    "option_rationales": {
+        "a": "Correta. Diagnóstico e terapia sistêmica padrão para ADB.",
+        "b": "Incorreta. Diamond-Blackfan é eritroide pura; Fanconi é pancitopenia progressiva.",
+        "c": "Incorreta. Transitória não costuma dar macrocitose ou níveis tão baixos antes de 1 ano.",
+        "d": "Incorreta. Raro nesta idade sem outros contextos displásicos marcantes.",
+        "e": "Incorreta. Não justifica a ausência completa de precursores na medula."
+    },
+    "difficulty": "alta",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Diamond-Blackfan", "Genética", "Hematopediatria", "Corticoide", "FGV"]
+  }
+]

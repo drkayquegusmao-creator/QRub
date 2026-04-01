@@ -1,0 +1,117 @@
+[
+  {
+    "enunciado": "Um paciente de 48 anos, assintomático, realiza exames de check-up que revelam: Hemoglobina 11,8 g/dL; Hemácias 6,2 milhões/mm³ (policitemia relativa à anemia); VCM 62 fL; HCM 20 pg; RDW 12,8%. O perfil de ferro é normal. O índice de Mentzer (VCM/Hemácias) é de 10. Qual a principal hipótese diagnóstica e qual o achado esperado na Eletroforese de Hemoglobina quantitativa para confirmação?",
+    "options": {
+      "a": "Anemia Ferropriva; Redução da HbA2.",
+      "b": "Beta-Talassemia Minor (Traço Talassêmico); Aumento da Fração HbA2 (> 3,5%).",
+      "c": "Anemia de Doença Crônica; Aumento da Fração HbF.",
+      "d": "Alpha-Talassemia em portador silencioso; Eletroforese normal.",
+      "e": "Anemia Sideroblástica; Presença de Hemoglobina H."
+    },
+    "answer": "b",
+    "rationale": "A Beta-Talassemia Minor apresenta-se como microcitose acentuada com RDW normal (hemácias homogêneas) e contagem total de hemácias elevada (compensatória). O Índice de Mentzer < 13 é altamente sugestivo de talassemia em relação à ferropenia. O diagnóstico é dado pela quantificação das hemoglobinas, onde a deficiência na cadeia beta leva ao aumento compensatório da cadeia delta (Hemoglobina A2: alfa2/delta2).",
+    "option_rationales": {
+      "a": "Incorreta. Ferropenia tem RDW alto e ferro sérico/ferritina baixos.",
+      "b": "Correta. Características laboratoriais de Traço Beta-Talassêmico.",
+      "c": "Incorreta. HbF aumenta na talassemia major ou foetal hereditária.",
+      "d": "Incorreta. Alpha-Talassemia (traço com perda de 2 genes) tem eletroforese normal no adulto (exceto no período neonatal), mas o índice de Mentzer e o RDW são semelhantes.",
+      "e": "Incorreta. HbH ocorre na perda de 3 genes alfa."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Beta-Talassemia", "Traço Talassêmico", "Eletroforese", "FGV"]
+  },
+  {
+    "enunciado": "Sobre a Anemia de Doença Crônica (ou Anemia da Inflamação), qual a recomendação em relação ao tratamento da anemia de base quando não há deficiência absoluta de ferro concomitante?",
+    "options": {
+        "a": "Tratar a doença inflamatória de base agressivamente; O ferro oral não é eficaz devido ao bloqueio da hepcidina.",
+        "b": "Realizar transfusão profilática se Hb < 12 g/dL.",
+        "c": "Prescrever apenas sulfato ferroso 300mg/dia para todos os pacientes.",
+        "d": "Indicar terapia com eritropoetina somente se a creatinina estiver normal.",
+        "e": "Suspender medicamentos biológicos, que podem mascarar a ferropenia."
+    },
+    "answer": "a",
+    "rationale": "Na Anemia de Doença Crônica, o ferro está estocado (sequestro no SMF), mas indisponível devido ao bloqueio da hepcidina no enterócito e macrófago. Administrar ferro oral é inútil pois ele não será absorvido. O tratamento curativo da anemia é o controle da inflamação (ex: tratar AR, lúpus, neoplasia), o que reduz as citocinas pró-inflamatórias e a hepcidina, liberando o ferro endógeno.",
+    "option_rationales": {
+        "a": "Correta. Pilar terapêutico da anemia da inflamação.",
+        "b": "Incorreta. Transfusão tem gatilhos específicos (habitualmente Hb < 7-8).",
+        "c": "Incorreta. Ferro oral tem pouca utilidade sob hepcidina alta.",
+        "d": "Incorreta. EPO pode ser usada se anemia for grave e inflamação controlada mas persistente, independente da creatinina.",
+        "e": "Incorreta. Biológicos são as drogas de escolha para controle inflamatório."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Anemia Inflamatória", "Hepcidina", "Ferropenia Funcional", "FGV"]
+  },
+  {
+    "enunciado": "Um homem de 52 anos apresenta-se com anemia normocítica refratária. No mielograma, observa-se excesso de ferro medular com presença de 'sideroblastos em anel' em mais de 15% dos eritroblastos. Relata uso de isoniazida para tratamento de tuberculose latente nos últimos 6 meses. O quadro clínico e o provável mecanismo bioquímico da anemia sideroblástica por isoniazida envolvem a deficiência induzida de qual vitamina?",
+    "options": {
+        "a": "Piridoxina (Vitamina B6).",
+        "b": "Riboflavina (Vitamina B2).",
+        "c": "Tiamina (Vitamina B1).",
+        "d": "Cobalamina (Vitamina B12).",
+        "e": "Ácido Fólico."
+    },
+    "answer": "a",
+    "rationale": "A isoniazida interfere no metabolismo da Vitamina B6 (Piridoxina), que é o cofator essencial da enzima ALA-Sintetase (primeira da via do Heme). A falta de B6 leva à falha na síntese de protoporfirina, resultando no acúmulo de ferro mitocondrial nos precursores eritroides. O tratamento da anemia e da neuropatia induzida por isoniazida é a reposição de B6.",
+    "option_rationales": {
+        "a": "Correta. Mecanismo de toxicidade da isoniazida.",
+        "b": "Incorreta. B2 não se associa a sideroblastos.",
+        "c": "Incorreta. B1 associada a Wernicke-Korsakoff.",
+        "d": "Incorreta. B12 causa anemia megaloblástica.",
+        "e": "Incorreta. Ácido fólico causa anemia megaloblástica."
+    },
+    "difficulty": "alta",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Anemia Sideroblástica", "Isoniazida", "Vitamina B6", "Tuberculose", "FGV"]
+  },
+  {
+    "enunciado": "Sobre a Anemia Perniciosa, causada pela ausência de Fator Intrínseco de base autoimune, qual o risco neoplasico a longo prazo que justifica o acompanhamento endoscópico regular destes pacientes?",
+    "options": {
+        "a": "Adenocarcinoma gástrico e tumor carcinoide.",
+        "b": "Linfoma de Hodgkin apenas.",
+        "c": "Câncer de Esôfago distal.",
+        "d": "Sarcoma de Kaposi gástrico.",
+        "e": "Neoplasia pancreática endócrina."
+    },
+    "answer": "a",
+    "rationale": "Pacientes com Anemia Perniciosa apresentam gastrite atrófica crônica (Tipo A). A atrofia das células parietais leva à acloridria e hipergastrinemia compensatória. Isso predispõe à metaplasia intestinal (risco de adenocarcinoma) e à hiperplasia das células enterocromafins-like (risco de tumores carcinoides neuroendócrinos gástricos).",
+    "option_rationales": {
+        "a": "Correta. Risco de adenocarcinoma gástrico é elevado significativamente.",
+        "b": "Incorreta. Padrão gástrico é o foco.",
+        "c": "Incorreta. Câncer esofágico não é a associação primária.",
+        "d": "Incorreta. Kaposi associa-se a HIV/HHV8.",
+        "e": "Incorreta. Não existe evidência forte para foco pancreático."
+    },
+    "difficulty": "alta",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Anemia Perniciosa", "Gastroenterologia", "Câncer Gástrico", "FGV"]
+  },
+  {
+    "enunciado": "Uma adolescente de 16 anos queixa-se de fadiga, queda de cabelo e desejo de comer terra (geofagia). O hemograma mostra: Hb 10,2 g/dL; VCM 72 fL; Plaquetas 480.000/mm³ (trombocitose reacional). Qual o principal diagnóstico e qual o manejo correto da trombocitose observada neste caso?",
+    "options": {
+        "a": "Anemia Ferropriva; A trombocitose é reacional e normaliza após a reposição de ferro.",
+        "b": "Trombocitemia Essencial; Necessita de anticoagulação imediata.",
+        "c": "Mielodisplasia RARS; Necessita de quimioterapia.",
+        "d": "Anemia Sideroblástica; Necessita de suplementação de zinco.",
+        "e": "Anemia Hemolítica; Necessita de corticoide."
+    },
+    "answer": "a",
+    "rationale": "A trombocitose reacional (secundária) é muito comum na deficiência de ferro. O aumento das plaquetas ocorre provavelmente por estímulo medular indireto pela EPO aumentada ou por homologia estrutural entre receptores de trombopoetina e eritropoetina. Não requer tratamento específico e se resolve com a normalização dos níveis de ferro.",
+    "option_rationales": {
+        "a": "Correta. Fenômeno reacional comum na ferropenia.",
+        "b": "Incorreta. Trombocitemia essencial é uma neoplasia mielopro- liferativa primária.",
+        "c": "Incorreta. Não condiz com geofagia e idade.",
+        "d": "Incorreta. Zinco alto causa deficiência de cobre.",
+        "e": "Incorreta. Hemólise não é a hipótese aqui."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Trombocitose Reacional", "Ferropenia", "Clínica Médica", "FGV"]
+  }
+]

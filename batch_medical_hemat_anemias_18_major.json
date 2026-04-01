@@ -1,0 +1,117 @@
+[
+  {
+    "enunciado": "Sobre a Anemia Sideroblástica hereditária ligada ao cromossomo X, qual o defeito enzimático mais comum na via de síntese do Heme e qual a resposta terapêutica esperada em alguns pacientes ao uso de Piridoxina (Vitamina B6)?",
+    "options": {
+        "a": "ALAS2 (Ácido delta-aminolevulínico sintetase 2); Resposta parcial ou total com melhora da hemoglobina.",
+        "b": " Ferroquelatase; Sem resposta à B6.",
+        "c": "Porfobilinogênio desaminase; Resposta com dieta de glicose.",
+        "d": "Uroporfirinogênio descarboxilase; Tratamento com flebotomia.",
+        "e": "Glicose-6-Fosfato Desidrogenase; Tratamento com corticoides."
+    },
+    "answer": "a",
+    "rationale": "A forma ligada ao X de anemia sideroblástica decorre de mutações no gene ALAS2. A Vitamina B6 é o cofator desta enzima. Em alguns pacientes, a suplementação de piridoxina em doses farmacológicas pode 'vencer' o defeito enzimático e aumentar a produção de protoporfirina, melhorando os níveis de hemoglobina de forma significativa.",
+    "option_rationales": {
+        "a": "Correta. Mecanismo genético e terapêutico clássico.",
+        "b": "Incorreta. Mutação na ferroquelatase causa Protoporfíria Eritropoética.",
+        "c": "Incorreta. Trata-se da Porfíria Intermitente Aguda.",
+        "d": "Incorreta. Trata-se da Porfíria Cutânea Tarda.",
+        "e": "Incorreta. Defeito na via glicolítica."
+    },
+    "difficulty": "alta",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Anemia Sideroblástica", "Genética", "Vitamina B6", "Hematologia", "FGV"]
+  },
+  {
+    "enunciado": "Um paciente de 4 anos de idade apresenta-se com anemia normocítica pura de instalação aguda há 3 semanas. Relata quadro gripal prévio há 1 mês. O hemograma revela Hb 7,2 g/dL e plaquetas/leucócitos normais. O mielograma demonstra parada seletiva da linhagem eritroide na medula óssea. Não há malformações congênitas. O quadro evoluiu para remissão espontânea em 2 meses sem necessidade de transfusões volumosas. Este cenário sugere o diagnóstico de:",
+    "options": {
+        "a": "Eritroblastopenia Transitória da Infância (TEC).",
+        "b": "Anemia de Diamond-Blackfan.",
+        "c": "Anemia Aplástica Severa.",
+        "d": "Anemia de Fanconi fase inicial.",
+        "e": "Leucemia Linfoide Aguda."
+    },
+    "answer": "a",
+    "rationale": "A Eritroblastopenia Transitória da Infância (TEC) é uma condição benigna e autolimitada em crianças de 1 a 4 anos (tipicamente após 1 ano, ao contrário da Diamond-Blackfan que é neonatal/lactente). Ocorre uma falência eritroide pura temporária, geralmente pós-viral, que remite sem tratamento específico na maioria dos casos.",
+    "option_rationales": {
+        "a": "Correta. Diagnóstico de exclusão benigno da infância.",
+        "b": "Incorreta. Diamond-Blackfan costuma se manifestar nos primeiros meses de vida e tem malformações associadas (polegar).",
+        "c": "Incorreta. Pancitopenia total estaria presente.",
+        "d": "Incorreta. Fanconi cursa com pancitopenia progressiva e malformações esqueléticas.",
+        "e": "Incorreta. LLA apresentaria blastos e geralmente bicitopenia/pancitopenia."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["TEC", "Hematopediatria", "Eritroblastopenia", "FGV"]
+  },
+  {
+    "enunciado": "Um paciente de 65 anos apresenta-se com anemia macrocítica refratária (Hb 9,4 g/dL; VCM 106 fL). No mielograma, observa-se hipercelularidade com displasia em > 10% das linhagens. Detecta-se presença de sideroblastos em anel (18% dos eritroblastos). A pesquisa da mutação somática SF3B1 é positiva. Qual o diagnóstico hematológico correto segundo a classificação da OMS?",
+    "options": {
+        "a": "Síndrome Mielodisplásica com Sideroblastos em Anel (SMD-SA).",
+        "b": "Anemia Sideroblástica Hereditária ligada ao X.",
+        "c": "Leucemia Mieloide Aguda secundária.",
+        "d": "Anemia de Doença Crônica do Idoso.",
+        "e": "Deficiência de B12 por Gastrite Atrófica."
+    },
+    "answer": "a",
+    "rationale": "A mutação no gene SF3B1 (unidade do spliceossomo) é o marcador genético mais forte para a Síndrome Mielodisplásica com Sideroblastos em Anel. Caracteriza-se por uma hematopoese ineficaz clonal com a característica morfológica do anel de ferro ferropurínico. O diagnóstico exige > 15% de sideroblastos em anel (ou > 5% se a mutação SF3B1 for detectada).",
+    "option_rationales": {
+        "a": "Correta. Classificação moderna da SMD baseada em genética.",
+        "b": "Incorreta. Esta é congênita e ligada ao X, o paciente tem 65 anos.",
+        "c": "Incorreta. Blastos seriam > 20%.",
+        "d": "Incorreta. Não justifica mutação SF3B1 e sideroblastos.",
+        "e": "Incorreta. B12 não causa sideroblastose clonal."
+    },
+    "difficulty": "alta",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["SMD-SA", "SF3B1", "Onco-Hematologia", "Mielodisplasia", "FGV"]
+  },
+  {
+    "enunciado": "No diagnóstico laboratorial da ferropenia absoluta, a FERRITINA SÉRICA é o teste inicial de escolha. No entanto, em pacientes com falência cardíaca, doenças renais crônicas ou processos inflamatórios ativos, quais os pontos de corte sugeridos pelas diretrizes internacionais (ex: ESC/KDIGO) para se considerar deficiência de ferro (mesmo que funcional)?",
+    "options": {
+        "a": "Ferritina < 100 ng/mL ou Saturação de transferrina < 20%.",
+        "b": "Ferritina < 30 ng/mL (sempre).",
+        "c": "Ferritina > 500 ng/mL.",
+        "d": "TIBC muito elevado em pacientes com inflamação exclui o diagnóstico.",
+        "e": "Bilirrubina direta elevada."
+    },
+    "answer": "a",
+    "rationale": "Em estados inflamatórios crônicos (IC, DRC), a ferritina não é fidedigna se estiver < 30. O corpo usa critérios mais 'largos': Ferritina < 100 indica deficiência absoluta e Ferritina entre 100 e 300 com saturacão de transferrina < 20% aponta para deficiência funcional (ferro sequestrado que impede a eficiência cardíaca ou eritroide).",
+    "option_rationales": {
+        "a": "Correta. Ponto de corte especializado para inflamação crônica.",
+        "b": "Incorreta. 30 é o corte para indivíduos sadios sem inflamação.",
+        "c": "Incorreta. Indica sobrecarga ou inflamação massiva.",
+        "d": "Incorreta. TIBC cai na inflamação (pode mascarar ferropenia).",
+        "e": "Incorreta. Não guarda relação com o perfil férrico."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Cardiologia", "Nefrologia", "Deficiência de Ferro", "Bioquímica", "FGV"]
+  },
+  {
+    "enunciado": "Uma criança de 8 anos apresenta-se com anemia progressiva que se iniciou logo no primeiro ano de vida. Ao exame físico: baixa estatura, 'fácies em esquilo' (hiperplasia das maxilas) e hepatoesplenomegalia maciça. O hemograma demonstra Hb 6,5 g/dL com microcitose extrema; a eletroforese de hemoglobina revela ausência total de Hemoglobina A (alfa2/beta2) e presença de 95% de Hemoglobina Fetal. Trata-se de uma Beta-Talassemia Major. Qual a principal causa de óbito precoce nestes pacientes se não forem submetidos à quelação adequada de ferro?",
+    "options": {
+        "a": "Cardiomiopatia por sobrecarga de ferro (Insuficiência Cardíaca e Arritmias).",
+        "b": "Infecções respiratórias pela esplenomegalia.",
+        "c": "Insuficiência renal por depósitos de Hb.",
+        "d": "Osteoporose severa generalizada.",
+        "e": "Câncer de pâncreas pela mutação talassêmica."
+    },
+    "answer": "a",
+    "rationale": "Pacientes com Beta-Talassemia Major sobrevivem graças ao regime transfusional crônico. Cada bolsa de sangue introduz cerca de 200-250mg de ferro. Como o corpo não tem mecanismo de excreção ativa, o ferro se deposita no coração, pâncreas e fígado. A principal causa de morte nas talassemias graves é a toxicidade cardíaca pelo ferro, que leva a IC intratável e morte súbita, o que torna a quelação obrigatória.",
+    "option_rationales": {
+        "a": "Correta. Complicação fatal da hemocromatose secundária.",
+        "b": "Incorreta. Existe risco de infecção após esplenectomia, mas não é a principal causa isolada sem ela.",
+        "c": "Incorreta. Rim é menos afetado que o coração.",
+        "d": "Incorreta. Ocorre devido à hiperplasia medular, mas não leva ao óbito precoce direto.",
+        "e": "Incorreta. O pâncreas lesado gera diabetes, não câncer diretamente proporcional."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Talassemia Major", "Sobrecarga de Ferro", "Cardiologia", "FGV"]
+  }
+]

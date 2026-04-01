@@ -1,0 +1,117 @@
+[
+  {
+    "enunciado": "Sobre o uso da Hidroxiureia (HU) no manejo a longo prazo da Doença Falciforme (genótipo SS ou S-beta talassemia), qual das situações clínicas abaixo constitui uma indicação FORMAL para o início deste medicamento em adultos e crianças maiores de 2 anos?",
+    "options": {
+        "a": "Ocorrência de 3 ou mais crises dolorosas vaso-oclusivas que exigem hospitalização no último ano.",
+        "b": "Presença de esplenomegalia em lactente menor que 6 meses.",
+        "c": "Desejo de gravidez imediata (indicado para reduzir risco de aborto).",
+        "d": "Apenas em portadores de traço falciforme (AS) com anemia leve.",
+        "e": "Uso profilático em todos os pacientes independente de crises ou sintomas."
+    },
+    "answer": "a",
+    "rationale": "A Hidroxiureia aumenta a produção de Hemoglobina Fetal (HbF), que impede a polimerização da HbS. As indicações formais incluem: ≥ 3 crises dolorosas/ano, histórico de Síndrome Torácica Aguda, anemia grave (Hb < 7), eventos neurológicos prévios ou evidência de lesão de órgãos alvo. Em crianças, a tendência atual é o início cada vez mais precoce para prevenir lesões crônicas.",
+    "option_rationales": {
+        "a": "Correta. Indicação clássica de frequência de crises.",
+        "b": "Incorreta. Abaixo de 2 anos as evidências são crescentes, mas não é a indicação para 'esplenomegalia isolada' nesse ponto.",
+        "c": "Incorreta. Hidroxiureia é teratogênica e deve ser suspensa antes da concepção.",
+        "d": "Incorreta. Traço falciforme não tem indicação de HU.",
+        "e": "Incorreta. Embora a tendência seja de uso amplo, deve-se basear em critérios clínicos e hematológicos."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Doença Falciforme", "Hidroxiureia", "Hematologia", "FGV"]
+  },
+  {
+    "enunciado": "Um paciente de 42 anos queixa-se de episódios recorrentes de dor abdominal intensa de difícil localização, acompanhada de irritabilidade e episódios isolados de confusão mental. Relata que seus sintomas pioram após ingestão de álcool ou uso de medicações para emagrecer (anfetamínicos). Observa que sua urina, se deixada em exposição à luz por algum tempo, torna-se de coloração avermelhada ou escura. O hemograma e o perfil de ferro são NORMAS. Qual o diagnóstico cinético enzimático que explica a patologia e qual a intervenção nutricional que pode abortar crises leves?",
+    "options": {
+      "a": "Porfíria Intermitente Aguda; Dieta rica em carboidratos (Glicose).",
+      "b": "Anemia Sideroblástica Adquirida; Dieta rica em Vitamina B6.",
+      "c": "Doença de Wilson; Dieta pobre em cobre.",
+      "d": "Saturnismo ocupacional; Dieta rica em cálcio.",
+      "e": "Porfíria Cutânea Tarda; Evitar exposição solar."
+    },
+    "answer": "a",
+    "rationale": "A Porfíria Intermitente Aguda (PIA) é um defeito na via do Heme (deficiência de PBG-desaminase). Caracteriza-se pela tríade 'abdome agudo' neuropático, distúrbios psiquiátricos/neurológicos e urina que escurece à luz. A administração de glicose (infusão de carboidratos) inibe a enzima ALA-sintetase por feedback, reduzindo a produção dos precursores tóxicos e podendo abortar crises leves ou moderadas.",
+    "option_rationales": {
+      "a": "Correta. PIA e efeito da glicose no ciclo do Heme.",
+      "b": "Incorreta. Sideroblástica causa anemia, PIA não necessariamente.",
+      "c": "Incorreta. Wilson causa cirrose/neuro, mas sem urina vermelha à luz típica.",
+      "d": "Incorreta. Chumbo mimetiza a dor, mas o teste da urina à luz é soberano para porfíria.",
+      "e": "Incorreta. Cutânea Tarda é sobre bolhas em áreas fotoexpostas, não dor abdominal neuropática súbita."
+    },
+    "difficulty": "alta",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Porfíria", "Síntese do Heme", "Nutrição", "Neuropsiquiatria", "FGV"]
+  },
+  {
+    "enunciado": "Sobre o diagnóstico diferencial laboratorial entre a deficiência de Folato e a deficiência de Vitamina B12 em pacientes com anemia megaloblástica, qual o marcador bioquímico que permite essa distinção com alta especificidade e sensibilidade?",
+    "options": {
+      "a": "Níveis de Homocisteína sérica elevada.",
+      "b": "Níveis de Ácido Metilmalônico sérico elevado.",
+      "c": "Dosagem de Bilirrubina Indireta aumentada.",
+      "d": "Contagem de Reticulócitos reduzida.",
+      "e": "Pesquisa de anticorpo Anti-Transglutaminase celular."
+    },
+    "answer": "b",
+    "rationale": "Ambas as deficiências levam ao aumento da homocisteína (pois ambas participam da via de remetilação). Contudo, a Vitamina B12 é cofator exclusivo para a conversão de metilmalonil-CoA em succinil-CoA na mitocôndria. Na falta de B12, o ÁCIDO METILMALÔNICO (MMA) se acumula e é excretado na urina ou dosado no soro. Na deficiência pura de folato, o MMA é normal.",
+    "option_rationales": {
+      "a": "Incorreta. Homocisteína aumenta em AMBOS os casos.",
+      "b": "Correta. O MMA é o marcador diferencial de escolha.",
+      "c": "Incorreta. BI aumenta em qualquer anemia megaloblástica grave por eritropoese ineficaz.",
+      "d": "Incorreta. Reticulocitopenia é comum em ambas.",
+      "e": "Incorreta. Marcador de Doença Celíaca, que pode causar carência, mas não é o diferencial b12/folato."
+    },
+    "difficulty": "alta",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["B12 x Folato", "Bioquímica", "Diagnóstico Diferencial", "FGV"]
+  },
+  {
+    "enunciado": "Um paciente de 45 anos, com cirrose hepática em Child-Pugh B, apresenta anemia com VCM de 102 fL. A análise do sangue periférico demonstra hemácias com projeções citoplasmáticas em espícula (acantócitos ou burr cells). Qual o mecanismo fundamental que altera a morfologia dessas hemácias nos pacientes com doença hepática avançada?",
+    "options": {
+        "a": "Alteração no balanço lipídico da membrana eritrocitária (especialmente colesterol e fosfolipídios).",
+        "b": "Deficiência de riboflavina (Vitamina B2) induzida pelo alcoolismo.",
+        "c": "Deposição de depósitos de ferro intersticial que deformam a célula.",
+        "d": "Formação de agregados de hemoglobina instável (corpos de Heinz).",
+        "e": "Presença de anticorpos IgA anti-hepatócito que cruzam reação com hemácias."
+    },
+    "answer": "a",
+    "rationale": "Na cirrose e outras hepatopatias graves, ocorre uma remodelação lipídica na membrana das hemácias devido à alteração no perfil do colesterol plasmático e da atividade da enzima LCAT. O acúmulo de colesterol livre e fosfolipídios na bicamada torna a membrana rígida e deformada, gerando os acantócitos (target cells também podem surgir).",
+    "option_rationales": {
+        "a": "Correta. Mecanismo de membrana em hepatopatias.",
+        "b": "Incorreta. B2 não causa acantocitose.",
+        "c": "Incorreta. Ferro deforma hemácias em situações de fragmentação (esquizócitos/sideroblastos), não acantocitose hepática.",
+        "d": "Incorreta. Heinz é estresse oxidativo (G6PD).",
+        "e": "Incorreta. Não existe essa reação cruzada típica na cirrose."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Hepatologia", "Morfologia Eritrocitária", "Acantocitose", "FGV"]
+  },
+  {
+    "enunciado": "No tratamento da Anemia Ferropriva em adultos com suplementação de sulfato ferroso oral, uma orientação fundamental que o médico deve dar ao paciente para minimizar OS EFEITOS COLATERAIS gastrointestinais e garantir a adesão é:",
+    "options": {
+      "a": "Tomar o medicamento sempre junto com as refeições ricas em cálcio (leite/queijo).",
+      "b": "Ingerir o medicamento imediatamente antes de deitar ou fracionar a dose diária (usar doses menores e mais frequentes ou dias alternados).",
+      "c": "Interromper o uso imediatamente se as fezes ficarem enegrecidas (sinal de hemorragia).",
+      "d": "Usar preferencialmente ferro endovenoso desde o primeiro dia para evitar a dor epigástrica.",
+      "e": "Diluir o comprimido em suco de toranja (grapefruit) para acelerar a absorção."
+    },
+    "answer": "b",
+    "rationale": "A intolerância ao ferro oral (náuseas, dor epigástrica, constipação) é a maior causa de abandono do tratamento. Uma estratégia moderna amparada por estudos é o uso de doses menores ou em dias alternados (que reduz o estímulo da hepcidina e os efeitos colaterais locais irritativos) ou a tomada próxima ao deitar.",
+    "option_rationales": {
+      "a": "Incorreta. Cálcio inibe a absorção de ferro.",
+      "b": "Correta. Fracionamento ou uso em dias alternados melhora a tolerância e paradoxalmente a absorção.",
+      "c": "Incorreta. As fezes ficam pretas pelo próprio ferro não absorvido (fisiológico no tratamento).",
+      "d": "Incorreta. Ferro IV é segunda linha ou para casos específicos devido ao custo/logística/risco de alergia.",
+      "e": "Incorreta. Grapefruit altera o citocromo P450, mas a orientação para absorção de ferro é ácido ascórbico (vit C)."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Ferro Oral", "Farmacologia Aplicada", "Admissão e Adesão", "FGV"]
+  }
+]

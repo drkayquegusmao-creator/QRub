@@ -1,0 +1,117 @@
+[
+  {
+    "enunciado": "Um homem de 33 anos, com Lúpus Eritematoso Sistêmico (LES) sob uso de hidroxicloroquina e micofenolato de mofetila, desenvolve anemia normocítica estável (Hb 9,6 g/dL; VCM 86 fL). O perfil de ferro é: Ferro 45 mcg/dL; Ferritina 380 ng/mL; TIBC 210 mcg/dL. Qual a proteína reguladora da absorção de ferro sintetizada pelo fígado que se encontra elevada por estímulo da IL-6, sequestrando o ferro nos macrófagos e bloqueando a ferroportina neste paciente?",
+    "options": {
+      "a": "Hepcidina.",
+      "b": "Transferrina.",
+      "c": "Divalente Metal Transportador-1 (DMT1).",
+      "d": "Eritroferrona.",
+      "e": "Hipsidina biliar."
+    },
+    "answer": "a",
+    "rationale": "A hepcidina é o principal regulador negativo do ferro no organismo. Em estados inflamatórios crônicos (como LES), a interleucina-6 (IL-6) estimula sua produção hepática. A hepcidina liga-se à ferroportina nas membranas celulares (enterócitos e macrófagos), promovendo sua degradação. Com isso, o ferro captado não é liberado para a circulação, resultando em sequestro férrico e anemia de doença crônica.",
+    "option_rationales": {
+      "a": "Correta. Hepcidina é o hormônio chave da inflamação.",
+      "b": "Incorreta. Transferrina é o transportador plasmático.",
+      "c": "Incorreta. DMT-1 é o transportador luminal no intestino.",
+      "d": "Incorreta. Eritroferrona inibe a hepcidina em situações de alta demanda (fisiológico).",
+      "e": "Incorreta. Hipsidina não existe com essa função."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Anemia de Doença Crônica", "Hepcidina", "Inflamação", "FGV"]
+  },
+  {
+    "enunciado": "Um paciente de 45 anos com Doença Renal Crônica (DRC) dialítica queixa-se de prurido e dor óssea. O hemograma mostra anemia (Hb 8,6 g/dL) e o perfil de ferro indica saturação de transferrina de 15% e ferritina de 125 ng/mL. Qual a melhor via de administração de ferro recomendada para este paciente específico durante as sessões de hemodiálise, visando a otimização da Hb?",
+    "options": {
+      "a": "Ferro oral (Sulfato Ferroso) 300mg em jejum nos dias sem diálise.",
+      "b": "Ferro parenteral (Sacarato de hidróxido férrico ou Carboximaltose) intravenoso.",
+      "c": "Aumentar a dose de eritropoetina sem suplementação de ferro.",
+      "d": "Dieta rica em vísceras e leguminosas verdes.",
+      "e": "Transfusão de concentrado de hemácias mensal."
+    },
+    "answer": "b",
+    "rationale": "Pacientes em hemodiálise (HD) têm múltiplas causas de ferropenia: perdas no circuito extracorpóreo, coletas frequentes e má absorção intestinal por inflamação sistêmica (hepcidina). A via intravenosa (IV) é o padrão-ouro em HD, pois garante a absorção total, evita efeitos colaterais TGI e permite o uso concomitante de EPO de forma eficiente.",
+    "option_rationales": {
+      "a": "Incorreta. Absorção oral é erática e insuficiente em dialíticos.",
+      "b": "Correta. Preferencial pela segurança e eficácia no acesso dialítico.",
+      "c": "Incorreta. Aumentar EPO sem ferro gera eritropoese ineficaz e pode induzir ferropenia funcional.",
+      "d": "Incorreta. Dieta não supre a necessidade de pacientes com perdas contínuas em HD.",
+      "e": "Incorreta. Transfusão é última linha devido à possível sensibilização."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["DRC", "Hemodiálise", "Ferro IV", "FGV"]
+  },
+  {
+    "enunciado": "Uma paciente de 24 anos com suspeita de anemia hemolítica apresenta-se com urina de coloração âmbar, icterícia de escleras e baço moderadamente palpável. No laboratório: Hemoglobina 9,4 g/dL; BI 3,2 mg/dL e DHL 850 U/L. No entanto, os reticulócitos são normais (0,8%). Diante de uma anemia hemolítica 'reticulocitopênica', qual evento agudo infeccioso costuma estar sobreposto, parilisando temporariamente a medula óssea?",
+    "options": {
+      "a": "Infecção por Citomegalovírus (CMV).",
+      "b": "Infecção por Herpes Simplex Virus 1 (HSV-1).",
+      "c": "Infecção por Vírus Epstein-Barr (EBV).",
+      "d": "Infecção por Parvovírus B19.",
+      "e": "Infecção por Toxoplasma gondii."
+    },
+    "answer": "d",
+    "rationale": "Em pacientes com doenças hemolíticas crônicas (como falciforme, esferocitose ou talassemia), a eritropoese está acelerada. O Parvovírus B19 tem tropismo pelos proeritroblastos humanos. A infecção viral 'freia' a medula por 7-10 dias. O resultado é a Crise Aplástica, caracterizada por anemia que se agrava abruptamente com contagem de reticulócitos baixa (o oposto da reticulocitose esperada em uma hemólise ativa).",
+    "option_rationales": {
+      "a": "Incorreta. CMV causa linfomonocitose reacional, não aplasia eritroide.",
+      "b": "Incorreta. HSV não tem tropismo medular.",
+      "c": "Incorreta. EBV causa mononucleose infecciosa.",
+      "d": "Correta. Parvovírus B19 é a causa universal de crises aplásticas súbitas.",
+      "e": "Incorreta. Toxoplasmose cursa com outros quadros clínicos."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Parvovírus B19", "Crise Aplástica", "Hemólise", "FGV"]
+  },
+  {
+    "enunciado": "No diagnóstico das anemias microcíticas, o quadro laboratorial de Ferro sérico NORMAL ou ELEVADO, Ferritina elevada e TIBC normal ou diminuído, acompanhado da visualização demorfológica de 'Sideroblastos em Anel' no mielograma (coloração de Perls), define o diagnóstico de:",
+    "options": {
+      "a": "Anemia Sideroblástica.",
+      "b": "Anemia Ferropriva Mascarada.",
+      "c": "Alpha-Talassemia em portador silencioso.",
+      "d": "Anemia de Doença Inflamatória.",
+      "e": "Hematocromatose hereditária juvenil."
+    },
+    "answer": "a",
+    "rationale": "A anemia sideroblástica ocorre por falha na inserção do ferro mitocondrial no grupamento heme. Isso leva a um acúmulo de ferro intracelular, formando o anel ao redor do núcleo. O ferro circulante está paradoxalmente elevado (não sendo usado na produção de hemoglobinas efetivas).",
+    "option_rationales": {
+      "a": "Correta. Quadro clínico laboratorial clássico.",
+      "b": "Incorreta. Ferropriva tem ferritina sempre baixa.",
+      "c": "Incorreta. Talassemias não mostram sideroblastos em anel medular tipicamente.",
+      "d": "Incorreta. Doença inflamatória tem ferro baixo (sequestro).",
+      "e": "Incorreta. Hematocromatose é sobrecarga corporal massiva de ferro, mas os eritrócitos funcionam normalmente até fases tardias cirróticas."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Anemia Sideroblástica", "Sideroblasto em Anel", "Metabolismo", "FGV"]
+  },
+  {
+    "enunciado": "Um paciente de 45 anos, com histórico de retocolite ulcerativa, apresenta anemia hipocrômica e microcítica (Hb 9,5 g/dL; VCM 74 fL) associada à astenia severa e dor articular. O médico desconfia de uma 'ferropenia funcional' em meio à inflamação crônica. Qual o achado no perfil de ferro que melhor aponta para esta privação ferratínica interna em casos de inflamação elevada (Ferritina > 100 ng/mL)?",
+    "options": {
+      "a": "Saturação de transferrina < 20% e presença de receptor solúvel da transferrina (sTfR) elevado.",
+      "b": "Saturação de transferrina > 50%.",
+      "c": "Níveis de Haptoglobina elevados.",
+      "d": "Aumento dos reticulócitos jovens no sangue periférico.",
+      "e": "Normalização da Proteína C Reativa."
+    },
+    "answer": "a",
+    "rationale": "Em casos de inflamação moderada/grave, a ferritina não é confiável para excluir carência de ferro. A saturação de transferrina estaria baixa (devido ao sequestro periférico) e, crucialmente, o sTfR estaria elevado (marcadores de avidez celular pelo ferro, independente da inflamação). O sTfR é ferramenta importante para diferenciar ferropenia real na vigência de doença crônica.",
+    "option_rationales": {
+      "a": "Correta. Bioquímica diagnóstica diferencial.",
+      "b": "Incorreta. Saturação baixa é a chave da privação.",
+      "c": "Incorreta. Haptoglobina indica hemólise.",
+      "d": "Incorreta. Reticulócitos estariam baixos por eritropoese limitada.",
+      "e": "Incorreta. A PCR estaria alta se houver inflamação mascara-ferritina."
+    },
+    "difficulty": "alta",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["sTfR", "Anemia Inflamatória", "Ferro", "Geral", "FGV"]
+  }
+]

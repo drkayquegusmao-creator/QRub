@@ -1,0 +1,232 @@
+[
+  {
+    "enunciado": "Um paciente de 4 anos de idade apresenta-se com quadro de diarréia sanguinolenta iniciada há 6 dias. Atualmente, apresenta palidez súbita, oligoanúria e petéquias em tronco. O hemograma demonstra esquizócitos abundantes e Coombs Direto negativo. Qual o diagnóstico e qual o agente etiológico pós-disentérico mais comum?",
+    "options": {
+        "a": "Síndrome Hemolítico-Urêmica (SHU); Escherichia coli O157:H7.",
+        "b": "Púrpura Trombocitopênica Trombótica (PTT); Deficiência de ADAMTS13.",
+        "c": "Coagulação Intravascular Disseminada (CIVD); Sepsis.",
+        "d": "Deficiência de Vitamina B12.",
+        "e": "Dengue Hemorrágica."
+    },
+    "answer": "a",
+    "rationale": "A SHU típica é precedida por colite por E. coli produtora de toxina Shiga. A tríade é anemia hemolítica microangiopática (esquizócitos), trombocitopenia e insuficiência renal aguda.",
+    "option_rationales": {
+        "a": "Correta. Tríade da SHU e agente colônico comum.",
+        "b": "Incorreta. PTT é comum em adultos e tem envolvimento neurológico.",
+        "c": "Incorreta. CIVD apresentaria alargamento de tempos de coagulação.",
+        "d": "Incorreta. B12 causa megaloblastose.",
+        "e": "Incorreta. Dengue causa plaquetopenia mas não hemólise microangiopática franca."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["SHU", "Pediatria", "E. coli", "Microangiopatia", "FGV"]
+  },
+  {
+    "enunciado": "Sobre a Púrpura Trombocitopênica Trombótica (PTT), doença caracterizada pela deficiência da enzima ADAMTS13, qual o tratamento de EMERGÊNCIA de escolha?",
+    "options": {
+        "a": "Plasmaférese terapêutica e corticoides.",
+        "b": "Transfusão de plaquetas imediata.",
+        "c": "Esplenectomia de urgência.",
+        "d": "Suplementação de ferro venoso.",
+        "e": "Rituximabe isoladamente."
+    },
+    "answer": "a",
+    "rationale": "A PTT é uma emergência onde a plasmaférese remove multímeros de vWF e autoanticorpos, além de repor a ADAMTS13 funcional.",
+    "option_rationales": {
+        "a": "Correta. Plasmaférese é salvadora de vida na PTT.",
+        "b": "Incorreta. Transfusão de plaquetas é contraindicada na PTT.",
+        "c": "Incorreta. Não trata a deficiência enzimática.",
+        "d": "Incorreta. Não há carência de ferro.",
+        "e": "Incorreta. Rituximabe é adjuvante."
+    },
+    "difficulty": "alta",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["PTT", "Plasmaférese", "Emergência", "FGV"]
+  },
+  {
+    "enunciado": "Um paciente de 40 anos, vegetariano estrito, apresenta palidez e parestesias em bota e luva. O hemograma mostra anemia macrocítica (VCM 112 fL). Coleta-se B12 que está baixa. Qual a principal causa de carência de B12 neste grupo e qual o marcador bioquímico urinário que diferencia esta da deficiência de Folato?",
+    "options": {
+        "a": "Ingestão insuficiente; Ácido Metilmalônico (MMA) elevado na urina.",
+        "b": "Má absorção pelo glúten; Homocisteína baixa.",
+        "c": "Consumo de peixe cru; Ferritina baixa.",
+        "d": "Invasão biliar; Bilirrubina alta.",
+        "e": "Gastrite atrófica; Ácido ascórbico."
+    },
+    "answer": "a",
+    "rationale": "Vegetarianos estritos não ingerem fontes de cobalamina (presente apenas em produtos animais). O MMA elevado na urina é específico da falta de B12, enquanto a homocisteína aumenta tanto na falta de B12 quanto de Folato.",
+    "option_rationales": {
+        "a": "Correta. Mecanismo nutricional e laboratório diferencial.",
+        "b": "Incorreta. Má absorção não é a causa primária no vegetariano saudável.",
+        "c": "Incorreta. Peixe cru consome B1 (Tiamina).",
+        "d": "Incorreta. Não existe nexo.",
+        "e": "Incorreta. Marcador gástrico mas não urinário específico da via metabólica."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["B12", "Vegetarianismo", "MMA", "FGV"]
+  },
+  {
+    "enunciado": "A conduta padrão sugerida para a prevenção de Anemia Ferropriva no lactente nascido a TERMO, com PESO ADEQUADO, em aleitamento materno exclusivo até os 6 meses (SBP 2021) é:",
+    "options": {
+        "a": "Dose de 1 mg/kg/dia de ferro elementar a partir dos 3 meses de vida.",
+        "b": "Dose de 2 mg/kg/dia aos 6 meses.",
+        "c": "Dose de 3 mg/kg/dia ao nascimento.",
+        "d": "Somente após 1 ano.",
+        "e": "Não realizar suplementação se a mãe for hígida."
+    },
+    "answer": "a",
+    "rationale": "Protocolo vigente da SBP visa garantir estoques durante a fase de maior crescimento.",
+    "option_rationales": {
+        "a": "Correta. Recomendação SBP 2021.",
+        "b": "Incorreta. Protocolo antigo.",
+        "c": "Incorreta. Errado.",
+        "d": "Incorreta. Tarde demais.",
+        "e": "Incorreta. Universal."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["SBP", "Puericultura", "Ferro", "FGV"]
+  },
+  {
+    "enunciado": "Sobre a Anemia Sideroblástica por Lead (Saturnismo), qual o achado laboratorial característico na hematoscopia?",
+    "options": {
+        "a": "Pontilhado basofílico grosseiro.",
+        "b": "Dacriócitos em lágrima.",
+        "c": "Hemácias em foice.",
+        "d": "Acantócitos.",
+        "e": "Esferócitos."
+    },
+    "answer": "a",
+    "rationale": "A inibição da pirimidina-5'-nucleotidase pelo chumbo impede a degradação de RNA ribossômico, gerando o pontilhado azulado.",
+    "option_rationales": {
+        "a": "Correta. Marco diagnóstico do saturnismo.",
+        "b": "Incorreta. Mielofibrose.",
+        "c": "Incorreta. Anemia falciforme.",
+        "d": "Incorreta. Hepatopatia.",
+        "e": "Incorreta. Esferocitose."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Saturnismo", "Toxicologia", "Morfologia", "FGV"]
+  },
+  {
+    "enunciado": "Um paciente de 4 anos apresenta anemia normocítica pura iniciada há 3 semanas. Relata febre há 1 mês. O mielograma demonstra parada seletiva da linhagem eritroide com maturação normal de plaquetas e leucócitos. Qual o diagnóstico?",
+    "options": {
+        "a": "Eritroblastopenia Transitória da Infância (TEC).",
+        "b": "Anemia de Diamond-Blackfan.",
+        "c": "Aplasia Medular.",
+        "d": "Anemia de Fanconi.",
+        "e": "Leucemia Linfoide Aguda."
+    },
+    "answer": "a",
+    "rationale": "TEC é benigna e transitória, ocorrendo geralmente após o primeiro ano de vida, diferente da Diamond-Blackfan (neonatal/lactente).",
+    "option_rationales": {
+        "a": "Correta. Benignidade pós-viral na infância.",
+        "b": "Incorreta. Crônica e neonatal.",
+        "c": "Incorreta. Todas as linhagens afetadas.",
+        "d": "Incorreta. Genética progressiva.",
+        "e": "Incorreta. Maligna."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["TEC", "Pediatria", "Eritroblastopenia", "FGV"]
+  },
+  {
+    "enunciado": "No tratamento da Anemia Ferropriva severa em um adulto com intolerância gastrointestinal total, qual composto férrico IV permite reposição de dose total em única infusão?",
+    "options": {
+        "a": "Carboximaltose Férrica.",
+        "b": "Sacarato de ferro (Noripurum).",
+        "c": "Sulfato ferroso em gotas.",
+        "d": "Ferro Dextran de alto peso.",
+        "e": "Pirofosfato férrico biliar."
+    },
+    "answer": "a",
+    "rationale": "Carboximaltose férrica é estável e permite infusão de até 1000mg em 15-30 min.",
+    "option_rationales": {
+        "a": "Correta. Terapêutica moderna.",
+        "b": "Incorreta. Exige doses fracionadas (200mg).",
+        "c": "Incorreta. Oral.",
+        "d": "Incorreta. Risco de anafilaxia alto.",
+        "e": "Incorreta. Inexistente."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Ferinject", "Manejo da Ferropenia", "Hematologia", "FGV"]
+  },
+  {
+    "enunciado": "Um paciente de 45 anos com insuficiência renal crônica dialítica apresenta anemia resistente à eritropoetina. Ferritina 1.200 e Saturação de transferrina 85%. Recebeu mais de 50 transfusões. Qual a complicação?",
+    "options": {
+        "a": "Hemocromatose Secundária (Transfusional).",
+        "b": "Anemia Sideroblástica.",
+        "c": "Deficiência de Cobre.",
+        "d": "Eritroblastopenia temporária.",
+        "e": "Insuficiência mitral biliar."
+    },
+    "answer": "a",
+    "rationale": "O acúmulo de ferro por transfusões crônicas sem quelação causa sobrecarga tecidual (hemocromatose secundária).",
+    "option_rationales": {
+        "a": "Correta. Patologia do multi-transfundido.",
+        "b": "Incorreta. Defeito na síntese do heme.",
+        "c": "Incorreta. Zinco alto causa deficiência de cobre.",
+        "d": "Incorreta. Parvovírus.",
+        "e": "Incorreta. Inexistente."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Sobrecarga de Ferro", "Nefrologia", "Hemocromatose", "FGV"]
+  },
+  {
+    "enunciado": "Qual a principal causa de morte precoce em pacientes com Beta-Talassemia Major não-quelados?",
+    "options": {
+        "a": "Cardiomiopatia por sobrecarga de ferro (Arritmias e IC).",
+        "b": "Infecções por esplenectomia.",
+        "c": "Câncer de fígado.",
+        "d": "Falência renal por hemoglobina.",
+        "e": "Osteoporose severa."
+    },
+    "answer": "a",
+    "rationale": "O depósito de ferro no miocárdio é a principal complicação fatal da hemocromatose secundária em talassêmicos.",
+    "option_rationales": {
+        "a": "Correta. Prioridade clínica na talassemia major.",
+        "b": "Incorreta. Grave mas não a principal causa isolada.",
+        "c": "Incorreta. Ocorre mas a morte cardíaca é mais precoce.",
+        "d": "Incorreta. Incorreto.",
+        "e": "Incorreta. Comum mas não fatal direta."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Talassemia Major", "Cardiologia", "Ferro", "FGV"]
+  },
+  {
+    "enunciado": "Sobre a Anemia Hemolítica Autoimune (AHAI) por anticorpos quentes, qual o resultado clássico do Teste de Coombs Direto?",
+    "options": {
+        "a": "Positivo para IgG e negativo/positivo para C3d.",
+        "b": "Positivo apenas para C3d e negativo para IgG.",
+        "c": "Negativo total.",
+        "d": "Positivo para IgM apenas.",
+        "e": "Positivo para anticorpo anti-músculo liso."
+    },
+    "answer": "a",
+    "rationale": "A AHAI quente é mediada por IgG (lise extravascular no baço). O Coombs detecta essa IgG ligada às hemácias.",
+    "option_rationales": {
+        "a": "Correta. Padrão imuno-laboratorial clássico.",
+        "b": "Incorreta. Padrão das crioaglutininas (frio).",
+        "c": "Incorreta. HPN ou hemólise não-imune.",
+        "d": "Incorreta. IgM não é o anticorpo quente padrão.",
+        "e": "Incorreta. Hepatite autoimune."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["AHAI", "Imunologia", "Lab", "FGV"]
+  }
+]

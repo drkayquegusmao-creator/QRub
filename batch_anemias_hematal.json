@@ -1,0 +1,94 @@
+[
+  {
+    "enunciado": "Um homem de 58 anos, etilista crônico pesado (cerca de 1 litro de cachaça por dia), procura atendimento com queixa de parestesia em mãos e pés, cansaço e perda de peso. Relata dieta pobre, baseada principalmente em carboidratos. Ao exame físico: descorado (++/4+), com língua 'em framboesa' (glossite) e sinais sugestivos de neuropatia periférica. O hemograma demonstra: Hemoglobina 7,2 g/dL; VCM 122 fL; Plaquetas 95.000/mm³; Leucócitos 3.500/mm³. O esfregaço de sangue periférico mostra macro-ovalócitos e neutrófilos hipersegmentados. Diante da macrocitose acentuada e do perfil do paciente, qual a deficiência vitamínica MAIS provável e qual o achado laboratorial que diferenciaria este quadro de uma deficiência de folato?",
+    "options": {
+      "a": "Deficiência de Folato; diferenciado pelo aumento do ácido metilmalônico na urina.",
+      "b": "Deficiência de Vitamina B12; diferenciado pelo aumento do ácido metilmalônico no soro.",
+      "c": "Deficiência de Tiamina; diferenciado pela presença de esferócitos no sangue periférico.",
+      "d": "Deficiência de Piridoxina; diferenciado pela presença de corpos de Howell-Jolly.",
+      "e": "Deficiência de Vitamina C; diferenciado pela presença de discrasia sanguínea."
+    },
+    "answer": "b",
+    "rationale": "Embora etilistas tenham frequentemente deficiência de folato (estoque curto), a presença de sintomas neurológicos (parestesias) é fortemente sugestiva de deficiência de Vitamina B12 (Cobalamina). No metabolismo, a B12 é cofator para a conversão de metilmalonil-CoA em succinil-CoA. Na sua falta, há acúmulo de ácido metilmalônico, o que NÃO ocorre na deficiência isolada de folato. Ambos causam aumento de homocisteína, mas apenas a B12 altera o ácido metilmalônico.",
+    "option_rationales": {
+      "a": "Incorreta. Na deficiência de folato, o ácido metilmalônico é normal.",
+      "b": "Correta. O aumento do ácido metilmalônico é marcador específico de deficiência de B12.",
+      "c": "Incorreta. Tiamina (B1) causa Beribéri ou Wernicke-Korsakoff, mas não anemia megaloblástica.",
+      "d": "Incorreta. B6 está ligada a anemias sideroblásticas, não megaloblásticas.",
+      "e": "Incorreta. Escorbuto causa sangramentos, mas não macrocitose isolada com neutrófilos hipersegmentados."
+    },
+    "difficulty": "mista",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Anemia Megaloblástica", "Vitamina B12", "Ácido Metilmalônico", "Neuropatia"]
+  },
+  {
+    "enunciado": "Uma paciente de 26 anos, com diagnóstico de Anemia Falciforme (SS), é admitida com febre, tosse e dor óssea em membros inferiores. Subitamente, apresenta queda da hemoglobina de 8,0 g/dL (basal) para 4,5 g/dL em 24 horas. O número de reticulócitos é de 0,1% (VR: 0,5 a 2%). Não há esplenomegalia palpável. O quadro é sugestivo de infecção recente pelo Parvovírus B19. Qual o diagnóstico dessa complicação aguda da doença falciforme?",
+    "options": {
+      "a": "Crise de Sequestro Esplênico.",
+      "b": "Crise de Hemólise Aguda.",
+      "c": "Crise Aplástica.",
+      "d": "Síndrome Torácica Aguda.",
+      "e": "Crise Vaso-oclusiva simples."
+    },
+    "answer": "c",
+    "rationale": "A Crise Aplástica na Doença Falciforme é comumente desencadeada pelo Parvovírus B19, que infecta os precursores eritroides na medula óssea. Caracteriza-se por uma queda abrupta da hemoglobina associada a uma contagem de reticulócitos extremamente baixa (reticulocitopenia), indicando que a medula parou de produzir novas hemácias. Na Crise de Sequestro, haveria esplenomegalia e reticulocitose; na Hemólise, haveria reticulocitose e aumento de BI/DHL.",
+    "option_rationales": {
+      "a": "Incorreta. O sequestro cursa com aumento do baço e reticulocitose.",
+      "b": "Incorreta. Na hemólise, a resposta medular (reticulócitos) está aumentada.",
+      "c": "Correta. A reticulocitopenia é o marcador chave da crise aplástica.",
+      "d": "Incorreta. A STA envolve sintomas respiratórios e novo infiltrado pulmonar.",
+      "e": "Incorreta. Crise vaso-oclusiva causa dor, mas não queda tão drástica de Hb com aplasia eritroide."
+    },
+    "difficulty": "mista",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Doença Falciforme", "Crise Aplástica", "Parvovírus B19", "Hematologia"]
+  },
+  {
+    "enunciado": "Um homem de 35 anos, de ascendência grega, realiza exames de rotina que revelam: Hemoglobina 11,5 g/dL; VCM 64 fL; HCM 21 pg; RDW 12,8%; Ferro sérico e Ferritina normais. O paciente é totalmente assintomático e o exame físico é normal. A relação VCM/Eritrócitos (Índice de Mentzer) é menor que 13. Qual o diagnóstico mais provável e qual o exame complementar padrão-ouro para confirmação?",
+    "options": {
+      "a": "Anemia Ferropriva; Ferritina.",
+      "b": "Beta-Talassemia Minor; Eletroforese de Hemoglobina.",
+      "c": "Anemia de Doença Crônica; Proteína C Reativa.",
+      "d": "Deficiência de Vitamina B12; Dosagem de Cobalamina.",
+      "e": "Anemia Sideroblástica; Mielograma."
+    },
+    "answer": "b",
+    "rationale": "O paciente apresenta microcitose e hipocromia leves, mas com RDW normal (homeogeneidade das hemácias), o que é típico do traço talassêmico (Talassemia Minor). O Índice de Mentzer < 13 sugere fortemente talassemia em detrimento de ferropenia. Sendo de ascendência mediterrânea e apresentando níveis normais de ferro/ferritina, o próximo passo diagnótico é a Eletroforese de Hemoglobina, que demonstrará aumento da Hb A2 (geralmente > 3,5%) na beta-talassemia minor.",
+    "option_rationales": {
+      "a": "Incorreta. Os estoques de ferro estão normais e o RDW estaria elevado na ferropenia.",
+      "b": "Correta. Marcante microcitose com poucos sintomas e RDW normal apontam para traço talassêmico.",
+      "c": "Incorreta. Anemia de doença crônica costuma ter RDW normal, mas ferro sérico baixo e ferritina alta.",
+      "d": "Incorreta. B12 causa macrocitose (VCM > 100).",
+      "e": "Incorreta. Sideroblástica teria ferro/ferritina aumentados e geralmente mais sintomas."
+    },
+    "difficulty": "mista",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Beta-Talassemia Minor", "Índice de Mentzer", "Anemia Microcítica", "Diagnóstico Diferencial"]
+  },
+  {
+    "enunciado": "Uma paciente de 30 anos com história de hipotireoidismo de Hashimoto queixa-se de astenia e 'língua ardente'. O hemograma mostra anemia macrocítica (VCM 112 fL) com leucopenia e plaquetopenia leves. A endoscopia digestiva alta revela gastrite atrófica de corpo e fundo gástrico. A pesquisa de anticorpos anticélula parietal é positiva. Este quadro é compatível com Anemia Perniciosa. Qual a base fisiopatológica desta condição?",
+    "options": {
+      "a": "Destruição autoimune das células principais produtoras de pepsina.",
+      "b": "Deficiência de fator intrínseco devido à agressão autoimune às células parietais.",
+      "c": "Má absorção de ferro no duodeno por acloridria secundária.",
+      "d": "Ataque direto de linfócitos T aos precursores da medula óssea.",
+      "e": "Deficiência de transcobalamina II por mutação genética."
+    },
+    "answer": "b",
+    "rationale": "A Anemia Perniciosa é a causa mais comum de deficiência de vitamina B12 e tem base autoimune. Ocorre a produção de autoanticorpos contra as células parietais do estômago (que produzem HCL e fator intrínseco) ou contra o próprio fator intrínseco. Sem o fator intrínseco, a vitamina B12 proveniente da dieta não consegue ser absorvida no íleo terminal, levando à anemia megaloblástica e possíveis danos neurológicos.",
+    "option_rationales": {
+      "a": "Incorreta. A agressão é contra as células parietais, não as principais.",
+      "b": "Correta. O fator intrínseco é essencial para a absorção da B12.",
+      "c": "Incorreta. Embora a acloridria possa reduzir a absorção de ferro, o quadro macrocítico é dominado pela falta de B12.",
+      "d": "Incorreta. Isso descreveria anemia aplástica autoimune.",
+      "e": "Incorreta. A anemia perniciosa é adquirida/autoimune, não uma mutação primária da transcobalamina."
+    },
+    "difficulty": "mista",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Anemia Perniciosa", "Autoimunidade", "Gastroenterologia", "Vitamina B12"]
+  }
+]

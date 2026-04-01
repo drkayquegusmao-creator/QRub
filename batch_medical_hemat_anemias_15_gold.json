@@ -1,0 +1,117 @@
+[
+  {
+    "enunciado": "Um paciente de 28 anos, após retornar de uma viagem missionária na Amazônia, apresenta picos febris a cada 48 horas (febre terçã), calafrios intensos e sudorese profusa. O hemograma revela anemia (Hb 9,2 g/dL) e plaquetopenia (80.000/mm³). A gota espessa confirma a presença de formas anelares e gametócitos de Plasmodium vivax. Qual o mecanismo ADICIONAL de anemia, além da lise direta das hemácias pelo parasita, que contribui para a gravidez e gravidade da anemia na malária grave?",
+    "options": {
+      "a": "Disfunção na medula óssea por citocinas inflamatórias (Anemia de Doença Crônica associada).",
+      "b": "Deficiência de B12 consumida pelo parasita.",
+      "c": "Bloqueio biliar impedindo a absorção de ferro.",
+      "d": "Produção de autoanticorpos IgG anti-membrana eritrocitária (específico do vivax).",
+      "e": "Fragilidade osmótica congênita que se manifesta durante o estresse infeccioso."
+    },
+    "answer": "a",
+    "rationale": "Na malária, a anemia é multifatorial: lise mecânica (rompimento dos esquizontes), destruição prematura de hemácias não infectadas pelo baço ativado (sequestro) e supressão transitória da medula óssea mediada pelo excesso de citocinas inflamatórias (TNF-alfa e IFN-gama), simulando uma anemia de doença crônica durante o episódio agudo.",
+    "option_rationales": {
+      "a": "Correta. Resume a interação sistêmica/inflamatória na malária.",
+      "b": "Incorreta. Parasitas consomem glicose mas não depletam B12.",
+      "c": "Incorreta. Não justifica o quadro hematológico.",
+      "d": "Incorreta. AHAI por malária é rara e o mecanismo predominante é sequestro/lise/supressão.",
+      "e": "Incorreta. Fragilidade osmótica é da esferocitose hereditária."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Infectologia", "Malária", "Hemólise", "FGV"]
+  },
+  {
+    "enunciado": "Sobre a Deficiência de G6PD (Glicose-6-Fosfato Desidrogenase), qual a alteração morfológica clássica no esfregaço de sangue periférico observada durante uma crise hemolítica aguda após exposição a estressores oxidativos (ex: Primaquina ou Naftalina)?",
+    "options": {
+      "a": "Hemácias em 'mordida' (bite cells) e presença de Corpos de Heinz (previamente à lise).",
+      "b": "Dacriócitos (hemácias em lágrima) e eritroblastos.",
+      "c": "Esquizócitos e plaquetopenia grave.",
+      "d": "Acantócitos e hemácias em alvo.",
+      "e": "Drepanócitos em forma de foice."
+    },
+    "answer": "a",
+    "rationale": "Na deficiência de G6PD, a hemácia não produz NADPH suficiente para reduzir a glutationa, ficando vulnerável ao estresse oxidativo. A hemoglobina sofre denaturação e precipita, formando os 'corpos de Heinz'. Ao passar pelo baço, os macrófagos tentam remover esses precipitados, 'mordendo' a membrana e gerando as 'bite cells' ou 'hemácias em mordida'.",
+    "option_rationales": {
+      "a": "Correta. Achado morfológico patognomônico da crise oxidativa.",
+      "b": "Incorreta. Lágrima é de mielofibrose ou talassemia grave.",
+      "c": "Incorreta. Esquizócitos são de microangiopatia (SHU/PTT).",
+      "d": "Incorreta. Acantócitos sugerem hepatopatia ou abetalipoproteinemia.",
+      "e": "Incorreta. Drepanócitos são da anemia falciforme."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["G6PD", "Hemólise", "Morfologia", " Heinz", "FGV"]
+  },
+  {
+    "enunciado": "A Porfíria Cutânea Tarda (PCT) é a porfíria mais frequente na prática clínica. Qual o achado cutâneo mais característico e qual a patologia infecciosa crônica (Vírus C ou HIV) que deve ser SEMPRE investigada como fator desencadeante ou associado nestes pacientes?",
+    "options": {
+      "a": "Fragilidade cutânea com formação de bolhas e erosões em dorso de mãos após exposição solar; Hepatite C (HCV).",
+      "b": "Púrpuras palpáveis em membros inferiores; Hepatite B (HBV).",
+      "c": "Xantomas eruptivos generalizados; Vírus da Zika.",
+      "d": "Manchas avermelhadas que descamam; Papilomavírus (HPV).",
+      "e": "Pápulas pruriginosas lineares; Escabiose por HIV."
+    },
+    "answer": "a",
+    "rationale": "A PCT ocorre devido à deficiência da enzima Uroporfirinogênio descarboxilase hepática. O acúmulo de porfirinas na pele causa fotossensibilidade marcada. A fragilidade extrema (bolhas/crostas) em áreas fotoexpostas (dorso das mãos) é clássica. Mais de 50% dos pacientes no Brasil com PCT apresentam infecção concomitante pelo Vírus da Hepatite C (HCV), além de fatores como etilismo e sobrecarga de ferro.",
+    "option_rationales": {
+      "a": "Correta. Associação forte entre PCT, fotoexposição e Hepatite C.",
+      "b": "Incorreta. Púrpuras têm outras causas (vasculites).",
+      "c": "Incorreta. Xantomas são de dislipidemias.",
+      "d": "Incorreta. Não condiz com o quadro de porfíria.",
+      "e": "Incorreta. Não condiz com o quadro de porfíria."
+    },
+    "difficulty": "alta",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Porfíria Cutânea Tarda", "Hepatite C", "Dermatologia Hematológica", "FGV"]
+  },
+  {
+    "enunciado": "Um paciente de 48 anos com histórico de Bypass Gástrico apresenta anemia macrocítica refratária a B12 intramuscular. Durante a avaliação, observa-se neutropenia marcante. No esfregaço de sangue periférico, há presença de sideroblastos em anel (coloração de Perls). Ao realizar o estoque de minerais, nota-se ZINCO muito elevado e COBRE muito baixo. Qual a causa provável desta deficiência de cobre e sua repercussão clínica?",
+    "options": {
+      "a": "O excesso de zinco induz a síntese de metalotioneína no enterócito, que sequestra o cobre da luz intestinal, impedindo sua absorção periférica.",
+      "b": "O zinco destrói diretamente a ceruloplasmina circulante.",
+      "c": "A deficiência de cobre é causada apenas pelo componente inflamatório da bariatria.",
+      "d": "O cobre é consumido pela flora bacteriana intestinal em crescimento devido ao desvio do piloro.",
+      "e": "O zinco elevado é uma consequência da anemia, não sua causa."
+    },
+    "answer": "a",
+    "rationale": "O mecanismo de competição zinco-cobre é bem conhecido. O zinco estimula a metalotioneína (proteína intracelular do enterócito) que tem maior afinidade pelo cobre. Assim, o cobre fica 'preso' nos enterócitos e é perdido com a descamação celular, levando à deficiência sistêmica grave. Isso resulta em anemia (muitas vezes com sideroblastos em anel) e neutropenia, quadro clínico que mimetiza mielodisplasia.",
+    "option_rationales": {
+      "a": "Correta. Mecanismo de competição mineral.",
+      "b": "Incorreta. Mecanismo não documentado.",
+      "c": "Incorreta. Causado especificamente pela competição no transportador.",
+      "d": "Incorreta. SIBO consome B12.",
+      "e": "Incorreta. Zinco elevado costuma ser de suplementação exógena exagerada (pastilhas, fixadores de prótese dentária ou multivitamínicos inapropriados)."
+    },
+    "difficulty": "alta",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Cobre", "Zinco", "Interação Nutricional", "Bariátrica", "FGV"]
+  },
+  {
+    "enunciado": "Considere as recomendações da Sociedade Brasileira de Pediatria (SBP) para a suplementação profilática de FERRO elementar. Qual a conduta recomendada para recém-nascidos a TERMO, com PESO ADEQUADO para a idade gestacional, que estejam em aleitamento materno exclusivo ou com fórmulas infantis, a partir do terceiro mês de vida?",
+    "options": {
+      "a": "Iniciar 1mg de Fe/kg/dia a partir dos 3 meses de vida até os 2 anos de idade.",
+      "b": "Suplementar apenas se a mãe for anêmica.",
+      "c": "Iniciar Ferro apenas aos 6 meses de vida junto com a introdução alimentar.",
+      "d": "Prescrever 4mg de Fe/kg/dia para todos os prematuros.",
+      "e": "Não suplementar se a criança ganhar peso normalmente."
+    },
+    "answer": "a",
+    "rationale": "As diretrizes atuais da SBP (2021) recomendam a suplementação de ferro profilático para todos os lactentes a partir do terceiro mês (90 dias) de vida, independente do tipo de aleitamento (a termo e peso adequado), na dose de 1 mg/kg/dia até os 24 meses. Prematuros e bebês com baixo peso (< 2500g) devem iniciar mais precocemente (30 dias) e com doses maiores conforme a necessidade estipulada.",
+    "option_rationales": {
+      "a": "Correta. Recomendação oficial atual para crianças a termo.",
+      "b": "Incorreta. Decisão não depende do estado materno isolado.",
+      "c": "Incorreta. Conduta ultrapassada frente ao risco de ferropenia antes dos 6 meses.",
+      "d": "Incorreta. Prematuros têm doses específicas (ex: 2mg/kg se < 2500g ou 3mg/kg se < 1500g) mas a questão pede para o termo com peso adequado.",
+      "e": "Incorreta. Suplementação é profilática para desenvolvimento cognitivo."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Suplementação de Ferro", "Pediatria", "SBP", "Saúde Pública", "FGV"]
+  }
+]

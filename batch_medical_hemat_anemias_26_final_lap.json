@@ -1,0 +1,94 @@
+[
+  {
+    "enunciado": "Um paciente de 45 anos, previamente diagnosticado com retocolite ulcerativa, apresenta anemia hipocrômica e microcítica (Hb 9,4 g/dL; VCM 76 fL). O ferro sérico está baixo (30 mcg/dL) e a ferritina está em 120 ng/mL, com PCR de 45 mg/L. Qual o próximo passo laboratorial que permitiria distinguir entre carência férrica absoluta e anemia de doença crônica (inflamação) neste paciente?",
+    "options": {
+        "a": "Dosagem do Receptor Solúvel da Transferrina (sTfR).",
+        "b": "Mielograma com coloração de Perls.",
+        "c": "Eletroforese de Hemoglobina.",
+        "d": "Teste de Fragilidade Osmótica.",
+        "e": "Haptoglobina plasmática."
+    },
+    "answer": "a",
+    "rationale": "A ferritina de 120 ng/mL pode ser um 'falso-normal' ou elevado pelo estado inflamatório (PCR alto). O sTfR aumenta especificamente na carência intracelular de ferro, independente da inflamação sistêmica. Por isso, um sTfR elevado em pacientes com PCR alta aponta fortemente para ferropenia absoluta sobreposta à anemia da inflamação.",
+    "option_rationales": {
+        "a": "Correta. Marker de escolha para ferropenia na vigência de inflamação.",
+        "b": "Incorreta. Aunque seria definitivo, é invasivo demais para esta fase diagnóstica.",
+        "c": "Incorreta. Serve para hemoglobinopatias.",
+        "d": "Incorreta. Serve para esferocitose.",
+        "e": "Incorreta. Marker de hemólise."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["DII", "Ferropenia", "Diagnóstico Diferencial", "Biomarcadores", "FGV"]
+  },
+  {
+    "enunciado": "Sobre a Anemia Sideroblástica Adquirida associada ao uso de Isoniazida, qual o mecanismo bioquímico que justifica o depósito de ferro mitocondrial em 'anel' ao redor do núcleo do eritroblasto?",
+    "options": {
+        "a": "A isoniazida depele a Vitamina B6 (Piridoxina), que é cofator da enzima ALA-Sintetase (limitante da síntese do Heme).",
+        "b": "A isoniazida ataca diretamente a ferritina citoplasmática.",
+        "c": "A isoniazida impede a absorção de ferro no duodeno.",
+        "d": "A isoniazida causa hemólise intravascular imediata.",
+        "e": "O ferro se torna tóxico pela falta de Tiamina (B1)."
+    },
+    "answer": "a",
+    "rationale": "A B6 é essencial para a primeira etapa da síntese do heme nas mitocôndrias. Sem a síntese ativa de protoporfirina, o ferro que entrou na mitocôndria não tem com quem se unir e acaba precipitando, gerando o morfo-diagnóstico de sideroblasto em anel. A reposição de B6 reverte o quadro clínico.",
+    "option_rationales": {
+        "a": "Correta. Mecanismo etiológico da anemia por isoniazida.",
+        "b": "Incorreta. Incorreto.",
+        "c": "Incorreta. Não justifica o achado medular.",
+        "d": "Incorreta. Não é o mecanismo da sideroblastose.",
+        "e": "Incorreta. B1 não participa da via do heme."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Isoniazida", "Vitamina B6", "Meabolismo do Heme", "FGV"]
+  },
+  {
+    "enunciado": "A conduta padrão sugerida para a prevenção de Anemia Ferropriva no lactente nascido a TERMO, com PESO ADEQUADO, em aleitamento materno exclusivo até os 6 meses, segundo as novas diretrizes da SBP (2021), é:",
+    "options": {
+        "a": "Suplementação de ferro elementar 1 mg/kg/dia a partir do 3º mês de vida (90 dias) e mantida até os 2 anos.",
+        "b": "Suplementação apenas se a mãe apresentar anemia ferropriva.",
+        "c": "Esperar a introdução de alimentos sólidos aos 6 meses.",
+        "d": "Iniciar doses elevadas de ferro intramuscular aos 6 meses.",
+        "e": "Suplementar apenas após suspensão do aleitamento materno."
+    },
+    "answer": "a",
+    "rationale": "As diretrizes atuais preconizam o início profilático aos 3 meses de vida em dose de 1 mg/kg/dia para crianças sem fatores de risco (termo e peso adequado), visando garantir estoque férrico suficiente durante a fase de crescimento rápido.",
+    "option_rationales": {
+        "a": "Correta. Protocolo vigente para saúde pública e pediatria.",
+        "b": "Incorreta. Incorreto.",
+        "c": "Incorreta. Incorreto.",
+        "d": "Incorreta. Incorreto.",
+        "e": "Incorreta. Incorreto."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["SBP", "Suplementação", "Infaância", "Ferropenia", "FGV"]
+  },
+  {
+    "enunciado": "Um paciente de 45 anos com quadro de insuficiência renal crônica estágio 4 (clearance de creatinina 25 mL/min) apresenta anemia Hb 8,8 g/dL. O perfil de ferro mostra ferritina 250 ng/mL e saturação de transferrina de 18%. Qual o conceito hematológico que define este quadro de ferro 'bloqueado' e qual o papel do hepcidina neste cenário?",
+    "options": {
+        "a": "Ferropenia funcional; Hepcidina está aumentada pela inflamação da uremia, impedindo a liberação do ferro dos estoques.",
+        "b": "Ferropenia absoluta; Hepcidina está ausente no paciente renal.",
+        "c": "Anemia hemolítica microangiopática paraneoplásica.",
+        "d": "Deficiência pura de EPO sem influência do ferro.",
+        "e": "Anemia sideroblástica congênita."
+    },
+    "answer": "a",
+    "rationale": "Na DRC, o estado urêmico é pró-inflamatório. Citocinas (IL-6) estimulam a hepcidina no fígado. A hepcidina alta degrada a ferroportina, deixando o ferro 'preso' nos enterócitos e macrófagos, o que impede a oferta ferritínica para a eritropoese estimulada (muitas vezes pelo uso de ESA). Por isso o paciente pode ter ferritina normal mas saturação de transferrina baixa.",
+    "option_rationales": {
+        "a": "Correta. Resume a interação ferro-hepcidina na inflamação crônica.",
+        "b": "Incorreta. Hepcidina está elevadíssima na uremia.",
+        "c": "Incorreta. Não condiz com a descrição metabólica.",
+        "d": "Incorreta. EPO é o defeito glandular, mas o ferro funcional é o defeito metabólico.",
+        "e": "Incorreta. Genética."
+    },
+    "difficulty": "alta",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["DRC", "Hepcidina", "Inflamação", "Metabolismo", "FGV"]
+  }
+]

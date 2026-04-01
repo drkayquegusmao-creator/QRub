@@ -1,0 +1,94 @@
+[
+  {
+    "enunciado": "Um paciente de 52 anos apresenta anemia e cansaço. Na hematoscopia, é observada a presença de PONTILHADO BASOFÍLICO grosseiro. Relata exposição ao chumbo em fundição. Qual o nome da intoxicação por este metal pesado?",
+    "options": {
+        "a": "Saturnismo.",
+        "b": "Hidrargirismo.",
+        "c": "Arsenicismo.",
+        "d": "Cadmiismo.",
+        "e": "Deficiência de mercúrio."
+    },
+    "answer": "a",
+    "rationale": "O chumbo (Saturno) causa inibição enzimática e pontilhado basofílico na hematoscopia periférica.",
+    "option_rationales": {
+        "a": "Correta. Marco ocupacional.",
+        "b": "Incorreta. Mercúrio.",
+        "c": "Incorreta. Arsênico.",
+        "d": "Incorreta. Cádmio.",
+        "e": "Incorreta. Incorreto."
+    },
+    "difficulty": "fácil",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Ocupacional", "Chumbo", "Morfologia", "FGV"]
+  },
+  {
+    "enunciado": "A conduta padrão na deficiência de G6PD para evitar crises hemolíticas fatais é:",
+    "options": {
+        "a": "Evitar agentes oxidantes (primáquina, naftalina e fava) e tratar infecções.",
+        "b": "Fazer transfusão mensal.",
+        "c": "Tomar ferro diariamente.",
+        "d": "Pulsoterapia de corticoide.",
+        "e": "Não realizar esportes de impacto."
+    },
+    "answer": "a",
+    "rationale": "G6PD protege a hemácia do estresse oxidativo. Sem ela, a célula sofre lise brusca na presença de oxidantes.",
+    "option_rationales": {
+        "a": "Correta. Suporte terapêutico preventivo.",
+        "b": "Incorreta. Somente se hemólise maciça.",
+        "c": "Incorreta. Ferro de nada serve.",
+        "d": "Incorreta. Não é patologia autoimune.",
+        "e": "Incorreta. Esportes não afetam o estresse oxidativo molecular."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["G6PD", "Manejo Preventivo", "Genética", "FGV"]
+  },
+  {
+    "enunciado": "Um paciente de 40 anos, vegetariano, apresenta hemoglobina 11 g/dL e VCM 110 fL. B12 está baixa. Qual o melhor tratamento de longo prazo?",
+    "options": {
+        "a": "Vitamina B12 (especialmente via parenteral ou oral de alta dose).",
+        "b": "Ácido fólico isolado.",
+        "c": "Sulfato ferroso.",
+        "d": "Suco de beterraba e fava.",
+        "e": "Eritropoetina."
+    },
+    "answer": "a",
+    "rationale": "Carência de B12 exige reposição direta para evitar danos neurológicos (mielose).",
+    "option_rationales": {
+        "a": "Correta. Terapia nutricional específica.",
+        "b": "Incorreta. Pode agravar lesão nervosa.",
+        "c": "Incorreta. Não trata macrocitose megaloblástica.",
+        "d": "Incorreta. Dieta ineficaz profilática se o estoque estiver zero.",
+        "e": "Incorreta. Medula não está com falta de estímulo, mas de substrato."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Nutrição", "B12", "Eritropoese", "FGV"]
+  },
+  {
+    "enunciado": "A conduta profilática para lactentes a termo e peso adequado ao nascer, conforme SBP 2021, em relação ao ferro é:",
+    "options": {
+        "a": "1 mg/kg/dia aos 3 meses de vida.",
+        "b": "2 mg/kg/dia aos 6 meses.",
+        "c": "3 mg/kg/dia ao nascer.",
+        "d": "Não suplementar ferropicamente se a mãe é bem nutrida.",
+        "e": "Somente suplementar se o VCM for < 80."
+    },
+    "answer": "a",
+    "rationale": "Protocolo SBP atualizado visa cobertura precoce da ferropenia prevalente na infância.",
+    "option_rationales": {
+        "a": "Correta. Norma técnica pediátrica.",
+        "b": "Incorreta. Protocolo antigo.",
+        "c": "Incorreta. Errado.",
+        "d": "Incorreta. Requisito nutricional do bebê excede o leite materno pós-3 meses.",
+        "e": "Incorreta. O uso é profilático."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["SBP", "Puericultura", "Ferro", "FGV"]
+  }
+]

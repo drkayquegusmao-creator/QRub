@@ -1,0 +1,117 @@
+[
+  {
+    "enunciado": "Um paciente de 45 anos, com cirrose hepática em Child-Pugh B, apresenta anemia estável (Hb 10,2 g/dL) com VCM de 102 fL. A análise do sangue periférico demonstra hemácias 'em alvo' (target cells). Qual o mecanismo fundamental que altera a morfologia dessas hemácias nestes pacientes?",
+    "options": {
+        "a": "Aumento da relação superfície/volume por excesso de colesterol e fosfolipídios na membrana.",
+        "b": "Fragilidade osmótica congênita.",
+        "c": "Fragmentação mecânica por veia porta hipertensa.",
+        "d": "Deficiência de riboflavina (Vitamina B2).",
+        "e": "Deposição de depósitos de ferro intersticial que deformam a célula."
+    },
+    "answer": "a",
+    "rationale": "Nas hepatopatias, o balanço lipídico plasmático alterado leva a um acréscimo de colesterol e fosfolipídios na bicamada lipídica da hemácia. Isso aumenta a área de superfície da célula sem aumentar seu volume, fazendo com que o excesso de membrana se projete no centro da célula, criando a imagem de 'alvo' típica.",
+    "option_rationales": {
+        "a": "Correta. Mecanismo de membrana clássico em cirrose e estase biliar.",
+        "b": "Incorreta. Fragilidade osmótica é da esferocitose.",
+        "c": "Incorreta. Hipertensão portal causa hiperesplenismo (sequestro) mas não target cells.",
+        "d": "Incorreta. B2 não se associa a target cells.",
+        "e": "Incorreta. Não existe esse processo fisiopatológico na cirrose."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Cirrose", "Hepatologia", "Target Cells", "Morfologia", "FGV"]
+  },
+  {
+    "enunciado": "Um paciente de 42 anos queixa-se de episódios recorrentes de dor abdominal intensa acompanhada de irritabilidade e episódios isolados de confusão mental. Relata que seus sintomas pioram após ingestão de álcool. Observa que sua urina, se deixada em exposição à luz por algum tempo, torna-se de coloração avermelhada ou escura. O hemograma e o perfil de ferro são NORMAS. Qual o diagnóstico cinético enzimático que explica a patologia e qual a intervenção nutricional que pode abortar crises leves?",
+    "options": {
+      "a": "Porfíria Intermitente Aguda; Dieta rica em carboidratos (Glicose).",
+      "b": "Anemia Sideroblástica Adquirida; Dieta rica em Vitamina B6.",
+      "c": "Doença de Wilson; Dieta pobre em cobre.",
+      "d": "Saturnismo ocupacional; Dieta rica em cálcio.",
+      "e": "Porfíria Cutânea Tarda; Evitar exposição solar."
+    },
+    "answer": "a",
+    "rationale": "A PIA é caracterizada por dor abdominal 'neuro-visceral' sem peritonismo, sinais psiquiátricos e a famosa urina 'cor de vinho' ou que escurece conforme a luz oxida as porfirinas. Glicose/Carboidratos inibem a ALA-sintetase e são o tratamento bioquímico básico para crises agudas.",
+    "option_rationales": {
+      "a": "Correta. Tríade clínica e manejo dietético.",
+      "b": "Incorreta. Incorreto.",
+      "c": "Incorreta. Incorreto.",
+      "d": "Incorreta. Incorreto.",
+      "e": "Incorreta. Cutânea Tarda causa apenas lesão de pele fotoexposta."
+    },
+    "difficulty": "alta",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["PIA", "Dor Abdominal", "Heme", "Metabolismo", "FGV"]
+  },
+  {
+    "enunciado": "Sobre a Púrpura Trombocitopênica Trombótica (PTT), qual o sinal neurológico que constitui a 'pêntada' clássica (embora ocorra em apenas 40% dos casos) e o diferencia da Síndrome Hemolítico-Urêmica pura?",
+    "options": {
+        "a": "Manifestações neurológicas oscilantes (ataxia, confusão, cefaléia ou convulsão).",
+        "b": "Perda total de visão bilateral.",
+        "c": "Apenas febre sem outros sintomas.",
+        "d": "Esplenomegalia maciça.",
+        "e": "Acidose grave."
+    },
+    "answer": "a",
+    "rationale": "A PTT é famosa pela pêntada: Anemia Hemolítica Microangiopática, Trombocitopenia, Febre, Insuficiência Renal (geralmente leve) e Alterações Neurológicas. Os sintomas neurológicos da PTT são classicamente oscilantes, flutuando em intensidade ao longo das horas devido à microtrombose cerebral transitória.",
+    "option_rationales": {
+        "a": "Correta. Marco diagnóstico diferencial da PTT.",
+        "b": "Incorreta. Muito raro como sinal isolado.",
+        "c": "Incorreta. Febre faz parte da pêntada, mas alteração neuro é mais específica.",
+        "d": "Incorreta. Baço costuma ser normal.",
+        "e": "Incorreta. Comum na SHU terminal."
+    },
+    "difficulty": "alta",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["PTT", "Diferencial", "Neurologia Hematológica", "FGV"]
+  },
+  {
+    "enunciado": "Um paciente de 48 anos com histórico de câncer de pulmão metástatico em tratamento paliativo apresenta cansaço progressivo. Hemograma: Hb 8,8 g/dL; VCM 88 fL. O perfil de ferro mostra: Ferritina 850 ng/mL e Ferro sérico 35 mcg/dL. Qual o racional terapêutico para o uso de Agentes Estimuladores da Eritropoese (ESA) em oncologia?",
+    "options": {
+        "a": "Reduzir a necessidade de transfusões em pacientes com anemia induzida por quimioterapia sintomáticos.",
+        "b": "Curar a anemia de forma permanente.",
+        "c": "Prevenir metástases cerebrais pelo aumento do O2.",
+        "d": "Substituir o transplante de medula.",
+        "e": "Indicar apenas se a ferritina estiver baixa."
+    },
+    "answer": "a",
+    "rationale": "ESA em oncologia é indicado especificamente para pacientes sob quimioterapia que desenvolvem anemia moderada sintomática (Hb < 10) visando diminuir a carga transfusional e seus riscos imunológicos/infecciosos associados.",
+    "option_rationales": {
+        "a": "Correta. Indicação protocolar atual.",
+        "b": "Incorreta. Causa de base (câncer/quimio) persiste.",
+        "c": "Incorreta. Sem nexo científico.",
+        "d": "Incorreta. Empregada profilaticamente.",
+        "e": "Incorreta. Na verdade, ferropenia deve ser corrigida JUNTO ao uso de ESA."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Eritropoetina", "Oncologia", "Palitativo", "FGV"]
+  },
+  {
+    "enunciado": "A conduta padrão na deficiência de G6PD para evitar crises hemolíticas fatais em pacientes portadores deste polimorfismo enzimático é:",
+    "options": {
+        "a": "Evitar agentes oxidantes (fórmulas com enxofre, naftalina, primáquina e fava) e tratar infecções prontamente.",
+        "b": "Suplementação diária de Ferro oral.",
+        "c": "Esplenectomia preventiva logo ao nascer.",
+        "d": "Transfusão de troca mensal profilática.",
+        "e": "Uso crônico de corticosteroides."
+    },
+    "answer": "a",
+    "rationale": "O manejo da deficiência de G6PD baseia-se na PREVENÇÃO. Sem estresse oxidativo, o paciente vive vida normal com hemograma saudável. Deve-se manter lista de restrição de medicamentos e substâncias (como naftalina e favas).",
+    "option_rationales": {
+        "a": "Correta. Padrão de manejo preventivo universal.",
+        "b": "Incorreta. Ferro de nada serve na carência enzimática oxidativa.",
+        "c": "Incorreta. Baço é quem limpa, mas a lise na G6PD pode ser também intravascular.",
+        "d": "Incorreta. Desproporcional.",
+        "e": "Incorreta. Corticoides não estabilizam a via da pentose-fosfato."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["G6PD", "Manejo Preventivo", "FGV"]
+  }
+]

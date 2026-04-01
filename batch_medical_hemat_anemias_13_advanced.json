@@ -1,0 +1,117 @@
+[
+  {
+    "enunciado": "Um homem de 52 anos, trabalhador em fábrica de baterias de chumbo por 15 anos, procura atendimento com dor abdominal tipo cólica, constipação e cefaleia recorrente. O hemograma demonstra Hb 10,8 g/dL; VCM 74 fL; HCM 24 pg. Na hematoscopia, é observado pontilhado basofílico acentuado em diversas hemácias. Qual enzima da síntese do Heme está sendo inibida pelo agente tóxico e qual o diagnóstico diferencial fundamental?",
+    "options": {
+      "a": "ALA-desidratase e Ferroquelatase; Saturnismo.",
+      "b": "PBG-desaminase; Porfíria Aguda.",
+      "c": "Piruvato quinase; Hemólise congênita.",
+      "d": "Hexoquinase; Glicólise anaeróbia.",
+      "e": "Desidrogenase láctica; Choque séptico."
+    },
+    "answer": "a",
+    "rationale": "O chumbo (Saturnismo) inibe duas enzimas importantes da via do Heme: a ALA-desidratase e a Ferroquelatase (que insere o ferro na protoporfirina IX). O acúmulo de ALA e protoporfirina lesa tecidos. O 'pontilhado basofílico' nas hemácias (RNA ribossômico fragmentado) é diagnóstico clássico em associação com a exposição ocupacional.",
+    "option_rationales": {
+      "a": "Correta. Mecanismo enzimático e clínico do envenenamento por chumbo.",
+      "b": "Incorreta. Deficiência de PBG-D ocorre na Porfíria Intermitente Aguda.",
+      "c": "Incorreta. Enzima da via glicolítica, não síntese do heme.",
+      "d": "Incorreta. Enzima da via glicolítica.",
+      "e": "Incorreta. DHL não participa da síntese do heme e estaria alta na lise, mas não inibida neste quadro."
+    },
+    "difficulty": "alta",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Saturnismo", "Sideroblastose", "Pontilhado Basofílico", "Exposição Ocupacional", "FGV"]
+  },
+  {
+    "enunciado": "Um paciente de 42 anos com Infecção por HIV/AIDS em uso de esquema antirretroviral contendo Zidovudina (AZT) desenvolve anemia estável (Hb 10,1 g/dL) com VCM de 114 fL. A dosagem de B12 e folato é normal. O mielograma não demonstra megaloblastose intensa, mas apenas vacuolização leve. Qual a conduta recomendada para a anemia deste paciente?",
+    "options": {
+      "a": "Observar o quadro, visto que a macrocitose é um marcador de adesão e efeito do AZT.",
+      "b": "Prescrever ácido fólico em doses suprafisiológicas (15mg/dia).",
+      "c": "Suspender o esquema antirretroviral imediatamente por risco de falência medular.",
+      "d": "Realizar transfusão se o VCM ultrapassar 120 fL.",
+      "e": "Iniciar reposição de Ferro parenteral profilático."
+    },
+    "answer": "a",
+    "rationale": "A Zidovudina (AZT) é um inibidor da transcriptase reversa análogo de nucleosídeo que interfere na síntese de DNA eritroide, levando quase invariavelmente à macrocitose (aumento do VCM) em pacientes aderentes ao tratamento. Se a anemia for leve e estável, deve-se apenas monitorar, pois o benefício da terapia antirretroviral supera o risco da anemia leve. A macrocitose isolada por AZT não costuma indicar megaloblastose por carência vitamínica.",
+    "option_rationales": {
+      "a": "Correta. Macrocitose por AZT é fenômeno farmacológico esperado.",
+      "b": "Incorreta. Ácido fólico não previne a macrocitose induzida por análogo de nucleosídeo.",
+      "c": "Incorreta. Conduta desproporcional para anemia leve estável.",
+      "d": "Incorreta. Critério de transfusão é clínico/Hb baixo, não valor de VCM.",
+      "e": "Incorreta. Não corrige o defeito de síntese de DNA eritroide."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["HIV/AIDS", "AZT", "Farmacodinâmica", "Anemia Macrocítica", "FGV"]
+  },
+  {
+    "enunciado": "Sobre a Anemia de Fanconi, a forma mais comum de anemia aplástica constitucional (genética), qual a tríade clínica clássica além da pancitopenia progressiva que se manifesta na infância?",
+    "options": {
+      "a": "Baixa estatura, manchas 'café-com-leite' e anomalias de rádio/polegar (ausência ou hipoplasia).",
+      "b": "Macroglossia, onfalocele e gigantismo neonatal.",
+      "c": "Epistaxe recorrente, telangiectasias orais e poliúria.",
+      "d": "Distrofia ungueal, leucoplasia oral e hiperpigmentação reticular (Tríade de Zinsser-Engman-Cole).",
+      "e": "Albinismo oculocutâneo e infecções piogênicas de repetição."
+    },
+    "answer": "a",
+    "rationale": "A Anemia de Fanconi é uma desordem de instabilidade cromossômica. Apresenta-se tipicamente com falência medular entre 5 e 10 anos de idade, malformações do esqueleto radial (polegar/rádio), baixa estatura e manchas café-com-leite. O risco de neoplasias (LMA e tumores sólidos) é extremamente elevado. A alternativa D descreve a Disqueratose Congênita.",
+    "option_rationales": {
+      "a": "Correta. Manifestações fenotípicas clássicas de Fanconi.",
+      "b": "Incorreta. Síndrome de Beckwith-Wiedemann.",
+      "c": "Incorreta. Telangiectasia Hemorrágica Hereditária (Rendu-Osler-Weber).",
+      "d": "Incorreta. Disqueratose Congênita.",
+      "e": "Incorreta. Síndrome de Chédiak-Higashi."
+    },
+    "difficulty": "alta",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Genética", "Anemia Aplástica", "Pediatria", "Aplasia Constitucional", "FGV"]
+  },
+  {
+    "enunciado": "Um paciente de 40 anos, vegetariano estrito (vegano) há 8 anos, apresenta-se com fadiga e irritabilidade. No exame laboratorial: Hb 11,2 g/dL; VCM 108 fL. O médico inicia suplementação de Ácido Fólico isoladamente. Três semanas depois, o paciente retorna com piora da anemia (Hb 9,8 g/dL) e início de parestesias intensas em membros inferiores que impossibilitam a marcha. Qual o erro na conduta terapêutica deste caso?",
+    "options": {
+      "a": "O tratamento isolado com ácido fólico pode precipitar ou agravar a degeneração neurológica se houver deficiência de B12 concomitante não tratada.",
+      "b": "O ácido fólico acelera o turnover de ferro, exaurindo os estoques de ferritina.",
+      "c": "A dose de 5mg/dia de ácido fólico é tóxica para o sistema nervoso central em vegetarianos.",
+      "d": "Veganos não absorvem ácido fólico sintético devido à falta de lípidos biliares.",
+      "e": "A piora neurológica foi apenas uma coincidência temporal com o início da terapia."
+    },
+    "answer": "a",
+    "rationale": "A suplementação isolada de folato em um paciente com deficiência de B12 pode 'corrigir' parcialmente a macrocitose e a anemia (visto que o folato participa da via metabólica a jusante), mas o processo de desmielinização axonal por falta de cobalamina continua progredindo. Pior: ao estimular a eritropoese com folato, o pouco de B12 restante é consumido, acelerando os danos neurológicos (Degeneração Combinada Subaguda). Em vegetarianos estritos com macrocitose, deve-se SEMPRE afastar a carência de B12 antes ou junto com o folato.",
+    "option_rationales": {
+      "a": "Correta. Risco clássico da suplementação cega de folato na anemia megaloblástica.",
+      "b": "Incorreta. Não há esse mecanismo farmacológico direto.",
+      "c": "Incorreta. Ácido fólico não é neurotóxico direto nesta dose.",
+      "d": "Incorreta. Folato é hidrossolúvel e bem absorvido na forma sintética.",
+      "e": "Incorreta. A relação causal é bem documentada na literatura hematológica."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Vitamina B12", "Ácido Fólico", "Degeneração Neurológica", "Veganos", "FGV"]
+  },
+  {
+    "enunciado": "Um paciente de 19 anos, com histórico de Anemia Falciforme (SS), apresenta quadro de dor articular no quadril direito com limitação progressiva da marcha, sem febre ou sinais inflamatórios exuberantes. O raio-X inicial demonstra discreta irregularidade na cabeça femural. A principal hipótese diagnóstica e a conduta de imagem de escolha para diagnóstico precoce são:",
+    "options": {
+      "a": "Osteonecrose da cabeça femoral (Necrose Avascular); Ressonância Magnética (RM).",
+      "b": "Osteomielite por Salmonella spp.; Cintilografia óssea.",
+      "c": "Artrite Reumatóide Juvenil; Pesquisa de Fator Reumatóide.",
+      "d": "Sinovite Transitória do Quadril; Observação.",
+      "e": "Fratura por Estresse; Tomografia Computadorizada."
+    },
+    "answer": "a",
+    "rationale": "Eventos repetidos de vaso-oclusão na microcirculação terminal óssea levam à morte celular dos osteócitos e colapso articular. A osteonecrose femural é extremamente comum na doença falciforme. A radiografia costuma ser negativa nas fases iniciais. A RM é o padrão-ouro para detectar o edema e a necrose antes do colapso articular definitivo.",
+    "option_rationales": {
+      "a": "Correta. Diagnóstico e exame padrão-ouro.",
+      "b": "Incorreta. Osteomielite cursa com febre e sinais inflamatórios sistêmicos.",
+      "c": "Incorreta. Não guarda relação com a fisiopatologia da SS.",
+      "d": "Incorreta. Sinovite transitória é autolimitada e comum em crianças menores.",
+      "e": "Incorreta. Necrose é a causa base em pacientes com anemia falciforme sintomáticos no quadril."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Doença Falciforme", "Osteonecrose", "Radiologia", "Necrose Avascular", "FGV"]
+  }
+]

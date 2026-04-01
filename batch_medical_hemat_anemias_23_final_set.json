@@ -1,0 +1,94 @@
+[
+  {
+    "enunciado": "Um homem de 52 anos apresenta anemia normocrômica e macrocítica (VCM 108 fL) refratária. No mielograma, observa-se excesso de ferro medular com presença de 'sideroblastos em anel' em mais de 15% dos eritroblastos. Relata uso crônico de Isoniazida. Qual o efeito enzimático provocado pelo excesso de zinco exógeno ou competitividade nutricional que também pode precipitar esse achado medular específico?",
+    "options": {
+        "a": "O zinco induz a síntese de metalotioneína intestinal, que sequestra o cobre (cofator da ferroquelatase); gerando anemia sideroblástica funcional.",
+        "b": "O zinco destrói a ferritina citoplasmática diretamente.",
+        "c": "O zinco estimula a absorção excessiva de cálcio, inibindo a eritropoese.",
+        "d": "O zinco mimetiza a ação do ferro, 'enganando' a via do heme.",
+        "e": "O zinco causa hemólise intravascular por ativação de crioaglutininas."
+    },
+    "answer": "a",
+    "rationale": "A suplementação excessiva de zinco (pastilhas, fixadores de prótese) ou exposição ocupacional leva à deficiência secundária de cobre. O cobre é cofator para enzimas estruturais eritroides. Sua falta provoca falha na via do heme e pode produzir sideroblastos em anel, simulando anemia sideroblástica ou mielodisplasia.",
+    "option_rationales": {
+        "a": "Correta. Mecanismo nutricional competitivo entre zinco e cobre.",
+        "b": "Incorreta. Ferritina não sofre lise por zinco.",
+        "c": "Incorreta. Sem nexo clínico primário.",
+        "d": "Incorreta. Não existe esse mecanismo competitivo 'enganoso' na via enzimática.",
+        "e": "Incorreta. Zinco não ativa sistema imune/complemento desta forma."
+    },
+    "difficulty": "alta",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Zinco", "Cobre", "Sideroblastose", "Nutrição", "FGV"]
+  },
+  {
+    "enunciado": "A conduta padrão recomendada pela Sociedade Brasileira de Pediatria (SBP) para a suplementação profilática de ferro em crianças de BAIXO PESO (< 2500g) ao nascer, mas nascidas a termo, é:",
+    "options": {
+        "a": "2 mg de ferro elementar/kg/dia a partir de 30 dias de vida por 1 ano, seguido de 1 mg/kg/dia por mais 1 ano.",
+        "b": "Suplementar apenas após suspensão do aleitamento materno.",
+        "c": "Dose única de ferro intramuscular ao nascimento.",
+        "d": "Esperar completar 6 meses de vida para iniciar ferro junto com a dieta.",
+        "e": "Não suplementar se a hemoglobina do cordão umbilical for > 15 g/dL."
+    },
+    "answer": "a",
+    "rationale": "Crianças nascidas com baixo peso (< 2.500g) têm menores estoques de ferro do que aquelas com peso adequado. A SBP recomenda início precoce (30 dias) e dose maior (2 mg/kg/dia) durante o primeiro ano, continuando com 1 mg/kg até os 2 anos de idade.",
+    "option_rationales": {
+        "a": "Correta. Protocolo SBP para baixo peso.",
+        "b": "Incorreta. Aleitamento não supre as necessidades deste grupo de risco.",
+        "c": "Incorreta. Ferro IM não é profilático padrão.",
+        "d": "Incorreta. Atraso de 6 meses expõe ao risco de anemia no primeiro semestre.",
+        "e": "Incorreta. A hemoglobina inicial não altera a indicação profilática por estoques insuficientes."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Pediatria", "Suplementação de Ferro", "Baixo Peso", "FGV"]
+  },
+  {
+    "enunciado": "Um paciente idoso (78 anos) com histórico de insuficiência cardíaca e osteoartrite em uso de anti-inflamatórios ocasionais apresenta anemia estável (Hb 10,8 g/dL; VCM 82 fL). O ferro sérico é baixo (35 mcg/dL) e a ferritina é 150 ng/mL. Qual o exame que, se elevado, ajudaria a diferenciar a ferropenia absoluta (mascarada pela inflamação) da anemia de doença crônica pura?",
+    "options": {
+        "a": "Receptor Solúvel da Transferrina (sTfR).",
+        "b": "Níveis de Hemoglo- bina H.",
+        "c": "Haptoglobina plasmática.",
+        "d": "Bilirrubina Indireta.",
+        "e": "Fator Reumatóide."
+    },
+    "answer": "a",
+    "rationale": "O sTfR aumenta quando há ÁVIDO celular por ferro (carência real). Diferente da ferritina e transferrina, seus níveis não são afetados por processos inflamatórios. Se o sTfR estiver elevado, indica carência de ferro tecidual mesmo com ferritina 'normal' pela inflamação.",
+    "option_rationales": {
+        "a": "Correta. Sensor bioquímico de carência férrica não-inflamatório.",
+        "b": "Incorreta. Verificado em Alpha-Talassemia.",
+        "c": "Incorreta. Indica hemólise.",
+        "d": "Incorreta. Indica hemólise.",
+        "e": "Incorreta. Indica inflamação mas não carência férrica."
+    },
+    "difficulty": "alta",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["sTfR", "Diagnóstico Diferencial", "Anemia no Idoso", "FGV"]
+  },
+  {
+    "enunciado": "Sobre a Anemia Sideroblástica Congênita ligada ao X, o defeito genético ocorre no gene ALAS2. Qual a relação deste gene com o metabolismo do Ferro e qual o motivo do acúmulo mitocondrial do mineral?",
+    "options": {
+        "a": "A falha na produção do ácido delta-aminolevulínico impede a recepção do ferro pela protoporfirina; as mitocôndrias continuam importando ferro que não pode ser inserido no heme.",
+        "b": "O Ferroquelatase destrói a mitocôndria por excesso de produção.",
+        "c": "A protoporfirina se torna tóxica e explode a célula.",
+        "d": "O ferro é consumido por vírus integrados ao genoma.",
+        "e": "Não existe DNA mitocondrial eritroide no adulto."
+    },
+    "answer": "a",
+    "rationale": "A ALAS2 é a enzima limitante da via do heme em precursores eritroides. Sem ALA, não há protoporfirina. Como o ferro entra na mitocôndria para se unir à protoporfirina, ele fica retido e precipita em grânulos de ferritina mitocondrial (sideroblastos em anel).",
+    "option_rationales": {
+        "a": "Correta. Mecanismo fisiopatológico exato.",
+        "b": "Incorreta. Incorreto.",
+        "c": "Incorreta. Incorreto.",
+        "d": "Incorreta. Incorreto.",
+        "e": "Incorreta. Os precursores (eritroblastos) são nucleados e possuem mitocôndrias ativas na síntese."
+    },
+    "difficulty": "alta",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Sideroblastose", "Bioquímica Celular", "Vitamina B6", "FGV"]
+  }
+]

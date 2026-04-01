@@ -1,0 +1,71 @@
+[
+  {
+    "enunciado": "Um lactente de 3 meses de vida, nascido prematuro extremo (28 semanas de idade gestacional), apresenta-se com palidez progressiva. O hemograma revela Hemoglobina de 7,8 g/dL; VCM 88 fL; Reticulócitos 0,2% (baixo para a anemia). A criança está clinicamente estável, mantendo bom ganho ponderal e recebendo suplementação de ferro profilático (2mg/kg/dia). Qual o mecanismo fundamental da Anemia da Prematuridade e qual a abordagem inicial preferencial?",
+    "options": {
+      "a": "Baixa produção de eritropoetina devido à imaturidade renal e curto tempo de vida das hemácias fetais; Suplementação de Ferro e vigilância clínica.",
+      "b": "Deficiência de ácido fólico por estoque hepático insuficiente; Pulsoterapia com ácido fólico.",
+      "c": "Hemólise autoimune por anticorpos maternos; Exsanguíneotransfusão.",
+      "d": "Infecção congênita por Parvovírus B19; Imunoglobulina venosa.",
+      "e": "Deficiência de Vitamina K no leite materno; Administer Vitamina K oral."
+    },
+    "answer": "a",
+    "rationale": "A Anemia da Prematuridade (AP) é uma forma exagerada da anemia fisiológica do lactente. Ocorre devido ao nascimento precoce (antes do maior estoque de ferro transplacentário) associado a uma resposta de eritropoetina (EPO) atenuada no recém-nascido (fígado produz EPO mas é menos sensível que o rim). A conduta em bebês estáveis é a manutenção de ferro profilático e monitoramento. Transfusões são reservadas para casos sintomáticos ou níveis muito baixos conforme peso e idade pós-natal.",
+    "option_rationales": {
+      "a": "Correta. Mecanismo central e conduta habitual em AP estável.",
+      "b": "Incorreta. Embora estoques de folato sejam baixos, a EPO é o fator limitante.",
+      "c": "Incorreta. AP é normocitária e hiporegenerativa (não hemolítica imune).",
+      "d": "Incorreta. Casos raros e causariam hidropisia fetal.",
+      "e": "Incorreta. Vit K é para doença hemorrágica, não anemia hiporregenerativa central."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Neonatologia", "Prematuridade", "Eritropoetina", "Anemia da Prematuridade", "FGV"]
+  },
+  {
+    "enunciado": "Um paciente de 38 anos, submetido à cirurgia bariátrica (Bypass Gástrico em Y-de-Roux) há 4 anos sem acompanhamento regular, apresenta quadro de cansaço extremo e dificuldade de equilíbrio. O hemograma revela anemia macrocítica (VCM 112 fL) com neutropenia e trombopenia leves. As dosagens de Vitamina B12 e Folato são NORMAS. O ferro sérico e ferritina também são normais. Ao realizar rastreio nutricional mais amplo, detecta-se deficiência de COBRE. Qual o mecanismo que mimetiza uma Síndrome Mielodisplásica nesta carência vitamínica/mineral específica?",
+    "options": {
+      "a": "O cobre é cofator essencial para oxidases mitocondriais; sua falta causa vacuolização celular e parada na linhagem medular, podendo mimetizar SMD.",
+      "b": "A deficiência de cobre impede a absorção de Vitamina B6.",
+      "c": "A falta de cobre destrói diretamente as células-tronco na medula.",
+      "d": "A deficiência de cobre é um artefato laboratorial sem repercussão clínica.",
+      "e": "O cobre é necessário apenas para a pigmentação do cabelo e não tem papel na hematopoese."
+    },
+    "answer": "a",
+    "rationale": "A deficiência de cobre é uma causa clássica de anemia reversível que pode mimetizar síndrome mielodisplásica (SMD), apresentando vacuolização de precursores e até sideroblastos em anel. Após cirurgias bariátricas ou uso excessivo de suplementos de zinco (que compete pela absorção), o cobre cai e a medula para de produzir hemácias e neutrófilos adequadamente.",
+    "option_rationales": {
+        "a": "Correta. 'Mímico de SMD' é o termo técnico associado à deficiência de Cobre.",
+        "b": "Incorreta. Cobre não é transportador de B6.",
+        "c": "Incorreta. Não destrói, apenas inibe enzimas da via eritroide/mieloide (citocromo oxidase).",
+        "d": "Incorreta. É patologia hematológica bem estabelecida.",
+        "e": "Incorreta. Cobre participa de enzimas chaves como a ferroquelatase."
+    },
+    "difficulty": "alta",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Cobre", "Cirurgia Bariátrica", "Mielodisplasia", "Hematologia", "FGV"]
+  },
+  {
+    "enunciado": "Um paciente de 55 anos apresenta febre persistente, emagrecimento e hepatoesplenomegalia maciça há 3 meses. Residente em área endêmica no interior do Piauí. O hemograma demonstra PANCITOPENIA (Hb 8,5; Leucócitos 2.500; Plaquetas 85.000). A aspiração de medula óssea revela a presença de corpúsculos de Leishman-Donovan no interior de macrófagos. Qual o diagnóstico e qual o principal mecanismo da anemia neste paciente?",
+    "options": {
+      "a": "Leishmaniose Visceral (Calazar); Hemólise e sequestro esplênico associado à inflamação crônica.",
+      "b": "Malária por Plasmodium vivax; Fragmentação eritroide parasitária.",
+      "c": "Esquistossomose Mansônica; Sangramento por varizes esofágicas.",
+      "d": "Tiram de Hodgkin; Infiltração medular linfomatosa.",
+      "e": "Tuberculose ganglionar; Consumo de vitaminas do complexo B."
+    },
+    "answer": "a",
+    "rationale": "No Calazar, ocorre um estímulo maciço ao sistema mononuclear fagocitário. A esplenomegalia maciça sequestra e destrói as células sanguíneas em excesso. Além disso, as citocinas inflamatórias elevadas inibem a eritropoese funcional medular (sequestro férrico). O diagnóstico é confirmado pela visualização de amastigotas de Leishmania em aspirado medular ou baço.",
+    "option_rationales": {
+      "a": "Correta. Calazar e seu impacto hematológico sistêmico.",
+      "b": "Incorreta. Malária cursa com picos febris bem definidos e lise intravascular direta por rompimento dos esquizontes.",
+      "c": "Incorreta. Esquistossomose causa hipertensão portal tardia (esplenomegalia), mas a pancitopenia por 'calazar' é tipicamente associada à infiltração de macrófagos e febre longa.",
+      "d": "Incorreta. Diagnóstico diferencial importante, mas visualização de amastigotas confirma Leishmania.",
+      "e": "Incorreta. Tuberculose pode causar anemia de doença crônica, mas os corpúsculos encontrados são específicos da Leishmania."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Infectologia", "Calazar", "Leishmaniose", "Infiltração Medular", "FGV"]
+  }
+]

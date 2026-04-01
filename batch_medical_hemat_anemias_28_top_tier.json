@@ -1,0 +1,117 @@
+[
+  {
+    "enunciado": "A conduta padrão sugerida para a prevenção de Anemia Ferropriva no lactente nascido a TERMO, com PESO ADEQUADO, em aleitamento materno exclusivo até os 6 meses, segundo as novas diretrizes da SBP (2021), é:",
+    "options": {
+        "a": "Início da suplementação aos 3 meses (90 dias) com 1 mg de ferro elementar por kg ao dia.",
+        "b": "Esperar a introdução de alimentos aos 6 meses.",
+        "c": "Suplementar apenas após suspensão total do peito.",
+        "d": "Dose de 3mg/kg para este grupo populacional.",
+        "e": "Não realizar suplementação profilática se a mãe for hígida."
+    },
+    "answer": "a",
+    "rationale": "Previne o esgotamento dos estoques de ferro durante a fase de crescimento rápido. A recomendação da SBP 2021 é universal para crianças a termo sem outros fatores de risco, iniciando aos 90 dias.",
+    "option_rationales": {
+        "a": "Correta. Protocolo terapêutico vigente.",
+        "b": "Incorreta. Perde-se a janela de estoque fisiológico.",
+        "c": "Incorreta. Errado.",
+        "d": "Incorreta. Dose para prematuros ou baixo peso.",
+        "e": "Incorreta. A carência de ferro é endêmica mesmo em filhos de mães sadias nesta fase."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["SBP", "Pediatria", "Suplementação de Ferro", "Lactente", "FGV"]
+  },
+  {
+    "enunciado": "Um paciente de 48 anos com histórico de câncer de pulmão metástatico em tratamento paliativo apresenta cansaço progressivo. Hemograma: Hb 8,8 g/dL; VCM 88 fL. O perfil de ferro mostra: Ferritina 850 ng/mL e Ferro sérico 35 mcg/dL. Qual o racional terapêutico para o uso de Agentes Estimuladores da Eritropoese (ESA) em oncologia?",
+    "options": {
+        "a": "Reduzir a necessidade de transfusões de hemácias em pacientes sob quimioterapia para tumores sólidos.",
+        "b": "Mudar o curso natural do câncer, aumentando a sobrevida livre de progressão.",
+        "c": "Prevenir a toxicidade cardíaca da quimioterapia.",
+        "d": "Estimular as células-tronco a combater diretamente as células malignas.",
+        "e": "Somente indicado se houver metástase hepática."
+    },
+    "answer": "a",
+    "rationale": "A principal indicação de ESA (Eritropoetina ou Darbepoetina) em pacientes com câncer é reduzir a necessidade de suporte transfusional em casos de anemia induzida por quimioterapia sintomática (Hb < 10). Não há evidência de que a EPO melhore a sobrevida global ou livre de progressão, podendo até ser prejudicial em alguns casos de sobre-estimulação de receptores tumorais.",
+    "option_rationales": {
+        "a": "Correta. Indicação principal aprovada.",
+        "b": "Incorreta. Estudos sugerem até risco maior de progressão em alguns cenários.",
+        "c": "Incorreta. Não protege o coração.",
+        "d": "Incorreta. O alvo são os proeritroblastos normais da medula.",
+        "e": "Incorreta. Não é o critério biliar."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Oncologia", "Eritropoetina", "Manejo da Anemia", "FGV"]
+  },
+  {
+    "enunciado": "Um paciente com Síndrome Mielodisplásica de baixo risco e excesso de sideroblastos em anel (MDS-RS) apresenta anemia dependente de transfusão. Recentemente, a droga Luspatercepte foi aprovada para estes casos. Qual o mecanismo de ação desta medicação?",
+    "options": {
+        "a": "Agente de maturação eritroide que bloqueia a via de sinalização do TGF-beta (Superfamília do TGF-beta), permitindo a maturação final das hemácias.",
+        "b": "Inibidor direto do receptor de eritropoetina.",
+        "c": "Anticorpo monoclonal contra CD20 nos linfócitos B infiltrantes.",
+        "d": "Redutor de absorção de ferro hepático via hepcidina.",
+        "e": "Inibidor da síntese de protoporfirina mitocondrial."
+    },
+    "answer": "a",
+    "rationale": "Luspatercepte é uma proteína de fusão recombinante que sequestra ligantes da via TGF-beta, que atuam inibindo a eritropoese tardia na mielodisplasia. Ao remover essa frenagem, a medula consegue amadurecer os eritroblastos bloqueados, reduzindo a necessidade de transfusões.",
+    "option_rationales": {
+        "a": "Correta. Mecanismo de maturação eritroide inovador.",
+        "b": "Incorreta. Incorreto.",
+        "c": "Incorreta. Alvo de linfomas (Rituximabe).",
+        "d": "Incorreta. Incorreto.",
+        "e": "Incorreta. Incorreto."
+    },
+    "difficulty": "alta",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["MDS-RS", "Luspatercepte", "Terapêutica Avançada", "Mielodisplasia", "FGV"]
+  },
+  {
+    "enunciado": "Um paciente de 40 anos, vegetariano estrito ha 8 anos, apresenta-se com fadiga e irritabilidade. No exame laboratorial: Hb 11,2 g/dL; VCM 108 fL. O médico inicia suplementação de Ácido Fólico isoladamente. Três semanas depois, o paciente retorna com piora da anemia e início de parestesias intensas em membros inferiores. Qual o erro na conduta terapêutica deste caso?",
+    "options": {
+        "a": "O tratamento isolado com ácido fólico pode precipitar ou agravar a degeneração neurológica se houver deficiência de B12 concomitante não tratada.",
+        "b": "O ácido fólico acelera a perda de ferro no suor.",
+        "c": "A dose de 5mg de folato é tóxica para o cérebro.",
+        "d": "O folato deve ser associado a álcool para ser absorvido.",
+        "e": "Nenhum erro, a parestesia é efeito colateral comum do folato."
+    },
+    "answer": "a",
+    "rationale": "A suplementação isolada de folato pode 'mascarar' a anemia da deficiência de B12 mas acelerar a degeneração da bainha de mielina (sistema nervoso), pois a B12 restante é desviada para a síntese de DNA eritroide priorizada pelo folato exógeno. Deve-se sempre checar níveis de B12 em vegetarianos com macrocitose antes do folato.",
+    "option_rationales": {
+        "a": "Correta. Pitfall clássico na clínica médica.",
+        "b": "Incorreta. Não existe esse processo.",
+        "c": "Incorreta. Folato é seguro.",
+        "d": "Incorreta. Errado.",
+        "e": "Incorreta. Folato não causa parestesia em doses normais."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["B12", "Fosfatos", "Neurologia", "Nutrição", "FGV"]
+  },
+  {
+    "enunciado": "Na Esferocitose Hereditária, qual o resultado clássico do teste de Fragilidade Osmótica e qual a proteína de membrana mais comumente mutada nesta condição na população mundial?",
+    "options": {
+        "a": "Aumento da fragilidade osmótica; Anquirina (ANK1).",
+        "b": "Resistência massiva à lise; Hemoglobina fetal alta.",
+        "c": "Resultados variáveis conforme a temperatura; Band 3 apenas.",
+        "d": "Normalidade total; Espectrina alfa.",
+        "e": "Aumento de hemólise apenas em pH ácido; Proteína S."
+    },
+    "answer": "a",
+    "rationale": "As hemácias esferocíticas têm menor relação superfície/volume, sendo menos flexíveis e mais propensas à lise em soluções hipotônicas (aumento da fragilidade). A mutação na anquirina é a causa mole- cular mais frequente (cerca de 50% dos casos), levando à desestabilização da bicamada lipídica e perda de membrana (esferocitose).",
+    "option_rationales": {
+        "a": "Correta. Laboratório clássico e genética mais comum.",
+        "b": "Incorreta. Hemoglobina fetal elevada é da talassemia/falciforme.",
+        "c": "Incorreta. Incorreto.",
+        "d": "Incorreta. Fragilidade é o marco laboratorial.",
+        "e": "Incorreta. Hemólise ácida sugere HPN."
+    },
+    "difficulty": "alta",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Esferocitose", "Membrana Celular", "Anquirina", "Fragilidade Osmótica", "FGV"]
+  }
+]

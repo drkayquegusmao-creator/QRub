@@ -1,0 +1,94 @@
+[
+  {
+    "enunciado": "Um paciente de 40 anos, agricultor, queixa-se de cansaço excessivo e parestesias nos pés há 3 meses. O hemograma demonstra Hb 6,5 g/dL; VCM 62 fL; HCM 20 pg; RDW 18%. Ao exame de fezes, observa-se presença de ovos de Ancylostoma duodenale. Qual o mecanismo exato da anemia ferropriva nesta helmintíase e qual a alteração hematoscópica característica?",
+    "options": {
+        "a": "Perda crônica de sangue (hemofagia do verme) exaurindo os estoques de ferro; Microcitose e hipocromia marcantes.",
+        "b": "Destruição direta das hemácias pelo verme no capilar pulmonar.",
+        "c": "Bloqueio da absorção de Vitamina B12.",
+        "d": "Pancitopenia por sepse parasitária.",
+        "e": "Anemia hemolítica com esquizócitos."
+    },
+    "answer": "a",
+    "rationale": "Ancilostomídeos se fixam na mucosa intestinal e sugam sangue para nutrição. Estima-se que um único verme de A. duodenale possa sugar até 0.2 mL de sangue/dia. Em infestações maciças, a perda de sangue diária é significativa, levando à anemia ferropriva severa (micro/hipo) com RDW elevado.",
+    "option_rationales": {
+        "a": "Correta. Fisiopatologia clássica do amarelão.",
+        "b": "Incorreta. Ocorre passagem larval pelo pulmão (Loeffler), mas não é o mecanismo da anemia crônica.",
+        "c": "Incorreta. B12 é acometida pela Diphyllobothrium latum.",
+        "d": "Incorreta. Não justifica hipocromia se fosse apenas inflamação.",
+        "e": "Incorreta. Hemólise não é a característica primária."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Parasitologia", "Saúde Pública", "Anemia Ferropriva", "FGV"]
+  },
+  {
+    "enunciado": "A conduta padrão sugerida para a prevenção de Anemia Ferropriva no lactente nascido a TERMO, com PESO ADEQUADO, em aleitamento materno exclusivo até os 6 meses, segundo as novas diretrizes da SBP (2021), é:",
+    "options": {
+        "a": "Dose de 1 mg/kg/dia de ferro elementar, iniciando aos 90 dias de vida (3 meses).",
+        "b": "Dose de 2 mg/kg/dia aos 6 meses.",
+        "c": "Dose de 3 mg/kg/dia ao nascimento.",
+        "d": "Não suplementar ferropicamente se a mãe é bem nutrida.",
+        "e": "Somente suplementar se o VCM for < 80."
+    },
+    "answer": "a",
+    "rationale": "A SBP atualizou em 2021 as diretrizes, antecipando o início da suplementação em lactentes a termo e peso adequado para os 3 meses de vida, mantendo até os 2 anos. Isso se deve à alta prevalência de anemia ferropriva na introdução alimentar brasileira.",
+    "option_rationales": {
+        "a": "Correta. Recomendação SBP 2021.",
+        "b": "Incorreta. Protocolo antigo (6 meses).",
+        "c": "Incorreta. Dose e momento incorretos para termo.",
+        "d": "Incorreta. Requisito nutricional do bebê excede o leite materno pós-3 meses.",
+        "e": "Incorreta. O uso é profilático."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["SBP", "Puericultura", "Ferro", "FGV"]
+  },
+  {
+    "enunciado": "No diagnóstico das porfírias agudas (como a PIA), qual o exame urinário que deve ser solicitado prioritariamente durante o episódio de dor abdominal paroxística para confirmar a crise?",
+    "options": {
+        "a": "Dosagem de Porfobilinogênio (PBG) e Ácido delta-aminolevulínico (ALA) em urina isolada.",
+        "b": "Exame comum de urina (EAS) para ver cilindros.",
+        "c": "Urocultura.",
+        "d": "Dosagem de creatinina e sódio urinário apenas.",
+        "e": "Pesquisa de hemoglobina biliar na urina."
+    },
+    "answer": "a",
+    "rationale": "O PBG e o ALA são precursores das porfirinas. Em crises de PIA, a enzima PBG-desaminase está deficiente e o fígado produz ALA/PBG em excesso sob estresse (álcool, drogas P450, jejum). O aumento maciço de PBG na urina confirmam a crise aguda.",
+    "option_rationales": {
+        "a": "Correta. Padrão-ouro laboratorial da crise aguda.",
+        "b": "Incorreta. EAS é inespecífico e pode mostrar apenas urina escura.",
+        "c": "Incorreta. Incorreto.",
+        "d": "Incorreta. Incorreto.",
+        "e": "Incorreta. Não existe nexo."
+    },
+    "difficulty": "alta",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["PIA", "Lab", "Diagnóstico Agudo", "FGV"]
+  },
+  {
+    "enunciado": "Um paciente de 4 anos com diagnóstico de Esferocitose Hereditária queixa-se de dor em hipocôndrio direito crônica. O exame de imagem revela colelitíase. Qual a composição química predominante desses cálculos biliares nestes pacientes com hemólise crônica e qual a conduta cirúrgica discutida?",
+    "options": {
+        "a": "Cálculos de Billirrubinato de Cálcio (Pigmentares); Realizar colecistectomia profilática no mesmo tempo cirúrgico.",
+        "b": "Cálculos de Colesterol; Dieta hipolipídica.",
+        "c": "Cálculos de Oxalato; Suplemento de Cálcio.",
+        "d": "Cálculos de Estruvita; Antibióticos.",
+        "e": "Células tumorais biliares infiltrantes."
+    },
+    "answer": "a",
+    "rationale": "A hemólise crônica libera bilirrubina indireta em massa, que ao ser conjugada no fígado satura a via biliar e precipita como bilirrubinato de cálcio, formando cálculos pretos e múltiplos. A conduta consensual é remover a vesícula biliar se houver indicação de esplenectomia.",
+    "option_rationales": {
+        "a": "Correta. Complicação colecística da hemólise.",
+        "b": "Incorreta. Ocorre em pacientes obesos ou perda rápida de peso.",
+        "c": "Incorreta. Rins.",
+        "d": "Incorreta. Urease bactérias urinárias.",
+        "e": "Incorreta. Não existe nexo."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Litiase biliar", "Icterícia", "Gastro-Hematologia", "FGV"]
+  }
+]

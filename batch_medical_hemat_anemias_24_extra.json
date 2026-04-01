@@ -1,0 +1,117 @@
+[
+  {
+    "enunciado": "Um paciente de 45 anos com quadro de anemia hemolítica crônica grave (Hb 8,2 g/dL), esplenomegalia maciça e icterícia apresenta-se no pronto-atendimento com febre, tosse e dor torácica. O hemograma demonstra Hb 5,4 g/dL; Reticulócitos 0,2%. Qual a causa desta 'parada súbita' da medula em produzir hemácias regenerativas em pacientes hemolíticos e qual a conduta para evitar crises fatais?",
+    "options": {
+        "a": "Crise Aplástica por Parvovírus B19; Imunoglobulina venosa e transfusão de suporte.",
+        "b": "Deficiência de B12 e Folato aguda; Suplementação oral massiva.",
+        "c": "Invasão medular direta pelo tumor biliar primário; Quimioterapia paliativa.",
+        "d": "Pancitopenia por hiperesplenismo congestivo; Esplenectomia de urgência.",
+        "e": "Deficiência de Cobre por dieta vegetariana estrita; Cobre venoso."
+    },
+    "answer": "a",
+    "rationale": "O Parvovírus B19 infecta proeritroblastos e causa cessação temporária da eritropoese. Em indivíduos normais, a vida longa das hemácias (120 dias) torna isso imperceptível. Em portadores de hemólise crônica (esferocitose, falciforme), onde a vida média da hemácia é curta (10-20 dias), a parada medular leva à queda catastrófica da hemoglobina. O diagnóstico é dado pela reticulocitopenia intensa.",
+    "option_rationales": {
+        "a": "Correta. Mecanismo etiológico e conduta de suporte.",
+        "b": "Incorreta. B12 não causa queda tão aguda com aplasia pura reticulocitopênica.",
+        "c": "Incorreta. Infiltração medular (mieloftise) apresenta leucoeritroblastose no periférico.",
+        "d": "Incorreta. Hiperesplenismo reduz todas as linhagens, mas no calazar/cirrose, e não de forma tão súbita reticulocitopênica.",
+        "e": "Incorreta. Deficiência de cobre é crônica e insidiosa."
+    },
+    "difficulty": "alta",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Parvovírus B19", "Crise Aplástica", "Hematologia", "FGV"]
+  },
+  {
+    "enunciado": "Sobre a Síndrome Hemolítico-Urêmica (SHU) atípica (não-associada à diarreia por Shiga-toxina), qual a base fisiopatológica desta condição rara que exige tratamento com bloqueadores de complemento?",
+    "options": {
+        "a": "Mutação nas proteínas reguladoras do sistema complemento (Fator H, Fator I ou CD46), levando à lise endotelial excessiva pela via alternativa.",
+        "b": "Absorção de toxinas de mariscos contaminados que dissolvem a membrana do glomérulo.",
+        "c": "Deficiência de Vitamina B12 'mascarada' pela inflamação biliar.",
+        "d": "Produção de anticorpos IgM anti-eritócito que fixam ferro nos túbulos renais.",
+        "e": "Excesso de zinco medular inibindo a síntese de EPO."
+    },
+    "answer": "a",
+    "rationale": "A SHU atípica ocorre devido a um descontrole genético da via alternativa do complemento. A falta de reguladores (Fator H/I) permite que o complemento ataque as células endoteliais, causando microangiopatia trombótica generalizada e insuficiência renal aguda. O tratamento é o Eculizumabe (anti-C5).",
+    "option_rationales": {
+        "a": "Correta. Genética e via do complemento na SHU atípica.",
+        "b": "Incorreta. Não existe esse nexo clínico.",
+        "c": "Incorreta. B12 não tem papel na SHU.",
+        "d": "Incorreta. IgM é crioaglutinina.",
+        "e": "Incorreta. Zinco alto causa deficiência de cobre."
+    },
+    "difficulty": "alta",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["SHU Atípica", "Complemento", "Eculizumabe", "FGV"]
+  },
+  {
+    "enunciado": "Um paciente de 40 anos, vegetariano estrito ha 8 anos, apresenta-se com fadiga e irritabilidade. No exame laboratorial: Hb 11,2 g/dL; VCM 108 fL. O médico inicia suplementação de Ácido Fólico isoladamente. Três semanas depois, o paciente retorna com piora da anemia (Hb 9,8 g/dL) e início de parestesias intensas em membros inferiores que impossibilitam a marcha. Qual o erro na conduta terapêutica deste caso?",
+    "options": {
+        "a": "O tratamento isolado com ácido fólico pode precipitar ou agravar a degeneração neurológica se houver deficiência de B12 concomitante não tratada.",
+        "b": "O ácido fólico acelera o turnover de ferro, exaurindo os estoques de ferritina.",
+        "c": "A dose de 5mg/dia de ácido fólico é tóxica para o sistema nervoso central em vegetarianos.",
+        "d": "Veganos não absorvem ácido fólico sintético devido à falta de lípidos biliares.",
+        "e": "A piora neurológica foi apenas uma coincidência temporal com o início da terapia."
+    },
+    "answer": "a",
+    "rationale": "A suplementação isolada de folato em um paciente com deficiência de B12 'consome' a pouca cobalamina restante no estímulo à eritropoese, acelerando as lesões da bainha de mielina (Degeneração Combinada Subaguda). Em vegetarianos com macrocitose, deve-se SEMPRE checar B12 antes (ou junto) ao folato.",
+    "option_rationales": {
+        "a": "Correta. Erro clínico clássico no manejo de anemias macrocíticas.",
+        "b": "Incorreta. Não existe este efeito direto farmacológico.",
+        "c": "Incorreta. Folato é seguro nesta dose farmacológica.",
+        "d": "Incorreta. Absorção de folato sintético é excelente.",
+        "e": "Incorreta. Caracteriza o perigo da iatrogenia nutricional."
+    },
+    "difficulty": "moderada",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["B12", "Folato", "Veganos", "Manejo Clínico", "FGV"]
+  },
+  {
+    "enunciado": "Sobre a Anemia de Fanconi, desordem de instabilidade cromossômica, qual o risco oncológico específico a longo prazo que justifica o acompanhamento rigoroso destes pacientes, mesmo após a realização de Transplante de Medula Óssea (TMO) curativo para a aplasia medular?",
+    "options": {
+        "a": "Câncer de células escamosas de cabeça e pescoço e anogenital.",
+        "b": "Apenas Leucemias Mieloides Agudas.",
+        "c": "Mesotelioma pleural em todos os pacientes expostos a TMO.",
+        "d": "Carcinoma basocelular em áreas não expostas ao sol.",
+        "e": "Retinoblastoma bilateral."
+    },
+    "answer": "a",
+    "rationale": "Embora o TMO cure a pancitopenia, o defeito de reparo do DNA permanece em todas as células somáticas (boca, garganta, esôfago) tornando o risco de tumores sólidos bicolores extremamente elevado em relação à população saudável.",
+    "option_rationales": {
+        "a": "Correta. Follow-up vital para Fanconi.",
+        "b": "Incorreta. LMA é pré-TMO, mas tumores sólidos são o foco pós-TMO.",
+        "c": "Incorreta. Sem relação.",
+        "d": "Incorreta. Carcinoma espinocelular (CEC) é o tipo específico.",
+        "e": "Incorreta. Sem relação."
+    },
+    "difficulty": "alta",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Oncologia", "Fanconi", "TMO", "FGV"]
+  },
+  {
+    "enunciado": "Um paciente de 35 anos apresenta quadro de crises dolorosas intensas desencadeadas por 'ingestão de habas' (favas) e uso de nitrofurantoína para ITU. A dosagem da atividade enzimática da G6PD foi realizada DURANTE o episódio hemolítico agudo e retornou nos limites da NORMALIDADE. Qual a recomendação médica em relação a este resultado e o momento da coleta?",
+    "options": {
+        "a": "Repetir o exame em 2 a 3 meses após a estabilização completa, pois hemácias jovens (reticulócitos) apresentam atividade de G6PD maior e podem mascarar a deficiência durante a crise.",
+        "b": "Confiar no resultado, pois o nível enzimático é estável em todas as fases da vida da célula.",
+        "c": "Investigar outra causa, pois o normal seria o nível de G6PD estar totalmente zerado em qualquer fase.",
+        "d": "Iniciar reposição de Ferro parenteral imediatamente baseado nesse resultado.",
+        "e": "Suspender apenas as favas e continuar as outras medicações oxidativas pois o nível enzimático é adequado."
+    },
+    "answer": "a",
+    "rationale": "Como as hemácias velhas (deficientes) morrem primeiro na hemólise e os reticulócitos circulam em massa com teores normais de G6PD, o teste de atividade enzimática no dia da crise pode dar falso-positivo. Recomenda-se repetir o exame quando os reticulócitos normalizarem.",
+    "option_rationales": {
+        "a": "Correta. Armadilha laboratorial comum na G6PD.",
+        "b": "Incorreta. Incorreto.",
+        "c": "Incorreta. Incorreto.",
+        "d": "Incorreta. Incorreto.",
+        "e": "Incorreta. Medicação oxidativa na G6PD é fator de risco fatal."
+    },
+    "difficulty": "alta",
+    "subspecialty": "Hematologia",
+    "subject": "Anemias",
+    "tags": ["Lab", "G6PD", "Manejo Médico", "FGV"]
+  }
+]
