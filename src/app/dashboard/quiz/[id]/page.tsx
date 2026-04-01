@@ -177,7 +177,7 @@ export default function QuizPage() {
     const isInsano = user?.plan_level === 'INSANO'
     const isFree = user?.plan_level === 'FREE'
 
-    if (questionsLoading && allQuestions.length === 0) {
+    if (questionsLoading) {
         return (
             <div className="min-h-screen flex items-center justify-center bg-background">
                 <div className="flex flex-col items-center gap-4 animate-pulse">
@@ -188,7 +188,7 @@ export default function QuizPage() {
         )
     }
 
-    if (!question && !questionsLoading) {
+    if (!question) {
         return (
             <div className="min-h-screen flex items-center justify-center bg-background p-6">
                 <div className="w-full max-w-md bg-card border border-border rounded-[40px] p-10 text-center space-y-6 animate-in fade-in zoom-in duration-500">
