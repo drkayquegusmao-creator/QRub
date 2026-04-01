@@ -1,607 +1,271 @@
 import { create } from 'zustand'
 import { persist, createJSONStorage } from 'zustand/middleware'
-import { UserResponse } from '@/lib/data-mock'
-import { addDays, isBefore, parseISO, startOfDay, differenceInDays } from 'date-fns'
-import { createClient } from '@supabase/supabase-js'
+import { supabase } from '@/lib/supabase'
 
-type SRSStage = 'NEUTRAL' | 'LEVELING' | 'ACTIVE'
-type SRSLevel = 'FRACO' | 'REGULAR' | 'BOM' | 'FORTE' | 'NOT_LEVELED'
+export type SRSStage = 'NEUTRAL' | 'LEVELING' | 'ACTIVE'
+export type SRSLevel = 'FRACO' | 'REGULAR' | 'BOM' | 'FORTE' | 'NOT_LEVELED'
 
 export interface SubjectSRS {
-    subject_id: string
+    id: string
+    level: number
+    last_accuracy: number
+    last_studied: Date | null
+    next_review: Date | null
+    current_interval: number
     stage: SRSStage
-    level: SRSLevel
-
-    // Leveling Phase Metrics
-    leveling_count: number // Count up to 10
-    leveling_correct: number
-
-    // Active Phase Metrics
-    total_questions: number
-    total_correct: number
-    streak: number // Consecutive correct answers
-
-    // Performance Tracking
-    current_interval: number // in days
-    last_accuracy: number | null
-
-    // Scheduling
-    last_eval_date: string | null // ISO Date
-    next_review_date: string | null // ISO Date
-
-    history: { date: string, accuracy: number, level: SRSLevel }[]
+    history: any[]
 }
 
-interface SRSState {
-    subjects: Record<string, SubjectSRS>
-    loading: boolean
+export interface AgendaItem {
+    agenda_id: string;
+    assunto_id: string;
+    nome: string;
+    specialty_id: string;
+    data_programada: string;
+    dias_atrasado?: number;
+    nivel_atual: number;
+    ultima_nota: number;
+}
 
-    // Action called whenever a user answers a question
-    process_answer: (user_id: string | null, response: UserResponse, subject_id: string) => Promise<void>
+export interface SugestaoNivelamento {
+    assunto_id: string;
+    nome: string;
+    specialty_id: string;
+    questoes_disponiveis: number;
+}
 
-    // Core Engine Logic
-    get_intelligent_action: (questions?: any[]) => {
-        type: 'NIVELAMENTO' | 'REVISÃO' | 'REFORÇO' | 'MANUTENÇÃO' | 'TUDO_EM_DIA' | 'CARREGANDO' | 'DESCANSANDO',
-        subject_id: string | null,
-        status: 'ALERTA' | 'ATRASADO' | 'MANUTENÇÃO' | 'NÃO_NIVELADO' | 'NORMAL' | 'AGUARDE' | 'CONCLUÍDO' | 'FOLGA'
-    }
-
-    // Supabase Sync
-    load_progress: (user_id: string) => Promise<void>
-    load_folgas: (user_id: string) => Promise<void>
-    folgas: string[]
-
-    // Dynamic Taxonomy
+interface SRSStore {
+    subjects: SubjectSRS[]
     taxonomy: any[]
-    init_taxonomy: () => Promise<void>
-
-    save_progress: (user_id: string, subject_id: string) => Promise<void>
-
-    // Getters for UI
-    get_daily_agenda: (questions?: any[]) => SubjectSRS[]
-    get_pending_tasks: (questions?: any[]) => SubjectSRS[]
-    get_critical_points: () => { type: 'QUEDA_PERFORMANCE' | 'ERRO_CRÍTICO', subject_id: string }[]
-    get_subject_status: (subject_id: string) => SubjectSRS | undefined
-}
-
-const get_initial_interval = (level: SRSLevel): number => {
-    switch (level) {
-        case 'FORTE': return 30
-        case 'BOM': return 14
-        default: return 7 // FRACO / REGULAR
+    agenda: {
+        revisoes_atrasadas: AgendaItem[]
+        revisoes_do_dia: AgendaItem[]
+        sugestao_nivelamento: SugestaoNivelamento | null
+        loading: boolean
+        error: string | null
     }
+    
+    // Actions
+    init_taxonomy: () => Promise<void>
+    load_progress: (userId: string) => Promise<void>
+    load_agenda: (userId: string) => Promise<void>
+    
+    // Session Actions
+    start_session: (userId: string, assuntoId: string, tipo: string) => Promise<any>
+    finish_session: (sessaoId: string, userId: string, respostas: any[]) => Promise<any>
+    
+    // Intelligent Engine
+    get_intelligent_action: (allQuestions?: any[]) => { subject_id: string | null; type: 'NIVELAMENTO' | 'REVISAO' | 'CADERNO_ERROS' }
+    get_pending_tasks: (allQuestions?: any[]) => Array<{ subject_id: string; stage: 'LEVELING' | 'REVISION' }>
+    get_critical_points: () => Array<{ subject_id: string; score: number }>
 }
 
-const classify_accuracy = (accuracy: number): SRSLevel => {
-    if (accuracy >= 85) return 'FORTE'
-    if (accuracy >= 70) return 'BOM'
-    if (accuracy >= 50) return 'REGULAR'
-    return 'FRACO'
-}
-
-export const useSRS = create<SRSState>()(
+export const useSRS = create<SRSStore>()(
     persist(
         (set, get) => ({
-            subjects: {},
-            loading: false,
+            subjects: [],
             taxonomy: [],
-            folgas: [],
+            agenda: {
+                revisoes_atrasadas: [],
+                revisoes_do_dia: [],
+                sugestao_nivelamento: null,
+                loading: false,
+                error: null
+            },
 
             init_taxonomy: async () => {
-                const { taxonomy } = get()
-                if (taxonomy.length > 0) return
-
                 try {
-                    const supabase = createClient(
-                        process.env.NEXT_PUBLIC_SUPABASE_URL!,
-                        process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-                    )
-                    const { data, error } = await supabase
+                    // Try to load from database cache first
+                    const { data: taxonomia, error } = await supabase
                         .from('taxonomia')
-                        .select('id, slug, name, parent_id, level, metadata')
-                        .eq('active', true)
-
-                    if (error || !data) return
-
-                    // Transform flat list to hierarchy matching MEDICAL_HIERARCHY structure
-                    const buildHierarchy = (items: any[]) => {
-                        const nodeMap = new Map()
-                        const roots: any[] = []
-
-                        // Create nodes
-                        items.forEach(item => {
-                            const node = {
-                                id: item.id, // Use UUID as primary ID
-                                slug: item.slug,
-                                name: item.name,
-                                category: item.metadata?.category, // Only for specialties
-                                specialties: item.level === 'course' ? [] : undefined,
-                                subspecialties: item.level === 'specialty' ? [] : undefined,
-                                subjects: item.level === 'subspecialty' ? [] : undefined
-                            }
-                            nodeMap.set(item.id, node)
-                        })
-
-                        // Link parents
-                        items.forEach(item => {
-                            const node = nodeMap.get(item.id)
-                            if (item.parent_id && nodeMap.has(item.parent_id)) {
-                                const parent = nodeMap.get(item.parent_id)
-                                if (item.level === 'specialty') {
-                                    if (!parent.specialties) parent.specialties = []
-                                    parent.specialties.push(node)
-                                } else if (item.level === 'subspecialty') {
-                                    if (!parent.subspecialties) parent.subspecialties = []
-                                    parent.subspecialties.push(node)
-                                } else if (item.level === 'subject') {
-                                    if (!parent.subjects) parent.subjects = []
-                                    parent.subjects.push(node)
-                                }
-                            } else if (item.level === 'course') {
-                                roots.push(node)
-                            }
-                        })
-
-                        return roots
-                    }
-
-                    const hierarchy = buildHierarchy(data)
-                    set({ taxonomy: hierarchy })
-                } catch (err) {
-                    console.error('Failed to load dynamic taxonomy for SRS:', err)
-                }
-            },
-
-
-            process_answer: async (user_id, response, subject_id) => {
-                // The leveling logic is invisible but mandatory
-                set((state) => {
-                    const subjects = { ...state.subjects }
-
-                    if (!subjects[subject_id]) {
-                        subjects[subject_id] = {
-                            subject_id: subject_id,
-                            stage: 'NEUTRAL',
-                            level: 'NOT_LEVELED',
-                            leveling_count: 0,
-                            leveling_correct: 0,
-                            total_questions: 0,
-                            total_correct: 0,
-                            streak: 0,
-                            current_interval: 7,
-                            last_accuracy: null,
-                            last_eval_date: null,
-                            next_review_date: null,
-                            history: []
-                        }
-                    }
-
-                    const sub = subjects[subject_id]
-
-                    if (sub.stage === 'NEUTRAL') {
-                        sub.stage = 'LEVELING'
-                    }
-
-                    if (sub.stage === 'LEVELING') {
-                        sub.leveling_count += 1
-                        if (response.is_correct) sub.leveling_correct += 1
-
-                        if (sub.leveling_count >= 10) {
-                            const accuracy = (sub.leveling_correct / sub.leveling_count) * 100
-                            sub.level = classify_accuracy(accuracy)
-                            sub.stage = 'ACTIVE'
-                            sub.last_accuracy = accuracy
-                            sub.current_interval = get_initial_interval(sub.level)
-                            sub.last_eval_date = new Date().toISOString()
-                            sub.next_review_date = addDays(new Date(), sub.current_interval).toISOString()
-
-                            sub.history.push({
-                                date: new Date().toISOString(),
-                                accuracy,
-                                level: sub.level
-                            })
-
-                            // Reset leveling counters after completion
-                            sub.total_questions = sub.leveling_count
-                            sub.total_correct = sub.leveling_correct
-                        }
-                    }
-                    else if (sub.stage === 'ACTIVE') {
-                        sub.total_questions += 1
-                        if (response.is_correct) {
-                            sub.total_correct += 1
-                            sub.streak += 1
-                        } else {
-                            sub.streak = 0
-                        }
-
-                        // Every session of revision (usually 5-12 questions) triggers a re-eval
-                        const accuracy = (sub.total_correct / sub.total_questions) * 100
-                        sub.last_accuracy = accuracy
-                        sub.last_eval_date = new Date().toISOString()
-
-                        // Adaptive Interval: Increase if streak is high, decrease if streak is 0
-                        if (response.is_correct && sub.streak >= 3) {
-                            sub.current_interval = Math.min(60, sub.current_interval + 7)
-                        } else if (!response.is_correct) {
-                            sub.current_interval = Math.max(1, Math.floor(sub.current_interval / 2))
-                        }
-
-                        sub.next_review_date = addDays(new Date(), sub.current_interval).toISOString()
-                        sub.level = classify_accuracy(accuracy)
-                    }
-
-                    return { subjects }
-                })
-
-                if (user_id) {
-                    await get().save_progress(user_id, subject_id)
-                }
-            },
-
-            load_progress: async (user_id) => {
-                try {
-                    const { supabase, isSupabaseConfigured } = require('@/lib/supabase')
-                    if (!isSupabaseConfigured()) {
-                        console.log('Supabase not configured, skipping SRS progress load')
-                        return
-                    }
-
-                    set({ loading: true })
-
-                    // Initialize taxonomy if not loaded
-                    await get().init_taxonomy()
-
-                    // Load folgas
-                    await get().load_folgas(user_id)
-
-                    const { data, error } = await supabase
-                        .from('subject_progress')
                         .select('*')
-                        .eq('user_id', user_id)
-
-                    if (error) {
-                        // If table doesn't exist or other DB error, just log and continue
-                        console.warn('Could not load SRS progress from Supabase:', error.message)
-                        return
-                    }
-
-                    if (data && data.length > 0) {
-                        const subjects: Record<string, SubjectSRS> = {}
-                        data.forEach((row: any) => {
-                            subjects[row.subject_id] = {
-                                subject_id: row.subject_id,
-                                stage: row.stage,
-                                level: row.level,
-                                leveling_count: row.leveling_count,
-                                leveling_correct: row.leveling_correct,
-                                total_questions: row.total_questions,
-                                total_correct: row.total_correct,
-                                streak: row.streak,
-                                current_interval: row.current_interval,
-                                last_accuracy: row.last_accuracy,
-                                last_eval_date: row.last_eval_date,
-                                next_review_date: row.next_review_date,
-                                history: row.history || []
-                            }
-                        })
-                        set({ subjects })
-                        console.log(`Loaded SRS progress for ${Object.keys(subjects).length} subjects`)
-                    } else {
-                        console.log('No SRS progress found in Supabase for this user')
-                    }
-                } catch (err) {
-                    // Catch any unexpected errors (network issues, etc)
-                    console.warn('Error loading SRS progress (using local data):', err instanceof Error ? err.message : 'Unknown error')
-                } finally {
-                    set({ loading: false })
-                }
-            },
-
-            save_progress: async (user_id, subject_id) => {
-                try {
-                    const { supabase, isSupabaseConfigured } = require('@/lib/supabase')
-                    if (!isSupabaseConfigured()) {
-                        // Silently skip if Supabase not configured
-                        return
-                    }
-
-                    const sub = get().subjects[subject_id]
-                    if (!sub) return
-
-                    const { error } = await supabase
-                        .from('subject_progress')
-                        .upsert({
-                            user_id,
-                            subject_id,
-                            stage: sub.stage,
-                            level: sub.level,
-                            leveling_count: sub.leveling_count,
-                            leveling_correct: sub.leveling_correct,
-                            total_questions: sub.total_questions,
-                            total_correct: sub.total_correct,
-                            streak: sub.streak,
-                            current_interval: sub.current_interval,
-                            last_accuracy: sub.last_accuracy,
-                            last_eval_date: sub.last_eval_date,
-                            next_review_date: sub.next_review_date,
-                            history: sub.history
-                        }, { onConflict: 'user_id,subject_id' })
-
-                    if (error) {
-                        console.warn('Could not save SRS progress to Supabase:', error.message)
-                    }
-                } catch (err) {
-                    console.warn('Error saving SRS progress (data saved locally):', err instanceof Error ? err.message : 'Unknown error')
-                }
-            },
-
-            load_folgas: async (user_id) => {
-                const { supabase, isSupabaseConfigured } = require('@/lib/supabase')
-                if (!isSupabaseConfigured()) return
-
-                try {
-                    const { data, error } = await supabase
-                        .from('user_folgas')
-                        .select('data')
-                        .eq('user_id', user_id)
+                        .order('level', { ascending: true })
+                        .order('name', { ascending: true })
 
                     if (error) throw error
-                    if (data) {
-                        set({ folgas: data.map((f: any) => f.data) })
+
+                    // Build tree structure
+                    const buildTree = (nodes: any[], parentId: string | null = null): any[] => {
+                        return nodes
+                            .filter(n => n.parent_id === parentId)
+                            .map(n => ({
+                                id: n.id,
+                                name: n.name,
+                                slug: n.slug,
+                                level: n.level,
+                                specialty_id: n.slug || n.id,
+                                subspecialties: buildTree(nodes, n.id),
+                                subjects: [] 
+                            }))
                     }
+
+                    const roots = buildTree(taxonomia, null)
+                    
+                    set({ 
+                        taxonomy: roots.length > 0 ? [{ 
+                            id: 'medicina', 
+                            name: 'Residência Médica', 
+                            specialties: roots 
+                        }] : [] 
+                    })
                 } catch (err) {
-                    console.warn('Error loading folgas:', err)
+                    console.error('Error loading taxonomy:', err)
                 }
             },
 
-            get_intelligent_action: (manualQuestions?: any[]) => {
-                const { subjects, folgas } = get()
-                const today = startOfDay(new Date())
-                const todayStr = new Date().toISOString().split('T')[0]
+            load_progress: async (userId: string) => {
+                const { data, error } = await supabase
+                    .from('assunto_progresso')
+                    .select('*')
+                    .eq('user_id', userId)
 
-                // Check if today is a folga
-                if (folgas.includes(todayStr)) {
-                    return {
-                        type: 'DESCANSANDO',
-                        subject_id: null,
-                        status: 'FOLGA'
+                if (error) return
+
+                const mapped: SubjectSRS[] = data.map(p => ({
+                    id: p.assunto_id,
+                    level: p.nivel_atual || 0,
+                    history: [], 
+                    last_accuracy: p.percentual_acerto || 0,
+                    last_studied: p.data_ultima_sessao ? new Date(p.data_ultima_sessao) : null,
+                    next_review: p.data_proxima_revisao ? new Date(p.data_proxima_revisao) : null,
+                    current_interval: p.intervalo_dias || 0,
+                    stage: (p.estado_cognitivo === 'NAO_NIVELADO' || !p.estado_cognitivo) ? 'NEUTRAL' : 
+                           (p.data_nivelamento ? 'ACTIVE' : 'LEVELING')
+                }))
+
+                set({ subjects: mapped })
+            },
+
+            load_agenda: async (userId: string) => {
+                set(state => ({ agenda: { ...state.agenda, loading: true, error: null } }))
+                try {
+                    const response = await fetch(`/api/dashboard/diario?user_id=${userId}`)
+                    const result = await response.json()
+                    
+                    if (result.success) {
+                        set({
+                            agenda: {
+                                revisoes_atrasadas: result.revisoes_atrasadas,
+                                revisoes_do_dia: result.revisoes_do_dia,
+                                sugestao_nivelamento: result.sugestao_nivelamento,
+                                loading: false,
+                                error: null
+                            }
+                        })
+                    } else {
+                        throw new Error(result.error || 'Erro ao carregar agenda')
                     }
-                }
-
-                const all_subs = Object.values(subjects)
-
-                // Source of truth for questions (prefer manual passed for reactivity)
-                let questions = manualQuestions
-                if (!questions) {
-                    try {
-                        const { useQuestions } = require('@/store/use-questions')
-                        questions = useQuestions.getState().questions || []
-                    } catch (err) {
-                        questions = []
-                    }
-                }
-
-                if (!questions || questions.length === 0) {
-                    return {
-                        type: 'CARREGANDO',
-                        subject_id: null,
-                        status: 'AGUARDE'
-                    }
-                }
-
-                // 1. Priority: Delayed Revisions
-                const overdue = all_subs.find(s =>
-                    s.stage === 'ACTIVE' &&
-                    s.next_review_date &&
-                    isBefore(parseISO(s.next_review_date), today) &&
-                    questions!.some((q: any) =>
-                        (q.subject_id === s.subject_id || q.subspecialty_id === s.subject_id || q.specialty_id === s.subject_id) &&
-                        q.status_validacao === 'APROVADA'
-                    )
-                )
-                if (overdue) {
-                    return {
-                        type: 'REVISÃO',
-                        subject_id: overdue.subject_id,
-                        status: 'ATRASADO'
-                    }
-                }
-
-                // 2. Priority: Revisions for Today
-                const today_review = all_subs.find(s =>
-                    s.stage === 'ACTIVE' &&
-                    s.next_review_date &&
-                    differenceInDays(parseISO(s.next_review_date), today) === 0 &&
-                    questions!.some((q: any) =>
-                        (q.subject_id === s.subject_id || q.subspecialty_id === s.subject_id || q.specialty_id === s.subject_id) &&
-                        q.status_validacao === 'APROVADA'
-                    )
-                )
-                if (today_review) {
-                    return {
-                        type: 'REVISÃO',
-                        subject_id: today_review.subject_id,
-                        status: 'NORMAL'
-                    }
-                }
-
-                // 3. Priority: In-progress Leveling (only if questions still exist)
-                const incomplete_leveling = all_subs.find(s =>
-                    s.stage === 'LEVELING' &&
-                    questions!.some((q: any) =>
-                        (q.subject_id === s.subject_id || q.subspecialty_id === s.subject_id || q.specialty_id === s.subject_id) &&
-                        q.status_validacao === 'APROVADA'
-                    )
-                )
-                if (incomplete_leveling) {
-                    return {
-                        type: 'NIVELAMENTO',
-                        subject_id: incomplete_leveling.subject_id,
-                        status: 'NÃO_NIVELADO'
-                    }
-                }
-
-                // 4. Priority: Start New Leveling (Maintenance/Progression)
-                // Use dynamic taxonomy if available, fallback to static
-                let allSpecialties = []
-                const { taxonomy } = get()
-
-                if (taxonomy.length > 0 && taxonomy[0].specialties) {
-                    allSpecialties = taxonomy[0].specialties
-                } else {
-                    const { MEDICAL_HIERARCHY } = require('@/lib/medical-specialties')
-                    allSpecialties = MEDICAL_HIERARCHY[0].specialties
-                }
-
-                // Find specialties the user hasn't started yet and THAT HAVE QUESTIONS APROVADAS
-                const untrackedWithQuestions = allSpecialties.filter((spec: any) => {
-                    const isUntracked = !subjects[spec.id]
-                    const hasQuestions = questions!.some((q: any) =>
-                        (q.subject_id === spec.id || q.subspecialty_id === spec.id || q.specialty_id === spec.id) &&
-                        q.status_validacao === 'APROVADA'
-                    )
-                    return isUntracked && hasQuestions
-                })
-
-                if (untrackedWithQuestions.length > 0) {
-                    // Select first available untracked specialty with questions
-                    const selected = untrackedWithQuestions[0]
-                    return {
-                        type: 'NIVELAMENTO',
-                        subject_id: selected.id,
-                        status: 'NÃO_NIVELADO'
-                    }
-                }
-
-                // 5. Fallback: If everything is tracked and up to date
-                return {
-                    type: 'TUDO_EM_DIA',
-                    subject_id: null,
-                    status: 'CONCLUÍDO'
+                } catch (err: any) {
+                    set(state => ({ agenda: { ...state.agenda, loading: false, error: err.message } }))
                 }
             },
 
-            get_pending_tasks: (manualQuestions?: any[]) => {
-                const { subjects } = get()
-                const today = startOfDay(new Date())
+            start_session: async (userId: string, assuntoId: string, tipo: string) => {
+                try {
+                    const response = await fetch('/api/sessao/criar', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ user_id: userId, assunto_id: assuntoId, tipo })
+                    })
+                    const result = await response.json()
+                    if (!result.success) throw new Error(result.error || 'Erro ao criar sessão')
+                    return result.data
+                } catch (err) {
+                    console.error('Error starting session:', err)
+                    throw err
+                }
+            },
 
-                // Source of truth for questions
-                let questions = manualQuestions
-                if (!questions) {
+            finish_session: async (sessaoId: string, userId: string, respostas: any[]) => {
+                try {
+                    const response = await fetch('/api/sessao/finalizar', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ sessao_id: sessaoId, user_id: userId, respostas })
+                    })
+                    const result = await response.json()
+                    if (!result.success) throw new Error(result.error || 'Erro ao finalizar sessão')
+                    
+                    // Update memory score on frontend for immediate feedback
                     try {
-                        const { useQuestions } = require('@/store/use-questions')
-                        questions = useQuestions.getState().questions || []
-                    } catch (err) {
-                        questions = []
+                        const { updateSubjectMemoryScore } = await import('@/lib/srs-service')
+                        await updateSubjectMemoryScore(userId, result.data.assunto_id)
+                    } catch (e) {
+                        console.warn('Could not update memory score:', e)
                     }
+
+                    // Refresh agenda and progress
+                    await get().load_agenda(userId)
+                    await get().load_progress(userId)
+                    
+                    return result.data
+                } catch (err) {
+                    console.error('Error finishing session:', err)
+                    throw err
+                }
+            },
+
+            get_intelligent_action: (allQuestions?: any[]) => {
+                const { agenda, subjects } = get()
+
+                // Priority 1: Atrasadas
+                if (agenda.revisoes_atrasadas && agenda.revisoes_atrasadas.length > 0) {
+                    return { subject_id: agenda.revisoes_atrasadas[0].assunto_id, type: 'REVISAO' }
                 }
 
-                return Object.values(subjects).filter(s => {
-                    // Check availability first
-                    const hasQuestions = questions?.some((q: any) =>
-                        (q.subject_id === s.subject_id || q.subspecialty_id === s.subject_id || q.specialty_id === s.subject_id) &&
-                        q.status_validacao === 'APROVADA'
-                    )
+                // Priority 2: Do Dia
+                if (agenda.revisoes_do_dia && agenda.revisoes_do_dia.length > 0) {
+                    return { subject_id: agenda.revisoes_do_dia[0].assunto_id, type: 'REVISAO' }
+                }
 
-                    if (!hasQuestions) return false
+                // Priority 3: Sugestão Nivelamento
+                if (agenda.sugestao_nivelamento) {
+                    return { subject_id: agenda.sugestao_nivelamento.assunto_id, type: 'NIVELAMENTO' }
+                }
 
-                    if (s.stage === 'LEVELING') return true
-                    if (s.stage === 'ACTIVE' && s.next_review_date && isBefore(parseISO(s.next_review_date), today)) return true
-                    return false
-                })
+                // Fallback: use internal subjects list (legacy)
+                const pendingLevelingIds = subjects.filter(s => s.stage === 'LEVELING' || s.stage === 'NEUTRAL').map(s => s.id)
+                if (pendingLevelingIds.length > 0) {
+                    return { subject_id: pendingLevelingIds[0], type: 'NIVELAMENTO' }
+                }
+
+                return { subject_id: null, type: 'NIVELAMENTO' }
+            },
+
+            get_pending_tasks: (allQuestions?: any[]) => {
+                const { agenda } = get()
+                const tasks: Array<{ subject_id: string; stage: 'LEVELING' | 'REVISION' }> = []
+
+                if (agenda.revisoes_atrasadas) {
+                    agenda.revisoes_atrasadas.forEach(r => {
+                        tasks.push({ subject_id: r.assunto_id, stage: 'REVISION' })
+                    })
+                }
+
+                if (agenda.revisoes_do_dia) {
+                    agenda.revisoes_do_dia.forEach(r => {
+                        tasks.push({ subject_id: r.assunto_id, stage: 'REVISION' })
+                    })
+                }
+
+                if (agenda.sugestao_nivelamento) {
+                    tasks.push({ subject_id: agenda.sugestao_nivelamento.assunto_id, stage: 'LEVELING' })
+                }
+
+                return tasks
             },
 
             get_critical_points: () => {
                 const { subjects } = get()
-                const points: { type: 'QUEDA_PERFORMANCE' | 'ERRO_CRÍTICO', subject_id: string }[] = []
-
-                Object.values(subjects).forEach(s => {
-                    if (s.stage === 'ACTIVE' && s.last_accuracy !== null && s.last_accuracy < 50) {
-                        points.push({ type: 'QUEDA_PERFORMANCE', subject_id: s.subject_id })
-                    }
-                })
-
-                return points
-            },
-
-            get_daily_agenda: (manualQuestions?: any[]) => {
-                const { subjects } = get()
-                const today = new Date()
-
-                // Source of truth for questions
-                let questions = manualQuestions
-                if (!questions) {
-                    try {
-                        const { useQuestions } = require('@/store/use-questions')
-                        questions = useQuestions.getState().questions || []
-                    } catch (err) {
-                        questions = []
-                    }
-                }
-
-                // 1. Get Due Reviews
-                const dueReviews = Object.values(subjects).filter(s =>
-                    s.stage === 'ACTIVE' &&
-                    s.next_review_date &&
-                    isBefore(parseISO(s.next_review_date), addDays(today, 1)) &&
-                    questions!.some((q: any) =>
-                        (q.subject_id === s.subject_id || q.subspecialty_id === s.subject_id || q.specialty_id === s.subject_id) &&
-                        q.status_validacao === 'APROVADA'
-                    )
-                )
-
-                // 2. Get Ongoing Leveling
-                const ongoingLeveling = Object.values(subjects).filter(s =>
-                    s.stage === 'LEVELING' &&
-                    questions!.some((q: any) =>
-                        (q.subject_id === s.subject_id || q.subspecialty_id === s.subject_id || q.specialty_id === s.subject_id) &&
-                        q.status_validacao === 'APROVADA'
-                    )
-                )
-
-                const combined = [...dueReviews, ...ongoingLeveling]
-
-                // 3. If empty, suggest new subjects from hierarchy THAT HAVE QUESTIONS
-                if (combined.length === 0) {
-                    let allSpecialties = []
-                    const { taxonomy } = get()
-
-                    if (taxonomy.length > 0 && taxonomy[0].specialties) {
-                        allSpecialties = taxonomy[0].specialties
-                    } else {
-                        const { MEDICAL_HIERARCHY } = require('@/lib/medical-specialties')
-                        allSpecialties = MEDICAL_HIERARCHY[0].specialties
-                    }
-                    const untracked = allSpecialties.filter((spec: any) =>
-                        !subjects[spec.id] &&
-                        questions!.some((q: any) =>
-                            (q.subject_id === spec.id || q.subspecialty_id === spec.id || q.specialty_id === spec.id) &&
-                            q.status_validacao === 'APROVADA'
-                        )
-                    )
-
-                    if (untracked.length > 0) {
-                        // Suggest first 3 untracked subjects as PENDING
-                        return untracked.slice(0, 3).map((spec: any) => ({
-                            subject_id: spec.id,
-                            stage: 'NEUTRAL',
-                            level: 'NOT_LEVELED',
-                            next_review_date: null
-                        })) as any
-                    }
-                }
-
-                return combined
-            },
-
-            get_subject_status: (subject_id) => {
-                return get().subjects[subject_id]
+                return subjects
+                    .filter(s => s.last_accuracy < 50 && s.stage === 'ACTIVE')
+                    .map(s => ({ subject_id: s.id, score: s.last_accuracy }))
             }
         }),
         {
-            name: 'qrub-srs-engine-v2',
+            name: 'qrub-srs-v2-session',
             storage: createJSONStorage(() => localStorage),
+            partialize: (state) => ({ subjects: state.subjects })
         }
     )
 )

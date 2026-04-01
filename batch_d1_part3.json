@@ -1,0 +1,376 @@
+[
+    {
+        "enunciado": "Um paciente cirrótico com ascite volumosa apresenta-se com quadro de hematêmese maciça. Após estabilização hemodinâmica inicial, qual a 'Terapia Farmacológica' de escolha que deve ser iniciada IMEDIATAMENTE (preferencialmente antes da endoscopia) para reduzir o risco de ressangramento e mortalidade nestes casos de suspeita de varizes esofágicas?",
+        "options": {
+            "a": "Omeprazol 80 mg em bólus IV.",
+            "b": "Ácido Tranexâmico 1g IV.",
+            "c": "Vasoconstritores esplâncnicos (Terlipressina ou Octreotide).",
+            "d": "Ceftriaxona para profilaxia de PBE.",
+            "e": "Propranolol 40 mg via oral."
+        },
+        "answer": "c",
+        "rationale": "A redução da pressão portal através da vasoconstrição da circulação esplâncnica é fundamental no controle do sangramento varicoso agudo.",
+        "option_rationales": {
+            "a": "Errada. (Indicado para úlcera péptica).",
+            "b": "Errada. (Sem benefício comprovado em HDA varicosa).",
+            "c": "Correta. Manejo farmacológico da hipertensão portal.",
+            "d": "Errada. A profilaxia antibiótica é necessária, mas os vasoconstritores têm prioridade hemostática imediata.",
+            "e": "Errada. (Beta-bloqueadores são para profilaxia primária/secundária, não na fase aguda)."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "HDA Varicosa",
+            "Farmacologia",
+            "Cirrose"
+        ]
+    },
+    {
+        "enunciado": "Em pacientes cirróticos que apresentam Hemorragia Digestiva Alta (HDA), a 'Profilaxia Antibiótica' é mandatória. Qual a justificativa clínica principal para esta conduta, mesmo na ausência de febre ou outros sinais de infecção?",
+        "options": {
+            "a": "Reduzir o risco de Peritonite Bacteriana Espontânea (PBE) e outras infecções, o que comprovadamente reduz a taxa de ressangramento e mortalidade.",
+            "b": "Eliminar o H. pylori da mucosa gástrica.",
+            "c": "Prevenir endocardite bacteriana pelo procedimento endoscópico.",
+            "d": "Estimular o esvaziamento gástrico.",
+            "e": "Aumentar a eficácia dos vasoconstritores esplâncnicos."
+        },
+        "answer": "a",
+        "rationale": "A translocação bacteriana é favorecida no choque e na hemorragia, aumentando o risco de infecções graves em cirróticos.",
+        "option_rationales": {
+            "a": "Correta. Manejo de complicações da cirrose.",
+            "b": "Errada. (Usado o teste de H. pylori apenas em casos de úlcera péptica).",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "HDA Varicosa",
+            "Infecção",
+            "Profilaxia"
+        ]
+    },
+    {
+        "enunciado": "Qual o tratamento endoscópico de ESCOLHA para o controle do sangramento agudo e profilaxia secundária em pacientes com 'Varizes Esofágicas'?",
+        "options": {
+            "a": "Escleroterapia com álcool absoluto.",
+            "b": "Injeção de cianoacrilato.",
+            "c": "Ligadura Elástica de Varizes.",
+            "d": "Argo-plasma (eletrocoagulação térmica).",
+            "e": "Clipe metálico sobre a variz."
+        },
+        "answer": "c",
+        "rationale": "A ligadura elástica é superior à escleroterapia por apresentar menores taxas de complicações (estenose, dor) e maior eficácia na erradicação.",
+        "option_rationales": {
+            "a": "Errada. (Associada a mais complicações e menor eficácia no longo prazo).",
+            "b": "Errada. (Padrão para varizes gástricas, não esofágicas).",
+            "c": "Correta. Manejo endoscópico de varizes.",
+            "d": "Errada. (Usado em angiodisplasias/ectasias).",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "HDA Varicosa",
+            "Endoscopia",
+            "Terapêutica"
+        ]
+    },
+    {
+        "enunciado": "Diante de um sangramento maciço por varizes esofágicas que não pode ser controlado pela endoscopia imediata e o paciente mantém instabilidade hemodinâmica severa, qual a conduta de 'Resgate Temporário' (ponte para tratamento definitivo)?",
+        "options": {
+            "a": "Início de hemodiálise.",
+            "b": "Instalação de Balão de Sengstaken-Blakemore.",
+            "c": "Cirurgia de Derivação Portossistêmica (Shunt).",
+            "d": "Intubação orotraqueal exclusiva.",
+            "e": "TIPS de urgência como primeira linha."
+        },
+        "answer": "b",
+        "rationale": "O balão de Sengstaken-Blakemore promove o tamponamento mecânico das varizes, estabilizando o paciente por até 24 horas enquanto se planeja a intervenção definitiva.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Manejo de HDA varicosa refratária.",
+            "c": "Errada. (Muito alta mortalidade na fase aguda).",
+            "d": "Errada. (Auxilia a via aérea, mas não para o sangramento).",
+            "e": "Errada. (TIPS é salvamento, mas o balão é a ponte imediata para estabilização sistêmica)."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "HDA Varicosa",
+            "Manejo de Emergência",
+            "Balão"
+        ]
+    },
+    {
+        "enunciado": "O 'TIPS' (Derivação Portossistêmica Intra-hepática Transjugular) é uma alternativa eficaz para casos de sangramento varicoso refratário. Qual a 'Complicação Sistêmica' mais frequente após a realização deste procedimento devido ao desvio do fluxo sanguíneo visceral (bypass do fígado)?",
+        "options": {
+            "a": "Insuficiência renal aguda.",
+            "b": "Encefalopatia hepática.",
+            "c": "Pneumonia aspirativa.",
+            "d": "Hipertensão portal acentuada.",
+            "e": "Trombose de veia renal."
+        },
+        "answer": "b",
+        "rationale": "O desvio de amônia e outras toxinas do intestino diretamente para a circulação sistêmica favorece o desenvolvimento de encefalopatia em até 30-40% dos casos.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Complicações do TIPS.",
+            "c": "Errada.",
+            "d": "Errada. (O TIPS reduz a pressão portal).",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Cirrose",
+            "Hipertensão Portal",
+            "TIPS"
+        ]
+    },
+    {
+        "enunciado": "Um paciente cirrótico CHILD C apresenta-se com sangramento por 'Varizes Gástricas' isoladas (tipo IGV1). Qual a terapia endoscópica recomendada específicamente para este tipo de variz, que difere do manejo das esofágicas?",
+        "options": {
+            "a": "Ligadura elástica.",
+            "b": "Injeção de cianoacrilato (cola biológica).",
+            "c": "Eletrocoagulação monopolar.",
+            "d": "Aplicação de pó hemostático.",
+            "e": "Sonda de calor."
+        },
+        "answer": "b",
+        "rationale": "Varizes gástricas costumam ser maiores e em locais onde a ligadura elástica é tecnicamente difícil ou ineficaz, sendo a injeção de cola o tratamento preferencial.",
+        "option_rationales": {
+            "a": "Errada. (Dificuldade técnica e maior recidiva no estômago).",
+            "b": "Correta. Terapêutica de varizes gástricas.",
+            "c": "Errada. Risco alto de perfuração/sangramento.",
+            "d": "Errada. (Apenas paliativo transiente).",
+            "e": "Errada."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "HDA Varicosa",
+            "Gastroenterologia",
+            "Endoscopia"
+        ]
+    },
+    {
+        "enunciado": "Sobre o uso de 'Beta-bloqueadores Não Seletivos' (Propranolol, Nadolol) em cirróticos, qual é a principal contraindicação temporária ao seu início ou manutenção em um paciente com ascite intensa?",
+        "options": {
+            "a": "Aumento das transaminases.",
+            "b": "Plaquetopenia abaixo de 100.000.",
+            "c": "Presença de Insuficiência Renal ou hipotensão arterial sistêmica severa (SBP < 90 mmHg).",
+            "d": "Presença de varizes de pequeno calibre.",
+            "e": "Histórico de gastrite aguda."
+        },
+        "answer": "c",
+        "rationale": "Beta-bloqueadores reduzem a perfusão renal em pacientes com reserva limitada, podendo precipitar Síndrome Hepatorrenal.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Errada. (É comum na cirrose por hiperesplenismo).",
+            "c": "Correta. Segurança farmacológica na cirrose.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Cirrose",
+            "Farmacologia",
+            "Hipertensão Portal"
+        ]
+    },
+    {
+        "enunciado": "A 'Hemorragia Digestiva Baixa' (HDB) aguda é mais frequentemente causada por qual afecção em pacientes idosos (> 60 anos) nos serviços de emergência brasileiros?",
+        "options": {
+            "a": "Câncer colorretal.",
+            "b": "Colite isquêmica.",
+            "c": "Doença Diverticular dos Cólons.",
+            "d": "Hemorroidas internas.",
+            "e": "Doença de Crohn."
+        },
+        "answer": "c",
+        "rationale": "A hemorragia diverticular é a causa número 1 de sangramento volumoso baixo em idosos, embora a maioria cesse espontaneamente.",
+        "option_rationales": {
+            "a": "Errada. (Causa mais sangramento oculto/crônico).",
+            "b": "Errada. (Geralmente causa dor abdominal associada).",
+            "c": "Correta. Epidemiologia da HDB.",
+            "d": "Errada. (Causa sangramento leve/gotejamento).",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "HDB",
+            "Emergência",
+            "Epidemiologia"
+        ]
+    },
+    {
+        "enunciado": "Qual a principal 'Diferença Clínica' no diagnóstico de Hemorragia Digestiva Baixa (HDB) em relação à Alta (HDA) quando analisamos a aspiração do conteúdo gástrico por sonda nasogástrica?",
+        "options": {
+            "a": "Conteúdo billoso sem sangue exclui HDA em 100% dos casos.",
+            "b": "Um aspirado gástrico limpo exclui HDA de forma absoluta.",
+            "c": "Presença de 'borra de café' no aspirado é típica de HDB distai.",
+            "d": "O aspirado gástrico limpo sugere HDB ou HDA com sangramento cessado e controle pilórico efetivo (contudo, não a exclui totalmente).",
+            "e": "A sonda nasogástrica é contraindicada na HDB."
+        },
+        "answer": "d",
+        "rationale": "Um aspirado com bile amarela/esverdeada ajuda a afastar HDA sangrante, mas o aspirado claro só indica que não há sangue no estômago no momento.",
+        "option_rationales": {
+            "a": "Errada. (Quase, mas não 100%).",
+            "b": "Errada. (Sangramento duodenal pode não refluir).",
+            "c": "Errada. (Tipicamente HDA).",
+            "d": "Correta. Propedêutica das hemorragias.",
+            "e": "Errada. (Frequentemente usada na triagem diagnóstica nas emergências)."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "HDA vs HDB",
+            "Propedêutica"
+        ]
+    },
+    {
+        "enunciado": "O 'Cintilografia com hemácias marcadas' e a 'Arteriografia' são métodos úteis na HDB. Qual a principal limitação da cintilografia em relação à localização exata do sangramento?",
+        "options": {
+            "a": "Alta carga de radiação.",
+            "b": "Exige sangramento muito vultoso (> 1 mL/min).",
+            "c": "Necessidade de cirurgia aberta concomitante.",
+            "d": "Acurácia anatômica pobre (o sangue marcado pode se mover pelo peristaltismo, indicando local errado).",
+            "e": "Não detecta sangue de origem venosa."
+        },
+        "answer": "d",
+        "rationale": "A cintilografia é muito sensível (0,1 mL/min), mas por detectar o acúmulo de sangue em alças, o local indicado pode não ser o foco real devido ao trânsito intestinal.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Errada. (Esta é a limitação da Arteriografia).",
+            "c": "Errada.",
+            "d": "Correta. Diagnóstico por imagem em HDB.",
+            "e": "Errada."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "HDB",
+            "Imagem",
+            "Diagnóstico"
+        ]
+    },
+    {
+        "enunciado": "Qual a conduta inicial recomendada para um paciente com 'Melena' estabilizado hemodinamicamente, mas com histórico de perda ponderal e alteração do hábito intestinal recente?",
+        "options": {
+            "a": "Apenas reposição de ferro oral.",
+            "b": "Colonoscopia imediata como primeiro exame.",
+            "c": "Endoscopia Digestiva Alta (EDA) primeiro, seguida de Colonoscopia se a EDA for negativa.",
+            "d": "Cirurgia de urgência.",
+            "e": "Cintilografia óssea."
+        },
+        "answer": "c",
+        "rationale": "A melena indica tipicamente sangramento acima do ângulo de Treitz. Mesmo com suspeita de tumor colônico, a origem alta deve ser descartada primeiro pelo padrão clássico.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Errada. (EDA é a prioridade na melena).",
+            "c": "Correta. Protocolo diagnóstico.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "HDA",
+            "Investigação",
+            "Melena"
+        ]
+    },
+    {
+        "enunciado": "Sobre a 'Sonda de Sengstaken-Blakemore', qual medida de segurança é IMPERATIVA durante sua utilização para evitar a asfixia ou rotura esofágica?",
+        "options": {
+            "a": "Manter o balão gástrico inflado permanentemente por 7 dias.",
+            "b": "Manter o paciente acordado e sem sedação.",
+            "c": "Intubação orotraqueal e monitorização da pressão dos balões.",
+            "d": "Não realizar tração externa no tubo.",
+            "e": "Inflar primeiro o balão esofágico, depois o gástrico."
+        },
+        "answer": "c",
+        "rationale": "A intubação é necessária pela proteção da via aérea contra aspiração sanguínea e para evitar que o balão deslocado cause obstrução traqueal súbita.",
+        "option_rationales": {
+            "a": "Errada. (Risco de necrose grave; deve ser esvaziado periodicamente após controle).",
+            "b": "Errada.",
+            "c": "Correta. Segurança em procedimentos emergenciais.",
+            "d": "Errada. (A tração leve é necessária para tamponar a cárdia).",
+            "e": "Errada. (Sempre o gástrico primeiro para ancoragem)."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "HDA Varicosa",
+            "Balão",
+            "Segurança"
+        ]
+    },
+    {
+        "enunciado": "O 'Escore de AIMS65' é uma ferramenta recente de triagem para HDA. O que a sigla 'M' representa nesta ferramenta diagnóstica?",
+        "options": {
+            "a": "Melena.",
+            "b": "Idade Mental (Mental status - alteração da consciência).",
+            "c": "Mortalidade.",
+            "d": "Monitorização.",
+            "e": "Músculo (Fraqueza)."
+        },
+        "answer": "b",
+        "rationale": "AIMS65 avalia: Albumina, INR, Mental status (alteração do nível de consciência), SBP (Pressão sistólica) e idade acima de 65 anos.",
+        "option_rationales": {
+            "a": "Errada. (Faz parte do GBS, não do AIMS65).",
+            "b": "Correta. Escore de estratificação de risco.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "HDA",
+            "Escores",
+            "Prognóstico"
+        ]
+    },
+    {
+        "enunciado": "Em pacientes com sangramento por 'Varizes Esofágicas' controladas endoscópicamente, qual a conduta para profilaxia secundária (evitar novas crises) a longo prazo?",
+        "options": {
+            "a": "Apenas dieta laxativa.",
+            "b": "Uso isolado de Omeprazol.",
+            "c": "Beta-bloqueadores não seletivos associados a sessões repetidas de ligadura elástica até a erradicação total das varizes.",
+            "d": "Retirada do baço (esplenectomia).",
+            "e": "Uso de AAS como antiagregante."
+        },
+        "answer": "c",
+        "rationale": "A combinação de droga vasoativa (redução de pressão) + ligadura (eliminação do vaso) é superior a qualquer medida isolada.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Errada.",
+            "c": "Correta. Profilaxia secundária de varizes.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "HDA Varicosa",
+            "Profilaxia",
+            "Hepatologia"
+        ]
+    },
+    {
+        "enunciado": "A 'Ectasia Vascular Antral Gástrica' (GAVE), também conhecida como 'estômago em melancia' (Watermelon stomach), é uma causa de anemia ferropriva crônica. Qual o achado endoscópico típico?",
+        "options": {
+            "a": "Vaso arterial calibroso pulsátil no fundo gástrico.",
+            "b": "Manchas avermelhadas lineares ou em estrias no antro gástrico.",
+            "c": "Úlcera gigante no duodeno.",
+            "d": "Pólipos sangrantes difusos.",
+            "e": "Hematomas subepiteliais esofágicos."
+        },
+        "answer": "b",
+        "rationale": "O aspecto de linhas radiais avermelhadas convergindo para o piloro no antro dá o nome característico à condição.",
+        "option_rationales": {
+            "a": "Errada. (Descreve Dieulafoy).",
+            "b": "Correta. Gastroenterologia e Endoscopia.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "HDA Não Varicosa",
+            "Endoscopia",
+            "Patologia Gástrica"
+        ]
+    }
+]

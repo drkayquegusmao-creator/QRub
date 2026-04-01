@@ -309,6 +309,7 @@ export default function AdminPackagesManager() {
                 // Update package status locally
                 setSelectedPackage(prev => prev ? { ...prev, status: 'approved' as any } : null)
                 refreshPackages()
+                await loadTaxonomy()
                 // Reload questions to show updated statuses
                 const { data: newQuestions } = await getPackageQuestions(selectedPackage.id)
                 setPkgQuestions(newQuestions)
@@ -423,6 +424,7 @@ export default function AdminPackagesManager() {
         if (res.success) {
             toast.success('Questão publicada com sucesso!')
             if (selectedPackage) handleSelectPackage(selectedPackage)
+            await loadTaxonomy()
             setIsEditQuestionModalOpen(false)
         } else {
             toast.error('Erro ao publicar')

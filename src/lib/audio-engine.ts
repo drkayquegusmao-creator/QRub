@@ -3,7 +3,7 @@
  * Managed identity sound effects for learning reinforcement.
  */
 
-export type QrubSoundEffect = 'swoosh' | 'success' | 'error' | 'pulse' | 'click'
+export type QrubSoundEffect = 'swoosh' | 'success' | 'error' | 'pulse' | 'click' | 'data_entry' | 'success_final'
 
 class AudioEngine {
   private static instance: AudioEngine
@@ -118,6 +118,28 @@ class AudioEngine {
         gain.gain.linearRampToValueAtTime(0, now + 0.05)
         osc.start(now)
         osc.stop(now + 0.05)
+        break
+      case 'data_entry':
+        osc.type = 'square'
+        osc.frequency.setValueAtTime(1000, now)
+        osc.frequency.setValueAtTime(2000, now + 0.05)
+        gain.gain.setValueAtTime(0, now)
+        gain.gain.linearRampToValueAtTime(this.volume * 0.3, now + 0.01)
+        gain.gain.linearRampToValueAtTime(0, now + 0.1)
+        osc.start(now)
+        osc.stop(now + 0.1)
+        break
+      case 'success_final':
+        osc.type = 'sine'
+        osc.frequency.setValueAtTime(523, now)
+        osc.frequency.exponentialRampToValueAtTime(659, now + 0.1)
+        osc.frequency.exponentialRampToValueAtTime(783, now + 0.2)
+        osc.frequency.exponentialRampToValueAtTime(1046, now + 0.3)
+        gain.gain.setValueAtTime(0, now)
+        gain.gain.linearRampToValueAtTime(this.volume, now + 0.05)
+        gain.gain.linearRampToValueAtTime(0, now + 0.5)
+        osc.start(now)
+        osc.stop(now + 0.5)
         break
     }
   }

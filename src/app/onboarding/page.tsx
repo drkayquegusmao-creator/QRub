@@ -75,6 +75,13 @@ export default function OnboardingPage() {
         setIsHydrated(true)
     }, [])
 
+    // Sync user data to form when it becomes available
+    useEffect(() => {
+        if (user && !formData.name) {
+            setFormData(prev => ({ ...prev, name: user.name || '' }))
+        }
+    }, [user, formData.name])
+
     const years = useMemo(() => {
         return Array.from({ length: 2050 - 1960 + 1 }, (_, i) => (2050 - i).toString())
     }, [])

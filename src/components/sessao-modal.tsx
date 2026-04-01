@@ -2,16 +2,14 @@
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { X, ArrowRight, XCircle, Trophy, CheckCircle2, Calendar } from 'lucide-react'
+import { X, ArrowRight, XCircle, Trophy, Calendar } from 'lucide-react'
 import { QuestionText } from './question-typography'
 import { QuestionComments } from '@/components/question-comments'
 
 import { useAuth } from '@/store/use-auth'
 import { supabase } from '@/lib/supabase'
-import { MEDICAL_HIERARCHY } from '@/lib/medical-specialties'
-import srsRules from '@/lib/srs-rules.json'
-import { calculateNextSRSState, updateSubjectMemoryScore } from '@/lib/srs-service'
 import { completePlacementSession, ScopeConfig } from '@/lib/nivelamento-service'
+import { useSRS } from '@/store/use-srs'
 
 interface SessaoModalProps {
     isOpen: boolean
@@ -54,6 +52,7 @@ interface Resposta {
 
 export function SessaoModal({ isOpen, onClose, assunto_id, tipo, onComplete, isNewSRS, agendaId, scope }: SessaoModalProps) {
     const { user } = useAuth()
+    const { start_session, finish_session } = useSRS()
     const [sessao, setSessao] = useState<SessaoData | null>(null)
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState<string | null>(null)
@@ -65,259 +64,32 @@ export function SessaoModal({ isOpen, onClose, assunto_id, tipo, onComplete, isN
 
     const [finalizando, setFinalizando] = useState(false)
     const [resultado, setResultado] = useState<any>(null)
-    const [fontSize, setFontSize] = useState(18) // base font size in px
+    const [fontSize] = useState(18) // base font size in px
 
-    // Criar sessão ao abrir modal
     useEffect(() => {
-        if (!isOpen || !user?.id) return
+        if (!isOpen || !user?.id || !assunto_id) return
 
-        const criarSessaoLocal = async () => {
+        const carregarSessao = async () => {
             try {
                 setLoading(true)
                 setError(null)
+                
+                const data = await start_session(user.id, assunto_id, tipo)
 
-                // 1. Buscar detalhes do assunto
-                let assunto = null
-
-                // Helper to search in a hierarchy tree
-                // IMPORTANT: nodes may have UUID ids, but questao_base uses slugs.
-                // We match by both id and slug, and always return slug-based ids.
-                const findSubject = (nodes: any[]) => {
-                    for (const node of nodes) {
-                        const nodeSlug = node.slug || node.id
-                        if (node.id === assunto_id || nodeSlug === assunto_id) {
-                            return { id: nodeSlug, nome: node.name, specialty_id: nodeSlug }
-                        }
-
-                        if (node.subspecialties) {
-                            for (const sub of node.subspecialties) {
-                                const subSlug = sub.slug || sub.id
-                                if (sub.id === assunto_id || subSlug === assunto_id) {
-                                    return { id: subSlug, nome: sub.name, specialty_id: nodeSlug }
-                                }
-                                if (sub.subjects) {
-                                    for (const subj of sub.subjects) {
-                                        const subjSlug = subj.slug || subj.id
-                                        if (subj.id === assunto_id || subjSlug === assunto_id) {
-                                            return { id: subjSlug, nome: subj.name, specialty_id: nodeSlug }
-                                        }
-                                    }
-                                }
-                            }
-                        } else if (node.subjects) {
-                            for (const subj of node.subjects) {
-                                const subjSlug = subj.slug || subj.id
-                                if (subj.id === assunto_id || subjSlug === assunto_id) {
-                                    return { id: subjSlug, nome: subj.name, specialty_id: nodeSlug }
-                                }
-                            }
-                        }
-                    }
-                    return null
+                if (!data || !data.questoes || data.questoes.length === 0) {
+                    throw new Error('Não encontramos questões suficientes para este assunto.')
                 }
 
-                // Try Dynamic Taxonomy first
-                try {
-                    const { useSRS } = await import('@/store/use-srs')
-                    const { taxonomy } = useSRS.getState()
-                    if (taxonomy && taxonomy.length > 0 && taxonomy[0].specialties) {
-                        assunto = findSubject(taxonomy[0].specialties)
-                    }
-                } catch (e) { console.warn('SRS Taxonomy not available', e) }
-
-                // Fallback to Static
-                if (!assunto) {
-                    const { MEDICAL_HIERARCHY } = await import('@/lib/medical-specialties')
-                    assunto = findSubject(MEDICAL_HIERARCHY[0].specialties)
-                }
-
-                if (!assunto) {
-                    // Final fallback: fetch from taxonomia table directly if not found in tree
-                    const isUUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(assunto_id)
-                    let taxNode = null
-
-                    if (isUUID) {
-                        const { data } = await supabase.from('taxonomia').select('id, name, slug, parent_id, level').eq('id', assunto_id).single()
-                        taxNode = data
-                    } else {
-                        const { data } = await supabase.from('taxonomia').select('id, name, slug, parent_id, level').eq('slug', assunto_id).single()
-                        taxNode = data
-                    }
-
-                    if (taxNode) {
-                        // CRITICAL: questao_base stores slugs, not UUIDs.
-                        // Use slug as the canonical id for all question matching.
-                        const slug = taxNode.slug || taxNode.id
-                        assunto = { id: slug, nome: taxNode.name, specialty_id: slug }
-                    } else {
-                        assunto = { id: assunto_id, nome: 'Assunto Desconhecido', specialty_id: assunto_id }
-                    }
-                }
-
-                // 2. Buscar questoes COMPATÍVEIS e ANTI-REPETIÇÃO
-                let pool: any[] = []
-
-                // SPECIALTY MAPPING LOGIC (Must match use-questions.ts)
-                const REAL_SPECIALTIES_MAPPED_AS_SUBS = [
-                    'cardiologia', 'endocrinologia', 'gastroenterologia', 'geriatria',
-                    'hematologia', 'infectologia', 'nefrologia', 'pneumologia',
-                    'reumatologia', 'oncologia-clinica'
-                ]
-
-                let targetIds: string[] = [assunto.specialty_id]
-
-                // Se o assunto é uma subespecialidade mapeada como especialidade
-                if (REAL_SPECIALTIES_MAPPED_AS_SUBS.includes(assunto.specialty_id)) {
-                    targetIds = [assunto.specialty_id]
-                }
-
-                // Se o assunto é Clínica Médica, expandir (slug é 'clinica-medica')
-                if (assunto.specialty_id === 'clinica-medica' || assunto.id === 'clinica-medica') {
-                    targetIds.push(...REAL_SPECIALTIES_MAPPED_AS_SUBS)
-                }
-
-                if (tipo === 'CADERNO_ERROS') {
-                    // Buscar apenas questões com status ATIVA ou EM_RECUPERACAO no caderno
-                    const { data: erros } = await supabase
-                        .from('caderno_erros')
-                        .select('questao_id')
-                        .eq('user_id', user.id)
-                        .in('assunto_id', targetIds) // Use expanded list
-                        .in('status', ['ativo', 'em_revisao'])
-                        .limit(20)
-
-                    if (!erros || erros.length === 0) {
-                        throw new Error('Não há erros ativos para este assunto. Ótimo trabalho!')
-                    }
-
-                    const erroIds = erros.map(e => e.questao_id)
-
-                    // Fetch das questões reais
-                    const { data: qData } = await supabase
-                        .from('questao_base')
-                        .select('*')
-                        .in('id', erroIds)
-
-                    pool = qData || []
-                } else {
-                    // NIVELAMENTO ou REVISAO (Inéditas)
-                    const { data: usadas } = await supabase
-                        .from('questao_uso_usuario')
-                        .select('questao_id')
-                        .eq('user_id', user.id)
-                        .in('assunto_id', targetIds)
-
-                    const usadasIds = new Set(usadas?.map(u => u.questao_id) || [])
-
-                    // Build dynamic query
-                    let query = supabase.from('questao_base').select('*').eq('status_validacao', 'APROVADA')
-
-                    if (targetIds.length > 1) {
-                        // Multi-specialty case (e.g. Clinica Medica expansion)
-                        query = query.in('specialty_id', targetIds)
-                    } else if (REAL_SPECIALTIES_MAPPED_AS_SUBS.includes(assunto.specialty_id)) {
-                        // Direct Specialty Case (e.g Pneumologia)
-                        query = query.eq('specialty_id', assunto.specialty_id)
-                    } else {
-                        // Standard fallback
-                        const slug = assunto.specialty_id
-                        query = query.or(`subject_id.eq."${slug}",subspecialty_id.eq."${slug}",specialty_id.eq."${slug}"`)
-                    }
-
-                    const { data: qData, error: qError } = await query.limit(200)
-
-                    if (qError) throw qError
-
-                    // Prioritize specific matches (subject > subspecialty > specialty)
-                    const specificPool = qData?.filter(q =>
-                        q.subject_id === assunto.id ||
-                        q.subspecialty_id === assunto.id ||
-                        q.specialty_id === assunto.id
-                    ) || []
-
-                    // REGRA DE OURO: Para NIVELAMENTO, a precisão é obrigatória.
-                    // Se não houver questões específicas do assunto, não podemos nivelar com lixo de outras áreas.
-                    let finalData: any[] = []
-                    
-                    if (tipo === 'NIVELAMENTO') {
-                        if (specificPool.length > 0) {
-                            finalData = specificPool
-                        } else {
-                            // Se for nivelamento e não achou nada específico, verificamos se o assunto pesquisado
-                            // é na verdade a especialidade inteira (ex: nivelar 'anatomia' diretamente)
-                            if (assunto.id === assunto.specialty_id) {
-                                finalData = qData || []
-                            } else {
-                                throw new Error(`Não encontramos questões específicas para "${assunto.nome}". O banco de dados está sendo atualizado para este tópico.`)
-                            }
-                        }
-                    } else {
-                        // Para REVISAO ou CADERNO_ERROS, aceitamos fallback se o pool específico for muito pequeno
-                        finalData = specificPool.length > 5 ? specificPool : (qData || [])
-                    }
-
-                    if (finalData.length === 0) {
-                        throw new Error('Nenhuma questão aprovada encontrada para este assunto.')
-                    }
-
-                    pool = finalData.filter(q => !usadasIds.has(q.id))
-
-                    if (pool.length < 5 && tipo !== 'NIVELAMENTO') {
-                        const usadasDisponiveis = finalData.filter(q => usadasIds.has(q.id))
-                        pool = [...pool, ...usadasDisponiveis]
-                    }
-                }
-
-                if (pool.length < 1) {
-                    throw new Error(`Questões insuficientes para iniciar a sessão (${pool.length}).`)
-                }
-
-                // E. Selecionar 10 (ou todas se < 10)
-                const targetCount = Math.min(10, pool.length)
-
-                // SHUFFLE: Randomize order to ensure unique sessions every time
-                // Fisher-Yates shuffle is better, but simple sort works for small pools.
-                // We shuffle the ENTIRE pool first, then take the first N.
-                const shuffled = pool
-                    .map(value => ({ value, sort: Math.random() }))
-                    .sort((a, b) => a.sort - b.sort)
-                    .map(({ value }) => value)
-                    .slice(0, targetCount)
-
-                // 3. Criar Sessão
-                const { data: novaSessao, error: sError } = await supabase
-                    .from('sessoes')
-                    .insert({
-                        user_id: user.id,
-                        assunto_id: assunto.id,
-                        tipo: tipo,
-                        status: 'EM_ANDAMENTO',
-                        total_questoes: shuffled.length,
-                        total_acertos: 0
-                    })
-                    .select()
-                    .single()
-
-                if (sError) throw sError
-
-                // 4. Criar Itens
-                const itens = shuffled.map((q, i) => ({
-                    sessao_id: novaSessao.id,
-                    user_id: user.id,
-                    questao_id: q.id,
-                    ordem: i + 1
-                }))
-
-                const { error: itensError } = await supabase.from('sessao_itens').insert(itens)
-                if (itensError) throw itensError
-
-                // 5. Montar Objeto Sessao
                 setSessao({
-                    sessao_id: novaSessao.id,
-                    tipo: tipo,
-                    assunto: assunto,
-                    total_questoes: shuffled.length,
-                    questoes: shuffled.map((q, i) => ({
+                    sessao_id: data.sessao_id,
+                    tipo: data.tipo,
+                    assunto: {
+                        id: data.assunto_id,
+                        nome: data.assunto_nome,
+                        specialty_id: data.specialty_id
+                    },
+                    total_questoes: data.questoes.length,
+                    questoes: data.questoes.map((q: any, i: number) => ({
                         questao_id: q.id,
                         ordem: i + 1,
                         enunciado: q.enunciado || q.statement || 'Enunciado indisponível',
@@ -336,8 +108,8 @@ export function SessaoModal({ isOpen, onClose, assunto_id, tipo, onComplete, isN
             }
         }
 
-        criarSessaoLocal()
-    }, [isOpen, user?.id, assunto_id, tipo])
+        carregarSessao()
+    }, [isOpen, user?.id, assunto_id, tipo, start_session])
 
     const handleResponder = async () => {
         if (!respostaSelecionada || !sessao) return
@@ -351,320 +123,69 @@ export function SessaoModal({ isOpen, onClose, assunto_id, tipo, onComplete, isN
             tempo_segundos: tempoDecorrido
         }
 
-        // 🟢 REAL-TIME SYNC (For Admin Insights)
-        try {
-            // Heartbeat user activity
-            if (user?.id) {
-                supabase.from('users').update({ updated_at: new Date().toISOString() }).eq('id', user.id).then()
-            }
+        // Heartbeat activity
+        if (user?.id) {
+            supabase.from('users').update({ updated_at: new Date().toISOString() }).eq('id', user.id).then()
+        }
 
-            // Save item response
-            supabase.from('sessao_itens')
-                .update({
-                    resposta_usuario: respostaSelecionada,
-                    tempo_resposta_segundos: tempoDecorrido
-                })
-                .eq('sessao_id', sessao.sessao_id)
-                .eq('questao_id', questao.questao_id)
-                .then()
-        } catch (e) { /* silent fail for real-time */ }
-
-        setRespostas([...respostas, novaResposta])
+        const novasRespostas = [...respostas, novaResposta]
+        setRespostas(novasRespostas)
         setRespostaSelecionada(null)
 
-        // Próxima questão ou finalizar
         if (questaoAtual < sessao.questoes.length - 1) {
             setQuestaoAtual(questaoAtual + 1)
             setTempoInicio(Date.now())
         } else {
-            finalizarSessaoLocal([...respostas, novaResposta])
+            finalizarSessao(novasRespostas)
         }
     }
 
-    const finalizarSessaoLocal = async (todasRespostas: Resposta[]) => {
+    const finalizarSessao = async (todasRespostas: Resposta[]) => {
         if (!sessao || !user?.id) return
 
         try {
             setFinalizando(true)
+            const resultData = await finish_session(sessao.sessao_id, user.id, todasRespostas)
 
-            // 1. Buscar respostas corretas (Gabarito)
-            const qIds = todasRespostas.map(r => r.questao_id)
-            const { data: qCorretas } = await supabase
-                .from('questao_base')
-                .select('id, correct_option_id')
-                .in('id', qIds)
-
-            const gabarito = new Map(qCorretas?.map(q => [q.id, q.correct_option_id]))
-
-            // 2. Buscar Erros Existentes (Para transição de status)
-            const { data: errosExistentes } = await supabase
-                .from('caderno_erros')
-                .select('questao_id, status, contador_de_repeticao')
-                .eq('user_id', user.id)
-                .in('questao_id', qIds)
-
-            const errosMap = new Map(errosExistentes?.map(e => [e.questao_id, e]))
-
-            // 3. Processar Resultados e Preparar Updates
-            let acertos = 0
-            const updatesCaderno: any[] = []
-
-            // Fetch itens IDs para update da sessão
-            const { data: itensDb } = await supabase
-                .from('sessao_itens')
-                .select('id, questao_id')
-                .eq('sessao_id', sessao.sessao_id)
-
-            const itensMap = new Map(itensDb?.map(i => [i.questao_id, i.id]))
-
-            for (const resp of todasRespostas) {
-                const correta = gabarito.get(resp.questao_id)
-                const isCorrect = String(correta) === String(resp.resposta)
-
-                if (isCorrect) acertos++
-
-                // A. Atualizar Item da Sessão
-                const itemId = itensMap.get(resp.questao_id)
-                if (itemId) {
-                    await supabase.from('sessao_itens').update({
-                        resposta_usuario: resp.resposta,
-                        esta_correta: isCorrect,
-                        tempo_resposta_segundos: resp.tempo_segundos
-                    }).eq('id', itemId)
-                }
-
-                // B. Atualizar Uso (Anti-Repetição)
-                await supabase.from('questao_uso_usuario').upsert({
-                    user_id: user.id,
-                    assunto_id: sessao.assunto.id,
-                    questao_id: resp.questao_id,
-                    foi_usada: true,
-                    foi_acertada: isCorrect,
-                    data_uso: new Date().toISOString(),
-                    sessao_id: sessao.sessao_id
-                }, { onConflict: 'user_id,assunto_id,questao_id' })
-
-                // C. Lógica do CADERNO DE ERROS (Orquestração)
-                const erroAntigo = errosMap.get(resp.questao_id)
-
-                if (!isCorrect) {
-                    updatesCaderno.push({
-                        user_id: user.id,
-                        questao_id: resp.questao_id,
-                        assunto_id: sessao.assunto.id,
-                        status: 'ativo',
-                        contador_de_repeticao: (erroAntigo?.contador_de_repeticao || 0) + 1,
-                        ultima_interacao: new Date().toISOString()
-                    })
-                } else if (isCorrect && erroAntigo) {
-                    let novoStatus = erroAntigo.status
-                    if (erroAntigo.status === 'ativo') novoStatus = 'em_revisao'
-                    else if (erroAntigo.status === 'em_revisao') novoStatus = 'resolvido'
-
-                    updatesCaderno.push({
-                        user_id: user.id,
-                        questao_id: resp.questao_id,
-                        assunto_id: sessao.assunto.id,
-                        status: novoStatus,
-                        contador_de_repeticao: erroAntigo.contador_de_repeticao,
-                        ultima_interacao: new Date().toISOString()
-                    })
-                }
-            }
-
-            // Aplicar updates no Caderno de Erros (Serial)
-            for (const upsert of updatesCaderno) {
-                await supabase.from('caderno_erros').upsert(upsert, { onConflict: 'user_id, questao_id' })
-            }
-
-            // 4. Verificar Estado Geral do Assunto (Pós-Sessão)
-            const { count: countErrosAtivos } = await supabase
-                .from('caderno_erros')
-                .select('*', { count: 'exact', head: true })
-                .eq('user_id', user.id)
-                .eq('assunto_id', sessao.assunto.id)
-                .eq('status', 'ativo')
-
-            const temErrosAtivos = (countErrosAtivos || 0) > 0
-
-            // 5. LÓGICA DE NIVELAMENTO E REGULADOR SRS
-            const percentual = Math.round((acertos / sessao.total_questoes) * 100)
-            const nota = Math.round((acertos / sessao.total_questoes) * 10)
-            const updateDataPlaceholder: any = {}
-
-            let estadoCognitivo = 'NAO_NIVELADO'
-            let intervalo = 3 // Default
-            let dataNivelamento = null
-
-            // REGRA 3: Nivelamento
-            if (sessao.tipo === 'NIVELAMENTO') {
-                if (percentual <= 39) estadoCognitivo = 'NIVEL_BAIXO'
-                else if (percentual <= 69) estadoCognitivo = 'NIVEL_INTERMEDIARIO'
-                else if (percentual <= 89) estadoCognitivo = 'NIVEL_ALTO'
-                else estadoCognitivo = 'DOMINADO'
-
-                dataNivelamento = new Date().toISOString()
-
-                // REGRA 4: Intervalos Iniciais via JSON
-                // @ts-ignore
-                intervalo = srsRules.srs_parametros.intervalos_iniciais[estadoCognitivo] || 4
-            } else {
-                // REVISÃO: Mantém estado, apenas agenga próxima
-                // SRS Base Padrão via JSON
-                if (nota <= 3) intervalo = srsRules.srs_parametros.intervalos_revisao.nota_0_3
-                else if (nota <= 5) intervalo = srsRules.srs_parametros.intervalos_revisao.nota_4_5
-                else if (nota <= 7) intervalo = srsRules.srs_parametros.intervalos_revisao.nota_6_7
-                else if (nota <= 9) intervalo = srsRules.srs_parametros.intervalos_revisao.nota_8_9
-                else if (nota === 10) intervalo = srsRules.srs_parametros.intervalos_revisao.nota_10
-
-                const { data: currentProg } = await supabase
-                    .from('assunto_progresso')
-                    .select('*')
-                    .eq('user_id', user.id)
-                    .eq('assunto_id', sessao.assunto.id)
-                    .single()
-
-                const nextState = calculateNextSRSState(
-                    currentProg?.intervalo_dias || 0,
-                    Number(currentProg?.ease_factor || 2.5),
-                    currentProg?.repeticoes || 0,
-                    percentual
-                )
-
-                estadoCognitivo = currentProg?.estado_cognitivo || 'NIVEL_INTERMEDIARIO'
-                dataNivelamento = currentProg?.data_nivelamento
-                intervalo = nextState.intervalo_dias
-                
-                // We'll add ease_factor and repeticoes to updateData later
-                const sm2Updates = {
-                    ease_factor: nextState.ease_factor,
-                    repeticoes: nextState.repeticoes
-                }
-                
-                Object.assign(updateDataPlaceholder, sm2Updates)
-            }
-
-            // PENALIDADE: Se houver erros ativos
-            if (temErrosAtivos) {
-                intervalo = Math.min(intervalo, srsRules.srs_parametros.penalidades.erro_ativo_teto)
-            }
-
-            const dataProxima = new Date()
-            dataProxima.setDate(dataProxima.getDate() + intervalo)
-            const dataProximaStr = dataProxima.toISOString().split('T')[0]
-
-            // 6. Fechar Sessão
-            await supabase.from('sessoes').update({
-                status: 'FINALIZADA',
-                total_acertos: acertos,
-                nota: nota,
-                finalized_at: new Date().toISOString()
-            }).eq('id', sessao.sessao_id)
-
-            // 7. Atualizar Progresso
-            const { data: progAnt } = await supabase
-                .from('assunto_progresso')
-                .select('*')
-                .eq('user_id', user.id)
-                .eq('assunto_id', sessao.assunto.id)
-                .single()
-
-            const totalQ = (progAnt?.total_questoes_respondidas || 0) + sessao.total_questoes
-            const totalA = (progAnt?.total_acertos || 0) + acertos
-
-            const updateData: any = {
-                ...updateDataPlaceholder,
-                user_id: user.id,
-                assunto_id: sessao.assunto.id,
-                estado_cognitivo: estadoCognitivo,
-                percentual_acerto: percentual, // Armazena último percentual da sessão
-                ultima_nota: nota,
-                total_questoes_respondidas: totalQ,
-                total_acertos: totalA,
-                data_ultima_sessao: new Date().toISOString(),
-                data_proxima_revisao: dataProxima.toISOString(),
-                intervalo_dias: intervalo,
-                updated_at: new Date().toISOString(),
-                ultima_interacao: new Date().toISOString(),
-                tendencia: percentual >= (progAnt?.percentual_acerto || 0) ? 'SUBINDO' : 'CAINDO'
-            }
-
-            if (dataNivelamento) {
-                updateData.data_nivelamento = dataNivelamento
-            }
-
-            await supabase.from('assunto_progresso').upsert(updateData, { onConflict: 'user_id,assunto_id' })
-
-            // 8.1 NEW SRS SYNC (If applicable)
-            if (isNewSRS && user?.id) {
+            if (isNewSRS) {
                 try {
-                    // Se for uma revisão de um plano SRS novo, atualizamos o evento e a memória
                     const avgTime = todasRespostas.length > 0
                         ? todasRespostas.reduce((a, b) => a + (b.tempo_segundos || 0), 0) / todasRespostas.length
                         : 0
                     
-                    // Se temos o scope configurado, usamos ele
                     if (scope) {
                         await completePlacementSession(
                             agendaId || sessao.sessao_id, 
                             user.id, 
                             scope, 
-                            acertos, 
+                            resultData.acertos, 
                             sessao.total_questoes, 
                             avgTime
                         )
                     }
 
-                    // Se for um evento de agenda nova, marcamos como concluído
-                    if (agendaId && isNewSRS) {
+                    if (agendaId) {
                         await supabase.from('spaced_review_events').update({
                             status: 'concluida',
-                            resulting_score: percentual,
+                            resulting_score: resultData.percentual,
                             completed_at: new Date().toISOString()
                         }).eq('id', agendaId)
                     }
                 } catch (e) {
-                    console.error('Error syncing new SRS completion:', e)
+                    console.error('Error syncing additional SRS metrics:', e)
                 }
             }
 
-            // 8. Atualizar Agenda Antiga
-            await supabase.from('agenda_revisoes')
-                .delete()
-                .eq('user_id', user.id)
-                .eq('assunto_id', sessao.assunto.id)
-                .eq('status', 'PENDENTE')
-
-            // Agenda próxima revisão se NÃO for NAO_NIVELADO (redundância)
-            if (estadoCognitivo !== 'NAO_NIVELADO') {
-                await supabase.from('agenda_revisoes').insert({
-                    user_id: user.id,
-                    assunto_id: sessao.assunto.id,
-                    data_programada: dataProximaStr,
-                    status: 'PENDENTE'
-                })
-            }
-
-            await supabase.from('agenda_revisoes')
-                .update({ status: 'REALIZADA' })
-                .eq('user_id', user.id)
-                .eq('assunto_id', sessao.assunto.id)
-                .eq('status', 'ATRASADA')
-
-            // 9. ATUALIZAR SCORE DE MEMÓRIA (Real-time and History)
-            await updateSubjectMemoryScore(user.id, sessao.assunto.id)
-
             setResultado({
                 success: true,
-                nota: nota,
-                percentual: percentual,
-                acertos: acertos,
+                nota: resultData.nota,
+                percentual: resultData.percentual,
+                acertos: resultData.acertos,
                 total: sessao.total_questoes,
-                nivel_atual: nota,
-                proxima_revisao: dataProximaStr,
-                intervalo_dias: intervalo,
-                erros_ativos: countErrosAtivos || 0,
-                estado_cognitivo: estadoCognitivo
+                nivel_atual: resultData.nota,
+                proxima_revisao: resultData.proxima_revisao,
+                intervalo_dias: resultData.intervalo_dias,
+                estado_cognitivo: resultData.estado_cognitivo
             })
 
         } catch (err: any) {
@@ -692,106 +213,63 @@ export function SessaoModal({ isOpen, onClose, assunto_id, tipo, onComplete, isN
 
     return (
         <AnimatePresence>
-            <div className="fixed inset-0 z-[200] flex justify-center p-2 sm:p-4 bg-background/95 backdrop-blur-sm overflow-y-auto h-[100dvh]">
+            <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 md:p-10 pointer-events-none">
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 20 }}
-                    className="relative w-full max-w-4xl bg-card border border-border sm:rounded-[40px] rounded-3xl shadow-2xl my-auto pb-safe"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    className="absolute inset-0 bg-[#0F0A1E]/95 backdrop-blur-xl pointer-events-auto"
+                    onClick={handleFechar}
+                />
+
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.9, y: 20 }}
+                    className="relative w-full max-w-5xl bg-white dark:bg-[#1A1033] rounded-[40px] shadow-2xl overflow-hidden flex flex-col pointer-events-auto max-h-[90vh]"
                 >
                     {/* Header */}
-                    <div className="bg-gradient-to-r from-slate-50 to-transparent p-4 sm:p-6 border-b border-border">
-                        <div className="flex items-center justify-between">
+                    <div className="p-6 border-b border-slate-100 dark:border-white/5 flex items-center justify-between shrink-0">
+                        <div className="flex items-center gap-4">
+                            <div className="w-12 h-12 bg-primary rounded-2xl flex items-center justify-center shadow-lg shadow-primary/20">
+                                <Trophy className="w-6 h-6 text-white" />
+                            </div>
                             <div>
-                                <div className="flex items-center gap-3 mb-2">
-                                    <div className={`px-3 py-1 rounded-full ${tipo === 'NIVELAMENTO'
-                                        ? 'bg-orange-500/10 text-orange-500'
-                                        : tipo === 'CADERNO_ERROS'
-                                            ? 'bg-yellow-500/10 text-yellow-500'
-                                            : 'bg-primary/10 text-primary'
-                                        }`}>
-                                        <span className="text-xs font-black uppercase tracking-widest">
-                                            {tipo === 'CADERNO_ERROS' ? 'RECUPERAÇÃO DE ERROS' : tipo}
-                                        </span>
-                                    </div>
-                                    {sessao && (
-                                        <span className="text-sm font-bold text-muted-foreground">
-                                            {questaoAtual + 1} de {sessao.total_questoes}
-                                        </span>
-                                    )}
-                                </div>
-                                <h2 className="text-2xl font-black italic uppercase tracking-tighter text-foreground">
+                                <h2 className="text-xl font-black uppercase italic tracking-tighter text-[#1A1033] dark:text-white leading-none">
                                     {sessao?.assunto.nome || 'Carregando...'}
                                 </h2>
-                            </div>
-
-                            <div className="flex items-center gap-3">
-                                <div className="hidden sm:flex items-center gap-2 bg-muted/30 p-1.5 rounded-xl border border-border mr-2">
-                                    <button
-                                        onClick={() => setFontSize(prev => Math.max(14, prev - 2))}
-                                        className="p-2 hover:bg-white rounded-lg transition-all"
-                                        title="Diminuir Fonte"
-                                    >
-                                        <span className="text-xs font-bold font-serif">A-</span>
-                                    </button>
-                                    <div className="w-px h-4 bg-border" />
-                                    <button
-                                        onClick={() => setFontSize(prev => Math.min(32, prev + 2))}
-                                        className="p-2 hover:bg-white rounded-lg transition-all"
-                                        title="Aumentar Fonte"
-                                    >
-                                        <span className="text-sm font-bold font-serif">A+</span>
-                                    </button>
-                                </div>
-
-                                <button
-                                    onClick={handleFechar}
-                                    className="p-2 hover:bg-muted rounded-full transition-colors"
-                                >
-                                    <X className="w-6 h-6" />
-                                </button>
+                                <span className="text-[10px] font-black uppercase tracking-widest text-[#1A1033]/40 dark:text-white/40">
+                                    Sessão de {tipo.replace('_', ' ')}
+                                </span>
                             </div>
                         </div>
-
-                        {/* Progress Bar */}
-                        {sessao && (
-                            <div className="mt-6 h-3 bg-slate-100 rounded-full overflow-hidden">
-                                <motion.div
-                                    initial={{ width: 0 }}
-                                    animate={{ width: `${((questaoAtual + 1) / sessao.total_questoes) * 100}%` }}
-                                    className={`h-full ${tipo === 'NIVELAMENTO'
-                                        ? 'bg-gradient-to-r from-orange-500 to-red-500'
-                                        : tipo === 'CADERNO_ERROS'
-                                            ? 'bg-yellow-500'
-                                            : 'bg-primary'
-                                        }`}
-                                />
-                            </div>
-                        )}
+                        <button
+                            onClick={handleFechar}
+                            className="p-3 bg-slate-100 dark:bg-white/5 text-slate-400 hover:text-[#1A1033] dark:hover:text-white rounded-2xl transition-all"
+                        >
+                            <X className="w-6 h-6" />
+                        </button>
                     </div>
 
-                    {/* Content */}
-                    <div className="p-4 sm:p-8 md:p-12 pb-12 sm:pb-16 min-h-[300px] sm:min-h-[500px] flex flex-col">
+                    <div className="flex-1 overflow-y-auto p-6 sm:p-12 scroll-smooth custom-scrollbar">
                         {loading && (
-                            <div className="flex items-center justify-center py-20">
-                                <motion.div
-                                    animate={{ rotate: 360 }}
-                                    transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                                    className="w-12 h-12 border-4 border-primary border-t-transparent rounded-full"
-                                />
+                            <div className="flex flex-col items-center justify-center h-full space-y-4">
+                                <div className="w-16 h-16 border-4 border-primary border-t-transparent rounded-full animate-spin" />
+                                <p className="text-slate-400 font-bold uppercase text-[10px] tracking-widest animate-pulse">Iniciando Inteligência do SRS...</p>
                             </div>
                         )}
 
                         {error && (
-                            <div className="bg-destructive/10 border border-destructive/20 rounded-[30px] p-8 text-center max-w-md mx-auto">
-                                <XCircle className="w-16 h-16 text-destructive mx-auto mb-6" />
-                                <h3 className="text-xl font-bold text-destructive mb-2">Ops! Algo deu errado</h3>
-                                <p className="text-muted-foreground mb-6 font-medium">{error}</p>
+                            <div className="flex flex-col items-center justify-center h-full text-center space-y-6">
+                                <div className="p-6 bg-red-50 dark:bg-red-500/10 rounded-3xl">
+                                    <XCircle className="w-12 h-12 text-red-500" />
+                                </div>
+                                <h3 className="text-2xl font-black text-[#1A1033] dark:text-white uppercase italic">{error}</h3>
                                 <button
                                     onClick={handleFechar}
-                                    className="px-8 py-3 bg-destructive text-white rounded-2xl font-black uppercase text-sm tracking-widest hover:scale-105 transition-all shadow-lg shadow-destructive/20"
+                                    className="px-8 py-4 bg-[#1A1033] dark:bg-white/10 text-white rounded-2xl font-black uppercase text-sm tracking-widest"
                                 >
-                                    Fechar
+                                    Voltar
                                 </button>
                             </div>
                         )}
@@ -820,15 +298,10 @@ export function SessaoModal({ isOpen, onClose, assunto_id, tipo, onComplete, isN
                                             const isCurrentQuestion = idx === questaoAtual
                                             const isAnswered = idx < respostas.length
                                             const isLocked = idx > respostas.length
-
                                             let bgColor = 'bg-muted text-muted-foreground'
-                                            if (isAnswered) {
-                                                bgColor = 'bg-primary text-white'
-                                            } else if (isCurrentQuestion) {
-                                                bgColor = 'bg-primary text-white ring-2 ring-primary/50'
-                                            } else if (isLocked) {
-                                                bgColor = 'bg-slate-100 text-slate-300 cursor-not-allowed opacity-50'
-                                            }
+                                            if (isAnswered) bgColor = 'bg-primary text-white'
+                                            else if (isCurrentQuestion) bgColor = 'bg-primary text-white ring-2 ring-primary/50'
+                                            else if (isLocked) bgColor = 'bg-slate-100 text-slate-300 cursor-not-allowed opacity-50'
 
                                             return (
                                                 <button
@@ -837,11 +310,8 @@ export function SessaoModal({ isOpen, onClose, assunto_id, tipo, onComplete, isN
                                                     onClick={() => {
                                                         if (!isLocked) {
                                                             setQuestaoAtual(idx)
-                                                            if (idx < respostas.length) {
-                                                                setRespostaSelecionada(respostas[idx].resposta)
-                                                            } else {
-                                                                setRespostaSelecionada(null)
-                                                            }
+                                                            if (idx < respostas.length) setRespostaSelecionada(respostas[idx].resposta)
+                                                            else setRespostaSelecionada(null)
                                                         }
                                                     }}
                                                     className={`w-10 h-10 rounded-xl font-black text-sm transition-all ${isLocked ? '' : 'hover:scale-110'} ${bgColor}`}
@@ -904,9 +374,8 @@ function TelaQuestao({
                         {questao.comando}
                     </QuestionText>
                 )}
-                {/* Fallback para imagem se houver */}
                 {questao.image_url && (
-                    <img src={questao.image_url} alt="Imagem da questão" className="rounded-xl mt-4 max-h-[300px] object-contain" />
+                    <img src={questao.image_url} alt="Imagem" className="rounded-xl mt-4 max-h-[300px] object-contain" />
                 )}
             </div>
 
@@ -916,21 +385,18 @@ function TelaQuestao({
                         key={option.id}
                         onClick={() => onSelecionarResposta(option.id)}
                         className={`w-full text-left p-6 rounded-2xl border-2 transition-all flex items-start gap-4 group ${respostaSelecionada === option.id
-                            ? 'border-primary bg-primary/5 dark:bg-primary/20 shadow-xl shadow-primary/10'
-                            : 'border-slate-100 dark:border-white/10 hover:border-primary/30 dark:hover:border-primary/50 bg-white dark:bg-white/5 hover:bg-slate-50 dark:hover:bg-white/10'
+                            ? 'border-primary bg-primary/5 dark:bg-primary/20'
+                            : 'border-slate-100 dark:border-white/10 hover:border-primary/30 dark:hover:border-primary/50'
                             }`}
                     >
                         <div className={`w-10 h-10 rounded-xl flex items-center justify-center font-black text-sm flex-shrink-0 transition-colors ${respostaSelecionada === option.id
                             ? 'bg-primary text-white'
-                            : 'bg-slate-100 dark:bg-white/10 text-slate-400 dark:text-white/40 group-hover:bg-primary/10 group-hover:text-primary dark:group-hover:text-primary'
+                            : 'bg-slate-100 dark:bg-white/10 text-slate-400 dark:text-white/40'
                             }`}>
                             {option.id.toUpperCase()}
                         </div>
                         <QuestionText
-                            className={`font-bold flex-1 pt-1 ${respostaSelecionada === option.id
-                                ? 'text-primary'
-                                : 'text-slate-600 dark:text-slate-300'
-                                }`}
+                            className={`font-bold flex-1 pt-1 ${respostaSelecionada === option.id ? 'text-primary' : 'text-slate-600 dark:text-slate-300'}`}
                             style={{ fontSize: `${fontSize * 0.9}px` }}
                         >
                             {option.text}
@@ -948,119 +414,66 @@ function TelaQuestao({
                     onClick={onResponder}
                     disabled={!respostaSelecionada || finalizando}
                     className={`w-full flex items-center justify-center gap-3 py-5 rounded-2xl font-black uppercase text-sm tracking-[0.2em] transition-all ${respostaSelecionada && !finalizando
-                        ? 'bg-[#1A1033] dark:bg-primary text-white hover:scale-[1.02] active:scale-95 shadow-xl shadow-primary/20 bg-primary/20'
-                        : 'bg-slate-100 dark:bg-white/5 text-slate-300 dark:text-white/20 cursor-not-allowed'
+                        ? 'bg-primary text-white hover:scale-[1.02] active:scale-95'
+                        : 'bg-slate-100 dark:bg-white/5 text-slate-300 dark:text-white/20'
                         }`}
                 >
-                    {finalizando ? (
-                        <>
-                            <motion.div
-                                animate={{ rotate: 360 }}
-                                transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                                className="w-5 h-5 border-2 border-white border-t-transparent rounded-full"
-                            />
-                            Finalizando...
-                        </>
-                    ) : (
-                        <>
-                            {isUltima ? 'Finalizar Sessão' : 'Próxima Questão'}
-                            <ArrowRight className="w-5 h-5" />
-                        </>
-                    )}
+                    {finalizando ? 'Finalizando...' : (isUltima ? 'Finalizar Sessão' : 'Próxima Questão')}
+                    {!finalizando && <ArrowRight className="w-5 h-5" />}
                 </button>
 
                 <button
                     onClick={onAbort}
-                    className="w-full mt-4 flex items-center justify-center gap-2 py-3 text-slate-400 dark:text-white/30 hover:text-slate-600 dark:hover:text-white/60 font-bold uppercase text-xs tracking-[0.2em] transition-all"
+                    className="w-full mt-4 flex items-center justify-center gap-2 py-3 text-slate-400 font-bold uppercase text-xs tracking-[0.2em]"
                 >
                     <XCircle className="w-4 h-4" />
-                    Interromper e Voltar
+                    Interromper
                 </button>
             </div>
         </motion.div>
     )
 }
 
-function TelaResultado({
-    resultado,
-    tipo,
-    onFechar
-}: {
-    resultado: any
-    tipo: string
-    onFechar: () => void
-}) {
+function TelaResultado({ resultado, tipo, onFechar }: { resultado: any, tipo: string, onFechar: () => void }) {
     const isLeveling = tipo === 'NIVELAMENTO'
-
-    // Mensagem baseada no Estado Cognitivo (Se houver)
     let titulo = "Resultado da Sessão"
     let subtitulo = "Veja como foi seu desempenho."
 
     if (isLeveling && resultado.estado_cognitivo) {
-        if (resultado.estado_cognitivo === 'DOMINADO') {
-            titulo = "Domínio Total!"
-            subtitulo = "Você demonstrou excelente conhecimento."
-        } else if (resultado.estado_cognitivo === 'NIVEL_ALTO') {
-            titulo = "Alto Desempenho"
-            subtitulo = "Você tem uma base sólida neste assunto."
-        } else if (resultado.estado_cognitivo === 'NIVEL_INTERMEDIARIO') {
-            titulo = "Nível Intermediário"
-            subtitulo = "Bom começo, mas precisa de revisão."
-        } else {
-            titulo = "Nível Básico"
-            subtitulo = "Identificamos lacunas importantes. Faremos revisões curtas."
-        }
+        if (resultado.estado_cognitivo === 'DOMINADO') { titulo = "Domínio Total!"; subtitulo = "Você demonstrou excelente conhecimento." }
+        else if (resultado.estado_cognitivo === 'NIVEL_ALTO') { titulo = "Alto Desempenho"; subtitulo = "Você tem uma base sólida neste assunto." }
+        else if (resultado.estado_cognitivo === 'NIVEL_INTERMEDIARIO') { titulo = "Nível Intermediário"; subtitulo = "Bom começo, mas precisa de revisão." }
+        else { titulo = "Nível Básico"; subtitulo = "Identificamos lacunas importantes. Faremos revisões curtas." }
     }
 
     return (
-        <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="flex flex-col items-center text-center space-y-8 py-8"
-        >
+        <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="flex flex-col items-center text-center space-y-8 py-8">
             <div className="w-24 h-24 bg-green-50 rounded-full flex items-center justify-center mb-4">
                 <Trophy className="w-12 h-12 text-green-500" />
             </div>
-
             <div>
-                <h3 className="text-3xl font-black uppercase italic tracking-tighter text-[#1A1033] mb-2">
-                    {titulo}
-                </h3>
-                <p className="text-slate-500 font-medium max-w-sm mx-auto">
-                    {subtitulo}
-                </p>
+                <h3 className="text-3xl font-black uppercase italic tracking-tighter text-[#1A1033] dark:text-white mb-2">{titulo}</h3>
+                <p className="text-slate-500 font-medium max-w-sm mx-auto">{subtitulo}</p>
             </div>
-
             <div className="grid grid-cols-2 gap-4 w-full max-w-md">
-                <div className="bg-slate-50 p-6 rounded-2xl flex flex-col items-center">
-                    <span className="text-4xl font-black text-[#1A1033]">{resultado.acertos}</span>
+                <div className="bg-slate-50 dark:bg-white/5 p-6 rounded-2xl flex flex-col items-center">
+                    <span className="text-4xl font-black text-[#1A1033] dark:text-white">{resultado.acertos}</span>
                     <span className="text-[10px] uppercase font-bold tracking-widest text-slate-400 mt-1">Acertos</span>
                 </div>
-                <div className="bg-slate-50 p-6 rounded-2xl flex flex-col items-center">
-                    <span className="text-4xl font-black text-[#1A1033]">{resultado.percentual || Math.round((resultado.acertos / resultado.total) * 100)}%</span>
+                <div className="bg-slate-50 dark:bg-white/5 p-6 rounded-2xl flex flex-col items-center">
+                    <span className="text-4xl font-black text-[#1A1033] dark:text-white">{resultado.percentual}%</span>
                     <span className="text-[10px] uppercase font-bold tracking-widest text-slate-400 mt-1">Precisão</span>
                 </div>
             </div>
-
             {resultado.proxima_revisao && (
                 <div className="bg-blue-50/50 border border-blue-100 p-4 rounded-xl flex items-center gap-3">
                     <Calendar className="w-5 h-5 text-blue-500" />
                     <span className="text-sm font-bold text-blue-700">
-                        Próxima revisão agendada para: {new Date(resultado.proxima_revisao).toLocaleDateString('pt-BR')}
+                        Próxima revisão: {new Date(resultado.proxima_revisao).toLocaleDateString('pt-BR')}
                     </span>
                 </div>
             )}
-
-            {resultado.estado_cognitivo && (
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 text-slate-600 text-xs font-black uppercase tracking-widest">
-                    <span>Nível: {resultado.estado_cognitivo.replace('NIVEL_', '').replace('_', ' ')}</span>
-                </div>
-            )}
-
-            <button
-                onClick={onFechar}
-                className="w-full max-w-md bg-[#1A1033] text-white py-4 rounded-2xl font-black uppercase text-sm tracking-[0.2em] shadow-xl hover:scale-[1.02] active:scale-95 transition-all"
-            >
+            <button onClick={onFechar} className="w-full max-w-md bg-primary text-white py-4 rounded-2xl font-black uppercase text-sm tracking-widest shadow-xl transition-all">
                 Concluir
             </button>
         </motion.div>

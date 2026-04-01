@@ -1,0 +1,377 @@
+[
+    {
+        "enunciado": "De acordo com o ATLS (10ª/11ª edições), qual a tríade clínica clássica sugestiva de 'Tamponamento Cardíaco' traumático (Tríade de Beck)?",
+        "options": {
+            "a": "Hipotensão, taquicardia e roncos pulmonares.",
+            "b": "Hipotensão, abafamento das bulhas cardíacas e turgência jugular.",
+            "c": "Hipertensão, sudorese e bradicardia (Reflexo de Cushing).",
+            "d": "Pneumotórax, enfisema subcutâneo e choque.",
+            "e": "Desvio da traqueia, murmúrio abolido e timpanismo."
+        },
+        "answer": "b",
+        "rationale": "A tríade de Beck ocorre pela restrição aguda ao enchimento das câmaras cardíacas pelo acúmulo de sangue no saco pericárdico.",
+        "option_rationales": {
+            "a": "Errada. (Pode ocorrer em choque hipovolêmico simples).",
+            "b": "Correta. Sinais clássicos de trauma torácico.",
+            "c": "Errada. (Reflexo de Cushing indica hipertensão intracraniana).",
+            "d": "Errada.",
+            "e": "Errada. (Sinais de pneumotórax hipertensivo)."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Trauma",
+            "Tamponamento Cardíaco",
+            "ATLS"
+        ]
+    },
+    {
+        "enunciado": "Qual a conduta imediata recomendada para um paciente com 'Pneumotórax Hipertensivo' instável, antes de proceder à drenagem torácica definitiva em selo d'água?",
+        "options": {
+            "a": "Radiografia de tórax em duas incidências.",
+            "b": "Toracocentese de alívio com agulha (Descompressão pleural).",
+            "c": "Intubação orotraqueal imediata com pressão positiva.",
+            "d": "Toracotomia de reanimação.",
+            "e": "Apenas oxigenoterapia por máscara."
+        },
+        "answer": "b",
+        "rationale": "O diagnóstico de pneumotórax hipertensivo é clínico e a descompressão deve ser feita IMEDIATAMENTE. Atualmente, o 5º espaço intercostal (entre a linha axilar média e anterior) é preferido para descompressão por agulha em adultos.",
+        "option_rationales": {
+            "a": "Errada. (Não se deve esperar RX para tratar uma emergência clínica mortal).",
+            "b": "Correta. Manejo de trauma torácico.",
+            "c": "Errada. (Pressão positiva sem drenagem pode agravar o pneumotórax e causar PCR).",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Trauma",
+            "Pneumotórax",
+            "Emergência"
+        ]
+    },
+    {
+        "enunciado": "No atendimento ao trauma abdominal, a 'Manobra de Pringle' é utilizada no intraoperatório para controle temporário de hemorragias hepáticas maciças. O que consiste esta manobra?",
+        "options": {
+            "a": "Clampeamento da veia cava inferior.",
+            "b": "Clampeamento do ligamento hepatoduodenal (contendo artéria hepática e veia porta).",
+            "c": "Sutura direta do parênquima hepático.",
+            "d": "Tamponamento com compressas (Packing).",
+            "e": "Ligadura da artéria esplênica."
+        },
+        "answer": "b",
+        "rationale": "A manobra bloqueia o influxo sanguíneo para o fígado, permitindo a identificação do foco sangrante ou controle da perda volêmica.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Cirurgia de trauma e anatomia.",
+            "c": "Errada.",
+            "d": "Errada. (Esta é a tática de 'Damage Control').",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Trauma Abdominal",
+            "Cirurgia",
+            "Fígado"
+        ]
+    },
+    {
+        "enunciado": "Durante a ressuscitação cardiopulmonar (RCP) em ritmo de 'Fibrilação Ventricular' (FV), qual a dose inicial de adrenalina (epinefrina) recomendada e em qual momento deve ser administrada pela primeira vez?",
+        "options": {
+            "a": "1 mg IV, imediatamente antes do primeiro choque.",
+            "b": "1 mg IV, após o segundo choque infraestruturado (falha do choque inicial).",
+            "c": "0,5 mg IV, a cada 10 minutos.",
+            "d": "Apenas se houver retorno da circulação espontânea.",
+            "e": "10 mg em bólus IV."
+        },
+        "answer": "b",
+        "rationale": "No algoritmo de ritmos chocáveis (FV/TV sem pulso), a prioridade absoluta é o choque. A adrenalina é introduzida após o segundo ciclo (após o 2º choque) se o ritmo persistir.",
+        "option_rationales": {
+            "a": "Errada. (Prioridade é o choque inicial).",
+            "b": "Correta. Suporte Avançado de Vida (ACLS).",
+            "c": "Errada. (Intervalo padrão é 3-5 minutos).",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Emergência",
+            "ACLS",
+            "PCR"
+        ]
+    },
+    {
+        "enunciado": "Qual o principal critério clínico observado para diagnosticar o 'Choque Obstrutivo' em um paciente vítima de trauma, diferenciando-o do choque hipovolêmico puro?",
+        "options": {
+            "a": "Taquicardia compensatória.",
+            "b": "Pele fria e sudorese.",
+            "c": "Presença de distensão venosa jugular (Turgência) acompanhada de campos pulmonares limpos ou murmúrio abolido unilateral.",
+            "d": "Queda da pressão arterial sistólica.",
+            "e": "Diminuição do nível de consciência."
+        },
+        "answer": "c",
+        "rationale": "No choque hipovolêmico, as jugulares estão colabadas (vazias). No obstrutivo (tamponamento/pneumotórax hipertensivo), o sangue não consegue entrar no coração, gerando turgência jugular.",
+        "option_rationales": {
+            "a": "Errada. (Ocorre em ambos).",
+            "b": "Errada. (Ocorre em ambos).",
+            "c": "Correta. Diagnóstico diferencial de choque traumático.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Trauma",
+            "Choque",
+            "Diagnóstico"
+        ]
+    },
+    {
+        "enunciado": "Paciente de 30 anos, vítima de queda de moto em alta velocidade, apresenta Escala de Coma de Glasgow de '7' na admissão. Qual a conduta prioritária imediata de acordo com os protocolos de trauma?",
+        "options": {
+            "a": "Solicitar Tomografia de Crânio urgente.",
+            "b": "Assegurar via aérea definitiva (Intubação orotraqueal) com proteção da coluna cervical.",
+            "c": "Administrar Manitol endovenoso.",
+            "d": "Realizar Punção Lombar.",
+            "e": "Realizar Curativo compressivo em couro cabeludo."
+        },
+        "answer": "b",
+        "rationale": "Pela regra do trauma (ABCDE), Glasgow < 9 indica necessidade de via aérea definitiva para garantir oxigenação e proteger contra aspiração.",
+        "option_rationales": {
+            "a": "Errada. (Deve ser feita após estabilização do ABC).",
+            "b": "Correta. Via aérea no trauma.",
+            "c": "Errada.",
+            "d": "Errada. (Contraindicado na suspeita de HIC/trauma craneoencefálico).",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Trauma",
+            "TCE",
+            "Via Aérea"
+        ]
+    },
+    {
+        "enunciado": "Qual a 'Tríade da Morte' no trauma, que deve ser prevenida ou revertida agressivamente durante a ressuscitação hemostática?",
+        "options": {
+            "a": "Hipotensão, bradicardia e apnéia.",
+            "b": "Acidose metabólica, coagulopatia e hipotermia.",
+            "c": "Edema cerebral, choque e sepsis.",
+            "d": "Taquicardia, febre e oligúria.",
+            "e": "Infarto, AVC e Edema pulmonar."
+        },
+        "answer": "b",
+        "rationale": "Estes três fatores alimentam-se mutuamente, gerando um ciclo vicioso de deterioração fisiológica pós-trauma.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Fisiopatologia do choque traumático.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Trauma",
+            "Fisiopatologia",
+            "Ressuscitação"
+        ]
+    },
+    {
+        "enunciado": "De acordo com o protocolo de 'Ressuscitação em Controle de Danos' (Damage Control Resuscitation), qual a proporção inicial recomendada para transfusão de hemácias, plasma fresco e plaquetas em caso de choque hemorrágico maciço?",
+        "options": {
+            "a": "4:1:1.",
+            "b": "1:1:1.",
+            "c": "10:1:0.",
+            "d": "2:1:0.",
+            "e": "Não há proporção definida."
+        },
+        "answer": "b",
+        "rationale": "A transfusão balanceada visa mimetizar as propriedades do sangue total, reduzindo a diluição e a coagulopatia induzida pela ressuscitação cristalóide pura.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Hematologia e Trauma.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "Trauma",
+            "Ressuscitação",
+            "Choque"
+        ]
+    },
+    {
+        "enunciado": "Um paciente apresentando ritmo de 'Atividade Elétrica sem Pulso' (AESP) deve ser investigado quanto às causas reversíveis (6Hs e 5Ts). Qual destas causas é frequentemente confundida com tamponamento cardíaco pela turgência jugular?",
+        "options": {
+            "a": "Hipovolemia.",
+            "b": "Hipotermia.",
+            "c": "Pneumotórax Hipertensivo (Tension pneumothorax).",
+            "d": "Hipercalemia.",
+            "e": "Toxinas."
+        },
+        "answer": "c",
+        "rationale": "Ambos causam turgência jugular pelo impedimento mecânico ao retorno venoso.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Errada.",
+            "c": "Correta. Algoritmos ACLS e trauma.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Emergência",
+            "ACLS",
+            "PCR"
+        ]
+    },
+    {
+        "enunciado": "No 'Trauma Pélvico' grave com instabilidade hemodinâmica, qual o primeiro dispositivo a ser aplicado na sala de emergência para reduzir o volume pélvico e conter o sangramento em lençol (venoso/ósseo)?",
+        "options": {
+            "a": "Fixador externo metálico.",
+            "b": "Cinta Pélvica ou lençol (Pelvic binder).",
+            "c": "REBOA (Oclusão por balão na aorta).",
+            "d": "Sonda de Foley.",
+            "e": "Laparotomia exploradora imediata."
+        },
+        "answer": "b",
+        "rationale": "A amarração pélvica é uma medida de controle de sangramento imediata, fechando o volume 'aberto' da pelve em fraturas do tipo livro-aberto.",
+        "option_rationales": {
+            "a": "Errada. (Requer ortopedista e bloco cirúrgico).",
+            "b": "Correta. Manejo de trauma pélvico.",
+            "c": "Errada. (Medida avançada de salvamento).",
+            "d": "Errada. (Pode ser contraindicado se houver suspeita de lesão uretral).",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Trauma",
+            "Ortopedia",
+            "Hemodinâmica"
+        ]
+    },
+    {
+        "enunciado": "Qual a 'Droga de Escolha' (Primeira linha) para o controle imediato do estado de mal epiléptico na sala de emergência?",
+        "options": {
+            "a": "Fenitoína (Hidantal).",
+            "b": "Diazepam ou Midazolam (Benzodiazepínicos).",
+            "c": "Fenobarbital.",
+            "d": "Tiropental.",
+            "e": "Lidocaína."
+        },
+        "answer": "b",
+        "rationale": "Benzodiazepínicos atuam rapidamente aumentando a inibição GABAérgica, sendo fundamentais para interromper a crise convulsiva.",
+        "option_rationales": {
+            "a": "Errada. (Usado para controle de manutenção e profilaxia após o término da crise aguda pelo benzo).",
+            "b": "Correta. Emergência Neurológica.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Emergência",
+            "Neurologia",
+            "Convulsão"
+        ]
+    },
+    {
+        "enunciado": "Em um paciente com 'Supeita de Infarto com Supradesnivelamento do Segmento ST' (IAM com supra), qual o tempo meta recomendado 'Porta-Balão' (Door-to-balloon) para realização de angioplastia primária em um serviço disponível 24h?",
+        "options": {
+            "a": "30 minutos.",
+            "b": "90 minutos.",
+            "c": "120 minutos.",
+            "d": "6 horas.",
+            "e": "24 horas."
+        },
+        "answer": "b",
+        "rationale": "O objetivo é restabelecer o fluxo coronariano o mais rápido possível para salvar o miocárdio isquêmico (Time is muscle).",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Cardiologia de Emergência.",
+            "c": "Errada. (Meta se for necessário transferência para outro serviço).",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "IAM",
+            "Emergência",
+            "Cardiologia"
+        ]
+    },
+    {
+        "enunciado": "Qual 'Rua de Exclusão' imediata clínica na sala de trauma para um paciente com ferimento por arma branca em zona II do pescoço que apresenta hematoma pulsátil e enfisema subcutâneo?",
+        "options": {
+            "a": "RX de Partes Moles.",
+            "b": "Arteriografia eletiva.",
+            "c": "Exploração cirúrgica imediata no centro cirúrgico.",
+            "d": "Observação expectante por 24 horas.",
+            "e": "Apenas curativo compressivo."
+        },
+        "answer": "c",
+        "rationale": "Sinais 'duros' de lesão vascular ou aerodigestiva em trauma cervical (hematoma expansivo/pulsátil, choque, enfisema, sangramento profuso) indicam exploração cirúrgica mandatória.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Errada.",
+            "c": "Correta. Trauma Cervical.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Trauma",
+            "Cirurgia",
+            "Pescoço"
+        ]
+    },
+    {
+        "enunciado": "A 'Ausculta Pulmonar' durante a intubação demonstra murmúrio vesicular presente à direita e abolido à esquerda. Qual a hipótese diagnóstica MAIS PROVÁVEL considerando que a ventilação é fácil?",
+        "options": {
+            "a": "Pneumotórax espontâneo.",
+            "b": "Intubação seletiva do brônquio fonte direito.",
+            "c": "Ruptura de diafragma.",
+            "d": "Pneumonia lobar.",
+            "e": "Hemorragia pulmonar maciça."
+        },
+        "answer": "b",
+        "rationale": "Pela anatomia (brônquio direito mais vertical), o tubo tende a progredir para a direita se inserido profundamente após a glote.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Manejo de Via Aérea.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Via Aérea",
+            "Anatomia",
+            "Emergência"
+        ]
+    },
+    {
+        "enunciado": "Qual a conduta inicial recomendada para um 'Ferimento Penetrante em Tórax' que resulte em um ferimento aspirativo (pneumotórax aberto)?",
+        "options": {
+            "a": "Curativo oclusivo simples com esparadrapo por todos os lados.",
+            "b": "Curativo de três pontas (Válvula unidirecional).",
+            "c": "Sutura imediata da pele da ferida sob anestesia local.",
+            "d": "Apenas oxigenoterapia.",
+            "e": "Drenagem torácica direta através do ferimento."
+        },
+        "answer": "b",
+        "rationale": "O curativo de três pontas permite que o ar saia da cavidade pleural durante a expiração, mas impede que entre durante a inspiração, evitando o pneumotórax hipertensivo.",
+        "option_rationales": {
+            "a": "Errada. (Pode transformar em hipertensivo).",
+            "b": "Correta. Atendimento de Emergência no trauma.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada. (Deve-se drenar em local limpo, fora do ferimento)."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Trauma",
+            "Torácico",
+            "Socorrismo"
+        ]
+    }
+]

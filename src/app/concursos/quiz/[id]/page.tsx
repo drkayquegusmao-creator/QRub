@@ -17,6 +17,8 @@ import { useConcursoQuiz } from '@/store/concursos/use-quiz'
 import { supabase } from '@/lib/supabase'
 import { cn } from '@/lib/utils'
 
+const uuidv4_local = () => crypto.randomUUID()
+
 type SRSFeedback = 'ERREI' | 'DIFICIL' | 'FACIL' | 'DOMINEI'
 
 const SRS_INTERVALS: Record<SRSFeedback, number> = {
@@ -83,12 +85,22 @@ export default function ConcursoQuizPage({ params }: { params: { id: string } })
     const { user } = useAuth()
     const { questions, loadQuestions, loading: questionsLoading } = useConcursoQuestions()
     const { add_response } = useConcursoQuiz()
-
     const [currentIdx, setCurrentIdx] = useState(0)
     const [selectedOptionId, setSelectedOptionId] = useState<string | null>(null)
     const [isAnswered, setIsAnswered] = useState(false)
     const [hasConfirmed, setHasConfirmed] = useState(false)
     const [srsFeedbackGiven, setSrsFeedbackGiven] = useState(false)
+    
+    // Caderno de Erros logic
+    const [errorCauseRequired, setErrorCauseRequired] = useState(false)
+    const [selectedErrorCause, setSelectedErrorCause] = useState<'conhecimento' | 'desatencao' | 'interpretacao' | 'decoreba' | null>(null)
+    const [savingError, setSavingError] = useState(false)
+    const [showSuperacaoModal, setShowSuperacaoModal] = useState(false)
+    const [resolvedErrorId, setResolvedErrorId] = useState<string | null>(null)
+    const [superacaoNote, setSuperacaoNote] = useState('')
+    const [isSavingSuperacao, setIsSavingSuperacao] = useState(false)
+    const [isLockdown, setIsLockdown] = useState(false)
+
     const [answeredQuestions, setAnsweredQuestions] = useState<Record<number, { correct: boolean, selectedId: string }>>({})
     const [isFocusMode, setIsFocusMode] = useState(false)
     const [fontSize, setFontSize] = useState(20)
@@ -101,16 +113,41 @@ export default function ConcursoQuizPage({ params }: { params: { id: string } })
     const isSRS = mode === 'SRS'
 
     useEffect(() => {
-        const filters = {
-            area_id: searchParams.get('areaId') || undefined,
-            disciplina_id: searchParams.get('disciplinaId') || undefined,
-            subdisciplina_id: searchParams.get('subdisciplinaId') || undefined,
-            assunto_id: searchParams.get('assuntoId') || undefined,
-            banca_id: searchParams.get('bancaId') || undefined,
-            pageSize: parseInt(searchParams.get('count') || '20')
+        const load = async () => {
+            if (params.id === 'expurgo' && user?.id) {
+                const { data: errors } = await supabase
+                    .from('concurso_user_errors')
+                    .select('question_id')
+                    .eq('user_id', user.id)
+                    .eq('is_resolved', false)
+                    .limit(10)
+
+                if (errors && errors.length > 0) {
+                    const qIds = errors.map(e => e.question_id)
+                    const { data: qs } = await supabase
+                        .from('concurso_questao_base')
+                        .select('*, banca:concurso_bancas(*), disciplina:concurso_disciplinas(*), assunto:concurso_assuntos(*)')
+                        .in('id', qIds)
+                    
+                    if (qs) {
+                        useConcursoQuestions.getState().setQuestions(qs as any)
+                    }
+                }
+            } else {
+                const filters = {
+                    area_id: searchParams.get('areaId') || undefined,
+                    disciplina_id: params.id.length < 20 ? params.id : undefined,
+                    packageId: params.id.length >= 20 ? params.id : undefined,
+                    subdisciplina_id: searchParams.get('subdisciplinaId') || undefined,
+                    assunto_id: searchParams.get('assuntoId') || undefined,
+                    banca_id: searchParams.get('bancaId') || undefined,
+                    pageSize: parseInt(searchParams.get('count') || '20')
+                }
+                loadQuestions(filters)
+            }
         }
-        loadQuestions(filters)
-    }, [searchParams])
+        load()
+    }, [params.id, user, searchParams])
 
     const question = questions[currentIdx]
 
@@ -242,6 +279,96 @@ export default function ConcursoQuizPage({ params }: { params: { id: string } })
             is_correct: isCorrect,
             timestamp: new Date().toISOString()
         })
+
+        if (!isCorrect && user?.id) {
+            setErrorCauseRequired(true)
+            QrubAudio.play('error')
+        }
+
+        // If in expurgo mode, update the hit counter
+        if (params.id === 'expurgo' && user?.id && question) {
+            updateErrorHitOnResponse(question.id, isCorrect)
+        }
+    }
+
+    const updateErrorHitOnResponse = async (questionId: string, isCorrect: boolean) => {
+        const { data: err } = await supabase
+            .from('concurso_user_errors')
+            .select('id, consecutive_correct_hits')
+            .eq('user_id', user?.id)
+            .eq('question_id', questionId)
+            .eq('is_resolved', false)
+            .single()
+        
+        if (!err) return
+
+        let newHits = isCorrect ? (err.consecutive_correct_hits || 0) + 1 : 0
+        const isResolved = newHits >= 2
+
+        await supabase
+            .from('concurso_user_errors')
+            .update({ 
+                consecutive_correct_hits: newHits, 
+                is_resolved: isResolved,
+                updated_at: new Date().toISOString()
+            })
+            .eq('id', err.id)
+            
+        if (isResolved) {
+            // Activating Mastery Note flow
+            setResolvedErrorId(err.id)
+            setShowSuperacaoModal(true)
+            QrubAudio.play('success')
+        }
+    }
+
+    const handleSaveSuperacao = async () => {
+        if (!resolvedErrorId || !superacaoNote.trim()) return
+        setIsSavingSuperacao(true)
+        try {
+            await supabase
+                .from('concurso_user_errors')
+                .update({ 
+                    anotacao_superacao: superacaoNote,
+                    updated_at: new Date().toISOString()
+                })
+                .eq('id', resolvedErrorId)
+            
+            setShowSuperacaoModal(false)
+            setResolvedErrorId(null)
+            setSuperacaoNote('')
+        } catch (err) {
+            console.error('Error saving superacao note:', err)
+        } finally {
+            setIsSavingSuperacao(false)
+        }
+    }
+
+    const handleErrorClassification = async (cause: 'conhecimento' | 'desatencao' | 'interpretacao' | 'decoreba') => {
+        if (!user?.id || !question) return
+        setSavingError(true)
+        setSelectedErrorCause(cause)
+        
+        try {
+            await supabase.from('concurso_user_errors').insert({
+                user_id: user.id,
+                question_id: question.id,
+                disciplina_id: question.disciplina_id,
+                assunto_id: question.assunto_id,
+                error_cause: cause,
+                origin: isNivelamento ? 'nivelamento' : isSRS ? 'revisao' : 'treino',
+                is_resolved: false
+            })
+            
+            // Som de registro solicitado: data_entry
+            QrubAudio.play('data_entry')
+            
+            setErrorCauseRequired(false)
+        } catch (err) {
+            console.error('Error saving to error notebook:', err)
+        } finally {
+            setSavingError(false)
+        }
     }
 
     const handleSRSFeedback = async (feedback: SRSFeedback) => {
@@ -268,6 +395,7 @@ export default function ConcursoQuizPage({ params }: { params: { id: string } })
                     // Will show score screen
                     setCurrentIdx(currentIdx + 1)
                 } else {
+                    QrubAudio.play('success_final')
                     router.push('/concursos')
                 }
             }
@@ -444,6 +572,114 @@ export default function ConcursoQuizPage({ params }: { params: { id: string } })
                         )
                     })}
                 </div>
+
+                {/* ─── CADERNO DE ERROS: CLASSIFICAÇÃO OBRIGATÓRIA ─── */}
+                <AnimatePresence>
+                    {errorCauseRequired && (
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            className="fixed inset-0 z-[60] flex items-center justify-center p-6 bg-[#0B0F1A]/80 backdrop-blur-xl"
+                        >
+                            <div className="w-full max-w-2xl bg-[#1A1033] rounded-[50px] p-12 md:p-16 border border-rose-500/30 shadow-[0_0_100px_rgba(244,63,94,0.2)] text-center space-y-12">
+                                <div className="space-y-4">
+                                    <div className="w-24 h-24 bg-rose-500/20 rounded-[35px] flex items-center justify-center mx-auto mb-6">
+                                        <AlertTriangle className="w-12 h-12 text-rose-500 animate-pulse" />
+                                    </div>
+                                    <h3 className="text-4xl font-black italic uppercase tracking-tighter text-white">REPROCESSAMENTO COGNITIVO</h3>
+                                    <p className="text-slate-400 font-bold text-xs uppercase tracking-widest leading-relaxed">
+                                        O QRub bloqueou seu avanço. <br/> Identifique a causa raiz do erro para salvar no seu Caderno de Erros.
+                                    </p>
+                                </div>
+
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    {[
+                                        { id: 'conhecimento' as const, label: 'Falta de Conhecimento', desc: 'Não conhecia a teoria ou regra', icon: Brain },
+                                        { id: 'desatencao' as const, label: 'Desatenção', desc: 'Saber a matéria, erro de leitura', icon: Activity },
+                                        { id: 'interpretacao' as const, label: 'Interpretação', desc: 'Dificuldade com o comando da banca', icon: MessageSquare },
+                                        { id: 'decoreba' as const, label: 'Decoreba', desc: 'Esquecimento de prazo/lista/mnemônico', icon: Zap },
+                                    ].map((cause) => (
+                                        <button
+                                            key={cause.id}
+                                            disabled={savingError}
+                                            onClick={() => handleErrorClassification(cause.id)}
+                                            className="group p-6 rounded-3xl bg-white/5 border-2 border-white/10 text-left hover:border-rose-500 hover:bg-rose-500/10 transition-all flex items-center gap-6"
+                                        >
+                                            <div className="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center group-hover:bg-rose-500/20 text-slate-400 group-hover:text-rose-500 transition-all">
+                                                <cause.icon className="w-6 h-6" />
+                                            </div>
+                                            <div className="space-y-0.5">
+                                                <p className="text-sm font-black text-white uppercase tracking-tighter">{cause.label}</p>
+                                                <p className="text-[10px] font-bold text-slate-500">{cause.desc}</p>
+                                            </div>
+                                        </button>
+                                    ))}
+                                </div>
+                                {savingError && (
+                                    <div className="flex items-center justify-center gap-3 text-rose-500 animate-pulse">
+                                        <Loader2 className="w-5 h-5 animate-spin" />
+                                        <span className="text-[10px] font-black uppercase tracking-widest">Registrando falha...</span>
+                                    </div>
+                                )}
+                            </div>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
+
+                {/* ─── CADERNO DE ERROS: ANOTAÇÃO DE SUPERAÇÃO (MASTERY NOTE) ─── */}
+                <AnimatePresence>
+                    {showSuperacaoModal && (
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            className="fixed inset-0 z-[70] flex items-center justify-center p-6 bg-[#0a0a0a]/90 backdrop-blur-2xl"
+                        >
+                            <motion.div
+                                initial={{ scale: 0.9, y: 20 }}
+                                animate={{ scale: 1, y: 0 }}
+                                className="w-full max-w-2xl bg-white dark:bg-[#1A1033] rounded-[60px] p-12 md:p-20 shadow-[0_0_80px_rgba(16,185,129,0.3)] border-4 border-emerald-500/20 text-center space-y-12"
+                            >
+                                <div className="space-y-6">
+                                    <div className="w-24 h-24 bg-emerald-500/10 rounded-[35px] flex items-center justify-center mx-auto mb-8 border-2 border-emerald-500/30">
+                                        <Sparkles className="w-12 h-12 text-emerald-500 animate-bounce" />
+                                    </div>
+                                    <h3 className="text-5xl font-black italic uppercase tracking-tighter text-[#1A1033] dark:text-white leading-none">ÍNDICE DE CURA <br/><span className="text-emerald-500">ATINGIDO!</span></h3>
+                                    <p className="text-slate-400 font-bold text-xs uppercase tracking-[0.3em] leading-relaxed">
+                                        Você acertou esta questão duas vezes seguidas no expurgo. <br/> O que você aprendeu com este erro?
+                                    </p>
+                                </div>
+
+                                <div className="space-y-6">
+                                    <textarea
+                                        value={superacaoNote}
+                                        onChange={(e) => setSuperacaoNote(e.target.value)}
+                                        placeholder="Ex: 'Cuidado com o prazo de 15 dias do Art. 523 do CPC, ele é contado em dias úteis...'"
+                                        className="w-full h-48 p-8 rounded-[40px] bg-slate-50 dark:bg-white/5 border-2 border-slate-100 dark:border-white/10 text-lg font-medium focus:ring-4 ring-emerald-500/20 focus:border-emerald-500 transition-all resize-none outline-none dark:text-white"
+                                    />
+                                    
+                                    <button
+                                        onClick={handleSaveSuperacao}
+                                        disabled={isSavingSuperacao || !superacaoNote.trim()}
+                                        className="w-full py-6 bg-emerald-500 text-white rounded-3xl font-black uppercase text-xs tracking-[0.3em] shadow-2xl shadow-emerald-500/30 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-4 disabled:opacity-30"
+                                    >
+                                        {isSavingSuperacao ? (
+                                            <Loader2 className="w-5 h-5 animate-spin" />
+                                        ) : (
+                                            <>GRAVAR NO CADERNO DE ERROS <Zap className="w-5 h-5 fill-current" /></>
+                                        )}
+                                    </button>
+                                    
+                                    <button 
+                                        onClick={() => setShowSuperacaoModal(false)}
+                                        className="text-[9px] font-black uppercase tracking-widest text-slate-400 hover:text-emerald-500 transition-colors"
+                                    >
+                                        Pular anotação (não recomendado)
+                                    </button>
+                                </div>
+                            </motion.div>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
 
                 {/* ─── SRS FEEDBACK BUTTONS ─── */}
                 <AnimatePresence>

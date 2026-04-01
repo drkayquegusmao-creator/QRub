@@ -28,6 +28,7 @@ import { cn } from '@/lib/utils'
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useAuth } from '@/store/use-auth'
+import { isMasterEmail } from '@/lib/auth-constants'
 
 const SIDEBAR_GROUPS = [
     {
@@ -79,7 +80,8 @@ function Sparkles(props: any) {
 export function ConcursoSidebar() {
     const pathname = usePathname()
     const [collapsed, setCollapsed] = useState(false)
-    const { logout } = useAuth()
+    const { user, logout } = useAuth()
+    const isAdmin = user?.role === 'MASTER' || isMasterEmail(user?.email)
 
     return (
         <aside 
@@ -153,6 +155,37 @@ export function ConcursoSidebar() {
                         </div>
                     </div>
                 ))}
+
+                {/* Painel Administrativo - Apenas para Master */}
+                {isAdmin && (
+                    <div className="pt-4 mt-4 border-t border-white/5 space-y-1">
+                        {!collapsed && (
+                            <h3 className="px-4 text-[8px] font-black uppercase tracking-[0.2em] text-rose-500 truncate">
+                                Administração
+                            </h3>
+                        )}
+                        <Link 
+                            href="/concursos/admin"
+                            className={cn(
+                                "flex items-center gap-2.5 px-4 py-2.5 rounded-xl transition-all group relative",
+                                pathname.startsWith('/concursos/admin') 
+                                    ? "bg-rose-500 text-white shadow-lg shadow-rose-500/10 font-bold" 
+                                    : "text-white/40 hover:text-white hover:bg-white/5"
+                            )}
+                            title={collapsed ? "Admin" : undefined}
+                        >
+                            <Shield className={cn(
+                                "w-4 h-4 shrink-0 transition-transform group-hover:scale-110",
+                                pathname.startsWith('/concursos/admin') ? "text-white" : "text-white/40"
+                            )} />
+                            {!collapsed && (
+                                <span className="text-xs uppercase tracking-widest font-black truncate">
+                                    Painel Admin
+                                </span>
+                            )}
+                        </Link>
+                    </div>
+                )}
             </nav>
 
             {/* Footer / User / Collapse */}

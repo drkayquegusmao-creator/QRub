@@ -1,0 +1,378 @@
+[
+    {
+        "enunciado": "Durante uma anestesia obstétrica para cesariana sob bloqueio subaracnoideo (raquianestesia), qual a manobra de posicionamento INICIAL recomendada para prevenir a hipotensão materna causada pela compressão da veia cava inferior pelo útero gravídico?",
+        "options": {
+            "a": "Posição de Trendelenburg (cabeça para baixo).",
+            "b": "Posição de Trendelenburg reverso.",
+            "c": "Desvio lateral esquerdo do útero (colocação de um coxim sob o flanco direito).",
+            "d": "Elevação isolada dos membros inferiores.",
+            "e": "Posição de litotomia exagerada."
+        },
+        "answer": "c",
+        "rationale": "O desvio lateral esquerdo (DLE) reduz a compressão aortocava, melhorando o retorno venoso e o débito cardíaco materno, além da perfusão placentária.",
+        "option_rationales": {
+            "a": "Errada. Pode agravar a compressão e causar desconforto respiratório.",
+            "b": "Errada.",
+            "c": "Correta. Manobra fundamental em obstetrícia.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anestesiologia",
+            "Obstetrícia",
+            "Posicionamento"
+        ]
+    },
+    {
+        "enunciado": "A 'Concentração Alveolar Mínima' (CAM) de um anestésico inalatório é definida como a concentração ideal para impedir o movimento em resposta à incisão cirúrgica em 50% dos pacientes. Qual o principal fator que REDUZ a CAM (exigindo menores doses de vapor)?",
+        "options": {
+            "a": "Hipertermia.",
+            "b": "Idade avançada (idoso).",
+            "c": "Uso crônico de álcool.",
+            "d": "Hipernatremia.",
+            "e": "Ansiedade extrema."
+        },
+        "answer": "b",
+        "rationale": "A CAM diminui progressivamente com a idade e em estados de sedação/depressão do SNC, gravidez, hipotermia e hiponatremia.",
+        "option_rationales": {
+            "a": "Errada. Aumenta a CAM.",
+            "b": "Correta. Farmacodinâmica de inalatórios.",
+            "c": "Errada. Aumenta a CAM (tolerância cruzada).",
+            "d": "Errada. Aumenta a CAM.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anestesiologia",
+            "Inalatórios",
+            "Farmacologia"
+        ]
+    },
+    {
+        "enunciado": "Em uma criança de 2 anos (12 kg), qual a 'Dose de Atropina' endovenosa mínima recomendada em situações de bradicardia severa para evitar o risco de bradicardia paradoxal?",
+        "options": {
+            "a": "0,01 mg.",
+            "b": "0,1 mg.",
+            "c": "0,5 mg.",
+            "d": "1,0 mg.",
+            "e": "Atropina é contraindicada em pediatria."
+        },
+        "answer": "b",
+        "rationale": "Doses de atropina menores que 0,1 mg podem causar estimulação vagal central paradoxal, agravando a bradicardia.",
+        "option_rationales": {
+            "a": "Errada. Risco de efeito paradoxal.",
+            "b": "Correta. PALS e Anestesia Pediátrica.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anestesiologia",
+            "Pediatria",
+            "Farmacologia"
+        ]
+    },
+    {
+        "enunciado": "A 'Capnografia' (EtCO2) é a monitorização contínua do CO2 exalado. No choque hipovolêmico grave ou parada cardiorrespiratória (PCR) com ritmo de assistolia, o que ocorre com o valor do EtCO2?",
+        "options": {
+            "a": "Aumenta drasticamente por acidez metabólica.",
+            "b": "Permanece estável enquanto o paciente estiver intubado.",
+            "c": "Diminui bruscamente (ou cai para quase zero) pela falta de perfusão pulmonar.",
+            "d": "Sobe apenas se o paciente estiver febril.",
+            "e": "O EtCO2 não é influenciado pelo débito cardíaco."
+        },
+        "answer": "c",
+        "rationale": "O CO2 precisa ser transportado pelo sangue até os pulmões para ser exalado. Sem fluxo sanguíneo (choque/PCR), o EtCO2 cai, servindo como indicador de qualidade das manobras de RCP.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Errada.",
+            "c": "Correta. Monitorização e emergências.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anestesiologia",
+            "Monitorização",
+            "Emergências"
+        ]
+    },
+    {
+        "enunciado": "O 'Bloqueio do Nervo Pudendo' é ocasionalmente realizado no segundo estágio do trabalho de parto. Qual o principal marco anatômico utilizado para localização e infiltração do nervo?",
+        "options": {
+            "a": "Sínfise púbica.",
+            "b": "Espinha isquiática.",
+            "c": "Tuberosidade isquiática.",
+            "d": "Crista ilíaca posterior.",
+            "e": "Forame obturador."
+        },
+        "answer": "b",
+        "rationale": "O nervo pudendo passa atrás da espinha isquiática e do ligamento sacroespinal.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Anatomia e regional obstétrica.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anestesiologia",
+            "Obstetrícia",
+            "Regional"
+        ]
+    },
+    {
+        "enunciado": "Qual a principal diferença anatômica da 'Laringe Pediátrica' (em lactentes) em relação à do adulto, que dificulta a laringoscopia direta?",
+        "options": {
+            "a": "A laringe é mais posterior e baixa (C6).",
+            "b": "A epiglote é curta, reta e rígida.",
+            "c": "A laringe é mais anterior e alta (C3-C4), com epiglote em formato de 'U' ou ômega.",
+            "d": "As cordas vocais são horizontais no plano da face.",
+            "e": "Não existem diferenças anatômicas oculares relevantes."
+        },
+        "answer": "c",
+        "rationale": "A posição anteriorizada e alta da laringe em lactentes exige manobras específicas e, muitas vezes, o uso de lâminas retas (Miller).",
+        "option_rationales": {
+            "a": "Errada. Isso descreve o adulto.",
+            "b": "Errada. É longa e flexível.",
+            "c": "Correta. Via aérea pediátrica.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anestesiologia",
+            "Pediatria",
+            "Via Aérea"
+        ]
+    },
+    {
+        "enunciado": "O 'Índice Bispectral' (BIS) é um parâmetro derivado do eletroencefalograma (EEG). Qual a faixa de valores recomendada para garantir a hipnose adequada e prevenir o despertar intraoperatório sob anestesia geral?",
+        "options": {
+            "a": "80 a 100.",
+            "b": "60 a 80.",
+            "c": "40 a 60.",
+            "d": "20 a 40.",
+            "e": "Zero (linha de base)."
+        },
+        "answer": "c",
+        "rationale": "Valores entre 40-60 indicam anestesia cirúrgica profunda com baixa probabilidade de consciência.",
+        "option_rationales": {
+            "a": "Errada. (Paciente acordado).",
+            "b": "Errada. (Sedação superficial).",
+            "c": "Correta. Monitorização de profundidade anestésica.",
+            "d": "Errada. (Anestesia muito profunda/supressão).",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anestesiologia",
+            "Monitorização",
+            "Neurologia"
+        ]
+    },
+    {
+        "enunciado": "A 'Anestesia Venosa Total' (TIVA) frequentemente utiliza o Propofol em infusão alvo-controlada (TCI). Qual o modelo farmacocinético mais amplamente validado e utilizado para crianças?",
+        "options": {
+            "a": "Modelo Marsh.",
+            "b": "Modelo Schnider.",
+            "c": "Modelo Paedfusor.",
+            "d": "Modelo Eleveld.",
+            "e": "Modelo de Minto (Remifentanil)."
+        },
+        "answer": "c",
+        "rationale": "O Paedfusor foi desenvolvido especificamente com dados de populações pediátricas (1 a 16 anos).",
+        "option_rationales": {
+            "a": "Errada. (Adultos).",
+            "b": "Errada. (Adultos).",
+            "c": "Correta. TIVA em pediatria.",
+            "d": "Errada. (Modelo universal recente, mas o Paedfusor é o clássico pediátrico).",
+            "e": "Errada."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "Anestesiologia",
+            "Pediatria",
+            "Farmacologia",
+            "TIVA"
+        ]
+    },
+    {
+        "enunciado": "Qual anestésico local possui a 'Solubilidade' sanguínea e potência intermediária, sendo o padrão-ouro para bloqueios de plexo onde se busca início de ação rápido (latência curta) e duração razoável?",
+        "options": {
+            "a": "Procaína.",
+            "b": "Lidocaína.",
+            "c": "Ropivacaína 1%.",
+            "d": "Bupivacaína 0,5%.",
+            "e": "Benzocaína."
+        },
+        "answer": "b",
+        "rationale": "A lidocaína tem pKa próximo ao pH fisiológico (7,9) e alta fração não ionizada, permitindo rápida penetração na membrana nervosa.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Farmacologia de anestésicos locais.",
+            "c": "Errada. (Latência longa).",
+            "d": "Errada. (Latência longa).",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anestesiologia",
+            "Farmacologia",
+            "Anestésicos Locais"
+        ]
+    },
+    {
+        "enunciado": "Qual a 'Solubilidade Sangue/Gás' do Sevoflurano a 37°C?",
+        "options": {
+            "a": "0,42 (Desflurano).",
+            "b": "0,65-0,69.",
+            "c": "1,4 (Isoflurano).",
+            "d": "2,4 (Halotano).",
+            "e": "12,0 (Éter)."
+        },
+        "answer": "b",
+        "rationale": "A baixa solubilidade do Sevoflurano permite indução e recuperação rápidas.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Farmacologia de inalatórios.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Difícil",
+        "tags": [
+            "Anestesiologia",
+            "Inalatórios",
+            "Farmacologia"
+        ]
+    },
+    {
+        "enunciado": "Na gestante, o 'LID' (Laringoscopia e Intubação Difícil) é mais comum devido a alterações fisiológicas. Qual fator contribui MAIS para a hipoxemia rápida durante a apneia pré-intubação na paciente grávida?",
+        "options": {
+            "a": "Aumento excessivo do volume corrente.",
+            "b": "Queda da Capacidade Residual Funcional (CRF) e aumento do consumo de O2 fetal-materno.",
+            "c": "Diminuição da frequência cardíaca.",
+            "d": "Aumento do espaço morto anatômico.",
+            "e": "Fechamento glótico reflexo."
+        },
+        "answer": "b",
+        "rationale": "A compressão do diafragma pelo útero reduz a CRF (reserva de O2), enquanto o metabolismo acelerado consome O2 mais rápido, reduzindo drasticamente o tempo de apneia segura.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Fisiologia e Obstetrícia.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anestesiologia",
+            "Obstetrícia",
+            "Via Aérea"
+        ]
+    },
+    {
+        "enunciado": "Sobre o 'Nervo Laríngeo Superior' (ramo do Vago), qual sua principal função motora na laringe?",
+        "options": {
+            "a": "Abdução das cordas vocais (Cricoaritenóideo posterior).",
+            "b": "Adução das cordas vocais.",
+            "c": "Inervação do músculo Cricotireóideo (tensor das cordas vocais).",
+            "d": "Inervação sensitiva abaixo das cordas vocais.",
+            "e": "Não possui ramo motor na laringe."
+        },
+        "answer": "c",
+        "rationale": "O ramo externo do laríngeo superior inerva o cricotireóideo. Sua lesão causa perda do tom agudo da voz.",
+        "option_rationales": {
+            "a": "Errada. (Função do Laríngeo Recorrente).",
+            "b": "Errada.",
+            "c": "Correta. Anatomia da via aérea.",
+            "d": "Errada. (Sensibilidade acima das cordas).",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Anestesiologia",
+            "Anatomia",
+            "Via Aérea"
+        ]
+    },
+    {
+        "enunciado": "Durante uma raquianestesia, a baricidade da solução anestésica influencia a dispersão do fármaco no líquor. Qual o efeito de uma 'Solução Hiperbárica' em um paciente mantido em posição sentada por 5 minutos após a injeção?",
+        "options": {
+            "a": "O anestésico sobe para níveis torácicos altos.",
+            "b": "O anestésico desce em direção ao sacro (bloqueio em 'sela').",
+            "c": "O anestésico fica fixo no local da punção independentemente da gravidade.",
+            "d": "Causa apenas bloqueio motor sem bloqueio sensitivo.",
+            "e": "O bloqueio é imediato em toda a extensão da coluna."
+        },
+        "answer": "b",
+        "rationale": "Soluções hiperbáricas são mais densas que o líquor e 'afundam' conforme a gravidade.",
+        "option_rationales": {
+            "a": "Errada. Ocorreria em Trendelenburg.",
+            "b": "Correta. Farmacologia e Regional.",
+            "c": "Errada. (Soluções isobáricas tendem a isso).",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anestesiologia",
+            "Regional",
+            "Farmacologia"
+        ]
+    },
+    {
+        "enunciado": "Qual o sinal patognomônico de 'Intubação Esofágica' na capnografia de forma de onda (volumétrica)?",
+        "options": {
+            "a": "Presença de CO2 contínuo por mais de 10 minutos.",
+            "b": "Ausência completa de curva de CO2 (EtCO2 zero ou traço reto) logo após 3-4 respirações iniciais.",
+            "c": "Curva de CO2 com 'fenda' de curare.",
+            "d": "Aumento progressivo da linha de base.",
+            "e": "Aumento súbito do EtCO2."
+        },
+        "answer": "b",
+        "rationale": "Pode haver CO2 residual no estômago nas primeiras 1-2 ventilações (capnografia 'fantasma'), mas a ausência de curva sustentada confirma o erro.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Segurança e Via Aérea.",
+            "c": "Errada. (Indica ventilação espontânea sob BNM).",
+            "d": "Errada. (Reinalação).",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anestesiologia",
+            "Via Aérea",
+            "Monitorização"
+        ]
+    },
+    {
+        "enunciado": "Qual anestésico por via inalatória é conhecido por causar 'Dilatação do Espaço Gasoso Fechado' (como pneumotórax ou obstrução intestinal), sendo contraindicado nestas situações?",
+        "options": {
+            "a": "Isoflurano.",
+            "b": "Óxido Nitroso (N2O).",
+            "c": "Xenônio.",
+            "d": "Desflurano.",
+            "e": "Propofol."
+        },
+        "answer": "b",
+        "rationale": "O N2O é muito mais solúvel que o nitrogênio no sangue e entra nos espaços gasosos mais rápido do que o nitrogênio sai, aumentando o volume/pressão do espaço.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Farmacologia de gases.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Anestesiologia",
+            "Farmacologia",
+            "Segurança"
+        ]
+    }
+]

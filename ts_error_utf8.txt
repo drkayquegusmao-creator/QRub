@@ -1,0 +1,3 @@
+﻿src/components/calendario-estudos.tsx(64,13): error TS2339: Property 'folgas' does not exist on type 'SRSStore'.
+src/components/calendario-estudos.tsx(64,21): error TS2339: Property 'load_folgas' does not exist on type 'SRSStore'.
+src/components/dashboard-diario-v2.tsx(341,105): error TS2304: Cannot find name 'handleCalendarEventClick'.

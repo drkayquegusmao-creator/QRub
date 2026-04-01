@@ -1,0 +1,377 @@
+[
+    {
+        "enunciado": "A 'Icterícia Neonatal' fisiológica é comum em recém-nascidos. Qual a principal causa do aumento da bilirrubina indireta no RN e em qual momento ela costuma aparecer e desaparecer?",
+        "options": {
+            "a": "Hemorragia intraventricular; aparece nas primeiras 24h.",
+            "b": "Destruição acelerada de hemácias (Hb fetal), imaturidade enzimática do fígado (Glicuronil-transferase) e aumento da circulação entero-hepática; aparece após 24-48h e desaparece em até 10-14 dias.",
+            "c": "Atresia de vias biliares; aparece na 3ª semana de vida.",
+            "d": "Deficiência de IGA; dura o primeiro ano.",
+            "e": "Infecção urinária Congênita."
+        },
+        "answer": "b",
+        "rationale": "A icterícia fisiológica é transitória. Icterícia presente ANTES das 24h é sempre patológica.",
+        "option_rationales": {
+            "a": "Errada. (Icterícia precoce < 24h é patológica).",
+            "b": "Correta. Fisiologia e Neonatologia.",
+            "c": "Errada. (Atresia causa icterícia colestática/direta tardia).",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Pediatria",
+            "Neonatologia",
+            "Icterícia"
+        ]
+    },
+    {
+        "enunciado": "No 'Exame Físico do Recém-nascido', a visualização de 'mancha mongólica' na região lombossacral de um bebê de origem miscigenada deve ser interpretada como:",
+        "options": {
+            "a": "Equimose traumática por canal de parto.",
+            "b": "Hemangioma cavernoso (tumor vascular).",
+            "c": "Depósito melânico benigno (mancha ardosiana) que tende a regredir nos primeiros anos de vida.",
+            "d": "Sinal precoce de espinha bífida oculta.",
+            "e": "Infecção cutânea fúngica."
+        },
+        "answer": "c",
+        "rationale": "A mancha mongólica é extremamente comum em latinos, negros e asiáticos, não exigindo conduta.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Errada.",
+            "c": "Correta. Semiologia do RN.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Pediatria",
+            "Neonatologia",
+            "Semiologia"
+        ]
+    },
+    {
+        "enunciado": "Qual a primeira vacina recomendada para ser administrada ao Recém-nascido, preferencialmente nas primeiras 12 a 24 horas de vida, no Calendário Nacional de Vacinação brasileiro?",
+        "options": {
+            "a": "Tríplice Viral (SCR).",
+            "b": "BCG e Hepatite B.",
+            "c": "Pneumocócica 10-valente.",
+            "d": "Meningocócica C.",
+            "e": "Febre Amarela."
+        },
+        "answer": "b",
+        "rationale": "Ambas devem ser feitas na maternidade. BCG protege contra formas graves de tuberculose e a vacina contra Hepatite B previne a transmissão vertical/precoce.",
+        "option_rationales": {
+            "a": "Errada. (Feita aos 12 e 15 meses).",
+            "b": "Correta. Imunizações e Calendário PNV.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Pediatria",
+            "Puericultura",
+            "Vacinas"
+        ]
+    },
+    {
+        "enunciado": "O 'Sarampo' é uma doença exantemática viral altamente contagiosa. Qual o sinal clínico patognomônico, caracterizado por pequenas manchas esbranquiçadas na mucosa oral (opostas aos molares), que surge na fase prodrômica?",
+        "options": {
+            "a": "Manchas de Koplik.",
+            "b": "Sinal de Pastia.",
+            "c": "Sinal de Filatow.",
+            "d": "Manchas de Forchheimer.",
+            "e": "Vesículas de Dew-drop."
+        },
+        "answer": "a",
+        "rationale": "As manchas de Koplik precedem o exantema em 1-2 dias. Pastia (dobras cutâneas) e Filatow (palidez perioral) ocorrem na Escarlatina; Forchheimer na Rubéola.",
+        "option_rationales": {
+            "a": "Correta. Infectologia Pediátrica clássica.",
+            "b": "Errada.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Pediatria",
+            "Infectologia",
+            "Exantemas"
+        ]
+    },
+    {
+        "enunciado": "Em um lactente de 6 meses com quadro de febre súbita que desaparece após 3 dias, dando lugar a um exantema maculopapular rosado que começa no tronco e se espalha para os membros, qual o diagnóstico mais provável?",
+        "options": {
+            "a": "Varicela.",
+            "b": "Exantema Súbito (Roséola Infantum - Herpesvírus 6).",
+            "c": "Escarlatina.",
+            "d": "Rubéola.",
+            "e": "Meningococcemia."
+        },
+        "answer": "b",
+        "rationale": "A característica marcante da Roséola é o exantema que surge IMEDIATAMENTE após a queda térmica (febre desaparece e a mancha aparece).",
+        "option_rationales": {
+            "a": "Errada. (Lesões pleomórficas vesiculares).",
+            "b": "Correta. Doenças exantemáticas infantis.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Pediatria",
+            "Infectologia",
+            "Exantemas"
+        ]
+    },
+    {
+        "enunciado": "Qual o 'Peso' aproximado esperado para um lactente de 1 ano de idade (12 meses) que nasceu com 3kg?",
+        "options": {
+            "a": "6 kg (dobrou o peso).",
+            "b": "9 kg (triplicou o peso).",
+            "c": "12 kg (quadruplicou o peso).",
+            "d": "15 kg.",
+            "e": "O peso não é parâmetro de avaliação aos 12 meses."
+        },
+        "answer": "b",
+        "rationale": "Como regra geral, a criança dobra de peso aos 4-5 meses e TRIPLICA ao final do primeiro ano.",
+        "option_rationales": {
+            "a": "Errada. (Aos 5 meses).",
+            "b": "Correta. Crescimento e Desenvolvimento (Puericultura).",
+            "c": "Errada. (Aos 2 anos).",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Pediatria",
+            "Puericultura",
+            "Crescimento"
+        ]
+    },
+    {
+        "enunciado": "A 'Bronquiolite Viral Aguda' (VSR) é causa frequente de internamento em menores de 2 anos no inverno. Qual a medida terapêutica de SUPORTE considerada principal no tratamento, de acordo com as diretrizes atuais?",
+        "options": {
+            "a": "Uso de corticóide oral.",
+            "b": "Antibioticoterapia profilática.",
+            "c": "Nivelamento de oxigenação (FiO2 sob cateter se SpO2 < 90-92%), hidratação adequada e limpeza nasal com soro fisiológico.",
+            "d": "Nebulização com Fenoterol (Berotec) de 4/4 horas.",
+            "e": "Fisioterapia respiratória agressiva de reexpansão."
+        },
+        "answer": "c",
+        "rationale": "A bronquiolite é viral e auto-limitada. Broncodilatadores e corticóides não possuem evidência de benefício rotineiro na maioria dos lactentes no primeiro episódio.",
+        "option_rationales": {
+            "a": "Errada. (Não indicado).",
+            "b": "Errada. (Viral).",
+            "c": "Correta. Pneumologia Pediátrica.",
+            "d": "Errada. (Não indicado pelo mecanismo fisiopatológico ser edema de submucosa e não broncoespasmo muscular).",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Pediatria",
+            "Pneumologia",
+            "VSR"
+        ]
+    },
+    {
+        "enunciado": "Na 'Reanimação Neonatal' (sala de parto), qual o parâmetro clínico isolado MAIS importante para decidir por intervenções como Ventilação por Pressão Positiva (VPP)?",
+        "options": {
+            "a": "Apgar de 1º minuto.",
+            "b": "Frequência Cardíaca (FC) abaixo de 100 batimentos por minuto.",
+            "c": "Cor da pele (cianose periférica).",
+            "d": "Presença de mecônio.",
+            "e": "Peso de nascimento."
+        },
+        "answer": "b",
+        "rationale": "A FC é o sinal vital que indica a resposta do coração à hipóxia. FC < 100 bpm após estímulo é indicação imediata de VPP.",
+        "option_rationales": {
+            "a": "Errada. (Apgar avalia retrospectivamente, não indica conduta imediata).",
+            "b": "Correta. Protocolo SBP de Reanimação Neonatal.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Pediatria",
+            "Neonatologia",
+            "Urgência"
+        ]
+    },
+    {
+        "enunciado": "Um lactente de 3 meses apresenta-se com choro inconsolável vespertino, mantendo-se irritado por cerca de 3 horas por dia, 3 dias por semana. O ganho de peso está adequado e o exame físico é normal. Qual o diagnóstico e conduta?",
+        "options": {
+            "a": "Refluxo Gastroesofágico patológico; iniciar Omeprazol.",
+            "b": "Cólicas do lactente; orientar a família (benigno) e suporte nos episódios.",
+            "c": "Alergia à proteína do leite de vaca (APLV).",
+            "d": "Intussuscepção intestinal.",
+            "e": "Infecção urinária oculta."
+        },
+        "answer": "b",
+        "rationale": "A regra dos 3 caracteriza a cólica funcional fisiológica do lactente (Regra de Wessel).",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Puericultura e Gastro Pediatria.",
+            "c": "Errada.",
+            "d": "Errada. (Choro por paroxismos, acompanhado de fezes em geleia de morango e massa abdominal).",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Pediatria",
+            "Puericultura",
+            "Gastro"
+        ]
+    },
+    {
+        "enunciado": "O 'Teste do Pezinho' (Triagem Neonatal) realizado pelo SUS deve ser coletado idealmente em qual período após o nascimento?",
+        "options": {
+            "a": "Nas primeiras 24 horas.",
+            "b": "Entre o 3º e 5º dia de vida.",
+            "c": "Apenas após 1 mês de vida.",
+            "d": "Logo ao nascer, com sangue do cordão.",
+            "e": "Não há tempo definido."
+        },
+        "answer": "b",
+        "rationale": "Coletar antes das 48h pode gerar falsos resultados para fenilcetonúria (precisa de ingestão proteica de leite).",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Triagem Neonatal PNTN.",
+            "c": "Errada. (Pode ser tarde para evitar sequelas de hipotireoidismo).",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Pediatria",
+            "Neonatologia",
+            "Triagem"
+        ]
+    },
+    {
+        "enunciado": "A 'Vitamina K' é administrada ao nascimento (Profilaxia da Doença Hemorrágica do RN). Qual a via de administração recomendada e o objetivo?",
+        "options": {
+            "a": "Oral; prevenir raquitismo.",
+            "b": "Intramuscular (IM); prevenir sangramentos por deficiência de fatores de coagulação dependentes de vit K (II, VII, IX, X) pela baixa reserva fetal e falta de flora intestinal.",
+            "c": "Endovenosa; tratar febre crônica.",
+            "d": "Gotas oculares; prevenir conjuntivite.",
+            "e": "Subcutânea; prevenir anemia."
+        },
+        "answer": "b",
+        "rationale": "O RN nasce com deficiência biológica desses fatores e sem bactérias intestinais para sintetizar Vit K.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Rotinas de berçário.",
+            "c": "Errada.",
+            "d": "Errada. (Isso é o nitrato de prata/Credé).",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Pediatria",
+            "Neonatologia",
+            "Farmacologia"
+        ]
+    },
+    {
+        "enunciado": "No tratamento da 'Desidratação Grave' por Diarreia Aguda em crianças, qual a via de hidratação PREFERENCIAL se não houver sinais de choque ou vômitos persistentes, de acordo com a OMS?",
+        "options": {
+            "a": "Endovenosa imediata.",
+            "b": "Hidratação Oral com SORO (SRO).",
+            "c": "Hidrodermocálise.",
+            "d": "Uso de gelatina e sucos.",
+            "e": "Jejum absoluto."
+        },
+        "answer": "b",
+        "rationale": "A TRO (Terapia de Reidratação Oral) é mais segura, barata e efetiva para a maioria dos casos moderados/graves sem choque.",
+        "option_rationales": {
+            "a": "Errada. (Apenas se falha da TRO ou choque/grave com sinais neurológicos).",
+            "b": "Correta. Suporte de vida e infectologia.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada. (Dieta deve ser mantida/estimulada)."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Pediatria",
+            "Emergência",
+            "Gastro"
+        ]
+    },
+    {
+        "enunciado": "A 'Manobra de Barlow' e a 'Manobra de Ortolani' são testes para triagem de qual patologia no quadril do neonato?",
+        "options": {
+            "a": "Fratura de fêmur.",
+            "b": "Displasia do Desenvolvimento do Quadril (DDQ).",
+            "c": "Sinovite transitória.",
+            "d": "Artrite séptica.",
+            "e": "Osteogênese imperfeita."
+        },
+        "answer": "b",
+        "rationale": "Barlow tenta luxar o quadril (provocativo) e Ortolani tenta reduzir o quadril já luxado.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Ortopedia Pediátrica e Triagem.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Pediatria",
+            "Neonatologia",
+            "Ortopedia"
+        ]
+    },
+    {
+        "enunciado": "Qual 'Marco do Desenvolvimento' Motor Grosso é esperado para um bebê de 6-7 meses de idade?",
+        "options": {
+            "a": "Andar sem apoio.",
+            "b": "Sentar sem apoio e rolar.",
+            "c": "Sustentar a cabeça (controle cervical).",
+            "d": "Subir escadas alternando os pés.",
+            "e": "Correr."
+        },
+        "answer": "b",
+        "rationale": "O sentar estável sem apoio ocorre por volta dos 6-7 meses. O controle cervical ocorre aos 2-3 meses.",
+        "option_rationales": {
+            "a": "Errada. (12 meses).",
+            "b": "Correta. Desenvolvimento Neuropsicomotor (DNPM).",
+            "c": "Errada. (3 meses).",
+            "d": "Errada. (2-3 anos).",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Pediatria",
+            "Puericultura",
+            "Desenvolvimento"
+        ]
+    },
+    {
+        "enunciado": "O 'Leite Materno' é o alimento ideal e exclusivo até os 6 meses. Qual a principal 'Imunoglobulina' presente no colostro que confere proteção imunológica passiva ao trato gastrointestinal do RN?",
+        "options": {
+            "a": "IgG.",
+            "b": "IgA Secretora.",
+            "c": "IgM.",
+            "d": "IgE.",
+            "e": "IgD."
+        },
+        "answer": "b",
+        "rationale": "A IgA secretora resiste à digestão ácida e protege as mucosas do bebê contra patógenos.",
+        "option_rationales": {
+            "a": "Errada. (Passa pela placenta).",
+            "b": "Correta. Aleitamento Materno e Nutrologia.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Pediatria",
+            "Nutrologia",
+            "Aleitamento"
+        ]
+    }
+]

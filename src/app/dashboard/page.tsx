@@ -551,6 +551,46 @@ export default function StudentDashboard() {
         'FAST_PRACTICE': renderFastPractice
     }
 
+    const renderContactFooter = () => (
+        <section className="mt-20 pt-16 border-t border-slate-100">
+            <div className="bg-slate-50/50 rounded-[40px] p-8 md:p-12 border border-slate-100 flex flex-col md:flex-row items-center justify-between gap-8 group hover:bg-slate-100/50 transition-all">
+                <div className="space-y-4 text-center md:text-left">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-[10px] font-black uppercase tracking-widest">
+                        <MessageSquare className="w-3 h-3" />
+                        Contato & Suporte
+                    </div>
+                    <h3 className="text-2xl md:text-3xl font-black italic uppercase tracking-tighter text-[#1A1033]">
+                        Precisa de <span className="text-primary text-3xl md:text-4xl">Ajuda?</span>
+                    </h3>
+                    <p className="text-slate-500 font-medium text-sm max-w-sm">Estamos prontos para ouvir suas sugestões ou resolver qualquer problema.</p>
+                </div>
+
+                <div className="flex flex-wrap justify-center md:justify-end gap-4">
+                    <a href="https://wa.me/5583986893650" target="_blank" className="flex items-center gap-3 bg-emerald-500 text-white px-6 py-4 rounded-2xl font-black text-[10px] uppercase tracking-widest shadow-lg shadow-emerald-500/20 hover:scale-105 transition-all">
+                        <Zap className="w-4 h-4 fill-white" />
+                        WhatsApp
+                    </a>
+                    <a href="mailto:Qrubcomercial@gmail.com" className="flex items-center gap-3 bg-[#1A1033] text-white px-6 py-4 rounded-2xl font-black text-[10px] uppercase tracking-widest shadow-lg shadow-black/20 hover:scale-105 transition-all">
+                        <Send className="w-4 h-4" />
+                        Email
+                    </a>
+                    <a href="https://instagram.com/qrubmedicina" target="_blank" className="flex items-center gap-3 bg-gradient-to-tr from-amber-500 via-rose-500 to-purple-600 text-white px-6 py-4 rounded-2xl font-black text-[10px] uppercase tracking-widest shadow-lg shadow-rose-500/20 hover:scale-105 transition-all">
+                        <Activity className="w-4 h-4" />
+                        Instagram
+                    </a>
+                </div>
+            </div>
+            
+            <div className="mt-8 flex flex-col md:flex-row items-center justify-between gap-4 px-4">
+                <p className="text-[9px] font-black uppercase tracking-[0.3em] text-slate-300">© 2024 QRUB TECNOLOGIA MÉDICA. TODOS OS DIREITOS RESERVADOS.</p>
+                <div className="flex items-center gap-6 text-[9px] font-black uppercase tracking-[0.2em] text-slate-400">
+                    <span className="cursor-pointer hover:text-primary transition-colors">POLÍTICA DE PRIVACIDADE</span>
+                    <span className="cursor-pointer hover:text-primary transition-colors">TERMOS DE USO</span>
+                </div>
+            </div>
+        </section>
+    )
+
     return (
         <div className="space-y-8 pb-32 max-w-7xl mx-auto px-4 md:px-0">
             <WelcomeTutorial />
@@ -643,6 +683,8 @@ export default function StudentDashboard() {
                 onSync={syncWithSupabase}
                 onUpdateStatus={setWidgetStatus}
             />
+
+            {renderContactFooter()}
         </div>
     )
 }

@@ -20,7 +20,17 @@ export const MEDICAL_HIERARCHY = [
                     { id: 'hematologia', name: 'Hematologia', subjects: [{ id: 'geral', name: 'Geral' }] },
                     { id: 'infectologia', name: 'Infectologia', subjects: [{ id: 'geral', name: 'Geral' }] },
                     { id: 'nefrologia', name: 'Nefrologia', subjects: [{ id: 'geral', name: 'Geral' }] },
-                    { id: 'pneumologia', name: 'Pneumologia', subjects: [{ id: 'CM-PNEUMO-TEP', name: 'Tromboembolismo Pulmonar (TEP)' }] },
+                                        { id: 'pneumologia', name: 'Pneumologia', subjects: [
+                        { id: 'CM-PNEUMO-TEP', name: 'Tromboembolismo Pulmonar (TEP)' },
+                        { id: 'asma', name: 'Asma' },
+                        { id: 'dpoc', name: 'DPOC' },
+                        { id: 'pneumonias', name: 'Pneumonias' },
+                        { id: 'doencas-intersticiais', name: 'Doenças Intersticiais' },
+                        { id: 'gasometria', name: 'Gasometria Arterial' },
+                        { id: 'vni', name: 'Ventilação Não Invasiva' },
+                        { id: 'sdra', name: 'SDRA' },
+                        { id: 'derrame-pleural', name: 'Derrame Pleural' }
+                    ] },
                     { id: 'reumatologia', name: 'Reumatologia', subjects: [{ id: 'geral', name: 'Geral' }] },
                     { id: 'oncologia-clinica', name: 'Oncologia Clínica', subjects: [{ id: 'geral', name: 'Geral' }] }
                 ]
@@ -112,7 +122,14 @@ export const MEDICAL_HIERARCHY = [
                 ]
             },
             { id: 'oncologia-clinica', name: 'Oncologia Clínica', category: 'Especialidades Clínicas', subspecialties: [] },
-            { id: 'pneumologia', name: 'Pneumologia', category: 'Especialidades Clínicas', subspecialties: [] },
+                        { id: 'pneumologia', name: 'Pneumologia', category: 'Especialidades Clínicas', subspecialties: [
+                { id: 'pneumologia-geral', name: 'Pneumologia Geral', subjects: [
+                    { id: 'pneumonias', name: 'Pneumonias' },
+                    { id: 'asma', name: 'Asma' },
+                    { id: 'dpoc', name: 'DPOC' },
+                    { id: 'vni', name: 'Ventilação Não Invasiva' }
+                ] }
+            ] },
             {
                 id: 'psiquiatria', name: 'Psiquiatria', category: 'Especialidades Clínicas', subspecialties: [
                     { id: 'psiquiatria-infancia-adolescencia', name: 'Psiquiatria da Infância e Adolescência', subjects: [{ id: 'geral', name: 'Geral' }] },

@@ -7,12 +7,13 @@ import { BottomTabs } from '@/components/bottom-tabs'
 import { UserProfileModal } from '@/components/user-profile-modal'
 import { SettingsModal } from '@/components/settings-modal'
 import { ConcursoSidebar } from '@/components/concursos/sidebar'
-import { Menu, X, Bell, Search, User as UserIcon, Settings as SettingsIcon, LogOut, Hexagon } from 'lucide-react'
+import { Menu, X, Bell, Search, User as UserIcon, Settings as SettingsIcon, LogOut, Hexagon, Shield } from 'lucide-react'
 import { useTheme } from 'next-themes'
 import Link from 'next/link'
 import { cn } from '@/lib/utils'
 import { usePreferences } from '@/store/use-preferences'
 import { motion, AnimatePresence } from 'framer-motion'
+import { isMasterEmail } from '@/lib/auth-constants'
 
 export default function ConcursoLayout({ children }: { children: React.ReactNode }) {
     const { user, isAuthenticated, logout } = useAuth()
@@ -149,6 +150,16 @@ export default function ConcursoLayout({ children }: { children: React.ReactNode
                                                 <span className="text-xs font-black uppercase tracking-widest">{item.name}</span>
                                             </Link>
                                         ))}
+                                        
+                                        { (user?.role === 'MASTER' || isMasterEmail(user?.email)) && (
+                                            <Link 
+                                                href="/concursos/admin"
+                                                className="flex items-center gap-4 text-rose-400 hover:text-rose-300 py-2 border-t border-white/5 pt-4"
+                                            >
+                                                <Shield className="w-5 h-5" />
+                                                <span className="text-xs font-black uppercase tracking-widest">Painel Admin</span>
+                                            </Link>
+                                        )}
                                     </nav>
                                     
                                     <div className="pt-8 border-t border-white/5 space-y-6">

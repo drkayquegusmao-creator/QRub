@@ -21,6 +21,7 @@ interface UserStatsState {
     stats: UserStats | null
     loading: boolean
     isConcursos: boolean
+    _loadLock: string | null
     loadStats: (userId: string, isConcursos?: boolean) => Promise<void>
     updateStats: (userId: string, isCorrect: boolean, isConcursos?: boolean) => Promise<void>
     calculateLevel: (total: number) => string
@@ -43,6 +44,7 @@ export const useUserStats = create<UserStatsState>()(
             stats: null,
             loading: false,
             isConcursos: false,
+            _loadLock: null,
 
             calculateLevel: (total: number) => {
                 if (total >= 1000) return 'Elite'
@@ -65,8 +67,12 @@ export const useUserStats = create<UserStatsState>()(
             },
 
             loadStats: async (userId, isConcursos = false) => {
-                if (!isSupabaseConfigured()) return
-                set({ loading: true, isConcursos })
+                if (!isSupabaseConfigured() || !userId) return
+                
+                const lockKey = `${userId}-${isConcursos}`
+                if (get()._loadLock === lockKey) return
+                
+                set({ _loadLock: lockKey, loading: true, isConcursos })
                 const table = isConcursos ? 'concurso_user_estatisticas' : 'user_stats'
 
                 try {
@@ -97,7 +103,7 @@ export const useUserStats = create<UserStatsState>()(
 
                         const { data: newData, error: insertError } = await supabase
                             .from(table)
-                            .insert(initialStats)
+                            .upsert(initialStats, { onConflict: 'user_id' })
                             .select()
                             .single()
 
@@ -174,7 +180,7 @@ export const useUserStats = create<UserStatsState>()(
                 } catch (err) {
                     console.error('Error loading stats:', err)
                 } finally {
-                    set({ loading: false })
+                    set({ loading: false, _loadLock: null })
                 }
             },
 

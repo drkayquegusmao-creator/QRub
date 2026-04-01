@@ -1,0 +1,377 @@
+[
+    {
+        "enunciado": "Qual o hormônio produzido pelo corpo lúteo no início da gestação, essencial para a manutenção da decidua e suporte embrionário até que a placenta assuma essa função (por volta da 10ª-12ª semana)?",
+        "options": {
+            "a": "Estradiol.",
+            "b": "Progesterona.",
+            "c": "Prolactina.",
+            "d": "Hormônio Luteinizante (LH).",
+            "e": "Ocitocina."
+        },
+        "answer": "b",
+        "rationale": "A progesterona mantém o útero 'quieto' e favorece a implantação. No início, o estímulo do hCG mantém o corpo lúteo produzindo-a.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Endocrinologia da gestação.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Obstetrícia",
+            "Fisiologia",
+            "Endocrinologia"
+        ]
+    },
+    {
+        "enunciado": "A 'Regra de Naegele' é utilizada para calcular a data provável do parto (DPP). Para uma paciente com Data da Última Menstruação (DUM) em 10 de maio, qual seria a DPP aproximada?",
+        "options": {
+            "a": "10 de Fevereiro do ano seguinte.",
+            "b": "17 de Fevereiro do ano seguinte.",
+            "c": "15 de Janeiro do ano seguinte.",
+            "d": "20 de Março do ano seguinte.",
+            "e": "17 de Janeiro do ano seguinte."
+        },
+        "answer": "b",
+        "rationale": "Soma-se 7 dias ao dia e subtrai-se 3 meses ao mês (ou soma-se 9 meses). 10 + 7 = 17; Maio (05) - 3 = Fevereiro (02).",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Cálculo de DPP.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Obstetrícia",
+            "Pré-natal",
+            "Propedêutica"
+        ]
+    },
+    {
+        "enunciado": "Durante o trabalho de parto, a 'Manobra de Leopold' é composta por quatro tempos. O que se avalia especificamente no PRIMEIRO tempo desta manobra?",
+        "options": {
+            "a": "O dorso fetal (situação).",
+            "b": "A apresentação fetal (insinuação).",
+            "c": "O fundo uterino e qual pólo fetal o ocupa.",
+            "d": "O grau de flexão da cabeça.",
+            "e": "A frequência cardíaca fetal."
+        },
+        "answer": "c",
+        "rationale": "O primeiro tempo identifica o fundo uterino para determinar a altura uterina e o pólo (cefálico ou pélvico) que está no fundo.",
+        "option_rationales": {
+            "a": "Errada. (Segundo tempo).",
+            "b": "Errada. (Terceiro tempo).",
+            "c": "Correta. Exame físico obstétrico.",
+            "d": "Errada. (Quarto tempo).",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Obstetrícia",
+            "Exame Físico",
+            "Semiologia"
+        ]
+    },
+    {
+        "enunciado": "Qual a principal causa de 'Hemorragia Pós-Parto' (HPP) precoce, ocorrendo nas primeiras horas após o dequitação placentária?",
+        "options": {
+            "a": "Laceração de trajeto.",
+            "b": "Atonia uterina.",
+            "c": "Restos placentários.",
+            "d": "Coagulopatia congênita.",
+            "e": "Inversão uterina aguda."
+        },
+        "answer": "b",
+        "rationale": "A atonia uterina responde por cerca de 80% dos casos de HPP. O manejo inicial inclui massagem uterina e ocitocina.",
+        "option_rationales": {
+            "a": "Errada. (Segunda causa mais comum).",
+            "b": "Correta. Complicações do parto.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Obstetrícia",
+            "Hemorragia",
+            "Puerpério"
+        ]
+    },
+    {
+        "enunciado": "No diagnóstico de 'Síndrome dos Ovários Policísticos' (SOP), os critérios de Rotterdam são amplamente utilizados. Quantos critérios são necessários para o diagnóstico e quais são eles?",
+        "options": {
+            "a": "Apenas um: presença de cistos no ultrassom.",
+            "b": "Dois de três: Hiperandrogenismo (clínico ou laboratorial), Oligo/Anovulação, e Morfologia policística ao USG.",
+            "c": "Três de três obrigatoriamente.",
+            "d": "Apenas a obesidade e resistência insulínica.",
+            "e": "Presença de hirsutismo isolado."
+        },
+        "answer": "b",
+        "rationale": "O diagnóstico é de exclusão e exige dois dos três pilares clássicos.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Critérios diagnósticos em Ginecologia.",
+            "c": "Errada.",
+            "d": "Errada. (Sintomas associados, mas não critérios diagnósticos).",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Ginecologia",
+            "Endocrinologia",
+            "SOP"
+        ]
+    },
+    {
+        "enunciado": "A 'Vaginose Bacteriana' é caracterizada por um desequilíbrio da microbiota vaginal. Qual o agente etiológico mais associado e qual o achado típico no exame a fresco com KOH 10% (teste das aminas)?",
+        "options": {
+            "a": "Candida albicans; pH ácido.",
+            "b": "Trichomonas vaginalis; protozoário móvel.",
+            "c": "Gardnerella vaginalis; odor fétido (peixe podre).",
+            "d": "Neisseria gonorrhoeae; diplococos intracelulares.",
+            "e": "Chlamydia trachomatis; corpúsculos de inclusão."
+        },
+        "answer": "c",
+        "rationale": "A liberação de aminas voláteis pelo KOH causa o odor característico, e no microscópio observam-se as 'clue cells'.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Errada.",
+            "c": "Correta. Patologia vaginal comum.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Ginecologia",
+            "Infectologia",
+            "Corrimento"
+        ]
+    },
+    {
+        "enunciado": "Qual a 'Indicação Absoluta' de cesariana em uma gestante com diagnóstico de Herpes Genital ativo no momento do parto?",
+        "options": {
+            "a": "Histórico de herpes há 1 ano.",
+            "b": "Presença de lesões vesiculares ou ulceradas ativas no canal de parto ou vulva.",
+            "c": "Apenas a sorologia IgG positiva.",
+            "d": "Uso de Aciclovir durante a gestação.",
+            "e": "Não há indicação de cesariana por herpes."
+        },
+        "answer": "b",
+        "rationale": "O risco de transmissão neonatal com herpes ativo é alto, podendo causar encefalite e óbito fetal.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Indicações de via de parto.",
+            "c": "Errada.",
+            "d": "Errada. (Profilaxia reduz recorrência, mas o que define a via é a lesão no momento).",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Obstetrícia",
+            "Infectologia",
+            "Parto"
+        ]
+    },
+    {
+        "enunciado": "Sobre o 'Mecanismo de Parto', o que define a 'Insinuação' da apresentação cefálica fetal?",
+        "options": {
+            "a": "Quando a cabeça toca o períneo.",
+            "b": "Passagem do maior diâmetro da apresentação (diâmetro biparietal) pelo estreito superior da pelve (nível 0 de DeLee).",
+            "c": "Saída dos ombros.",
+            "d": "Início das contrações efetivas.",
+            "e": "Ruptura das membranas ovulares."
+        },
+        "answer": "b",
+        "rationale": "Clinicamente, a insinuação é detectada quando a parte mais baixa da apresentação atinge as espinhas isquiáticas.",
+        "option_rationales": {
+            "a": "Errada. (Desprendimento).",
+            "b": "Correta. Estática fetal e parto.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Obstetrícia",
+            "Parto",
+            "Biomecânica"
+        ]
+    },
+    {
+        "enunciado": "Qual o principal critério clínico para diferenciar 'Pré-eclâmpsia' de Hipertensão Gestacional crônica ou transitória?",
+        "options": {
+            "a": "Hipertensão surgindo após a 20ª semana de gestação associada à proteinúria ou disfunção orgânica.",
+            "b": "Picos hipertensivos apenas durante o esforço.",
+            "c": "Presença de edema isolado em membros inferiores.",
+            "d": "Histórico de hipertensão na família.",
+            "e": "Ganho de peso excessivo."
+        },
+        "answer": "a",
+        "rationale": "A pré-eclâmpsia é uma doença sistêmica da placentação, caracterizada por lesão endotelial.",
+        "option_rationales": {
+            "a": "Correta. Síndromes hipertensivas na gravidez.",
+            "b": "Errada.",
+            "c": "Errada. (Edema não é mais critério diagnóstico isolado).",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Obstetrícia",
+            "Hipertensão",
+            "Patologia"
+        ]
+    },
+    {
+        "enunciado": "Na 'Ameaça de Parto Prematuro' (antes de 34 semanas), qual a principal finalidade da administração de Corticosteroides (Betametasona ou Dexametasona) à gestante?",
+        "options": {
+            "a": "Interromper as contrações uterinas.",
+            "b": "Acelerar a maturação pulmonar fetal e reduzir risco de hemorragia intraventricular e enterocolite necrotizante.",
+            "c": "Tratar infecção urinária oculta.",
+            "d": "Aumentar o peso fetal.",
+            "e": "Prevenir a eclâmpsia."
+        },
+        "answer": "b",
+        "rationale": "O corticoide estimula a produção de surfactante pelos pneumócitos tipo II.",
+        "option_rationales": {
+            "a": "Errada. (Função dos tocolíticos).",
+            "b": "Correta. Terapêutica fetal e prematuridade.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Obstetrícia",
+            "Prematuridade",
+            "Farmacologia"
+        ]
+    },
+    {
+        "enunciado": "A 'Endometriose' é definida pela presença de tecido endometrial fora da cavidade uterina. Qual o sintoma clínico mais característico e que deve levantar suspeita imediata?",
+        "options": {
+            "a": "Corrimento purulento.",
+            "b": "Dismenorreia progressiva, dispareunia de profundidade e dor pélvica crônica.",
+            "c": "Sangramento intermenstrual leve (spotting) apenas.",
+            "d": "Aumento do volume abdominal súbito.",
+            "e": "Amenorreia secundária."
+        },
+        "answer": "b",
+        "rationale": "A tríade de dor é clássica, muitas vezes associada à infertilidade.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Correta. Clínica em Ginecologia.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Ginecologia",
+            "Endometriose",
+            "Dor Pélvica"
+        ]
+    },
+    {
+        "enunciado": "No rastreamento do Câncer de Colo de Útero (Papanicolau), qual a conduta recomendada para uma paciente de 35 anos que apresenta resultado de 'ASC-US' (Atipia de células escamosas de significado indeterminado) em seu primeiro exame?",
+        "options": {
+            "a": "Colposcopia imediata.",
+            "b": "Repetir a citologia em 6 meses (ou 12 meses, dependendo da faixa etária e diretrizes locais).",
+            "c": "Histerectomia total preventiva.",
+            "d": "Cauterização do colo uterino sem biópsia.",
+            "e": "Apenas observação por 3 anos."
+        },
+        "answer": "b",
+        "rationale": "O ASC-US é uma alteração menor. Em mulheres >= 30 anos, recomenda-se repetir em 6 meses; em < 30 anos, em 12 meses (segundo MS Brasil).",
+        "option_rationales": {
+            "a": "Errada. (Indicado para lesões de alto grau - HSIL).",
+            "b": "Correta. Rastreamento e conduta em oncoginecologia.",
+            "c": "Errada.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Ginecologia",
+            "Oncologia",
+            "Rastreamento"
+        ]
+    },
+    {
+        "enunciado": "Qual o 'Método Contraceptivo' de maior eficácia (menor índice de Pearl) entre as opções abaixo, considerando o uso típico e perfeito?",
+        "options": {
+            "a": "Preservativo masculino.",
+            "b": "Anticoncepcional oral combinado.",
+            "c": "Implante subdérmico de etonogestrel.",
+            "d": "Tabela (método rítmico).",
+            "e": "Diafragma."
+        },
+        "answer": "c",
+        "rationale": "Os LARC (Long-acting reversible contraceptives), como o implante e os DIUs, possuem eficácia superior por não dependerem da adesão diária da usuária.",
+        "option_rationales": {
+            "a": "Errada.",
+            "b": "Errada. (Depende da lembrança e absorção).",
+            "c": "Correta. Planejamento familiar.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Ginecologia",
+            "Planejamento Familiar",
+            "LARC"
+        ]
+    },
+    {
+        "enunciado": "A 'Leiomiomatose Uterina' (Mioma) é o tumor benigno mais comum da pelve feminina. Qual a localização do mioma que está MAIS associada a sangramento uterino anormal e infertilidade?",
+        "options": {
+            "a": "Subseroso.",
+            "b": "Intramural pequeno.",
+            "c": "Submucoso.",
+            "d": "Pediculado externo.",
+            "e": "Cervical."
+        },
+        "answer": "c",
+        "rationale": "Miomas submucosos distorcem a cavidade endometrial, dificultando a nidação e causando menorragia severa.",
+        "option_rationales": {
+            "a": "Errada. (Geralmente assintomático ou compressivo).",
+            "b": "Errada.",
+            "c": "Correta. Patologia uterina.",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Fácil",
+        "tags": [
+            "Ginecologia",
+            "Mioma",
+            "Patologia Uterina"
+        ]
+    },
+    {
+        "enunciado": "Qual a principal alteração cardiovascular fisiológica na gestação que pode mimetizar uma cardiopatia em mulheres saudáveis?",
+        "options": {
+            "a": "Diminuição do débito cardíaco.",
+            "b": "Aumento do volume plasmático (anemia fisiológica) e sopro sistólico funcional.",
+            "c": "Hipertensão arterial sistêmica leve.",
+            "d": "Diminuição da frequência cardíaca.",
+            "e": "Queda na contagem de glóbulos brancos."
+        },
+        "answer": "b",
+        "rationale": "O aumento do volume sistólico e do débito cardíaco fluidifica o sangue, gerando fluxos turbulentos funcionais.",
+        "option_rationales": {
+            "a": "Errada. (O débito aumenta 30-50%).",
+            "b": "Correta. Fisiologia materna.",
+            "c": "Errada. (A PA tende a cair no primeiro e segundo trimestres).",
+            "d": "Errada.",
+            "e": "Errada."
+        },
+        "difficulty": "Média",
+        "tags": [
+            "Obstetrícia",
+            "Fisiologia",
+            "Cardiologia"
+        ]
+    }
+]

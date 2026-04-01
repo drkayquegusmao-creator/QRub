@@ -233,9 +233,6 @@ export default function QuizPage() {
         // Em modo de revisão ou se o usuário já respondeu, talvez queiramos manter a ordem original?
         // Mas para evitar o vício citado pelo usuário, o ideal é embaralhar sempre na primeira exibição.
         return baseOptions
-            .map(value => ({ value, sort: Math.random() }))
-            .sort((a, b) => a.sort - b.sort)
-            .map(({ value }) => value)
     }, [question?.id])
 
     // Guard: question exists but has no valid options (data corruption) — skip it

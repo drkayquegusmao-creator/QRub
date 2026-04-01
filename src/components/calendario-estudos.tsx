@@ -14,7 +14,7 @@ import {
     Flag
 } from 'lucide-react'
 import { useAuth } from '@/store/use-auth'
-import { useSRS } from '@/store/use-srs'
+
 import { SessaoModal } from './sessao-modal'
 import { supabase, isSupabaseConfigured } from '@/lib/supabase'
 import { useErrors } from '@/store/use-errors'
@@ -61,7 +61,15 @@ export function CalendarioEstudos({ plano = 'FREE' }: CalendarioEstudosProps) {
     const [calendario, setCalendario] = useState<CalendarioData | null>(null)
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState<string | null>(null)
-    const { folgas, load_folgas } = useSRS()
+    const [folgas, setFolgas] = useState<string[]>([])
+
+    const load_folgas = async (userId: string) => {
+        if (!isSupabaseConfigured()) return
+        const { data } = await supabase.from('user_folgas').select('data').eq('user_id', userId)
+        if (data) {
+            setFolgas(data.map((d: any) => d.data))
+        }
+    }
     const [localFolgas, setLocalFolgas] = useState<string[]>([]) // For optimistic updates if needed, but let's use store
 
     // Estado do modal de sessão

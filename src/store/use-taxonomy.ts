@@ -88,17 +88,24 @@ export const useTaxonomy = create<TaxonomyState>((set, get) => ({
                     }
                 })
 
-                // Recursive function to sum counts from children to parents
-                // This ensures "Cardiologia" shows the total of all its subspecialties/subjects
+                // Recursive function to correctly sum counts without double counting
+                // Since v_taxonomia_counts already gives the true exact count for each level,
+                // we should NOT add the children's counts to the parent if the parent already has the count.
+                // We use Math.max to handle nodes that might not have a direct count from DB (like Area)
+                // but should reflect the sum of their children.
                 const rollupCounts = (node: TaxonomyNode): number => {
-                    let total = node.questionCount || 0
+                    let sumOfChildren = 0
                     if (node.children) {
                         node.children.forEach(child => {
-                            total += rollupCounts(child)
+                            sumOfChildren += rollupCounts(child)
                         })
                     }
-                    node.questionCount = total
-                    return total
+                    
+                    const exact = node.questionCount || 0
+                    const finalCount = Math.max(exact, sumOfChildren)
+                    
+                    node.questionCount = finalCount
+                    return finalCount
                 }
 
                 roots.forEach(root => rollupCounts(root))

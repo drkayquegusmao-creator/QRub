@@ -46,7 +46,7 @@ export const useConcursoUserStats = create<ConcursoUserStatsState>()(
                             streak_max: 0,
                             last_activity_at: new Date().toISOString()
                         }
-                        await supabase.from('concurso_user_estatisticas').insert(initial)
+                        await supabase.from('concurso_user_estatisticas').upsert(initial, { onConflict: 'user_id' })
                         set({ stats: initial as any })
                     } else if (data) {
                         set({ stats: data })

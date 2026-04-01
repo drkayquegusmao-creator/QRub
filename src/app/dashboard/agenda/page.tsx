@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useRouter } from 'next/navigation'
 import {
     Calendar,
     CheckCircle2,
@@ -37,10 +38,13 @@ import {
     type AgendaTask,
     type AgendaDayStats
 } from '@/lib/agenda-service'
+import { useAuth } from '@/store/use-auth'
+import { fetchErrorDashboardStats } from '@/lib/concursos/error-service'
 
 // ─── MAIN PAGE ────────────────────────────────────────────────────────────────
 
 export default function SaudeAgendaPage() {
+    const router = useRouter()
     const [tasks, setTasks] = useState<AgendaTask[]>([])
     const [stats, setStats] = useState<AgendaDayStats>({
         total: 0, completed: 0, pending: 0, late: 0,
@@ -54,26 +58,32 @@ export default function SaudeAgendaPage() {
     const [focusMode, setFocusMode] = useState(false)
     const [currentTaskIndex, setCurrentTaskIndex] = useState(0)
     const [view, setView] = useState<'daily' | 'weekly'>('daily')
+    const [isLockdown, setIsLockdown] = useState(false)
+    const { user } = useAuth()
 
     const loadData = useCallback(async () => {
         setLoading(true)
         setError(null)
         try {
-            const [agendaData, activity] = await Promise.all([
+            const [agendaData, activity, errorStats] = await Promise.all([
                 fetchDailyAgenda(),
                 fetchWeeklyActivity(),
+                user?.id ? fetchErrorDashboardStats(user.id) : null
             ])
             setTasks(agendaData.tasks)
             setStats(agendaData.stats)
             setUserName(agendaData.userName)
             setStreak(agendaData.streak)
             setWeeklyActivity(activity)
+            if (errorStats?.isLockdownActive) {
+                setIsLockdown(true)
+            }
         } catch (e) {
             setError('Não foi possível carregar sua agenda. Verifique sua conexão.')
         } finally {
             setLoading(false)
         }
-    }, [])
+    }, [user])
 
     useEffect(() => {
         loadData()
@@ -118,6 +128,39 @@ export default function SaudeAgendaPage() {
 
     return (
         <div className="space-y-12 pb-32 animate-in fade-in duration-700">
+
+            {/* ─── LOCKDOWN ALERT (URGENT) ─── */}
+            <AnimatePresence>
+                {isLockdown && (
+                    <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        className="overflow-hidden"
+                    >
+                        <div className="p-8 pb-12 rounded-[40px] bg-rose-500/10 border-2 border-rose-500/20 flex flex-col md:flex-row items-center justify-between gap-8 relative group">
+                            <div className="absolute top-0 right-0 w-32 h-32 bg-rose-500/5 blur-[60px] pointer-events-none" />
+                            <div className="flex items-center gap-6">
+                                <div className="w-20 h-20 bg-rose-500/20 rounded-[30px] flex items-center justify-center flex-shrink-0 animate-pulse">
+                                    <AlertTriangle className="w-10 h-10 text-rose-500" />
+                                </div>
+                                <div className="space-y-1">
+                                    <h4 className="text-2xl font-black italic uppercase tracking-tighter text-rose-500">LOCKDOWN: EXPURGO NECESSÁRIO</h4>
+                                    <p className="text-slate-400 font-bold text-[10px] uppercase tracking-widest max-w-md">
+                                        Você atingiu a densidade crítica de erros. <br/> A agenda sugere prioridade absoluta na Sessão de Expurgo.
+                                    </p>
+                                </div>
+                            </div>
+                            <button 
+                                onClick={() => router.push('/concursos/quiz/expurgo')}
+                                className="px-10 py-5 bg-rose-500 text-white rounded-[25px] font-black uppercase text-xs tracking-widest shadow-xl shadow-rose-500/20 hover:scale-105 active:scale-95 transition-all flex items-center gap-3"
+                            >
+                                Iniciar Expurgo <Zap className="w-5 h-5 fill-current" />
+                            </button>
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
 
             {/* 1. TOP PROGRESS MONITOR (Health Theme) */}
             <div className="bg-[#111827] rounded-b-[40px] -mx-8 -mt-8 p-12 pt-16 flex flex-col md:flex-row items-center justify-between gap-12 relative overflow-hidden shadow-2xl">

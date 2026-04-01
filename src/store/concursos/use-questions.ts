@@ -48,9 +48,11 @@ interface ConcursoQuestionsState {
         banca_id?: string,
         searchTerm?: string,
         page?: number,
-        pageSize?: number
+        pageSize?: number,
+        packageId?: string
     }) => Promise<void>
     loadAllQuestionsMeta: () => Promise<void>
+    setQuestions: (questions: ConcursoQuestion[]) => void
 }
 
 export const useConcursoQuestions = create<ConcursoQuestionsState>()((set, get) => ({
@@ -136,5 +138,7 @@ export const useConcursoQuestions = create<ConcursoQuestionsState>()((set, get) 
         } catch (err: any) {
             set({ error: err.message, loading: false })
         }
-    }
+    },
+
+    setQuestions: (questions: ConcursoQuestion[]) => set({ questions, totalCount: questions.length, loading: false })
 }))
