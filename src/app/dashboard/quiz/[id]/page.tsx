@@ -34,7 +34,7 @@ export default function QuizPage() {
     const router = useRouter()
     const { user, visitorCount, incrementVisitorCount, dailyQuestionCount, incrementDailyCount, visitorId } = useAuth()
     const { add_response } = useQuiz()
-    const { process_answer, get_intelligent_action } = useSRS()
+    const { get_intelligent_action } = useSRS()
     const { questions: allQuestions, loadQuestions, loading: questionsLoading } = useQuestions()
     const { markAsAnswered, hasAnswered, getAnsweredCount, resetAnswered } = useAnsweredQuestions()
     const { addToNotebook, loadErrors, isInNotebook } = useErrors()
@@ -303,17 +303,6 @@ export default function QuizPage() {
                 is_correct: isCorrect,
                 timestamp: new Date().toISOString()
             })
-
-            // SRS Update (Only for INSANO)
-            const responseObj = {
-                id: Math.random().toString(36).substr(2, 9),
-                user_id: userId,
-                question_id: question.id,
-                specialty_id: question.specialty_id,
-                is_correct: isCorrect,
-                timestamp: new Date().toISOString()
-            }
-            process_answer(user?.id || null, responseObj, question.subject_id)
 
             // Auto-add to Error Notebook if incorrect
             if (!isCorrect && user) {
