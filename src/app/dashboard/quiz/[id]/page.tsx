@@ -12,7 +12,7 @@ import { useSRS } from '@/store/use-srs'
 import { useErrors } from '@/store/use-errors'
 import { RegistrationModal } from '@/components/registration-modal'
 import { PaywallModal } from '@/components/paywall-modal'
-import { filterQuestions, COURSES } from '@/lib/data-mock'
+import { COURSES } from '@/lib/data-mock'
 import { ReportModal } from '@/components/report-modal'
 import { AlertTriangle } from 'lucide-react'
 import { QuizSummaryModal } from '@/components/quiz-summary-modal'
@@ -104,16 +104,12 @@ export default function QuizPage() {
     const filteredQuestions = useMemo(() => {
         if (mode === 'CADERNO_ERROS') return allQuestions
 
-        const filtered = filterQuestions(allQuestions, {
-            course_id: courseId,
-            specialty_id: specialtyId,
-            subspecialty_id: subspecialtyId,
-            subject_id: subjectId
-        })
-
-        // QRUB MASTER: Somente questões APROVADAS chegam ao Aluno
-        return filtered.filter(q => q.status_validacao === 'APROVADA')
-    }, [allQuestions, courseId, specialtyId, subspecialtyId, subjectId, mode])
+        // The RPC (search_questoes) already filtered by taxonomy slugs + name ILIKE.
+        // Do NOT re-filter in-memory with exact ID comparisons — it would discard all results
+        // since legacy questions store display names, not slugs, in specialty_id/subject_id fields.
+        // Only enforce the validation status gate.
+        return allQuestions.filter(q => q.status_validacao === 'APROVADA')
+    }, [allQuestions, mode])
 
     // Anti-repetition logic: show unanswered questions first, then cycle
     // We compute this ONCE per filtered pool change, ignoring hasAnswered changes during session
