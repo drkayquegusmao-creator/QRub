@@ -50,6 +50,13 @@ const SIDEBAR_GROUPS = [
             { name: 'Caderno de Erros', icon: BookMarked, href: '/concursos/cadernos' },
             { name: 'Favoritos', icon: Star, href: '/concursos/favoritos' },
         ]
+    },
+    {
+        name: 'Suporte',
+        items: [
+            { name: 'Fale Conosco', icon: Shield, href: '/concursos/support' },
+            { name: 'Configurações', icon: Settings, href: '/concursos/settings' },
+        ]
     }
 ]
 

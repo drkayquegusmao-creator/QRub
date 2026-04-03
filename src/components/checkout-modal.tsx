@@ -8,37 +8,53 @@ import { useAuth, PlanLevel } from '@/store/use-auth'
 interface CheckoutModalProps {
     isOpen: boolean
     onClose: () => void
-    plan: 'PREMIUM' | 'INSANO'
+    plan: 'free' | 'mensal' | 'trimestral' | 'semestral' | 'anual'
+    product: 'qrub_concurso' | 'qrub_saude'
 }
 
 const PLAN_PRICES = {
-    PREMIUM: 29.90,
-    INSANO: 129.90
+    free: 0.00,
+    mensal: 29.99,
+    trimestral: 79.99,
+    semestral: 159.99,
+    anual: 319.99
 }
 
 const PLAN_BENEFITS = {
-    PREMIUM: [
-        'Acesso ilimitado às questões',
-        'Modo simulado liberado',
-        'Filtros avançados (subespecialidade)',
-        'Estatísticas detalhadas',
-        'Suporte prioritário'
+    free: [
+        '15 questões por dia',
+        'Filtros básicos',
+        'Teste toda a plataforma'
     ],
-    INSANO: [
-        'TUDO do Premium +',
-        'Dr. QRub AI Mentor',
-        'Análise personalizada de erros',
-        'Revisão rápida com IA',
-        'Questões exclusivas',
-        'Simulados personalizados',
-        'Suporte VIP 24/7'
+    mensal: [
+        'Questões ilimitadas',
+        'Revisão espaçada',
+        'Caderno de erros auto',
+        'Dr. Qrub (mentor estratégico)',
+        'Estatísticas completas',
+        'Filtros avançados'
+    ],
+    trimestral: [
+        'Tudo do plano mensal',
+        'Melhor custo-benefício'
+    ],
+    semestral: [
+        'Tudo do plano mensal',
+        'Economia maior',
+        'Ideal para ciclos de estudo'
+    ],
+    anual: [
+        'Tudo liberado por 12 meses',
+        'Máxima economia',
+        'Para quem quer aprovação sem pausa'
     ]
 }
 
 type PaymentStatus = 'idle' | 'generating' | 'pending' | 'approved' | 'error'
 
-export function CheckoutModal({ isOpen, onClose, plan }: CheckoutModalProps) {
+export function CheckoutModal({ isOpen, onClose, plan, product }: CheckoutModalProps) {
     const { user, updateUserPlan } = useAuth()
+    const [paymentMethod, setPaymentMethod] = useState<'pix' | 'card' | null>(null)
     const [paymentStatus, setPaymentStatus] = useState<PaymentStatus>('idle')
     const [pixCode, setPixCode] = useState<string>('')
     const [qrCodeBase64, setQrCodeBase64] = useState<string>('')
@@ -49,10 +65,12 @@ export function CheckoutModal({ isOpen, onClose, plan }: CheckoutModalProps) {
 
     const price = PLAN_PRICES[plan]
     const benefits = PLAN_BENEFITS[plan]
+    const productLabel = product === 'qrub_saude' ? 'QRub Saúde' : 'QRub Concurso'
 
     // Reset state when modal opens/closes
     useEffect(() => {
         if (!isOpen) {
+            setPaymentMethod(null)
             setPaymentStatus('idle')
             setPixCode('')
             setQrCodeBase64('')
@@ -77,7 +95,7 @@ export function CheckoutModal({ isOpen, onClose, plan }: CheckoutModalProps) {
                     setPaymentStatus('approved')
                     // Update user plan
                     if (user) {
-                        updateUserPlan(plan)
+                        updateUserPlan(plan, product)
                     }
                     clearInterval(interval)
                 }
@@ -104,8 +122,10 @@ export function CheckoutModal({ isOpen, onClose, plan }: CheckoutModalProps) {
                 body: JSON.stringify({
                     amount: price,
                     plan: plan,
-                    userId: user?.id || 'guest',
-                    userEmail: user?.email || 'guest@qrub.com'
+                    product: product,
+                    userId: user?.id,
+                    userEmail: user?.email,
+                    userName: user?.name
                 }),
             })
 
@@ -123,6 +143,23 @@ export function CheckoutModal({ isOpen, onClose, plan }: CheckoutModalProps) {
             setError(err.message)
             setPaymentStatus('error')
         }
+    }
+
+    const handleProcessCardPayment = async (e: React.FormEvent) => {
+        e.preventDefault()
+        setPaymentStatus('generating')
+        setError('')
+        
+        // Simulação de processamento de cartão (Na real usaria Mercado Pago Bricks/Card Token)
+        setTimeout(async () => {
+            try {
+                if (user) await updateUserPlan(plan, product)
+                setPaymentStatus('approved')
+            } catch (err) {
+                setError('Erro ao ativar plano após pagamento.')
+                setPaymentStatus('error')
+            }
+        }, 2000)
     }
 
     const handleCopyPixCode = async () => {
@@ -155,15 +192,17 @@ export function CheckoutModal({ isOpen, onClose, plan }: CheckoutModalProps) {
                     </button>
 
                     <div className="flex items-center gap-4">
-                        <div className={`p-3 rounded-2xl ${plan === 'INSANO' ? 'bg-orange-500/10 text-orange-500' : 'bg-primary/10 text-primary'}`}>
+                        <div className={`p-3 rounded-2xl ${plan !== 'free' 
+                            ? (product === 'qrub_saude' ? 'bg-emerald-500/10 text-emerald-500' : 'bg-orange-500/10 text-orange-500') 
+                            : 'bg-primary/10 text-primary'}`}>
                             <CreditCard className="w-6 h-6" />
                         </div>
                         <div>
                             <h2 className="text-3xl font-black italic uppercase tracking-tighter">
-                                Assinar Plano {plan}
+                                Assinar {plan}
                             </h2>
                             <p className="text-sm font-medium text-muted-foreground">
-                                Pagamento via PIX - Aprovação instantânea
+                                {productLabel}
                             </p>
                         </div>
                     </div>
@@ -182,7 +221,7 @@ export function CheckoutModal({ isOpen, onClose, plan }: CheckoutModalProps) {
                                 className="space-y-6"
                             >
                                 {/* Plan Details */}
-                                <div className={`p-8 rounded-2xl border-2 ${plan === 'INSANO' ? 'bg-orange-500/5 border-orange-500/20' : 'bg-primary/5 border-primary/20'}`}>
+                                <div className={`p-8 rounded-2xl border-2 ${plan !== 'free' ? 'bg-orange-500/5 border-orange-500/20' : 'bg-primary/5 border-primary/20'}`}>
                                     <div className="flex items-baseline justify-between mb-6">
                                         <div>
                                             <p className="text-sm font-bold uppercase tracking-widest text-muted-foreground">Valor do Plano</p>
@@ -197,30 +236,121 @@ export function CheckoutModal({ isOpen, onClose, plan }: CheckoutModalProps) {
                                         <p className="text-xs font-black uppercase tracking-widest text-muted-foreground">O que está incluído:</p>
                                         {benefits.map((benefit, idx) => (
                                             <div key={idx} className="flex items-center gap-3">
-                                                <Check className={`w-5 h-5 ${plan === 'INSANO' ? 'text-orange-500' : 'text-primary'}`} />
+                                                <Check className={`w-5 h-5 ${plan !== 'free' ? 'text-orange-500' : 'text-primary'}`} />
                                                 <span className="font-medium">{benefit}</span>
                                             </div>
                                         ))}
                                     </div>
                                 </div>
 
-                                {/* CTA */}
-                                <button
-                                    onClick={handleGeneratePixPayment}
-                                    className={`w-full py-5 rounded-2xl font-black uppercase text-sm tracking-widest transition-all shadow-xl ${plan === 'INSANO'
-                                            ? 'bg-gradient-to-r from-orange-500 to-red-500 text-white hover:scale-[1.02]'
-                                            : 'royal-gradient text-white hover:scale-[1.02]'
-                                        } active:scale-95`}
-                                >
-                                    <div className="flex items-center justify-center gap-2">
-                                        <QrCode className="w-5 h-5" />
-                                        Gerar PIX para Pagamento
+                                {/* Formas de Pagamento ou Acesso Grátis */}
+                                {plan === 'free' ? (
+                                    <div className="space-y-4">
+                                        <button
+                                            onClick={async () => {
+                                                setPaymentStatus('generating')
+                                                try {
+                                                    if (user) {
+                                                        await updateUserPlan('free', product)
+                                                        setPaymentStatus('approved')
+                                                    }
+                                                } catch (err) {
+                                                    setError('Erro ao ativar acesso grátis.')
+                                                    setPaymentStatus('error')
+                                                }
+                                            }}
+                                            className="w-full royal-gradient text-white py-5 rounded-2xl font-black uppercase text-sm tracking-widest transition-all shadow-xl hover:scale-[1.02] active:scale-95"
+                                        >
+                                            <div className="flex items-center justify-center gap-2">
+                                                <Check className="w-5 h-5" />
+                                                Ativar Acesso Grátis
+                                            </div>
+                                        </button>
+                                        <p className="text-xs text-center text-muted-foreground">
+                                            Acesso imediato apenas ao {productLabel}.
+                                        </p>
                                     </div>
-                                </button>
-
-                                <p className="text-xs text-center text-muted-foreground">
-                                    Pagamento 100% seguro via Mercado Pago
-                                </p>
+                                ) : !paymentMethod ? (
+                                    <div className="space-y-4">
+                                        <p className="text-xs font-black uppercase tracking-widest text-muted-foreground">Escolha como pagar:</p>
+                                        <div className="grid grid-cols-2 gap-4">
+                                            <button
+                                                onClick={() => setPaymentMethod('pix')}
+                                                className="p-6 border-2 border-border hover:border-emerald-500 hover:bg-emerald-500/5 rounded-2xl flex flex-col items-center gap-3 transition-all"
+                                            >
+                                                <QrCode className="w-8 h-8 text-emerald-500" />
+                                                <span className="font-bold">PIX</span>
+                                                <span className="text-[10px] text-muted-foreground uppercase tracking-widest">Aprovação imediata</span>
+                                            </button>
+                                            <button
+                                                onClick={() => setPaymentMethod('card')}
+                                                className="p-6 border-2 border-border hover:border-blue-500 hover:bg-blue-500/5 rounded-2xl flex flex-col items-center gap-3 transition-all"
+                                            >
+                                                <CreditCard className="w-8 h-8 text-blue-500" />
+                                                <span className="font-bold">Cartão de Crédito</span>
+                                                <span className="text-[10px] text-muted-foreground uppercase tracking-widest">Em até 12x</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                ) : paymentMethod === 'pix' ? (
+                                    <div className="space-y-4">
+                                        <button onClick={() => setPaymentMethod(null)} className="text-sm text-primary hover:underline mb-2 inline-block">
+                                            &larr; Voltar para formas de pagamento
+                                        </button>
+                                        <button
+                                            onClick={handleGeneratePixPayment}
+                                            className="w-full py-5 rounded-2xl font-black uppercase text-sm tracking-widest transition-all shadow-xl bg-gradient-to-r from-orange-500 to-red-500 text-white hover:scale-[1.02] active:scale-95"
+                                        >
+                                            <div className="flex items-center justify-center gap-2">
+                                                <QrCode className="w-5 h-5" />
+                                                Gerar PIX para Pagamento
+                                            </div>
+                                        </button>
+                                        <p className="text-xs text-center text-muted-foreground">
+                                            Liberação imediata para {productLabel}. Pagamento seguro via Mercado Pago.
+                                        </p>
+                                    </div>
+                                ) : (
+                                    <div className="space-y-4">
+                                        <button onClick={() => setPaymentMethod(null)} className="text-sm text-primary hover:underline mb-2 inline-block">
+                                            &larr; Voltar para formas de pagamento
+                                        </button>
+                                        <form onSubmit={handleProcessCardPayment} className="space-y-4 bg-muted/30 p-6 rounded-2xl border border-border">
+                                            <div>
+                                                <label className="text-xs font-bold text-muted-foreground uppercase mb-1 block">Número do Cartão</label>
+                                                <input required type="text" placeholder="0000 0000 0000 0000" className="w-full bg-background border border-border rounded-xl px-4 py-3 text-sm focus:border-blue-500 outline-none" />
+                                            </div>
+                                            <div className="grid grid-cols-2 gap-4">
+                                                <div>
+                                                    <label className="text-xs font-bold text-muted-foreground uppercase mb-1 block">Validade</label>
+                                                    <input required type="text" placeholder="MM/AA" className="w-full bg-background border border-border rounded-xl px-4 py-3 text-sm focus:border-blue-500 outline-none" />
+                                                </div>
+                                                <div>
+                                                    <label className="text-xs font-bold text-muted-foreground uppercase mb-1 block">CVV</label>
+                                                    <input required type="password" maxLength={4} placeholder="123" className="w-full bg-background border border-border rounded-xl px-4 py-3 text-sm focus:border-blue-500 outline-none" />
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <label className="text-xs font-bold text-muted-foreground uppercase mb-1 block">Nome no Cartão</label>
+                                                <input required type="text" placeholder="NOME IMPRESSO" className="w-full bg-background border border-border rounded-xl px-4 py-3 text-sm focus:border-blue-500 outline-none uppercase" />
+                                            </div>
+                                            <div>
+                                                <label className="text-xs font-bold text-muted-foreground uppercase mb-1 block">CPF do Titular</label>
+                                                <input required type="text" placeholder="000.000.000-00" className="w-full bg-background border border-border rounded-xl px-4 py-3 text-sm focus:border-blue-500 outline-none" />
+                                            </div>
+                                            
+                                            <button
+                                                type="submit"
+                                                className="w-full mt-4 py-4 rounded-xl font-black uppercase text-sm tracking-widest transition-all bg-blue-600 text-white hover:bg-blue-500 shadow-lg"
+                                            >
+                                                Pagar com Cartão
+                                            </button>
+                                            <p className="text-xs text-center text-muted-foreground mt-2">
+                                                Seu acesso será liberado imediatamente após a aprovação.
+                                            </p>
+                                        </form>
+                                    </div>
+                                )}
                             </motion.div>
                         )}
 
@@ -233,7 +363,7 @@ export function CheckoutModal({ isOpen, onClose, plan }: CheckoutModalProps) {
                                 className="flex flex-col items-center justify-center py-20 space-y-4"
                             >
                                 <Loader2 className="w-12 h-12 text-primary animate-spin" />
-                                <p className="font-bold text-lg">Gerando código PIX...</p>
+                                <p className="font-bold text-lg">Processando...</p>
                                 <p className="text-sm text-muted-foreground">Aguarde um momento</p>
                             </motion.div>
                         )}

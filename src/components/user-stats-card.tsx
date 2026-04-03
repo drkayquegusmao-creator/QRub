@@ -22,7 +22,7 @@ export function UserStatsCard() {
             <div className="w-full bg-white rounded-[40px] border-2 border-slate-100 p-10 flex items-center justify-center min-h-[200px] shadow-sm">
                 <div className="flex flex-col items-center gap-4 text-slate-400">
                     <Loader2 className="w-8 h-8 animate-spin" />
-                    <p className="font-black italic uppercase text-[10px] tracking-widest text-[#1A1033]/50">Sincronizando estatísticas...</p>
+                    <p className="font-black italic uppercase text-[10px] tracking-widest text-[#1A1033] dark:text-white/50">Sincronizando estatísticas...</p>
                 </div>
             </div>
         )
@@ -39,7 +39,7 @@ export function UserStatsCard() {
                         <Trophy className="w-8 h-8" />
                     </div>
                     <div className="space-y-1">
-                        <h3 className="text-2xl font-black italic uppercase tracking-tighter text-[#1A1033]">Pronto para Começar?</h3>
+                        <h3 className="text-2xl font-black italic uppercase tracking-tighter text-[#1A1033] dark:text-white">Pronto para Começar?</h3>
                         <p className="text-slate-500 font-medium max-w-xs mx-auto text-sm leading-relaxed">
                             Resolva sua primeira questão para ativar suas estatísticas e desbloquear sua evolução.
                         </p>
@@ -72,7 +72,7 @@ export function UserStatsCard() {
                                         stats.tone === 'disciplina' ? '⚡' : '🔥'}
                         </span>
                     </div>
-                    <h2 className="text-3xl md:text-4xl font-black italic uppercase tracking-tighter text-[#1A1033]">
+                    <h2 className="text-3xl md:text-4xl font-black italic uppercase tracking-tighter text-[#1A1033] dark:text-white">
                         {stats.headline || `${stats.total_questoes} questões resolvidas`}
                     </h2>
                 </div>
@@ -85,7 +85,7 @@ export function UserStatsCard() {
                         </div>
                         <div>
                             <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest leading-none mb-1">Média de Acertos</p>
-                            <p className="text-lg font-black italic text-[#1A1033] uppercase">{stats.media_geral}%</p>
+                            <p className="text-lg font-black italic text-[#1A1033] dark:text-white uppercase">{stats.media_geral}%</p>
                         </div>
                     </div>
 
@@ -95,7 +95,7 @@ export function UserStatsCard() {
                         </div>
                         <div>
                             <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest leading-none mb-1">Acertos</p>
-                            <p className="text-lg font-black italic text-[#1A1033] uppercase">{stats.total_acertos}</p>
+                            <p className="text-lg font-black italic text-[#1A1033] dark:text-white uppercase">{stats.total_acertos}</p>
                         </div>
                     </div>
 
@@ -105,7 +105,7 @@ export function UserStatsCard() {
                         </div>
                         <div>
                             <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest leading-none mb-1">Nível</p>
-                            <p className="text-lg font-black italic text-[#1A1033] uppercase">{stats.nivel_usuario}</p>
+                            <p className="text-lg font-black italic text-[#1A1033] dark:text-white uppercase">{stats.nivel_usuario}</p>
                         </div>
                     </div>
                 </div>
@@ -120,7 +120,7 @@ export function UserStatsCard() {
 
             {/* Aesthetic Background Detail */}
             <div className="absolute bottom-0 right-0 p-8 opacity-[0.02] -rotate-12 translate-x-1/4 translate-y-1/4 select-none pointer-events-none">
-                <Flame className="w-64 h-64 text-[#1A1033]" />
+                <Flame className="w-64 h-64 text-[#1A1033] dark:text-white" />
             </div>
         </motion.div>
     )

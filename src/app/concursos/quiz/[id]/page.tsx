@@ -16,6 +16,8 @@ import { useConcursoQuestions } from '@/store/concursos/use-questions'
 import { useConcursoQuiz } from '@/store/concursos/use-quiz'
 import { supabase } from '@/lib/supabase'
 import { cn } from '@/lib/utils'
+import { PaywallModal } from '@/components/paywall-modal'
+import { RegistrationModal } from '@/components/registration-modal'
 
 const uuidv4_local = () => crypto.randomUUID()
 
@@ -82,7 +84,7 @@ export default function ConcursoQuizPage({ params }: { params: { id: string } })
     const mode = searchParams.get('mode') || 'TREINO'
     const router = useRouter()
     
-    const { user } = useAuth()
+    const { user, canAnswerQuestion, incrementQuestionCount, incrementVisitorCount } = useAuth()
     const { questions, loadQuestions, loading: questionsLoading } = useConcursoQuestions()
     const { add_response } = useConcursoQuiz()
     const [currentIdx, setCurrentIdx] = useState(0)
@@ -104,6 +106,8 @@ export default function ConcursoQuizPage({ params }: { params: { id: string } })
     const [answeredQuestions, setAnsweredQuestions] = useState<Record<number, { correct: boolean, selectedId: string }>>({})
     const [isFocusMode, setIsFocusMode] = useState(false)
     const [fontSize, setFontSize] = useState(20)
+    const [showPaywall, setShowPaywall] = useState(false)
+    const [showRegModal, setShowRegModal] = useState(false)
     const [sessionStartTime] = useState(Date.now())
 
     // NIVELAMENTO score tracking
@@ -251,6 +255,13 @@ export default function ConcursoQuizPage({ params }: { params: { id: string } })
     const handleConfirm = () => {
         if (!selectedOptionId || hasConfirmed) return
 
+        // Check access
+        if (!canAnswerQuestion('qrub_concurso')) {
+            if (!user) setShowRegModal(true)
+            else setShowPaywall(true)
+            return
+        }
+
         setHasConfirmed(true)
         const isCorrect = selectedOptionId === question.correct_option_id
         setIsAnswered(true)
@@ -291,6 +302,13 @@ export default function ConcursoQuizPage({ params }: { params: { id: string } })
         // If in expurgo mode, update the hit counter
         if (params.id === 'expurgo' && user?.id && question) {
             updateErrorHitOnResponse(question.id, isCorrect)
+        }
+
+        // Increment usage
+        if (!user) {
+            incrementVisitorCount()
+        } else {
+            incrementQuestionCount('qrub_concurso')
         }
     }
 
@@ -413,11 +431,22 @@ export default function ConcursoQuizPage({ params }: { params: { id: string } })
     }
 
     return (
-        <div className={cn(
-            "min-h-screen flex flex-col px-4 pb-40 transition-all duration-700",
-            isFocusMode ? 'bg-[#0a0a0a] text-white pt-16' : 'bg-slate-50/70 pt-16'
-        )}>
-            {/* Header Flutuante Premium */}
+        <>
+            <PaywallModal
+                isOpen={showPaywall}
+                onClose={() => setShowPaywall(false)}
+                reason="limit"
+                product="qrub_concurso"
+            />
+            <RegistrationModal
+                isOpen={showRegModal}
+                onClose={() => setShowRegModal(false)}
+            />
+
+            <div className={cn(
+                "min-h-screen flex flex-col px-4 pb-40 transition-all duration-700",
+                isFocusMode ? 'bg-[#0a0a0a] text-white pt-16' : 'bg-slate-50/70 pt-16'
+            )}>
             <div className="fixed top-0 left-0 right-0 z-40 bg-white/20 backdrop-blur-md border-b border-indigo-500/10 px-6 py-4">
                 <div className="max-w-6xl mx-auto flex items-center justify-between">
                     <div className="flex items-center gap-4">
@@ -895,7 +924,8 @@ export default function ConcursoQuizPage({ params }: { params: { id: string } })
                         </div>
                     </div>
                 </div>
+                </div>
             </div>
-        </div>
+        </>
     )
 }

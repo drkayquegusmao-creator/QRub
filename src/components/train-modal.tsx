@@ -184,7 +184,7 @@ export function TrainModal({ isOpen, onClose, initialMode, initialSpecialtyId }:
                         placeholder="Qual especialidade deseja treinar?"
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
-                        className="w-full pl-14 pr-6 py-5 rounded-[25px] border border-slate-100 bg-slate-50/50 focus:bg-white focus:border-primary/20 focus:shadow-xl focus:shadow-primary/5 focus:outline-none transition-all font-bold text-sm text-[#1A1033] placeholder:text-slate-400 placeholder:font-bold"
+                        className="w-full pl-14 pr-6 py-5 rounded-[25px] border border-slate-100 bg-slate-50/50 focus:bg-white focus:border-primary/20 focus:shadow-xl focus:shadow-primary/5 focus:outline-none transition-all font-bold text-sm text-[#1A1033] dark:text-white placeholder:text-slate-400 placeholder:font-bold"
                     />
                 </div>
 
@@ -209,7 +209,7 @@ export function TrainModal({ isOpen, onClose, initialMode, initialSpecialtyId }:
                                             {isSelected && <Check className="w-4 h-4 text-white" />}
                                         </div>
                                         <div className="space-y-1">
-                                            <h4 className={`font-black italic uppercase text-xs tracking-tight transition-colors ${isSelected ? 'text-emerald-700' : 'text-[#1A1033] group-hover:text-primary'}`}>{spec.name}</h4>
+                                            <h4 className={`font-black italic uppercase text-xs tracking-tight transition-colors ${isSelected ? 'text-emerald-700' : 'text-[#1A1033] dark:text-white group-hover:text-primary'}`}>{spec.name}</h4>
                                             <p className="text-[9px] font-bold text-slate-400 uppercase tracking-widest">{spec.metadata?.category || 'Especialidades Básicas'}</p>
                                         </div>
                                     </div>
@@ -308,7 +308,7 @@ export function TrainModal({ isOpen, onClose, initialMode, initialSpecialtyId }:
                     <Stethoscope className="w-6 h-6" />
                 </div>
                 <div>
-                    <h3 className="font-black italic uppercase text-lg text-[#1A1033]">{selectedSpecialty?.name}</h3>
+                    <h3 className="font-black italic uppercase text-lg text-[#1A1033] dark:text-white">{selectedSpecialty?.name}</h3>
                     <p className="text-xs font-bold text-slate-500 uppercase tracking-wider">Configuração de Treino</p>
                 </div>
             </div>
@@ -316,7 +316,7 @@ export function TrainModal({ isOpen, onClose, initialMode, initialSpecialtyId }:
             {/* Filters */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                    <label className="text-xs font-black uppercase tracking-widest text-[#1A1033] flex items-center gap-2">
+                    <label className="text-xs font-black uppercase tracking-widest text-[#1A1033] dark:text-white flex items-center gap-2">
                         <Filter className="w-3 h-3" /> Sub-Especialidade (Opcional)
                     </label>
                     <select
@@ -332,7 +332,7 @@ export function TrainModal({ isOpen, onClose, initialMode, initialSpecialtyId }:
                 </div>
 
                 <div className="space-y-2">
-                    <label className="text-xs font-black uppercase tracking-widest text-[#1A1033] flex items-center gap-2">
+                    <label className="text-xs font-black uppercase tracking-widest text-[#1A1033] dark:text-white flex items-center gap-2">
                         <Search className="w-3 h-3" /> Assunto (Opcional)
                     </label>
                     <select
@@ -351,7 +351,7 @@ export function TrainModal({ isOpen, onClose, initialMode, initialSpecialtyId }:
             {/* Quantity Slider */}
             <div className="space-y-6 pt-4 border-t border-slate-100">
                 <div className="flex items-center justify-between">
-                    <label className="text-xs font-black uppercase tracking-widest text-[#1A1033]">Quantidade de Questões</label>
+                    <label className="text-xs font-black uppercase tracking-widest text-[#1A1033] dark:text-white">Quantidade de Questões</label>
                     <span className="text-2xl font-black italic text-primary">{questionCount}</span>
                 </div>
                 <div className="relative h-2 bg-slate-100 rounded-full">
@@ -396,20 +396,20 @@ export function TrainModal({ isOpen, onClose, initialMode, initialSpecialtyId }:
                     <LayoutGrid className="w-6 h-6" />
                 </div>
                 <div>
-                    <h3 className="font-black italic uppercase text-lg text-[#1A1033]">Treino Aleatório</h3>
+                    <h3 className="font-black italic uppercase text-lg text-[#1A1033] dark:text-white">Treino Aleatório</h3>
                     <p className="text-xs font-bold text-slate-500 uppercase tracking-wider">Banco Geral de Questões</p>
                 </div>
             </div>
 
             <div className="p-6 bg-slate-50 rounded-2xl border border-slate-100 text-center space-y-2">
-                <p className="font-bold text-[#1A1033]">Você está prestes a iniciar um treino com questões de todas as áreas.</p>
+                <p className="font-bold text-[#1A1033] dark:text-white">Você está prestes a iniciar um treino com questões de todas as áreas.</p>
                 <p className="text-xs text-slate-500">Ideal para testar seus conhecimentos gerais e simular a aleatoriedade da prova real.</p>
             </div>
 
             {/* Quantity Slider */}
             <div className="space-y-6 pt-4 border-t border-slate-100">
                 <div className="flex items-center justify-between">
-                    <label className="text-xs font-black uppercase tracking-widest text-[#1A1033]">Quantidade de Questões</label>
+                    <label className="text-xs font-black uppercase tracking-widest text-[#1A1033] dark:text-white">Quantidade de Questões</label>
                     <span className="text-2xl font-black italic text-primary">{questionCount}</span>
                 </div>
                 <div className="relative h-2 bg-slate-100 rounded-full">
@@ -487,7 +487,7 @@ export function TrainModal({ isOpen, onClose, initialMode, initialSpecialtyId }:
                         <CheckSquare className="w-6 h-6" />
                     </div>
                     <div className="flex-1">
-                        <h3 className="font-black italic uppercase text-lg text-[#1A1033]">Treino Combinado</h3>
+                        <h3 className="font-black italic uppercase text-lg text-[#1A1033] dark:text-white">Treino Combinado</h3>
                         <p className="text-xs font-bold text-emerald-600 uppercase tracking-wider">
                             {selectedSpecialtyIds.length} área{selectedSpecialtyIds.length !== 1 ? 's' : ''} selecionada{selectedSpecialtyIds.length !== 1 ? 's' : ''}
                         </p>
@@ -508,7 +508,7 @@ export function TrainModal({ isOpen, onClose, initialMode, initialSpecialtyId }:
                         placeholder="Filtrar especialidades..."
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
-                        className="w-full pl-11 pr-4 py-3 rounded-xl border border-slate-100 bg-slate-50/50 focus:bg-white focus:border-emerald-200 focus:outline-none transition-all font-bold text-xs text-[#1A1033] placeholder:text-slate-300"
+                        className="w-full pl-11 pr-4 py-3 rounded-xl border border-slate-100 bg-slate-50/50 focus:bg-white focus:border-emerald-200 focus:outline-none transition-all font-bold text-xs text-[#1A1033] dark:text-white placeholder:text-slate-300"
                     />
                 </div>
 
@@ -534,7 +534,7 @@ export function TrainModal({ isOpen, onClose, initialMode, initialSpecialtyId }:
                                         {isSelected && <Check className="w-3 h-3 text-white" />}
                                     </div>
                                     <div className="flex-1 text-left">
-                                        <h4 className={`font-black uppercase text-[10px] tracking-tight ${isSelected ? 'text-emerald-700' : 'text-[#1A1033]'
+                                        <h4 className={`font-black uppercase text-[10px] tracking-tight ${isSelected ? 'text-emerald-700' : 'text-[#1A1033] dark:text-white'
                                             }`}>
                                             {spec.name}
                                         </h4>
@@ -548,7 +548,7 @@ export function TrainModal({ isOpen, onClose, initialMode, initialSpecialtyId }:
                 {/* Quantity Slider */}
                 <div className="space-y-6 pt-6 border-t border-slate-100">
                     <div className="flex items-center justify-between">
-                        <label className="text-xs font-black uppercase tracking-widest text-[#1A1033]">Quantidade de Questões</label>
+                        <label className="text-xs font-black uppercase tracking-widest text-[#1A1033] dark:text-white">Quantidade de Questões</label>
                         <span className="text-2xl font-black italic text-emerald-600">{questionCount}</span>
                     </div>
                     <div className="relative h-2 bg-slate-100 rounded-full">
@@ -605,7 +605,7 @@ export function TrainModal({ isOpen, onClose, initialMode, initialSpecialtyId }:
                                     <ChevronRight className="w-3 h-3 rotate-180" /> Voltar
                                 </button>
                             )}
-                            <h2 className="text-2xl font-black italic tracking-tighter uppercase text-[#1A1033]">
+                            <h2 className="text-2xl font-black italic tracking-tighter uppercase text-[#1A1033] dark:text-white">
                                 {mode === 'MENU' ? 'Treinar por Área' :
                                     mode === 'CONFIG' ? 'Configurar Treino' :
                                         mode === 'CONFIG_ALL' ? 'Modo Aleatório' :
@@ -632,7 +632,7 @@ function MenuOption({ icon, title, description, onClick, color, bg, highlight }:
         <button onClick={onClick} className={`w-full text-left p-6 rounded-[25px] border-2 transition-all group flex items-start gap-5 ${highlight ? 'border-primary/20 bg-primary/5 hover:bg-primary/10 hover:border-primary' : 'border-slate-100 bg-white hover:border-slate-200 hover:bg-slate-50'}`}>
             <div className={`p-4 rounded-2xl ${bg} ${color} group-hover:scale-110 transition-transform`}>{icon}</div>
             <div>
-                <h3 className={`font-black italic uppercase tracking-tight text-lg ${highlight ? 'text-primary' : 'text-[#1A1033]'}`}>{title}</h3>
+                <h3 className={`font-black italic uppercase tracking-tight text-lg ${highlight ? 'text-primary' : 'text-[#1A1033] dark:text-white'}`}>{title}</h3>
                 <p className="text-xs font-medium text-slate-500 mt-1 leading-relaxed">{description}</p>
             </div>
         </button>

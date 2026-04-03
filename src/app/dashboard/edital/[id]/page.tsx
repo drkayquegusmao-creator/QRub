@@ -66,7 +66,7 @@ export default function EditalPage() {
                                 </span>
                             )}
                         </div>
-                        <h1 className="text-3xl md:text-5xl font-black italic uppercase tracking-tighter text-[#1A1033] leading-[0.9]">
+                        <h1 className="text-3xl md:text-5xl font-black italic uppercase tracking-tighter text-[#1A1033] dark:text-white leading-[0.9]">
                             {currentBlueprint.name}
                         </h1>
                         <p className="text-slate-500 font-medium max-w-2xl">
@@ -85,7 +85,7 @@ export default function EditalPage() {
                                         <div className="flex items-center gap-2 text-[9px] font-bold uppercase tracking-widest text-slate-400">
                                             {item.icon} {item.label}
                                         </div>
-                                        <div className="font-black text-xs text-[#1A1033]">{item.value}</div>
+                                        <div className="font-black text-xs text-[#1A1033] dark:text-white">{item.value}</div>
                                     </div>
                                 ))}
                             </div>
@@ -165,7 +165,7 @@ export default function EditalPage() {
                                             {box.weight?.toFixed(0)}%
                                         </div>
                                         <div>
-                                            <h3 className="text-lg font-black italic uppercase text-[#1A1033] leading-tight group-hover:text-primary transition-colors">
+                                            <h3 className="text-lg font-black italic uppercase text-[#1A1033] dark:text-white leading-tight group-hover:text-primary transition-colors">
                                                 {box.title}
                                             </h3>
                                             <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-1">

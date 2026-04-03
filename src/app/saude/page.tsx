@@ -14,7 +14,7 @@ export default function SaudeRedirectPage() {
     return (
         <div className="min-h-screen bg-background flex flex-col items-center justify-center p-6">
             <Loader2 className="w-12 h-12 text-primary animate-spin" />
-            <p className="mt-4 text-xs font-black uppercase tracking-widest text-[#1A1033]">Redirecionando para QRub Saúde...</p>
+            <p className="mt-4 text-xs font-black uppercase tracking-widest text-[#1A1033] dark:text-white">Redirecionando para QRub Saúde...</p>
         </div>
     )
 }

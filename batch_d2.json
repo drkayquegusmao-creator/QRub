@@ -1,0 +1,213 @@
+[
+    {
+        "id": "hepa-11",
+        "banca": "FGV",
+        "cargo": "Médico - Hepatologia",
+        "ano": "2024",
+        "enunciado": "Um paciente de 45 anos, com diagnóstico prévio de cirrose hepática por vírus C (HCV) não tratada, dá entrada no pronto-socorro com confusão mental, inversão do ciclo sono-vigília e ascite tensa (asterixis presente). Exames evidenciam aumento de amônia sérica e hipocalemia. Qual das alternativas indica a primeira linha de tratamento farmacológico específico no manejo imediato desse quadro de encefalopatia hepática associada aos fatores desencadeantes apresentados?",
+        "alternativas": {
+            "a": "Administração de L-ornitina L-aspartato intravenosa exclusiva e restrição hídrica.",
+            "b": "Correção imediata da hipocalemia e uso de lactulose, avaliando adição de rifaximina se não houver resposta inicial.",
+            "c": "Início imediato de neomicina oral e paracentese terapêutica de pequeno volume sem expansão com albumina.",
+            "d": "Transplante hepático de urgência associado a plasmaférese para remoção de bilirrubina e amônia.",
+            "e": "Aporte proteico restrito (<0,5 g/kg/dia) como principal medida para reduzir substrato amoniogênico."
+        },
+        "respostaCorreta": "b",
+        "justificativa": "A correção de fatores desencadeantes (como a hipocalemia) e o uso de lactulose são a base do tratamento da encefalopatia hepática aguda. A rifaximina é o antibiótico de escolha caso não haja resposta isolada à lactulose.",
+        "tags": [
+            "Hepatologia",
+            "Cirrose Hepática",
+            "Encefalopatia Hepática"
+        ]
+    },
+    {
+        "id": "hepa-12",
+        "banca": "FGV",
+        "cargo": "Médico - Hepatologia",
+        "ano": "2024",
+        "enunciado": "Mulher de 38 anos, assintomática, realiza ultrassonografia abdominal de rotina que revela uma massa hepática hiperecogênica, homogênea e bem delimitada, medindo cerca de 3 cm no segmento VI. Ao Doppler colorido, observa-se realce periférico com preenchimento nodular centrípeto ao longo do tempo. Nega uso de anticoncepcionais orais, não possui histórico de hepatopatia e marcadores tumorais são normais. Diante do achado radiológico clássico, o diagnóstico mais provável é:",
+        "alternativas": {
+            "a": "Metástase hepática",
+            "b": "Adenoma hepatocelular",
+            "c": "Hemangioma cavernoso",
+            "d": "Hiperplasia nodular focal (HNF)",
+            "e": "Carcinoma hepatocelular (CHC)"
+        },
+        "respostaCorreta": "c",
+        "justificativa": "O hemangioma cavernoso é a lesão hepática benigna mais comum, apresentando-se classicamente na USG como nódulo hiperecogênico e ao método com contraste como realce periférico globular com preenchimento centrípeto prolongado.",
+        "tags": [
+            "Hepatologia",
+            "Nódulos Hepáticos",
+            "Hemangioma"
+        ]
+    },
+    {
+        "id": "hepa-13",
+        "banca": "FGV",
+        "cargo": "Médico - Hepatologia",
+        "ano": "2024",
+        "enunciado": "Paciente masculino, 28 anos, apresenta fadiga profunda, artralgia e pigmentação cutânea difusamente escurecida. Exames de sangue apontam ferritina sérica de 1.500 ng/mL e saturação de transferrina de 75%. O teste genético confirma mutação C282Y em homozigose no gene HFE. O exame de imagem revela deposição anormal em ressonância magnética. O tratamento de primeira linha para indução desse agravo metabólico é:",
+        "alternativas": {
+            "a": "Uso contínuo de deferoxamina intravenosa para rápida quelação férrica.",
+            "b": "Flebocleise terapêutica, realizando sangrias semanais para atingir ferritina alvo em torno de 50 a 100 ng/mL.",
+            "c": "Prescrição imediata de inibidores da bomba de prótons para reduzir a captação intestinal de ferro.",
+            "d": "Uso de deferasirox oral associado a dieta extremante pobre em carne vermelha por 6 meses.",
+            "e": "Transplante autólogo de medula óssea para reversão da mutação do HFE associada ao acúmulo sistêmico."
+        },
+        "respostaCorreta": "b",
+        "justificativa": "A hemocromatose hereditária (mutação HFE C282Y) é primariamente tratada através de flebotomias terapêuticas seriadas para depletar os estoques excessivos de ferro corporais.",
+        "tags": [
+            "Hepatologia",
+            "Hemocromatose Hereditária",
+            "Metabolismo do Ferro"
+        ]
+    },
+    {
+        "id": "hepa-14",
+        "banca": "FGV",
+        "cargo": "Médico - Gastroenterologia/Hepatologia",
+        "ano": "2024",
+        "enunciado": "A respeito do gradiente de pressão venosa hepática (HVPG) na avaliação da hipertensão portal na cirrose, assinale a alternativa que traz a correspondência clínica correta relacionada a seus valores de mensuração:",
+        "alternativas": {
+            "a": "Valores < 5 mmHg diagnosticam varizes esofágicas de alto risco.",
+            "b": "Hipertensão portal clinicamente significativa (CSPH) é definida por um HVPG ≥ 10 mmHg, momento a partir do qual podem surgir varizes e ascite.",
+            "c": "O sangramento agudo por ruptura varicosa só ocorre se o HVPG ultrapassar os 20 mmHg de imediato.",
+            "d": "Valores entre 5 e 9 mmHg indicam hipertensão portal pré-hepática severa refratária.",
+            "e": "A redução do HVPG < 12 mmHg não protege contra a ressangramento nem apresenta impacto real de sobrevida."
+        },
+        "respostaCorreta": "b",
+        "justificativa": "HVPG normal é até 5. Acima disso é hipertensão portal. ≥ 10 mmHg define a Hipertensão Portal Clinicamente Significativa (HPCS), estando relacionada à formação de varizes esofágicas e ascite. Um HVPG de ≥ 12 mmHg está tipicamente associado ao sangramento.",
+        "tags": [
+            "Hepatologia",
+            "Cirrose Hepática",
+            "Hipertensão Portal"
+        ]
+    },
+    {
+        "id": "hepa-15",
+        "banca": "FGV",
+        "cargo": "Médico Clínico",
+        "ano": "2024",
+        "enunciado": "Paciente com diagnóstico de hepatite B crônica (HBsAg+, anti-HBe+, HBeAg-) procura o ambulatório com níveis de ALT persistentemente alterados (2 vezes o limite superior). O exame de carga viral (HBV-DNA) evidencia 34.000 UI/mL, e a elastografia hepática indica grau de fibrose F3. Visando interromper a progressão e suprimir a replicação viral com alto limiar genético de resistência, qual é a escolha terapêutica padrão para este cenário clínico?",
+        "alternativas": {
+            "a": "Lamivudina 100 mg ao dia.",
+            "b": "Interferon alfa peguilado (Peg-IFN) por curto período para cura garantida.",
+            "c": "Ribavirina associada a Sofosbuvir em esquema de 12 semanas.",
+            "d": "Entecavir 0,5 mg ou Tenofovir (TDF/TAF) por tempo indeterminado.",
+            "e": "Acompanhamento expectante, uma vez que o paciente é anti-HBe reagente (estado de portador inativo)."
+        },
+        "respostaCorreta": "d",
+        "justificativa": "Para pacentes HBeAg negativo, porém com carga viral ativa elevada (>2.000) e dano estrutural (ALT aumentada e fibrose avançada F3), é imperioso o tratamento antiviral com análogos de núcleo(t)sídeos com alta barreira genética de resistência, como o Tenofovir ou o Entecavir.",
+        "tags": [
+            "Hepatologia",
+            "Hepatites Virais",
+            "Hepatite B"
+        ]
+    },
+    {
+        "id": "hepa-16",
+        "banca": "FGV",
+        "cargo": "Médico - Hepatologia",
+        "ano": "2024",
+        "enunciado": "Em pacientes com diagnóstico de ascite cirrótica que são internados apresentando quadro de peritonite bacteriana espontânea (PBE), um importante alvo da terapêutica adjuvante sistêmica, além dos antimicrobianos (ex: cefotaxima), é reduzir as chances de insuficiência renal e síndrome hepatorrenal. Para tal, a conduta correta na admissão e no 3º dia inclui:",
+        "alternativas": {
+            "a": "Terapia de reposição de sódio agressiva e uso de furosemida endovenosa pesada.",
+            "b": "Administração de albumina intravenosa na dose de 1,5 g/kg no primeiro dia e 1,0 g/kg no terceiro dia associada a antibióticos.",
+            "c": "Infusão intravenosa lenta de solução salina isotônica e hidrocortisona empírica 100mg a cada 6h.",
+            "d": "Inibidores da ECA e espironolactona oral visando dilatação vascular renal em pacientes cirróticos graves.",
+            "e": "Punção de alívio diária de 2L até negativação do PMN do líquido ascítico sem repor albumina."
+        },
+        "respostaCorreta": "b",
+        "justificativa": "A infusão de albumina intravenosa em pacientes com PBE (1,5g/kg no dia 1 e 1g/kg no dia 3) previne a disfunção circulatória induzida pela vasodilatação acentuada, a piora renal (síndrome hepatorrenal) e reduz a mortalidade intrínseca da PBE.",
+        "tags": [
+            "Hepatologia",
+            "Cirrose Hepática",
+            "Peritonite Bacteriana Espontânea (PBE)"
+        ]
+    },
+    {
+        "id": "hepa-17",
+        "banca": "FGV",
+        "cargo": "Médico - Clínica Médica",
+        "ano": "2024",
+        "enunciado": "Mulher de 45 anos refere prurido intenso que piora no fim do dia, fadiga desproporcional limitante e xantelasmas periorbitais. Seus exames de sangue indicam fosfatase alcalina 3,5x o limite superior do normal (LDN) e GGT 4x LDN, com bilirrubinas normais. É testada para anticorpos específicos e o fator Antimitocôndria (AMA) vem em altos títulos. Baseado nestes achados, qual a suspeita clínica primária e o tratamento farmacológico de escolha?",
+        "alternativas": {
+            "a": "Hepatite Autoimune; Tratada com prednisolona e azatioprina.",
+            "b": "Colangite Esclerosante Primária; Tratada com balão de dilatação endoscópica via CPRH.",
+            "c": "Cálculo do colédoco com colangite aguda; Tratada com Cefepime e colecistectomia posterior.",
+            "d": "Colangite Biliar Primária; Tratada com Ácido ursodesoxicólico (UDCA).",
+            "e": "Doença Esteatótica do Fígado Associada à Disfunção Metabólica (MASLD); Tratada com perda de peso exclusiva."
+        },
+        "respostaCorreta": "d",
+        "justificativa": "O quadro de colestase (FA elevada, GGT elevado, prurido), especialmente com manifestação de dislipidemia (xantelasma) e presença forte do Anticorpo Antimitocôndria (AMA+), é diagnóstico de Colangite Biliar Primária, tradicionalmente tratada precocemente com o ácido ursodesoxicólico (UDCA).",
+        "tags": [
+            "Hepatologia",
+            "Colangiopatia Autoimune",
+            "Colangite Biliar Primária"
+        ]
+    },
+    {
+        "id": "hepa-18",
+        "banca": "FGV",
+        "cargo": "Médico - Diagnóstico por Imagem",
+        "ano": "2024",
+        "enunciado": "A hepatite alcoólica grave requer estratificação de risco precoce antes de determinar terapias imunosupressoras. Classicamente, a ferramenta estatística ou escore matemático utilizado para identificar mortalidade no quadro de hepatite alcoólica e justificar o uso de corticoide se > 32 é:",
+        "alternativas": {
+            "a": "Escore de Meld.",
+            "b": "Classificação de Child-Pugh.",
+            "c": "Índice de Função Discriminante de Maddrey.",
+            "d": "Critérios de Milão.",
+            "e": "Índice de Rockall."
+        },
+        "respostaCorreta": "c",
+        "justificativa": "O Índice Discriminante de Maddrey é a ferramenta clássica para aferir a gravidade de hepatite alcoólica aguda; valores maiores ou iguais a 32 representam doença grave, constituindo indicação típica de tratamento com corticosteroides (geralmente prednisolona por 28 dias).",
+        "tags": [
+            "Hepatologia",
+            "Hepatopatia Alcoólica",
+            "Critérios Prognósticos"
+        ]
+    },
+    {
+        "id": "hepa-19",
+        "banca": "FGV",
+        "cargo": "Médico - Hepatologia",
+        "ano": "2024",
+        "enunciado": "A Doença de Wilson é um distúrbio genético do metabolismo do cobre que pode resultar em acumulo tóxico deste metal nos tecidos corporais. Assinale a alternativa que traz exames fenotípicos classicamente associados a esse diagnóstico antes da cirrose clínica avançada.",
+        "alternativas": {
+            "a": "Kayser-Fleischer no exame da lâmpada de fenda oftálmica, aumento exacerbado de ceruloplasmina e diminuição da excreção de cobre na urina de 24h.",
+            "b": "Nódulos hepáticos precoces sem elevação de aminotransferases, anéis retinianos amarelos perilímbicos e baixa transferrina sérica.",
+            "c": "Baixos níveis de ceruloplasmina sérica, excreção marcadamente elevada de cobre urinário em 24h e presença de anéis de Kayser-Fleischer na córnea.",
+            "d": "Alta produção hepática de hepcidina bloqueando absorção de cobre duodenal somada a insuficiência renal e exoftalmia.",
+            "e": "Diagnóstico essencialmente por biópsia do fígado na fase fibrótica, com concentração nula de cobre tissular por defeito na absorção portal."
+        },
+        "respostaCorreta": "c",
+        "justificativa": "Na cirrose clássica ou apresentação precoce de Doença de Wilson, há deficiência no transporte do cobre para fora do fígado ou para ser associado à enzima carreadora ceruloplasmina. Consequentemente, observa-se ceruloplasmina sérica tipicamente baixa, o excesso de cobre se perde na urina (cobre urinário elevado) e acumula nos tecidos não-hepáticos (ex. Membrana de Descemet no olho: Kayser-Fleischer; Sistema Nervoso Central).",
+        "tags": [
+            "Hepatologia",
+            "Doença de Wilson",
+            "Distúrbios Genéticos"
+        ]
+    },
+    {
+        "id": "hepa-20",
+        "banca": "FGV",
+        "cargo": "Médico - Emergência",
+        "ano": "2024",
+        "enunciado": "Na abordagem inicial a um paciente cirrótico que dá entrada no setor de emergência apresentando intenso sangramento digestivo alto vivo, instabilidade hemodinâmica (PA 80x50 mmHg) e relato de melena há 2 dias. A sequência de tratamento farmacológico inicial OBRIGATÓRIA ANTES mesmo da endoscopia digestiva alta urgente para estabilizar e reduzir a pressão venosa do sistema porta é:",
+        "alternativas": {
+            "a": "Infusão contínua de omeprazol e prescrição de betabloqueador oral assim que o paciente recobrar a consciência.",
+            "b": "Ressuscitação volêmica rigorosa priorizando Ringer Lactato com alvo de Hb de 12 g/dL somado ao início imediato de drogas vasoativas (octreotide, somatostatina ou terlipressina) e profilaxia antimicrobiana (ex: ceftriaxone).",
+            "c": "Ressuscitação volêmica isolada, transfusão rápida de 3 UI concentrados de hemácias, profilaxia de trombose com heparina de baixo peso e aguardo de sala.",
+            "d": "Ressuscitação volêmica restritiva (alvo Hb 7-8 g/dL), prescrição de somatostatina (ou análogo) contínua e uso empírico de ceftriaxona endovenoso.",
+            "e": "Intubação imediata apenas para inserir balão de Sengstaken-Blakemore como medida primária, seguido de antibiótico."
+        },
+        "respostaCorreta": "d",
+        "justificativa": "Manejo da HDA varicosa: Ressuscitação restritiva (Hb alvo entre 7 e 8, excesso sangra mais); antibióticos profiláticos OBRIGATÓRIOS (ceftriaxona) devido alto risco de PBE pela translocação bacteriana e mortalidade; drogas vasoativas esplâncnicas sistêmicas antes da de terapia endoscópica (Terlipressina, Octreotide, Somatostatina).",
+        "tags": [
+            "Hepatologia",
+            "Cirrose Hepática",
+            "Hemorragia Digestiva Alta",
+            "Varizes Esofágicas"
+        ]
+    }
+]

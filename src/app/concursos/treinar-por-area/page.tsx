@@ -191,7 +191,7 @@ export default function TreinarAreaConcursosPage() {
         return (
             <div className="flex-1 flex flex-col items-center justify-center min-vh-50 py-32">
                 <Loader2 className="w-12 h-12 text-indigo-500 animate-spin" />
-                <p className="mt-4 text-[10px] font-black uppercase tracking-widest text-[#1A1033]">Carregando Matriz de Concursos...</p>
+                <p className="mt-4 text-[10px] font-black uppercase tracking-widest text-[#1A1033] dark:text-white">Carregando Matriz de Concursos...</p>
             </div>
         )
     }
@@ -200,7 +200,7 @@ export default function TreinarAreaConcursosPage() {
         return (
             <div className="flex-1 flex flex-col items-center justify-center min-vh-50 py-32">
                 <AlertCircle className="w-12 h-12 text-rose-500 mb-4" />
-                <h2 className="text-xl font-black italic uppercase text-[#1A1033]">Falha na Base de Concursos</h2>
+                <h2 className="text-xl font-black italic uppercase text-[#1A1033] dark:text-white">Falha na Base de Concursos</h2>
                 <button
                     onClick={() => window.location.reload()}
                     className="mt-6 px-8 py-4 bg-indigo-600 text-white rounded-[20px] font-black uppercase text-xs tracking-widest"
@@ -222,7 +222,7 @@ export default function TreinarAreaConcursosPage() {
                     <ArrowLeft className="w-5 h-5" />
                 </button>
                 <div>
-                    <h1 className="text-3xl md:text-4xl font-black italic uppercase tracking-tighter text-[#1A1033] flex items-center gap-3">
+                    <h1 className="text-3xl md:text-4xl font-black italic uppercase tracking-tighter text-[#1A1033] dark:text-white flex items-center gap-3">
                         <Target className="w-8 h-8 text-indigo-500" />
                         Treinar por Área (Concursos)
                     </h1>
@@ -291,7 +291,7 @@ export default function TreinarAreaConcursosPage() {
                                                     }}
                                                     className="w-full text-left p-4 hover:bg-slate-50 rounded-xl transition-colors mb-1"
                                                 >
-                                                    <div className="text-sm font-black text-[#1A1033] flex justify-between">
+                                                    <div className="text-sm font-black text-[#1A1033] dark:text-white flex justify-between">
                                                         <span>{item.name}</span>
                                                         <span className="text-[9px] bg-indigo-50 px-2 py-1 rounded text-indigo-500 uppercase">{item.level}</span>
                                                     </div>
@@ -312,7 +312,7 @@ export default function TreinarAreaConcursosPage() {
                             <div className="p-2.5 bg-indigo-50 text-indigo-500 rounded-xl">
                                 <Layers className="w-5 h-5" />
                             </div>
-                            <h2 className="text-sm font-black uppercase italic tracking-widest text-[#1A1033]">Navegação por Nível</h2>
+                            <h2 className="text-sm font-black uppercase italic tracking-widest text-[#1A1033] dark:text-white">Navegação por Nível</h2>
                         </div>
 
                         {levels.map((lvl, index) => (

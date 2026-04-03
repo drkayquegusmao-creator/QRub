@@ -171,7 +171,7 @@ export function ConcursoRevisaoDashboard() {
                             <Brain className="w-3 h-3" />
                             Engine de Aprendizado
                         </div>
-                        <h1 className="text-3xl md:text-5xl font-black italic uppercase tracking-tighter text-[#1A1033] leading-tight mb-2">
+                        <h1 className="text-3xl md:text-5xl font-black italic uppercase tracking-tighter text-[#1A1033] dark:text-white leading-tight mb-2">
                             Revisão <span className="text-indigo-600">Espaçada</span>
                         </h1>
                         <p className="text-slate-500 font-medium max-w-2xl text-sm md:text-base leading-relaxed">
@@ -273,11 +273,11 @@ export function ConcursoRevisaoDashboard() {
                                     <AlertCircle className="w-3 h-3" />
                                     Prioridade
                                 </div>
-                                <h2 className="text-3xl md:text-4xl font-black italic uppercase tracking-tighter text-[#1A1033] mb-2 leading-none">
+                                <h2 className="text-3xl md:text-4xl font-black italic uppercase tracking-tighter text-[#1A1033] dark:text-white mb-2 leading-none">
                                     {srsStats?.criticalTopic?.name ?? 'Direito Constitucional'} <span className="text-orange-500">em Risco</span>
                                 </h2>
                                 <p className="text-slate-500 font-medium text-sm md:text-base leading-relaxed">
-                                    A curva de esquecimento está acelerando em <span className="text-[#1A1033] font-bold">{srsStats?.criticalTopic?.subName ?? 'Controle de Constitucionalidade'}</span>. Retome a revisão agora.
+                                    A curva de esquecimento está acelerando em <span className="text-[#1A1033] dark:text-white font-bold">{srsStats?.criticalTopic?.subName ?? 'Controle de Constitucionalidade'}</span>. Retome a revisão agora.
                                 </p>
                             </div>
                             <button className="bg-orange-500 text-white px-10 py-5 rounded-2xl font-black uppercase text-xs tracking-widest hover:scale-105 active:scale-95 transition-all shadow-xl shadow-orange-500/10 flex items-center gap-3 shrink-0">
@@ -288,7 +288,7 @@ export function ConcursoRevisaoDashboard() {
                         {/* Search and Picker Section */}
                         <div className="pt-8 space-y-8">
                             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                                <h3 className="text-2xl font-black italic uppercase tracking-tighter text-[#1A1033] flex items-center gap-3 px-2">
+                                <h3 className="text-2xl font-black italic uppercase tracking-tighter text-[#1A1033] dark:text-white flex items-center gap-3 px-2">
                                     <Search className="w-6 h-6 text-indigo-600" /> Nivelar Novo Tópico
                                 </h3>
                                 <div className="relative group w-full md:w-80">
@@ -303,7 +303,7 @@ export function ConcursoRevisaoDashboard() {
                                 </div>
                             </div>
 
-                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-[#1A1033]">
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-[#1A1033] dark:text-white">
                                 {getAreas().map((area) => (
                                     <div key={area.id} className="space-y-4">
                                         <motion.button
@@ -322,7 +322,7 @@ export function ConcursoRevisaoDashboard() {
                                                     <Brain className="w-4 h-4" />
                                                 </div>
                                                 <div>
-                                                    <p className="font-black italic uppercase text-base text-[#1A1033] tracking-tighter leading-none mb-0.5">{area.name}</p>
+                                                    <p className="font-black italic uppercase text-base text-[#1A1033] dark:text-white tracking-tighter leading-none mb-0.5">{area.name}</p>
                                                     <p className="text-[9px] font-bold text-slate-400 uppercase tracking-widest">
                                                         {area.children?.length || 0} Disciplinas
                                                     </p>
@@ -390,7 +390,7 @@ export function ConcursoRevisaoDashboard() {
                                     <RotateCcw className="w-5 h-5" />
                                 </button>
                                 <div>
-                                    <h2 className="text-2xl font-black italic uppercase tracking-tighter text-[#1A1033] leading-none mb-1">
+                                    <h2 className="text-2xl font-black italic uppercase tracking-tighter text-[#1A1033] dark:text-white leading-none mb-1">
                                         Nivelamento Premium
                                     </h2>
                                     <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
@@ -419,7 +419,7 @@ export function ConcursoRevisaoDashboard() {
                                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-600 text-[10px] font-black uppercase tracking-widest">
                                         <Zap className="w-3 h-3" /> Questão em Foco
                                     </div>
-                                    <p className="text-xl md:text-2xl font-black italic text-[#1A1033] leading-relaxed tracking-tight">
+                                    <p className="text-xl md:text-2xl font-black italic text-[#1A1033] dark:text-white leading-relaxed tracking-tight">
                                         {sessionData.questions[sessionData.currentIndex].enunciado}
                                     </p>
                                 </div>
@@ -436,7 +436,7 @@ export function ConcursoRevisaoDashboard() {
                                             <div className="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center font-black italic text-slate-400 group-hover:bg-indigo-600 group-hover:text-white group-hover:border-indigo-600 transition-all shrink-0 shadow-sm">
                                                 {key}
                                             </div>
-                                            <span className="text-base md:text-lg font-bold text-slate-600 group-hover:text-[#1A1033] mt-1.5 leading-relaxed">
+                                            <span className="text-base md:text-lg font-bold text-slate-600 group-hover:text-[#1A1033] dark:text-white mt-1.5 leading-relaxed">
                                                 {value as string}
                                             </span>
                                         </motion.button>
@@ -459,7 +459,7 @@ export function ConcursoRevisaoDashboard() {
                             <div className="w-20 h-20 bg-emerald-100 text-emerald-600 rounded-[32px] flex items-center justify-center mx-auto mb-6 shadow-xl shadow-emerald-600/10">
                                 <CheckCircle2 className="w-10 h-10" />
                             </div>
-                            <h2 className="text-4xl md:text-6xl font-black italic uppercase tracking-tighter text-[#1A1033] leading-none">
+                            <h2 className="text-4xl md:text-6xl font-black italic uppercase tracking-tighter text-[#1A1033] dark:text-white leading-none">
                                 Diagnóstico <span className="text-emerald-500">Concluído</span>
                             </h2>
                             <p className="text-slate-400 font-bold uppercase tracking-widest text-xs">
@@ -483,11 +483,11 @@ export function ConcursoRevisaoDashboard() {
                                 <div className="flex items-center justify-between">
                                     <div>
                                         <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Questões</p>
-                                        <p className="text-2xl font-black italic text-[#1A1033]">{lastResult.total}</p>
+                                        <p className="text-2xl font-black italic text-[#1A1033] dark:text-white">{lastResult.total}</p>
                                     </div>
                                     <div className="text-right">
                                         <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Tempo Médio</p>
-                                        <p className="text-2xl font-black italic text-[#1A1033]">{Math.round(lastResult.avgTimeSeconds)}s</p>
+                                        <p className="text-2xl font-black italic text-[#1A1033] dark:text-white">{Math.round(lastResult.avgTimeSeconds)}s</p>
                                     </div>
                                 </div>
                                 <div className="space-y-3">
@@ -524,7 +524,7 @@ export function ConcursoRevisaoDashboard() {
                     >
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                             <ConcursoCard>
-                                <h3 className="text-lg font-black italic uppercase tracking-tighter text-[#1A1033] mb-6 flex items-center gap-2 px-2">
+                                <h3 className="text-lg font-black italic uppercase tracking-tighter text-[#1A1033] dark:text-white mb-6 flex items-center gap-2 px-2">
                                     <BarChart3 className="w-5 h-5 text-indigo-600" /> Retenção
                                 </h3>
                                 <div className="h-56 flex items-end justify-between gap-1.5 px-2">
@@ -547,14 +547,14 @@ export function ConcursoRevisaoDashboard() {
                             </ConcursoCard>
 
                             <ConcursoCard>
-                                <h3 className="text-lg font-black italic uppercase tracking-tighter text-[#1A1033] mb-6 flex items-center gap-2 px-2">
+                                <h3 className="text-lg font-black italic uppercase tracking-tighter text-[#1A1033] dark:text-white mb-6 flex items-center gap-2 px-2">
                                     <Shield className="w-5 h-5 text-indigo-600" /> Disciplinas
                                 </h3>
                                 <div className="space-y-6">
                                     {disciplines.length > 0 ? disciplines.map((item, i) => (
                                         <div key={i} className="space-y-2">
                                             <div className="flex justify-between items-center text-xs font-black uppercase tracking-widest">
-                                                <span className="text-[#1A1033]">{item.name}</span>
+                                                <span className="text-[#1A1033] dark:text-white">{item.name}</span>
                                                 <span className="text-slate-400">{item.score}%</span>
                                             </div>
                                             <div className="h-3 bg-slate-100 rounded-full overflow-hidden">
@@ -576,7 +576,7 @@ export function ConcursoRevisaoDashboard() {
 
                         {/* Consistency Heatmap Placeholder */}
                         <ConcursoCard className="p-10">
-                            <h3 className="text-xl font-black italic uppercase tracking-tighter text-[#1A1033] mb-8 flex items-center gap-3">
+                            <h3 className="text-xl font-black italic uppercase tracking-tighter text-[#1A1033] dark:text-white mb-8 flex items-center gap-3">
                                 <RotateCcw className="w-6 h-6 text-indigo-600" /> Histórico de Consistência
                             </h3>
                             <div className="flex flex-wrap gap-3">

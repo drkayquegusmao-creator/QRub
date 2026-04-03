@@ -36,7 +36,7 @@ export function SettingsModal({ isOpen, onClose }: SettingsModalProps) {
                         <Palette className="w-5 h-5" />
                     </div>
                     <div className="text-left">
-                        <h3 className="font-black italic uppercase text-sm text-[#1A1033]">Aparência</h3>
+                        <h3 className="font-black italic uppercase text-sm text-[#1A1033] dark:text-white">Aparência</h3>
                         <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Temas, fontes e visual</p>
                     </div>
                 </div>
@@ -88,7 +88,7 @@ export function SettingsModal({ isOpen, onClose }: SettingsModalProps) {
                 <h4 className="text-xs font-black uppercase tracking-widest text-primary">Preview do Texto</h4>
                 <div className="p-6 bg-white rounded-2xl border border-border shadow-sm">
                     <p
-                        className="text-lg leading-relaxed text-[#1A1033]"
+                        className="text-lg leading-relaxed text-[#1A1033] dark:text-white"
                         style={{
                             fontFamily: questionsFont === 'arial' ? 'Arial, sans-serif' :
                                 questionsFont === 'times' ? '"Times New Roman", serif' :
@@ -143,7 +143,7 @@ export function SettingsModal({ isOpen, onClose }: SettingsModalProps) {
                                     </button>
                                 )}
                                 <div>
-                                    <h2 className="text-2xl font-black italic tracking-tighter uppercase text-[#1A1033]">
+                                    <h2 className="text-2xl font-black italic tracking-tighter uppercase text-[#1A1033] dark:text-white">
                                         {view === 'MENU' ? 'Ajustes' : 'Aparência'}
                                     </h2>
                                     <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest leading-none mt-1">
@@ -177,7 +177,7 @@ function FontOption({ label, font, active, onClick, preview, previewClass, previ
                 }`}
         >
             <div className="flex items-center justify-between">
-                <span className={`text-xs font-black uppercase tracking-tight ${active ? 'text-primary' : 'text-[#1A1033]'}`}>
+                <span className={`text-xs font-black uppercase tracking-tight ${active ? 'text-primary' : 'text-[#1A1033] dark:text-white'}`}>
                     {label}
                 </span>
                 {active && (

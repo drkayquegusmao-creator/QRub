@@ -74,7 +74,7 @@ export function CalendarView({ eventos, onSelectDate, onEventClick, onClose }: C
             <div className="bg-white rounded-[40px] border-2 border-slate-100 p-4 md:p-8 soft-shadow relative overflow-hidden">
                 {/* Background Decoration */}
                 <div className="absolute top-0 right-0 p-20 opacity-[0.02] pointer-events-none">
-                    <CalendarIcon className="w-64 h-64 text-[#1A1033]" />
+                    <CalendarIcon className="w-64 h-64 text-[#1A1033] dark:text-white" />
                 </div>
 
                 {/* Header */}
@@ -84,7 +84,7 @@ export function CalendarView({ eventos, onSelectDate, onEventClick, onClose }: C
                             <CalendarIcon className="w-3 h-3" />
                             Visão Tática
                         </div>
-                        <h3 className="text-2xl font-black italic uppercase tracking-tighter text-[#1A1033]">
+                        <h3 className="text-2xl font-black italic uppercase tracking-tighter text-[#1A1033] dark:text-white">
                             Calendário
                         </h3>
                     </div>
@@ -104,7 +104,7 @@ export function CalendarView({ eventos, onSelectDate, onEventClick, onClose }: C
                             <button onClick={prevMonth} className="p-3 hover:bg-white hover:shadow-sm rounded-xl transition-all text-slate-400 hover:text-primary">
                                 <ChevronLeft className="w-5 h-5" />
                             </button>
-                            <span className="w-32 text-center text-sm font-bold text-[#1A1033] uppercase tracking-wide">
+                            <span className="w-32 text-center text-sm font-bold text-[#1A1033] dark:text-white uppercase tracking-wide">
                                 {currentDate.toLocaleDateString('pt-BR', { month: 'long', year: 'numeric' })}
                             </span>
                             <button onClick={nextMonth} className="p-3 hover:bg-white hover:shadow-sm rounded-xl transition-all text-slate-400 hover:text-primary">
@@ -149,12 +149,12 @@ export function CalendarView({ eventos, onSelectDate, onEventClick, onClose }: C
                                 className={`
                                     aspect-square rounded-xl md:rounded-2xl flex flex-col items-center justify-center relative transition-all border
                                     ${isCurrentDay
-                                        ? 'bg-white text-[#1A1033] border-primary/30 shadow-sm ring-1 ring-primary/10'
+                                        ? 'bg-white text-[#1A1033] dark:text-white border-primary/30 shadow-sm ring-1 ring-primary/10'
                                         : 'bg-slate-50 text-slate-400 border-slate-50 hover:border-primary/20 hover:bg-white'
                                     }
                                 `}
                             >
-                                <span className={`text-sm md:text-lg font-black ${isCurrentDay ? 'text-[#1A1033]' : 'text-slate-500'}`}>
+                                <span className={`text-sm md:text-lg font-black ${isCurrentDay ? 'text-[#1A1033] dark:text-white' : 'text-slate-500'}`}>
                                     {day}
                                 </span>
 
@@ -218,18 +218,18 @@ export function CalendarView({ eventos, onSelectDate, onEventClick, onClose }: C
                                     <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
                                         <CalendarIcon className="w-5 h-5 text-primary" />
                                     </div>
-                                    <h4 className="text-xl font-black italic uppercase tracking-tighter text-[#1A1033]">
+                                    <h4 className="text-xl font-black italic uppercase tracking-tighter text-[#1A1033] dark:text-white">
                                         Calendário
                                     </h4>
                                 </div>
 
                                 <div className="space-y-4 text-sm text-slate-600 leading-relaxed">
                                     <p className="font-medium">
-                                        <strong className="text-[#1A1033] font-bold">Para que serve:</strong> O calendário organiza visualmente todas as suas revisões programadas e sessões de recuperação ao longo do mês.
+                                        <strong className="text-[#1A1033] dark:text-white font-bold">Para que serve:</strong> O calendário organiza visualmente todas as suas revisões programadas e sessões de recuperação ao longo do mês.
                                     </p>
 
                                     <p className="font-medium">
-                                        <strong className="text-[#1A1033] font-bold">Como funciona:</strong>
+                                        <strong className="text-[#1A1033] dark:text-white font-bold">Como funciona:</strong>
                                     </p>
 
                                     <ul className="space-y-2 ml-4">
@@ -290,7 +290,7 @@ export function CalendarView({ eventos, onSelectDate, onEventClick, onClose }: C
                             </button>
 
                             <div className="text-center mb-6 pt-2">
-                                <h4 className="text-lg font-black italic uppercase tracking-tighter text-[#1A1033] mb-1">
+                                <h4 className="text-lg font-black italic uppercase tracking-tighter text-[#1A1033] dark:text-white mb-1">
                                     {formatDateSafely(selectedDate).long}
                                 </h4>
                                 <p className="text-xs font-bold text-slate-400 uppercase tracking-widest">
@@ -328,7 +328,7 @@ export function CalendarView({ eventos, onSelectDate, onEventClick, onClose }: C
                                                         </span>
                                                     )}
                                                 </div>
-                                                <p className="text-sm font-bold text-[#1A1033] leading-tight line-clamp-2">
+                                                <p className="text-sm font-bold text-[#1A1033] dark:text-white leading-tight line-clamp-2">
                                                     {evt.assunto}
                                                 </p>
                                                 {evt.status === 'ATRASADA' && (

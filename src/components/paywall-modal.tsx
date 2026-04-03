@@ -13,13 +13,13 @@ import { CheckoutModal } from '@/components/checkout-modal'
 interface PaywallModalProps {
     isOpen: boolean
     onClose: () => void
-    reason: 'limit' | 'filter' | 'feature'
-    requiredPlan: PlanLevel
+    reason: 'limit' | 'filter' | 'feature' | 'product'
+    product: 'qrub_concurso' | 'qrub_saude'
 }
 
 type CheckoutStep = 'OFFER' | 'PAYMENT' | 'SUCCESS'
 
-export function PaywallModal({ isOpen, onClose, reason, requiredPlan }: PaywallModalProps) {
+export function PaywallModal({ isOpen, onClose, reason, product }: PaywallModalProps) {
     const { user } = useAuth()
     const { prices, pix } = useSettings()
     const { addSale } = useSales()
@@ -29,7 +29,8 @@ export function PaywallModal({ isOpen, onClose, reason, requiredPlan }: PaywallM
     const [proofFile, setProofFile] = useState<File | null>(null)
     const [isCheckoutOpen, setIsCheckoutOpen] = useState(false)
 
-    const planPrice = requiredPlan === 'INSANO' ? prices.insano : prices.premium
+    const planPrice = 24.99
+    const requiredPlan = 'insano'
 
     // Reset state when opening
     if (!isOpen && step !== 'OFFER') setStep('OFFER')
@@ -58,13 +59,13 @@ export function PaywallModal({ isOpen, onClose, reason, requiredPlan }: PaywallM
 
     const handleOpenCheckout = () => {
         setIsCheckoutOpen(true)
-        onClose() // Fechar o paywall modal
     }
 
     const messages = {
-        limit: "Você atingiu o limite de 20 questões diárias do Plano Free.",
-        filter: "Filtros avançados (Assunto/Subespecialidade) são exclusivos para assinantes.",
-        feature: "Esta funcionalidade de IA é exclusiva para o Plano Insano."
+        limit: "Você atingiu o limite de 15 questões diárias do Plano Freemium.",
+        filter: "Filtros avançados e especializados são exclusivos para o Plano Insano.",
+        feature: "Esse recurso é exclusivo do Plano Insano. Desbloqueie acesso ilimitado, mentor IA e revisão inteligente.",
+        product: "Você precisa assinar este produto separadamente para ter acesso ilimitado."
     }
 
     return (
@@ -85,7 +86,7 @@ export function PaywallModal({ isOpen, onClose, reason, requiredPlan }: PaywallM
                                 transition={{ duration: 5, repeat: Infinity }}
                                 className="bg-white/20 p-4 rounded-[24px] backdrop-blur-md relative z-10"
                             >
-                                {requiredPlan === 'INSANO' ? <Crown className="w-8 h-8 text-white" /> : <Star className="w-8 h-8 text-white" />}
+                                {<Crown className="w-8 h-8 text-white" />}
                             </motion.div>
                             <button onClick={onClose} className="absolute top-4 right-4 p-2 rounded-full bg-white/10 text-white hover:bg-white/20 z-20">
                                 <X className="w-5 h-5" />
@@ -101,7 +102,7 @@ export function PaywallModal({ isOpen, onClose, reason, requiredPlan }: PaywallM
                                             Acesso Restrito
                                         </div>
                                         <h2 className="text-2xl font-black italic tracking-tighter uppercase leading-none">
-                                            Plano {requiredPlan}
+                                            QUERO SER INSANO
                                         </h2>
                                         <p className="text-muted-foreground font-medium text-sm leading-relaxed px-2">
                                             {messages[reason]}
@@ -111,56 +112,26 @@ export function PaywallModal({ isOpen, onClose, reason, requiredPlan }: PaywallM
                                     <div className="bg-primary/5 rounded-3xl p-6 text-center border border-primary/10 space-y-2">
                                         <span className="text-xs font-bold text-muted-foreground uppercase tracking-widest">Investimento</span>
                                         <div className="text-4xl font-black text-primary tracking-tighter">
-                                            R$ {planPrice.toFixed(2).replace('.', ',')}
+                                            R$ 24,99
                                         </div>
-                                        <span className="text-[10px] font-bold text-muted-foreground/60 uppercase tracking-widest">Acesso Vitalício</span>
+                                        <span className="text-[10px] font-bold text-muted-foreground/60 uppercase tracking-widest">Plano Mensal • Renovação Automática</span>
                                     </div>
 
                                     <div className="grid grid-cols-1 gap-2 text-left bg-muted/30 p-4 rounded-2xl">
-                                        {requiredPlan === 'INSANO' ? (
-                                            <>
-                                                <FeatureItem text="Mentor IA Explica QRub" />
-                                                <FeatureItem text="SRS: Caderno de Erros Inteligente" />
-                                                <FeatureItem text="Agenda Adaptativa do Cérebro" />
-                                            </>
-                                        ) : (
-                                            <>
-                                                <FeatureItem text="Questões Ilimitadas 24h" />
-                                                <FeatureItem text="Todos os Filtros Liberados" />
-                                                <FeatureItem text="Modo Simulado & Estatísticas" />
-                                            </>
-                                        )}
+                                        <FeatureItem text="Questões Ilimitadas" />
+                                        <FeatureItem text="Mentor IA (Dr. Qrub)" />
+                                        <FeatureItem text="Revisão Espaçada e Inteligente" />
+                                        <FeatureItem text="Caderno de Erros Automático" />
                                     </div>
 
 
                                     <button
                                         onClick={handleOpenCheckout}
-                                        className="w-full royal-gradient text-white py-4 rounded-2xl font-black text-lg flex items-center justify-center gap-3 soft-shadow hover:scale-[1.02] active:scale-95 transition-all group"
+                                        className="w-full royal-gradient text-white py-4 rounded-2xl font-black text-lg flex items-center justify-center gap-3 soft-shadow hover:scale-[1.02] active:scale-95 transition-all group shadow-xl shadow-primary/20"
                                     >
-                                        ASSINAR AGORA
+                                        QUERO SER INSANO
                                         <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                                     </button>
-
-                                    {/* Bypass Key Section */}
-                                    <div className="pt-4 border-t border-border/10">
-                                        <input
-                                            type="text"
-                                            placeholder="Possui um código de acesso?"
-                                            className="w-full bg-muted/30 border border-border/50 rounded-xl px-4 py-2 text-[10px] font-bold uppercase tracking-widest text-center focus:ring-1 focus:ring-primary/20 outline-none transition-all placeholder:opacity-50"
-                                            onChange={async (e) => {
-                                                if (e.target.value === 'DRQRUB-FREE') {
-                                                    const { useAuth } = await import('@/store/use-auth')
-                                                    const auth = useAuth.getState()
-                                                    if (auth.user) {
-                                                        await auth.updateUserPlan('INSANO')
-                                                        alert('🚀 CÓDIGO ACEITO! Plano INSANO liberado com sucesso.')
-                                                        onClose()
-                                                        window.location.reload()
-                                                    }
-                                                }
-                                            }}
-                                        />
-                                    </div>
                                 </div>
                             )}
 
@@ -245,7 +216,8 @@ export function PaywallModal({ isOpen, onClose, reason, requiredPlan }: PaywallM
                     <CheckoutModal
                         isOpen={isCheckoutOpen}
                         onClose={() => setIsCheckoutOpen(false)}
-                        plan={requiredPlan as 'PREMIUM' | 'INSANO'}
+                        plan="insano"
+                        product={product}
                     />
                 </div>
             )}

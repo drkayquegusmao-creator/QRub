@@ -50,11 +50,11 @@ export function QuestionPreviewModal({ isOpen, onClose, question }: QuestionPrev
                                     <FileText className="w-3.5 h-3.5" /> Enunciado
                                 </label>
                                 <div className="p-6 bg-muted/30 border border-border rounded-2xl">
-                                    <QuestionText className="font-medium text-lg text-[#1A1033] leading-relaxed">
+                                    <QuestionText className="font-medium text-lg text-[#1A1033] dark:text-white leading-relaxed">
                                         {question.enunciado}
                                     </QuestionText>
                                     {(question as any).comando && (
-                                        <QuestionText className="mt-4 font-bold text-[#1A1033]">
+                                        <QuestionText className="mt-4 font-bold text-[#1A1033] dark:text-white">
                                             {(question as any).comando}
                                         </QuestionText>
                                     )}

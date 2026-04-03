@@ -116,7 +116,7 @@ function AdminLayoutContent({ children }: { children: React.ReactNode }) {
                 <div className="max-w-7xl mx-auto">
                     <div className="flex items-center justify-between mb-12">
                         <div>
-                            <h1 className="text-3xl md:text-5xl font-black mb-2 text-[#1A1033] italic uppercase tracking-tighter leadning-none">Painel de Controle</h1>
+                            <h1 className="text-3xl md:text-5xl font-black mb-2 text-[#1A1033] dark:text-white italic uppercase tracking-tighter leadning-none">Painel de Controle</h1>
                             <p className="text-slate-400 flex items-center gap-2 text-xs font-black uppercase tracking-widest">
                                 <Shield className="w-4 h-4 text-primary" />
                                 Master: {user?.name} | Ambiente Saúde

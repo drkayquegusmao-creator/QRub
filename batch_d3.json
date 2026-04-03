@@ -1,0 +1,213 @@
+[
+    {
+        "id": "hepa-21",
+        "banca": "FGV",
+        "cargo": "Médico - Hepatologia",
+        "ano": "2024",
+        "enunciado": "Um paciente de 58 anos, portador de cirrose hepática por MASH (Metabolic dysfunction-associated steatohepatitis) e Child-Pugh B, realiza sua ultrassonografia semestral de rastreamento. O radiologista descreve a presença de um nódulo sólido no segmento VIII de 2,5 cm. A tomografia computadorizada (TC) trifásica de abdome é solicitada para caracterização. O padrão clássico tomográfico que confirma Carcinoma Hepatocelular (CHC) LIRADS-5 sem necessidade de biópsia é:",
+        "alternativas": {
+            "a": "Nódulo de realce progressivo, isoatenuante na fase venosa portal e isodenso no tardio.",
+            "b": "Hiper-realce na fase arterial e clareamento (washout) do contraste nas fases venosa portal e/ou tardia, frequentemente acompanhado por realce da cápsula do tumor.",
+            "c": "Nódulo com aspecto em 'alvo', com anel periférico que sofre realce centrípeto tardiamente, indicativo de colangiocarcinoma associado.",
+            "d": "Padrão de cicatriz central hiperdensa no tardio associada a hiper-realce arterial difuso, clássico de CHC fibrilamelar em idosos.",
+            "e": "Nódulo intensamente hipodenso em todas as fases sem qualquer realce, sugerindo necrose do parênquima em tecido cirrótico inflamatório."
+        },
+        "respostaCorreta": "b",
+        "justificativa": "O padrão típico para diagnóstico tomográfico definitivo de CHC em fígado cirrótico é marcado pelo hiper-realce na fase arterial primária e o clareamento (washout) rápido nas fases venosa e tardia, característico da neovascularização arterial aberrante da lesão que substitui o fluxo venoso portal fisiológico.",
+        "tags": [
+            "Hepatologia",
+            "Nódulos Hepáticos",
+            "Carcinoma Hepatocelular"
+        ]
+    },
+    {
+        "id": "hepa-22",
+        "banca": "FGV",
+        "cargo": "Médico - Gastroenterologia/Hepatologia",
+        "ano": "2024",
+        "enunciado": "A hepatite autoimune (HAI) é uma síndrome de evolução heterogênea que pode ameaçar a função do órgão e requer terapia imunossupressora contínua na maioria dos casos. No que se refere ao perfil de autoanticorpos clássicos e a classificação clínica, assinale a correlação verdadeira relacionada aos subtipos da doença:",
+        "alternativas": {
+            "a": "A HAI Tipo 1 manifesta-se essencialmente em crianças (antes dos 10 anos) e cursa com a presença mandatório do anticorpo anti-LKM1 (Microssomal Fígado-Rim).",
+            "b": "A HAI Tipo 2 é caracterizada pela maior associação com hepatite C e positividade exclusiva do fator antinuclear (FAN) no teste de imunofluorescência.",
+            "c": "A HAI Tipo 1 responde pela grande maioria dos casos em adultos e é frequentemente associada à positividade para o Fator Antinuclear (FAN) e Anticorpo Antimúsculo Liso (SMA/AML).",
+            "d": "A presença forte de anticorpo antimitocôndria (AMA) define a HAI Tipo 3, de evolução fulminante.",
+            "e": "Na HAI Tipo 2, os anticorpos Antissolúvel Hepático (Anti-SLA) tornam a doença benigna autolimitada e o padrão de transaminases cai drasticamente sem introdução de glicocorticoides."
+        },
+        "respostaCorreta": "c",
+        "justificativa": "Hepatite Autoimune Tipo 1 (clássica e muito mais comum na clínica médica diária do adulto) caracteriza-se por positividade para FAN (Fator Antinuclear) e/ou Anticorpo Antimúsculo Liso (AML/SMA). O tipo 2 liga-se intimamente à infância/adolescência e ao anti-LKM1 e/ou anti-LC1.",
+        "tags": [
+            "Hepatologia",
+            "Hepatites Subagudas e Crônicas",
+            "Hepatite Autoimune"
+        ]
+    },
+    {
+        "id": "hepa-23",
+        "banca": "FGV",
+        "cargo": "Médico - Atenção Primária/Especialista",
+        "ano": "2024",
+        "enunciado": "Paciente masculino, 32 anos, é atendido referindo icterícia, mal-estar intensamente obnubilante, artralgias e rash cutâneo por 4 dias. Sorologias revelam HBsAg (+), Anti-HBc IgM (+) e HBeAg (+). Sem histórico de vacinação, mas nega etilismo ou uso de drogas intravenosas. Diante do quadro agudo evidente de hepatite B, indique qual das condutas terapêuticas a seguir é considerada a melhor recomendação diretiva atual:",
+        "alternativas": {
+            "a": "O paciente deve iniciar imediatamente o uso contínuo de Tenofovir, visando suprimir a replicação viral antes de complicação hepática estrutural de rápida progressão.",
+            "b": "Recomenda-se acompanhamento puramente expectante, controle clínico e sintomático, pois acima de 90% das infecções agudas pelo HBV em adultos imunocompetentes evoluem para eliminação do vírus e cura.",
+            "c": "Transplante hepático deve ser triado visto que a hepatite B aguda sintomática em homem adulto indica falência renal contígua em 60% dos casos.",
+            "d": "O uso de corticoide associado à Ribavirina demonstrou abreviar a janela imunológica sorológica nesse cenário.",
+            "e": "No paciente adulto cursando com infecção sintomática, a lamivudina por 7 dias esteriliza a viremia com segurança hepatológica e alta taxa de soroconversão ao anti-HBs."
+        },
+        "respostaCorreta": "b",
+        "justificativa": "Hepatite B aguda em adultos imunocompetentes apresenta elevadíssimas taxas de cura/clearence espontâneo (aproximadamente 95%). Desse modo, o tratamento com antivirais geralmente não é indicado na fase aguda descomplicada, reservando-se para raros quadros fulminantes (Insuficiência Hepática Aguda Grave), infecção subaguda que progride mal ou grupos imunossuprimidos.",
+        "tags": [
+            "Hepatologia",
+            "Hepatites Virais",
+            "Hepatite B Aguda"
+        ]
+    },
+    {
+        "id": "hepa-24",
+        "banca": "FGV",
+        "cargo": "Médico - Hepatologia",
+        "ano": "2024",
+        "enunciado": "Sobre a classificação de Child-Turcotte-Pugh, um marco histórico e aplicável na estratificação cirrótica e indicação de riscos cirúrgicos e transplantes. Seus 5 componentes matemáticos aferidos para cômputo da pontuação que determina a gravidade em classes (A, B e C) reúnem obrigatoriamente as medidas de:",
+        "alternativas": {
+            "a": "Creatinina, INR (ou Tempo de Protrombina), Bilirrubinas, Grau de Sódio Sérico e Ascite clinica.",
+            "b": "Albumina, Bilirrubinas totais, INR (Tempo de Protrombina), Grau de Encefalopatia Hepática e Ascite.",
+            "c": "Níveis de Transaminases (AST/ALT), Bilirrubinas, Sódio Sérico, GGT e grau de Ascite.",
+            "d": "Grau de Fibrose Elastográfica (F1 a F4), Bilirrubina, Creatinina, Encefalopatia e Plaquetas.",
+            "e": "Ascite, Encefalopatia Hepática, INR, Plaquetopenia severa e Alfafetoproteína."
+        },
+        "respostaCorreta": "b",
+        "justificativa": "A classificação clínica de Child-Pugh avalia 5 critérios, dois clínicos (presença de ascite e presença/grau de encefalopatia hepática) e três laboratoriais (Bilirrubina total, Albumina sérica e TAP/INR/Atividade de Protrombina). Cuidado para não confundir com índice MELD (Bilirrubina, INR, Creatinina e modernamente o Sódio).",
+        "tags": [
+            "Hepatologia",
+            "Cirrose Hepática",
+            "Critérios Prognósticos"
+        ]
+    },
+    {
+        "id": "hepa-25",
+        "banca": "FGV",
+        "cargo": "Médico do Trabalho/Hepatologia",
+        "ano": "2024",
+        "enunciado": "O Acidente Perfurocortante biológico associando risco de hepatites virais é uma urgência ocupacional no ambiente de saúde. Um residente de cirurgia sofre uma perfuração profunda com agulha suturada oriunda de paciente hígido mas nunca testado para vírus hepatotrópicos. O residente documenta o seu anti-HBs recente reagente (Título > 100 mUI/mL). Dadas as alternativas relacionadas ao protocolo do Ministério da Saúde quanto à exposição ao vírus da Hepatite B, a conduta imperativa profilática para o cirurgião exposto é:",
+        "alternativas": {
+            "a": "Administrar 1 dose de vacina recombinante do HBV e aguardar sorologia rápida do paciente fonte.",
+            "b": "Administrar Imunoglobulina Humana Anti-Hepatite B (IGHAHB) imediatamente em combinação com a primeira dose de vacina do HBV.",
+            "c": "Não há indicação de imunoglobulina nem de vacina nesse momento, pois ele é considerado imune (anticorpos maduros e documentados).",
+            "d": "Administrar profilaxia pós-exposição com medicamento retroviral (Tenofovir Lamivudina) por 28 dias pois o título protetor é muito limítrofe.",
+            "e": "Isolamento da rotina cirúrgica do residente por quatro semanas e dosagem diária de AST e ALT."
+        },
+        "respostaCorreta": "c",
+        "justificativa": "Profissional de saúde, ou indivíduo em geral, que detém comprovação sorológica de vacinação anterior via marcador anti-HBs isolado reagente com níveis considerados protetores (geralmente acima de 10 mUI/mL), encontra-se imune ao HBV. Como tem >100 mUI/mL, não há necessidade de adotar reforço vacinal terapêutico nem uso de IGHAB (imunoglobulina) pós-acidente.",
+        "tags": [
+            "Hepatologia",
+            "Hepatites Virais",
+            "Medicina do Trabalho"
+        ]
+    },
+    {
+        "id": "hepa-26",
+        "banca": "FGV",
+        "cargo": "Médico - Hepatologia",
+        "ano": "2024",
+        "enunciado": "A Síndrome Hepatorrenal (SHR) aguda, ou também classicamente descrita como lesão renal aguda relacionada à cirrose avançada, caracteriza-se por vasoconstrição renal extrema induzida por uma brutal vasodilatação esplâncnica subjacente. A abordagem diagnóstica e primeira terapêutica farmacológica que tenta reverter a patogênese base antes do transplante costuma incluir:",
+        "alternativas": {
+            "a": "Hemodiálise imediata, restrição hídrica não-superior a 500 mL/dia e administração de diuréticos de forte alça da família da bumetanida.",
+            "b": "Uso de reposição volêmica cristalóide por 2 dias repetitivos aliada ao uso de nitratos e alfa bloqueadores visando reverter a isquemia cortical renal.",
+            "c": "Reposição de albumina associada a um potente vasoconstritor esplâncnico (como Terlipressina) contínuos após falha terapêutica do desafio hídrico.",
+            "d": "Transplante renal isolado primário assim que confirmado um aumento abrupto de uréia e creatinina que não retrocede ao uso de antibióticos profiláticos.",
+            "e": "Aumento vigoroso das doses da espironolactona que vinham sendo utilizadas na fase tardia associado a punções ascíticas sem reposição oncótica protetora."
+        },
+        "respostaCorreta": "c",
+        "justificativa": "O quadro de manifestações da SHR é precipitado pela vasodilatação disfuncional do fluxo sanguíneo nos órgãos portais induzida pela hipertensão estrutural, que rouba todo o volume perfusional, simulando 'choque' ao rim (rim normal mas ávido pelo volume periférico mal distribuído). O tratamento ouro é vaso-espremer os vasos esplâncnicos peritoniais (com terlipressina/noradrenalina) e repor sangue no sistema arterial circulante com colóides restritos que expandem vigorosamente a volemia com longo tempo de meia vida (Álbumina Humana), visando quebrar o ciclo reflexo simpático para os rins.",
+        "tags": [
+            "Hepatologia",
+            "Cirrose Hepática",
+            "Síndrome Hepatorrenal"
+        ]
+    },
+    {
+        "id": "hepa-27",
+        "banca": "FGV",
+        "cargo": "Médico - Endocrinologia e Hepatologia",
+        "ano": "2024",
+        "enunciado": "Na abordagem da Doença Hepática Esteatótica Associada à Disfunção Metabólica (MASLD/MASH), as alterações focais do diagnóstico buscam rastrear fibrose progressiva que impacta prognósticos de maneira muito superior ao simples acúmulo de lipídeos sem fibrose avançada. Dentre os parâmetros não-invasivos que se prestam em conjunto como escore de rastreamento de fibrose em atenção ambulatorial temos principalmente dois populares combinados nas plataformas clínicas chamados:",
+        "alternativas": {
+            "a": "NAFLD Fibrosis Score (NFS) e o índice FIB-4.",
+            "b": "Equação CKD-EPI e Clearance de Inulina.",
+            "c": "Escore de Rockall Clínico e Escore de Balthazar.",
+            "d": "Classificação LIRADS e Índice Discriminante de Maddrey.",
+            "e": "Fração excretória de Sódio e Biópsia Intramuscular profunda."
+        },
+        "respostaCorreta": "a",
+        "justificativa": "Para avaliação e triagem ágil na primeira etapa do rastreamento de fibrose hepática nos pacientes com doença esteatótica diagnosticada usa-se tradicionalmente calculadoras séricas. O FIB-4 (calcula idade, AST, ALT e Plaquetas) e o NAFLD Fibrosis Score (NFS) que adicina IMC, glicose, albumina são clássicos.",
+        "tags": [
+            "Hepatologia",
+            "Doença Hepática Esteatótica Metabólica",
+            "Fibrose Hepática Não Invasiva"
+        ]
+    },
+    {
+        "id": "hepa-28",
+        "banca": "FGV",
+        "cargo": "Médico - Terapia Intensiva",
+        "ano": "2024",
+        "enunciado": "Indivíduo jovem, 22 anos, ingeriu dose intencional de 35 gramas de paracetamol há 6 horas e dá entrada na Unidade de Emergência referindo náuseas profundas e dor abdominal. Os exames de entrada revelam disfunção inicial com AST subindo para >1.000, ALT de >1.000 e alteração prolongada da coagulação. Tratando-se de tentativa aguda e diagnóstico claro de hepatite tóxica, a conduta antidotal e farmacológica de escolha com efeito repletor sobre o principal mecanismo hepático de desintoxicação glutationa é:",
+        "alternativas": {
+            "a": "Flumazenil intravenoso.",
+            "b": "N-acetilcisteína (NAC) preferencialmente intravenosa, sob infusão restrita aos protocolos escalonados de 20-21h.",
+            "c": "Ácido Ursodesoxicólico isolado a 15 mg/kg por dia.",
+            "d": "Naloxona, lavagem gástrica pesada tardia associado inativação de antídotos.",
+            "e": "Glicose a 50% de resgate e carvão ativado endovenoso."
+        },
+        "respostaCorreta": "b",
+        "justificativa": "A NAC atua fundamentalmente como um doador fisiológico do enxofre substituto (ou um percussor fundamental para a reposição de estoques protetores de glutationa nativa) no fígado. Diante do principal metabólito tóxico letal NAPQI resultante da ingestão abusiva de paracetamol que destrói perigosamente o hepatócito, utiliza-se a N-Acetilcisteína com enorme eficácia, notadamente se administrada idealmente em tempo curto (< 8 a 10 h do evento).",
+        "tags": [
+            "Hepatologia",
+            "Insuficiência Hepática Aguda Grave",
+            "Hepatotoxicidade"
+        ]
+    },
+    {
+        "id": "hepa-29",
+        "banca": "FGV",
+        "cargo": "Médico - Hepatologia",
+        "ano": "2024",
+        "enunciado": "A respeito do hepatocarcinoma em pacientes em acompanhamento primário crônico, sem sinais vitais críticos e restritos nas classes profiláticas, a indicação global para rastreamento padronizado contínuo (screening semestral) desse tumor primário clássico fundamenta-se basicamente através de:",
+        "alternativas": {
+            "a": "Avaliação combinada estrita baseada nas enzimas pancreáticas e colonoscopia a cada 6 meses, considerando risco oncológico universal em fígados esteatóticos.",
+            "b": "Monitoramento a cada três anos da Ressonância Magnética cerebral para detecção de sítios neoplásicos secundários advindos de todo CHC indolor inicial.",
+            "c": "Solicitação obrigatória de Tomografia Computadorizada (TC) de triplo contraste mensal, até descarte do risco em todo e qualquer cirrótico F4.",
+            "d": "Ultrassonografia (USG) abdominal simples realizada a cada 6 meses, com base na alta incidência estatística de seu surgimento na esteira de fatores agressivos promotores de cirrose ou hepatite B endêmica, podendo associar simultaneamente com a avaliação da Alfafetoproteína (AFP).",
+            "e": "Marcadores endoscópicos a cada 6 anos devido ao tempo de incubação do estroma cancerígeno no epitélio terminal cirrótico."
+        },
+        "respostaCorreta": "d",
+        "justificativa": "O rastreamento preconizado universalmente (pelas grandes chancelas e diretrizes mundiais - AASLD, EASL) consiste inteiramente em um exame ultrassonográfico abdominal por um bom observador de imagem ao menos a cada 6 meses com ou sem suporte bioquímico com alfafetoproteína.",
+        "tags": [
+            "Hepatologia",
+            "Nódulos Hepáticos",
+            "Carcinoma Hepatocelular"
+        ]
+    },
+    {
+        "id": "hepa-30",
+        "banca": "FGV",
+        "cargo": "Médico Clínico Geral",
+        "ano": "2024",
+        "enunciado": "A fisiopatologia da Síndrome Hepato-Pulmonar (SHP) em portadores de cirrose engloba uma disfunção gasométrica orgânica perigosa. Qual a tríade clássica que baseia sua caracterização principal propedêutica e da doença, culminando em piora de oxigenação arterial exacerbada e marcante da clínica do doente quando em posição ortostática (em pé)?",
+        "alternativas": {
+            "a": "Aumento fisiológico compensatório arterial, fibrose alveolar, ascite restritiva gerando insuficiência primária do diafragma restritivo.",
+            "b": "Doença Hepática avançada, dilatações da circulação capilar pulmonar subpleural (causando um grave defeito arteriovenoso intrapulmonar / shunt pulmonar direito-esquerdo funcional) e hipoxemia laboratorial objetiva que agrava na ortostase (Ortodeoxia / Platipneia).",
+            "c": "Asma não controlada secundária pela cirrose descompensada, secreção persistente pela deficiência de IgG na hepatite severa e cor pulmonale obstrutivo.",
+            "d": "Hipertensão portal levando a hipertensão arterial pulmonar restrita no capilar venoso central pré-capilar gerando cianose grave sem piora na ortostadia.",
+            "e": "Bilirrubina tóxica no centro respiratório mesencefálico, retenção pesada de sódio compensatória alveolar na apnéia basal e ascite quilosa volumosa empurrando os bases diafragmáticas cronicamente à esmaecimento total contínuo (Atelectasias planas)."
+        },
+        "respostaCorreta": "b",
+        "justificativa": "Na síndrome hepatopulmonar observam-se 3 achados clássicos essenciais fundamentais: (1) Presença clara de hepatopatia (frequentemente hipertensionada), (2) Dilatação leito capilar vascular intrapulmonar evidenciada ao estudo constratado pulmonar/ecocardiograma ou cintilografia (fazendo sangue venoso vazar com extrema facilidade por canais capilares largos, reduzindo drástica absorção pelo eritrócito periférico alveolar), propiciando por fim a (3) Hipoxemia severa aferível geradora de Platipneia (dispneia pesada na posição de pé) e Ortodeoxia (queda de oxigênio de pé ou sentado melhora deitado). Cuidado ao não confundir SHP com a Hipertensão Portopulmonar (esta que cursa com vasculopatia restritiva pressórica primária pulmonar sem dilatação).",
+        "tags": [
+            "Hepatologia",
+            "Cirrose Hepática",
+            "Complicações da Cirrose",
+            "Síndrome Hepato-pulmonar"
+        ]
+    }
+]

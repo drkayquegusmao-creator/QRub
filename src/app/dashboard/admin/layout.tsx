@@ -72,7 +72,7 @@ function SaudeAdminLayoutContent({ children }: { children: React.ReactNode }) {
                             >
                                 <div className="flex items-center gap-3">
                                     <ArrowLeftRight className="w-4 h-4 group-hover/switch:rotate-180 transition-transform duration-500" />
-                                    <span className="text-xs font-black uppercase tracking-widest text-[#1A1033] group-hover/switch:text-white transition-colors">Concursos</span>
+                                    <span className="text-xs font-black uppercase tracking-widest text-[#1A1033] dark:text-white group-hover/switch:text-white transition-colors">Concursos</span>
                                 </div>
                                 <span className="w-2 h-2 bg-slate-300 rounded-full" />
                             </button>
@@ -115,7 +115,7 @@ function SaudeAdminLayoutContent({ children }: { children: React.ReactNode }) {
                 <div className="max-w-7xl mx-auto">
                     <div className="flex items-center justify-between mb-14">
                         <div>
-                            <h1 className="text-4xl md:text-5xl font-black mb-3 text-[#1A1033] italic uppercase tracking-tighter">Painel de Controle Admin</h1>
+                            <h1 className="text-4xl md:text-5xl font-black mb-3 text-[#1A1033] dark:text-white italic uppercase tracking-tighter">Painel de Controle Admin</h1>
                             <p className="text-slate-400 flex items-center gap-3 text-xs font-black uppercase tracking-widest">
                                 <Shield className="w-5 h-5 text-emerald-500" />
                                 Master: {user?.name} | Ambiente Saúde

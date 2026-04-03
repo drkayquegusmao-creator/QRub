@@ -184,7 +184,7 @@ export default function StudentDashboard() {
     const readinessStatus = readiness > 80 ? 'Avançado' : readiness > 50 ? 'Intermediário' : 'Crítico'
     const readinessColor = readiness > 80 ? 'text-emerald-500' : readiness > 50 ? 'text-amber-500' : 'text-rose-500'
 
-    const isFree = user?.plan_level === 'FREE'
+    const isFree = user?.plan_level === 'free'
 
     const today = new Date()
     const formattedDate = today.toLocaleDateString('pt-BR', {
@@ -254,7 +254,7 @@ export default function StudentDashboard() {
 
     const renderPendingCritical = () => (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="p-10 rounded-[45px] bg-purple-50/50 border border-purple-100 space-y-8 flex flex-col h-full text-[#1A1033] relative">
+            <div className="p-10 rounded-[45px] bg-purple-50/50 border border-purple-100 space-y-8 flex flex-col h-full text-[#1A1033] dark:text-white relative">
                 <InfoBubble text="Tarefas acumuladas que precisam da sua atenção imediata." />
                 <div className="flex items-center justify-between">
                     <div className="space-y-1">
@@ -337,14 +337,14 @@ export default function StudentDashboard() {
                             <div className={`p-4 rounded-2xl transition-all group-hover:text-white ${item.color.split(' ').slice(0, 2).join(' ')} group-hover:${item.color.split(' ').slice(2).join(' ')}`}>
                                 {item.icon}
                             </div>
-                            <p className="font-black italic uppercase text-xs tracking-tighter text-[#1A1033]">{item.label}</p>
+                            <p className="font-black italic uppercase text-xs tracking-tighter text-[#1A1033] dark:text-white">{item.label}</p>
                         </button>
                     ) : (
                         <Link key={i} href={item.href} className="bg-white border-2 border-slate-100 hover:border-primary/30 p-8 rounded-[40px] transition-all hover:-translate-y-2 flex flex-col items-center text-center gap-4 group">
                             <div className={`p-4 rounded-2xl transition-all group-hover:text-white ${item.color.split(' ').slice(0, 2).join(' ')} group-hover:${item.color.split(' ').slice(2).join(' ')}`}>
                                 {item.icon}
                             </div>
-                            <p className="font-black italic uppercase text-xs tracking-tighter text-[#1A1033]">{item.label}</p>
+                            <p className="font-black italic uppercase text-xs tracking-tighter text-[#1A1033] dark:text-white">{item.label}</p>
                         </Link>
                     )
                 ))}
@@ -378,7 +378,7 @@ export default function StudentDashboard() {
                 <div className="space-y-6 flex-1 text-center md:text-left">
                     <div className="space-y-1">
                         <p className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400">Total Progress</p>
-                        <h3 className="text-4xl md:text-6xl font-black italic uppercase tracking-tighter text-[#1A1033] leading-[1.2] pb-4">
+                        <h3 className="text-4xl md:text-6xl font-black italic uppercase tracking-tighter text-[#1A1033] dark:text-white leading-[1.2] pb-4">
                             Índice de <br />
                             <span className="royal-gradient-text block py-2 pr-10">Prontidão Elite</span>
                         </h3>
@@ -401,7 +401,7 @@ export default function StudentDashboard() {
                             />
                         </svg>
                         <div className="absolute inset-0 flex flex-col items-center justify-center text-center z-20">
-                            <span className="text-6xl md:text-7xl font-black italic text-[#1A1033] tracking-[-0.05em] leading-none mb-2">
+                            <span className="text-6xl md:text-7xl font-black italic text-[#1A1033] dark:text-white tracking-[-0.05em] leading-none mb-2">
                                 {readiness}<span className="text-2xl md:text-3xl ml-0.5">%</span>
                             </span>
                             <div className={`px-4 py-1 rounded-full text-[10px] font-bold uppercase tracking-[0.2em] bg-white border shadow-sm ${readinessColor}`}>
@@ -421,7 +421,7 @@ export default function StudentDashboard() {
                 <InfoBubble text="Gráfico da sua precisão média dia a dia na última semana." />
                 <div className="flex items-center justify-between mb-4">
                     <div className="space-y-1">
-                        <h3 className="text-lg font-black italic uppercase tracking-tighter text-[#1A1033]">Evolução Global</h3>
+                        <h3 className="text-lg font-black italic uppercase tracking-tighter text-[#1A1033] dark:text-white">Evolução Global</h3>
                         <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Últimos 7 dias</p>
                     </div>
                     <div className="p-3 bg-emerald-500/10 rounded-xl text-emerald-500 shrink-0">
@@ -466,7 +466,7 @@ export default function StudentDashboard() {
                                         </div>
                                         <span className="text-[10px] font-black uppercase tracking-widest text-primary">{edital.ano || new Date().getFullYear()}</span>
                                     </div>
-                                    <h4 className="text-sm font-black italic uppercase tracking-tighter text-[#1A1033] leading-tight line-clamp-2">{edital.titulo}</h4>
+                                    <h4 className="text-sm font-black italic uppercase tracking-tighter text-[#1A1033] dark:text-white leading-tight line-clamp-2">{edital.titulo}</h4>
                                     <p className="text-xs font-bold text-slate-500 uppercase">{edital.banca || 'Banca Padrão'}</p>
                                 </div>
                                 <div className="text-[10px] font-black text-slate-400 uppercase tracking-widest shrink-0 text-right">
@@ -498,7 +498,7 @@ export default function StudentDashboard() {
                 <InfoBubble text="Suas 5 melhores áreas de desempenho até o momento." />
                 <div className="flex items-center justify-between mb-10">
                     <div className="space-y-1">
-                        <h3 className="text-2xl font-black italic uppercase tracking-tighter text-[#1A1033]">Performance por Área</h3>
+                        <h3 className="text-2xl font-black italic uppercase tracking-tighter text-[#1A1033] dark:text-white">Performance por Área</h3>
                         <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Top 5 especialidades</p>
                     </div>
                     <div className="p-4 bg-primary/10 rounded-2xl text-primary">
@@ -526,13 +526,13 @@ export default function StudentDashboard() {
         <div className="bg-white border-2 border-slate-100 rounded-[50px] p-10 md:p-14 soft-shadow h-full flex flex-col items-center relative group hover:border-primary/30 transition-all overflow-hidden">
             <InfoBubble text="Comece um treino rápido escolhendo a especialidade desejada no momento." />
             <div className="absolute top-0 right-0 p-10 opacity-5 group-hover:scale-110 transition-transform duration-700">
-                <Target className="w-40 h-40 text-[#1A1033]" />
+                <Target className="w-40 h-40 text-[#1A1033] dark:text-white" />
             </div>
             <div className="flex-1 flex flex-col justify-center items-center text-center space-y-6 max-w-md relative z-10">
                 <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-[10px] font-black uppercase tracking-[0.2em] mb-6">
                     <Zap className="w-3 h-3" /> Acesso Rápido
                 </div>
-                <h3 className="text-3xl md:text-5xl font-black italic uppercase tracking-tighter text-[#1A1033] leading-[0.9] mb-4">Treinar <br /> <span className="royal-gradient-text">Por Área</span></h3>
+                <h3 className="text-3xl md:text-5xl font-black italic uppercase tracking-tighter text-[#1A1033] dark:text-white leading-[0.9] mb-4">Treinar <br /> <span className="royal-gradient-text">Por Área</span></h3>
                 <p className="text-slate-500 font-medium text-sm leading-relaxed">Acesse todo o banco de questões organizado por especialidades médicas.</p>
             </div>
             <button onClick={() => router.push('/dashboard/treinar-area')} className="w-full bg-[#1A1033] text-white py-6 rounded-2xl font-black uppercase text-sm tracking-[0.2em] mt-10 hover:scale-[1.02] active:scale-95 transition-all relative z-10">Iniciar Agora</button>
@@ -559,7 +559,7 @@ export default function StudentDashboard() {
                         <MessageSquare className="w-3 h-3" />
                         Contato & Suporte
                     </div>
-                    <h3 className="text-2xl md:text-3xl font-black italic uppercase tracking-tighter text-[#1A1033]">
+                    <h3 className="text-2xl md:text-3xl font-black italic uppercase tracking-tighter text-[#1A1033] dark:text-white">
                         Precisa de <span className="text-primary text-3xl md:text-4xl">Ajuda?</span>
                     </h3>
                     <p className="text-slate-500 font-medium text-sm max-w-sm">Estamos prontos para ouvir suas sugestões ou resolver qualquer problema.</p>
@@ -600,7 +600,7 @@ export default function StudentDashboard() {
                 <div className="bg-[#1A1033] text-white p-4 rounded-[30px] shadow-2xl border-4 border-amber-500/30 mb-8 flex flex-col md:flex-row items-center justify-between gap-4 animate-in slide-in-from-top duration-500">
                     <div className="flex items-center gap-4">
                         <div className="w-12 h-12 bg-amber-500 rounded-2xl flex items-center justify-center shadow-lg shadow-amber-500/20">
-                            <Crown className="w-6 h-6 text-[#1A1033]" />
+                            <Crown className="w-6 h-6 text-[#1A1033] dark:text-white" />
                         </div>
                         <div>
                             <h2 className="text-lg font-black italic uppercase tracking-tighter leading-none">Painel de Controle Master</h2>
@@ -630,7 +630,7 @@ export default function StudentDashboard() {
 
                         <button
                             onClick={() => router.push('/admin')}
-                            className="flex items-center gap-2 px-6 py-3 rounded-xl text-[10px] font-black uppercase tracking-widest bg-amber-500 text-[#1A1033] hover:bg-amber-400 transition-all"
+                            className="flex items-center gap-2 px-6 py-3 rounded-xl text-[10px] font-black uppercase tracking-widest bg-amber-500 text-[#1A1033] dark:text-white hover:bg-amber-400 transition-all"
                         >
                             <ShieldCheck className="w-3.5 h-3.5" />
                             Admin Panel
@@ -646,7 +646,7 @@ export default function StudentDashboard() {
                         <motion.h1
                             initial={{ opacity: 0, x: -20 }}
                             animate={{ opacity: 1, x: 0 }}
-                            className="text-4xl md:text-7xl font-black italic uppercase tracking-tighter text-[#1A1033] leading-[0.85]"
+                            className="text-4xl md:text-7xl font-black italic uppercase tracking-tighter text-[#1A1033] dark:text-white leading-[0.85]"
                         >
                             Central de <br />
                             <span className="text-primary italic">Estudos</span>
@@ -666,7 +666,7 @@ export default function StudentDashboard() {
             <UserStatsCard />
 
             <PlansModal isOpen={showPlansModal} onClose={() => setShowPlansModal(false)} />
-            <PaywallModal isOpen={showPaywall} onClose={() => setShowPaywall(false)} reason="feature" requiredPlan="INSANO" />
+            <PaywallModal isOpen={showPaywall} onClose={() => setShowPaywall(false)} reason="feature" product="qrub_saude" />
             <ReportModal isOpen={showFeedbackModal} onClose={() => setShowFeedbackModal(false)} />
 
             {renderUpgradeBanner()}

@@ -37,6 +37,10 @@ export default function SaudeLayout({ children }: { children: React.ReactNode })
     }, [user?.id])
 
     useEffect(() => {
+        setTheme('light')
+    }, [setTheme])
+
+    useEffect(() => {
         if (isLoaded) {
             if (!isAuthenticated) {
                 router.push('/')

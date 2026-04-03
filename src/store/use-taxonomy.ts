@@ -52,11 +52,12 @@ export const useTaxonomy = create<TaxonomyState>((set, get) => ({
             }
 
             // Create a lookup for counts
-            // Using a Map for O(1) matching
+            // Using a Map for O(1) matching and case-insensitive summing
             const countsMap = new Map()
             countsData?.forEach(c => {
-                const key = `${c.level}:${c.val}`
-                countsMap.set(key.toLowerCase(), c.count)
+                const key = `${c.level}:${c.val}`.toLowerCase()
+                const current = countsMap.get(key) || 0
+                countsMap.set(key, current + (c.count || 0))
             })
 
             // Build hierarchical tree
@@ -88,28 +89,11 @@ export const useTaxonomy = create<TaxonomyState>((set, get) => ({
                     }
                 })
 
-                // Recursive function to correctly sum counts without double counting
-                // Since v_taxonomia_counts already gives the true exact count for each level,
-                // we should NOT add the children's counts to the parent if the parent already has the count.
-                // We use Math.max to handle nodes that might not have a direct count from DB (like Area)
-                // but should reflect the sum of their children.
-                const rollupCounts = (node: TaxonomyNode): number => {
-                    let sumOfChildren = 0
-                    if (node.children) {
-                        node.children.forEach(child => {
-                            sumOfChildren += rollupCounts(child)
-                        })
-                    }
-                    
-                    const exact = node.questionCount || 0
-                    const finalCount = Math.max(exact, sumOfChildren)
-                    
-                    node.questionCount = finalCount
-                    return finalCount
-                }
-
-                roots.forEach(root => rollupCounts(root))
-
+                // In this system, questions are tagged at multiple levels (course_id, specialty_id, etc.).
+                // Summing children's counts UP the tree causes extreme double-counting.
+                // We trust the exact count provided by the database for each level.
+                // Only if a node has 0 count do we check if it's a structural root that needs summing (unlikely here).
+                
                 return roots
             }
 

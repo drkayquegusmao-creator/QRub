@@ -197,7 +197,7 @@ export default function ConcursoAgendaPage() {
                     <button className="p-3 bg-white rounded-2xl border border-slate-100 text-slate-400 hover:text-indigo-500 transition-all shadow-sm"><ChevronLeft className="w-6 h-6" /></button>
                     <div className="flex items-center gap-3 px-6 py-3 bg-white rounded-3xl border border-slate-100 shadow-sm">
                         <CalendarDays className="w-5 h-5 text-indigo-500" />
-                        <span className="text-[11px] font-black uppercase tracking-widest text-[#1A1033]">Hoje</span>
+                        <span className="text-[11px] font-black uppercase tracking-widest text-[#1A1033] dark:text-white">Hoje</span>
                         <ChevronDown className="w-4 h-4 text-slate-400" />
                     </div>
                     <button className="p-3 bg-white rounded-2xl border border-slate-100 text-slate-400 hover:text-indigo-500 transition-all shadow-sm"><ChevronRight className="w-6 h-6" /></button>
@@ -207,8 +207,8 @@ export default function ConcursoAgendaPage() {
                         <RefreshCw className={cn("w-4 h-4", loading && "animate-spin")} />
                     </button>
                     <div className="flex items-center gap-2 p-1.5 bg-slate-100 rounded-2xl">
-                        <button onClick={() => setView('daily')} className={cn("px-6 py-2.5 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all", view === 'daily' ? "bg-white text-[#1A1033] shadow-sm" : "text-slate-400")}>Diário</button>
-                        <button onClick={() => setView('weekly')} className={cn("px-6 py-2.5 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all", view === 'weekly' ? "bg-white text-[#1A1033] shadow-sm" : "text-slate-400")}>Semanal</button>
+                        <button onClick={() => setView('daily')} className={cn("px-6 py-2.5 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all", view === 'daily' ? "bg-white text-[#1A1033] dark:text-white shadow-sm" : "text-slate-400")}>Diário</button>
+                        <button onClick={() => setView('weekly')} className={cn("px-6 py-2.5 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all", view === 'weekly' ? "bg-white text-[#1A1033] dark:text-white shadow-sm" : "text-slate-400")}>Semanal</button>
                     </div>
                 </div>
             </div>
@@ -217,7 +217,7 @@ export default function ConcursoAgendaPage() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
                 <div className="lg:col-span-8 space-y-8">
                     <div className="flex items-center justify-between">
-                        <h2 className="text-2xl font-black italic uppercase tracking-tighter text-[#1A1033] flex items-center gap-4">
+                        <h2 className="text-2xl font-black italic uppercase tracking-tighter text-[#1A1033] dark:text-white flex items-center gap-4">
                             <div className="w-10 h-10 rounded-2xl bg-indigo-500/10 flex items-center justify-center text-indigo-500"><Target className="w-6 h-6" /></div>
                             Ordem de <span className="text-indigo-600">Execução</span>
                         </h2>
@@ -274,25 +274,25 @@ export default function ConcursoAgendaPage() {
             {/* ─── MODALS ─── */}
             <AnimatePresence>
                 {modal === 'add-task' && <Modal title="Adicionar Lembrete" icon={<Bell className="w-6 h-6 text-indigo-400" />} onClose={() => setModal('none')}>
-                    <input value={formTitle} onChange={e => setFormTitle(e.target.value)} placeholder="Título do lembrete..." className="w-full p-5 bg-slate-50 rounded-2xl border border-slate-100 text-sm font-bold text-[#1A1033] placeholder:text-slate-300 focus:outline-none focus:ring-2 focus:ring-indigo-500/20" />
-                    <textarea value={formDesc} onChange={e => setFormDesc(e.target.value)} placeholder="Descrição (opcional)..." rows={3} className="w-full p-5 bg-slate-50 rounded-2xl border border-slate-100 text-sm font-bold text-[#1A1033] placeholder:text-slate-300 focus:outline-none resize-none" />
+                    <input value={formTitle} onChange={e => setFormTitle(e.target.value)} placeholder="Título do lembrete..." className="w-full p-5 bg-slate-50 rounded-2xl border border-slate-100 text-sm font-bold text-[#1A1033] dark:text-white placeholder:text-slate-300 focus:outline-none focus:ring-2 focus:ring-indigo-500/20" />
+                    <textarea value={formDesc} onChange={e => setFormDesc(e.target.value)} placeholder="Descrição (opcional)..." rows={3} className="w-full p-5 bg-slate-50 rounded-2xl border border-slate-100 text-sm font-bold text-[#1A1033] dark:text-white placeholder:text-slate-300 focus:outline-none resize-none" />
                     <div className="grid grid-cols-2 gap-4">
-                        <input type="date" value={formDate} onChange={e => setFormDate(e.target.value)} className="p-4 bg-slate-50 rounded-2xl border border-slate-100 text-sm font-bold text-[#1A1033] focus:outline-none" />
-                        <input type="time" value={formTime} onChange={e => setFormTime(e.target.value)} className="p-4 bg-slate-50 rounded-2xl border border-slate-100 text-sm font-bold text-[#1A1033] focus:outline-none" />
+                        <input type="date" value={formDate} onChange={e => setFormDate(e.target.value)} className="p-4 bg-slate-50 rounded-2xl border border-slate-100 text-sm font-bold text-[#1A1033] dark:text-white focus:outline-none" />
+                        <input type="time" value={formTime} onChange={e => setFormTime(e.target.value)} className="p-4 bg-slate-50 rounded-2xl border border-slate-100 text-sm font-bold text-[#1A1033] dark:text-white focus:outline-none" />
                     </div>
                     <button onClick={handleAddTask} disabled={!formTitle.trim()} className="w-full py-5 bg-indigo-600 text-white rounded-2xl font-black text-xs uppercase tracking-widest shadow-xl shadow-indigo-600/20 hover:scale-[1.02] active:scale-95 transition-all disabled:opacity-30">Salvar Lembrete</button>
                 </Modal>}
 
                 {modal === 'add-note' && <Modal title="Adicionar Nota" icon={<StickyNote className="w-6 h-6 text-amber-400" />} onClose={() => setModal('none')}>
-                    <input value={formTitle} onChange={e => setFormTitle(e.target.value)} placeholder="Título da nota..." className="w-full p-5 bg-slate-50 rounded-2xl border border-slate-100 text-sm font-bold text-[#1A1033] placeholder:text-slate-300 focus:outline-none focus:ring-2 focus:ring-amber-500/20" />
-                    <textarea value={formDesc} onChange={e => setFormDesc(e.target.value)} placeholder="Conteúdo (macetes, insights, revisões rápidas)..." rows={5} className="w-full p-5 bg-slate-50 rounded-2xl border border-slate-100 text-sm font-bold text-[#1A1033] placeholder:text-slate-300 focus:outline-none resize-none" />
+                    <input value={formTitle} onChange={e => setFormTitle(e.target.value)} placeholder="Título da nota..." className="w-full p-5 bg-slate-50 rounded-2xl border border-slate-100 text-sm font-bold text-[#1A1033] dark:text-white placeholder:text-slate-300 focus:outline-none focus:ring-2 focus:ring-amber-500/20" />
+                    <textarea value={formDesc} onChange={e => setFormDesc(e.target.value)} placeholder="Conteúdo (macetes, insights, revisões rápidas)..." rows={5} className="w-full p-5 bg-slate-50 rounded-2xl border border-slate-100 text-sm font-bold text-[#1A1033] dark:text-white placeholder:text-slate-300 focus:outline-none resize-none" />
                     <button onClick={handleAddNote} disabled={!formTitle.trim()} className="w-full py-5 bg-amber-500 text-white rounded-2xl font-black text-xs uppercase tracking-widest shadow-xl shadow-amber-500/20 hover:scale-[1.02] active:scale-95 transition-all disabled:opacity-30">Salvar Nota</button>
                 </Modal>}
 
                 {modal === 'schedule-nivelamento' && <Modal title="Agendar Nivelamento" icon={<Brain className="w-6 h-6 text-emerald-400" />} onClose={() => setModal('none')}>
-                    <input value={formDiscipline} onChange={e => setFormDiscipline(e.target.value)} placeholder="Disciplina (ex: Direito Constitucional)..." className="w-full p-5 bg-slate-50 rounded-2xl border border-slate-100 text-sm font-bold text-[#1A1033] placeholder:text-slate-300 focus:outline-none" />
-                    <input value={formSubject} onChange={e => setFormSubject(e.target.value)} placeholder="Assunto (opcional)..." className="w-full p-5 bg-slate-50 rounded-2xl border border-slate-100 text-sm font-bold text-[#1A1033] placeholder:text-slate-300 focus:outline-none" />
-                    <input type="date" value={formDate} onChange={e => setFormDate(e.target.value)} className="w-full p-5 bg-slate-50 rounded-2xl border border-slate-100 text-sm font-bold text-[#1A1033] focus:outline-none" />
+                    <input value={formDiscipline} onChange={e => setFormDiscipline(e.target.value)} placeholder="Disciplina (ex: Direito Constitucional)..." className="w-full p-5 bg-slate-50 rounded-2xl border border-slate-100 text-sm font-bold text-[#1A1033] dark:text-white placeholder:text-slate-300 focus:outline-none" />
+                    <input value={formSubject} onChange={e => setFormSubject(e.target.value)} placeholder="Assunto (opcional)..." className="w-full p-5 bg-slate-50 rounded-2xl border border-slate-100 text-sm font-bold text-[#1A1033] dark:text-white placeholder:text-slate-300 focus:outline-none" />
+                    <input type="date" value={formDate} onChange={e => setFormDate(e.target.value)} className="w-full p-5 bg-slate-50 rounded-2xl border border-slate-100 text-sm font-bold text-[#1A1033] dark:text-white focus:outline-none" />
                     <button onClick={handleScheduleNivelamento} disabled={!formDiscipline.trim()} className="w-full py-5 bg-emerald-500 text-white rounded-2xl font-black text-xs uppercase tracking-widest shadow-xl shadow-emerald-500/20 hover:scale-[1.02] active:scale-95 transition-all disabled:opacity-30">Agendar Nivelamento</button>
                 </Modal>}
 
@@ -324,7 +324,7 @@ function getActionLabel(type: AgendaTask['type'], status: AgendaTask['status']):
 }
 
 function DetailRow({ label, value }: { label: string; value: string }) {
-    return <div className="flex items-center justify-between py-3 border-b border-slate-50"><span className="text-[10px] font-black uppercase tracking-widest text-slate-400">{label}</span><span className="text-sm font-bold text-[#1A1033]">{value}</span></div>
+    return <div className="flex items-center justify-between py-3 border-b border-slate-50"><span className="text-[10px] font-black uppercase tracking-widest text-slate-400">{label}</span><span className="text-sm font-bold text-[#1A1033] dark:text-white">{value}</span></div>
 }
 
 // ─── TASK CARD ──────────────────────────────────────────────────────────────────
@@ -354,10 +354,10 @@ function TaskCard({ task, index, onComplete, onPostpone, onIgnore, onStart, onDe
                 <div className="flex flex-wrap items-center gap-3">
                     <span className={cn("text-[10px] font-black uppercase tracking-[0.2em] italic", isLate ? "text-rose-600" : color)}>{labelMap[task.type]}</span>
                     <div className="w-1.5 h-1.5 rounded-full bg-slate-200" />
-                    <span className="text-[11px] font-black uppercase tracking-widest text-[#1A1033] truncate">{task.discipline}</span>
+                    <span className="text-[11px] font-black uppercase tracking-widest text-[#1A1033] dark:text-white truncate">{task.discipline}</span>
                     {task.daysLate && task.daysLate > 0 && <div className="ml-auto flex items-center gap-2 text-rose-500"><AlertTriangle className="w-3.5 h-3.5" /><span className="text-[10px] font-black">{task.daysLate}d atrás</span></div>}
                 </div>
-                <h3 className="text-xl md:text-2xl font-black italic uppercase tracking-tighter text-[#1A1033] leading-tight">{task.subject}</h3>
+                <h3 className="text-xl md:text-2xl font-black italic uppercase tracking-tighter text-[#1A1033] dark:text-white leading-tight">{task.subject}</h3>
                 <div className="flex flex-wrap items-center gap-8">
                     {task.quantity && <div className="flex items-center gap-3 text-[10px] font-black uppercase tracking-widest text-slate-400"><Target className="w-4 h-4 text-indigo-500 opacity-50" /> {task.quantity}</div>}
                     <div className="flex items-center gap-3 text-[10px] font-black uppercase tracking-widest text-slate-400"><Timer className="w-4 h-4 text-indigo-500 opacity-50" /> {task.estimatedTime}</div>
@@ -402,7 +402,7 @@ function Modal({ title, icon, onClose, children }: { title: string; icon: React.
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-black/50 backdrop-blur-sm" onClick={onClose}>
             <motion.div initial={{ scale: 0.9, y: 30 }} animate={{ scale: 1, y: 0 }} exit={{ scale: 0.9, y: 30 }} className="w-full max-w-lg bg-white rounded-[40px] p-10 space-y-6 shadow-2xl" onClick={e => e.stopPropagation()}>
                 <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-4"><div className="p-3 bg-slate-50 rounded-2xl">{icon}</div><h3 className="text-xl font-black italic uppercase tracking-tighter text-[#1A1033]">{title}</h3></div>
+                    <div className="flex items-center gap-4"><div className="p-3 bg-slate-50 rounded-2xl">{icon}</div><h3 className="text-xl font-black italic uppercase tracking-tighter text-[#1A1033] dark:text-white">{title}</h3></div>
                     <button onClick={onClose} className="p-3 hover:bg-slate-50 rounded-2xl transition-all"><X className="w-5 h-5 text-slate-400" /></button>
                 </div>
                 {children}
@@ -414,7 +414,7 @@ function Modal({ title, icon, onClose, children }: { title: string; icon: React.
 function WeeklyHeatmap({ activity }: { activity: { date: string; count: number }[] }) {
     return (
         <ConcursoCard className="p-10 border-none soft-shadow bg-white">
-            <h3 className="text-xl font-black italic uppercase tracking-tighter text-[#1A1033] mb-10 flex items-center gap-4 leading-none"><Calendar className="w-7 h-7 text-indigo-500" /> Atividade <span className="opacity-40">Semanal</span></h3>
+            <h3 className="text-xl font-black italic uppercase tracking-tighter text-[#1A1033] dark:text-white mb-10 flex items-center gap-4 leading-none"><Calendar className="w-7 h-7 text-indigo-500" /> Atividade <span className="opacity-40">Semanal</span></h3>
             <div className="grid grid-cols-7 gap-2">
                 {(activity.length > 0 ? activity : Array.from({ length: 7 }, () => ({ date: '', count: 0 }))).map((day, i) => {
                     const isToday = i === (activity.length > 0 ? activity.length - 1 : 6)
@@ -442,7 +442,7 @@ function PendenciesCard({ tasks, stats, onStartRecovery }: { tasks: AgendaTask[]
             <div className="space-y-4">{tasks.filter(t => t.status === 'atrasado').slice(0, 3).map(t => (
                 <div key={t.id} className="flex items-center gap-4 p-5 bg-white border border-rose-500/20 rounded-3xl">
                     <div className="w-10 h-10 rounded-xl bg-rose-500/10 flex items-center justify-center text-rose-500"><Zap className="w-5 h-5" /></div>
-                    <div className="flex-1 min-w-0"><p className="text-[11px] font-black uppercase text-[#1A1033] tracking-tight truncate">{t.subject}</p><p className="text-[8px] font-bold text-rose-600 uppercase tracking-widest">{t.daysLate ? `Vencido há ${t.daysLate} dia${t.daysLate > 1 ? 's' : ''}` : 'Vencido hoje'}</p></div>
+                    <div className="flex-1 min-w-0"><p className="text-[11px] font-black uppercase text-[#1A1033] dark:text-white tracking-tight truncate">{t.subject}</p><p className="text-[8px] font-bold text-rose-600 uppercase tracking-widest">{t.daysLate ? `Vencido há ${t.daysLate} dia${t.daysLate > 1 ? 's' : ''}` : 'Vencido hoje'}</p></div>
                 </div>
             ))}</div>
             <button onClick={onStartRecovery} className="w-full py-5 bg-rose-500 text-white rounded-[24px] text-[10px] font-black uppercase tracking-widest shadow-xl shadow-rose-500/20 hover:scale-[1.02] active:scale-95 transition-all">Iniciar Recuperação</button>
@@ -471,7 +471,7 @@ function TasksSkeleton() { return <div className="space-y-6">{[1,2,3].map(i => <
 function EmptyAgenda({ onAddTask }: { onAddTask: () => void }) {
     return (<motion.div initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} className="p-16 rounded-[40px] border-2 border-dashed border-slate-100 flex flex-col items-center gap-8 text-center">
         <div className="w-20 h-20 rounded-[32px] bg-emerald-500/10 flex items-center justify-center"><Inbox className="w-10 h-10 text-emerald-500" /></div>
-        <div className="space-y-3"><h3 className="text-3xl font-black italic uppercase tracking-tighter text-[#1A1033]">Agenda <span className="text-emerald-500">Limpa!</span></h3><p className="text-slate-400 font-medium text-sm max-w-xs">Nenhuma revisão ou missão para hoje.</p></div>
+        <div className="space-y-3"><h3 className="text-3xl font-black italic uppercase tracking-tighter text-[#1A1033] dark:text-white">Agenda <span className="text-emerald-500">Limpa!</span></h3><p className="text-slate-400 font-medium text-sm max-w-xs">Nenhuma revisão ou missão para hoje.</p></div>
         <button onClick={onAddTask} className="px-8 py-4 bg-[#1A1033] text-white rounded-2xl font-black text-[10px] uppercase tracking-widest shadow-xl hover:scale-105 transition-all">Adicionar Tarefa</button>
     </motion.div>)
 }

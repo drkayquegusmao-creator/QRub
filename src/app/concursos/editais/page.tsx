@@ -41,7 +41,7 @@ export default function ConcursoEditaisPage() {
                     >
                         <ArrowLeft className="w-4 h-4" /> Voltar para o Dashboard
                     </button>
-                    <h1 className="text-5xl font-black italic tracking-tighter text-[#1A1033] uppercase leading-none">
+                    <h1 className="text-5xl font-black italic tracking-tighter text-[#1A1033] dark:text-white uppercase leading-none">
                         Mural de <br /> <span className="text-indigo-600">Editais</span>
                     </h1>
                     <p className="text-slate-400 font-bold text-xs uppercase tracking-widest">
@@ -51,7 +51,7 @@ export default function ConcursoEditaisPage() {
 
                 <div className="flex flex-col md:items-end gap-3">
                     <div className="bg-indigo-600/5 px-6 py-4 rounded-3xl border border-indigo-500/10 flex flex-col items-end">
-                        <span className="text-[10px] font-black uppercase tracking-widest text-[#1A1033]/40">Editais Disponíveis</span>
+                        <span className="text-[10px] font-black uppercase tracking-widest text-[#1A1033] dark:text-white/40">Editais Disponíveis</span>
                         <span className="text-3xl font-black italic text-indigo-600">{editais.length}</span>
                     </div>
                 </div>
@@ -67,7 +67,7 @@ export default function ConcursoEditaisPage() {
                     placeholder="Busque por cargo, órgão ou banca..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    className="w-full bg-white border-2 border-slate-100 focus:border-indigo-500 rounded-[35px] py-8 pl-20 pr-10 outline-none text-lg font-bold text-[#1A1033] shadow-lg shadow-slate-200/20 transition-all placeholder:text-slate-300"
+                    className="w-full bg-white border-2 border-slate-100 focus:border-indigo-500 rounded-[35px] py-8 pl-20 pr-10 outline-none text-lg font-bold text-[#1A1033] dark:text-white shadow-lg shadow-slate-200/20 transition-all placeholder:text-slate-300"
                 />
             </div>
 
@@ -101,7 +101,7 @@ export default function ConcursoEditaisPage() {
                                         Escolaridade TBC
                                     </span>
                                 </div>
-                                <h3 className="text-2xl font-black italic uppercase tracking-tighter text-[#1A1033] group-hover:text-indigo-600 transition-colors">
+                                <h3 className="text-2xl font-black italic uppercase tracking-tighter text-[#1A1033] dark:text-white group-hover:text-indigo-600 transition-colors">
                                     {edital.titulo}
                                 </h3>
                                 <div className="flex flex-wrap items-center gap-6 text-slate-400">
@@ -116,8 +116,8 @@ export default function ConcursoEditaisPage() {
 
                             <div className="flex items-center gap-6 relative z-10">
                                 <div className="hidden md:flex flex-col items-end">
-                                    <span className="text-[10px] font-black uppercase tracking-widest text-[#1A1033]/40">Questões do Edital</span>
-                                    <span className="text-2xl font-black italic text-[#1A1033]">{edital.total_questoes || 0}</span>
+                                    <span className="text-[10px] font-black uppercase tracking-widest text-[#1A1033] dark:text-white/40">Questões do Edital</span>
+                                    <span className="text-2xl font-black italic text-[#1A1033] dark:text-white">{edital.total_questoes || 0}</span>
                                 </div>
                                 <div className="w-16 h-16 rounded-[24px] bg-slate-50 group-hover:bg-indigo-600 group-hover:text-white transition-all flex items-center justify-center">
                                     <ChevronRight className="w-6 h-6" />

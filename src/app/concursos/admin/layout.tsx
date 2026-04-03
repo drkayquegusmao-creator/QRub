@@ -71,7 +71,7 @@ function ConcursoAdminLayoutContent({ children }: { children: React.ReactNode })
                             >
                                 <div className="flex items-center gap-2">
                                     <ArrowLeftRight className="w-3.5 h-3.5 group-hover/switch:rotate-180 transition-transform duration-500" />
-                                    <span className="text-[10px] font-black uppercase tracking-widest text-[#1A1033] group-hover/switch:text-white transition-colors">Saúde</span>
+                                    <span className="text-[10px] font-black uppercase tracking-widest text-[#1A1033] dark:text-white group-hover/switch:text-white transition-colors">Saúde</span>
                                 </div>
                                 <span className="w-1.5 h-1.5 bg-slate-300 rounded-full" />
                             </button>
@@ -114,7 +114,7 @@ function ConcursoAdminLayoutContent({ children }: { children: React.ReactNode })
                 <div className="max-w-7xl mx-auto">
                     <div className="flex items-center justify-between mb-12">
                         <div>
-                            <h1 className="text-3xl font-black mb-2 text-[#1A1033] italic uppercase tracking-tighter">Painel de Controle Admin</h1>
+                            <h1 className="text-3xl font-black mb-2 text-[#1A1033] dark:text-white italic uppercase tracking-tighter">Painel de Controle Admin</h1>
                             <p className="text-slate-400 flex items-center gap-2 text-xs font-black uppercase tracking-widest">
                                 <Shield className="w-4 h-4 text-indigo-500" />
                                 Master: {user?.name} | Ambiente Concursos

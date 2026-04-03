@@ -125,7 +125,7 @@ export function QuestionsBreakdownModal({ isOpen, onClose, questions }: Question
                                 <Database className="w-6 h-6" />
                             </div>
                             <div>
-                                <h2 className="text-2xl font-black italic uppercase tracking-tighter text-[#1A1033]">
+                                <h2 className="text-2xl font-black italic uppercase tracking-tighter text-[#1A1033] dark:text-white">
                                     Raio-X do Banco
                                 </h2>
                                 <p className="text-xs font-bold text-slate-500 uppercase tracking-widest">
@@ -175,7 +175,7 @@ export function QuestionsBreakdownModal({ isOpen, onClose, questions }: Question
                                                             <Stethoscope className="w-4 h-4" />
                                                         )}
                                                     </div>
-                                                    <span className={`font-black uppercase tracking-tight text-lg ${hasNoQuestions ? 'text-rose-600' : 'text-[#1A1033]'
+                                                    <span className={`font-black uppercase tracking-tight text-lg ${hasNoQuestions ? 'text-rose-600' : 'text-[#1A1033] dark:text-white'
                                                         }`}>
                                                         {spec.name}
                                                     </span>

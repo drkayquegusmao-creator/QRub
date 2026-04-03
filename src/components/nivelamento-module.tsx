@@ -366,7 +366,7 @@ export default function NivelamentoModule() {
                 {/* Header */}
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 24 }}>
                     <div className="flex items-center justify-between w-full">
-                        <h1 className="text-3xl font-black italic uppercase tracking-tighter text-[#1A1033] flex items-center gap-3">
+                        <h1 className="text-3xl font-black italic uppercase tracking-tighter text-[#1A1033] dark:text-white flex items-center gap-3">
                             <Brain className="w-8 h-8 text-primary" />
                             Nivelamento & SRS
                         </h1>

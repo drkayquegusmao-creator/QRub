@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { X, Mail, Lock, LogIn, AlertCircle, Sparkles } from 'lucide-react'
+import { X, Mail, Lock, LogIn, AlertCircle, Sparkles, UserPlus, User } from 'lucide-react'
 import { useAuth } from '@/store/use-auth'
 import { useRouter } from 'next/navigation'
 import { supabase } from '@/lib/supabase'
@@ -12,13 +12,17 @@ import { isMasterEmail } from '@/lib/auth-constants'
 interface AuthModalProps {
     isOpen: boolean
     onClose: () => void
+    preventRedirect?: boolean
 }
 
-export function AuthModal({ isOpen, onClose }: AuthModalProps) {
+export function AuthModal({ isOpen, onClose, preventRedirect }: AuthModalProps) {
     const { setUser } = useAuth()
     const router = useRouter()
+    const [isSignUp, setIsSignUp] = useState(false)
     const [email, setEmail] = useState('')
+    const [username, setUsername] = useState('@')
     const [password, setPassword] = useState('')
+    const [confirmPassword, setConfirmPassword] = useState('')
     const [error, setError] = useState('')
     const [isLoading, setIsLoading] = useState(false)
 
@@ -28,14 +32,39 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
         setIsLoading(true)
 
         try {
-            // 1. Supabase Sign In
-            const { data: authData, error: signInError } = await supabase.auth.signInWithPassword({
-                email: email.trim(),
-                password: password.trim()
-            })
+            let authData;
+            
+            if (isSignUp) {
+                if (password !== confirmPassword) throw new Error('As senhas não coincidem')
+                if (!username.startsWith('@') || username.length < 4) throw new Error('Crie um nome de usuário válido começando com @ (ex: @joao)')
 
-            if (signInError) throw signInError
-            if (!authData.user) throw new Error('Não foi possível realizar o login')
+                const { data: signUpData, error: signUpError } = await supabase.auth.signUp({
+                    email: email.trim(),
+                    password: password.trim()
+                })
+                if (signUpError) {
+                    if (signUpError.message.includes('already registered')) throw new Error('E-mail já cadastrado. Tente Entrar.')
+                    throw signUpError
+                }
+                if (!signUpData.user) throw new Error('Não foi possível criar a conta')
+                
+                // Try to login immediately after signup
+                const { data: signInData } = await supabase.auth.signInWithPassword({
+                    email: email.trim(),
+                    password: password.trim()
+                })
+                
+                authData = signInData || signUpData
+            } else {
+                const { data: signInData, error: signInError } = await supabase.auth.signInWithPassword({
+                    email: email.trim(),
+                    password: password.trim()
+                })
+                if (signInError) throw new Error('E-mail ou senha incorretos')
+                authData = signInData
+            }
+
+            if (!authData?.user) throw new Error('Sessão não estabelecida')
 
             // 2. Fetch Profile
             const { data: profiles, error: profileError } = await supabase
@@ -55,9 +84,9 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
                 const { data: newProfile, error: createError } = await supabase.from('users').insert({
                     id: authData.user.id,
                     email: email.toLowerCase().trim(),
-                    name: email.split('@')[0],
+                    name: isSignUp ? username : email.split('@')[0],
                     role: isMaster ? 'MASTER' : 'ALUNO',
-                    plan_level: 'INSANO',
+                    plan_level: 'FREE',
                     profile_completed: isMaster
                 }).select().single()
 
@@ -78,12 +107,23 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
 
             onClose()
 
-            // 5. Navigate
-            if (isMaster) {
-                window.location.assign('/select-environment')
-            } else if (profile.role === 'MASTER' || profile.profile_completed) {
-                window.location.assign('/dashboard')
+            if (preventRedirect) return
+
+            // 5. Navigate (Smart Routing)
+            if (profile.product_type === 'saude') {
+                // Direct access for Saúde students
+                window.location.assign('/saude')
+            } else if (profile.product_type === 'concurso') {
+                // Direct access for Concurso students
+                window.location.assign('/concursos')
+            } else if (profile.profile_completed || profile.role === 'MASTER') {
+                // Secondary fallback for completed profiles
+                const lastEnv = window.localStorage.getItem('qrub_last_environment')
+                if (lastEnv === 'SAUDE') window.location.assign('/saude')
+                else if (lastEnv === 'CONCURSOS') window.location.assign('/concursos')
+                else window.location.assign('/dashboard')
             } else {
+                // New users must complete onboarding
                 window.location.assign('/onboarding')
             }
 
@@ -126,11 +166,36 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
 
                         <div className="p-10 pt-8">
                             <div className="text-center mb-8">
-                                <h2 className="text-3xl font-black uppercase italic tracking-tighter mb-2">Entrar</h2>
-                                <p className="text-muted-foreground font-bold text-xs uppercase tracking-widest">Acesse sua conta QRub</p>
+                                <h2 className="text-3xl font-black uppercase italic tracking-tighter mb-2 text-[#0c1322] dark:text-white">
+                                    {isSignUp ? 'Criar Conta' : 'Entrar'}
+                                </h2>
+                                <p className="text-slate-500 dark:text-slate-400 font-bold text-xs uppercase tracking-widest">
+                                    {isSignUp ? 'Faça parte da QRub' : 'Acesse sua conta QRub'}
+                                </p>
                             </div>
 
                             <form onSubmit={handleSubmit} className="space-y-5">
+                                {isSignUp && (
+                                    <div className="space-y-2">
+                                        <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground ml-1">Seu @ de Usuário</label>
+                                        <div className="relative">
+                                            <User className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-primary" />
+                                            <input
+                                                type="text"
+                                                value={username}
+                                                onChange={(e) => {
+                                                    const val = e.target.value;
+                                                    if (!val.startsWith('@') && val.length > 0) setUsername('@' + val.replace('@', ''));
+                                                    else setUsername(val.toLowerCase().replace(/\s/g, ''));
+                                                }}
+                                                placeholder="@seunome"
+                                                required={isSignUp}
+                                                className="w-full pl-12 pr-4 py-4 bg-slate-50 dark:bg-white/5 border border-slate-100 dark:border-white/10 rounded-2xl focus:ring-2 focus:ring-primary/20 focus:border-primary/50 focus:bg-white dark:focus:bg-white/10 outline-none transition-all font-bold text-sm text-[#0c1322] dark:text-white placeholder:text-slate-300"
+                                            />
+                                        </div>
+                                    </div>
+                                )}
+
                                 <div className="space-y-2">
                                     <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground ml-1">Email</label>
                                     <div className="relative">
@@ -140,8 +205,8 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
                                             value={email}
                                             onChange={(e) => setEmail(e.target.value)}
                                             placeholder="seu@email.com"
-                                            className="w-full bg-muted border border-border rounded-xl pl-12 pr-4 py-4 focus:ring-2 focus:ring-primary/20 outline-none transition-all font-bold text-sm"
                                             required
+                                            className="w-full pl-12 pr-4 py-4 bg-slate-50 dark:bg-white/5 border border-slate-100 dark:border-white/10 rounded-2xl focus:ring-2 focus:ring-primary/20 focus:border-primary/50 focus:bg-white dark:focus:bg-white/10 outline-none transition-all font-bold text-sm text-[#0c1322] dark:text-white placeholder:text-slate-300"
                                         />
                                     </div>
                                 </div>
@@ -155,11 +220,28 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
                                             value={password}
                                             onChange={(e) => setPassword(e.target.value)}
                                             placeholder="••••••••"
-                                            className="w-full bg-muted border border-border rounded-xl pl-12 pr-4 py-4 focus:ring-2 focus:ring-primary/20 outline-none transition-all font-bold text-sm"
                                             required
+                                            className="w-full pl-12 pr-4 py-4 bg-slate-50 dark:bg-white/5 border border-slate-100 dark:border-white/10 rounded-2xl focus:ring-2 focus:ring-primary/20 focus:border-primary/50 focus:bg-white dark:focus:bg-white/10 outline-none transition-all font-bold text-sm text-[#0c1322] dark:text-white placeholder:text-slate-300"
                                         />
                                     </div>
                                 </div>
+
+                                {isSignUp && (
+                                    <div className="space-y-2">
+                                        <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground ml-1">Confirmar Senha</label>
+                                        <div className="relative">
+                                            <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-primary" />
+                                            <input
+                                                type="password"
+                                                value={confirmPassword}
+                                                onChange={(e) => setConfirmPassword(e.target.value)}
+                                                placeholder="••••••••"
+                                                required={isSignUp}
+                                                className="w-full pl-12 pr-4 py-4 bg-slate-50 dark:bg-white/5 border border-slate-100 dark:border-white/10 rounded-2xl focus:ring-2 focus:ring-primary/20 focus:border-primary/50 focus:bg-white dark:focus:bg-white/10 outline-none transition-all font-bold text-sm text-[#0c1322] dark:text-white placeholder:text-slate-300"
+                                            />
+                                        </div>
+                                    </div>
+                                )}
 
                                 {error && (
                                     <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="flex items-center gap-2 bg-destructive/10 text-destructive border border-destructive/20 rounded-xl p-3">
@@ -173,13 +255,19 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
                                     disabled={isLoading}
                                     className="w-full royal-gradient text-white py-5 rounded-2xl font-black text-sm uppercase tracking-widest soft-shadow hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-3 disabled:opacity-50"
                                 >
-                                    {isLoading ? 'ENTRANDO...' : 'ENTRAR'}
-                                    <LogIn className="w-5 h-5" />
+                                    {isLoading ? (isSignUp ? 'CRIANDO...' : 'ENTRANDO...') : (isSignUp ? 'CRIAR CONTA' : 'ENTRAR')}
+                                    {isSignUp ? <UserPlus className="w-5 h-5" /> : <LogIn className="w-5 h-5" />}
                                 </button>
 
-                                <p className="text-center text-[10px] text-muted-foreground uppercase font-black tracking-widest opacity-60 leading-relaxed">
-                                    Ainda não tem conta? Clique fora e use a página de cadastro.
-                                </p>
+                                <div className="text-center mt-6">
+                                    <button
+                                        type="button"
+                                        onClick={() => setIsSignUp(!isSignUp)}
+                                        className="text-xs font-bold uppercase tracking-widest text-[#0c1322]/60 hover:text-primary dark:text-white/60 dark:hover:text-primary transition-colors"
+                                    >
+                                        {isSignUp ? 'Já tem uma conta? Entre aqui' : 'Ainda não tem conta? Crie uma'}
+                                    </button>
+                                </div>
                             </form>
                         </div>
                     </motion.div>

@@ -57,10 +57,8 @@ export function UserProfileModal({ isOpen, onClose }: UserProfileModalProps) {
 
     const getPlanIcon = () => {
         switch (user.plan_level) {
-            case 'INSANO':
+            case 'insano':
                 return <Crown className="w-5 h-5" />
-            case 'PREMIUM':
-                return <Zap className="w-5 h-5" />
             default:
                 return <User className="w-5 h-5" />
         }
@@ -68,10 +66,8 @@ export function UserProfileModal({ isOpen, onClose }: UserProfileModalProps) {
 
     const getPlanColor = () => {
         switch (user.plan_level) {
-            case 'INSANO':
+            case 'insano':
                 return 'from-yellow-500 to-orange-500'
-            case 'PREMIUM':
-                return 'from-purple-500 to-pink-500'
             default:
                 return 'from-gray-500 to-gray-600'
         }
@@ -79,10 +75,8 @@ export function UserProfileModal({ isOpen, onClose }: UserProfileModalProps) {
 
     const getPlanBadge = () => {
         switch (user.plan_level) {
-            case 'INSANO':
+            case 'insano':
                 return 'bg-gradient-to-r from-yellow-500 to-orange-500 text-white'
-            case 'PREMIUM':
-                return 'bg-gradient-to-r from-purple-500 to-pink-500 text-white'
             default:
                 return 'bg-muted text-muted-foreground'
         }
@@ -271,7 +265,7 @@ export function UserProfileModal({ isOpen, onClose }: UserProfileModalProps) {
                                                     <Target className="w-4 h-4" />
                                                     Total Respondidas
                                                 </span>
-                                                <span className="text-2xl font-black text-[#1A1033]">{profile.total_questions_answered || 0}</span>
+                                                <span className="text-2xl font-black text-[#1A1033] dark:text-white">{profile.total_questions_answered || 0}</span>
                                             </div>
                                         )}
                                     </div>
@@ -290,7 +284,7 @@ export function UserProfileModal({ isOpen, onClose }: UserProfileModalProps) {
                                                 </span>
                                             </div>
 
-                                            {user.plan_level === 'FREE' && (
+                                            {user.plan_level === 'free' && (
                                                 <div className="pt-2 border-t border-border">
                                                     <p className="text-xs text-muted-foreground mb-3">
                                                         Faça upgrade para ter acesso ilimitado a todas as questões!
@@ -305,7 +299,7 @@ export function UserProfileModal({ isOpen, onClose }: UserProfileModalProps) {
                                                 </div>
                                             )}
 
-                                            {(user.plan_level === 'PREMIUM' || user.plan_level === 'INSANO') && (
+                                            {user.plan_level === 'insano' && (
                                                 <div className="pt-2 border-t border-border">
                                                     <ul className="space-y-1.5 text-xs">
                                                         <li className="flex items-center gap-2">

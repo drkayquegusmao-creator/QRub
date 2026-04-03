@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { LayoutDashboard, BookOpen, BarChart2, User, History, Settings, LayoutGrid, Calendar, Sparkles } from 'lucide-react'
+import { LayoutDashboard, BookOpen, BarChart2, User, Users, History, Settings, LayoutGrid, Calendar, Sparkles } from 'lucide-react'
 import { clsx, type ClassValue } from 'clsx'
 import { twMerge } from 'tailwind-merge'
 import { motion } from 'framer-motion'
@@ -29,7 +29,7 @@ export function BottomTabs() {
     ] : [
         { label: 'Início', icon: LayoutDashboard, href: '/dashboard' },
         { label: 'Praticar', icon: BookOpen, href: '/dashboard/setup' },
-        { label: 'Mapa', icon: LayoutGrid, href: '/dashboard?tab=MAPA' },
+        { label: 'Comunidade', icon: Users, href: '/dashboard/comunidade' },
         { label: 'Caderno', icon: History, href: '/dashboard/errors' },
         { label: 'Métricas', icon: BarChart2, href: '/dashboard/stats' },
     ]
@@ -47,7 +47,8 @@ export function BottomTabs() {
                       pathname?.includes('/concursos/quiz') || 
                       pathname?.includes('/concursos/treino') ||
                       pathname?.includes('/dashboard/errors') ||
-                      pathname?.includes('/concursos/errors')
+                      pathname?.includes('/concursos/errors') ||
+                      pathname?.includes('/comunidade')
 
     if (isQuizPage) {
         return null

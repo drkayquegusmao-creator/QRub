@@ -18,7 +18,7 @@ function ConcursoQuizAutoRedirect() {
         <div className="min-h-screen flex items-center justify-center bg-white">
             <div className="flex flex-col items-center gap-6">
                 <Loader2 className="w-12 h-12 text-indigo-500 animate-spin" />
-                <p className="text-sm font-black uppercase tracking-widest text-[#1A1033] animate-pulse">Sintonizando Questões de Concurso...</p>
+                <p className="text-sm font-black uppercase tracking-widest text-[#1A1033] dark:text-white animate-pulse">Sintonizando Questões de Concurso...</p>
             </div>
         </div>
     )

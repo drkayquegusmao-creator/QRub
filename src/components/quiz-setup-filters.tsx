@@ -29,11 +29,11 @@ export function QuizSetupFilters() {
     const [isProfileOpen, setIsProfileOpen] = useState(false)
 
     const router = useRouter()
-    const isFree = !user || user.plan_level === 'FREE'
+    const isFree = !user || user.plan_level === 'free'
 
     useEffect(() => {
         loadTaxonomy()
-        loadQuestions()
+        loadQuestions({ status_validacao: 'APROVADA' })
     }, [])
 
     const courses = useMemo(() => taxonomy.filter(n => n.level === 'course'), [taxonomy])
@@ -95,7 +95,7 @@ export function QuizSetupFilters() {
 
     return (
         <div className="max-w-6xl mx-auto space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-700">
-            <PaywallModal isOpen={isPaywallOpen} onClose={() => setIsPaywallOpen(false)} reason={paywallReason} requiredPlan="PREMIUM" />
+            <PaywallModal isOpen={isPaywallOpen} onClose={() => setIsPaywallOpen(false)} reason={paywallReason} product="qrub_saude" />
             <ProfileModal isOpen={isProfileOpen} onClose={() => setIsProfileOpen(false)} />
 
             {/* HEADER SECTIONS: Modalidade & Stats side-by-side */}
@@ -108,7 +108,7 @@ export function QuizSetupFilters() {
                             <Sparkles className="w-5 h-5" />
                         </div>
                         <div>
-                            <h2 className="text-xl font-black italic uppercase tracking-tight text-[#1A1033] leading-none">Modalidade</h2>
+                            <h2 className="text-xl font-black italic uppercase tracking-tight text-[#1A1033] dark:text-white leading-none">Modalidade</h2>
                             <p className="text-[10px] uppercase tracking-widest text-slate-400 mt-1 font-bold">Objetivo da sessão</p>
                         </div>
                     </div>
@@ -180,7 +180,7 @@ export function QuizSetupFilters() {
                         <Filter className="w-5 h-5" />
                     </div>
                     <div>
-                        <h2 className="text-xl font-black italic uppercase tracking-tight text-[#1A1033] leading-none">Configuração da Prova</h2>
+                        <h2 className="text-xl font-black italic uppercase tracking-tight text-[#1A1033] dark:text-white leading-none">Configuração da Prova</h2>
                         <p className="text-[10px] uppercase tracking-widest text-slate-400 mt-1 font-bold">Direcione seu estudo detalhadamente</p>
                     </div>
                 </div>
@@ -361,7 +361,7 @@ function FilterItem({
                 
                 <h4 className={cn(
                     "text-sm xl:text-base font-extrabold italic uppercase tracking-tight line-clamp-2 pr-4",
-                    value ? "text-primary" : "text-[#1A1033]"
+                    value ? "text-primary" : "text-[#1A1033] dark:text-white"
                 )}>
                     {isLocked ? 'Plano Premium' : (selectedName || 'Selecione...')}
                 </h4>

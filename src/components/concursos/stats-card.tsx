@@ -32,7 +32,7 @@ export function ConcursoUserStatsCard() {
                         <Zap className="w-8 h-8" />
                     </div>
                     <div>
-                        <h3 className="text-2xl font-black italic uppercase tracking-tighter text-[#1A1033]">Pronto para Começar?</h3>
+                        <h3 className="text-2xl font-black italic uppercase tracking-tighter text-[#1A1033] dark:text-white">Pronto para Começar?</h3>
                         <p className="text-slate-500 font-medium max-w-xs mx-auto text-sm">
                             Resolva sua primeira questão no ambiente de Concursos para ativar suas estatísticas.
                         </p>
@@ -53,7 +53,7 @@ export function ConcursoUserStatsCard() {
                     <div className="w-12 h-12 bg-indigo-500 text-white rounded-2xl flex items-center justify-center shadow-lg shadow-indigo-500/20">
                         <BarChart3 className="w-6 h-6" />
                     </div>
-                    <h2 className="text-3xl md:text-4xl font-black italic uppercase tracking-tighter text-[#1A1033]">
+                    <h2 className="text-3xl md:text-4xl font-black italic uppercase tracking-tighter text-[#1A1033] dark:text-white">
                         {stats.total_questoes} Questões Resolvidas
                     </h2>
                 </div>
@@ -65,7 +65,7 @@ export function ConcursoUserStatsCard() {
                         </div>
                         <div>
                             <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest leading-none mb-1">Média de Acertos</p>
-                            <p className="text-lg font-black italic text-[#1A1033] uppercase">{stats.media_geral}%</p>
+                            <p className="text-lg font-black italic text-[#1A1033] dark:text-white uppercase">{stats.media_geral}%</p>
                         </div>
                     </div>
 
@@ -75,7 +75,7 @@ export function ConcursoUserStatsCard() {
                         </div>
                         <div>
                             <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest leading-none mb-1">Fogo Atual</p>
-                            <p className="text-lg font-black italic text-[#1A1033] uppercase">{stats.streak_current} Questões</p>
+                            <p className="text-lg font-black italic text-[#1A1033] dark:text-white uppercase">{stats.streak_current} Questões</p>
                         </div>
                     </div>
 
@@ -85,7 +85,7 @@ export function ConcursoUserStatsCard() {
                         </div>
                         <div>
                             <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest leading-none mb-1">Recorde</p>
-                            <p className="text-lg font-black italic text-[#1A1033] uppercase">{stats.streak_max}</p>
+                            <p className="text-lg font-black italic text-[#1A1033] dark:text-white uppercase">{stats.streak_max}</p>
                         </div>
                     </div>
                 </div>

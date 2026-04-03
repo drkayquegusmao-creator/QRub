@@ -4,9 +4,9 @@ import { MercadoPagoConfig, Payment } from 'mercadopago'
 export async function POST(request: NextRequest) {
     try {
         const body = await request.json()
-        const { amount, plan, userId, userEmail, userDoc } = body
+        const { amount, plan, product, userId, userEmail, userDoc } = body
 
-        if (!amount || !plan || !userId) {
+        if (!amount || !plan || !product || !userId) {
             return NextResponse.json({ error: 'Dados incompletos' }, { status: 400 })
         }
 
@@ -28,6 +28,7 @@ export async function POST(request: NextRequest) {
                 status: 'pending',
                 amount,
                 plan,
+                product,
                 is_simulation: true
             })
         }
@@ -55,7 +56,8 @@ export async function POST(request: NextRequest) {
                 : `${process.env.NEXT_PUBLIC_SITE_URL}/api/payments/webhook`,
             metadata: {
                 user_id: userId,
-                plan: plan
+                plan: plan,
+                product: product
             }
         };
 
@@ -68,7 +70,8 @@ export async function POST(request: NextRequest) {
             ticket_url: result.point_of_interaction?.transaction_data?.ticket_url,
             status: result.status,
             amount,
-            plan
+            plan,
+            product
         });
 
     } catch (error: any) {

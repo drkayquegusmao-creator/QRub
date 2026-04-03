@@ -8,6 +8,7 @@ import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 import { isMasterEmail } from '@/lib/auth-constants'
 import { MEDICAL_HIERARCHY } from '@/lib/medical-specialties'
+import { CheckoutModal } from '@/components/checkout-modal'
 
 // Mock de dados para DDI e Estados/Cidades
 const COUNTRIES = [
@@ -44,7 +45,7 @@ const BRAZIL_DDD_TO_STATE: Record<string, string> = {
 }
 
 export default function OnboardingPage() {
-    const { user, completeProfile, isAuthenticated, logout } = useAuth()
+    const { user, completeProfile, finishOnboarding, isAuthenticated, logout } = useAuth()
     const router = useRouter()
     const [isHydrated, setIsHydrated] = useState(false)
     const [loading, setLoading] = useState(false)
@@ -64,6 +65,11 @@ export default function OnboardingPage() {
         address_state: '',
         address_country: 'Brasil'
     })
+
+    const [wizardStep, setWizardStep] = useState<1 | 2>(1)
+    const [selectedProduct, setSelectedProduct] = useState<'qrub_concurso' | 'qrub_saude'>('qrub_concurso')
+    const [selectedPlan, setSelectedPlan] = useState<'free' | 'mensal' | 'trimestral' | 'semestral' | 'anual' | null>(null)
+    const [showCheckout, setShowCheckout] = useState(false)
 
     // UI States
     const [showSpecialtyList, setShowSpecialtyList] = useState(false)
@@ -90,6 +96,16 @@ export default function OnboardingPage() {
     const specialties = useMemo(() => {
         return MEDICAL_HIERARCHY[0].specialties.map(s => s.name).sort()
     }, [])
+
+    // Smart Routing: Skip step 1 if data already exists
+    useEffect(() => {
+        if (isHydrated && user && wizardStep === 1) {
+            const hasBasicInfo = user.phone && user.institution && user.graduation_year && user.address;
+            if (hasBasicInfo) {
+                setWizardStep(2)
+            }
+        }
+    }, [isHydrated, user, wizardStep])
 
     // Form Handlers
     const handlePhoneChange = (val: string) => {
@@ -131,7 +147,7 @@ export default function OnboardingPage() {
                 specialty_of_interest: formData.specialty_of_interest,
                 address: fullAddress
             })
-            router.push('/dashboard')
+            setWizardStep(2)
         } catch (err: any) {
             console.error(err)
             alert('Falha ao salvar seu perfil. Verifique os dados e tente novamente.')
@@ -140,11 +156,20 @@ export default function OnboardingPage() {
         }
     }
 
+
+    useEffect(() => {
+        if (!isHydrated) return
+
+        if (!isAuthenticated) {
+            router.push('/')
+        } else if (user?.role === 'MASTER' || isMasterEmail(user?.email) || user?.profile_completed) {
+            router.push('/dashboard')
+        }
+    }, [isHydrated, isAuthenticated, user, router])
+
     if (!isHydrated) return null
-    if (!isAuthenticated) { router.push('/'); return null }
-    if (user?.role === 'MASTER' || isMasterEmail(user?.email) || user?.profile_completed) {
-        router.push('/dashboard'); return null
-    }
+    if (!isAuthenticated || user?.role === 'MASTER' || isMasterEmail(user?.email) || user?.profile_completed) return null
+
 
     return (
         <div className="min-h-screen bg-background flex flex-col items-center justify-center p-4 md:p-6 relative overflow-y-auto">
@@ -165,14 +190,18 @@ export default function OnboardingPage() {
                         </div>
                         <span className="text-xl md:text-2xl font-black italic uppercase tracking-tighter">QRub</span>
                     </div>
-                    <Sparkles className="absolute top-8 right-8 w-8 h-8 opacity-20 hidden md:block" />
-                    <h2 className="text-3xl md:text-5xl font-black italic uppercase tracking-tighter mb-2">Quase lá!</h2>
+                    <h2 className="text-3xl md:text-5xl font-black italic uppercase tracking-tighter mb-2">
+                        {wizardStep === 1 ? 'Quase lá!' : 'Escolha seu Plano'}
+                    </h2>
                     <p className="text-xs md:text-sm font-bold uppercase tracking-widest opacity-80 leading-relaxed max-w-lg">
-                        Complete seu perfil para liberar o acesso ao banco de questões e suas métricas personalizadas.
+                        {wizardStep === 1 
+                            ? 'Complete seu perfil para liberar acesso ao sistema.'
+                            : 'Personalize seu acesso e libere a plataforma com a assinatura certa para você.'}
                     </p>
                 </div>
 
-                <form onSubmit={handleSubmit} className="p-6 md:p-10 space-y-6 md:space-y-8 bg-card/50 backdrop-blur-sm">
+                {wizardStep === 1 ? (
+                    <form onSubmit={handleSubmit} className="p-6 md:p-10 space-y-6 md:space-y-8 bg-card/50 backdrop-blur-sm">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         {/* Nome Completo */}
                         <div className="md:col-span-2">
@@ -333,7 +362,93 @@ export default function OnboardingPage() {
                         Sua jornada médica começa agora. Dados criptografados e seguros.
                     </p>
                 </form>
+                ) : (
+                    <div className="p-6 md:p-10 space-y-8 bg-card/50 backdrop-blur-sm">
+                        {/* Produto Toggle */}
+                        <div className="space-y-4">
+                            <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground ml-1">1. Escolha a sua Plataforma Temática</label>
+                            <div className="grid grid-cols-2 gap-4">
+                                <button
+                                    onClick={() => setSelectedProduct('qrub_concurso')}
+                                    className={`py-4 rounded-xl font-bold uppercase text-xs tracking-widest transition-all ${
+                                        selectedProduct === 'qrub_concurso' 
+                                        ? 'bg-[#7c3aed]/20 border-2 border-[#7c3aed] text-white shadow-[0_0_15px_rgba(124,58,237,0.3)]' 
+                                        : 'bg-muted border border-border text-muted-foreground hover:border-primary/50'
+                                    }`}
+                                >
+                                    QRub Concurso
+                                </button>
+                                <button
+                                    onClick={() => setSelectedProduct('qrub_saude')}
+                                    className={`py-4 rounded-xl font-bold uppercase text-xs tracking-widest transition-all ${
+                                        selectedProduct === 'qrub_saude' 
+                                        ? 'bg-[#10b981]/20 border-2 border-[#10b981] text-white shadow-[0_0_15px_rgba(16,185,129,0.3)]' 
+                                        : 'bg-muted border border-border text-muted-foreground hover:border-primary/50'
+                                    }`}
+                                >
+                                    QRub Saúde
+                                </button>
+                            </div>
+                        </div>
+
+                        {/* Planos Toggle */}
+                        <div className="space-y-4">
+                            <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground ml-1">2. Escolha sua Duração</label>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                                {[
+                                    { id: 'free', name: 'Free', price: 'Grátis' },
+                                    { id: 'mensal', name: 'Mensal', price: 'R$ 29,99/m' },
+                                    { id: 'trimestral', name: 'Trimestral', price: 'R$ 79,99/3m' },
+                                    { id: 'semestral', name: 'Semestral', price: 'R$ 139,99/6m' },
+                                    { id: 'anual', name: 'Acesso Anual', price: 'R$ 249,99/ano' }
+                                ].map((p) => (
+                                    <button
+                                        key={p.id}
+                                        onClick={() => setSelectedPlan(p.id as any)}
+                                        className={`p-5 rounded-xl border-2 transition-all flex flex-col items-start gap-1 ${
+                                            selectedPlan === p.id
+                                            ? selectedProduct === 'qrub_concurso' ? 'border-[#7c3aed] bg-[#7c3aed]/10' : 'border-[#10b981] bg-[#10b981]/10'
+                                            : 'border-border bg-muted hover:border-primary/50'
+                                        }`}
+                                    >
+                                        <span className="font-bold uppercase text-xs tracking-widest">{p.name}</span>
+                                        <span className="text-xl font-black italic">{p.price}</span>
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
+
+                        <button
+                            onClick={() => setShowCheckout(true)}
+                            disabled={!selectedPlan}
+                            className="w-full h-16 md:h-20 royal-gradient text-white rounded-[24px] font-black text-lg md:text-xl uppercase tracking-widest soft-shadow hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-3 disabled:opacity-50 disabled:grayscale mt-8"
+                        >
+                            <Sparkles className="w-6 h-6" />
+                            IR PARA PAGAMENTO
+                        </button>
+
+                        <button
+                            type="button"
+                            onClick={async () => {
+                                await finishOnboarding()
+                                router.push('/dashboard')
+                            }}
+                            className="w-full h-12 flex items-center justify-center gap-2 text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground hover:text-primary transition-all rounded-2xl hover:bg-primary/5"
+                        >
+                            Decidir Depois (Ir para Painel Free)
+                        </button>
+                    </div>
+                )}
             </motion.div>
+
+            {selectedPlan && (
+                <CheckoutModal 
+                    isOpen={showCheckout}
+                    onClose={() => setShowCheckout(false)}
+                    plan={selectedPlan}
+                    product={selectedProduct}
+                />
+            )}
         </div>
     )
 }

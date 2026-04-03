@@ -219,7 +219,10 @@ export async function archiveEdital(id: string) {
 export async function deleteEdital(id: string) {
     try {
         const { error } = await supabase.from('editais').delete().eq('id', id)
-        if (error) throw error
+        if (error) {
+            console.error('[editais] deleteEdital erro detalhado:', JSON.stringify(error))
+            throw error
+        }
         await logAdminAction('DELETE_EDITAL', 'editais', id, {})
         return { error: null }
     } catch (err) {

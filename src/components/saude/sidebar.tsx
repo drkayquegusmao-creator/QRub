@@ -18,6 +18,7 @@ import {
     Target,
     Settings,
     User,
+    Users,
     ChevronLeft,
     ChevronRight,
     LogOut,
@@ -54,9 +55,15 @@ const SIDEBAR_GROUPS = [
         ]
     },
     {
+        name: 'Social',
+        items: [
+            { name: 'Comunidade QRub', icon: Users, href: '/dashboard/comunidade', badge: 'BETA' },
+        ]
+    },
+    {
         name: 'Suporte',
         items: [
-            { name: 'Central de Ajuda', icon: Shield, href: '/dashboard/support' },
+            { name: 'Fale Conosco', icon: Shield, href: '/dashboard/support' },
             { name: 'Configurações', icon: Settings, href: '/dashboard/settings' },
         ]
     }
@@ -128,6 +135,11 @@ export function SaudeSidebar() {
                                         {!collapsed && (
                                             <span className="text-xs uppercase tracking-widest font-black truncate">
                                                 {item.name}
+                                            </span>
+                                        )}
+                                        {!collapsed && (item as any).badge && (
+                                            <span className="ml-auto px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-400 text-[7px] font-black uppercase tracking-wider shrink-0">
+                                                {(item as any).badge}
                                             </span>
                                         )}
                                         {active && !collapsed && (

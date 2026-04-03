@@ -32,7 +32,7 @@ export default function QuizPage() {
     const maxQuestions = parseInt(searchParams.get('count') || '20') // Quantidade selecionada
 
     const router = useRouter()
-    const { user, visitorCount, incrementVisitorCount, dailyQuestionCount, incrementDailyCount, visitorId } = useAuth()
+    const { user, canAnswerQuestion, incrementQuestionCount, visitorId, visitorCount, incrementVisitorCount } = useAuth()
     const { add_response } = useQuiz()
     const { get_intelligent_action } = useSRS()
     const { questions: allQuestions, loadQuestions, loading: questionsLoading } = useQuestions()
@@ -95,7 +95,8 @@ export default function QuizPage() {
             course_id: courseId,
             specialty_id: specialtyId,
             subspecialty_id: subspecialtyId,
-            subject_id: subjectId
+            subject_id: subjectId,
+            status_validacao: 'APROVADA'
         })
     }, [courseId, specialtyId, subspecialtyId, subjectId, mode, allQuestions.length])
 
@@ -112,7 +113,7 @@ export default function QuizPage() {
     }, [allQuestions, mode])
 
     // Anti-repetition logic: show unanswered questions first, then cycle
-    // We compute this ONCE per filtered pool change, ignoring hasAnswered changes during session
+    // We compute this ONCE per filtered pool change
     const availableQuestions = useMemo(() => {
         const userId = user?.id || visitorId
 
@@ -121,15 +122,22 @@ export default function QuizPage() {
         let finalPool = []
         if (unanswered.length === 0 && filteredQuestions.length > 0) {
             // If all questions in this filter have been answered, show them all (reset cycle)
-            finalPool = filteredQuestions
+            finalPool = [...filteredQuestions]
         } else {
             // Show unanswered ones
-            finalPool = unanswered
+            finalPool = [...unanswered]
+        }
+
+        // --- SHUFFLE FOR RANDOMNESS (as requested by user) ---
+        // Simple Fisher-Yates shuffle
+        for (let i = finalPool.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [finalPool[i], finalPool[j]] = [finalPool[j], finalPool[i]]
         }
 
         // Apply maxQuestions limit HERE to ensure we get as many as requested
         return finalPool.slice(0, maxQuestions)
-    }, [filteredQuestions, user?.id, visitorId, maxQuestions, hasAnswered])
+    }, [filteredQuestions, user?.id, visitorId, maxQuestions])
 
     const handleFinish = () => {
         setShowSummaryModal(true)
@@ -170,24 +178,33 @@ export default function QuizPage() {
 
 
     const question = availableQuestions[currentIdx]
-    const isInsano = user?.plan_level === 'INSANO'
+    const isInsano = user?.plan_level === 'insano'
 
     // HOOKS MUST BE BEFORE ANY EARLY RETURN
-    // Resolved options from question (array or legacy object format)
+    // resolved options from question (array or legacy object format)
     const shuffledOptions = useMemo(() => {
         const raw = question?.options
         if (!raw) return []
 
+        let options: { id: string; text: string }[] = []
         if (Array.isArray(raw)) {
-            return [...raw] as { id: string; text: string }[]
+            options = [...raw] as { id: string; text: string }[]
         } else if (raw && typeof raw === 'object') {
-            return ['a', 'b', 'c', 'd', 'e']
+            options = ['a', 'b', 'c', 'd', 'e']
                 .filter(k => (raw as Record<string, string>)[k])
                 .map(k => ({ id: k, text: (raw as Record<string, string>)[k] }))
         }
-        return []
+
+        // --- SHUFFLE FOR FAIRNESS (as requested by user) ---
+        // Simple Fisher-Yates shuffle to prevent patterns like many 'B' in a row
+        for (let i = options.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [options[i], options[j]] = [options[j], options[i]]
+        }
+
+        return options
     }, [question?.id])
-    const isFree = user?.plan_level === 'FREE'
+    const isFree = user?.plan_level === 'free'
 
     if (questionsLoading) {
         return (
@@ -235,15 +252,10 @@ export default function QuizPage() {
         if (!selectedOptionId) return
         if (hasConfirmed) return
 
-        // Check visitor limit (not logged in)
-        if (!user && visitorCount >= DAILY_QUESTION_LIMIT_FREE) {
-            setShowRegModal(true)
-            return
-        }
-
-        // Check daily limit for Free tier
-        if (isFree && dailyQuestionCount >= DAILY_QUESTION_LIMIT_FREE) {
-            setShowPaywall(true)
+        // Check access
+        if (!canAnswerQuestion('qrub_saude')) {
+            if (!user) setShowRegModal(true)
+            else setShowPaywall(true)
             return
         }
 
@@ -279,8 +291,8 @@ export default function QuizPage() {
 
             if (!user) {
                 incrementVisitorCount()
-            } else if (isFree) {
-                incrementDailyCount()
+            } else {
+                incrementQuestionCount('qrub_saude')
             }
         }
     }
@@ -300,8 +312,8 @@ export default function QuizPage() {
             <PaywallModal
                 isOpen={showPaywall}
                 onClose={() => setShowPaywall(false)}
-                reason={isFree ? 'limit' : 'feature'}
-                requiredPlan={isFree ? 'PREMIUM' : 'INSANO'}
+                reason="limit"
+                product="qrub_saude"
             />
 
             {/* Header */}
@@ -436,7 +448,7 @@ export default function QuizPage() {
                     )}
 
                     {question.case_study && (
-                        <div className={`space-y-6 mb-8 transition-all ${isFocusMode ? 'text-white/90' : 'text-[#1A1033]/90'}`} style={{ fontSize: `${fontSize}px` }}>
+                        <div className={`space-y-6 mb-8 transition-all ${isFocusMode ? 'text-white/90' : 'text-[#1A1033] dark:text-white/90'}`} style={{ fontSize: `${fontSize}px` }}>
                             {question.case_study.history && (
                                 <p className="leading-relaxed" style={{ fontSize: '1.1em' }}>
                                     {question.case_study.history}
@@ -457,7 +469,7 @@ export default function QuizPage() {
                         </div>
                     )}
 
-                    <h2 className={`font-bold leading-tight ${isFocusMode ? 'text-white' : 'text-[#1A1033]'}`} style={{ fontSize: `${fontSize * 1.3}px` }}>
+                    <h2 className={`font-bold leading-tight ${isFocusMode ? 'text-white' : 'text-[#1A1033] dark:text-white'}`} style={{ fontSize: `${fontSize * 1.3}px` }}>
                         {question.enunciado}
                     </h2>
                 </div>
@@ -520,7 +532,7 @@ export default function QuizPage() {
                                 </div>
                             </div>
                             <div className="space-y-4">
-                                <p className="text-[#1A1033] leading-relaxed font-bold text-xl">{question.explanation}</p>
+                                <p className="text-[#1A1033] dark:text-white leading-relaxed font-bold text-xl">{question.explanation}</p>
                             </div>
                             {question.references && <p className="mt-6 text-[10px] font-bold uppercase tracking-widest text-muted-foreground/60 border-t border-primary/10 pt-4">Referência: {question.references}</p>}
                         </div>
@@ -646,7 +658,7 @@ export default function QuizPage() {
                 isOpen={showPaywall}
                 onClose={() => setShowPaywall(false)}
                 reason="feature"
-                requiredPlan="INSANO"
+                product="qrub_saude"
             />
             <ReportModal
                 isOpen={showReportModal}

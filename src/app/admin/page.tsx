@@ -655,7 +655,7 @@ export default function AdminDashboard() {
                         Master Authority Access
                     </div>
                     <div className="flex items-center gap-4">
-                        <h1 className="text-4xl md:text-6xl font-black italic uppercase tracking-tighter text-[#1A1033] leading-tight flex items-center gap-4">
+                        <h1 className="text-4xl md:text-6xl font-black italic uppercase tracking-tighter text-[#1A1033] dark:text-white leading-tight flex items-center gap-4">
                             Saúde <span className="text-primary non-italic">Admin</span>
                         </h1>
                     </div>
@@ -830,13 +830,13 @@ export default function AdminDashboard() {
                             />
                             <StatCard
                                 label="Plano Insano"
-                                value={realUsers.filter(u => u.plan_level === 'INSANO').length}
+                                value={realUsers.filter(u => u.plan_level === 'insano').length}
                                 color="text-orange-500"
                                 icon={<Crown className="w-4 h-4" />}
                             />
                             <StatCard
                                 label="Plano Premium"
-                                value={realUsers.filter(u => u.plan_level === 'PREMIUM').length}
+                                value={realUsers.filter(u => u.plan_level === 'premium' as any).length}
                                 color="text-primary"
                                 icon={<Star className="w-4 h-4" />}
                             />
@@ -897,7 +897,7 @@ export default function AdminDashboard() {
                                                 </td>
                                                 <td className="px-8 py-6 text-right">
                                                     <div className="flex justify-end gap-2">
-                                                        {['FREE', 'PREMIUM', 'INSANO'].map(p => (
+                                                    {['free', 'insano'].map(p => (
                                                             <button
                                                                 key={p}
                                                                 onClick={() => handlePlanChange(u.id, p as PlanLevel)}
@@ -1157,7 +1157,7 @@ export default function AdminDashboard() {
                                 </button>
                                 <button
                                     onClick={handleValidateJSON}
-                                    className="px-12 bg-white border border-slate-200 py-6 rounded-[24px] font-black uppercase text-xs tracking-widest hover:bg-slate-50 transition-all text-[#1A1033]"
+                                    className="px-12 bg-white border border-slate-200 py-6 rounded-[24px] font-black uppercase text-xs tracking-widest hover:bg-slate-50 transition-all text-[#1A1033] dark:text-white"
                                 >
                                     Validar Protocolo JSON
                                 </button>
@@ -1453,7 +1453,7 @@ function TabButton({ active, onClick, label, icon: Icon }: any) {
             className={`flex items-center gap-3 px-6 py-4 rounded-2xl text-[10px] font-black uppercase tracking-[0.2em] transition-all whitespace-nowrap ${
                 active
                     ? "bg-[#1A1033] text-white shadow-xl"
-                    : "text-slate-400 hover:text-[#1A1033]"
+                    : "text-slate-400 hover:text-[#1A1033] dark:text-white"
             }`}
         >
             <Icon className="w-4 h-4" />
@@ -1470,7 +1470,7 @@ function StatCard({ label, value, sub, color, icon: Icon, alert }: { label: stri
             </div>
             <div>
                 <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-1">{label}</p>
-                <p className={`text-4xl font-black italic tracking-tighter ${color.includes('primary') ? 'text-[#1A1033]' : color}`}>{value}</p>
+                <p className={`text-4xl font-black italic tracking-tighter ${color.includes('primary') ? 'text-[#1A1033] dark:text-white' : color}`}>{value}</p>
                 {sub && <p className="text-[10px] font-bold text-muted-foreground uppercase mt-2">{sub}</p>}
             </div>
         </div>
@@ -1561,8 +1561,8 @@ function ThemeBar({ label, percent, color }: { label: string, percent: number, c
 }
 
 function PlanBadge({ plan }: { plan: PlanLevel }) {
-    if (plan === 'INSANO') return <span className="inline-flex items-center gap-1 bg-orange-500/10 text-orange-500 px-3 py-1.5 rounded-full text-[10px] font-black uppercase"><Crown className="w-3 h-3" /> INSANO</span>
-    if (plan === 'PREMIUM') return <span className="inline-flex items-center gap-1 bg-primary/10 text-primary px-3 py-1.5 rounded-full text-[10px] font-black uppercase"><Star className="w-3 h-3" /> PREMIUM</span>
+    if (plan === 'insano') return <span className="inline-flex items-center gap-1 bg-orange-500/10 text-orange-500 px-3 py-1.5 rounded-full text-[10px] font-black uppercase"><Crown className="w-3 h-3" /> INSANO</span>
+    if (plan === 'premium' as any) return <span className="inline-flex items-center gap-1 bg-primary/10 text-primary px-3 py-1.5 rounded-full text-[10px] font-black uppercase"><Star className="w-3 h-3" /> PREMIUM</span>
     return <span className="inline-flex items-center gap-1 bg-muted text-muted-foreground px-3 py-1.5 rounded-full text-[10px] font-black uppercase">FREE</span>
 }
 

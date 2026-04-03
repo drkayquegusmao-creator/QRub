@@ -1,0 +1,184 @@
+[
+    {
+        "id": "hepa-31",
+        "banca": "CEBRASPE",
+        "cargo": "Médico - Hepatologia",
+        "ano": "2024",
+        "enunciado": "Julgue o item a seguir acerca das hepatites virais. A infecção crônica pelo vírus da hepatite C (HCV) é curável em mais de 95% dos casos utilizando-se os atuais esquemas com antivirais de ação direta (DAA). A confirmação de cura virológica ou Resposta Virológica Sustentada (RVS) é definida tradicionalmente pela ausência de HCV RNA detectável no soro após 12 semanas do término do tratamento, resultando em erradicação completa do vírus do organismo, ainda que a titulação sorológica de anti-HCV permaneça positiva por toda a vida.",
+        "alternativas": {
+            "a": "Certo",
+            "b": "Errado"
+        },
+        "respostaCorreta": "a",
+        "justificativa": "Correto. Diferente do HBV ou do HIV que integram o genoma ou persistem cronicamente ocultos, os agentes de ação direta (DAA) erradicam irreversivelmente o vírus da hepatite C (RVS12). Contudo, a 'cicatriz imunológica' traduzida pela detecção de anticorpos séricos (anti-HCV reagente) não desaparece, acompanhando o paciente pela vida toda e não refletindo contração ativa da doença após a cura verdadeira validada por carga viral negativa prolongadamente (RVS12 ou RVS24).",
+        "tags": [
+            "Hepatologia",
+            "Hepatites Virais",
+            "Hepatite C",
+            "Tratamento Antiviral Direto"
+        ]
+    },
+    {
+        "id": "hepa-32",
+        "banca": "CEBRASPE",
+        "cargo": "Médico - Clínica Médica",
+        "ano": "2024",
+        "enunciado": "A respeito do vírus da Hepatite Delta (HDV), julgue o item subsequente. O HDV é um vírus defeituoso de RNA que demanda absolutamente as proteínas de envelope (HBsAg) cedidas pelo vírus da Hepatite B (HBV) para viabilizar sua inserção nos hepatócitos. A forma mais severa de agravamento global por hepatite delta é sua configuração por coinfecção simultânea aguda HBV+HDV, fato que apresenta um altíssimo risco de cronificação a longo prazo (superior a 90%).",
+        "alternativas": {
+            "a": "Certo",
+            "b": "Errado"
+        },
+        "respostaCorreta": "b",
+        "justificativa": "Errado. Embora a primeira afirmação esteja correta (HDV precisa estritamente do HBsAg), a forma responsável pela crõnificação gravíssima, cirrose agressiva ou hepatite crônica progressiva letal da Delta trata-se fundamentalmente da SUPERINFECÇÃO (paciente já era previamente portador inativo ou crônico do HBV e adquire o HDV posteriormente), curando as duas conjuntamente muito raramente (risco crônico chega a 90%). Na coinfecção aguda simultânea (pega HBV e HDV juntos), a infecção tende muito mais as vezes a ser fatal e aguda de imediato, porém, os pacientes que sobrevivem limpam ambos os genomas antivirais simultaneamente em ate 95% dos casos (tem altíssima taxa de cura biológica).",
+        "tags": [
+            "Hepatologia",
+            "Hepatites Virais",
+            "Hepatite Delta"
+        ]
+    },
+    {
+        "id": "hepa-33",
+        "banca": "CEBRASPE",
+        "cargo": "Médico - Hepatologia",
+        "ano": "2024",
+        "enunciado": "No contexto diagnóstico laboratorial em hepatologia, julgue o item. As aminotransferases (ou transaminases AST e ALT) refletem danos e necrose essencial nas organelas basais do hepatócito. Padrões característicos em que a AST costuma ser significativamente maior que a ALT, superando usualmente em duas vezes a segunda (relação AST/ALT > 2), são marcadores biológicos patognomônicos precoces para Hepatopatia Alcoólica. Em contrapartida, as hepatites virais agudas comumente cursam caracteristicamente com marcante alteração na ALT igualando ou superando francamente as enzimas AST.",
+        "alternativas": {
+            "a": "Certo",
+            "b": "Errado"
+        },
+        "respostaCorreta": "a",
+        "justificativa": "Correto. O padrão em que a TGO/AST é maior ou mais de duas vezes mais acentuada que a TGP/ALT (Relação De Ritis ou TGO/TGP > 2) é extremamente forte para hepatopatia alcoólica. Isso ocorre devido à depleção de piridoxal 5-fosfato induzida marcadamente pelo álcool e à toxicidade mitocondrial. Outras hepatites ativas ou virais costumam manifestar o oposto: elevações difusas avassaladoras pendendo principalmente à maior dominância de TGP/ALT pelo seu elevado índice citosólico hepático em relação ao músculo.",
+        "tags": [
+            "Hepatologia",
+            "Laboratório em Hepatologia",
+            "Hepatopatia Alcoólica"
+        ]
+    },
+    {
+        "id": "hepa-34",
+        "banca": "CEBRASPE",
+        "cargo": "Médico - Cirurgia / Gastroenterologia",
+        "ano": "2024",
+        "enunciado": "Julgue o próximo item relativo aos principais abcessos hepáticos. O abscesso hepático amebiano (Endamoeba histolytica), que tipicamente produz uma secreção necrótica tipo 'pasta de anchovas' (achocolatada e inodora), requer abordagem cirúrgica resolutiva de urgência (drenagem aberta ou percutânea extensiva invasiva guiada por radiologia) na vasta maioria das coleções volumosas na primeira linha terapêutica, superando a metronidazol medicamentosa conservadora primária.",
+        "alternativas": {
+            "a": "Certo",
+            "b": "Errado"
+        },
+        "respostaCorreta": "b",
+        "justificativa": "Errado. O abscesso amebiano apresenta uma resposta fantástica ao tratamento medicamentoso antimicrobiano puro (principalmente Metronidazol contínuo e altas doses). A drenagem percutânea por agulha ou cirurgia é reservada para raríssimos casos: lobos esquerdos (alto risco de ruptura para o saco pericárdico), falta de resposta em 72h ao metronidazol empírico, iminência clara de ruptura dolorosa (serosa distendida por cistos muito grandes) ou diagnóstico indefinido (abscessos amebianos mimetizando muito abcesso piogênico não responsivo).",
+        "tags": [
+            "Hepatologia",
+            "Doenças Infecciosas Hepáticas",
+            "Abscesso Hepático Amebiano"
+        ]
+    },
+    {
+        "id": "hepa-35",
+        "banca": "CEBRASPE",
+        "cargo": "Médico - Hepatologia",
+        "ano": "2024",
+        "enunciado": "Em relação à deficiência de Alfa-1-Antitripsina patológica, julgue o item. O mecanismo principal pelo qual essa alteração genética autossômica condutiva provoca doença hepática progressiva no indivíduo homozigoto PI*ZZ baseia-se primordialmente na ausência total circulante sistêmica e intrínseca e incapacidade severa da neutralização de proteases que degradam massivamente os macrófagos de sinusoides do tecido hepático, o qual ataca e destrói perigosamente as portas lobulares centrais de circulação periférica colagenosa.",
+        "alternativas": {
+            "a": "Certo",
+            "b": "Errado"
+        },
+        "respostaCorreta": "b",
+        "justificativa": "Errado. Na deficiência de Alfa-1-Antitripsina (em especial no raro fenótipo PI*ZZ), a agressão contínua em fígados e cirrose é induzida estruturalmente por acúmulo da proteína alfa-1-antitripsina aberrante mal dobrada (misfolded) no retículo endoplasmático dos referidos hepatócitos e não em capilares de kupffer. Ela fica enclausurada e polimerizada maciçamente e não trafega pelo citosol, induzindo exaustão severa da maquinaria celular do hepatócito, estresse crônico fibrótico grave (doença pelo erro de dobramento celular). Já a patogênese na face patológica pulmonar sim, decorre puramente da deficiência total dessa anti-enzima de proteção na periferia dos capilares alveolares e alvéolos.",
+        "tags": [
+            "Hepatologia",
+            "Metabolismos e Genética",
+            "Deficiência de Alfa-1-Antitripsina"
+        ]
+    },
+    {
+        "id": "hepa-36",
+        "banca": "CEBRASPE",
+        "cargo": "Médico - Gastroenterologia/Hepatologia",
+        "ano": "2024",
+        "enunciado": "Julgue o item que se segue sobre as complicações intrínsecas da hipertensão portal. O aparecimento da Doença Vascular Portopulmonar (ou Hipertensão Portopulmonar) nos pacientes cirróticos graves contraindica de maneira universal a realização de derivação transjugular intra-hepática portossistêmica (TIPS) em casos de risco moderado a severo da patologia, dados os altos e incalculavelmente deletérios sobrecálculos pressóricos bruscos jogados violentamente na microvasculatura direita frágil do plexo arterial pulmonar após o stent desviar a hiperdinâmica perigosa esplâncnica.",
+        "alternativas": {
+            "a": "Certo",
+            "b": "Errado"
+        },
+        "respostaCorreta": "a",
+        "justificativa": "Correto. O TIPS abre via percutânea vascular direta em paralelo a veia porta contraída para as Cavas (bypass), melhorando agudamente as varises mas derrubando pressões abruptamente na circulação sistêmica somada por jorro fortíssimo de hiperfluxo sanguíneo direto subido para a face direita do coração (Direita/Pulmão). Em pacientes com artérias pulmonares fragilizadas, hipertrofiadas e que já sustentam severamente muita pressão prévia na rede portopulmonar (Hipertensão grave), esse volume de pré-carga altíssimo as fixaria ao colapso completo levando à choque cardiogênico maciço, infarto do VD ou morte abrupta secundária.",
+        "tags": [
+            "Hepatologia",
+            "Cirrose Hepática",
+            "Complicações da Cirrose",
+            "Hipertensão Portopulmonar"
+        ]
+    },
+    {
+        "id": "hepa-37",
+        "banca": "CEBRASPE",
+        "cargo": "Médico - Infectologia/Hepatologia",
+        "ano": "2024",
+        "enunciado": "Acerca da Hepatite C em gestantes, julgue o item a seguir. Não existem regimes medicamentosos antivirais de ação direta contra a hepatite C aprovados inquestionavelmente, embasadamente bem suportados e padronizados mundialmente para emprego seguro generalizado durantes as fases uterinas de trimestre na gravidez; razão pela qual mulheres que engravidam diagnosticadas com HCV ativas via PCR aguardam rotineiramente a parturição ou o período puérpero para finalmente viabilizarem o início da pílula antiviral curativa primária sem submeter potenciais deformidades letais imprevistas à vida infante no ventre uterino intra-cavitário natural materno.",
+        "alternativas": {
+            "a": "Certo",
+            "b": "Errado"
+        },
+        "respostaCorreta": "a",
+        "justificativa": "Correto. Diferente da hepatite B cronificada (onde prescreve-se amplamente antivirais - normalmente o poderoso Tenofovir do primeiro dia do terceiro trimestre em diante caso alta viremia materna profilática global contínua contra a transmissão fetal direta do nascimento), ainda não se preconiza tratamento massivo por meio dos antivirais de ação reta da HCV (DAAs genéticos e metabólicos ex: sofosbuvir, velpatasvir etc) visando proteção em fase intraútero da mãe primigesta HCV+. Aguardam-se o resguardo pós-natal final da janela puerperal contínua profilática para então empregar as medicações curativas universais.",
+        "tags": [
+            "Hepatologia",
+            "Hepatites Virais",
+            "Terapias Gestacionais na Hepatologia"
+        ]
+    },
+    {
+        "id": "hepa-38",
+        "banca": "CEBRASPE",
+        "cargo": "Médico Clínico Especialista",
+        "ano": "2024",
+        "enunciado": "Bases fisiopatológicas avaliam a patência de fluxo nos vasos portais e jugulares. O termo Síndrome de Budd-Chiari clássica manifesta-se através de clínica hepatovascular peculiar de ascite, hepatomegalia severa acentuadíssima e dor abdominal insidiosa gerada notadamente pela patomorfose biológica principal baseada exclusivamente em inflamações e microcoágulos originados crônica e essencialmente nos vasos pâncreas-duodenais distais mesentéricos em conjunção à esclerose da face superior do tronco celíaco, preservando perfeitamente a passagem macro-peritoneal supra-hepática ao longo da sua gênese biológica sistêmica restrita primária capilar basal inflamatória crônica primária local.",
+        "alternativas": {
+            "a": "Certo",
+            "b": "Errado"
+        },
+        "respostaCorreta": "b",
+        "justificativa": "Errado. O cenário agudo-progressivo obstrutivo da majestosa síndrome clínica de Budd-Chiari assenta-se unida, primária e unicamente em mecanismos massivos de subjacente patologia trombótica (ou macro compressões venosas generalizadas) restritas diretamente ocorridas apenas na via superior de drenagem retrógrada: ocorrem desde a rede superior das veias endoepiteliais retro-hepáticas locais diretas, pelas complexas Veias Supra-Hepáticas unilocais unicas contíguas da patologia, alcançando os cistos centrais até ao cruzamento de entrada cava da veia intra-hepático da temida Veia Cava Inferior sistêmica, represando assim brutalmente a via circulatória estagnada no órgão todo por contração pós-hepática venosa pura massiva severa primariamente.",
+        "tags": [
+            "Hepatologia",
+            "Doenças Vasculares do Fígado",
+            "Síndrome de Budd-Chiari"
+        ]
+    },
+    {
+        "id": "hepa-39",
+        "banca": "CEBRASPE",
+        "cargo": "Médico - Hepatologia",
+        "ano": "2024",
+        "enunciado": "Julgue o item a seguir referente à Colangite Esclerosante Primária (CEP). Pacientes com CEP possuem uma marcante e notória correlação clínica estatística com uma evolução somatória sobrejacente de Retocolite Ulcerativa, o que determina uma diretriz médica fundamental: é perfeitamente obrigatória a indicação formal de uma colonoscopia logo na detecção inicial de suspeita grave laboratorial patológica e biópsia da CEP no paciente não acompanhado coloretalmente. Ademais, esses doentes manifestam uma notória predição oncológica de desenvolver o perigoso e terrível Colangiocarcinoma biliar grave como intercorrência primária fulminante de piora ao longo de sua deterioração contínua progressiva fibrótica dos grossos lúmens vitais intra e extra ductos massivos ao estresse mecânico restritivo continuado colangiopático celular progressivamente destrói o arranjo hepatocítico ductal natural periférico incontrolável sistêmico vital.",
+        "alternativas": {
+            "a": "Certo",
+            "b": "Errado"
+        },
+        "respostaCorreta": "a",
+        "justificativa": "Correto. A vasta maioria contínua natural estatística progressiva clínica primária sistêmica base restrita global esclerosante de pacientes com CEP cursa primariamente em mais de 70% à 85% massificados globalmente crônicos com retocolite ulcerativa idiopática, exigindo colonoscopia precoce (e biópsia sistêmica para não omitir displasia colônica na doença inflamatória contínua assintomática) contínua sistêmica na descoberta e rotineiramente nos demais check-ups; somando-se à elevada predileção tumorigênica local sistêmica patológica gravíssima fatal de induzir malignização biliar crônica com Colangiocarcinoma agressivo nos lobos hilares, hepáticos intra-hilares primários em até 10-15%.",
+        "tags": [
+            "Hepatologia",
+            "Colangiopatia Autoimune",
+            "Colangite Esclerosante Primária"
+        ]
+    },
+    {
+        "id": "hepa-40",
+        "banca": "CEBRASPE",
+        "cargo": "Médico - Gastroenterologista",
+        "ano": "2024",
+        "enunciado": "Considerando o cenário patológico restritivo primário clássico sistêmico de desnutrição basal continuada e severa das veias capilares progressivas fibróticas atestadas na falência avançada crônica e sistêmica hepática lobular; a indicação fundamental médica terapêutica básica restritiva nutricional mais vital progressivamente para evitar a iminência desastrosa catastrófica de piora neurológica secundária fatal induzida letal baseada pesadamente e marcadamente no complexo nefasto obstrutivo inflamatório progressivamente base de confusão letárgica sistêmica avançada crônica contínua obstrutiva de coma generalizado basal da Encefalopatia Hepática se calca primária, basal e rigidamente em restringir pesadamente todo aporte de carga ou dieta de macroproteínas ao nível abaixo de drásticos globais rígidos 0,5 gramas puros calóricos brutos vitais limiares ao peso calórico de absorção massivo global por limite quilo corporal biológico, em vez base basal de laxativos purga progressivos primários, pois esta desvia bruscamente a produção de resíduo catabólico biológico entérico progressivamente central massiva ureico circulante amonigênio.",
+        "alternativas": {
+            "a": "Certo",
+            "b": "Errado"
+        },
+        "respostaCorreta": "b",
+        "justificativa": "Errado. Diferente do passado restrito dogmático desnecessário maléfico, diretrizes médicas atuais abominam ferozmente qualquer restrição de carga de dieta proteica a pacientes encefalopatas (abaixo de 1.2, etc.). Cirróticos com Encefalopatia hepática são gravemente e sistemicamente imuno-desnutridos basais; precisam fortemente (e toleram melhor do que perdem não recebendo) de generosa quantidade progressiva contínua padronizada de proteína natural tolerada maciça, focando antes no escoamento toxítico da amônia entérica utilizando substâncias laxantes primárias progressiva (Lactulona contínua, visando de 2-4 fezes pastosas por dias progressivamente rotífero), antibióticos diretos seletos massivos purificadores entéricos bactericidas primários pesados obstrutivos inibidores absorventes sem absorção sistêmica global destrutivos (Rifaximina, neomicina) em detrimento global errático progressivamente perigoso destrutivo de privação alimentar sistêmica primária letal continuada global da nutrição hiperproteica contínua.",
+        "tags": [
+            "Hepatologia",
+            "Cirrose Hepática",
+            "Encefalopatia Hepática"
+        ]
+    }
+]

@@ -1,516 +1,928 @@
 "use client"
-// Build Trigger: 2026-01-31 22:45 - PDF Upload RLS and Path Fix
-import { useState } from 'react'
-import { motion } from 'framer-motion'
-import { Sparkles, ArrowRight, Shield, Zap, Globe, Instagram, Twitter, Linkedin, Facebook, Target } from 'lucide-react'
+
+import { useState, useEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { 
+  Smartphone, Monitor, ChevronRight,
+  Download, Laptop, Apple, Layout, 
+  Rocket, HeartPulse, GraduationCap,
+  MessageCircle, Instagram, Tablet,
+  Play, Zap, ShieldCheck, Sparkles, CheckCircle2,
+  Clock, Layers, MousePointer2, Globe, Target,
+  LayoutGrid, RefreshCw, MonitorCheck, Music,
+  ArrowRight, School, Laptop2
+} from 'lucide-react'
 import { AuthModal } from '@/components/auth-modal'
+import { CheckoutModal } from '@/components/checkout-modal'
 import Link from 'next/link'
 import Image from 'next/image'
-
 import { useRouter } from 'next/navigation'
-import { useEffect } from 'react'
 import { useAuth } from '@/store/use-auth'
-import { useSettings } from '@/store/use-settings'
 import { useTheme } from 'next-themes'
 import { isMasterEmail } from '@/lib/auth-constants'
 
 export default function Home() {
   const { setTheme } = useTheme()
   const [isAuthOpen, setIsAuthOpen] = useState(false)
-  const { isAuthenticated, user } = useAuth()
-  // const { prices } = useSettings()
+  const { isAuthenticated, user, setPendingPlan, getPendingPlan, clearPendingPlan } = useAuth()
   const router = useRouter()
   const [isHydrated, setIsHydrated] = useState(false)
+  const [activeTab, setActiveTab] = useState<'Recursos' | 'Metodologia' | 'Planos' | 'Sobre' | 'Contato'>('Recursos')
+  const [activeProduct, setActiveProduct] = useState<'qrub_concurso' | 'qrub_saude'>('qrub_concurso')
+  const [checkoutConfig, setCheckoutConfig] = useState<{ isOpen: boolean, plan: 'free' | 'mensal' | 'trimestral' | 'semestral' | 'anual', product: 'qrub_concurso' | 'qrub_saude' }>({
+    isOpen: false,
+    plan: 'free',
+    product: 'qrub_concurso'
+  })
 
   useEffect(() => {
-    setIsHydrated(true)
-    setTheme('light')
-  }, [setTheme])
+    if (isAuthenticated) {
+      const pending = getPendingPlan()
+      if (pending) {
+        setCheckoutConfig({ 
+          isOpen: true, 
+          plan: pending.plan as 'free' | 'mensal' | 'trimestral' | 'semestral' | 'anual', 
+          product: pending.product 
+        })
+        clearPendingPlan()
+      }
+    }
+  }, [isAuthenticated, getPendingPlan, clearPendingPlan])
 
-  useEffect(() => {
-    if (isHydrated && isAuthenticated) {
+  const handleEnvironmentAccess = (env: 'SAUDE' | 'CONCURSOS') => {
+    if (typeof window !== 'undefined') {
+      window.localStorage.setItem('qrub_last_environment', env)
+    }
+    
+    if (isAuthenticated) {
       if (user && isMasterEmail(user.email)) {
         router.push('/select-environment')
       } else {
-        router.push('/dashboard')
+        router.push(env === 'SAUDE' ? '/saude' : '/concursos')
       }
+    } else {
+      setIsAuthOpen(true)
     }
-  }, [isHydrated, isAuthenticated, user, router])
+  }
+
+  useEffect(() => {
+    setIsHydrated(true)
+  }, [])
+
+  useEffect(() => {
+    if (isHydrated && isAuthenticated) {
+      // Remover redirecionamento automático para não atrapalhar o login passivo se o usuário quiser ficar na landing
+      // router.push('/dashboard') (desabilitado para deixar landing page usável logado)
+    }
+  }, [isHydrated, isAuthenticated])
 
   if (!isHydrated) return null
 
-  // plans variable removed
-
-
   return (
-    <div className="min-h-screen relative overflow-hidden bg-background selection:bg-primary/30">
-      {/* Background Orbs */}
-      <div className="absolute top-[-5%] left-[-10%] w-[50%] h-[50%] bg-primary/20 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute top-[30%] right-[-10%] w-[40%] h-[40%] bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-[-5%] left-[-10%] w-[40%] h-[40%] bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
-
-      {/* Nav */}
-      <nav className="relative z-10 flex items-center justify-between px-6 py-8 md:px-12 max-w-7xl mx-auto">
-        <div className="flex items-center gap-4">
-          <div className="relative w-12 h-12 overflow-hidden rounded-2xl shadow-2xl border border-white/10 ring-2 ring-primary/20">
-            <Image src="/qrub_premium_logo_3d.jpg" alt="QRub Premium Logo" fill className="object-cover" />
+    <div className="bg-[#0c1322] text-[#dce2f7] font-sans selection:bg-[#7c3aed] selection:text-white overflow-x-hidden min-h-screen">
+      
+      {/* 1. Top Navigation Bar */}
+      <nav className="fixed top-0 w-full z-50 bg-[#2e1065]/60 backdrop-blur-xl border-none shadow-[0_24px_48px_-12px_rgba(115,46,228,0.08)]">
+        <div className="flex justify-between items-center max-w-7xl mx-auto px-8 h-20">
+          <div className="text-2xl font-black text-white tracking-tighter">QRUB</div>
+          <div className="hidden md:flex items-center gap-8 tracking-tight font-semibold">
+            <button 
+              onClick={() => setActiveTab('Recursos')}
+              className={`${activeTab === 'Recursos' ? 'text-violet-300 border-b-2 border-violet-500 pb-1' : 'text-slate-300'} hover:text-white transition-all`}
+            >
+              Recursos
+            </button>
+            <button 
+              onClick={() => setActiveTab('Metodologia')}
+              className={`${activeTab === 'Metodologia' ? 'text-violet-300 border-b-2 border-violet-500 pb-1' : 'text-slate-300'} hover:text-white transition-all`}
+            >
+              Metodologia
+            </button>
+            <button 
+              onClick={() => setActiveTab('Planos')}
+              className={`${activeTab === 'Planos' ? 'text-violet-300 border-b-2 border-violet-500 pb-1' : 'text-slate-300'} hover:text-white transition-all`}
+            >
+              Planos
+            </button>
+            <button 
+              onClick={() => setActiveTab('Sobre')}
+              className={`${activeTab === 'Sobre' ? 'text-violet-300 border-b-2 border-violet-500 pb-1' : 'text-slate-300'} hover:text-white transition-all`}
+            >
+              Sobre
+            </button>
+            <button 
+              onClick={() => setActiveTab('Contato')}
+              className={`${activeTab === 'Contato' ? 'text-violet-300 border-b-2 border-violet-500 pb-1' : 'text-slate-300'} hover:text-white transition-all`}
+            >
+              Contato
+            </button>
           </div>
-          <span className="text-3xl font-black tracking-tighter uppercase italic">QRub</span>
-        </div>
-        <div className="flex items-center gap-8">
-          <div className="hidden md:flex items-center gap-6 text-sm font-bold uppercase tracking-widest text-muted-foreground">
-            {/* <a href="#planos" className="hover:text-primary transition-colors">Planos</a> */}
-            <a href="#recursos" className="hover:text-primary transition-colors">Recursos</a>
-            <a href="#sobre" className="hover:text-primary transition-colors">Sobre</a>
+          <div className="flex items-center gap-6">
+            <button 
+              onClick={() => setIsAuthOpen(true)}
+              className="hidden sm:block text-sm font-bold text-slate-400 hover:text-white transition-colors underline-offset-4 hover:underline"
+            >
+              Já sou usuário
+            </button>
+            <button 
+              onClick={() => setIsAuthOpen(true)}
+              className="px-8 py-2.5 text-sm font-black uppercase tracking-widest rounded-full bg-gradient-to-r from-violet-600 to-indigo-600 text-white hover:scale-105 active:scale-95 duration-200 transition-all shadow-[0_0_20px_rgba(124,58,237,0.3)] font-sans border border-white/10"
+            >
+              Entrar
+            </button>
           </div>
-          <Link
-            href="/auth"
-            className="px-6 py-2.5 rounded-full border border-primary/20 font-bold hover:bg-primary/5 transition-all text-sm uppercase tracking-wider bg-card"
-          >
-            Entrar
-          </Link>
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <main className="relative z-10 max-w-7xl mx-auto px-6 py-16 md:px-12 text-center md:text-left flex flex-col md:flex-row items-center gap-8 lg:gap-16">
-        <div className="flex-1 space-y-4 text-center md:text-left">
+      {/* Tab Content Rendering */}
+      <AnimatePresence mode="wait">
+        {activeTab === 'Recursos' && (
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary border border-primary/20 text-xs font-black uppercase tracking-widest mx-auto md:mx-0"
-          >
-            <Sparkles className="w-4 h-4" />
-            Nova Geração de Estudos
-          </motion.div>
-
-          <motion.h1
+            key="recursos"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-6xl lg:text-7xl font-black leading-[1.1] tracking-tighter"
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
           >
-            Sua Aprovação <br />
-            <span className="royal-gradient-text">Começa Aqui.</span>
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-base md:text-lg text-muted-foreground max-w-lg leading-relaxed mx-auto md:mx-0"
-          >
-            A plataforma SaaS definitiva para estudantes de alta performance.
-            Questões filtradas, simulados inteligentes e uma interface focada no que importa.
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-3 pt-4"
-          >
-            <button
-              onClick={() => setIsAuthOpen(true)}
-              className="group relative px-7 py-3.5 rounded-xl bg-primary text-white font-bold text-sm soft-shadow overflow-hidden transition-all hover:scale-[1.02] active:scale-95 flex items-center gap-2 royal-gradient"
-            >
-              Começar Agora
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </button>
-            {/* <a
-              href="#planos"
-              className="px-7 py-3.5 rounded-xl border border-border font-bold text-sm hover:bg-muted/50 transition-all bg-card"
-            >
-              Ver Planos
-            </a> */}
-          </motion.div>
-
-
-        </div>
-
-        <div className="flex-1 relative hidden lg:flex items-center justify-center min-h-[600px]">
-          {/* Intense Ambient Glow */}
-          <div className="absolute inset-0 bg-primary/25 blur-[150px] rounded-full animate-pulse" />
-
-          <div className="relative w-full h-full flex items-center justify-center">
-            {/* Rotating Tech Orbits */}
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-              className="absolute z-0 w-[85%] aspect-square border-2 border-primary/10 rounded-full border-dashed"
-            />
-            <motion.div
-              animate={{ rotate: -360 }}
-              transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
-              className="absolute z-0 w-[95%] aspect-square border border-primary/5 rounded-full"
-            />
-
-            {/* Neuro-Data Particles */}
-            {[...Array(6)].map((_, i) => (
-              <motion.div
-                key={i}
-                animate={{
-                  y: [0, -30, 0],
-                  x: [0, 15, 0],
-                }}
-                transition={{
-                  duration: 4 + i,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: i * 0.4
-                }}
-                className="absolute w-1.5 h-1.5 bg-primary/50 rounded-full blur-[1px]"
-                style={{
-                  top: `${15 + i * 12}%`,
-                  left: `${10 + (i % 3) * 25}%`,
-                  opacity: 0.6 // Locked opacity
-                }}
-              />
-            ))}
-
-            {/* The Main Premium Logo Piece - PERMANENTLY VISIBLE */}
-            <motion.div
-              style={{ opacity: 1 }}
-              animate={{
-                opacity: 1, // Constant loop visibility
-                scale: [1, 1.05, 1],
-                rotate: [0, 5, -5, 0],
-                y: [0, -20, 0],
-              }}
-              transition={{
-                duration: 8,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-              className="absolute z-20 w-[70%] aspect-square rounded-full overflow-hidden shadow-[0_0_120px_rgba(109,40,217,0.8)] border-4 border-white/20 ring-4 ring-primary/20"
-            >
-              <Image src="/qrub_premium_logo_3d.jpg" alt="QRub 3D Core" fill className="object-cover scale-110" priority />
-            </motion.div>
-
-            <motion.div
-              animate={{
-                scale: [0.99, 1.01, 0.99]
-              }}
-              transition={{
-                duration: 7,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-              className="relative z-10 w-full h-full grayscale-[0.3] contrast-[1.2]"
-              style={{
-                mixBlendMode: 'screen',
-                opacity: 0.5 // Locked base opacity
-              }}
-            >
-              <Image
-                src="/qrub_3d_gladiator_ultra.png"
-                alt="QRub Guardian"
-                fill
-                className="object-contain"
-                priority
-              />
-            </motion.div>
-
-          </div>
-        </div>
-      </main>
-
-      {/* Pricing Section */}
-      {/* Pricing Section (Hidden for Free Launch) */}
-      {/* 
-      <section id="planos" className="relative z-10 max-w-7xl mx-auto px-6 pt-12 pb-20 md:px-12">
-        <div className="text-center space-y-4 mb-12">
-          <h2 className="text-4xl md:text-6xl font-black italic uppercase tracking-tighter">Escolha seu Destino</h2>
-          <p className="text-muted-foreground font-bold tracking-widest uppercase text-xs">Planos feitos para quem quer ser aprovado ontem.</p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {plans.map((plan, i) => (
-            <motion.div
-              key={plan.name}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className={`relative flex flex-col p-8 rounded-[40px] border-2 transition-all hover:scale-[1.02] ${plan.color}`}
-            >
-              {plan.popular && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 royal-gradient text-white px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-widest">
-                  Mais Popular
+            {/* 2. Hero Section */}
+            <section className="relative pt-32 pb-20 px-8 overflow-hidden">
+              <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+                <div className="z-10 text-center lg:text-left">
+                  <div className="inline-block px-4 py-1.5 mb-6 text-xs font-bold tracking-widest uppercase rounded-full bg-[#7c3aed]/20 text-[#d2bbff] border border-[#7c3aed]/20">
+                    PLATAFORMA COGNITIVA LUMINAR
+                  </div>
+                  <h1 className="text-5xl md:text-7xl font-extrabold text-white leading-[1.1] tracking-tighter mb-8">
+                    Domine sua aprovação com um app feito para <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#d2bbff] to-[#eaddff]">performance.</span>
+                  </h1>
+                  <p className="text-xl text-[#ccc3d8] leading-relaxed mb-10 max-w-2xl font-sans">
+                    Estude com velocidade, foco e inteligência. O QRUB funciona como aplicativo no seu celular ou direto no navegador.
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center">
+                    <button 
+                      onClick={() => setActiveTab('Planos')}
+                      className="w-full sm:w-auto px-10 py-5 rounded-2xl bg-gradient-to-br from-[#7c3aed] to-[#d2bbff] text-[#25005a] font-black text-xl shadow-[0_20px_40px_rgba(124,58,237,0.4)] hover:scale-[1.02] active:scale-95 transition-all font-sans flex items-center justify-center gap-2 group"
+                    >
+                      Começar Agora <Rocket className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                    </button>
+                    <button 
+                      onClick={() => setIsAuthOpen(true)}
+                      className="w-full sm:w-auto px-10 py-5 rounded-2xl border-2 border-white/10 bg-white/5 text-white font-black text-xl hover:bg-white/10 hover:border-white/20 transition-all font-sans flex items-center justify-center gap-2"
+                    >
+                      Já sou usuário <ArrowRight className="w-5 h-5" />
+                    </button>
+                  </div>
+                  <p className="mt-8 text-sm text-slate-500 font-medium flex items-center justify-center lg:justify-start gap-2">
+                    <MonitorCheck className="w-4 h-4" />
+                    Disponível para Android, iPhone, Windows e macOS
+                  </p>
                 </div>
-              )}
 
-              <div className="flex items-center justify-between mb-6">
-                <div className="p-3 rounded-2xl bg-card border border-border">
-                  {plan.icon}
+                <div className="relative flex justify-center items-center">
+                  {/* Ambient Glow Background */}
+                  <div className="absolute w-[500px] h-[500px] bg-[#7c3aed]/30 rounded-full blur-[120px] -z-10 animate-pulse"></div>
+                  <div className="relative group flex justify-center w-full z-10 perspective-[1000px]">
+                    {/* Celular Frame 3D */}
+                    <div className="relative transform transition-all duration-700 hover:rotate-y-12 hover:rotate-x-6 hover:scale-105">
+                      
+                      {/* Borda Exterior do Celular (Glassmorphism & Metálico) */}
+                      <div className="relative border-[#2a2f42] border-[10px] rounded-[3rem] h-[600px] w-[280px] sm:w-[320px] shadow-[0_20px_50px_rgba(0,0,0,0.5),inset_0_0_0_2px_rgba(255,255,255,0.1)] bg-[#0A0D14] overflow-hidden flex flex-col pt-8 pb-6 px-5 group-hover:shadow-[0_30px_60px_rgba(124,58,237,0.3)] transition-all">
+                        
+                        {/* Notch (Ilha Dinâmica) */}
+                        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-6 bg-[#2a2f42] rounded-b-2xl z-20 flex justify-center items-center">
+                          <div className="w-12 h-1.5 bg-black/50 rounded-full"></div>
+                        </div>
+
+                        {/* Header / Logo */}
+                        <div className="flex items-center gap-2 mb-6 mt-2 relative z-10">
+                          <div className="bg-[#7c3aed] p-1.5 rounded-lg shadow-[0_0_15px_rgba(124,58,237,0.5)]">
+                            <Sparkles className="w-4 h-4 text-white" />
+                          </div>
+                          <span className="font-extrabold text-white tracking-widest text-sm shadow-[0_0_10px_rgba(255,255,255,0.2)]">QRUB</span>
+                        </div>
+
+                        {/* Subtítulo */}
+                        <div className="text-center mb-6 mt-[-30px] relative z-10">
+                          <p className="text-[#a1a1aa] text-[10px] uppercase font-black tracking-widest drop-shadow-md">Seu estudo hoje</p>
+                        </div>
+
+                        {/* Círculo de Progresso e Badge */}
+                        <div className="flex justify-between items-center mb-8 relative z-10 px-2">
+                          {/* Anel de Progresso */}
+                          <div className="relative flex items-center justify-center w-24 h-24 rounded-full bg-[#1e1e2c] shadow-[0_0_30px_rgba(124,58,237,0.2),inset_0_4px_10px_rgba(0,0,0,0.5)]">
+                            <svg className="absolute inset-0 w-full h-full -rotate-90 drop-shadow-[0_0_8px_rgba(124,58,237,0.8)]">
+                              <circle cx="48" cy="48" r="40" stroke="rgba(124,58,237,0.15)" strokeWidth="8" fill="none" />
+                              <circle cx="48" cy="48" r="40" stroke="#a78bfa" strokeWidth="8" fill="none" strokeDasharray="251" strokeDashoffset="75" strokeLinecap="round" className="opacity-90" />
+                            </svg>
+                            {/* Ponto brilhante do anel */}
+                            <div className="absolute top-[8px] left-[48px] w-2 h-2 bg-white rounded-full shadow-[0_0_10px_white]"></div>
+                            <span className="text-2xl font-black text-white tracking-tighter drop-shadow-lg">72%</span>
+                          </div>
+
+                          {/* Badge de Sequência */}
+                          <div className="flex flex-col items-center">
+                            <div className="bg-gradient-to-r from-orange-500/20 to-rose-500/10 border border-orange-500/30 text-orange-300 text-[9px] uppercase font-bold py-1.5 px-3 rounded-full flex items-center gap-1.5 shadow-[0_0_15px_rgba(249,115,22,0.2)] backdrop-blur-sm">
+                              <span className="text-orange-500 text-xs text-shadow-glow">🔥</span> Sequência: 5 dias
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent w-full mb-6 mt-2"></div>
+
+                        {/* Questão */}
+                        <div className="mb-5 relative z-10">
+                          <span className="text-[#a78bfa] text-[10px] font-black uppercase tracking-[0.2em] block mb-2 drop-shadow-md">Questão do Dia</span>
+                          <p className="text-white text-[12px] font-medium leading-relaxed drop-shadow-sm">Qual marcador indica imunidade por vacinação contra Hepatite B?</p>
+                        </div>
+
+                        {/* Alternativas */}
+                        <div className="grid grid-cols-2 gap-2.5 mb-6 relative z-10 w-full">
+                          {['A) HBsAg', 'B) Anti-HBc', 'C) HBeAg'].map(opt => (
+                            <div key={opt} className="bg-[#181824] border border-white/5 text-[#a1a1aa] text-[11px] py-3.5 px-2 rounded-xl text-center shadow-inner hover:bg-white/5 hover:text-white transition-all cursor-crosshair">
+                              {opt}
+                            </div>
+                          ))}
+                          <div className="bg-[#7c3aed]/15 border-[1.5px] border-[#a78bfa] text-white text-[11px] font-bold py-3.5 px-2 rounded-xl text-center shadow-[0_0_20px_rgba(124,58,237,0.3)] transition-all flex flex-col justify-center">
+                            D) Anti-HBs
+                          </div>
+                        </div>
+
+                        {/* Botão de Ação */}
+                        <div className="mt-auto relative z-10 w-full mb-2">
+                          <button className="w-full bg-gradient-to-tr from-[#6d28d9] to-[#9333ea] text-white font-black text-[11px] uppercase tracking-widest py-4 rounded-2xl shadow-[0_10px_30px_rgba(124,58,237,0.5)] hover:scale-[1.03] transition-transform active:scale-95">
+                            Continuar Estudo
+                          </button>
+                        </div>
+
+                        {/* Reflexo de Tela (Glass) */}
+                        <div className="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent w-[150%] h-[150%] -rotate-45 pointer-events-none opacity-50 mix-blend-overlay"></div>
+                      </div>
+
+                      {/* Botões LATERAIS do hardware do celular para ficar 100% realista */}
+                      <div className="w-[3px] h-10 bg-[#1e2230] absolute -left-[13px] top-28 rounded-l-md shadow-md"></div>
+                      <div className="w-[3px] h-14 bg-[#1e2230] absolute -left-[13px] top-44 rounded-l-md shadow-md"></div>
+                      <div className="w-[3px] h-14 bg-[#1e2230] absolute -left-[13px] top-60 rounded-l-md shadow-md"></div>
+                      <div className="w-[3px] h-20 bg-[#1e2230] absolute -right-[13px] top-40 rounded-r-md shadow-md"></div>
+
+                    </div>
+                  </div>
                 </div>
-                <span className="text-[10px] font-black uppercase tracking-widest text-primary">{plan.limit}</span>
               </div>
+            </section>
 
-              <h3 className="text-2xl font-black uppercase tracking-tight mb-2">{plan.name}</h3>
-              <p className="text-muted-foreground text-sm font-medium mb-8 leading-relaxed">{plan.description}</p>
-
-              <div className="flex items-baseline gap-1 mb-10">
-                <span className="text-5xl font-black italic">{plan.price}</span>
-                <span className="text-muted-foreground font-bold uppercase text-[10px]">/mês</span>
+            {/* 3. Section: Escolha seu QRUB */}
+            <section className="py-24 px-8 bg-[#141b2b]">
+              <div className="max-w-7xl mx-auto text-center mb-16">
+                <h2 className="text-4xl font-extrabold text-white tracking-tight mb-4">Escolha seu ecossistema</h2>
+                <p className="text-slate-400">Ambientes especializados para diferentes trajetórias de sucesso.</p>
               </div>
-
-              <ul className="space-y-4 mb-10 flex-1">
-                {plan.features.map((feature) => (
-                  <li key={feature} className="flex items-center gap-3 text-sm font-bold opacity-80">
-                    <Check className="w-5 h-5 text-emerald-500 shrink-0" />
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-
-              <button
-                onClick={() => setIsAuthOpen(true)}
-                className={`w-full py-5 rounded-2xl font-black text-sm uppercase tracking-widest transition-all active:scale-95 ${plan.popular ? 'royal-gradient text-white' : 'bg-card border border-border hover:bg-muted'}`}
-              >
-                {plan.button}
-              </button>
-            </motion.div>
-          ))}
-        </div>
-      </section> 
-      */}
-
-      {/* Features Section */}
-      <section id="recursos" className="relative z-10 max-w-7xl mx-auto px-6 py-16 md:px-12">
-        <div className="bg-card/50 border border-border rounded-[40px] p-8 md:p-16 overflow-hidden relative">
-          <div className="absolute top-0 right-0 w-1/2 h-full bg-primary/5 blur-[100px] pointer-events-none" />
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-            <div className="space-y-8">
-              <div className="flex items-center gap-2 text-primary font-black uppercase text-xs tracking-widest">
-                <Zap className="w-4 h-4" />
-                Potencial Infinito
-              </div>
-              <h2 className="text-5xl md:text-7xl font-black italic uppercase tracking-tighter leading-none">
-                Recursos que <br />
-                <span className="royal-gradient-text italic">Aceleram Tudo.</span>
-              </h2>
-              <p className="text-muted-foreground text-lg leading-relaxed font-medium">
-                Não é apenas um banco de questões. É um ecossistema projetado para quem não tem tempo a perder e busca a elite da formação técnica.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <FeatureItem
-                icon={<Sparkles className="w-6 h-6" />}
-                title="Agenda do Dr. QRub"
-                desc="Um plano de estudos que se adapta aos seus erros em tempo real."
-              />
-              <FeatureItem
-                icon={<Shield className="w-6 h-6" />}
-                title="Padrão Revalida"
-                desc="Questões e casos clínicos densos, focados no padrão das maiores bancas."
-              />
-              <FeatureItem
-                icon={<Globe className="w-6 h-6" />}
-                title="Multi-Plataforma"
-                desc="Estude de qualquer lugar, com sincronização Master instantânea."
-              />
-              <FeatureItem
-                icon={<Target className="w-6 h-6" />}
-                title="Heatmap Elite"
-                desc="Gráficos de calor e métricas de precisão por subespecialidade."
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Institutional / About Section - High Fidelity 3D Integration */}
-      <section id="sobre" className="relative z-10 w-full py-32 mb-16 overflow-hidden bg-background">
-        {/* Seamless Purple Background to replace the dark 'black box' */}
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/10 to-transparent" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/20 blur-[180px] rounded-full opacity-60" />
-        </div>
-
-        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
-
-            <div className="space-y-12">
-              <div className="space-y-6 text-left">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-primary/10 text-primary border border-primary/20 text-[10px] font-black uppercase tracking-[0.2em] backdrop-blur-md">
-                  <Globe className="w-3.5 h-3.5 animate-spin-slow" />
-                  Ecossistema QRub
+              <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12">
+                {/* Card 1: Concurso */}
+                <div className="bg-[#2e3545]/40 backdrop-blur-2xl p-10 rounded-2xl border border-white/5 hover:border-[#7c3aed]/30 transition-all group relative overflow-hidden">
+                  <div className="absolute -right-20 -top-20 w-64 h-64 bg-[#7c3aed]/10 rounded-full blur-3xl group-hover:bg-[#7c3aed]/20 transition-colors"></div>
+                  <div className="mb-8 w-16 h-16 rounded-2xl bg-[#7c3aed] flex items-center justify-center text-white shadow-lg">
+                    <GraduationCap className="w-10 h-10" />
+                  </div>
+                  <h3 className="text-3xl font-bold text-white mb-4">QRUB Concurso</h3>
+                  <p className="text-[#ccc3d8] text-lg leading-relaxed mb-10">
+                    Ambiente focado em preparação estratégica e desempenho máximo para provas de alto nível.
+                  </p>
+                  <button 
+                    onClick={() => setActiveTab('Planos')}
+                    className="w-full py-4 bg-[#2e3545] rounded-xl text-white font-bold text-lg group-hover:bg-[#7c3aed] group-hover:text-white transition-all font-sans uppercase italic tracking-widest"
+                  >
+                    Escolher Plano
+                  </button>
                 </div>
-                <h2 className="text-6xl md:text-8xl font-black italic uppercase tracking-tighter leading-[0.85] text-[#1A1033]">
-                  DOMINANDO A <br />
-                  <span className="royal-gradient-text italic">FRONTEIRA TÉCNICA.</span>
+                {/* Card 2: Saúde */}
+                <div className="bg-[#2e3545]/40 backdrop-blur-2xl p-10 rounded-2xl border border-white/5 hover:border-[#d3bbff]/30 transition-all group relative overflow-hidden">
+                  <div className="absolute -right-20 -top-20 w-64 h-64 bg-[#d3bbff]/10 rounded-full blur-3xl group-hover:bg-[#d3bbff]/20 transition-colors"></div>
+                  <div className="mb-8 w-16 h-16 rounded-2xl bg-[#784fc3] flex items-center justify-center text-white shadow-lg">
+                    <HeartPulse className="w-10 h-10" />
+                  </div>
+                  <h3 className="text-3xl font-bold text-white mb-4">QRUB Saúde</h3>
+                  <p className="text-[#ccc3d8] text-lg leading-relaxed mb-10">
+                    Ambiente voltado para estudantes e profissionais da saúde com conteúdos e revisões dinâmicas.
+                  </p>
+                  <button 
+                    onClick={() => setActiveTab('Planos')}
+                    className="w-full py-4 bg-[#2e3545] rounded-xl text-white font-bold text-lg group-hover:bg-[#d3bbff] group-hover:text-[#3f0689] transition-all font-sans uppercase italic tracking-widest"
+                  >
+                    Escolher Plano
+                  </button>
+                </div>
+              </div>
+            </section>
+
+            {/* 4. Section: Multiplataforma */}
+            <section className="py-24 px-8 bg-[#0c1322]">
+              <div className="max-w-7xl mx-auto flex flex-col items-center">
+                <h2 className="text-3xl md:text-5xl font-extrabold text-white tracking-tighter mb-16 text-center">
+                  Onde você estiver, o QRUB está com você.
                 </h2>
-                <p className="text-[#4B5563] text-xl leading-relaxed font-semibold max-w-xl">
-                  Não somos apenas um banco de questões. Somos a força bruta tecnológica que você precisa para aniquilar as barreiras do REVALIDA, INEP e ENAMED.
-                </p>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-                <div className="group space-y-4">
-                  <div className="flex items-center gap-4">
-                    <div className="p-3 rounded-2xl bg-primary/10 text-primary border border-primary/20 group-hover:bg-primary group-hover:text-white transition-all duration-500">
-                      <Zap className="w-5 h-5" />
-                    </div>
-                    <h4 className="font-black uppercase tracking-tight text-base text-[#1A1033]">Neural Engine</h4>
-                  </div>
-                  <p className="text-sm text-[#64748B] font-bold leading-relaxed">Algoritmos de IA que identificam falhas cognitivas antes mesmo de você percebê-las.</p>
-                </div>
-                <div className="group space-y-4">
-                  <div className="flex items-center gap-4">
-                    <div className="p-3 rounded-2xl bg-orange-500/10 text-orange-600 border border-orange-500/20 group-hover:bg-orange-500 group-hover:text-white transition-all duration-500">
-                      <Shield className="w-5 h-5" />
-                    </div>
-                    <h4 className="font-black uppercase tracking-tight text-base text-[#1A1033]">Elite Standard</h4>
-                  </div>
-                  <p className="text-sm text-[#64748B] font-bold leading-relaxed">Conteúdo denso e revisado para garantir que nada escape à sua preparação.</p>
+                <div className="grid grid-cols-2 md:grid-cols-5 gap-6 w-full max-w-5xl">
+                  <PlatformCard icon={<Smartphone className="w-12 h-12" />} label="Android" />
+                  <PlatformCard icon={<Apple className="w-12 h-12" />} label="iPhone" />
+                  <PlatformCard icon={<Layout className="w-12 h-12" />} label="Windows" />
+                  <PlatformCard icon={<Monitor className="w-12 h-12" />} label="macOS" />
+                  <PlatformCard icon={<Globe className="w-12 h-12" />} label="Browser" className="col-span-2 md:col-span-1" />
                 </div>
               </div>
+            </section>
 
-              <div className="relative group bg-primary/[0.03] border border-primary/10 p-10 rounded-[50px] backdrop-blur-xl hover:bg-primary/[0.05] transition-all duration-700">
-                <div className="absolute top-0 right-10 -translate-y-1/2">
-                  <div className="bg-primary px-4 py-2 rounded-full shadow-[0_0_30px_rgba(109,40,217,0.3)]">
-                    <Sparkles className="w-5 h-5 text-white" />
+            {/* 5. Section: Como Instalar */}
+            <section className="py-24 px-8 bg-[#141b2b]">
+              <div className="max-w-7xl mx-auto">
+                <div className="mb-16">
+                  <h2 className="text-4xl font-extrabold text-white tracking-tight mb-2 uppercase italic">Simples de configurar</h2>
+                  <p className="text-slate-400">Instale em segundos e comece sua jornada.</p>
+                </div>
+                <div className="grid md:grid-cols-3 gap-8">
+                  <InstallStep 
+                    number="01" 
+                    icon={<Smartphone className="text-[#7c3aed]" />} 
+                    title="Android" 
+                    desc='Acesse o portal e escolha "Instalar como Web App" ou baixe o APK direto para ter acesso nativo offline.' 
+                  />
+                  <InstallStep 
+                    number="02" 
+                    icon={<Smartphone className="text-[#7c3aed]" />} 
+                    title="iPhone (iOS)" 
+                    desc='Abra o Safari → Toque em Compartilhar → Selecione Adicionar à Tela de Início.' 
+                  />
+                  <InstallStep 
+                    number="03" 
+                    icon={<Laptop2 className="text-[#7c3aed]" />} 
+                    title="Desktop" 
+                    desc="Acesse via Chrome ou Edge e clique no ícone de instalação na barra de endereços para usar como App independente." 
+                  />
+                </div>
+              </div>
+            </section>
+
+            {/* 6. Section: Benefícios */}
+            <section className="py-24 px-8">
+              <div className="max-w-7xl mx-auto grid lg:grid-cols-4 md:grid-cols-2 gap-8">
+                <div className="lg:col-span-2 flex flex-col justify-center pr-8">
+                  <h2 className="text-4xl font-extrabold text-white leading-tight mb-6">Por que escolher o QRUB para seus estudos?</h2>
+                  <p className="text-slate-400 text-lg mb-8">Nossa interface foi desenhada para eliminar distrações e maximizar a retenção cognitiva.</p>
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-1 bg-[#7c3aed] rounded-full"></div>
+                    <span className="text-[#7c3aed] font-bold tracking-widest uppercase text-xs">Exclusividade QRUB</span>
                   </div>
                 </div>
-                <p className="text-xl md:text-3xl font-black leading-relaxed text-[#1A1033] italic">
-                  "O QRub transforma a incerteza em autoridade. Onde houver um exame, nós seremos a sua vantagem competitiva."
-                </p>
-                <Link href="/about" className="mt-10 inline-flex items-center gap-3 text-sm font-black uppercase tracking-[0.2em] text-primary hover:text-[#1A1033] transition-all group">
-                  EXPLORAR JORNADA ELITE
-                  <div className="p-2 rounded-full bg-primary/10 group-hover:bg-primary group-hover:text-white transition-all">
-                    <ArrowRight className="w-4 h-4" />
+                <BenefitCard icon={<Zap />} title="Acesso Rápido" desc="Carregamento instantâneo de módulos e questões sem espera." />
+                <BenefitCard icon={<Sparkles />} title="Experiência Fluida" desc="Transições suaves que mantêm seu cérebro no estado de Flow." />
+                <BenefitCard icon={<Target />} title="Foco Total" desc="Zero anúncios ou elementos visuais irrelevantes durante o estudo." />
+                <BenefitCard icon={<LayoutGrid />} title="Interface Otimizada" desc="Layout adaptável para qualquer tamanho de tela sem perda de recursos." />
+                <BenefitCard icon={<RefreshCw />} title="Sincronia Real" desc="Comece no celular, termine no PC. Seus dados sempre atualizados." />
+                <BenefitCard icon={<ShieldCheck />} title="Modo Offline" desc="Continue estudando mesmo sem conexão com a internet através do app." />
+              </div>
+            </section>
+          </motion.div>
+        )}
+
+        {activeTab === 'Metodologia' && (
+          <motion.div
+            key="metodologia"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="pt-32 pb-24 px-8 max-w-7xl mx-auto"
+          >
+            <h2 className="text-6xl font-black text-white italic tracking-tighter mb-12 uppercase">
+              Metodologia <span className="text-[#7c3aed]">Cognitiva</span>
+            </h2>
+            <div className="grid md:grid-cols-2 gap-16">
+              <div className="space-y-8">
+                <div className="p-8 rounded-[32px] bg-[#1e2230] border border-white/5">
+                  <h3 className="text-2xl font-bold text-white mb-4">Aprendizado Ativo</h3>
+                  <p className="text-slate-400 text-lg leading-relaxed">
+                    Nossa metodologia foca na recuperação ativa de informações. Ao invés de apenas ler, você é desafiado constantemente, o que fortalece as conexões neurais e a memória de longo prazo.
+                  </p>
+                </div>
+                <div className="p-8 rounded-[32px] bg-[#1e2230] border border-white/5">
+                  <h3 className="text-2xl font-bold text-white mb-4">Repetição Espaçada</h3>
+                  <p className="text-slate-400 text-lg leading-relaxed">
+                    Utilizamos algoritmos de SRS (Spaced Repetition System) que identificam o momento exato em que você esqueceria um conteúdo, garantindo uma revisão eficiente e precisa.
+                  </p>
+                </div>
+              </div>
+              <div className="relative">
+                <div className="absolute inset-0 bg-[#7c3aed]/20 blur-[100px] rounded-full"></div>
+                <div className="relative p-12 bg-gradient-to-br from-[#7c3aed]/30 to-transparent border border-white/10 rounded-[40px] backdrop-blur-xl">
+                  <blockquote className="text-3xl font-black italic text-white leading-tight mb-8">
+                    "O QRUB não é apenas um banco de questões, é um acelerador de performance cognitiva desenhado para a elite."
+                  </blockquote>
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-full bg-[#7c3aed]"></div>
+                    <div>
+                      <div className="font-bold text-white">Equipe de Design QRUB</div>
+                      <div className="text-sm text-slate-500 uppercase font-black tracking-widest">Cognitive Strategy</div>
+                    </div>
                   </div>
-                </Link>
+                </div>
               </div>
             </div>
+          </motion.div>
+        )}
 
-            <div className="relative aspect-square flex items-center justify-center">
-              {/* Central Glow to merge the robot into the purple theme */}
-              <div className="absolute inset-0 bg-primary/30 blur-[120px] rounded-full opacity-70" />
-
-              <div className="relative w-full h-full flex items-center justify-center">
-                {/* The Main Premium Logo Piece - SPHERICAL PERMANENT */}
-                <motion.div
-                  style={{ opacity: 1 }}
-                  animate={{
-                    opacity: 1, // Force persistent visibility
-                    scale: [1, 1.08, 1],
-                    y: [0, -30, 0],
-                    rotate: [0, -3, 3, 0]
-                  }}
-                  transition={{
-                    duration: 10,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                  }}
-                  className="relative z-30 w-[85%] aspect-square rounded-full overflow-hidden shadow-[0_0_150px_rgba(109,40,217,0.9)] border-8 border-white/10"
+        {activeTab === 'Planos' && (
+          <motion.div
+            key="planos"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="pt-32 pb-24 px-4 sm:px-8 max-w-[1400px] mx-auto text-center"
+          >
+            <h2 className="text-4xl sm:text-6xl font-black text-white italic tracking-tighter mb-4 uppercase">
+              Escolha seu <span className="text-[#a78bfa]">Plano de Evolução</span>
+            </h2>
+            <p className="text-slate-400 text-lg sm:text-xl mb-12">Estude com consistência e acelere sua aprovação com o método Qrub.</p>
+            
+            {/* Toggle Concurso vs Saude */}
+            <div className="flex justify-center mb-16">
+              <div className="bg-[#1e2230] p-1.5 rounded-full inline-flex border border-white/10 shadow-lg">
+                <button
+                  onClick={() => setActiveProduct('qrub_concurso')}
+                  className={`px-8 py-3 rounded-full text-sm font-bold uppercase tracking-widest transition-all ${
+                    activeProduct === 'qrub_concurso' 
+                      ? 'bg-[#7c3aed] text-white shadow-md' 
+                      : 'text-slate-400 hover:text-white'
+                  }`}
                 >
-                  <Image src="/qrub_premium_logo_3d.jpg" alt="QRub 3D Institutional" fill className="object-cover scale-110" priority />
-                </motion.div>
+                  Qrub Concurso
+                </button>
+                <button
+                  onClick={() => setActiveProduct('qrub_saude')}
+                  className={`px-8 py-3 rounded-full text-sm font-bold uppercase tracking-widest transition-all ${
+                    activeProduct === 'qrub_saude' 
+                      ? 'bg-[#10b981] text-white shadow-md' 
+                      : 'text-slate-400 hover:text-white'
+                  }`}
+                >
+                  Qrub Saúde
+                </button>
               </div>
             </div>
-          </div>
 
-          {/* Corporate Stats integration */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-32 p-12 bg-white/[0.03] border border-white/5 rounded-[60px] text-center backdrop-blur-md">
-            {[
-              { val: "50k+", label: "Questões Ativas" },
-              { val: "10k+", label: "Estudantes Elite" },
-              { val: "99%", label: "Precisão Neural" },
-              { val: "24/7", label: "Suporte Master" },
-            ].map((stat, i) => (
-              <div key={i} className="space-y-2">
-                <p className="text-4xl md:text-6xl font-black italic tracking-tighter royal-gradient-text">{stat.val}</p>
-                <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-500">{stat.label}</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 xl:gap-6 text-left items-start">
+              
+              {/* CARD 1 - FREEMIUM */}
+              <div className={`bg-[#1e2230] border border-white/5 p-8 rounded-3xl transition-all flex flex-col h-full ${activeProduct === 'qrub_saude' ? 'hover:border-[#10b981]/30' : 'hover:border-[#7c3aed]/30'}`}>
+                <div>
+                  <h3 className="text-2xl font-black italic text-white uppercase mb-2">Free</h3>
+                  <p className="text-sm text-slate-400 min-h-[40px] mb-4">Comece sem custo e evolua no seu ritmo.</p>
+                  <div className="flex items-baseline gap-1 mb-8">
+                    <span className="text-sm font-bold text-slate-500">R$</span>
+                    <span className="text-4xl font-black text-white tracking-tighter">0,00</span>
+                    <span className="text-sm font-bold text-slate-500">/mês</span>
+                  </div>
+                  <ul className="space-y-3 mb-8 text-sm">
+                    <li className="flex items-start gap-2 text-slate-300 font-bold">
+                      <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${activeProduct === 'qrub_saude' ? 'text-[#10b981]' : 'text-[#7c3aed]'}`} /> 15 questões por dia
+                    </li>
+                    <li className="flex items-start gap-2 text-slate-300 font-bold">
+                      <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${activeProduct === 'qrub_saude' ? 'text-[#10b981]' : 'text-[#7c3aed]'}`} /> Acesso ao banco de questões
+                    </li>
+                    <li className="flex items-start gap-2 text-slate-300 font-bold">
+                      <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${activeProduct === 'qrub_saude' ? 'text-[#10b981]' : 'text-[#7c3aed]'}`} /> Experimente a plataforma
+                    </li>
+                    <li className="flex items-start gap-2 text-slate-500 opacity-60">
+                      <span className="w-4 h-4 border border-slate-500 rounded-full shrink-0 flex items-center justify-center text-[10px]">&times;</span> Sem revisão espaçada
+                    </li>
+                    <li className="flex items-start gap-2 text-slate-500 opacity-60">
+                      <span className="w-4 h-4 border border-slate-500 rounded-full shrink-0 flex items-center justify-center text-[10px]">&times;</span> Sem caderno de erros
+                    </li>
+                    <li className="flex items-start gap-2 text-slate-500 opacity-60">
+                      <span className="w-4 h-4 border border-slate-500 rounded-full shrink-0 flex items-center justify-center text-[10px]">&times;</span> Sem Dr. Qrub
+                    </li>
+                    <li className="flex items-start gap-2 text-slate-500 opacity-60">
+                      <span className="w-4 h-4 border border-slate-500 rounded-full shrink-0 flex items-center justify-center text-[10px]">&times;</span> Sem estatísticas completas
+                    </li>
+                  </ul>
+                </div>
+                <button 
+                  onClick={() => {
+                    if (isAuthenticated) {
+                      setCheckoutConfig({ isOpen: true, plan: 'free', product: activeProduct })
+                    } else {
+                      setPendingPlan('free', activeProduct)
+                      setIsAuthOpen(true)
+                    }
+                  }}
+                  className={`mt-auto w-full py-4 bg-white/5 rounded-xl text-white font-bold uppercase text-xs tracking-widest transition-all ${activeProduct === 'qrub_saude' ? 'hover:bg-[#10b981]' : 'hover:bg-[#7c3aed]'}`}
+                >
+                  Assinar Agora
+                </button>
               </div>
-            ))}
+
+              {/* CARD 2 - MENSAL */}
+              <div className={`bg-[#242938] border border-white/10 p-8 rounded-3xl transition-all flex flex-col h-full ${activeProduct === 'qrub_saude' ? 'hover:border-[#10b981]/50' : 'hover:border-[#7c3aed]/50'}`}>
+                <div>
+                  <h3 className="text-2xl font-black italic text-white uppercase mb-2">Mensal</h3>
+                  <p className="text-sm text-slate-400 min-h-[40px] mb-4">Flexibilidade total para começar agora.</p>
+                  <div className="flex items-baseline gap-1 mb-8">
+                    <span className={`text-sm font-bold ${activeProduct === 'qrub_saude' ? 'text-[#34d399]' : 'text-[#a78bfa]'}`}>R$</span>
+                    <span className="text-4xl font-black text-white tracking-tighter">29,99</span>
+                    <span className="text-sm font-bold text-slate-500">/mês</span>
+                  </div>
+                  <ul className="space-y-3 mb-8 text-sm">
+                    <li className="flex items-start gap-2 text-white font-bold">
+                      <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${activeProduct === 'qrub_saude' ? 'text-[#34d399]' : 'text-[#a78bfa]'}`} /> Questões ilimitadas
+                    </li>
+                    <li className="flex items-start gap-2 text-white font-bold">
+                      <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${activeProduct === 'qrub_saude' ? 'text-[#34d399]' : 'text-[#a78bfa]'}`} /> Revisão espaçada
+                    </li>
+                    <li className="flex items-start gap-2 text-white font-bold">
+                      <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${activeProduct === 'qrub_saude' ? 'text-[#34d399]' : 'text-[#a78bfa]'}`} /> Caderno de erros auto
+                    </li>
+                    <li className="flex items-start gap-2 text-white font-bold">
+                      <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${activeProduct === 'qrub_saude' ? 'text-[#34d399]' : 'text-[#a78bfa]'}`} /> Dr. Qrub (mentor estratégico)
+                    </li>
+                    <li className="flex items-start gap-2 text-white font-bold">
+                      <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${activeProduct === 'qrub_saude' ? 'text-[#34d399]' : 'text-[#a78bfa]'}`} /> Estatísticas completas
+                    </li>
+                    <li className="flex items-start gap-2 text-white font-bold">
+                      <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${activeProduct === 'qrub_saude' ? 'text-[#34d399]' : 'text-[#a78bfa]'}`} /> Filtros avançados
+                    </li>
+                  </ul>
+                </div>
+                <button 
+                  onClick={() => {
+                    if (isAuthenticated) {
+                      setCheckoutConfig({ isOpen: true, plan: 'mensal', product: activeProduct })
+                    } else {
+                      setPendingPlan('mensal', activeProduct)
+                      setIsAuthOpen(true)
+                    }
+                  }}
+                  className={`mt-auto w-full py-4 bg-[#2e3545] border border-white/5 rounded-xl text-white font-bold uppercase text-xs tracking-widest transition-all ${activeProduct === 'qrub_saude' ? 'hover:border-[#10b981]' : 'hover:border-[#7c3aed]'}`}
+                >
+                  Assinar agora
+                </button>
+              </div>
+
+              {/* CARD 3 - TRIMESTRAL */}
+              <div className={`bg-[#242938] border p-8 rounded-3xl relative transition-all flex flex-col h-full ${activeProduct === 'qrub_saude' ? 'border-[#10b981]/30 hover:border-[#10b981]' : 'border-[#7c3aed]/30 hover:border-[#7c3aed]'}`}>
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-blue-500 text-white text-[9px] font-black uppercase tracking-widest px-3 py-1 rounded-full shadow-lg">
+                  Econômico
+                </div>
+                <div>
+                  <h3 className="text-2xl font-black italic text-white uppercase mb-2">Trimestral</h3>
+                  <p className="text-sm text-slate-400 min-h-[40px] mb-4">Compromisso com resultado.</p>
+                  <div className="flex flex-col mb-8">
+                    <div className="flex items-baseline gap-1">
+                      <span className={`text-sm font-bold ${activeProduct === 'qrub_saude' ? 'text-[#34d399]' : 'text-[#a78bfa]'}`}>R$</span>
+                      <span className="text-4xl font-black text-white tracking-tighter">79,99</span>
+                      <span className="text-sm font-bold text-slate-500">/3m</span>
+                    </div>
+                    <span className={`text-xs font-bold mt-1 ${activeProduct === 'qrub_saude' ? 'text-[#34d399]' : 'text-[#a78bfa]'}`}>equivalente ~R$ 26,66/m</span>
+                  </div>
+                  <ul className="space-y-3 mb-8 text-sm">
+                    <li className="flex items-start gap-2 text-white font-bold">
+                      <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${activeProduct === 'qrub_saude' ? 'text-[#34d399]' : 'text-[#a78bfa]'}`} /> Tudo do plano mensal
+                    </li>
+                    <li className="flex items-start gap-2 text-white font-bold">
+                      <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${activeProduct === 'qrub_saude' ? 'text-[#34d399]' : 'text-[#a78bfa]'}`} /> Melhor custo-benefício
+                    </li>
+                  </ul>
+                </div>
+                <button 
+                  onClick={() => {
+                    if (isAuthenticated) {
+                      setCheckoutConfig({ isOpen: true, plan: 'trimestral', product: activeProduct })
+                    } else {
+                      setPendingPlan('trimestral', activeProduct)
+                      setIsAuthOpen(true)
+                    }
+                  }}
+                  className={`mt-auto w-full py-4 border rounded-xl font-bold uppercase text-xs tracking-widest transition-all ${
+                    activeProduct === 'qrub_saude'
+                      ? 'bg-[#10b981]/20 border-[#10b981]/50 text-[#6ee7b7] hover:bg-[#10b981] hover:text-white'
+                      : 'bg-[#7c3aed]/20 border-[#7c3aed]/50 text-[#d2bbff] hover:bg-[#7c3aed] hover:text-white'
+                  }`}
+                >
+                  Assinar Agora
+                </button>
+              </div>
+
+              {/* CARD 4 - SEMESTRAL (RECOMENDADO) */}
+              <div className={`bg-gradient-to-b p-8 rounded-3xl relative p-8 shadow-[0_0_40px_rgba(124,58,237,0.3)] transform scale-105 z-10 flex flex-col h-full border ${
+                activeProduct === 'qrub_saude' 
+                  ? 'from-[#10b981] to-[#047857] shadow-[0_0_40px_rgba(16,185,129,0.3)] border-[#6ee7b7]/50' 
+                  : 'from-[#7c3aed] to-[#4c1d95] shadow-[0_0_40px_rgba(124,58,237,0.3)] border-[#a78bfa]/50'
+              }`}>
+                <div className={`absolute -top-3 left-1/2 -translate-x-1/2 bg-white text-[10px] font-black uppercase tracking-widest px-4 py-1.5 rounded-full shadow-xl ${
+                  activeProduct === 'qrub_saude' ? 'text-[#047857]' : 'text-[#4c1d95]'
+                }`}>
+                  Mais escolhido
+                </div>
+                <div>
+                  <div className="flex mb-4 text-yellow-300">
+                    <Sparkles className="w-6 h-6" />
+                  </div>
+                  <h3 className="text-2xl font-black italic text-white uppercase mb-2">Semestral</h3>
+                  <p className="text-sm text-white/80 min-h-[40px] mb-4">O plano de quem leva a aprovação a sério.</p>
+                  <div className="flex flex-col mb-8">
+                    <div className="flex items-baseline gap-1">
+                      <span className="text-sm font-bold text-white/70">R$</span>
+                      <span className="text-5xl font-black text-white tracking-tighter">159,99</span>
+                      <span className="text-sm font-bold text-white/70">/6m</span>
+                    </div>
+                    <span className="text-xs font-black text-yellow-300 mt-1">equivalente ~R$ 26,66/m</span>
+                  </div>
+                  <ul className="space-y-3 mb-8 text-sm">
+                    <li className="flex items-start gap-2 text-white font-bold">
+                      <CheckCircle2 className="w-4 h-4 text-yellow-300 shrink-0 mt-0.5" /> Tudo do plano insano
+                    </li>
+                    <li className="flex items-start gap-2 text-white font-bold">
+                      <CheckCircle2 className="w-4 h-4 text-yellow-300 shrink-0 mt-0.5" /> Economia maior
+                    </li>
+                    <li className="flex items-start gap-2 text-white font-bold">
+                      <CheckCircle2 className="w-4 h-4 text-yellow-300 shrink-0 mt-0.5" /> Ideal para ciclos de estudo
+                    </li>
+                  </ul>
+                </div>
+                <button 
+                  onClick={() => {
+                    if (isAuthenticated) {
+                      setCheckoutConfig({ isOpen: true, plan: 'semestral', product: activeProduct })
+                    } else {
+                      setPendingPlan('semestral', activeProduct)
+                      setIsAuthOpen(true)
+                    }
+                  }}
+                  className={`mt-auto w-full py-4 bg-white rounded-xl font-black uppercase text-xs tracking-widest hover:scale-95 transition-all shadow-lg ${
+                    activeProduct === 'qrub_saude' ? 'text-[#10b981]' : 'text-[#7c3aed]'
+                  }`}
+                >
+                  Assinar Agora
+                </button>
+              </div>
+
+              {/* CARD 5 - ANUAL */}
+              <div className={`bg-[#242938] border p-8 rounded-3xl relative hover:bg-[#2c3244] transition-all flex flex-col h-full overflow-hidden ${
+                activeProduct === 'qrub_saude' ? 'border-[#34d399]/50' : 'border-[#a78bfa]/50'
+              }`}>
+                <div className={`absolute top-0 right-0 w-24 h-24 rounded-bl-[100px] pointer-events-none ${
+                  activeProduct === 'qrub_saude' ? 'bg-[#34d399]/10' : 'bg-[#a78bfa]/10'
+                }`}></div>
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-amber-500 text-white text-[9px] font-black uppercase tracking-widest px-3 py-1 rounded-full shadow-lg">
+                  Melhor valor
+                </div>
+                <div>
+                  <h3 className={`text-2xl font-black italic uppercase mb-2 ${activeProduct === 'qrub_saude' ? 'text-[#6ee7b7]' : 'text-[#d2bbff]'}`}>Anual</h3>
+                  <p className="text-sm text-slate-400 min-h-[40px] mb-4">Um ano focado na sua aprovação.</p>
+                  <div className="flex flex-col mb-8">
+                    <div className="flex items-baseline gap-1">
+                      <span className={`text-sm font-bold ${activeProduct === 'qrub_saude' ? 'text-[#34d399]' : 'text-[#a78bfa]'}`}>R$</span>
+                      <span className="text-4xl font-black text-white tracking-tighter">319,99</span>
+                      <span className="text-sm font-bold text-slate-500">/ano</span>
+                    </div>
+                    <span className={`text-xs font-bold mt-1 ${activeProduct === 'qrub_saude' ? 'text-[#34d399]' : 'text-[#a78bfa]'}`}>equivalente ~R$ 26,66/m</span>
+                  </div>
+                  <ul className="space-y-3 mb-8 text-sm">
+                    <li className="flex items-start gap-2 text-white font-bold">
+                      <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${activeProduct === 'qrub_saude' ? 'text-[#34d399]' : 'text-[#a78bfa]'}`} /> Tudo liberado por 12 meses
+                    </li>
+                    <li className="flex items-start gap-2 text-white font-bold">
+                      <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${activeProduct === 'qrub_saude' ? 'text-[#34d399]' : 'text-[#a78bfa]'}`} /> Máxima economia
+                    </li>
+                    <li className="flex items-start gap-2 text-white font-bold">
+                      <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${activeProduct === 'qrub_saude' ? 'text-[#34d399]' : 'text-[#a78bfa]'}`} /> Para quem quer aprovação sem pausa
+                    </li>
+                  </ul>
+                </div>
+                <button 
+                  onClick={() => {
+                    if (isAuthenticated) {
+                      setCheckoutConfig({ isOpen: true, plan: 'anual', product: activeProduct })
+                    } else {
+                      setPendingPlan('anual', activeProduct)
+                      setIsAuthOpen(true)
+                    }
+                  }}
+                  className="mt-auto w-full py-4 bg-gradient-to-r from-amber-600 to-amber-500 text-white rounded-xl font-bold uppercase text-xs tracking-widest hover:brightness-110 transition-all shadow-lg"
+                >
+                  Assinar Agora
+                </button>
+              </div>
+
+            </div>
+          </motion.div>
+        )}
+
+        {activeTab === 'Sobre' && (
+          <motion.div
+            key="sobre"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="pt-32 pb-24 px-8 max-w-7xl mx-auto text-center"
+          >
+            <div className="max-w-3xl mx-auto">
+              <h2 className="text-6xl font-black text-white italic tracking-tighter mb-8 uppercase">
+                Design <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#d2bbff] to-white">e Tecnologia</span>
+              </h2>
+              <p className="text-slate-400 text-2xl leading-relaxed mb-12">
+                O QRUB nasceu de uma frustração: plataformas de estudo lentas e complexas. Criamos um ecossistema que respeita seu tempo e potencializa seu aprendizado através de design de elite e engenharia de ponta.
+              </p>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div>
+                  <div className="text-4xl font-black text-[#7c3aed] mb-2">200k+</div>
+                  <div className="text-xs text-slate-500 uppercase font-black tracking-widest">Questões</div>
+                </div>
+                <div>
+                  <div className="text-4xl font-black text-[#7c3aed] mb-2">50k+</div>
+                  <div className="text-xs text-slate-500 uppercase font-black tracking-widest">Usuários</div>
+                </div>
+                <div>
+                  <div className="text-4xl font-black text-[#7c3aed] mb-2">98%</div>
+                  <div className="text-xs text-slate-500 uppercase font-black tracking-widest">Aprovação</div>
+                </div>
+                <div>
+                  <div className="text-4xl font-black text-[#7c3aed] mb-2">24/7</div>
+                  <div className="text-xs text-slate-500 uppercase font-black tracking-widest">Mentoria IA</div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        )}
+
+        {activeTab === 'Contato' && (
+          <motion.div
+            key="contato"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            className="pt-32 pb-24 px-8 max-w-7xl mx-auto"
+          >
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div className="space-y-8 text-left">
+                <h2 className="text-6xl font-black text-white italic tracking-tighter uppercase">
+                  Fale com o <span className="text-[#7c3aed]">Time</span>
+                </h2>
+                <p className="text-slate-400 text-xl leading-relaxed">
+                  Estamos prontos para tirar suas dúvidas e ajudar você a alcançar o próximo nível na sua carreira médica ou em concursos.
+                </p>
+                
+                <div className="space-y-6">
+                  <div className="flex items-center gap-6 p-6 rounded-3xl bg-[#1e2230] border border-white/5 group hover:border-[#7c3aed]/30 transition-all">
+                    <div className="w-14 h-14 rounded-2xl bg-[#7c3aed]/10 flex items-center justify-center text-[#7c3aed] group-hover:bg-[#7c3aed] group-hover:text-white transition-all">
+                      <MessageCircle className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <div className="text-sm text-slate-500 font-bold uppercase tracking-widest mb-1">WhatsApp Comercial</div>
+                      <a href="https://wa.me/5583998689365" target="_blank" className="text-2xl font-black text-white hover:text-[#7c3aed] transition-colors">
+                        (83) 99868-9365
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-6 p-6 rounded-3xl bg-[#1e2230] border border-white/5 group hover:border-white/20 transition-all">
+                    <div className="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center text-white group-hover:bg-white group-hover:text-black transition-all">
+                      <LayoutGrid className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <div className="text-sm text-slate-500 font-bold uppercase tracking-widest mb-1">E-mail de Suporte</div>
+                      <a href="mailto:Qrubcomercial@gmail.com" className="text-2xl font-black text-white hover:text-slate-300 transition-colors">
+                        Qrubcomercial@gmail.com
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="relative">
+                <div className="absolute inset-0 bg-[#7c3aed]/20 blur-[120px] rounded-full"></div>
+                <div className="relative p-1 bg-gradient-to-br from-[#7c3aed] to-[#d2bbff] rounded-[40px] overflow-hidden">
+                  <div className="bg-[#0c1322] p-10 rounded-[39px]">
+                    <h3 className="text-2xl font-bold text-white mb-6">Envie uma mensagem rápida</h3>
+                    <div className="space-y-4">
+                      <div className="bg-[#1e2230] p-4 rounded-xl border border-white/5 text-slate-500 text-sm italic">
+                        Clique em um dos canais ao lado para ser atendido instantaneamente.
+                      </div>
+                      <img 
+                        src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://wa.me/5583998689365" 
+                        alt="WhatsApp QR Code"
+                        className="mx-auto rounded-2xl w-40 h-40 opacity-80 hover:opacity-100 transition-opacity"
+                      />
+                      <p className="text-xs text-slate-500 font-medium">Escaneie para falar no WhatsApp</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* 7. Section: Contato */}
+      <section className="py-24 px-8 bg-[#070e1d]">
+        <div className="max-w-5xl mx-auto rounded-3xl bg-gradient-to-br from-[#7c3aed]/20 to-[#191f2f] border border-[#7c3aed]/10 p-12 md:p-20 text-center">
+          <h2 className="text-4xl md:text-6xl font-extrabold text-white mb-8 tracking-tighter">
+            Ficou com dúvida? <br/><span className="text-[#7c3aed]">Fale com a gente.</span>
+          </h2>
+          <div className="flex flex-wrap justify-center gap-6">
+            <a className="flex items-center gap-3 px-8 py-4 bg-[#25D366]/10 border border-[#25D366]/20 text-[#25D366] rounded-xl font-bold hover:bg-[#25D366] hover:text-white transition-all scale-100 hover:scale-105 active:scale-95" href="https://wa.me/5583998689365" target="_blank">
+              <MessageCircle className="w-5 h-5 fill-current" />
+              WhatsApp
+            </a>
+            <a className="flex items-center gap-3 px-8 py-4 bg-white/5 border border-white/10 text-white rounded-xl font-bold hover:bg-gradient-to-tr hover:from-[#f9ce34] hover:via-[#ee2a7b] hover:to-[#6228d7] transition-all scale-100 hover:scale-105 active:scale-95" href="https://instagram.com/Qrubmedicina" target="_blank">
+              <Instagram className="w-5 h-5" />
+              @Qrubmedicina
+            </a>
+            <a className="flex items-center gap-3 px-8 py-4 bg-white/5 border border-white/10 text-white rounded-xl font-bold hover:bg-black transition-all scale-100 hover:scale-105 active:scale-95" href="https://tiktok.com/@Qrub.App" target="_blank">
+              <Music className="w-5 h-5" />
+              Qrub.App
+            </a>
           </div>
         </div>
       </section>
 
-      {/* Footer - Tech Focused Dark Aesthetic */}
-      <footer className="relative z-10 border-t border-border bg-card/10 pt-32 pb-12">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-4 gap-12 mb-20">
-          <div className="space-y-8 text-center md:text-left">
-            <div className="flex items-center justify-center md:justify-start gap-4">
-              <div className="relative w-14 h-14 overflow-hidden rounded-2xl shadow-2xl border border-white/10 ring-2 ring-primary/20">
-                <Image src="/qrub_premium_logo_3d.jpg" alt="QRub Premium Logo" fill className="object-cover" />
-              </div>
-              <span className="text-3xl font-black tracking-tighter uppercase italic">QRub</span>
-            </div>
-            <p className="text-sm text-muted-foreground leading-relaxed font-medium">
-              A força tecnológica definitiva para sua aprovação. Inteligência artificial aplicada à medicina de alta performance.
+      {/* 8. Footer */}
+      <footer className="w-full py-16 px-8 border-t border-white/5 bg-[#020617]">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-12 max-w-7xl mx-auto">
+          <div className="col-span-2 md:col-span-1">
+            <div className="text-xl font-bold text-white mb-6">QRUB</div>
+            <p className="text-sm leading-relaxed text-slate-500 max-w-xs font-sans">
+              © 2024 QRUB. A Luminária Cognitiva para estudos de alta performance. Transformando o potencial humano através do design e tecnologia.
             </p>
-            <div className="flex items-center justify-center md:justify-start gap-4">
-              {[Instagram, Twitter, Linkedin, Facebook].map((Icon, i) => (
-                <a key={i} href="#" className="p-3 rounded-xl bg-card border border-border hover:bg-primary hover:text-white transition-all shadow-xl">
-                  <Icon className="w-4 h-4" />
-                </a>
-              ))}
-            </div>
           </div>
-
-          <div className="space-y-8 text-center md:text-left">
-            <h4 className="text-xs font-black uppercase tracking-[0.2em] text-primary">Plataforma</h4>
-            <ul className="space-y-5 text-sm font-bold text-muted-foreground">
-              <li><a href="#" className="hover:text-primary transition-colors">Setup Neural</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Banco de Dados</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Simulados Elite</a></li>
-              <li><Link href="/about" className="text-primary hover:underline">Sobre a EdTech</Link></li>
-            </ul>
-          </div>
-
-          <div className="space-y-8 text-center md:text-left">
-            <h4 className="text-xs font-black uppercase tracking-[0.2em] text-primary">Suporte</h4>
-            <ul className="space-y-5 text-sm font-bold text-muted-foreground">
-              <li><a href="#" className="hover:text-primary transition-colors">Central Master</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Comunidade</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Contatos Técnicos</a></li>
-            </ul>
-          </div>
-
-          <div className="space-y-8 text-center md:text-left">
-            <h4 className="text-xs font-black uppercase tracking-[0.2em] text-primary">Novidades</h4>
-            <p className="text-xs font-medium text-muted-foreground">Inscreva-se para insights exclusivos.</p>
-            <div className="flex gap-2">
-              <input
-                type="email"
-                placeholder="seu@email.com"
-                className="flex-1 bg-muted/50 border border-border rounded-xl px-5 py-4 text-xs focus:ring-2 focus:ring-primary/20 outline-none transition-all shadow-inner"
-              />
-              <button className="bg-primary px-6 rounded-xl text-white hover:bg-primary-foreground hover:text-primary border border-primary transition-all shadow-2xl">
-                <ArrowRight className="w-4 h-4" />
-              </button>
-            </div>
-          </div>
+          <FooterColumn title="Plataforma" links={["QRUB Concurso", "QRUB Saúde", "Novidades"]} />
+          <FooterColumn title="Suporte" links={["Central de Ajuda", "Política de Privacidade", "Termos de Serviço"]} />
+          <FooterColumn title="Institucional" links={["Carreira", "Contato", "Blog"]} />
         </div>
-
-        <div className="max-w-7xl mx-auto px-6 md:px-12 border-t border-border/50 pt-12 flex flex-col md:flex-row items-center justify-between gap-6 opacity-60">
-          <p className="text-[10px] font-black uppercase tracking-widest text-center md:text-left">© 2026 QRub Advanced Systems. Brazil.</p>
-          <div className="flex gap-8 text-[10px] font-black uppercase tracking-widest">
-            <a href="#" className="hover:text-primary transition-colors">Privacidade</a>
-            <a href="#" className="hover:text-primary transition-colors">Termos Gerais</a>
+        <div className="max-w-7xl mx-auto mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+          <div className="flex gap-6">
+            <Target className="w-5 h-5 text-slate-600 hover:text-primary cursor-pointer transition-colors" />
+            <Play className="w-5 h-5 text-slate-600 hover:text-primary cursor-pointer transition-colors" />
+            <Globe className="w-5 h-5 text-slate-600 hover:text-primary cursor-pointer transition-colors" />
           </div>
+          <p className="text-xs text-slate-700 font-sans">Feito com foco e precisão pela equipe QRUB.</p>
         </div>
       </footer>
 
-      <AuthModal isOpen={isAuthOpen} onClose={() => setIsAuthOpen(false)} />
+      <AuthModal 
+        isOpen={isAuthOpen} 
+        onClose={() => setIsAuthOpen(false)} 
+        preventRedirect={!!getPendingPlan()}
+      />
+      <CheckoutModal 
+        isOpen={checkoutConfig.isOpen} 
+        onClose={() => setCheckoutConfig({ ...checkoutConfig, isOpen: false })} 
+        plan={checkoutConfig.plan}
+        product={checkoutConfig.product}
+      />
     </div>
   )
 }
 
-function FeatureItem({ icon, title, desc }: { icon: any, title: string, desc: string }) {
+function PlatformCard({ icon, label, className = "" }: any) {
   return (
-    <div className="bg-card border border-border p-6 rounded-3xl hover:border-primary/50 transition-colors space-y-4 group">
-      <div className="bg-primary/10 text-primary p-3 rounded-2xl w-fit group-hover:bg-primary group-hover:text-white transition-colors">
+    <div className={`flex flex-col items-center gap-4 p-8 bg-[#2e3545]/40 backdrop-blur-xl rounded-2xl border border-white/5 hover:bg-[#323949] transition-colors ${className}`}>
+      <div className="text-[#7c3aed]">{icon}</div>
+      <span className="font-bold text-slate-300">{label}</span>
+    </div>
+  )
+}
+
+function InstallStep({ number, icon, title, desc }: any) {
+  return (
+    <div className="p-8 rounded-2xl bg-[#191f2f] border border-white/5 relative group">
+      <div className="text-6xl font-black text-white/5 absolute right-4 top-4 select-none">{number}</div>
+      <div className="flex items-center gap-3 mb-6">
         {icon}
+        <h4 className="text-xl font-bold text-white">{title}</h4>
       </div>
-      <div className="space-y-1">
-        <h4 className="font-black uppercase tracking-tight text-sm">{title}</h4>
-        <p className="text-xs text-muted-foreground leading-relaxed font-medium">{desc}</p>
-      </div>
+      <p className="text-[#ccc3d8] leading-relaxed font-sans">
+        {desc}
+      </p>
+    </div>
+  )
+}
+
+function BenefitCard({ icon, title, desc }: any) {
+  return (
+    <div className="p-8 rounded-2xl bg-[#191f2f] hover:translate-y-[-4px] transition-all border border-white/5">
+      <div className="text-[#7c3aed] mb-6">{icon}</div>
+      <h4 className="text-xl font-bold text-white mb-3">{title}</h4>
+      <p className="text-sm text-[#ccc3d8] leading-relaxed font-sans">{desc}</p>
+    </div>
+  )
+}
+
+function FooterColumn({ title, links }: any) {
+  return (
+    <div>
+      <h4 className="text-white font-bold mb-6">{title}</h4>
+      <ul className="space-y-4">
+        {links.map((link: string) => (
+          <li key={link}>
+            <a className="text-sm text-slate-500 hover:text-violet-300 transition-colors font-sans" href="#">{link}</a>
+          </li>
+        ))}
+      </ul>
     </div>
   )
 }

@@ -235,7 +235,7 @@ function TreinoExecucaoPage() {
         return (
             <div className="flex-1 flex flex-col items-center justify-center min-h-[50vh] bg-slate-50 relative z-50">
                 <Loader2 className="w-12 h-12 text-primary animate-spin" />
-                <p className="mt-4 text-[10px] font-black uppercase tracking-[0.2em] text-[#1A1033]">Carregando Seu Treino</p>
+                <p className="mt-4 text-[10px] font-black uppercase tracking-[0.2em] text-[#1A1033] dark:text-white">Carregando Seu Treino</p>
                 <div className="mt-2 text-xs font-bold text-slate-400 italic">Aplicando algoritmos anti-repetição...</div>
             </div>
         )
@@ -246,7 +246,7 @@ function TreinoExecucaoPage() {
         return (
             <div className="flex-1 flex flex-col items-center justify-center min-h-[50vh] bg-slate-50">
                 {isError ? <AlertCircle className="w-16 h-16 text-rose-500 mb-4" /> : <AlertTriangle className="w-16 h-16 text-amber-500 mb-4" />}
-                <h2 className="text-xl font-black italic uppercase text-[#1A1033] tracking-tighter">
+                <h2 className="text-xl font-black italic uppercase text-[#1A1033] dark:text-white tracking-tighter">
                     {isError ? 'Erro ao Carregar' : 'Sem Questões Novas'}
                 </h2>
                 <p className="text-sm font-bold text-slate-400 mt-2 mb-6 text-center max-w-sm">
@@ -271,15 +271,15 @@ function TreinoExecucaoPage() {
                     <div className="w-24 h-24 mx-auto rounded-full bg-slate-50 border-[6px] border-white shadow-xl flex items-center justify-center mb-6 relative z-10">
                         <BarChart2 className="w-10 h-10 text-primary" />
                     </div>
-                    <h2 className="text-3xl font-black italic uppercase tracking-tighter text-[#1A1033] mb-2 relative z-10">Treino Concluído</h2>
+                    <h2 className="text-3xl font-black italic uppercase tracking-tighter text-[#1A1033] dark:text-white mb-2 relative z-10">Treino Concluído</h2>
                     <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-10 relative z-10">Área: {session?.area}</p>
                     <div className="grid grid-cols-3 gap-4 mb-10 relative z-10">
                         <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100">
-                            <p className="text-[10px] uppercase font-black tracking-widest text-[#1A1033] mb-2">Acertos</p>
+                            <p className="text-[10px] uppercase font-black tracking-widest text-[#1A1033] dark:text-white mb-2">Acertos</p>
                             <p className="text-2xl font-black text-emerald-500">{correctCount}</p>
                         </div>
                         <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100">
-                            <p className="text-[10px] uppercase font-black tracking-widest text-[#1A1033] mb-2">Erros</p>
+                            <p className="text-[10px] uppercase font-black tracking-widest text-[#1A1033] dark:text-white mb-2">Erros</p>
                             <p className="text-2xl font-black text-rose-500">{wrongCount}</p>
                         </div>
                         <div className="bg-primary p-4 rounded-2xl shadow-xl shadow-primary/20 text-white">
@@ -290,13 +290,13 @@ function TreinoExecucaoPage() {
                     <div className="flex gap-4 relative z-10">
                         <button
                             onClick={() => router.push('/dashboard/treinar-area')}
-                            className="flex-1 py-5 bg-slate-100 text-[#1A1033] rounded-[24px] font-black uppercase text-xs tracking-widest hover:bg-slate-200 transition-colors"
+                            className="flex-1 py-5 bg-slate-100 text-[#1A1033] dark:text-white rounded-[24px] font-black uppercase text-xs tracking-widest hover:bg-slate-200 transition-colors"
                         >
                             Novo Treino
                         </button>
                         <button
                             onClick={() => router.push('/dashboard')}
-                            className="flex-1 py-5 bg-white border-2 border-[#1A1033] text-[#1A1033] rounded-[24px] font-black uppercase text-xs tracking-widest hover:bg-slate-50 transition-colors"
+                            className="flex-1 py-5 bg-white border-2 border-[#1A1033] text-[#1A1033] dark:text-white rounded-[24px] font-black uppercase text-xs tracking-widest hover:bg-slate-50 transition-colors"
                         >
                             Ir para Dashboard
                         </button>
@@ -313,7 +313,7 @@ function TreinoExecucaoPage() {
                     <div className="flex items-center gap-4">
                         <button
                             onClick={() => router.push('/dashboard/treinar-area')}
-                            className="p-2 rounded-xl bg-slate-50 text-slate-400 hover:text-[#1A1033] hover:bg-slate-100 transition-colors"
+                            className="p-2 rounded-xl bg-slate-50 text-slate-400 hover:text-[#1A1033] dark:text-white hover:bg-slate-100 transition-colors"
                         >
                             <X className="w-5 h-5" />
                         </button>
@@ -321,13 +321,13 @@ function TreinoExecucaoPage() {
                             <p className="text-[10px] font-black uppercase tracking-widest text-primary flex items-center gap-1">
                                 {session?.area}
                             </p>
-                            <p className="text-sm font-bold text-[#1A1033] line-clamp-1">{session?.subject || 'Todos os Assuntos'}</p>
+                            <p className="text-sm font-bold text-[#1A1033] dark:text-white line-clamp-1">{session?.subject || 'Todos os Assuntos'}</p>
                         </div>
                     </div>
                     <div className="flex items-center gap-3">
                         <div className="text-right">
                             <p className="text-[10px] font-black uppercase tracking-widest text-slate-400">Progresso</p>
-                            <p className="text-sm font-bold text-[#1A1033]">{currentIndex + 1} <span className="text-slate-300">/ {questions.length}</span></p>
+                            <p className="text-sm font-bold text-[#1A1033] dark:text-white">{currentIndex + 1} <span className="text-slate-300">/ {questions.length}</span></p>
                         </div>
                         <div className="w-12 h-12 rounded-full border-4 border-slate-100 flex items-center justify-center relative">
                             <svg className="absolute inset-0 w-full h-full -rotate-90">
@@ -361,7 +361,7 @@ function TreinoExecucaoPage() {
                 </div>
 
                 <div
-                    className="bg-white p-6 md:p-10 rounded-[30px] shadow-sm border border-slate-100 mb-6 text-lg font-medium text-[#1A1033] leading-relaxed break-words whitespace-pre-wrap"
+                    className="bg-white p-6 md:p-10 rounded-[30px] shadow-sm border border-slate-100 mb-6 text-lg font-medium text-[#1A1033] dark:text-white leading-relaxed break-words whitespace-pre-wrap"
                     style={fontStyle}
                     dangerouslySetInnerHTML={{ __html: currentQ?.enunciado || 'Enunciado indisponível' }}
                 />

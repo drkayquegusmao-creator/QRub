@@ -167,7 +167,7 @@ export function DashboardDiario() {
                     <div className="bg-slate-100 p-2 rounded-3xl flex flex-wrap items-center gap-2 self-start w-full md:w-auto">
                         <button
                             onClick={() => setViewMode('AGENDA')}
-                            className={`flex-1 md:flex-none flex justify-center items-center gap-3 px-8 py-4 rounded-2xl text-xs font-black uppercase tracking-widest transition-all ${viewMode === 'AGENDA' ? 'bg-white shadow-xl text-[#1A1033]' : 'text-slate-400 hover:text-slate-600'}`}
+                            className={`flex-1 md:flex-none flex justify-center items-center gap-3 px-8 py-4 rounded-2xl text-xs font-black uppercase tracking-widest transition-all ${viewMode === 'AGENDA' ? 'bg-white shadow-xl text-[#1A1033] dark:text-white' : 'text-slate-400 hover:text-slate-600'}`}
                         >
                             <LayoutGrid className="w-4 h-4" />
                             Agenda Ativa
@@ -180,7 +180,7 @@ export function DashboardDiario() {
                         
                         <button
                             onClick={() => setViewMode('MAPA')}
-                            className={`flex-1 md:flex-none flex justify-center items-center gap-3 px-8 py-4 rounded-2xl text-xs font-black uppercase tracking-widest transition-all ${viewMode === 'MAPA' ? 'bg-white shadow-xl text-[#1A1033]' : 'text-slate-400 hover:text-slate-600'}`}
+                            className={`flex-1 md:flex-none flex justify-center items-center gap-3 px-8 py-4 rounded-2xl text-xs font-black uppercase tracking-widest transition-all ${viewMode === 'MAPA' ? 'bg-white shadow-xl text-[#1A1033] dark:text-white' : 'text-slate-400 hover:text-slate-600'}`}
                         >
                             <LayoutGrid className="w-4 h-4" />
                             Mapa de Memória
@@ -188,7 +188,7 @@ export function DashboardDiario() {
 
                         <button
                             onClick={() => setViewMode('CALENDARIO')}
-                            className={`flex-1 md:flex-none flex justify-center items-center gap-3 px-8 py-4 rounded-2xl text-xs font-black uppercase tracking-widest transition-all ${viewMode === 'CALENDARIO' ? 'bg-white shadow-xl text-[#1A1033]' : 'text-slate-400 hover:text-slate-600'}`}
+                            className={`flex-1 md:flex-none flex justify-center items-center gap-3 px-8 py-4 rounded-2xl text-xs font-black uppercase tracking-widest transition-all ${viewMode === 'CALENDARIO' ? 'bg-white shadow-xl text-[#1A1033] dark:text-white' : 'text-slate-400 hover:text-slate-600'}`}
                         >
                             <CalendarDays className="w-4 h-4" />
                             Calendário
@@ -196,7 +196,7 @@ export function DashboardDiario() {
 
                         <button
                             onClick={() => setViewMode('NIVELAMENTO')}
-                            className={`flex-1 md:flex-none flex justify-center items-center gap-3 px-8 py-4 rounded-2xl text-xs font-black uppercase tracking-widest transition-all ${viewMode === 'NIVELAMENTO' ? 'bg-white shadow-xl text-[#1A1033]' : 'text-slate-400 hover:text-slate-600'}`}
+                            className={`flex-1 md:flex-none flex justify-center items-center gap-3 px-8 py-4 rounded-2xl text-xs font-black uppercase tracking-widest transition-all ${viewMode === 'NIVELAMENTO' ? 'bg-white shadow-xl text-[#1A1033] dark:text-white' : 'text-slate-400 hover:text-slate-600'}`}
                         >
                             <Zap className="w-4 h-4" />
                             Nivelamento
@@ -212,7 +212,7 @@ export function DashboardDiario() {
                                     <div className="w-20 h-20 bg-emerald-50 rounded-full flex items-center justify-center mb-6">
                                         <Sparkles className="w-10 h-10 text-emerald-500" />
                                     </div>
-                                    <h3 className="text-3xl font-black italic uppercase tracking-tighter text-[#1A1033] mb-4">Tudo Limpo!</h3>
+                                    <h3 className="text-3xl font-black italic uppercase tracking-tighter text-[#1A1033] dark:text-white mb-4">Tudo Limpo!</h3>
                                     <p className="text-slate-500 font-medium max-w-sm mx-auto">Você zerou sua agenda de hoje. Aproveite para descansar ou nivelar um novo assunto.</p>
                                 </div>
                             )}
@@ -259,7 +259,7 @@ export function DashboardDiario() {
 
                             {/* Leveling Browser */}
                             <div className="pt-8 border-t border-slate-100 mt-12 pb-12">
-                                <h3 className="text-xl font-black italic uppercase tracking-tighter text-[#1A1033] mb-6 flex items-center gap-3">
+                                <h3 className="text-xl font-black italic uppercase tracking-tighter text-[#1A1033] dark:text-white mb-6 flex items-center gap-3">
                                     <Sparkles className="w-6 h-6 text-orange-500" /> Nivelar novo assunto
                                 </h3>
                                 <div className="space-y-6">
@@ -288,7 +288,7 @@ export function DashboardDiario() {
                                                             <div className={`w-10 h-10 rounded-2xl flex items-center justify-center ${expandedSpecialty === spec.id ? 'bg-primary text-white' : 'bg-slate-50 text-slate-400'}`}>
                                                                 <List className="w-4 h-4" />
                                                             </div>
-                                                            <p className="font-black italic uppercase text-xs text-[#1A1033] tracking-tight">{spec.name}</p>
+                                                            <p className="font-black italic uppercase text-xs text-[#1A1033] dark:text-white tracking-tight">{spec.name}</p>
                                                         </div>
                                                         <ChevronDown className={`w-4 h-4 text-slate-300 transition-transform ${expandedSpecialty === spec.id ? 'rotate-180' : ''}`} />
                                                     </button>
@@ -368,7 +368,7 @@ function CardNivelamento({ sugestao, onIniciar }: { sugestao: any, onIniciar: ()
             <div className="flex items-center justify-between gap-6 relative z-10 flex-wrap">
                 <div className="max-w-xl">
                     <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-[10px] font-black uppercase tracking-widest mb-4">Novo Objetivo</div>
-                    <h3 className="text-3xl md:text-4xl font-black italic uppercase tracking-tighter text-[#1A1033] mb-2">Nivelar {sugestao.nome}</h3>
+                    <h3 className="text-3xl md:text-4xl font-black italic uppercase tracking-tighter text-[#1A1033] dark:text-white mb-2">Nivelar {sugestao.nome}</h3>
                     <p className="text-slate-600 font-medium">Inicie o diagnóstico deste assunto para que o SRS possa calcular sua curva de esquecimento personalizada.</p>
                 </div>
                 <button onClick={onIniciar} className="bg-primary text-white px-10 py-6 rounded-2xl font-black uppercase text-sm tracking-widest hover:scale-105 active:scale-95 transition-all shadow-xl shadow-primary/20 flex items-center gap-3">
@@ -385,7 +385,7 @@ function CardRevisaoAtrasada({ revisao, index, onIniciar }: { revisao: any, inde
         <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: index * 0.05 }} className="bg-white border-l-4 border-destructive p-8 rounded-r-[30px] shadow-sm flex items-center justify-between group hover:bg-destructive/5 transition-all">
             <div>
                 <span className="text-[10px] font-black uppercase tracking-widest text-destructive bg-destructive/10 px-2 py-1 rounded inline-block mb-2">Revisão em Atraso</span>
-                <h4 className="text-xl font-black text-[#1A1033] mb-1">{revisao.nome}</h4>
+                <h4 className="text-xl font-black text-[#1A1033] dark:text-white mb-1">{revisao.nome}</h4>
                 <p className="text-xs font-bold text-slate-400">STATUS: <span className="text-destructive">ATRASADO</span></p>
             </div>
             <button onClick={onIniciar} className="p-4 rounded-2xl bg-slate-50 text-slate-400 group-hover:bg-destructive group-hover:text-white transition-all">
@@ -400,7 +400,7 @@ function CardRevisaoDoDia({ revisao, index, onIniciar }: { revisao: any, index: 
         <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: index * 0.05 }} className="bg-white border-l-4 border-primary p-8 rounded-r-[30px] shadow-sm flex items-center justify-between group hover:bg-primary/5 transition-all">
             <div>
                 <span className="text-[10px] font-black uppercase tracking-widest text-primary bg-primary/10 px-2 py-1 rounded inline-block mb-2">Meta de Hoje</span>
-                <h4 className="text-xl font-black text-[#1A1033] mb-1">{revisao.nome}</h4>
+                <h4 className="text-xl font-black text-[#1A1033] dark:text-white mb-1">{revisao.nome}</h4>
                 <p className="text-xs font-bold text-slate-400">Nível Atual: <span className="text-primary">{revisao.nivel_atual || 0}</span></p>
             </div>
             <button onClick={onIniciar} className="p-4 rounded-2xl bg-slate-50 text-slate-400 group-hover:bg-primary group-hover:text-white transition-all">

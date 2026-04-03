@@ -100,7 +100,7 @@ export function WelcomeTutorial() {
                             </div>
 
                             <div className="space-y-4">
-                                <h2 className="text-3xl font-black italic uppercase tracking-tighter text-[#1A1033] leading-none">
+                                <h2 className="text-3xl font-black italic uppercase tracking-tighter text-[#1A1033] dark:text-white leading-none">
                                     {step.title}
                                 </h2>
                                 <p className="text-slate-500 font-medium leading-relaxed">

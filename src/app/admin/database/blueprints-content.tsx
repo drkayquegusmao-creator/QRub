@@ -185,7 +185,7 @@ export default function BlueprintsAdmin() {
                                 <School className="w-5 h-5" />
                             </div>
                             <div className="flex-1">
-                                <h4 className="text-sm font-black uppercase text-[#1A1033]">Classificar como Curso Principal</h4>
+                                <h4 className="text-sm font-black uppercase text-[#1A1033] dark:text-white">Classificar como Curso Principal</h4>
                                 <p className="text-[10px] text-muted-foreground leading-tight">Se ativo, aparecerá com destaque e filtros de curso (ex: EBSERH como "Curso").</p>
                             </div>
                             <label className="relative inline-flex items-center cursor-pointer">

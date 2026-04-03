@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { AuthProvider } from "@/components/auth-provider";
@@ -7,10 +7,16 @@ import { MaintenanceGuardian } from "@/components/maintenance-guardian";
 import { SupportChatWidget } from "@/components/support-chat-widget";
 import { MaintenanceOverlay } from "@/components/maintenance-overlay";
 import { AnnouncementBanner } from "@/components/announcement-banner";
+import { Toaster } from "react-hot-toast";
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+});
+
+const outfit = Outfit({
+  subsets: ["latin"],
+  variable: "--font-outfit",
 });
 
 export const metadata: Metadata = {
@@ -57,7 +63,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" suppressHydrationWarning>
-      <body className={`${inter.variable} font-sans antialiased flex flex-col min-h-screen`} suppressHydrationWarning>
+      <body className={`${inter.variable} ${outfit.variable} font-sans antialiased flex flex-col min-h-screen`} suppressHydrationWarning>
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
@@ -73,6 +79,15 @@ export default function RootLayout({
               </div>
             </MaintenanceGuardian>
           </AuthProvider>
+          <Toaster
+            position="top-right"
+            toastOptions={{
+              duration: 4000,
+              style: { fontFamily: 'var(--font-outfit)', fontWeight: 700, fontSize: '13px', borderRadius: '16px', padding: '14px 18px' },
+              success: { style: { background: '#ecfdf5', color: '#065f46', border: '1px solid #a7f3d0' } },
+              error: { style: { background: '#fff1f2', color: '#9f1239', border: '1px solid #fecdd3' } },
+            }}
+          />
         </ThemeProvider>
       </body>
     </html>

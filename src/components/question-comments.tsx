@@ -263,7 +263,7 @@ export function QuestionComments({ questionId }: QuestionCommentsProps) {
             <div key={c.id} className={`py-4 ${isReply ? 'ml-8 border-l-2 border-slate-100 pl-4 mt-2' : 'border-b border-slate-100'}`}>
                 <div className="flex items-start justify-between">
                     <div className="flex items-center gap-2 mb-1">
-                        <span className="font-bold text-sm text-[#1A1033]">{c.user?.name}</span>
+                        <span className="font-bold text-sm text-[#1A1033] dark:text-white">{c.user?.name}</span>
                         {c.user?.role === 'MASTER' && (
                             <span className="bg-primary/20 text-primary px-2 py-0.5 rounded-full text-[10px] font-black uppercase">Dr. QRub</span>
                         )}
@@ -332,7 +332,7 @@ export function QuestionComments({ questionId }: QuestionCommentsProps) {
     return (
         <div className="mt-8 bg-white border border-slate-200 rounded-3xl p-6 md:p-8">
             <div className="flex items-center justify-between mb-6 pb-4 border-b border-slate-100">
-                <h3 className="text-xl font-black uppercase italic tracking-tighter text-[#1A1033] flex items-center gap-2">
+                <h3 className="text-xl font-black uppercase italic tracking-tighter text-[#1A1033] dark:text-white flex items-center gap-2">
                     <MessageCircle className="w-6 h-6 text-primary" /> Discussão da Questão ({totalComments})
                 </h3>
                 <div className="flex items-center gap-2 text-sm font-bold text-slate-500">
@@ -390,7 +390,7 @@ export function QuestionComments({ questionId }: QuestionCommentsProps) {
                 {reportingComment && (
                     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
                         <motion.div initial={{ scale: 0.95 }} animate={{ scale: 1 }} exit={{ scale: 0.95 }} className="bg-white rounded-3xl p-6 w-full max-w-md shadow-2xl">
-                            <h3 className="text-xl font-black uppercase tracking-tighter mb-4 text-[#1A1033]">Denunciar Comentário</h3>
+                            <h3 className="text-xl font-black uppercase tracking-tighter mb-4 text-[#1A1033] dark:text-white">Denunciar Comentário</h3>
                             <textarea
                                 value={reportReason}
                                 onChange={(e) => setReportReason(e.target.value)}

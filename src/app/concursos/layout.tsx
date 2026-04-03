@@ -75,7 +75,7 @@ export default function ConcursoLayout({ children }: { children: React.ReactNode
                             <Hexagon className="w-4 h-4 text-white fill-white/20" />
                         </div>
                         <div className="flex flex-col leading-none">
-                            <span className="text-lg font-black italic uppercase tracking-tighter dark:text-white text-[#1A1033]">QRub</span>
+                            <span className="text-lg font-black italic uppercase tracking-tighter dark:text-white text-[#1A1033] dark:text-white">QRub</span>
                             <span className="text-[7px] font-black uppercase tracking-[0.2em] text-indigo-500">Concursos</span>
                         </div>
                     </Link>

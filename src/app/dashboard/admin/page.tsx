@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState, useEffect, useMemo } from "react"
+import React, { useState, useEffect, useMemo, useCallback } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { 
     Users, 
@@ -44,6 +44,10 @@ import { toast } from "react-hot-toast"
 import { ConcursoCard } from "@/components/concursos/concurso-card"
 import AdminPackagesManager from "@/components/admin-packages-manager"
 import { SaudeAdminBanksManager } from "@/components/saude/admin-banks-manager"
+import EditalFormModal from "@/components/edital-form-modal"
+import EditalImportQuestoes from "@/components/edital-import-questoes"
+import EditalFiltersPanel from "@/components/edital-filters-panel"
+import { getEditais, publishEdital, archiveEdital, deleteEdital, type Edital } from "@/lib/editais"
 import { cn } from "@/lib/utils"
 import { useAuth } from "@/store/use-auth"
 import { useQuestions } from "@/store/use-questions"
@@ -70,7 +74,231 @@ const formatBRT = (dateString?: string) => {
     }
 }
 
+// ─── Mural de Editais Panel (full CRUD, static imports) ─────────────────────
+
+function MuralDeEditaisPanel() {
+    const [editais, setEditais] = useState<Edital[]>([])
+    const [loadingEditais, setLoadingEditais] = useState(true)
+    const [editalError, setEditalError] = useState<string | null>(null)
+    const [searchEdital, setSearchEdital] = useState('')
+    const [filterStatus, setFilterStatus] = useState('')
+    const [showEditalForm, setShowEditalForm] = useState(false)
+    const [editingEdital, setEditingEdital] = useState<Edital | null>(null)
+    const [importingEditalId, setImportingEditalId] = useState<string | null>(null)
+    const [filtersEdital, setFiltersEdital] = useState<Edital | null>(null)
+
+    const loadEditais = useCallback(async () => {
+        setLoadingEditais(true)
+        setEditalError(null)
+        const { data, error } = await getEditais()
+        if (error) setEditalError('Erro ao carregar editais.')
+        else setEditais(data)
+        setLoadingEditais(false)
+    }, [])
+
+    useEffect(() => { loadEditais() }, [loadEditais])
+
+    const handlePublish = async (edital: Edital) => {
+        if (!window.confirm(`Publicar "${edital.titulo}"? Ficará visível para todos.`)) return
+        const { error } = await publishEdital(edital.id)
+        if (error) toast.error('Erro ao publicar edital.')
+        else { toast.success('Edital publicado!'); loadEditais() }
+    }
+
+    const handleArchive = async (edital: Edital) => {
+        if (!window.confirm(`Arquivar "${edital.titulo}"? Ficará oculto para alunos.`)) return
+        const { error } = await archiveEdital(edital.id)
+        if (error) toast.error('Erro ao arquivar edital.')
+        else { toast.success('Edital arquivado.'); loadEditais() }
+    }
+
+    const handleDelete = async (edital: Edital) => {
+        if (!window.confirm(`DELETAR "${edital.titulo}"? Esta ação é IRREVERSÍVEL.`)) return
+        const { error } = await deleteEdital(edital.id)
+        if (error) toast.error('Erro ao deletar edital.')
+        else { toast.success('Edital deletado.'); loadEditais() }
+    }
+
+    const filtered = editais.filter(e => {
+        const matchSearch = !searchEdital
+            || e.titulo?.toLowerCase().includes(searchEdital.toLowerCase())
+            || (e.banca || '').toLowerCase().includes(searchEdital.toLowerCase())
+        const matchStatus = !filterStatus || e.status === filterStatus
+        return matchSearch && matchStatus
+    })
+
+    const stats = {
+        total: editais.length,
+        publicados: editais.filter(e => e.status === 'publicado').length,
+        rascunhos: editais.filter(e => e.status === 'rascunho').length,
+    }
+
+    const statusStyle: Record<string, string> = {
+        rascunho: 'bg-amber-50 text-amber-700 border-amber-200',
+        publicado: 'bg-emerald-50 text-emerald-700 border-emerald-200',
+        arquivado: 'bg-slate-100 text-slate-500 border-slate-200',
+    }
+
+    return (
+        <div className="space-y-8">
+            {/* Header */}
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div className="flex items-center gap-5">
+                    <div className="w-16 h-16 bg-indigo-600 rounded-[2rem] flex items-center justify-center text-white shadow-2xl shadow-indigo-600/20">
+                        <ClipboardCheck size={32} />
+                    </div>
+                    <div>
+                        <h1 className="text-4xl font-black italic uppercase tracking-tighter text-slate-900 leading-none">Mural de Editais</h1>
+                        <p className="text-xs font-black uppercase text-indigo-600 tracking-[0.4em] mt-2">Protocolo QRub Saúde • Gestão de Editais</p>
+                    </div>
+                </div>
+                <button
+                    onClick={() => { setEditingEdital(null); setShowEditalForm(true) }}
+                    className="flex items-center gap-2 px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-2xl font-black uppercase text-[11px] tracking-widest shadow-lg transition-all hover:scale-105 active:scale-95"
+                >
+                    + Novo Edital
+                </button>
+            </div>
+
+            {/* Stats */}
+            <div className="grid grid-cols-3 gap-4">
+                {[
+                    { label: 'Total', value: stats.total, style: 'bg-slate-50 border-slate-200 text-slate-700' },
+                    { label: 'Publicados', value: stats.publicados, style: 'bg-emerald-50 border-emerald-200 text-emerald-700' },
+                    { label: 'Rascunhos', value: stats.rascunhos, style: 'bg-amber-50 border-amber-200 text-amber-700' },
+                ].map(s => (
+                    <div key={s.label} className={`border rounded-3xl p-6 ${s.style}`}>
+                        <p className="text-[10px] font-black uppercase tracking-widest mb-3 opacity-60">{s.label}</p>
+                        <p className="text-4xl font-black italic tracking-tighter">{s.value}</p>
+                    </div>
+                ))}
+            </div>
+
+            {/* Filters */}
+            <div className="flex flex-col sm:flex-row gap-4">
+                <div className="relative flex-1">
+                    <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+                    <input type="text" placeholder="Buscar por título ou banca..."
+                        value={searchEdital} onChange={e => setSearchEdital(e.target.value)}
+                        className="w-full pl-12 pr-4 py-3.5 bg-slate-50 border border-slate-200 rounded-2xl text-slate-800 placeholder-slate-400 focus:outline-none focus:border-indigo-500 transition-all text-sm"
+                    />
+                </div>
+                <select value={filterStatus} onChange={e => setFilterStatus(e.target.value)}
+                    className="bg-slate-50 border border-slate-200 rounded-2xl px-6 py-3.5 text-slate-700 text-sm font-bold uppercase tracking-widest focus:outline-none focus:border-indigo-500 transition-all">
+                    <option value="">TODOS OS STATUS</option>
+                    <option value="rascunho">RASCUNHOS</option>
+                    <option value="publicado">PUBLICADOS</option>
+                    <option value="arquivado">ARQUIVADOS</option>
+                </select>
+            </div>
+
+            {/* Table */}
+            <div className="bg-white border border-slate-200 rounded-[2rem] shadow-xl overflow-hidden">
+                {editalError && (
+                    <div className="p-4 bg-rose-50 border-b border-rose-100 text-rose-600 text-sm font-bold text-center">
+                        ⚠️ {editalError} — <button onClick={loadEditais} className="underline">Tentar novamente</button>
+                    </div>
+                )}
+                <div className="overflow-x-auto">
+                    <table className="w-full text-left">
+                        <thead className="bg-slate-50 border-b border-slate-200">
+                            <tr>
+                                {['Edital / Banca', 'Status', 'Data Prova', 'Taxa', 'Questões', 'Ações'].map(h => (
+                                    <th key={h} className="px-6 py-4 text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">{h}</th>
+                                ))}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {loadingEditais ? (
+                                [...Array(4)].map((_, i) => (
+                                    <tr key={i} className="animate-pulse border-b border-slate-100">
+                                        <td colSpan={6} className="p-4"><div className="h-10 bg-slate-100 rounded-2xl w-full" /></td>
+                                    </tr>
+                                ))
+                            ) : filtered.length === 0 ? (
+                                <tr>
+                                    <td colSpan={6} className="text-center py-20">
+                                        <div className="w-20 h-20 bg-slate-50 rounded-full flex items-center justify-center mx-auto mb-4">
+                                            <ClipboardCheck className="w-8 h-8 text-slate-300" />
+                                        </div>
+                                        <p className="text-slate-400 font-black uppercase tracking-widest text-xs">Nenhum edital encontrado</p>
+                                        {!searchEdital && !filterStatus && (
+                                            <button onClick={() => { setEditingEdital(null); setShowEditalForm(true) }} className="mt-3 text-indigo-600 text-sm font-bold hover:underline">
+                                                Criar primeiro edital →
+                                            </button>
+                                        )}
+                                    </td>
+                                </tr>
+                            ) : filtered.map(edital => (
+                                <tr key={edital.id} className="border-b border-slate-100 hover:bg-slate-50/50 transition-colors">
+                                    <td className="px-6 py-4">
+                                        <p className="text-slate-900 text-sm font-semibold line-clamp-1">{edital.titulo}</p>
+                                        <p className="text-slate-400 text-[10px] font-medium uppercase tracking-wider mt-0.5">{edital.banca || '—'} · {edital.ano || '—'}</p>
+                                    </td>
+                                    <td className="px-6 py-4">
+                                        <span className={`px-3 py-1 rounded-full text-[10px] border font-black uppercase tracking-widest ${statusStyle[edital.status] || statusStyle.rascunho}`}>
+                                            {edital.status}
+                                        </span>
+                                    </td>
+                                    <td className="px-6 py-4 text-slate-600 text-xs font-medium whitespace-nowrap">{edital.data_prova ? new Date(edital.data_prova + 'T12:00').toLocaleDateString('pt-BR') : '—'}</td>
+                                    <td className="px-6 py-4 text-slate-600 text-xs font-medium whitespace-nowrap">{edital.taxa ? `R$ ${Number(edital.taxa).toFixed(2)}` : '—'}</td>
+                                    <td className="px-6 py-4">
+                                        <span className="bg-indigo-50 text-indigo-700 px-3 py-1 rounded-xl text-[10px] font-bold border border-indigo-100">
+                                            {(edital as any).total_questoes || 0} questões
+                                        </span>
+                                    </td>
+                                    <td className="px-6 py-5">
+                                        <div className="flex items-center gap-2">
+                                            <button title="Editar" onClick={() => { setEditingEdital(edital); setShowEditalForm(true) }} className="w-9 h-9 rounded-xl border bg-blue-50 border-blue-100 hover:bg-blue-600 hover:text-white hover:border-blue-600 flex items-center justify-center transition-all active:scale-90">✏️</button>
+                                            <button title="Importar Questões" onClick={() => setImportingEditalId(edital.id)} className="w-9 h-9 rounded-xl border bg-purple-50 border-purple-100 hover:bg-purple-600 hover:text-white hover:border-purple-600 flex items-center justify-center transition-all active:scale-90">📚</button>
+                                            <button title="Filtros de Questões" onClick={() => setFiltersEdital(edital)} className="w-9 h-9 rounded-xl border bg-slate-100 border-slate-200 hover:bg-slate-600 hover:text-white flex items-center justify-center transition-all active:scale-90">🎯</button>
+                                            {edital.status === 'rascunho' && (
+                                                <button title="Publicar" onClick={() => handlePublish(edital)} className="w-9 h-9 rounded-xl border bg-emerald-50 border-emerald-100 hover:bg-emerald-600 hover:text-white flex items-center justify-center transition-all active:scale-90">🚀</button>
+                                            )}
+                                            {edital.status === 'publicado' && (
+                                                <button title="Arquivar" onClick={() => handleArchive(edital)} className="w-9 h-9 rounded-xl border bg-amber-50 border-amber-100 hover:bg-amber-500 hover:text-white flex items-center justify-center transition-all active:scale-90">📦</button>
+                                            )}
+                                            {edital.status === 'arquivado' && (
+                                                <button title="Re-publicar" onClick={() => handlePublish(edital)} className="w-9 h-9 rounded-xl border bg-emerald-50 border-emerald-100 hover:bg-emerald-600 hover:text-white flex items-center justify-center transition-all active:scale-90">🔄</button>
+                                            )}
+                                            <button title="Deletar" onClick={() => handleDelete(edital)} className="w-9 h-9 rounded-xl border bg-red-50 border-red-100 hover:bg-red-600 hover:text-white flex items-center justify-center transition-all active:scale-90">🗑️</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            {/* Modals */}
+            {showEditalForm && (
+                <EditalFormModal
+                    edital={editingEdital as any}
+                    onClose={() => { setShowEditalForm(false); setEditingEdital(null) }}
+                    onSuccess={() => { setShowEditalForm(false); setEditingEdital(null); loadEditais() }}
+                />
+            )}
+            {importingEditalId && (
+                <EditalImportQuestoes
+                    editalId={importingEditalId}
+                    onClose={() => setImportingEditalId(null)}
+                    onSuccess={() => { setImportingEditalId(null); loadEditais() }}
+                />
+            )}
+            {filtersEdital && (
+                <EditalFiltersPanel
+                    editalId={filtersEdital.id}
+                    editalBanca={filtersEdital.banca || ''}
+                    onClose={() => setFiltersEdital(null)}
+                />
+            )}
+        </div>
+    )
+}
+
 export default function SaudeAdminDashboard() {
+
     const { user, isAuthenticated } = useAuth()
     const router = useRouter()
     const searchParams = useSearchParams()
@@ -763,12 +991,8 @@ export default function SaudeAdminDashboard() {
                     </motion.div>
                 )}
                 {tab === 'editais' && (
-                    <motion.div key="editais" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="p-20 flex flex-col items-center justify-center bg-white rounded-[40px] border-2 border-dashed border-slate-100 shadow-sm">
-                        <div className="w-24 h-24 bg-slate-50 flex items-center justify-center rounded-full mb-10">
-                            <ClipboardCheck className="w-10 h-10 text-slate-300" />
-                        </div>
-                        <h3 className="text-2xl font-black italic uppercase tracking-tighter text-slate-900">Mural de Editais Saúde</h3>
-                        <p className="text-xs font-black uppercase text-slate-400 tracking-widest mt-4">Módulo em Integração com a Matriz de Vagas Médicas</p>
+                    <motion.div key="editais" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="space-y-10">
+                        <MuralDeEditaisPanel />
                     </motion.div>
                 )}
                 {tab === 'banks' && (

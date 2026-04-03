@@ -185,7 +185,7 @@ export function MemoryMapView() {
           </div>
           
           <div className="space-y-4 w-full md:w-48 shrink-0 py-4">
-            <h3 className="text-base font-black italic uppercase tracking-tighter text-[#1A1033]">Retenção Média</h3>
+            <h3 className="text-base font-black italic uppercase tracking-tighter text-[#1A1033] dark:text-white">Retenção Média</h3>
             <div className="space-y-3">
                <div className="flex items-center justify-between">
                  <span className="text-[9px] font-bold text-slate-400 uppercase tracking-[0.2em]">Global</span>
@@ -321,7 +321,7 @@ function MemoryCard({ item }: { item: SubjectMemory }) {
 
         <div className="space-y-1">
           <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">{item.specialty_id}</p>
-          <h4 className="text-xl font-black italic uppercase tracking-tighter text-[#1A1033] leading-tight line-clamp-2">
+          <h4 className="text-xl font-black italic uppercase tracking-tighter text-[#1A1033] dark:text-white leading-tight line-clamp-2">
             {item.assunto_nome}
           </h4>
         </div>
@@ -335,7 +335,7 @@ function MemoryCard({ item }: { item: SubjectMemory }) {
              <p className="text-[9px] font-bold text-slate-400 uppercase tracking-widest mb-1">Tendência</p>
              <div className="flex items-center gap-2">
                 {item.tendencia === 'SUBINDO' ? <TrendingUp className="w-5 h-5 text-emerald-500" /> : item.tendencia === 'CAINDO' ? <TrendingDown className="w-5 h-5 text-rose-500" /> : <Minus className="w-5 h-5 text-slate-300" />}
-                <span className="text-[10px] font-black uppercase text-[#1A1033]">{item.tendencia}</span>
+                <span className="text-[10px] font-black uppercase text-[#1A1033] dark:text-white">{item.tendencia}</span>
              </div>
            </div>
         </div>
@@ -356,7 +356,7 @@ function MemoryRow({ item }: { item: SubjectMemory }) {
             <Brain className="w-5 h-5 text-primary opacity-30 group-hover:opacity-100 transition-opacity" />
           </div>
           <div className="space-y-1">
-            <h4 className="font-black italic uppercase text-lg text-[#1A1033]">{item.assunto_nome}</h4>
+            <h4 className="font-black italic uppercase text-lg text-[#1A1033] dark:text-white">{item.assunto_nome}</h4>
             <div className="flex items-center gap-4 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
               <span>{item.specialty_id}</span>
               <span className="w-1 h-1 bg-slate-200 rounded-full" />

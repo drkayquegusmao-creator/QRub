@@ -206,7 +206,7 @@ export default function TreinarAreaPage() {
         return (
             <div className="flex-1 flex flex-col items-center justify-center min-h-[50vh]">
                 <Loader2 className="w-12 h-12 text-primary animate-spin" />
-                <p className="mt-4 text-xs font-black uppercase tracking-widest text-[#1A1033]">Carregando Taxonomia V2...</p>
+                <p className="mt-4 text-xs font-black uppercase tracking-widest text-[#1A1033] dark:text-white">Carregando Taxonomia V2...</p>
             </div>
         )
     }
@@ -215,7 +215,7 @@ export default function TreinarAreaPage() {
         return (
             <div className="flex-1 flex flex-col items-center justify-center min-h-[50vh]">
                 <AlertCircle className="w-12 h-12 text-rose-500 mb-4" />
-                <h2 className="text-xl font-black italic uppercase text-[#1A1033]">Falha na Base</h2>
+                <h2 className="text-xl font-black italic uppercase text-[#1A1033] dark:text-white">Falha na Base</h2>
                 <p className="text-sm font-bold text-slate-400 mt-2 mb-6 text-center max-w-sm">
                     Impossível sincronizar com a base de dados oficial.
                 </p>
@@ -240,7 +240,7 @@ export default function TreinarAreaPage() {
                     <ArrowLeft className="w-5 h-5" />
                 </button>
                 <div>
-                    <h1 className="text-3xl font-black italic uppercase tracking-tighter text-[#1A1033] flex items-center gap-3">
+                    <h1 className="text-3xl font-black italic uppercase tracking-tighter text-[#1A1033] dark:text-white flex items-center gap-3">
                         <Target className="w-8 h-8 text-primary" />
                         Treinar por Área
                     </h1>
@@ -257,7 +257,7 @@ export default function TreinarAreaPage() {
 
                     {/* Smart Search */}
                     <div className="bg-white p-6 rounded-[30px] shadow-sm border border-slate-100 flex flex-col gap-4 relative z-20">
-                        <div className="flex items-center gap-3 text-[#1A1033] mb-2">
+                        <div className="flex items-center gap-3 text-[#1A1033] dark:text-white mb-2">
                             <div className="p-2.5 bg-indigo-50 text-indigo-500 rounded-xl">
                                 <Search className="w-5 h-5" />
                             </div>
@@ -273,7 +273,7 @@ export default function TreinarAreaPage() {
                                 placeholder="Ex: Síndrome, Diabetes, Asma..."
                                 value={searchTerm}
                                 onChange={e => setSearchTerm(e.target.value)}
-                                className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-5 py-4 pl-12 outline-none focus:ring-2 focus:ring-primary/20 transition-all font-bold text-sm text-[#1A1033]"
+                                className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-5 py-4 pl-12 outline-none focus:ring-2 focus:ring-primary/20 transition-all font-bold text-sm text-[#1A1033] dark:text-white"
                             />
                             <Search className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" />
                         </div>
@@ -334,7 +334,7 @@ export default function TreinarAreaPage() {
                                                 }}
                                                 className="w-full text-left p-3 hover:bg-slate-50 rounded-xl transition-colors mb-1"
                                             >
-                                                <div className="text-sm font-black text-[#1A1033] mt-0.5 flex items-center justify-between">
+                                                <div className="text-sm font-black text-[#1A1033] dark:text-white mt-0.5 flex items-center justify-between">
                                                     <span>{item.name}</span>
                                                     <span className="text-[10px] bg-slate-100 px-2 py-1 rounded text-slate-500 whitespace-nowrap">{item.level}</span>
                                                 </div>
@@ -376,7 +376,7 @@ export default function TreinarAreaPage() {
                                     <select
                                         value={lvl.selectedNodeId}
                                         onChange={e => handleNodeSelect(index, e.target.value)}
-                                        className="w-full appearance-none bg-slate-50 border border-slate-100 rounded-2xl px-5 py-4 outline-none focus:ring-2 focus:ring-primary/20 transition-all font-black text-sm text-[#1A1033]"
+                                        className="w-full appearance-none bg-slate-50 border border-slate-100 rounded-2xl px-5 py-4 outline-none focus:ring-2 focus:ring-primary/20 transition-all font-black text-sm text-[#1A1033] dark:text-white"
                                     >
                                         <option value="" disabled>Selecione uma opção...</option>
                                         <option value="">Todas do nível Acima (Pular/Filtrar Tudo)</option>
@@ -400,7 +400,7 @@ export default function TreinarAreaPage() {
                                     <div className={`w-5 h-5 rounded flex items-center justify-center transition-colors ${difficulty === d ? 'bg-primary border-primary' : 'border border-slate-300'}`}>
                                         {difficulty === d && <Check className="w-3 h-3 text-white" />}
                                     </div>
-                                    <span className={`text-sm font-bold ${difficulty === d ? 'text-primary' : 'text-slate-500 group-hover:text-[#1A1033]'}`}>{d}</span>
+                                    <span className={`text-sm font-bold ${difficulty === d ? 'text-primary' : 'text-slate-500 group-hover:text-[#1A1033] dark:text-white'}`}>{d}</span>
                                 </div>
                             ))}
                         </div>
@@ -412,7 +412,7 @@ export default function TreinarAreaPage() {
                                     <div className={`w-5 h-5 rounded flex items-center justify-center transition-colors ${statusF === m ? 'bg-indigo-500 border-indigo-500' : 'border border-slate-300'}`}>
                                         {statusF === m && <Check className="w-3 h-3 text-white" />}
                                     </div>
-                                    <span className={`text-sm font-bold ${statusF === m ? 'text-indigo-600' : 'text-slate-500 group-hover:text-[#1A1033]'}`}>{m}</span>
+                                    <span className={`text-sm font-bold ${statusF === m ? 'text-indigo-600' : 'text-slate-500 group-hover:text-[#1A1033] dark:text-white'}`}>{m}</span>
                                 </div>
                             ))}
                         </div>
@@ -423,7 +423,7 @@ export default function TreinarAreaPage() {
                                 {[10, 20, 30, 50, 100].map(v => (
                                     <div key={v} onClick={() => setVolume(v)} className="flex items-center gap-3 cursor-pointer group mb-1">
                                         <div className={`w-4 h-4 rounded-full flex items-center justify-center transition-colors ${volume === v ? 'border-[5px] border-primary' : 'border border-slate-300'}`}></div>
-                                        <span className={`text-sm font-bold ${volume === v ? 'text-primary' : 'text-slate-500 group-hover:text-[#1A1033]'}`}>{v} Metas</span>
+                                        <span className={`text-sm font-bold ${volume === v ? 'text-primary' : 'text-slate-500 group-hover:text-[#1A1033] dark:text-white'}`}>{v} Metas</span>
                                     </div>
                                 ))}
                             </div>
