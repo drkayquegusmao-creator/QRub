@@ -96,7 +96,8 @@ export default function QuizPage() {
             specialty_id: specialtyId,
             subspecialty_id: subspecialtyId,
             subject_id: subjectId,
-            status_validacao: 'APROVADA'
+            status_validacao: 'APROVADA',
+            pageSize: 1000
         })
     }, [courseId, specialtyId, subspecialtyId, subjectId, mode, allQuestions.length])
 
