@@ -28,6 +28,7 @@ import { cn } from '@/lib/utils'
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useAuth } from '@/store/use-auth'
+import { usePreferences } from '@/store/use-preferences'
 import { isMasterEmail } from '@/lib/auth-constants'
 
 const SIDEBAR_GROUPS = [
@@ -88,6 +89,7 @@ export function ConcursoSidebar() {
     const pathname = usePathname()
     const [collapsed, setCollapsed] = useState(false)
     const { user, logout } = useAuth()
+    const { setSettingsOpen } = usePreferences()
     const isAdmin = user?.role === 'MASTER' || isMasterEmail(user?.email)
 
     return (
@@ -129,18 +131,11 @@ export function ConcursoSidebar() {
                             {group.items.map((item) => {
                                 const isActive = pathname === item.href || (item.href !== '/concursos' && pathname.startsWith(item.href))
                                 const Icon = item.icon_override ? Sparkles : item.icon
-                                return (
-                                    <Link 
-                                        key={item.name} 
-                                        href={item.href}
-                                        className={cn(
-                                            "flex items-center gap-2.5 px-4 py-2.5 rounded-xl transition-all group relative",
-                                            isActive 
-                                                ? "bg-indigo-500 text-white shadow-lg shadow-indigo-500/10 font-bold" 
-                                                : "text-white/40 hover:text-white hover:bg-white/5"
-                                        )}
-                                        title={collapsed ? item.name : undefined}
-                                    >
+                                
+                                const isSettings = item.name === 'Configurações'
+
+                                const content = (
+                                    <>
                                         <Icon className={cn(
                                             "w-4 h-4 shrink-0 transition-transform group-hover:scale-110",
                                             isActive ? "text-white" : "text-white/40"
@@ -156,6 +151,38 @@ export function ConcursoSidebar() {
                                                 className="absolute right-2 w-1.5 h-1.5 rounded-full bg-indigo-500 shadow-[0_0_8px_rgba(99,102,241,0.8)]"
                                             />
                                         )}
+                                    </>
+                                )
+
+                                if (isSettings) {
+                                    return (
+                                        <button 
+                                            key={item.name} 
+                                            onClick={() => setSettingsOpen(true)}
+                                            className={cn(
+                                                "flex items-center gap-2.5 w-full text-left px-4 py-2.5 rounded-xl transition-all group relative",
+                                                "text-white/40 hover:text-white hover:bg-white/5"
+                                            )}
+                                            title={collapsed ? item.name : undefined}
+                                        >
+                                            {content}
+                                        </button>
+                                    )
+                                }
+
+                                return (
+                                    <Link 
+                                        key={item.name} 
+                                        href={item.href}
+                                        className={cn(
+                                            "flex items-center gap-2.5 px-4 py-2.5 rounded-xl transition-all group relative",
+                                            isActive 
+                                                ? "bg-indigo-500 text-white shadow-lg shadow-indigo-500/10 font-bold" 
+                                                : "text-white/40 hover:text-white hover:bg-white/5"
+                                        )}
+                                        title={collapsed ? item.name : undefined}
+                                    >
+                                        {content}
                                     </Link>
                                 )
                             })}

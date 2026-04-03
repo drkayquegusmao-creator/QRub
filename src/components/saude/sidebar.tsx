@@ -35,6 +35,7 @@ import { cn } from '@/lib/utils'
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useAuth } from '@/store/use-auth'
+import { usePreferences } from '@/store/use-preferences'
 
 const SIDEBAR_GROUPS = [
     {
@@ -73,6 +74,7 @@ export function SaudeSidebar() {
     const pathname = usePathname()
     const router = useRouter()
     const { user, logout } = useAuth()
+    const { setSettingsOpen } = usePreferences()
     const [collapsed, setCollapsed] = useState(false)
 
     const isAdmin = user?.role === 'MASTER'
@@ -87,7 +89,7 @@ export function SaudeSidebar() {
             {/* Header / Logo */}
             <div className="p-8 pb-4 flex items-center justify-between">
                 <Link href="/dashboard" className="flex items-center gap-3">
-                    <div className="p-2.5 rounded-2xl bg-emerald-500 shadow-lg shadow-emerald-500/20">
+                    <div className="p-2.5 rounded-2xl bg-emerald-500 shadow-lg shadow-emerald-500/10">
                         <Hexagon className="w-6 h-6 text-white fill-white/20" />
                     </div>
                     {!collapsed && (
@@ -116,18 +118,11 @@ export function SaudeSidebar() {
                             {group.items.map((item) => {
                                 const active = pathname === item.href
                                 const Icon = item.icon
-                                return (
-                                    <Link 
-                                        key={item.name} 
-                                        href={item.href}
-                                        className={cn(
-                                            "flex items-center gap-2.5 px-4 py-2.5 rounded-xl transition-all group relative",
-                                            active 
-                                                ? "bg-emerald-500 text-white shadow-lg shadow-emerald-500/10 font-bold" 
-                                                : "text-white/40 hover:text-white hover:bg-white/5"
-                                        )}
-                                        title={collapsed ? item.name : undefined}
-                                    >
+                                
+                                const isSettings = item.name === 'Configurações'
+                                
+                                const content = (
+                                    <>
                                         <Icon className={cn(
                                             "w-4 h-4 shrink-0 transition-transform group-hover:scale-110",
                                             active ? "text-white" : "text-white/40"
@@ -148,6 +143,38 @@ export function SaudeSidebar() {
                                                 className="absolute right-2 w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.8)]" 
                                             />
                                         )}
+                                    </>
+                                )
+
+                                if (isSettings) {
+                                    return (
+                                        <button 
+                                            key={item.name} 
+                                            onClick={() => setSettingsOpen(true)}
+                                            className={cn(
+                                                "flex items-center gap-2.5 w-full text-left px-4 py-2.5 rounded-xl transition-all group relative",
+                                                "text-white/40 hover:text-white hover:bg-white/5"
+                                            )}
+                                            title={collapsed ? item.name : undefined}
+                                        >
+                                            {content}
+                                        </button>
+                                    )
+                                }
+
+                                return (
+                                    <Link 
+                                        key={item.name} 
+                                        href={item.href}
+                                        className={cn(
+                                            "flex items-center gap-2.5 px-4 py-2.5 rounded-xl transition-all group relative",
+                                            active 
+                                                ? "bg-emerald-500 text-white shadow-lg shadow-emerald-500/10 font-bold" 
+                                                : "text-white/40 hover:text-white hover:bg-white/5"
+                                        )}
+                                        title={collapsed ? item.name : undefined}
+                                    >
+                                        {content}
                                     </Link>
                                 )
                             })}

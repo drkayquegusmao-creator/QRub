@@ -4,18 +4,23 @@ import { supabase, isSupabaseConfigured } from '@/lib/supabase'
 
 export type QuestionFont = 'default' | 'arial' | 'times'
 
-interface PreferencesState {
+export interface PreferencesState {
     questionsFont: QuestionFont
+    isSettingsOpen: boolean
     loading: boolean
     loadPreferences: (userId: string) => Promise<void>
     setQuestionsFont: (font: QuestionFont, userId?: string) => Promise<void>
+    setSettingsOpen: (open: boolean) => void
 }
 
 export const usePreferences = create<PreferencesState>()(
     persist(
         (set, get) => ({
             questionsFont: 'default',
+            isSettingsOpen: false,
             loading: false,
+
+            setSettingsOpen: (open) => set({ isSettingsOpen: open }),
 
             loadPreferences: async (userId) => {
                 if (!isSupabaseConfigured()) return
