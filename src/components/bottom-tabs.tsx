@@ -44,6 +44,7 @@ export function BottomTabs() {
 
     // Hide bottom tabs on quiz and error pages
     const isQuizPage = pathname?.includes('/dashboard/quiz') || 
+                      pathname?.includes('/dashboard/treinar-area') || 
                       pathname?.includes('/concursos/quiz') || 
                       pathname?.includes('/concursos/treino') ||
                       pathname?.includes('/dashboard/errors') ||
