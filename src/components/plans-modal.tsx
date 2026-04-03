@@ -11,7 +11,7 @@ interface PlansModalProps {
 }
 
 export function PlansModal({ isOpen, onClose }: PlansModalProps) {
-    const [selectedPlan, setSelectedPlan] = useState<'PREMIUM' | 'INSANO' | null>(null)
+    const [selectedPlan, setSelectedPlan] = useState<'mensal' | 'insano' | null>(null)
 
     if (!isOpen) return null
 
@@ -76,7 +76,7 @@ export function PlansModal({ isOpen, onClose }: PlansModalProps) {
                                     </ul>
 
                                     <button
-                                        onClick={() => setSelectedPlan('PREMIUM')}
+                                        onClick={() => setSelectedPlan('mensal')}
                                         className="w-full py-4 rounded-2xl bg-foreground text-background font-black uppercase text-sm tracking-widest hover:scale-[1.02] active:scale-95 transition-all shadow-lg"
                                     >
                                         Escolher Premium
@@ -125,7 +125,7 @@ export function PlansModal({ isOpen, onClose }: PlansModalProps) {
                                     </ul>
 
                                     <button
-                                        onClick={() => setSelectedPlan('INSANO')}
+                                        onClick={() => setSelectedPlan('insano')}
                                         className="w-full py-4 rounded-2xl bg-gradient-to-r from-orange-500 to-red-500 text-white font-black uppercase text-sm tracking-widest hover:scale-[1.02] active:scale-95 transition-all shadow-xl shadow-orange-500/20"
                                     >
                                         Quero Ser Insano
@@ -141,6 +141,7 @@ export function PlansModal({ isOpen, onClose }: PlansModalProps) {
                             isOpen={!!selectedPlan}
                             onClose={() => setSelectedPlan(null)}
                             plan={selectedPlan}
+                            product="qrub_concurso"
                         />
                     )}
                 </div>

@@ -33,7 +33,7 @@ export function ConcursoQuizSetupFilters() {
     const [bancas, setBancas] = useState<any[]>([])
 
     const router = useRouter()
-    const isFree = !user || user.plan_level === 'FREE'
+    const isFree = !user || user.plan_level === 'free'
     
     useEffect(() => {
         loadTaxonomy()

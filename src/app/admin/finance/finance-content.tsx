@@ -278,7 +278,7 @@ function SalesTab() {
                                     <div className="text-xs text-muted-foreground">{sale.userEmail}</div>
                                 </td>
                                 <td className="p-6">
-                                    <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${sale.plan === 'INSANO' ? 'bg-purple-100 text-purple-800' : 'bg-blue-100 text-blue-800'
+                                    <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${sale.plan === 'insano' ? 'bg-purple-100 text-purple-800' : 'bg-blue-100 text-blue-800'
                                         }`}>
                                         {sale.plan}
                                     </span>

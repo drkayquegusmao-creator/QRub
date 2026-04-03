@@ -83,8 +83,12 @@ export default function AuthPage() {
                         email: authData.user.email || formData.email,
                         name: formData.name,
                         role: isMaster ? 'MASTER' : 'ALUNO',
-                        plan_level: 'INSANO', // Todos começam como INSANO
-
+                        plan_level: 'insano', // Todos começam como INSANO
+                        subscriptions: [],
+                        usage: {
+                            qrub_concurso: { dailyQuestionsUsed: 0, lastResetDate: new Date().toISOString().split('T')[0] },
+                            qrub_saude: { dailyQuestionsUsed: 0, lastResetDate: new Date().toISOString().split('T')[0] }
+                        },
                         profile_completed: isMaster
                     })
                     setSuccess('Cadastro realizado com sucesso! Redirecionando...')
@@ -120,7 +124,7 @@ export default function AuthPage() {
                         email: formData.email.toLowerCase().trim(),
                         name: formData.name || formData.email.split('@')[0],
                         role: isMaster ? 'MASTER' : 'ALUNO',
-                        plan_level: 'INSANO', // Todos começam como INSANO
+                        plan_level: 'insano', // Todos começam como INSANO
 
                         profile_completed: isMaster
                     }).select()
@@ -133,10 +137,10 @@ export default function AuthPage() {
                 if (isMaster && profile.role !== 'MASTER') {
                     await supabase.from('users').update({
                         role: 'MASTER',
-                        plan_level: 'INSANO',
+                        plan_level: 'insano',
                         profile_completed: true
                     }).eq('id', authData.user.id)
-                    profile = { ...profile, role: 'MASTER', plan_level: 'INSANO', profile_completed: true }
+                    profile = { ...profile, role: 'MASTER', plan_level: 'insano', profile_completed: true }
                 }
 
                 // 5. Update Local State
@@ -146,6 +150,11 @@ export default function AuthPage() {
                     email: profile.email,
                     role: profile.role,
                     plan_level: profile.plan_level,
+                    subscriptions: profile.subscriptions || [],
+                    usage: profile.usage || {
+                        qrub_concurso: { dailyQuestionsUsed: 0, lastResetDate: new Date().toISOString().split('T')[0] },
+                        qrub_saude: { dailyQuestionsUsed: 0, lastResetDate: new Date().toISOString().split('T')[0] }
+                    },
                     profile_completed: profile.profile_completed,
                     rg: profile.rg,
                     address: profile.address,

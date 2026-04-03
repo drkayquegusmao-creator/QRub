@@ -8,23 +8,32 @@ import { useAuth, PlanLevel } from '@/store/use-auth'
 interface CheckoutModalProps {
     isOpen: boolean
     onClose: () => void
-    plan: 'free' | 'mensal' | 'trimestral' | 'semestral' | 'anual'
+    plan: PlanLevel // Updated to use PlanLevel
     product: 'qrub_concurso' | 'qrub_saude'
 }
 
-const PLAN_PRICES = {
+const PLAN_PRICES: Record<PlanLevel, number> = {
     free: 0.00,
+    insano: 24.99,
     mensal: 29.99,
     trimestral: 79.99,
     semestral: 159.99,
     anual: 319.99
 }
 
-const PLAN_BENEFITS = {
+const PLAN_BENEFITS: Record<PlanLevel, string[]> = {
     free: [
         '15 questões por dia',
         'Filtros básicos',
         'Teste toda a plataforma'
+    ],
+    insano: [
+        'Questões ilimitadas',
+        'Revisão espaçada',
+        'Caderno de erros auto',
+        'Dr. Qrub (mentor estratégico)',
+        'Estatísticas completas',
+        'Filtros avançados'
     ],
     mensal: [
         'Questões ilimitadas',

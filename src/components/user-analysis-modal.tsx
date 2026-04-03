@@ -816,7 +816,7 @@ function MetricCard({ title, value, sub, icon }: { title: string, value: any, su
 }
 
 function PlanBadge({ plan }: { plan: PlanLevel }) {
-    if (plan === 'INSANO') return <span className="flex items-center gap-1 text-amber-400"><Crown className="w-3 h-3" /> INSANO</span>
-    if (plan === 'PREMIUM') return <span className="flex items-center gap-1 text-primary"><Star className="w-3 h-3" /> PREMIUM</span>
+    if (plan === 'insano') return <span className="flex items-center gap-1 text-amber-400"><Crown className="w-3 h-3" /> INSANO</span>
+    if (plan === 'mensal' || plan === 'trimestral' || plan === 'semestral' || plan === 'anual') return <span className="flex items-center gap-1 text-primary"><Star className="w-3 h-3" /> {plan.toUpperCase()}</span>
     return <span className="text-white/40">FREE</span>
 }
