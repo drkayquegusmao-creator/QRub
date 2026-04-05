@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from 'react'
-import { X, CreditCard, Check, Loader2, Copy, QrCode, AlertCircle } from 'lucide-react'
+import { X, CreditCard, Check, QrCode, Loader2, Copy, ArrowLeft, ShieldCheck, Lock, AlertCircle } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useAuth, PlanLevel } from '@/store/use-auth'
 
@@ -113,43 +113,42 @@ export function CheckoutModal({ isOpen, onClose, plan, product }: CheckoutModalP
             } finally {
                 setCheckingPayment(false)
             }
-        }, 3000) // Check every 3 seconds
+        }, 3000)
 
         return () => clearInterval(interval)
-    }, [paymentStatus, paymentId, user, plan, updateUserPlan])
+    }, [paymentStatus, paymentId, user, plan, updateUserPlan, product])
 
     const handleGeneratePixPayment = async () => {
         setPaymentStatus('generating')
         setError('')
+        setPixCode('')
+        setQrCodeBase64('')
 
         try {
             const response = await fetch('/api/payments/create-pix', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     amount: price,
                     plan: plan,
                     product: product,
                     userId: user?.id,
                     userEmail: user?.email,
-                    userName: user?.name
+                    userDoc: '' 
                 }),
             })
 
             const data = await response.json()
-
-            if (!response.ok) {
-                throw new Error(data.error || 'Erro ao gerar pagamento PIX')
-            }
+            if (!response.ok) throw new Error(data.error || 'Erro ao gerar PIX')
 
             setPixCode(data.qr_code)
             setQrCodeBase64(data.qr_code_base64)
             setPaymentId(data.payment_id)
             setPaymentStatus('pending')
+
         } catch (err: any) {
-            setError(err.message)
+            console.error('PIX Error:', err)
+            setError(err.message || 'Erro ao conectar ao Mercado Pago.')
             setPaymentStatus('error')
         }
     }
@@ -158,17 +157,28 @@ export function CheckoutModal({ isOpen, onClose, plan, product }: CheckoutModalP
         e.preventDefault()
         setPaymentStatus('generating')
         setError('')
-        
-        // Simulação de processamento de cartão (Na real usaria Mercado Pago Bricks/Card Token)
-        setTimeout(async () => {
-            try {
-                if (user) await updateUserPlan(plan, product)
-                setPaymentStatus('approved')
-            } catch (err) {
-                setError('Erro ao ativar plano após pagamento.')
-                setPaymentStatus('error')
-            }
-        }, 2000)
+
+        try {
+            const response = await fetch('/api/payments/create-card', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    amount: price,
+                    plan: plan,
+                    product: product,
+                    userId: user?.id,
+                    userEmail: user?.email
+                }),
+            })
+
+            const data = await response.json()
+            if (!response.ok) throw new Error(data.error || 'Erro ao processar cartão')
+            window.location.href = data.init_point
+        } catch (err: any) {
+            console.error('Card Error:', err)
+            setError(err.message || 'Erro ao iniciar pagamento com cartão.')
+            setPaymentStatus('error')
+        }
     }
 
     const handleCopyPixCode = async () => {
@@ -226,31 +236,39 @@ export function CheckoutModal({ isOpen, onClose, plan, product }: CheckoutModalP
                                 exit={{ opacity: 0, y: -20 }}
                                 className="space-y-6"
                             >
-                                {/* Plan Details */}
-                                <div className={`p-10 rounded-[32px] border-2 bg-muted/30 border-border relative overflow-hidden group`}>
-                                    <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
-                                        <QrCode className="w-32 h-32 rotate-12" />
-                                    </div>
-
-                                    <div className="flex flex-col gap-6 relative z-10">
-                                        <div>
-                                            <p className="text-xs font-black uppercase tracking-widest text-muted-foreground mb-2">Valor do Plano</p>
-                                            <div className="flex items-baseline gap-2">
-                                                <span className="text-6xl font-black tracking-tighter text-foreground">R$ {price.toFixed(2).replace('.', ',')}</span>
-                                                <span className="text-muted-foreground font-bold italic">/mês</span>
-                                            </div>
+                                {/* Plan Details Upgrade */}
+                                <div className="royal-gradient p-1 rounded-[32px] shadow-2xl">
+                                    <div className="bg-background rounded-[30px] p-8 relative overflow-hidden group">
+                                        <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
+                                            <QrCode className="w-32 h-32 rotate-12" />
                                         </div>
 
-
-
-                                        <div className="space-y-3">
-                                            <p className="text-xs font-black uppercase tracking-widest text-muted-foreground">O que está incluído:</p>
-                                            {benefits.map((benefit, idx) => (
-                                                <div key={idx} className="flex items-center gap-3">
-                                                    <Check className={`w-5 h-5 ${plan !== 'free' ? 'text-orange-500' : 'text-primary'}`} />
-                                                    <span className="font-medium">{benefit}</span>
+                                        <div className="flex flex-col gap-6 relative z-10">
+                                            <div className="flex justify-between items-start">
+                                                <div>
+                                                    <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground mb-1">Assinatura Selecionada</p>
+                                                    <h3 className="text-2xl font-black italic uppercase text-foreground">{plan}</h3>
                                                 </div>
-                                            ))}
+                                                <div className="text-right">
+                                                    <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground mb-1">Valor Unitário</p>
+                                                    <div className="flex items-baseline gap-1">
+                                                        <span className="text-3xl font-black text-foreground">R$ {price.toFixed(2).replace('.', ',')}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div className="h-px bg-border/50" />
+
+                                            <div className="space-y-2">
+                                                {benefits.slice(0, 4).map((benefit, idx) => (
+                                                    <div key={idx} className="flex items-center gap-3">
+                                                        <div className="w-5 h-5 rounded-full bg-emerald-500/10 flex items-center justify-center">
+                                                            <Check className="w-3 h-3 text-emerald-500" />
+                                                        </div>
+                                                        <span className="text-sm font-medium text-muted-foreground">{benefit}</span>
+                                                    </div>
+                                                ))}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -284,23 +302,41 @@ export function CheckoutModal({ isOpen, onClose, plan, product }: CheckoutModalP
                                     </div>
                                 ) : !paymentMethod ? (
                                     <div className="space-y-4">
-                                        <p className="text-xs font-black uppercase tracking-widest text-muted-foreground">Escolha como pagar:</p>
+                                        <div className="flex items-center gap-2 mb-2">
+                                            <div className="h-px flex-1 bg-border" />
+                                            <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Formas de Pagamento</p>
+                                            <div className="h-px flex-1 bg-border" />
+                                        </div>
                                         <div className="grid grid-cols-2 gap-4">
                                             <button
                                                 onClick={() => setPaymentMethod('pix')}
-                                                className="p-6 border-2 border-border hover:border-emerald-500 hover:bg-emerald-500/5 rounded-2xl flex flex-col items-center gap-3 transition-all"
+                                                className="p-8 border-2 border-border hover:border-emerald-500 hover:bg-emerald-500/5 rounded-[24px] flex flex-col items-center gap-4 transition-all relative group overflow-hidden"
                                             >
-                                                <QrCode className="w-8 h-8 text-emerald-500" />
-                                                <span className="font-bold">PIX</span>
-                                                <span className="text-[10px] text-muted-foreground uppercase tracking-widest">Aprovação imediata</span>
+                                                <div className="absolute top-0 right-0 p-2 opacity-0 group-hover:opacity-10 transition-opacity">
+                                                    <QrCode className="w-12 h-12" />
+                                                </div>
+                                                <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 flex items-center justify-center">
+                                                    <QrCode className="w-6 h-6 text-emerald-500" />
+                                                </div>
+                                                <div className="text-center">
+                                                    <span className="block font-black text-sm uppercase tracking-tight">PIX</span>
+                                                    <span className="text-[9px] text-muted-foreground uppercase font-bold tracking-widest">Instantâneo</span>
+                                                </div>
                                             </button>
                                             <button
                                                 onClick={() => setPaymentMethod('card')}
-                                                className="p-6 border-2 border-border hover:border-blue-500 hover:bg-blue-500/5 rounded-2xl flex flex-col items-center gap-3 transition-all"
+                                                className="p-8 border-2 border-border hover:border-blue-500 hover:bg-blue-500/5 rounded-[24px] flex flex-col items-center gap-4 transition-all relative group overflow-hidden"
                                             >
-                                                <CreditCard className="w-8 h-8 text-blue-500" />
-                                                <span className="font-bold">Cartão de Crédito</span>
-                                                <span className="text-[10px] text-muted-foreground uppercase tracking-widest">Em até 12x</span>
+                                                <div className="absolute top-0 right-0 p-2 opacity-0 group-hover:opacity-10 transition-opacity">
+                                                    <CreditCard className="w-12 h-12" />
+                                                </div>
+                                                <div className="w-12 h-12 rounded-2xl bg-blue-500/10 flex items-center justify-center">
+                                                    <CreditCard className="w-6 h-6 text-blue-500" />
+                                                </div>
+                                                <div className="text-center">
+                                                    <span className="block font-black text-sm uppercase tracking-tight">Cartão</span>
+                                                    <span className="text-[9px] text-muted-foreground uppercase font-bold tracking-widest">Até 12x</span>
+                                                </div>
                                             </button>
                                         </div>
                                     </div>
@@ -323,44 +359,41 @@ export function CheckoutModal({ isOpen, onClose, plan, product }: CheckoutModalP
                                         </p>
                                     </div>
                                 ) : (
-                                    <div className="space-y-4">
-                                        <button onClick={() => setPaymentMethod(null)} className="text-sm text-primary hover:underline mb-2 inline-block">
-                                            &larr; Voltar para formas de pagamento
+                                    <div className="space-y-6">
+                                        <button onClick={() => setPaymentMethod(null)} className="text-[10px] font-black uppercase tracking-widest text-primary hover:underline flex items-center gap-2">
+                                            <ArrowLeft className="w-3 h-3" /> Voltar para opções
                                         </button>
-                                        <form onSubmit={handleProcessCardPayment} className="space-y-4 bg-muted/30 p-6 rounded-2xl border border-border">
-                                            <div>
-                                                <label className="text-xs font-bold text-muted-foreground uppercase mb-1 block">Número do Cartão</label>
-                                                <input required type="text" placeholder="0000 0000 0000 0000" className="w-full bg-background border border-border rounded-xl px-4 py-3 text-sm focus:border-blue-500 outline-none" />
-                                            </div>
-                                            <div className="grid grid-cols-2 gap-4">
-                                                <div>
-                                                    <label className="text-xs font-bold text-muted-foreground uppercase mb-1 block">Validade</label>
-                                                    <input required type="text" placeholder="MM/AA" className="w-full bg-background border border-border rounded-xl px-4 py-3 text-sm focus:border-blue-500 outline-none" />
+                                        
+                                        <div className="p-8 border-2 border-blue-500/20 bg-blue-500/5 rounded-3xl space-y-6">
+                                            <div className="flex items-center gap-4">
+                                                <div className="w-12 h-12 rounded-2xl bg-blue-500 flex items-center justify-center shadow-lg shadow-blue-500/20">
+                                                    <CreditCard className="w-6 h-6 text-white" />
                                                 </div>
                                                 <div>
-                                                    <label className="text-xs font-bold text-muted-foreground uppercase mb-1 block">CVV</label>
-                                                    <input required type="password" maxLength={4} placeholder="123" className="w-full bg-background border border-border rounded-xl px-4 py-3 text-sm focus:border-blue-500 outline-none" />
+                                                    <h4 className="font-black uppercase text-sm italic">Pagamento com Cartão</h4>
+                                                    <p className="text-xs text-muted-foreground">Redirecionamento seguro para o Mercado Pago</p>
                                                 </div>
                                             </div>
-                                            <div>
-                                                <label className="text-xs font-bold text-muted-foreground uppercase mb-1 block">Nome no Cartão</label>
-                                                <input required type="text" placeholder="NOME IMPRESSO" className="w-full bg-background border border-border rounded-xl px-4 py-3 text-sm focus:border-blue-500 outline-none uppercase" />
-                                            </div>
-                                            <div>
-                                                <label className="text-xs font-bold text-muted-foreground uppercase mb-1 block">CPF do Titular</label>
-                                                <input required type="text" placeholder="000.000.000-00" className="w-full bg-background border border-border rounded-xl px-4 py-3 text-sm focus:border-blue-500 outline-none" />
-                                            </div>
-                                            
+
                                             <button
-                                                type="submit"
-                                                className="w-full mt-4 py-4 rounded-xl font-black uppercase text-sm tracking-widest transition-all bg-blue-600 text-white hover:bg-blue-500 shadow-lg"
+                                                onClick={handleProcessCardPayment}
+                                                className="w-full py-5 rounded-2xl font-black uppercase text-sm tracking-widest transition-all bg-blue-600 text-white hover:bg-blue-500 shadow-xl shadow-blue-500/20 hover:scale-[1.02] active:scale-95"
                                             >
-                                                Pagar com Cartão
+                                                Ir para Pagamento Seguro
                                             </button>
-                                            <p className="text-xs text-center text-muted-foreground mt-2">
-                                                Seu acesso será liberado imediatamente após a aprovação.
-                                            </p>
-                                        </form>
+                                        </div>
+
+                                        <div className="flex items-center justify-center gap-4 grayscale opacity-50">
+                                            <div className="flex items-center gap-1">
+                                                <ShieldCheck className="w-4 h-4" />
+                                                <span className="text-[9px] font-bold uppercase tracking-widest">Ambiente Seguro</span>
+                                            </div>
+                                            <div className="h-4 w-px bg-border" />
+                                            <div className="flex items-center gap-1">
+                                                <Lock className="w-4 h-4" />
+                                                <span className="text-[9px] font-bold uppercase tracking-widest">SSL Encrypted</span>
+                                            </div>
+                                        </div>
                                     </div>
                                 )}
                             </motion.div>

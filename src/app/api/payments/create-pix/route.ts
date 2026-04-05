@@ -33,6 +33,20 @@ export async function POST(request: NextRequest) {
             })
         }
 
+        // Get site URL with robust fallbacks
+        let siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 
+                     (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : '');
+        
+        // Sanitize URL (remove trailing slash and spaces)
+        siteUrl = siteUrl.trim().replace(/\/$/, '');
+
+        // Fallback for development if URL is missing or invalid (local won't trigger real webhook but MP needs it for validation)
+        if (!siteUrl || !siteUrl.startsWith('http')) {
+            siteUrl = 'https://q-rub.vercel.app'; // Production fallback
+        }
+
+        const notificationUrl = `${siteUrl}/api/payments/webhook`;
+
         // MODO PRODUÇÃO
         const client = new MercadoPagoConfig({ accessToken: accessToken });
         const payment = new Payment(client);
@@ -42,18 +56,15 @@ export async function POST(request: NextRequest) {
             description: `Assinatura QRub - Plano ${plan}`,
             payment_method_id: 'pix',
             payer: {
-                email: userEmail || 'email@teste.com',
-                first_name: 'Aluno',
-                last_name: 'QRub',
+                email: userEmail || 'aluno@qrub.com.br',
+                first_name: 'Novo',
+                last_name: 'Assinante',
                 identification: {
                     type: 'CPF',
-                    number: userDoc || '19119119100' // CPF genérico se não informado (MP requer CPF válido em prod)
+                    number: userDoc || '19119119100'
                 }
             },
-            // Mercado Pago exige URL válida (https). Localhost falha. Usando URL placeholder para passar na validação em dev.
-            notification_url: (process.env.NEXT_PUBLIC_SITE_URL?.includes('localhost'))
-                ? 'https://qrub.com.br/api/payments/webhook'
-                : `${process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, '')}/api/payments/webhook`,
+            notification_url: notificationUrl,
             metadata: {
                 user_id: userId,
                 plan: plan,
