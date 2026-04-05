@@ -51,9 +51,9 @@ export async function POST(request: NextRequest) {
                 }
             },
             // Mercado Pago exige URL válida (https). Localhost falha. Usando URL placeholder para passar na validação em dev.
-            notification_url: process.env.NEXT_PUBLIC_SITE_URL?.includes('localhost')
+            notification_url: (process.env.NEXT_PUBLIC_SITE_URL?.includes('localhost'))
                 ? 'https://qrub.com.br/api/payments/webhook'
-                : `${process.env.NEXT_PUBLIC_SITE_URL}/api/payments/webhook`,
+                : `${process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, '')}/api/payments/webhook`,
             metadata: {
                 user_id: userId,
                 plan: plan,

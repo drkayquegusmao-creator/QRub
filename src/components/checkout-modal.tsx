@@ -191,29 +191,26 @@ export function CheckoutModal({ isOpen, onClose, plan, product }: CheckoutModalP
                 exit={{ opacity: 0, scale: 0.9 }}
                 className="bg-card border border-border w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-[40px] shadow-2xl relative"
             >
-                {/* Header */}
-                <div className="sticky top-0 bg-card/95 backdrop-blur-sm border-b border-border p-8 rounded-t-[40px] z-10">
+                {/* Premium Header */}
+                <div className="royal-gradient p-10 text-center relative overflow-hidden rounded-t-[40px]">
+                    <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10" />
                     <button
                         onClick={onClose}
-                        className="absolute top-6 right-6 p-2 hover:bg-muted rounded-full transition-all"
+                        className="absolute top-6 right-6 p-2 hover:bg-white/10 rounded-full transition-all text-white/50 hover:text-white z-10"
                     >
                         <X className="w-6 h-6" />
                     </button>
 
-                    <div className="flex items-center gap-4">
-                        <div className={`p-3 rounded-2xl ${plan !== 'free' 
-                            ? (product === 'qrub_saude' ? 'bg-emerald-500/10 text-emerald-500' : 'bg-orange-500/10 text-orange-500') 
-                            : 'bg-primary/10 text-primary'}`}>
-                            <CreditCard className="w-6 h-6" />
+                    <div className="relative z-10 flex flex-col items-center gap-2">
+                        <div className="p-3 bg-white/10 backdrop-blur-md rounded-2xl text-white mb-2">
+                            <CreditCard className="w-8 h-8" />
                         </div>
-                        <div>
-                            <h2 className="text-3xl font-black italic uppercase tracking-tighter">
-                                Assinar {plan}
-                            </h2>
-                            <p className="text-sm font-medium text-muted-foreground">
-                                {productLabel}
-                            </p>
-                        </div>
+                        <h2 className="text-4xl font-black italic uppercase tracking-tighter text-white drop-shadow-lg">
+                            Assinar {plan}
+                        </h2>
+                        <p className="text-sm font-medium text-white/70 uppercase tracking-widest">
+                            {productLabel}
+                        </p>
                     </div>
                 </div>
 
@@ -230,25 +227,31 @@ export function CheckoutModal({ isOpen, onClose, plan, product }: CheckoutModalP
                                 className="space-y-6"
                             >
                                 {/* Plan Details */}
-                                <div className={`p-8 rounded-2xl border-2 ${plan !== 'free' ? 'bg-orange-500/5 border-orange-500/20' : 'bg-primary/5 border-primary/20'}`}>
-                                    <div className="flex items-baseline justify-between mb-6">
-                                        <div>
-                                            <p className="text-sm font-bold uppercase tracking-widest text-muted-foreground">Valor do Plano</p>
-                                            <div className="flex items-baseline gap-2">
-                                                <span className="text-5xl font-black">R$ {price.toFixed(2).replace('.', ',')}</span>
-                                                <span className="text-muted-foreground">/mês</span>
-                                            </div>
-                                        </div>
+                                <div className={`p-10 rounded-[32px] border-2 bg-muted/30 border-border relative overflow-hidden group`}>
+                                    <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
+                                        <QrCode className="w-32 h-32 rotate-12" />
                                     </div>
 
-                                    <div className="space-y-3">
-                                        <p className="text-xs font-black uppercase tracking-widest text-muted-foreground">O que está incluído:</p>
-                                        {benefits.map((benefit, idx) => (
-                                            <div key={idx} className="flex items-center gap-3">
-                                                <Check className={`w-5 h-5 ${plan !== 'free' ? 'text-orange-500' : 'text-primary'}`} />
-                                                <span className="font-medium">{benefit}</span>
+                                    <div className="flex flex-col gap-6 relative z-10">
+                                        <div>
+                                            <p className="text-xs font-black uppercase tracking-widest text-muted-foreground mb-2">Valor do Plano</p>
+                                            <div className="flex items-baseline gap-2">
+                                                <span className="text-6xl font-black tracking-tighter text-foreground">R$ {price.toFixed(2).replace('.', ',')}</span>
+                                                <span className="text-muted-foreground font-bold italic">/mês</span>
                                             </div>
-                                        ))}
+                                        </div>
+
+
+
+                                        <div className="space-y-3">
+                                            <p className="text-xs font-black uppercase tracking-widest text-muted-foreground">O que está incluído:</p>
+                                            {benefits.map((benefit, idx) => (
+                                                <div key={idx} className="flex items-center gap-3">
+                                                    <Check className={`w-5 h-5 ${plan !== 'free' ? 'text-orange-500' : 'text-primary'}`} />
+                                                    <span className="font-medium">{benefit}</span>
+                                                </div>
+                                            ))}
+                                        </div>
                                     </div>
                                 </div>
 
