@@ -17,6 +17,7 @@ import {
     TrendingUp,
     Target,
     Settings,
+    CreditCard,
     User,
     Users,
     ChevronLeft,
@@ -44,15 +45,14 @@ const SIDEBAR_GROUPS = [
             { name: 'Dashboard', icon: Home, href: '/dashboard' },
             { name: 'Praticar', icon: Stethoscope, href: '/dashboard/setup' },
             { name: 'Simulados', icon: Layers, href: '/dashboard/simulados' },
-            { name: 'Resumo IA', icon: Activity, href: '/dashboard/summary' },
         ]
     },
     {
         name: 'Aprendizado',
         items: [
-            { name: 'Minha Agenda', icon: Calendar, href: '/dashboard/agenda' },
-            { name: 'Cadernos', icon: BookMarked, href: '/dashboard/cadernos' },
-            { name: 'Desempenho', icon: BarChart3, href: '/dashboard/stats' },
+            { name: 'Minha Agenda', icon: Calendar, href: '/dashboard/agenda', badge: 'BETA' },
+            { name: 'Cadernos', icon: BookMarked, href: '/dashboard/cadernos', badge: 'BETA' },
+            { name: 'Desempenho', icon: BarChart3, href: '/dashboard/stats', badge: 'BETA' },
         ]
     },
     {
@@ -65,6 +65,7 @@ const SIDEBAR_GROUPS = [
         name: 'Suporte',
         items: [
             { name: 'Fale Conosco', icon: Shield, href: '/dashboard/support' },
+            { name: 'Financeiro', icon: CreditCard, href: '/dashboard/financeiro' },
             { name: 'Configurações', icon: Settings, href: '/dashboard/settings' },
         ]
     }

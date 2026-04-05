@@ -22,16 +22,16 @@ export function BottomTabs() {
 
     const finalTabs = isConcursos ? [
         { label: 'Início', icon: LayoutDashboard, href: '/concursos' },
-        { label: 'Agenda', icon: Calendar, href: '/concursos/agenda' },
+        { label: 'Agenda', icon: Calendar, href: '/concursos/agenda', badge: 'BETA' },
         { label: 'Praticar', icon: BookOpen, href: '/concursos/setup' },
         { label: 'Revisão', icon: Sparkles, href: '/concursos/revisao' },
-        { label: 'Métricas', icon: BarChart2, href: '/concursos/estatisticas' },
+        { label: 'Métricas', icon: BarChart2, href: '/concursos/estatisticas', badge: 'BETA' },
     ] : [
         { label: 'Início', icon: LayoutDashboard, href: '/dashboard' },
         { label: 'Praticar', icon: BookOpen, href: '/dashboard/setup' },
         { label: 'Comunidade', icon: Users, href: '/dashboard/comunidade' },
-        { label: 'Caderno', icon: History, href: '/dashboard/errors' },
-        { label: 'Métricas', icon: BarChart2, href: '/dashboard/stats' },
+        { label: 'Caderno', icon: History, href: '/dashboard/errors', badge: 'BETA' },
+        { label: 'Métricas', icon: BarChart2, href: '/dashboard/stats', badge: 'BETA' },
     ]
 
     if (user?.role === 'MASTER') {
@@ -80,6 +80,14 @@ export function BottomTabs() {
                                 "w-6 h-6 transition-colors relative z-10",
                                 isActive ? activeColor : "text-muted-foreground"
                             )} />
+                            {(tab as any).badge && (
+                                <span className={cn(
+                                    "absolute top-2 right-2 px-1 py-0.5 rounded-[4px] text-[6px] font-black uppercase tracking-tighter z-20",
+                                    isConcursos ? "bg-indigo-500 text-white" : "bg-primary text-white"
+                                )}>
+                                    {(tab as any).badge}
+                                </span>
+                            )}
                             <span className={cn(
                                 "text-[9px] font-black uppercase tracking-widest relative z-10",
                                 isActive ? activeColor : "text-muted-foreground/60"

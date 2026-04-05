@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { X, Mail, Lock, LogIn, AlertCircle, Sparkles, UserPlus, User } from 'lucide-react'
+import { X, Mail, Lock, LogIn, AlertCircle, UserPlus, User, ArrowRight } from 'lucide-react'
 import { useAuth } from '@/store/use-auth'
 import { useRouter } from 'next/navigation'
 import { supabase } from '@/lib/supabase'
@@ -17,10 +17,9 @@ interface AuthModalProps {
 
 export function AuthModal({ isOpen, onClose, preventRedirect }: AuthModalProps) {
     const { setUser } = useAuth()
-    const router = useRouter()
     const [isSignUp, setIsSignUp] = useState(false)
     const [email, setEmail] = useState('')
-    const [username, setUsername] = useState('@')
+    const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
     const [error, setError] = useState('')
@@ -48,7 +47,6 @@ export function AuthModal({ isOpen, onClose, preventRedirect }: AuthModalProps) 
                 }
                 if (!signUpData.user) throw new Error('Não foi possível criar a conta')
                 
-                // Try to login immediately after signup
                 const { data: signInData } = await supabase.auth.signInWithPassword({
                     email: email.trim(),
                     password: password.trim()
@@ -66,7 +64,6 @@ export function AuthModal({ isOpen, onClose, preventRedirect }: AuthModalProps) 
 
             if (!authData?.user) throw new Error('Sessão não estabelecida')
 
-            // 2. Fetch Profile
             const { data: profiles, error: profileError } = await supabase
                 .from('users')
                 .select('*')
@@ -75,12 +72,9 @@ export function AuthModal({ isOpen, onClose, preventRedirect }: AuthModalProps) 
             if (profileError) throw profileError
 
             let profile = profiles && profiles.length > 0 ? profiles[0] : null
-
-            // 3. Handle Missing Profile or Master Check
             const isMaster = isMasterEmail(email)
 
             if (!profile) {
-                // Create minimal profile if missing
                 const { data: newProfile, error: createError } = await supabase.from('users').insert({
                     id: authData.user.id,
                     email: email.toLowerCase().trim(),
@@ -93,7 +87,6 @@ export function AuthModal({ isOpen, onClose, preventRedirect }: AuthModalProps) 
                 if (createError) throw createError
                 profile = newProfile
             } else if (isMaster && profile.role !== 'MASTER') {
-                // Update to Master if email matches
                 await supabase.from('users').update({
                     role: 'MASTER',
                     plan_level: 'INSANO',
@@ -102,33 +95,25 @@ export function AuthModal({ isOpen, onClose, preventRedirect }: AuthModalProps) 
                 profile = { ...profile, role: 'MASTER', plan_level: 'INSANO', profile_completed: true }
             }
 
-            // 4. Update Global State
             setUser(profile)
-
             onClose()
 
             if (preventRedirect) return
 
-            // 5. Navigate (Smart Routing)
             if (profile.product_type === 'saude') {
-                // Direct access for Saúde students
                 window.location.assign('/saude')
             } else if (profile.product_type === 'concurso') {
-                // Direct access for Concurso students
                 window.location.assign('/concursos')
             } else if (profile.profile_completed || profile.role === 'MASTER') {
-                // Secondary fallback for completed profiles
                 const lastEnv = window.localStorage.getItem('qrub_last_environment')
                 if (lastEnv === 'SAUDE') window.location.assign('/saude')
                 else if (lastEnv === 'CONCURSOS') window.location.assign('/concursos')
                 else window.location.assign('/dashboard')
             } else {
-                // New users must complete onboarding
                 window.location.assign('/onboarding')
             }
 
         } catch (err: any) {
-            console.error('Login error:', err)
             setError(err.message || 'Erro ao realizar login')
         } finally {
             setIsLoading(false)
@@ -138,48 +123,59 @@ export function AuthModal({ isOpen, onClose, preventRedirect }: AuthModalProps) 
     return (
         <AnimatePresence>
             {isOpen && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-background/90 backdrop-blur-lg">
+                <div className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-background/80 backdrop-blur-md">
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                        initial={{ opacity: 0, scale: 0.9, y: 20 }}
                         animate={{ opacity: 1, scale: 1, y: 0 }}
-                        exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                        className="relative w-full max-w-md overflow-hidden bg-card rounded-[40px] soft-shadow border border-border"
+                        exit={{ opacity: 0, scale: 0.9, y: 20 }}
+                        className="relative w-full max-w-[440px] overflow-hidden bg-white rounded-[48px] shadow-[0_32px_64px_-12px_rgba(0,0,0,0.2)] border border-white"
                     >
-                        {/* Visual Banner */}
-                        <div className="royal-gradient h-40 flex items-center justify-center relative overflow-hidden">
-                            <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-3xl" />
-                            <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/20 rounded-full blur-2xl" />
-                            <Sparkles className="absolute top-6 right-6 w-8 h-8 text-white/20" />
-
-                            <div className="bg-white p-3 rounded-2xl shadow-2xl relative z-10">
-                                <div className="relative w-12 h-12">
-                                    <Image src="/logo-icon.jpg" alt="QRub" fill className="object-cover rounded-lg" />
+                        {/* Header: Purple Gradient with Logo */}
+                        <div className="bg-gradient-to-br from-[#7c3aed] to-[#4c1d95] h-48 flex items-center justify-center relative overflow-hidden">
+                            {/* Decorative Background Elements */}
+                            <div className="absolute top-0 right-0 w-48 h-48 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/3 blur-3xl opacity-50" />
+                            <div className="absolute top-4 right-4 z-20">
+                                <button
+                                    onClick={onClose}
+                                    className="p-2.5 rounded-full bg-white/10 text-white/80 hover:bg-white/20 hover:text-white transition-all backdrop-blur-md"
+                                >
+                                    <X className="w-5 h-5" />
+                                </button>
+                            </div>
+                            
+                            {/* The "Q" Logo in white box */}
+                            <div className="bg-white p-4 rounded-[24px] shadow-2xl relative z-10">
+                                <div className="relative w-14 h-14 overflow-hidden rounded-xl">
+                                    <Image 
+                                        src="/logo-icon.jpg" 
+                                        alt="QRub" 
+                                        fill 
+                                        className="object-cover"
+                                        priority
+                                    />
                                 </div>
                             </div>
-                            <button
-                                onClick={onClose}
-                                className="absolute top-4 right-4 p-2 rounded-full bg-white/10 text-white hover:bg-white/20 transition-all z-20"
-                            >
-                                <X className="w-5 h-5" />
-                            </button>
                         </div>
 
-                        <div className="p-10 pt-8">
-                            <div className="text-center mb-8">
-                                <h2 className="text-3xl font-black uppercase italic tracking-tighter mb-2 text-[#0c1322] dark:text-white">
+                        {/* Form Content */}
+                        <div className="p-8 pb-12 pt-10">
+                            <div className="text-center mb-10">
+                                <h1 className="text-4xl font-black italic uppercase tracking-tighter text-[#1e293b] mb-1">
                                     {isSignUp ? 'Criar Conta' : 'Entrar'}
-                                </h2>
-                                <p className="text-slate-500 dark:text-slate-400 font-bold text-xs uppercase tracking-widest">
-                                    {isSignUp ? 'Faça parte da QRub' : 'Acesse sua conta QRub'}
+                                </h1>
+                                <p className="text-[10px] font-black uppercase tracking-[0.2em] text-[#64748b]">
+                                    {isSignUp ? 'Faça parte da revolução QRub' : 'Acesse sua conta QRub'}
                                 </p>
                             </div>
 
-                            <form onSubmit={handleSubmit} className="space-y-5">
+                            <form onSubmit={handleSubmit} className="space-y-6">
                                 {isSignUp && (
                                     <div className="space-y-2">
-                                        <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground ml-1">Seu @ de Usuário</label>
-                                        <div className="relative">
-                                            <User className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-primary" />
+                                        <label className="text-[9px] font-black uppercase tracking-widest text-[#94a3b8] ml-4">Usuário</label>
+                                        <div className="relative group">
+                                            <div className="absolute left-5 top-1/2 -translate-y-1/2 text-[#94a3b8] group-focus-within:text-[#7c3aed] transition-colors">
+                                                <User className="w-4 h-4" />
+                                            </div>
                                             <input
                                                 type="text"
                                                 value={username}
@@ -188,82 +184,96 @@ export function AuthModal({ isOpen, onClose, preventRedirect }: AuthModalProps) 
                                                     if (!val.startsWith('@') && val.length > 0) setUsername('@' + val.replace('@', ''));
                                                     else setUsername(val.toLowerCase().replace(/\s/g, ''));
                                                 }}
-                                                placeholder="@seunome"
+                                                placeholder="@seu_perfil"
                                                 required={isSignUp}
-                                                className="w-full pl-12 pr-4 py-4 bg-slate-50 dark:bg-white/5 border border-slate-100 dark:border-white/10 rounded-2xl focus:ring-2 focus:ring-primary/20 focus:border-primary/50 focus:bg-white dark:focus:bg-white/10 outline-none transition-all font-bold text-sm text-[#0c1322] dark:text-white placeholder:text-slate-300"
+                                                className="w-full pl-12 pr-6 py-4 bg-[#f8fafc] border-2 border-transparent rounded-full focus:border-[#7c3aed]/20 focus:bg-white outline-none transition-all font-bold text-sm text-[#1e293b] placeholder:text-[#cbd5e1]"
                                             />
                                         </div>
                                     </div>
                                 )}
 
                                 <div className="space-y-2">
-                                    <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground ml-1">Email</label>
-                                    <div className="relative">
-                                        <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-primary" />
+                                    <label className="text-[9px] font-black uppercase tracking-widest text-[#94a3b8] ml-4">Email</label>
+                                    <div className="relative group">
+                                        <div className="absolute left-5 top-1/2 -translate-y-1/2 text-[#94a3b8] group-focus-within:text-[#7c3aed] transition-colors">
+                                            <Mail className="w-4 h-4" />
+                                        </div>
                                         <input
                                             type="email"
+                                            name="email"
                                             value={email}
                                             onChange={(e) => setEmail(e.target.value)}
-                                            placeholder="seu@email.com"
+                                            placeholder="exemplo@email.com"
                                             required
-                                            className="w-full pl-12 pr-4 py-4 bg-slate-50 dark:bg-white/5 border border-slate-100 dark:border-white/10 rounded-2xl focus:ring-2 focus:ring-primary/20 focus:border-primary/50 focus:bg-white dark:focus:bg-white/10 outline-none transition-all font-bold text-sm text-[#0c1322] dark:text-white placeholder:text-slate-300"
+                                            autoComplete="off"
+                                            className="w-full pl-12 pr-6 py-4 bg-[#f8fafc] border-2 border-transparent rounded-full focus:border-[#7c3aed]/20 focus:bg-white outline-none transition-all font-bold text-sm text-[#1e293b] placeholder:text-[#cbd5e1]"
                                         />
                                     </div>
                                 </div>
 
                                 <div className="space-y-2">
-                                    <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground ml-1">Senha</label>
-                                    <div className="relative">
-                                        <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-primary" />
+                                    <label className="text-[9px] font-black uppercase tracking-widest text-[#94a3b8] ml-4">Senha</label>
+                                    <div className="relative group">
+                                        <div className="absolute left-5 top-1/2 -translate-y-1/2 text-[#94a3b8] group-focus-within:text-[#7c3aed] transition-colors">
+                                            <Lock className="w-4 h-4" />
+                                        </div>
                                         <input
                                             type="password"
+                                            name="password"
                                             value={password}
                                             onChange={(e) => setPassword(e.target.value)}
                                             placeholder="••••••••"
                                             required
-                                            className="w-full pl-12 pr-4 py-4 bg-slate-50 dark:bg-white/5 border border-slate-100 dark:border-white/10 rounded-2xl focus:ring-2 focus:ring-primary/20 focus:border-primary/50 focus:bg-white dark:focus:bg-white/10 outline-none transition-all font-bold text-sm text-[#0c1322] dark:text-white placeholder:text-slate-300"
+                                            autoComplete="off"
+                                            className="w-full pl-12 pr-6 py-4 bg-[#f8fafc] border-2 border-transparent rounded-full focus:border-[#7c3aed]/20 focus:bg-white outline-none transition-all font-bold text-sm text-[#1e293b] placeholder:text-[#cbd5e1]"
                                         />
                                     </div>
                                 </div>
 
                                 {isSignUp && (
                                     <div className="space-y-2">
-                                        <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground ml-1">Confirmar Senha</label>
-                                        <div className="relative">
-                                            <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-primary" />
+                                        <label className="text-[9px] font-black uppercase tracking-widest text-[#94a3b8] ml-4">Confirmar Senha</label>
+                                        <div className="relative group">
+                                            <div className="absolute left-5 top-1/2 -translate-y-1/2 text-[#94a3b8] group-focus-within:text-[#7c3aed] transition-colors">
+                                                <Lock className="w-4 h-4" />
+                                            </div>
                                             <input
                                                 type="password"
                                                 value={confirmPassword}
                                                 onChange={(e) => setConfirmPassword(e.target.value)}
                                                 placeholder="••••••••"
                                                 required={isSignUp}
-                                                className="w-full pl-12 pr-4 py-4 bg-slate-50 dark:bg-white/5 border border-slate-100 dark:border-white/10 rounded-2xl focus:ring-2 focus:ring-primary/20 focus:border-primary/50 focus:bg-white dark:focus:bg-white/10 outline-none transition-all font-bold text-sm text-[#0c1322] dark:text-white placeholder:text-slate-300"
+                                                className="w-full pl-12 pr-6 py-4 bg-[#f8fafc] border-2 border-transparent rounded-full focus:border-[#7c3aed]/20 focus:bg-white outline-none transition-all font-bold text-sm text-[#1e293b] placeholder:text-[#cbd5e1]"
                                             />
                                         </div>
                                     </div>
                                 )}
 
                                 {error && (
-                                    <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="flex items-center gap-2 bg-destructive/10 text-destructive border border-destructive/20 rounded-xl p-3">
-                                        <AlertCircle className="w-4 h-4 flex-shrink-0" />
-                                        <p className="text-xs font-bold">{error}</p>
+                                    <motion.div 
+                                        initial={{ opacity: 0, y: -4 }} 
+                                        animate={{ opacity: 1, y: 0 }} 
+                                        className="flex items-center gap-2 bg-rose-50 text-rose-600 border border-rose-100 rounded-2xl p-4"
+                                    >
+                                        <AlertCircle className="w-4 h-4 shrink-0" />
+                                        <p className="text-[11px] font-bold">{error}</p>
                                     </motion.div>
                                 )}
 
                                 <button
                                     type="submit"
                                     disabled={isLoading}
-                                    className="w-full royal-gradient text-white py-5 rounded-2xl font-black text-sm uppercase tracking-widest soft-shadow hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-3 disabled:opacity-50"
+                                    className="w-full h-16 bg-gradient-to-r from-[#7c3aed] to-[#6d28d9] text-white rounded-2xl font-black text-xs uppercase tracking-[0.2em] shadow-xl shadow-violet-500/20 hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-3 disabled:opacity-50"
                                 >
                                     {isLoading ? (isSignUp ? 'CRIANDO...' : 'ENTRANDO...') : (isSignUp ? 'CRIAR CONTA' : 'ENTRAR')}
-                                    {isSignUp ? <UserPlus className="w-5 h-5" /> : <LogIn className="w-5 h-5" />}
+                                    {isLoading ? <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" /> : <ArrowRight className="w-5 h-5" />}
                                 </button>
 
-                                <div className="text-center mt-6">
+                                <div className="text-center mt-8">
                                     <button
                                         type="button"
                                         onClick={() => setIsSignUp(!isSignUp)}
-                                        className="text-xs font-bold uppercase tracking-widest text-[#0c1322]/60 hover:text-primary dark:text-white/60 dark:hover:text-primary transition-colors"
+                                        className="text-[10px] font-black uppercase tracking-widest text-[#64748b] hover:text-[#7c3aed] transition-colors"
                                     >
                                         {isSignUp ? 'Já tem uma conta? Entre aqui' : 'Ainda não tem conta? Crie uma'}
                                     </button>
@@ -271,9 +281,8 @@ export function AuthModal({ isOpen, onClose, preventRedirect }: AuthModalProps) 
                             </form>
                         </div>
                     </motion.div>
-                </div >
-            )
-            }
-        </AnimatePresence >
+                </div>
+            )}
+        </AnimatePresence>
     )
 }

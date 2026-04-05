@@ -12,6 +12,7 @@ Os seguintes emails têm **acesso administrativo completo** ao sistema QRub:
 | `kayquegusmao1@gmail.com` | `Kayque2009` | ✅ Acesso Total |
 | `kayquegusmao276@gmail.com` | `Kayque2009` | ✅ Acesso Total |
 | `kayquegusmao@icloud.com` | `Kayque2009` | ✅ Acesso Total |
+| `priscilla.gusmao@hotmail.com` | `1234567890` | ✅ Acesso Total |
 
 ## 🎯 Privilégios dos Super Admins
 

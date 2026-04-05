@@ -171,7 +171,11 @@ export const useAuth = create<AuthState>()(
             updatePlan: async (plan, product = 'qrub_concurso') => {
                 const state = get()
                 if (state.user) {
-                    const price = plan === 'free' ? 0 : (plan === 'mensal' ? 29.99 : (plan === 'trimestral' ? 79.99 : (plan === 'semestral' ? 159.99 : 319.99)))
+                    const price = plan === 'free' ? 0 
+                        : (plan === 'mensal' ? 29.99 
+                        : (plan === 'trimestral' ? 79.99 
+                        : (plan === 'semestral' ? 159.99 
+                        : (plan === 'anual' ? 319.99 : 0))));
                     
                     if (isSupabaseConfigured()) {
                         const { error } = await supabase.rpc('handle_user_subscription', {

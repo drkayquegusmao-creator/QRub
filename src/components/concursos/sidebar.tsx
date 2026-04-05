@@ -22,7 +22,8 @@ import {
     ChevronRight,
     LogOut,
     Hexagon,
-    Shield
+    Shield,
+    CreditCard,
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { useState } from 'react'
@@ -40,7 +41,7 @@ const SIDEBAR_GROUPS = [
             { name: 'Questões', icon: FileText, href: '/concursos/setup' },
             { name: 'Simulados', icon: Layers, href: '/concursos/simulados' },
             { name: 'Revisão Espaçada', icon: Sparkles, icon_override: true, href: '/concursos/revisao' },
-            { name: 'Agenda', icon: Calendar, href: '/concursos/agenda' },
+            { name: 'Agenda', icon: Calendar, href: '/concursos/agenda', badge: 'BETA' },
         ]
     },
     {
@@ -48,14 +49,16 @@ const SIDEBAR_GROUPS = [
         items: [
             { name: 'Disciplinas', icon: Library, href: '/concursos/disciplinas' },
             { name: 'Assuntos', icon: Hash, href: '/concursos/assuntos' },
-            { name: 'Caderno de Erros', icon: BookMarked, href: '/concursos/cadernos' },
+            { name: 'Caderno de Erros', icon: BookMarked, href: '/concursos/cadernos', badge: 'BETA' },
             { name: 'Favoritos', icon: Star, href: '/concursos/favoritos' },
+            { name: 'Desempenho', icon: BarChart3, href: '/concursos/stats', badge: 'BETA' },
         ]
     },
     {
         name: 'Suporte',
         items: [
             { name: 'Fale Conosco', icon: Shield, href: '/concursos/support' },
+            { name: 'Financeiro', icon: CreditCard, href: '/concursos/financeiro' },
             { name: 'Configurações', icon: Settings, href: '/concursos/settings' },
         ]
     }
@@ -143,6 +146,11 @@ export function ConcursoSidebar() {
                                         {!collapsed && (
                                             <span className="text-xs uppercase tracking-widest font-black truncate">
                                                 {item.name}
+                                            </span>
+                                        )}
+                                        {!collapsed && (item as any).badge && (
+                                            <span className="ml-auto px-1.5 py-0.5 rounded bg-indigo-500/20 text-indigo-400 text-[6px] font-black uppercase tracking-wider shrink-0">
+                                                {(item as any).badge}
                                             </span>
                                         )}
                                         {isActive && !collapsed && (
